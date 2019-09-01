@@ -1,0 +1,95 @@
+openapi: "3.0.0"
+info:
+  title: JAIMaze REST Interface spec
+  description: API for reinforcement learning
+  version: 0.1.0
+
+paths:
+  /jaimaze:
+    post:
+      summary: Get the next 'move' based on the state
+      description: Passes the current state of the board - including the result (if any) of the last move. Respond with the next move.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                config:
+                  type: object
+                  properties:
+                    boardID:
+                      type: string
+                      example: 2e2e83e5-9ca4-48f3-a6b4-ba1e0061fdfa
+                    validMoves:
+                      type: array
+                      items:
+                        type: string
+                      example: ["North",'South','East','West']
+                    width:
+                      type: number
+                      format: int32
+                      example: 10
+                    height:
+                      type: number
+                      format: int32
+                      example: 20
+                history:
+                  type: object
+                  properties:
+                    lastPosition:
+                      type: object
+                      properties:
+                        x:
+                          type: integer
+                          format: int32
+                          example: 3
+                        y:
+                          type: integer
+                          format: int32
+                          example: 4
+                    action:
+                      type: string
+                      example: East
+                    reward:
+                      type: number
+                      format: double
+                      example: -10.5
+                    newPosition:
+                      type: object
+                      properties:
+                        x:
+                          type: integer
+                          format: int32
+                          example: 4
+                        y:
+                          type: integer
+                          format: int32
+                          example: 4
+                currentPosition:
+                  type: object
+                  properties:
+                    x:
+                      type: integer
+                      format: int32
+                      example: 4
+                    y:
+                      type: integer
+                      format: int32
+                      example: 4
+      responses:
+        '200':
+          description: The action to perform.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  move:
+                    type: string
+                    example: "North"
+        '202':
+          description: Can't decide - select random action for me.
+        '500':
+          description: Server error - halt simulation.

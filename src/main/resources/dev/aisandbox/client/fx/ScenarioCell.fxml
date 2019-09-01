@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="root" maxWidth="300.0" minWidth="280.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1">
+    <center>
+        <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity"
+              minWidth="-Infinity">
+            <children>
+                <Label fx:id="scenarioName" maxWidth="270.0" text="Scenario Name" wrapText="true">
+                    <VBox.margin>
+                        <Insets bottom="2.0" left="4.0" right="2.0" top="2.0"/>
+                    </VBox.margin>
+                    <font>
+                        <Font name="System Bold" size="12.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="scenarioDescription" maxWidth="270.0" text="Scenario Description" wrapText="true">
+                    <VBox.margin>
+                        <Insets bottom="2.0" left="4.0" right="2.0" top="2.0"/>
+                    </VBox.margin>
+                </Label>
+            </children>
+        </VBox>
+    </center>
+    <left>
+        <Pane fx:id="colourPane" maxWidth="4.0" minWidth="4.0" prefWidth="4.0" style="-fx-background-color: #ff0000;"
+              BorderPane.alignment="CENTER"/>
+    </left>
+</BorderPane>

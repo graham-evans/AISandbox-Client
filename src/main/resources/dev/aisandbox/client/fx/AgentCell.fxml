@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+
+
+<HBox fx:id="root" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity"
+      spacing="4.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Label fx:id="protocolLabel" text="Protocol"/>
+        <Label fx:id="urlLabel" maxWidth="1.7976931348623157E308" text="URL" HBox.hgrow="ALWAYS"/>
+        <Label fx:id="securedLabel" text="Secured"/>
+    </children>
+</HBox>
