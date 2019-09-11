@@ -41,9 +41,4 @@ public class PNGOutputWriter implements FrameOutput {
         source = null;
     }
 
-
-    private String formatDigits(long c) {
-        return String.format("%08d", c);
-    }
-
 }

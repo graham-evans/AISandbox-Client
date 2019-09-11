@@ -4,12 +4,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,7 +28,7 @@ public class FXTools {
     public void moveToScreen(ActionEvent event, String fxml) {
         LOG.info("Selecting last screen");
         try {
-            LOG.log(Level.INFO, "Selecting {} screen", fxml);
+            LOG.log(Level.INFO, "Selecting {0} screen", fxml);
             FXMLLoader loader = new FXMLLoader(FXTools.class.getResource(fxml));
             loader.setResources(ResourceBundle.getBundle("dev.aisandbox.client.fx.UI"));
             loader.setControllerFactory(appContext::getBean);
@@ -36,5 +39,19 @@ public class FXTools {
         } catch (IOException e) {
             LOG.log(Level.SEVERE, "Error switching Javafx scenes", e);
         }
+    }
+
+    public static <T extends Enum> ComboBox<T> generateEnumCombo(T eclass) {
+        // create combu box
+        ComboBox<T> comboBox = new ComboBox<>();
+        // get a list of enums
+        Enum[] constList = eclass.getClass().getEnumConstants();
+        List<T> choiceList = new ArrayList<>();
+        // convert them to names
+        for (Enum c : constList) {
+            choiceList.add((T) c);
+        }
+        comboBox.getItems().setAll(choiceList);
+        return comboBox;
     }
 }

@@ -5,12 +5,13 @@ import dev.aisandbox.client.fx.GameRunController;
 import dev.aisandbox.client.output.FrameOutput;
 import dev.aisandbox.client.output.OutputTools;
 import dev.aisandbox.client.scenarios.maze.api.History;
+import dev.aisandbox.client.scenarios.maze.api.MazeRequest;
+import dev.aisandbox.client.scenarios.maze.api.MazeResponse;
 import javafx.application.Platform;
 import lombok.RequiredArgsConstructor;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,7 +19,7 @@ import java.util.logging.Logger;
 @RequiredArgsConstructor
 public class MazeRunner extends Thread {
 
-    private final static Logger LOG = Logger.getLogger(MazeRunner.class.getName());
+    private static final Logger LOG = Logger.getLogger(MazeRunner.class.getName());
     private static final double REWARD_STEP = -0.1;
     private static final double REWARD_HIT_WALL = -1.0;
     private static final double REWARD_GOAL = +50.0;
@@ -35,13 +36,6 @@ public class MazeRunner extends Thread {
         Cell currentCell = maze.getStartCell();
         // get background
         BufferedImage background = maze.toImage();
-        // setup output
-        try {
-            output.open(new File("."));
-        } catch (IOException e) {
-            LOG.log(Level.WARNING, "Error opening output", e);
-            return;
-        }
         // setup agent
         agent.setupAgent();
         // setup graph
@@ -63,7 +57,7 @@ public class MazeRunner extends Thread {
             // send and get response
             try {
                 MazeResponse response = agent.postRequest(request, MazeResponse.class);
-                LOG.log(Level.INFO, "Recieved response from server '{}'", response.toString());
+                LOG.log(Level.INFO, "Recieved response from server '{0}'", new Object[]{response.toString()});
                 lastMove = new History();
                 lastMove.setLastPosition(currentCell.getPosition());
                 lastMove.setAction(response.getMove());
@@ -82,7 +76,7 @@ public class MazeRunner extends Thread {
                     lastMove.setReward(REWARD_GOAL);
                     currentCell = maze.getStartCell();
                 }
-                LOG.log(Level.INFO, "Moved to {}", currentCell.toString());
+                LOG.log(Level.INFO, "Moved to {0}", new Object[]{currentCell});
                 lastMove.setNewPosition(currentCell.getPosition());
                 // redraw the map
                 long startTime = System.currentTimeMillis();
@@ -93,12 +87,7 @@ public class MazeRunner extends Thread {
                 g.setColor(Color.yellow);
                 g.fillOval(currentCell.getPositionX() * Maze.SCALE + 1, currentCell.getPositionY() * Maze.SCALE + 1, Maze.SCALE - 2, Maze.SCALE - 2);
                 // update UI
-                Platform.runLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        controller.updateBoardImage(image);
-                    }
-                });
+                Platform.runLater(() -> controller.updateBoardImage(image));
                 // output frame
                 output.addFrame(image);
                 long stopTime = System.currentTimeMillis();

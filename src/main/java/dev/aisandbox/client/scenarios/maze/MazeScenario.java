@@ -4,22 +4,24 @@ import dev.aisandbox.client.Agent;
 import dev.aisandbox.client.fx.GameRunController;
 import dev.aisandbox.client.output.FrameOutput;
 import dev.aisandbox.client.scenarios.Scenario;
-import dev.aisandbox.client.scenarios.ScenarioOption;
-import dev.aisandbox.client.scenarios.maze.algorithms.Sidewinder;
+import lombok.Data;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
+import java.util.Random;
 import java.util.logging.Logger;
 
 @Component
+@Data
 public class MazeScenario implements Scenario {
 
     private static final Logger LOG = Logger.getLogger(MazeScenario.class.getName());
 
-    Long scenarioSalt = 0l;
     MazeRunner runner = null;
+
+    // configurable properties
+    private Long scenarioSalt = 0l;
+    private MazeType mazeType = MazeType.BINARYTREE;
 
     @Override
     public String getGroup() {
@@ -27,17 +29,17 @@ public class MazeScenario implements Scenario {
     }
 
     @Override
-    public String getName(Locale l) {
+    public String getName() {
         return "Maze Runner";
     }
 
     @Override
-    public String getOverview(Locale l) {
+    public String getOverview() {
         return "Navigate the maze and find the exit, then optimise the path to find the shortest route.";
     }
 
     @Override
-    public String getDescription(Locale l) {
+    public String getDescription() {
         return "Long description about mazes";
     }
 
@@ -52,18 +54,19 @@ public class MazeScenario implements Scenario {
     }
 
     @Override
-    public List<ScenarioOption> getScenatioOptions(Locale l) {
-        List<ScenarioOption> options = new ArrayList<>();
-        options.add(new ScenarioOption(scenarioSalt, "Starting Salt (0=random)"));
-        return options;
-    }
-
-    @Override
     public void startSimulation(List<Agent> agentList, GameRunController ui, FrameOutput output) {
+        LOG.info("Salt " + scenarioSalt);
         LOG.info("Generating maze");
         Maze maze = new Maze(40, 30);
-        Sidewinder side = new Sidewinder();
-        side.apply(maze);
+        Random rand = new Random(System.currentTimeMillis());
+        switch (mazeType) {
+            case BINARYTREE:
+                MazeUtilities.applyBinaryTree(rand, maze);
+                break;
+            case SIDEWINDER:
+                MazeUtilities.applySidewinder(rand, maze);
+                break;
+        }
         MazeUtilities.findFurthestPoints(maze);
         runner = new MazeRunner(agentList.get(0), maze, output, ui);
         LOG.info(maze.toString());

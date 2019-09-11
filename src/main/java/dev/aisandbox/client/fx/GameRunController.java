@@ -1,8 +1,7 @@
 package dev.aisandbox.client.fx;
 
 import dev.aisandbox.client.RuntimeModel;
-import dev.aisandbox.client.output.MP4Output;
-import dev.aisandbox.client.output.OutputTools;
+import dev.aisandbox.client.output.*;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
@@ -84,7 +83,25 @@ public class GameRunController {
             model.getScenario().stopSimulation();
             startButton.setText("Start Simulation");
         } else {
-            model.getScenario().startSimulation(model.getAgentList(), this, new MP4Output());
+            // dicide which output class to use
+            FrameOutput out;
+            switch (model.getOutputFormat()) {
+                case MP4:
+                    out = new MP4Output();
+                    break;
+                case PNG:
+                    out = new PNGOutputWriter();
+                    break;
+                default:
+                    out = new NoOutput();
+            }
+            // setup output
+            try {
+                out.open(model.getOutputDirectory());
+            } catch (IOException e) {
+                LOG.log(Level.WARNING, "Error opening output", e);
+            }
+            model.getScenario().startSimulation(model.getAgentList(), this, out);
             startButton.setText("Stop Simulation");
         }
     }
@@ -122,6 +139,8 @@ public class GameRunController {
             LOG.info("Scale=" + scale.get());
             LOG.info("ImageWidth=" + imageView.fitWidthProperty().get());
             LOG.info("ImageHeight=" + imageView.fitHeightProperty().get());
+            // TODO correct image scaling and centering
+
 //               imageView.setFitHeight(scale.get() * OutputTools.VIDEO_HEIGHT);
 //               imageView.setFitWidth(scale.get()*OutputTools.VIDEO_WIDTH);
         });

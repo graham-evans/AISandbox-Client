@@ -25,16 +25,19 @@ public class Maze {
     private final String boardID = UUID.randomUUID().toString();
 
     @Getter
-    private final int width, height;
+    private final int width;
+
+    @Getter
+    private final int height;
 
     @Getter
     Direction[] DIRECTIONS = new Direction[]{Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST};
 
     @Getter
-    final private Cell[][] cellArray;
+    private final Cell[][] cellArray;
 
     @Getter
-    final private List<Cell> cellList = new ArrayList<>();
+    private final List<Cell> cellList = new ArrayList<>();
 
     @Getter
     @Setter

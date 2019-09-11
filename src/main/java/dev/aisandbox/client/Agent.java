@@ -3,10 +3,14 @@ package dev.aisandbox.client;
 import dev.aisandbox.client.scenarios.ServerRequest;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import lombok.AccessLevel;
 import lombok.Getter;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Base64;
+
+import lombok.Setter;
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -21,47 +25,76 @@ public class Agent {
     private RestTemplate restTemplate = null;
     private HttpHeaders restHeaders = null;
     @Getter
-    private BooleanProperty enableXML = new SimpleBooleanProperty(false);
+    @Setter
+    private boolean enableXML = false;
     @Getter
-    private StringProperty target = new SimpleStringProperty("http://localhost:8080/ai");
+    private String target = "http://localhost:8080/ai";
     @Getter
-    private BooleanProperty apiKey = new SimpleBooleanProperty(false);
+    @Setter
+    private boolean apiKey = false;
     @Getter
-    private StringProperty apiKeyHeader = new SimpleStringProperty("");
+    @Setter
+    private String apiKeyHeader = "";
     @Getter
-    private StringProperty apiKeyValue = new SimpleStringProperty("");
+    @Setter
+    private String apiKeyValue = "";
     @Getter
-    private BooleanProperty basicAuth = new SimpleBooleanProperty(false);
+    @Setter
+    private boolean basicAuth = false;
     @Getter
-    private StringProperty basicAuthUsername = new SimpleStringProperty("");
+    @Setter
+    private String basicAuthUsername = "";
     @Getter
-    private StringProperty basicAuthPassword = new SimpleStringProperty("");
+    @Setter
+    private String basicAuthPassword = "";
+    @Getter
+    private final BooleanProperty validProperty = new SimpleBooleanProperty(true);
 
     public void setupAgent() {
-        LOG.log(Level.INFO, "Setting up agent to use {}", enableXML.getValue() ? "XML" : "JSON");
+        LOG.log(Level.INFO, "Setting up agent to use {0}", new Object[]{enableXML ? "XML" : "JSON"});
         restHeaders = new HttpHeaders();
-        if (enableXML.get()) {
+        if (enableXML) {
             restHeaders.setContentType(MediaType.APPLICATION_XML);
             restHeaders.setAccept(Collections.singletonList(MediaType.APPLICATION_XML));
         } else {
             restHeaders.setContentType(MediaType.APPLICATION_JSON_UTF8);
             restHeaders.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
         }
-
+        // add basic auth
+        if (basicAuth) {
+            restHeaders.add(HttpHeaders.AUTHORIZATION, "Basic " + Base64.getEncoder().encodeToString(
+                    (basicAuthUsername + ":" + basicAuthPassword).getBytes())
+            );
+        }
+        // add API key
+        if (apiKey) {
+            restHeaders.add(apiKeyHeader, apiKeyValue);
+        }
         restTemplate = new RestTemplate();
-
+        // TODO replace commented out code with better debugging
 /*        restTemplate = new RestTemplate(new BufferingClientHttpRequestFactory(new SimpleClientHttpRequestFactory()));
         List<ClientHttpRequestInterceptor> interceptors = new ArrayList<>();
         interceptors.add(new LoggingRequestInterceptor());
         restTemplate.setInterceptors(interceptors);*/
     }
 
+    public void setTarget(String url) {
+        this.target = url;
+        try {
+            new URL(url);
+            validProperty.set(true);
+        } catch (MalformedURLException e) {
+            LOG.log(Level.FINE, "Invalid URL passed", e);
+            validProperty.set(false);
+        }
+    }
 
     public <T> T getRequest(String loc, Class<T> responseType) {
+        HttpEntity<ServerRequest> requestEntity = new HttpEntity<>(null, restHeaders);
         ResponseEntity response = restTemplate.exchange(
-                target.getValue() + loc,
+                target + loc,
                 HttpMethod.GET,
-                null,
+                requestEntity,
                 responseType
         );
         // convert
@@ -72,7 +105,7 @@ public class Agent {
         //request entity is created with request headers
         HttpEntity<ServerRequest> requestEntity = new HttpEntity<>(req, restHeaders);
         ResponseEntity response = restTemplate.exchange(
-                target.getValue(),
+                target,
                 HttpMethod.POST,
                 requestEntity,
                 responseType

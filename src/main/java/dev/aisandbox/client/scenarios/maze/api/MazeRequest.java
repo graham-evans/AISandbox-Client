@@ -1,10 +1,7 @@
-package dev.aisandbox.client.scenarios.maze;
+package dev.aisandbox.client.scenarios.maze.api;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import dev.aisandbox.client.scenarios.ServerRequest;
-import dev.aisandbox.client.scenarios.maze.api.Config;
-import dev.aisandbox.client.scenarios.maze.api.History;
-import dev.aisandbox.client.scenarios.maze.api.Position;
 import lombok.Data;
 
 /**

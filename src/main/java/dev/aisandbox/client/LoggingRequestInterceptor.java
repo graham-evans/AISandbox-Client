@@ -3,6 +3,7 @@ package dev.aisandbox.client;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,7 +14,7 @@ import org.springframework.http.client.ClientHttpResponse;
 
 public class LoggingRequestInterceptor implements ClientHttpRequestInterceptor {
 
-    final static Logger log = LoggerFactory.getLogger(LoggingRequestInterceptor.class);
+    private static final Logger LOG = LoggerFactory.getLogger(LoggingRequestInterceptor.class);
 
     @Override
     public ClientHttpResponse intercept(HttpRequest request, byte[] body, ClientHttpRequestExecution execution) throws IOException {
@@ -24,29 +25,29 @@ public class LoggingRequestInterceptor implements ClientHttpRequestInterceptor {
     }
 
     private void traceRequest(HttpRequest request, byte[] body) throws IOException {
-        log.info("===========================request begin================================================");
-        log.debug("URI         : {}", request.getURI());
-        log.debug("Method      : {}", request.getMethod());
-        log.debug("Headers     : {}", request.getHeaders());
-        log.debug("Request body: {}", new String(body, "UTF-8"));
-        log.info("==========================request end================================================");
+        LOG.info("===========================request begin================================================");
+        LOG.debug("URI         : {}", request.getURI());
+        LOG.debug("Method      : {}", request.getMethod());
+        LOG.debug("Headers     : {}", request.getHeaders());
+        LOG.debug("Request body: {}", new String(body, StandardCharsets.UTF_8));
+        LOG.info("==========================request end================================================");
     }
 
     private void traceResponse(ClientHttpResponse response) throws IOException {
         StringBuilder inputStringBuilder = new StringBuilder();
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(response.getBody(), "UTF-8"));
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(response.getBody(), StandardCharsets.UTF_8));
         String line = bufferedReader.readLine();
         while (line != null) {
             inputStringBuilder.append(line);
             inputStringBuilder.append('\n');
             line = bufferedReader.readLine();
         }
-        log.info("============================response begin==========================================");
-        log.debug("Status code  : {}", response.getStatusCode());
-        log.debug("Status text  : {}", response.getStatusText());
-        log.debug("Headers      : {}", response.getHeaders());
-        log.debug("Response body: {}", inputStringBuilder.toString());
-        log.info("=======================response end=================================================");
+        LOG.info("============================response begin==========================================");
+        LOG.debug("Status code  : {}", response.getStatusCode());
+        LOG.debug("Status text  : {}", response.getStatusText());
+        LOG.debug("Headers      : {}", response.getHeaders());
+        LOG.debug("Response body: {}", inputStringBuilder.toString());
+        LOG.info("=======================response end=================================================");
     }
 
 }

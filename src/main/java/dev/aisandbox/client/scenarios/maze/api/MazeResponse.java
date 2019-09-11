@@ -1,4 +1,4 @@
-package dev.aisandbox.client.scenarios.maze;
+package dev.aisandbox.client.scenarios.maze.api;
 
 import dev.aisandbox.client.scenarios.ServerResponse;
 import lombok.Data;

@@ -18,10 +18,10 @@ import java.util.logging.Logger;
 @Component
 public class MP4Output implements FrameOutput {
 
-    Logger LOG = Logger.getLogger(MP4Output.class.getName());
+    private static final Logger LOG = Logger.getLogger(MP4Output.class.getName());
 
-    SeekableByteChannel out = null;
-    AWTSequenceEncoder encoder;
+    private SeekableByteChannel out = null;
+    private AWTSequenceEncoder encoder;
 
     @Override
     public String getName(Locale l) {

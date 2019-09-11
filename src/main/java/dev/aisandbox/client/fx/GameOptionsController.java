@@ -1,5 +1,6 @@
 package dev.aisandbox.client.fx;
 
+import dev.aisandbox.client.OutputFormat;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.IntegerBinding;
 import javafx.event.ActionEvent;
@@ -10,18 +11,17 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
+import javafx.stage.*;
 import dev.aisandbox.client.Agent;
 import dev.aisandbox.client.RuntimeModel;
-import javafx.stage.Window;
-import javafx.util.Callback;
+import org.controlsfx.control.PropertySheet;
+import org.controlsfx.property.BeanPropertyUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
+import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,37 +32,22 @@ public class GameOptionsController {
     private static final Logger LOG = Logger.getLogger(GameOptionsController.class.getName());
 
     @Autowired
-    RuntimeModel model;
+    private RuntimeModel model;
 
     @Autowired
     private ApplicationContext appContext;
 
     @Autowired
-    FXTools fxtools;
+    private FXTools fxtools;
 
     @FXML
     private ResourceBundle resources;
 
     @FXML
-    private URL location;
-
-    @FXML
-    private VBox optionsBox;
+    private VBox optionBox;
 
     @FXML
     private ListView<Agent> agentList;
-
-    @FXML
-    private ChoiceBox<?> outputType;
-
-    @FXML
-    private TextField outputDirectory;
-
-    @FXML
-    private Button outputDirectoryButton;
-
-    @FXML
-    private Button nextButton;
 
     @FXML
     private Button removeAgentButton;
@@ -74,10 +59,22 @@ public class GameOptionsController {
     private Button addAgentButton;
 
     @FXML
+    private ChoiceBox<OutputFormat> outputFormat;
+
+    @FXML
+    private TextField outputDirectory;
+
+    @FXML
+    private Button outputDirectoryButton;
+
+    @FXML
+    private Button nextButton;
+
+    @FXML
     void removeAgentEvent(ActionEvent event) {
         // get the selected agent
         Agent agent = agentList.getSelectionModel().getSelectedItem();
-        LOG.log(Level.INFO, "Removing agent {}", agent);
+        LOG.log(Level.INFO, "Removing agent {0}", agent);
         // remove it from the model
         model.getAgentList().remove(agent);
     }
@@ -128,7 +125,7 @@ public class GameOptionsController {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(GameOptionsController.class.getResource("EditAgent.fxml"));
-            VBox page = (VBox) loader.load();
+            VBox page = loader.load();
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Edit Agent");
             dialogStage.initModality(Modality.WINDOW_MODAL);
@@ -148,20 +145,53 @@ public class GameOptionsController {
         }
     }
 
+    @FXML
+    void chooseOutputDirectory(ActionEvent event) {
+        DirectoryChooser dc = new DirectoryChooser();
+        // try and populate the directory from the existing text
+        try {
+            File f = new File(outputDirectory.getText());
+            if (f.isDirectory()) {
+                dc.setInitialDirectory(f);
+            }
+        } catch (Exception e) {
+            LOG.log(Level.FINEST, "Invalid directory in text field", e);
+        }
+        File fout = dc.showDialog(((Node) event.getTarget()).getScene().getWindow());
+        if ((fout != null) && fout.isDirectory()) {
+            model.setOutputDirectory(fout);
+            outputDirectory.setText(fout.getAbsolutePath());
+        }
+
+    }
 
     @FXML
     void initialize() {
-        assert nextButton != null : "fx:id=\"nextButton\" was not injected: check your FXML file 'GameOptions.fxml'.";
-        assert optionsBox != null : "fx:id=\"optionsBox\" was not injected: check your FXML file 'GameOptions.fxml'.";
+        assert optionBox != null : "fx:id=\"optionBox\" was not injected: check your FXML file 'GameOptions.fxml'.";
         assert agentList != null : "fx:id=\"agentList\" was not injected: check your FXML file 'GameOptions.fxml'.";
         assert removeAgentButton != null : "fx:id=\"removeAgentButton\" was not injected: check your FXML file 'GameOptions.fxml'.";
         assert editAgentButton != null : "fx:id=\"editAgentButton\" was not injected: check your FXML file 'GameOptions.fxml'.";
         assert addAgentButton != null : "fx:id=\"addAgentButton\" was not injected: check your FXML file 'GameOptions.fxml'.";
-        assert outputType != null : "fx:id=\"outputType\" was not injected: check your FXML file 'GameOptions.fxml'.";
+        assert outputFormat != null : "fx:id=\"outputFormat\" was not injected: check your FXML file 'GameOptions.fxml'.";
         assert outputDirectory != null : "fx:id=\"outputDirectory\" was not injected: check your FXML file 'GameOptions.fxml'.";
         assert outputDirectoryButton != null : "fx:id=\"outputDirectoryButton\" was not injected: check your FXML file 'GameOptions.fxml'.";
+        assert nextButton != null : "fx:id=\"nextButton\" was not injected: check your FXML file 'GameOptions.fxml'.";
 
-
+        LOG.info("Adding scenario options");
+        PropertySheet propertySheet = new PropertySheet(BeanPropertyUtils.getProperties(model.getScenario()));
+        optionBox.getChildren().add(propertySheet);
+        propertySheet.setModeSwitcherVisible(false);
+        // only show the search box if more than 30 items
+        propertySheet.setSearchBoxVisible(propertySheet.getItems().size() > 30);
+        // add output options
+        outputFormat.getItems().setAll(OutputFormat.values());
+        outputFormat.getSelectionModel().select(model.getOutputFormat());
+        outputFormat.setOnAction(e -> model.setOutputFormat(outputFormat.getSelectionModel().getSelectedItem()));
+        if (model.getOutputDirectory() != null) {
+            outputDirectory.setText(model.getOutputDirectory().getAbsolutePath());
+        } else {
+            outputDirectory.setText("");
+        }
         LOG.info("Registering property bindings");
         agentList.setItems(model.getAgentList());
         // disable remove agent if we dont have one selected
@@ -174,12 +204,7 @@ public class GameOptionsController {
         // dont allow the user to procede if the model isn't valid
         nextButton.disableProperty().bind(Bindings.not(model.getValid()));
         // set the agent formatting
-        agentList.setCellFactory(new Callback<ListView<Agent>, ListCell<Agent>>() {
-            @Override
-            public ListCell<Agent> call(ListView<Agent> agentListView) {
-                return new AgentCell();
-            }
-        });
+        agentList.setCellFactory(agentListView -> new AgentCell());
     }
 
 

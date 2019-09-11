@@ -9,13 +9,12 @@ import javafx.scene.layout.Pane;
 import dev.aisandbox.client.scenarios.Scenario;
 
 import java.io.IOException;
-import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ScenarioCell extends ListCell<Scenario> {
 
-    private static Logger LOG = Logger.getLogger(ScenarioCell.class.getName());
+    private static final Logger LOG = Logger.getLogger(ScenarioCell.class.getName());
 
     @FXML
     private Label scenarioName;
@@ -29,7 +28,7 @@ public class ScenarioCell extends ListCell<Scenario> {
     @FXML
     private BorderPane root;
 
-    FXMLLoader mLLoader = null;
+    private FXMLLoader mLLoader = null;
 
     @Override
     protected void updateItem(Scenario scenario, boolean empty) {
@@ -53,8 +52,8 @@ public class ScenarioCell extends ListCell<Scenario> {
 
             }
 
-            scenarioName.setText(scenario.getName(Locale.UK));
-            scenarioDescription.setText(scenario.getOverview(Locale.UK));
+            scenarioName.setText(scenario.getName());
+            scenarioDescription.setText(scenario.getOverview());
 
             setText(null);
             setGraphic(root);

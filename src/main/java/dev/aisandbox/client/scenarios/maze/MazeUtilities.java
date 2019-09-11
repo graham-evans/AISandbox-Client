@@ -4,6 +4,49 @@ import java.util.*;
 
 public class MazeUtilities {
 
+    private MazeUtilities() {
+    }
+
+    public static void applySidewinder(Random rand, Maze maze) {
+        // special case, join the top row
+        for (int x = 0; x < maze.getWidth() - 1; x++) {
+            maze.getCellArray()[x][0].addPath(Direction.EAST);
+        }
+        for (int y = 1; y < maze.getHeight(); y++) {
+            List<Cell> group = new ArrayList<>();
+            for (int x = 0; x < maze.getWidth(); x++) {
+                // get cell
+                Cell c = maze.getCellArray()[x][y];
+                // add cell to group
+                if (!group.isEmpty()) {
+                    c.addPath(Direction.WEST);
+                }
+                group.add(c);
+                if ((x == maze.getWidth() - 1) || rand.nextBoolean()) {
+                    // link upwards
+                    Cell c2 = group.get(rand.nextInt(group.size()));
+                    c2.addPath(Direction.NORTH);
+                    group.clear();
+                }
+            }
+        }
+    }
+
+    public static void applyBinaryTree(Random rand, Maze maze) {
+        for (Cell c : maze.getCellList()) {
+            List<Cell> targets = new ArrayList<>();
+            if (c.getNeighbours().get(Direction.EAST) != null) {
+                targets.add(c.getNeighbours().get(Direction.EAST));
+            }
+            if (c.getNeighbours().get(Direction.NORTH) != null) {
+                targets.add(c.getNeighbours().get(Direction.NORTH));
+            }
+            if (!targets.isEmpty()) {
+                c.addPath(targets.get(rand.nextInt(targets.size())));
+            }
+        }
+    }
+
     public static void findFurthestPoints(Maze maze) {
         applyDijkstra(maze);
         Cell start = getHighestVelueCell(maze);

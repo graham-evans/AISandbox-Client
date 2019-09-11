@@ -1,17 +1,14 @@
 package dev.aisandbox.client.fx;
 
 import dev.aisandbox.client.Agent;
-import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import lombok.Setter;
 
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class EditAgentController {
@@ -63,40 +60,54 @@ public class EditAgentController {
 
     @FXML
     void onCancelAction(ActionEvent event) {
+        LOG.info("Closing without saving");
         dialogStage.close();
     }
 
     @FXML
     void onSaveAction(ActionEvent event) {
+        LOG.info("Saving agent info");
         // TODO check target URL is valid
         // copy data from UI to agent
-/*        try {
-            agent.setTarget(new URL(url.getText()));
-        } catch (MalformedURLException e) {
-            LOG.log(Level.WARNING,"Error creating URL from user input",e);
-            // TODO show error warning and revert to edit
-        }
-
- */
+        agent.setTarget(url.getText());
+        agent.setEnableXML(restXMLChoice.isSelected());
+        agent.setBasicAuth(basicAuthentication.isSelected());
+        agent.setBasicAuthUsername(username.getText());
+        agent.setBasicAuthPassword(password.getText());
+        agent.setApiKey(apiKey.isSelected());
+        agent.setApiKeyHeader(apiKeyHeader.getText());
+        agent.setApiKeyValue(apiKeyValue.getText());
+        // close dialog
         dialogStage.close();
     }
 
+    /**
+     * Copy the agent information to the controller
+     *
+     * @param a Agent
+     */
     public void assignAgent(Agent a) {
+        /*
+        NOTE - we copy the data rather than bind, so we can use a cancel button (which leaves the opriginal agent
+        unchanged).
+         */
         this.agent = a;
         // copy the data to the UI
-        url.setText(agent.getTarget().toString());
+        url.setText(agent.getTarget());
         // link the XML / JSON property
-        restXMLChoice.selectedProperty().bindBidirectional(agent.getEnableXML());
-        if (!agent.getEnableXML().getValue()) {
-            restJSONChoice.selectedProperty().setValue(true);
+        if (agent.isEnableXML()) {
+            restXMLChoice.selectedProperty().set(true);
+        } else {
+            restJSONChoice.selectedProperty().set(true);
         }
-        // bind the rest of the controls
-        apiKey.selectedProperty().bindBidirectional(agent.getEnableXML());
-        apiKeyHeader.textProperty().bindBidirectional(agent.getApiKeyHeader());
-        apiKeyValue.textProperty().bindBidirectional(agent.getApiKeyValue());
-        basicAuthentication.selectedProperty().bindBidirectional(agent.getBasicAuth());
-        username.textProperty().bindBidirectional(agent.getBasicAuthUsername());
-        password.textProperty().bindBidirectional(agent.getBasicAuthPassword());
+        // basic auth
+        basicAuthentication.selectedProperty().set(agent.isBasicAuth());
+        username.setText(agent.getBasicAuthUsername());
+        password.setText(agent.getBasicAuthPassword());
+        // API Key
+        apiKey.selectedProperty().set(agent.isApiKey());
+        apiKeyHeader.setText(agent.getApiKeyHeader());
+        apiKeyValue.setText(agent.getApiKeyValue());
     }
 
     @FXML
@@ -116,14 +127,6 @@ public class EditAgentController {
         ToggleGroup xmlToggle = new ToggleGroup();
         restJSONChoice.setToggleGroup(xmlToggle);
         restXMLChoice.setToggleGroup(xmlToggle);
-
-/*        if (restXMLChoice==null) {
-            LOG.severe("restXMLChoice = null");
-        }
-        if (restXMLChoice.selectedProperty()==null) {
-            LOG.severe("restXML.selectedProperty=null");
-        }
-  */  //
     }
 
 }

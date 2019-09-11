@@ -2,10 +2,8 @@ package dev.aisandbox.client;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -32,6 +30,7 @@ public class AISandboxClient extends Application {
 
     @Override
     public void init() throws Exception {
+        LOG.info("Initialising application");
         SpringApplicationBuilder builder = new SpringApplicationBuilder(AISandboxClient.class);
         context = builder.run(getParameters().getRaw().toArray(new String[0]));
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/dev/aisandbox/client/fx/GameChoice.fxml"));
@@ -42,14 +41,15 @@ public class AISandboxClient extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        LOG.info("Starting application");
         primaryStage.setScene(new Scene(rootNode, 800, 600));
-
         primaryStage.centerOnScreen();
         primaryStage.show();
     }
 
     @Override
     public void stop() throws Exception {
+        LOG.info("Stopping application");
         context.close();
     }
 

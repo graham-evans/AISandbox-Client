@@ -6,6 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
+import org.controlsfx.glyphfont.Glyph;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -22,12 +24,12 @@ public class AgentCell extends ListCell<Agent> {
     private Label urlLabel;
 
     @FXML
-    private Label securedLabel;
+    private Glyph padlock;
 
     @FXML
     private HBox root;
 
-    FXMLLoader mLLoader = null;
+    private FXMLLoader mLLoader = null;
 
     @Override
     protected void updateItem(Agent agent, boolean empty) {
@@ -50,8 +52,20 @@ public class AgentCell extends ListCell<Agent> {
                 }
 
             }
+            // show red URLs when invalid
+            if (agent.getValidProperty().get()) {
+                urlLabel.getStyleClass().remove("error");
+            } else {
+                urlLabel.getStyleClass().add("error");
+            }
+            padlock.setColor(Color.DARKGRAY);
+            if (agent.isEnableXML()) {
+                protocolLabel.setText("<>");
+            } else {
+                protocolLabel.setText("{}");
+            }
 
-            urlLabel.setText(agent.getTarget().toString());
+            urlLabel.setText(agent.getTarget());
 
             setText(null);
             setGraphic(root);
