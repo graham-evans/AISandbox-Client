@@ -25,7 +25,7 @@
         </ScrollPane>
     </left>
     <top>
-        <Label fx:id="TitleText" text="Select a game to play" BorderPane.alignment="CENTER"/>
+        <Label fx:id="titleText" text="Select a game to play" BorderPane.alignment="CENTER"/>
     </top>
     <center>
         <ScrollPane fitToHeight="true" fitToWidth="true" focusTraversable="false" pannable="true"
@@ -49,7 +49,7 @@
     <bottom>
         <AnchorPane BorderPane.alignment="CENTER">
             <children>
-                <Button fx:id="NextButton" mnemonicParsing="false" onAction="#nextAction" text="%ui.button.next"
+                <Button fx:id="nextButton" mnemonicParsing="false" onAction="#nextAction" text="%ui.button.next"
                         AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="8.0"/>
             </children>
         </AnchorPane>

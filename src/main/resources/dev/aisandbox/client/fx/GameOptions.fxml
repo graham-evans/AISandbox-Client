@@ -8,7 +8,6 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
@@ -17,34 +16,23 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity"
-            minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.aisandbox.client.fx.GameOptionsController">
-    <top>
-        <Label text="Select Game Options" BorderPane.alignment="CENTER"/>
-    </top>
-    <bottom>
-        <AnchorPane BorderPane.alignment="CENTER">
+<VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="480.0"
+      minWidth="640.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.aisandbox.client.fx.GameOptionsController">
+    <children>
+        <Label text="Select Game Options"/>
+        <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
             <children>
-                <Button layoutX="14.0" layoutY="8.0" mnemonicParsing="false" onAction="#lastAction"
-                        text="%ui.button.back" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0"
-                        AnchorPane.topAnchor="8.0"/>
-                <Button fx:id="nextButton" disable="true" mnemonicParsing="false" onAction="#nextAction"
-                        text="%ui.button.next" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="8.0"
-                        AnchorPane.topAnchor="8.0"/>
-            </children>
-        </AnchorPane>
-    </bottom>
-    <center>
-        <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-            <children>
-                <VBox spacing="2.0" HBox.hgrow="SOMETIMES">
+                <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="400.0"
+                      spacing="2.0" HBox.hgrow="ALWAYS">
                     <children>
-                        <Label text="Options"/>
-                        <ScrollPane fitToHeight="true" fitToWidth="true" maxHeight="1.7976931348623157E308"
-                                    maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+                        <Label maxWidth="1.7976931348623157E308" text="Options"/>
+                        <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER"
+                                    maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                                    VBox.vgrow="ALWAYS">
                             <content>
-                                <VBox fx:id="optionsBox"/>
+                                <VBox fx:id="optionBox" maxHeight="1.7976931348623157E308"
+                                      maxWidth="1.7976931348623157E308"/>
                             </content>
                         </ScrollPane>
                     </children>
@@ -52,14 +40,15 @@
                         <Insets left="4.0" right="2.0"/>
                     </padding>
                 </VBox>
-                <VBox prefHeight="200.0" prefWidth="100.0" spacing="2.0" HBox.hgrow="SOMETIMES">
+                <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="400.0"
+                      spacing="2.0" HBox.hgrow="ALWAYS">
                     <children>
                         <Label text="Agents"/>
-                        <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0"
-                                    VBox.vgrow="ALWAYS">
+                        <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER"
+                                    maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                                    prefWidth="200.0" VBox.vgrow="SOMETIMES">
                             <content>
-                                <ListView fx:id="agentList" onMouseClicked="#clickAgentList" prefHeight="200.0"
-                                          prefWidth="200.0"/>
+                                <ListView fx:id="agentList" onMouseClicked="#clickAgentList"/>
                             </content>
                         </ScrollPane>
                         <FlowPane alignment="TOP_RIGHT" hgap="2.0">
@@ -77,10 +66,10 @@
                                 <Font name="System Bold" size="12.0"/>
                             </font>
                         </Label>
-                        <GridPane hgap="2.0" vgap="1.0">
+                        <GridPane minHeight="60.0" prefHeight="60.0">
                             <columnConstraints>
-                                <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="100.0"/>
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                <ColumnConstraints fillWidth="false" hgrow="NEVER" minWidth="10.0"/>
+                                <ColumnConstraints hgrow="ALWAYS" minWidth="10.0"/>
                                 <ColumnConstraints hgrow="NEVER" minWidth="10.0"/>
                             </columnConstraints>
                             <rowConstraints>
@@ -88,13 +77,15 @@
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                             </rowConstraints>
                             <children>
-                                <Label text="Output Type"/>
-                                <ChoiceBox fx:id="outputType" maxWidth="1.7976931348623157E308" prefWidth="150.0"
-                                           GridPane.columnIndex="1" GridPane.hgrow="ALWAYS"/>
-                                <Label text="Output Directory" GridPane.rowIndex="1"/>
-                                <TextField fx:id="outputDirectory" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-                                <Button fx:id="outputDirectoryButton" mnemonicParsing="false" text="Button"
-                                        GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                                <Label text="Output format"/>
+                                <Label text="Ouput Directory" GridPane.rowIndex="1"/>
+                                <ChoiceBox fx:id="outputFormat" maxWidth="1.7976931348623157E308" prefWidth="150.0"
+                                           GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS"/>
+                                <TextField fx:id="outputDirectory" editable="false" GridPane.columnIndex="1"
+                                           GridPane.rowIndex="1"/>
+                                <Button fx:id="outputDirectoryButton" mnemonicParsing="false"
+                                        onAction="#chooseOutputDirectory" text="Choose" GridPane.columnIndex="2"
+                                        GridPane.rowIndex="1"/>
                             </children>
                         </GridPane>
                     </children>
@@ -104,5 +95,15 @@
                 </VBox>
             </children>
         </HBox>
-    </center>
-</BorderPane>
+        <AnchorPane>
+            <children>
+                <Button layoutX="14.0" layoutY="8.0" mnemonicParsing="false" onAction="#lastAction"
+                        text="%ui.button.back" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0"
+                        AnchorPane.topAnchor="8.0"/>
+                <Button fx:id="nextButton" disable="true" mnemonicParsing="false" onAction="#nextAction"
+                        text="%ui.button.next" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="8.0"
+                        AnchorPane.topAnchor="8.0"/>
+            </children>
+        </AnchorPane>
+    </children>
+</VBox>
