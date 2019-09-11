@@ -8,54 +8,19 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.client.MockRestServiceServer;
 import org.springframework.web.client.RestTemplate;
 
-import static org.junit.Assert.assertEquals;
+import java.util.logging.Logger;
+
+import static org.junit.Assert.*;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.*;
 import static org.springframework.test.web.client.response.MockRestResponseCreators.withSuccess;
 
 public class AgentTest {
 
-  /*  @Test
-    public void testRestJSON() {
-        Agent a = new Agent();
-        // setup REST / JSON
-        a.getEnableXML().set(false);
-        RestTemplate restTemplate = a.setupAgent();
-        // setup mock server
-        MockRestServiceServer server = MockRestServiceServer.bindTo(restTemplate).build();
-        // setup expectations
-        server.expect(
-                requestTo("http://localhost:8080/test"))
-                .andExpect(method(HttpMethod.POST))
-                .andExpect(header("Content-Type","application/json;charset=UTF-8"))
-                .andRespond(withSuccess("{}",MediaType.APPLICATION_JSON));
-        a.postRequest(new TestRequest());
-        server.verify();
-    }
-
-   */
-
-    /*   @Test
-       public void testRestXML() {
-           Agent a = new Agent();
-           // setup REST / XML
-           a.getEnableXML().set(true);
-           RestTemplate restTemplate = a.setupAgent();
-           // setup mock server
-           MockRestServiceServer server = MockRestServiceServer.bindTo(restTemplate).build();
-           // setup expectations
-           server.expect(
-                   requestTo("http://localhost:8080/test"))
-                   .andExpect(method(HttpMethod.POST))
-                   .andExpect(header("Content-Type","application/XML;charset=UTF-8"))
-                   .andRespond(withSuccess("<TestResponse></TestResponse>",MediaType.APPLICATION_XML));
-           a.postRequest(new TestRequest());
-           server.verify();
-       }*/
     @Test
     public void testGetJSON() {
         Agent a = new Agent();
-        a.getTarget().set("http://localhost/getJSON");
-        a.getEnableXML().set(false);
+        a.setTarget("http://localhost/getJSON");
+        a.setEnableXML(false);
         a.setupAgent();
         // setup mock server
         RestTemplate template = a.getRestTemplate();
@@ -73,8 +38,8 @@ public class AgentTest {
     @Test
     public void testGetXML() {
         Agent a = new Agent();
-        a.getTarget().set("http://localhost/getXML");
-        a.getEnableXML().set(true);
+        a.setTarget("http://localhost/getXML");
+        a.setEnableXML(true);
         a.setupAgent();
         // setup mock server
         RestTemplate template = a.getRestTemplate();
@@ -92,8 +57,8 @@ public class AgentTest {
     @Test
     public void testPostJSON() {
         Agent a = new Agent();
-        a.getTarget().set("http://localhost/postJSON");
-        a.getEnableXML().set(false);
+        a.setTarget("http://localhost/postJSON");
+        a.setEnableXML(false);
         a.setupAgent();
         // setup mock server
         RestTemplate template = a.getRestTemplate();
@@ -116,8 +81,8 @@ public class AgentTest {
     @Test
     public void testPostXML() throws Exception {
         Agent a = new Agent();
-        a.getTarget().set("http://localhost/postXML");
-        a.getEnableXML().set(true);
+        a.setTarget("http://localhost/postXML");
+        a.setEnableXML(true);
         a.setupAgent();
         // setup mock server
         RestTemplate template = a.getRestTemplate();
@@ -137,5 +102,63 @@ public class AgentTest {
         assertEquals("Answer=4", 4, r.getNumber());
     }
 
+    @Test
+    public void testGetBasicAuthXML() {
+        Agent a = new Agent();
+        a.setTarget("http://localhost/getXML");
+        a.setEnableXML(true);
+        a.setBasicAuth(true);
+        a.setBasicAuthUsername("Aladdin");
+        a.setBasicAuthPassword("OpenSesame");
+        a.setupAgent();
+        // setup mock server
+        RestTemplate template = a.getRestTemplate();
+        MockRestServiceServer server = MockRestServiceServer.bindTo(template).build();
+        // setup expectations
+        server.expect(
+                requestTo("http://localhost/getXML"))
+                .andExpect(method(HttpMethod.GET))
+                .andExpect(header("Authorization", "Basic QWxhZGRpbjpPcGVuU2VzYW1l"))
+                .andRespond(withSuccess("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><testResponse><number>5</number></testResponse>", MediaType.APPLICATION_XML));
+        TestResponse r = a.getRequest("", TestResponse.class);
+        server.verify();
+        assertEquals("Answer=4", 5, r.getNumber());
+    }
 
+    @Test
+    public void testGetKeyAuthXML() {
+        Agent a = new Agent();
+        a.setTarget("http://localhost/getXML");
+        a.setEnableXML(true);
+        a.setApiKey(true);
+        a.setApiKeyHeader("APIKey");
+        a.setApiKeyValue("OpenSesame");
+        a.setupAgent();
+        // setup mock server
+        RestTemplate template = a.getRestTemplate();
+        MockRestServiceServer server = MockRestServiceServer.bindTo(template).build();
+        // setup expectations
+        server.expect(
+                requestTo("http://localhost/getXML"))
+                .andExpect(method(HttpMethod.GET))
+                .andExpect(header("APIKey", "OpenSesame"))
+                .andRespond(withSuccess("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><testResponse><number>5</number></testResponse>", MediaType.APPLICATION_XML));
+        TestResponse r = a.getRequest("", TestResponse.class);
+        server.verify();
+        assertEquals("Answer=4", 5, r.getNumber());
+    }
+
+    @Test
+    public void testValidURL() {
+        Agent a = new Agent();
+        a.setTarget("http://localhost/api");
+        assertTrue("Valid URL", a.getValidProperty().get());
+    }
+
+    @Test
+    public void testInvalidURL() {
+        Agent a = new Agent();
+        a.setTarget("xxx://localhost/api");
+        assertFalse("Inalid URL", a.getValidProperty().get());
+    }
 }
