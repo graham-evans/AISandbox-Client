@@ -14,6 +14,10 @@ import java.util.ArrayList;
 import java.util.Locale;
 import java.util.logging.Logger;
 
+/**
+ * The main (POJO) class used to hold the application state.
+ * <p>This uses the Lambok library to auto generate much of its functionality
+ */
 @Component
 public class RuntimeModel {
 
@@ -48,6 +52,9 @@ public class RuntimeModel {
 
     public enum OUTPUT_TYPE {NONE, FILE, VIDEO}
 
+    /**
+     * Setup the model with usefull default values.
+     */
     public RuntimeModel() {
         // TODO - load default values
 
@@ -55,6 +62,12 @@ public class RuntimeModel {
         valid.bind(Bindings.and(Bindings.size(agentList).greaterThanOrEqualTo(minAgents), Bindings.size(agentList).lessThanOrEqualTo(maxAgents)));
     }
 
+    /**
+     * Setter for the field <code>scenario</code>.
+     * <p>This updates the number of required agents based on the requested scenario
+     *
+     * @param s a {@link dev.aisandbox.client.scenarios.Scenario} object.
+     */
     public void setScenario(Scenario s) {
         this.scenario = s;
         LOG.info("changing scenario to " + s.getName());
