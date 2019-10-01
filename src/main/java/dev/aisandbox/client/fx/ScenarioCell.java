@@ -12,6 +12,12 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * <p>ScenarioCell class.</p>
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 public class ScenarioCell extends ListCell<Scenario> {
 
     private static final Logger LOG = Logger.getLogger(ScenarioCell.class.getName());
@@ -30,6 +36,9 @@ public class ScenarioCell extends ListCell<Scenario> {
 
     private FXMLLoader mLLoader = null;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected void updateItem(Scenario scenario, boolean empty) {
         super.updateItem(scenario, empty);

@@ -16,6 +16,12 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * <p>MazeRunner class.</p>
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 @RequiredArgsConstructor
 public class MazeRunner extends Thread {
 
@@ -29,6 +35,9 @@ public class MazeRunner extends Thread {
     private final GameRunController controller;
     private boolean running = false;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void run() {
         // setup data structures
@@ -106,6 +115,9 @@ public class MazeRunner extends Thread {
         LOG.info("Finished run thread");
     }
 
+    /**
+     * <p>stopSimulation.</p>
+     */
     public void stopSimulation() {
         running = false;
         try {

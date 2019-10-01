@@ -17,6 +17,12 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * <p>FXTools class.</p>
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 @Component
 public class FXTools {
 
@@ -25,6 +31,12 @@ public class FXTools {
     @Autowired
     private ApplicationContext appContext;
 
+    /**
+     * <p>moveToScreen.</p>
+     *
+     * @param event a {@link javafx.event.ActionEvent} object.
+     * @param fxml  a {@link java.lang.String} object.
+     */
     public void moveToScreen(ActionEvent event, String fxml) {
         LOG.info("Selecting last screen");
         try {
@@ -41,6 +53,13 @@ public class FXTools {
         }
     }
 
+    /**
+     * <p>generateEnumCombo.</p>
+     *
+     * @param eclass a T object.
+     * @param <T> a T object.
+     * @return a {@link javafx.scene.control.ComboBox} object.
+     */
     public static <T extends Enum> ComboBox<T> generateEnumCombo(T eclass) {
         // create combu box
         ComboBox<T> comboBox = new ComboBox<>();

@@ -16,6 +16,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
+/**
+ * <p>GameChoiceController class.</p>
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 @Component
 public class GameChoiceController {
 
@@ -80,9 +86,9 @@ public class GameChoiceController {
             gameList.setCellFactory(cellListView -> new ScenarioCell());
             // setup selection change code
             gameList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-                gameNameField.setText(newValue.getName());
-                gameIntroField.setText(newValue.getOverview());
-                gameDescriptionField.setText(newValue.getDescription());
+                        gameNameField.setText(newValue.getName());
+                        gameIntroField.setText(newValue.getOverview());
+                        gameDescriptionField.setText(newValue.getDescription());
                         model.setScenario(newValue);
                     }
             );

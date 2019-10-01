@@ -11,6 +11,12 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
+/**
+ * <p>EditAgentController class.</p>
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 public class EditAgentController {
 
     private Agent agent;

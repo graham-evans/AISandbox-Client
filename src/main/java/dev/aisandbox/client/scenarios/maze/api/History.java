@@ -8,7 +8,10 @@ package dev.aisandbox.client.scenarios.maze.api;
 import lombok.Data;
 
 /**
+ * <p>History class.</p>
+ *
  * @author gde
+ * @version $Id: $Id
  */
 @Data
 public class History {

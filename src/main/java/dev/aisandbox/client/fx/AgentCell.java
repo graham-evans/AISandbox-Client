@@ -13,6 +13,12 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * <p>AgentCell class.</p>
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 public class AgentCell extends ListCell<Agent> {
 
     private static final Logger LOG = Logger.getLogger(AgentCell.class.getName());
@@ -31,6 +37,9 @@ public class AgentCell extends ListCell<Agent> {
 
     private FXMLLoader mLLoader = null;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected void updateItem(Agent agent, boolean empty) {
         super.updateItem(agent, empty);

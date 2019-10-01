@@ -1,5 +1,11 @@
 package dev.aisandbox.client.scenarios.maze;
 
+/**
+ * <p>Direction class.</p>
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 public enum Direction {
     NORTH,
     SOUTH,
@@ -10,6 +16,11 @@ public enum Direction {
     CLOCKWISE,
     ANTICLOCKWISE;
 
+    /**
+     * <p>opposite.</p>
+     *
+     * @return a {@link dev.aisandbox.client.scenarios.maze.Direction} object.
+     */
     public Direction opposite() {
         switch (this) {
             case IN:

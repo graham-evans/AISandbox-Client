@@ -12,6 +12,7 @@ import javafx.scene.chart.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
@@ -25,6 +26,9 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Controller class used when running the simulations
+ */
 @Component
 public class GameRunController {
 
@@ -34,10 +38,10 @@ public class GameRunController {
     private ApplicationContext appContext;
 
     @Autowired
-    RuntimeModel model;
+    private RuntimeModel model;
 
     @Autowired
-    FXTools fxtools;
+    private FXTools fxtools;
 
     @FXML
     private ResourceBundle resources;
@@ -66,7 +70,7 @@ public class GameRunController {
     private Button startButton;
 
     @FXML
-    private ScrollPane imageScrollPane;
+    private AnchorPane imageAnchor;
 
     @FXML
     private ImageView imageView;
@@ -108,7 +112,7 @@ public class GameRunController {
 
     @FXML
     void initialize() {
-        assert imageScrollPane != null : "fx:id=\"imageScrollPane\" was not injected: check your FXML file 'GameRun.fxml'.";
+        assert imageAnchor != null : "fx:id=\"imageAnchor\" was not injected: check your FXML file 'GameRun.fxml'.";
         assert imageView != null : "fx:id=\"imageView\" was not injected: check your FXML file 'GameRun.fxml'.";
         assert rewardGraph != null : "fx:id=\"rewardGraph\" was not injected: check your FXML file 'GameRun.fxml'.";
         assert responseGraph != null : "fx:id=\"responseGraph\" was not injected: check your FXML file 'GameRun.fxml'.";
@@ -118,22 +122,26 @@ public class GameRunController {
         assert startButton != null : "fx:id=\"startButton\" was not injected: check your FXML file 'GameRun.fxml'.";
 
         // setup autoscaling of imageview
+        // TODO - View https://stackoverflow.com/questions/12630296/resizing-images-to-fit-the-parent-node
 
         DoubleProperty vscale = new SimpleDoubleProperty();
-        vscale.bind(imageScrollPane.heightProperty().divide(OutputTools.VIDEO_HEIGHT));
+        vscale.bind(imageAnchor.heightProperty().divide(OutputTools.VIDEO_HEIGHT));
         DoubleProperty hscale = new SimpleDoubleProperty();
-        hscale.bind(imageScrollPane.widthProperty().divide(OutputTools.VIDEO_WIDTH));
+        hscale.bind(imageAnchor.widthProperty().divide(OutputTools.VIDEO_WIDTH));
         DoubleProperty scale = new SimpleDoubleProperty();
         scale.bind(Bindings.min(vscale, hscale));
 
-        imageView.fitHeightProperty().bind(scale.multiply(OutputTools.VIDEO_HEIGHT));
-        imageView.fitWidthProperty().bind(scale.multiply(OutputTools.VIDEO_WIDTH));
+//        imageView.fitHeightProperty().bind(scale.multiply(OutputTools.VIDEO_HEIGHT));
+//        imageView.fitWidthProperty().bind(scale.multiply(OutputTools.VIDEO_WIDTH));
+        imageView.setPreserveRatio(true);
+        imageView.fitWidthProperty().bind(imageAnchor.widthProperty());
+        imageView.fitHeightProperty().bind(imageAnchor.heightProperty());
 
         // add logging
         scale.addListener((observable, oldValue, newValue) -> {
             LOG.info("===");
-            LOG.info("PaneWidth=" + imageScrollPane.getWidth());
-            LOG.info("PaneHeight=" + imageScrollPane.getHeight());
+            LOG.info("PaneWidth=" + imageAnchor.getWidth());
+            LOG.info("PaneHeight=" + imageAnchor.getHeight());
             LOG.info("VScale= " + vscale.get());
             LOG.info("HScale=" + hscale.get());
             LOG.info("Scale=" + scale.get());
@@ -154,20 +162,34 @@ public class GameRunController {
         responseChartYAxis.setLabel("milliseconds");
     }
 
+    /**
+     * <p>addResponseChartCategory.</p>
+     *
+     * @param category a {@link java.lang.String} object.
+     */
     public void addResponseChartCategory(String category) {
         XYChart.Series<Long, Double> series = new XYChart.Series<>();
         series.setName(category);
         responseSeries.put(category, series);
     }
 
+    /**
+     * <p>addResponseReading.</p>
+     *
+     * @param category a {@link java.lang.String} object.
+     * @param step     a long.
+     * @param reading  a double.
+     */
     public void addResponseReading(String category, long step, double reading) {
         responseSeries.get(category).getData().add(new XYChart.Data(step, reading));
     }
 
     /**
+     * Method to update the on-screen view of the simulation
+     * <p>
      * This must only be called in the JavaFX thread (use Platform.runLater)
      *
-     * @param image
+     * @param image The pre-drawn {@link java.awt.image.BufferedImage} to display.
      */
     public void updateBoardImage(BufferedImage image) {
         // TODO convert this to run in any thread and skip frames if the UI can't keey up.

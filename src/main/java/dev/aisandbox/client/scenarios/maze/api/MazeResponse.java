@@ -4,7 +4,10 @@ import dev.aisandbox.client.scenarios.ServerResponse;
 import lombok.Data;
 
 /**
+ * <p>MazeResponse class.</p>
+ *
  * @author gde
+ * @version $Id: $Id
  */
 
 @Data

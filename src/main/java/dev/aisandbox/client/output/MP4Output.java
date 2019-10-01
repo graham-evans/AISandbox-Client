@@ -15,6 +15,12 @@ import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * <p>MP4Output class.</p>
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 @Component
 public class MP4Output implements FrameOutput {
 
@@ -23,11 +29,15 @@ public class MP4Output implements FrameOutput {
     private SeekableByteChannel out = null;
     private AWTSequenceEncoder encoder;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getName(Locale l) {
         return "Write to video (MP4)";
     }
 
+    /** {@inheritDoc} */
     @Override
     public void open(File baseDir) throws IOException {
         File outputFile = new File(baseDir, UUID.randomUUID().toString() + ".mp4");
@@ -39,11 +49,13 @@ public class MP4Output implements FrameOutput {
         }
     }
 
+    /** {@inheritDoc} */
     @Override
     public void addFrame(BufferedImage frame) throws IOException {
         encoder.encodeImage(frame);
     }
 
+    /** {@inheritDoc} */
     @Override
     public void close() throws IOException {
         encoder.finish();

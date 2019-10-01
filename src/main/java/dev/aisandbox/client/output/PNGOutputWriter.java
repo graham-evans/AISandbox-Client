@@ -9,23 +9,34 @@ import java.io.IOException;
 import java.util.Locale;
 import java.util.UUID;
 
+/**
+ * <p>PNGOutputWriter class.</p>
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 @Component
 public class PNGOutputWriter implements FrameOutput {
 
     private long count = 0;
     private File source = null;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getName(Locale l) {
         return "Write to files (PNG)";
     }
 
+    /** {@inheritDoc} */
     @Override
     public void open(File baseDir) throws IOException {
         source = new File(baseDir, UUID.randomUUID().toString());
         source.mkdirs();
     }
 
+    /** {@inheritDoc} */
     @Override
     public void addFrame(BufferedImage frame) throws IOException {
         if (source == null) {
@@ -36,6 +47,7 @@ public class PNGOutputWriter implements FrameOutput {
         }
     }
 
+    /** {@inheritDoc} */
     @Override
     public void close() throws IOException {
         source = null;

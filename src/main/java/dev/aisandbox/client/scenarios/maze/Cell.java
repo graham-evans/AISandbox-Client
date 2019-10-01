@@ -7,6 +7,12 @@ import lombok.Setter;
 
 import java.util.*;
 
+/**
+ * <p>Cell class.</p>
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 @RequiredArgsConstructor
 public class Cell {
 
@@ -25,16 +31,33 @@ public class Cell {
     @Setter
     private float value;
 
+    /**
+     * <p>getPosition.</p>
+     *
+     * @return a {@link dev.aisandbox.client.scenarios.maze.api.Position} object.
+     */
     public Position getPosition() {
         return new Position(positionX, positionY);
     }
 
+    /**
+     * <p>link.</p>
+     *
+     * @param d a {@link dev.aisandbox.client.scenarios.maze.Direction} object.
+     * @param c a {@link dev.aisandbox.client.scenarios.maze.Cell} object.
+     */
     public void link(Direction d, Cell c) {
         if (c != null) {
             neighbours.put(d, c);
         }
     }
 
+    /**
+     * <p>linkBi.</p>
+     *
+     * @param d a {@link dev.aisandbox.client.scenarios.maze.Direction} object.
+     * @param c a {@link dev.aisandbox.client.scenarios.maze.Cell} object.
+     */
     public void linkBi(Direction d, Cell c) {
         if (c != null) {
             neighbours.put(d, c);
@@ -42,14 +65,28 @@ public class Cell {
         }
     }
 
+    /**
+     * <p>getLinks.</p>
+     *
+     * @return a {@link java.util.Collection} object.
+     */
     public Collection<Cell> getLinks() {
         return neighbours.values();
     }
 
+    /**
+     * <p>isLinked.</p>
+     *
+     * @param c a {@link dev.aisandbox.client.scenarios.maze.Cell} object.
+     * @return a boolean.
+     */
     public boolean isLinked(Cell c) {
         return neighbours.containsValue(c);
     }
 
+    /**
+     * <p>disconnect.</p>
+     */
     public void disconnect() {
         Iterator<Map.Entry<Direction, Cell>> itr = neighbours.entrySet().iterator();
         while (itr.hasNext()) {
@@ -59,11 +96,21 @@ public class Cell {
         }
     }
 
+    /**
+     * <p>addPath.</p>
+     *
+     * @param direction a {@link dev.aisandbox.client.scenarios.maze.Direction} object.
+     */
     public void addPath(Direction direction) {
         paths.add(direction);
         getNeighbours().get(direction).getPaths().add(direction.opposite());
     }
 
+    /**
+     * <p>addPath.</p>
+     *
+     * @param c a {@link dev.aisandbox.client.scenarios.maze.Cell} object.
+     */
     public void addPath(Cell c) {
         Iterator<Map.Entry<Direction, Cell>> itr = neighbours.entrySet().iterator();
         while (itr.hasNext()) {
@@ -74,6 +121,9 @@ public class Cell {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -83,11 +133,13 @@ public class Cell {
                 positionY == cell.positionY;
     }
 
+    /** {@inheritDoc} */
     @Override
     public int hashCode() {
         return Objects.hash(positionX, positionY);
     }
 
+    /** {@inheritDoc} */
     @Override
     public String toString() {
         return "Cell{" +

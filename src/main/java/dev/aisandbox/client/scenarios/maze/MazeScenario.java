@@ -11,6 +11,12 @@ import java.util.List;
 import java.util.Random;
 import java.util.logging.Logger;
 
+/**
+ * <p>MazeScenario class.</p>
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 @Component
 @Data
 public class MazeScenario implements Scenario {
@@ -23,36 +29,45 @@ public class MazeScenario implements Scenario {
     private Long scenarioSalt = 0l;
     private MazeType mazeType = MazeType.BINARYTREE;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getGroup() {
         return "Introduction";
     }
 
+    /** {@inheritDoc} */
     @Override
     public String getName() {
         return "Maze Runner";
     }
 
+    /** {@inheritDoc} */
     @Override
     public String getOverview() {
         return "Navigate the maze and find the exit, then optimise the path to find the shortest route.";
     }
 
+    /** {@inheritDoc} */
     @Override
     public String getDescription() {
         return "Long description about mazes";
     }
 
+    /** {@inheritDoc} */
     @Override
     public int getMinAgentCount() {
         return 1;
     }
 
+    /** {@inheritDoc} */
     @Override
     public int getMaxAgentCount() {
         return 1;
     }
 
+    /** {@inheritDoc} */
     @Override
     public void startSimulation(List<Agent> agentList, GameRunController ui, FrameOutput output) {
         LOG.info("Salt " + scenarioSalt);
@@ -74,6 +89,7 @@ public class MazeScenario implements Scenario {
         runner.start();
     }
 
+    /** {@inheritDoc} */
     @Override
     public void stopSimulation() {
         LOG.info("Stopping simulation");
@@ -83,6 +99,7 @@ public class MazeScenario implements Scenario {
         }
     }
 
+    /** {@inheritDoc} */
     @Override
     public boolean isSimulationRunning() {
         return runner != null;

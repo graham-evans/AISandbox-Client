@@ -26,6 +26,12 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * <p>GameOptionsController class.</p>
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 @Component
 public class GameOptionsController {
 

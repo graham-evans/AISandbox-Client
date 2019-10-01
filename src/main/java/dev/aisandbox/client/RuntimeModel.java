@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 
 /**
  * The main (POJO) class used to hold the application state.
- * <p>This uses the Lambok library to auto generate much of its functionality
+ * <p>This uses the Lombok library to auto generate much of its functionality
  */
 @Component
 public class RuntimeModel {

@@ -12,7 +12,10 @@ import lombok.NoArgsConstructor;
 import java.util.Objects;
 
 /**
+ * <p>Position class.</p>
+ *
  * @author gde
+ * @version $Id: $Id
  */
 @Data
 @NoArgsConstructor
@@ -22,6 +25,9 @@ public class Position {
     int x;
     int y;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -31,6 +37,7 @@ public class Position {
                 y == position.y;
     }
 
+    /** {@inheritDoc} */
     @Override
     public int hashCode() {
         return Objects.hash(x, y);

@@ -2,11 +2,23 @@ package dev.aisandbox.client.scenarios.maze;
 
 import java.util.*;
 
+/**
+ * <p>MazeUtilities class.</p>
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 public class MazeUtilities {
 
     private MazeUtilities() {
     }
 
+    /**
+     * <p>applySidewinder.</p>
+     *
+     * @param rand a {@link java.util.Random} object.
+     * @param maze a {@link dev.aisandbox.client.scenarios.maze.Maze} object.
+     */
     public static void applySidewinder(Random rand, Maze maze) {
         // special case, join the top row
         for (int x = 0; x < maze.getWidth() - 1; x++) {
@@ -32,6 +44,12 @@ public class MazeUtilities {
         }
     }
 
+    /**
+     * <p>applyBinaryTree.</p>
+     *
+     * @param rand a {@link java.util.Random} object.
+     * @param maze a {@link dev.aisandbox.client.scenarios.maze.Maze} object.
+     */
     public static void applyBinaryTree(Random rand, Maze maze) {
         for (Cell c : maze.getCellList()) {
             List<Cell> targets = new ArrayList<>();
@@ -47,6 +65,11 @@ public class MazeUtilities {
         }
     }
 
+    /**
+     * <p>findFurthestPoints.</p>
+     *
+     * @param maze a {@link dev.aisandbox.client.scenarios.maze.Maze} object.
+     */
     public static void findFurthestPoints(Maze maze) {
         applyDijkstra(maze);
         Cell start = getHighestVelueCell(maze);
@@ -61,7 +84,7 @@ public class MazeUtilities {
      * Apply the Dijkstra algorithm, once, to the maze.
      * This will result in the <i>value</i> of each cell growing from 0 (at a random point)
      *
-     * @param maze
+     * @param maze a {@link dev.aisandbox.client.scenarios.maze.Maze} object.
      */
     public static void applyDijkstra(Maze maze) {
         Random rand = new Random(System.currentTimeMillis());
@@ -72,7 +95,8 @@ public class MazeUtilities {
      * Apply the Dijkstra algorithm, once, to the maze.
      * This will result in the <i>value</i> of each cell growing from the starting position
      *
-     * @param maze
+     * @param maze a {@link dev.aisandbox.client.scenarios.maze.Maze} object.
+     * @param start a {@link dev.aisandbox.client.scenarios.maze.Cell} object.
      */
     public static void applyDijkstra(Maze maze, Cell start) {
         // list of cells that have not been visited
@@ -108,6 +132,12 @@ public class MazeUtilities {
         }
     }
 
+    /**
+     * <p>getHighestVelueCell.</p>
+     *
+     * @param maze a {@link dev.aisandbox.client.scenarios.maze.Maze} object.
+     * @return a {@link dev.aisandbox.client.scenarios.maze.Cell} object.
+     */
     public static Cell getHighestVelueCell(Maze maze) {
         Cell result = null;
         float v = Float.MIN_VALUE;
@@ -123,7 +153,7 @@ public class MazeUtilities {
     /**
      * update the values of each cell - distributing them between 0.0 and 1.0
      *
-     * @param maze
+     * @param maze a {@link dev.aisandbox.client.scenarios.maze.Maze} object.
      */
     public static void normalise(Maze maze) {
         // work our max and min

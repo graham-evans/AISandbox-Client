@@ -15,10 +15,19 @@ import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * <p>Maze class.</p>
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 public class Maze {
 
     private static final Logger LOG = java.util.logging.Logger.getLogger(Maze.class.getName());
 
+    /**
+     * Constant <code>SCALE=25</code>
+     */
     public static final int SCALE = 25;
 
     @Getter
@@ -47,6 +56,12 @@ public class Maze {
     @Setter
     private Cell endCell = null;
 
+    /**
+     * <p>Constructor for Maze.</p>
+     *
+     * @param width a int.
+     * @param height a int.
+     */
     public Maze(int width, int height) {
         this.width = width;
         this.height = height;
@@ -55,6 +70,11 @@ public class Maze {
         joinGrid();
     }
 
+    /**
+     * <p>getConfig.</p>
+     *
+     * @return a {@link dev.aisandbox.client.scenarios.maze.api.Config} object.
+     */
     public Config getConfig() {
         Config c = new Config();
         c.setBoardID(boardID);
@@ -63,6 +83,9 @@ public class Maze {
         return c;
     }
 
+    /**
+     * <p>prepareGrid.</p>
+     */
     protected void prepareGrid() {
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
@@ -73,6 +96,9 @@ public class Maze {
         }
     }
 
+    /**
+     * <p>joinGrid.</p>
+     */
     protected void joinGrid() {
         for (Cell c : cellList) {
             if (c.getPositionY() > 0) {
@@ -84,6 +110,12 @@ public class Maze {
         }
     }
 
+    /**
+     * <p>toImage.</p>
+     *
+     * @param colourize a boolean.
+     * @return a {@link java.awt.image.BufferedImage} object.
+     */
     public BufferedImage toImage(boolean colourize) {
         BufferedImage image = new BufferedImage(width * SCALE, height * SCALE, BufferedImage.TYPE_INT_RGB);
         Graphics2D g = image.createGraphics();
@@ -114,10 +146,21 @@ public class Maze {
         return image;
     }
 
+    /**
+     * <p>toImage.</p>
+     *
+     * @return a {@link java.awt.image.BufferedImage} object.
+     */
     public BufferedImage toImage() {
         return toImage(false);
     }
 
+    /**
+     * <p>toImage.</p>
+     *
+     * @param f a {@link java.io.File} object.
+     * @param colourize a boolean.
+     */
     public void toImage(File f, boolean colourize) {
         BufferedImage i = toImage(colourize);
         try {
@@ -127,6 +170,11 @@ public class Maze {
         }
     }
 
+    /**
+     * <p>toImage.</p>
+     *
+     * @param f a {@link java.io.File} object.
+     */
     public void toImage(File f) {
         toImage(f, false);
     }

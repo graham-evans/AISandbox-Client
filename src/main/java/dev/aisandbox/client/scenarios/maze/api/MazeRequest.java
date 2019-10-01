@@ -5,7 +5,10 @@ import dev.aisandbox.client.scenarios.ServerRequest;
 import lombok.Data;
 
 /**
+ * <p>MazeRequest class.</p>
+ *
  * @author gde
+ * @version $Id: $Id
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data

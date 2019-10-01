@@ -4,8 +4,17 @@ import java.beans.IntrospectionException;
 import java.beans.PropertyDescriptor;
 import java.beans.SimpleBeanInfo;
 
+/**
+ * <p>MazeScenarioBeanInfo class.</p>
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 public class MazeScenarioBeanInfo extends SimpleBeanInfo {
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public PropertyDescriptor[] getPropertyDescriptors() {
         try {
@@ -17,9 +26,7 @@ public class MazeScenarioBeanInfo extends SimpleBeanInfo {
             fic.setName("B");
             PropertyDescriptor[] list = { flc, fic};
             return list;
-        }
-        catch (IntrospectionException iexErr)
-        {
+        } catch (IntrospectionException iexErr) {
             throw new Error(iexErr.toString());
         }
     }
