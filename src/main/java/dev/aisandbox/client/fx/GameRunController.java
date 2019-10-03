@@ -13,7 +13,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
@@ -72,7 +74,7 @@ public class GameRunController {
     private Button startButton;
 
     @FXML
-    private Pane imageAnchor;
+    private FlowPane imageAnchor;
 
     //    @FXML
 //    private ImageView imageView;
