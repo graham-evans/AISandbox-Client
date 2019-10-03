@@ -66,7 +66,7 @@ public class MazeRunner extends Thread {
             // send and get response
             try {
                 MazeResponse response = agent.postRequest(request, MazeResponse.class);
-                LOG.log(Level.INFO, "Recieved response from server '{0}'", new Object[]{response.toString()});
+                LOG.log(Level.INFO, "Recieved response from server - {0}", response);
                 lastMove = new History();
                 lastMove.setLastPosition(currentCell.getPosition());
                 lastMove.setAction(response.getMove());

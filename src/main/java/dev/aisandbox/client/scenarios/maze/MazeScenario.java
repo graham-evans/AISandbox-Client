@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Random;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
@@ -70,7 +71,7 @@ public class MazeScenario implements Scenario {
     /** {@inheritDoc} */
     @Override
     public void startSimulation(List<Agent> agentList, GameRunController ui, FrameOutput output) {
-        LOG.info("Salt " + scenarioSalt);
+        LOG.log(Level.INFO, "Salt {0}", scenarioSalt);
         LOG.info("Generating maze");
         Maze maze = new Maze(40, 30);
         Random rand = new Random(System.currentTimeMillis());
@@ -84,7 +85,6 @@ public class MazeScenario implements Scenario {
         }
         MazeUtilities.findFurthestPoints(maze);
         runner = new MazeRunner(agentList.get(0), maze, output, ui);
-        LOG.info(maze.toString());
         LOG.info("Starting simulation");
         runner.start();
     }
@@ -99,7 +99,11 @@ public class MazeScenario implements Scenario {
         }
     }
 
-    /** {@inheritDoc} */
+    /**
+     * Tell if the simulation is currently running
+     *
+     * @return True if the simulation is running.
+     */
     @Override
     public boolean isSimulationRunning() {
         return runner != null;
