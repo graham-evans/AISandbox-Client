@@ -13,10 +13,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
+import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
@@ -70,9 +72,10 @@ public class GameRunController {
     private Button startButton;
 
     @FXML
-    private AnchorPane imageAnchor;
+    private Pane imageAnchor;
 
-    @FXML
+    //    @FXML
+//    private ImageView imageView;
     private ImageView imageView;
 
     @FXML
@@ -113,7 +116,7 @@ public class GameRunController {
     @FXML
     void initialize() {
         assert imageAnchor != null : "fx:id=\"imageAnchor\" was not injected: check your FXML file 'GameRun.fxml'.";
-        assert imageView != null : "fx:id=\"imageView\" was not injected: check your FXML file 'GameRun.fxml'.";
+//        assert imageView != null : "fx:id=\"imageView\" was not injected: check your FXML file 'GameRun.fxml'.";
         assert rewardGraph != null : "fx:id=\"rewardGraph\" was not injected: check your FXML file 'GameRun.fxml'.";
         assert responseGraph != null : "fx:id=\"responseGraph\" was not injected: check your FXML file 'GameRun.fxml'.";
         assert responseChartXAxis != null : "fx:id=\"responseChartXAxis\" was not injected: check your FXML file 'GameRun.fxml'.";
@@ -122,36 +125,48 @@ public class GameRunController {
         assert startButton != null : "fx:id=\"startButton\" was not injected: check your FXML file 'GameRun.fxml'.";
 
         // setup autoscaling of imageview
+
+        imageView = new ImageView();
+        try {
+            imageView.setImage(SwingFXUtils.toFXImage(ImageIO.read(GameRunController.class.getResourceAsStream("/dev/aisandbox/client/testcard.png")), null));
+        } catch (IOException e) {
+            LOG.log(Level.SEVERE, "Error loading testcard", e);
+        }
+        imageAnchor.getChildren().add(imageView);
+        imageView.setPreserveRatio(true);
+        imageView.fitHeightProperty().bind(imageAnchor.heightProperty());
+        imageView.fitWidthProperty().bind(imageAnchor.widthProperty());
+//        imageView.xProperty().bind(imageAnchor.widthProperty().add(imageView.fitWidthProperty().multiply(-1)).divide(2));
+
         // TODO - View https://stackoverflow.com/questions/12630296/resizing-images-to-fit-the-parent-node
 
+        /*
         DoubleProperty vscale = new SimpleDoubleProperty();
         vscale.bind(imageAnchor.heightProperty().divide(OutputTools.VIDEO_HEIGHT));
         DoubleProperty hscale = new SimpleDoubleProperty();
         hscale.bind(imageAnchor.widthProperty().divide(OutputTools.VIDEO_WIDTH));
         DoubleProperty scale = new SimpleDoubleProperty();
         scale.bind(Bindings.min(vscale, hscale));
-
+         */
 //        imageView.fitHeightProperty().bind(scale.multiply(OutputTools.VIDEO_HEIGHT));
 //        imageView.fitWidthProperty().bind(scale.multiply(OutputTools.VIDEO_WIDTH));
+/*
         imageView.setPreserveRatio(true);
         imageView.fitWidthProperty().bind(imageAnchor.widthProperty());
         imageView.fitHeightProperty().bind(imageAnchor.heightProperty());
-
+*/
         // add logging
-        scale.addListener((observable, oldValue, newValue) -> {
+        imageAnchor.heightProperty().addListener((observable, oldValue, newValue) -> {
             LOG.info("===");
             LOG.info("PaneWidth=" + imageAnchor.getWidth());
             LOG.info("PaneHeight=" + imageAnchor.getHeight());
-            LOG.info("VScale= " + vscale.get());
-            LOG.info("HScale=" + hscale.get());
-            LOG.info("Scale=" + scale.get());
-            LOG.info("ImageWidth=" + imageView.fitWidthProperty().get());
-            LOG.info("ImageHeight=" + imageView.fitHeightProperty().get());
-            // TODO correct image scaling and centering
+            LOG.info("ImageWidth=" + imageView.getFitWidth());
+            LOG.info("ImageHeight=" + imageView.getFitHeight());
+        });
 
 //               imageView.setFitHeight(scale.get() * OutputTools.VIDEO_HEIGHT);
 //               imageView.setFitWidth(scale.get()*OutputTools.VIDEO_WIDTH);
-        });
+//        });
 //        imageAnchorPane.widthProperty().addListener(new LoggingChangeListener("Pane Width"));
 //        imageAnchorPane.heightProperty().addListener(new LoggingChangeListener("Pane Height"));
 //           vscale.addListener(new LoggingChangeListener("VScale"));
