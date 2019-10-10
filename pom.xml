@@ -10,7 +10,7 @@
     </parent>
     <groupId>dev.aisandbox</groupId>
     <artifactId>AISandbox-Client</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.0-snapshot</version>
     <name>AI Sandbox Client</name>
     <description>Client for reinforcement learning</description>
 
@@ -108,7 +108,7 @@
     </dependencies>
 
     <build>
-        <finalName>${project.artifactId}</finalName>
+        <finalName>${project.artifactId}-${project.version}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
