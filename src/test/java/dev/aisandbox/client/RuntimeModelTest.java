@@ -1,9 +1,10 @@
 package dev.aisandbox.client;
 
+import dev.aisandbox.client.scenarios.maze.MazeScenario;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertTrue;
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.*;
 
 public class RuntimeModelTest {
 
@@ -48,6 +49,16 @@ public class RuntimeModelTest {
         model.getAgentList().add(new Agent());
         model.getAgentList().add(new Agent());
         assertFalse("Validity when too many agents", model.getValid().get());
+    }
+
+    @Test
+    public void testLoadScenario() {
+        RuntimeModel model = new RuntimeModel();
+        MazeScenario maze = new MazeScenario();
+        model.setScenario(maze);
+        assertEquals("Wrong Min Agents", 1, model.getMinAgents().get());
+        assertEquals("Wrong Max Agents", 1, model.getMaxAgents().get());
+        assertSame("Unexpected scenario", maze, model.getScenario());
     }
 
 }
