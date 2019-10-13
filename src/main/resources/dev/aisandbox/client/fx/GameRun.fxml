@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
@@ -7,8 +8,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
 <BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
@@ -16,9 +17,9 @@
     <bottom>
         <VBox BorderPane.alignment="CENTER">
             <children>
-                <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="NEVER">
+                <HBox prefHeight="200.0" VBox.vgrow="NEVER">
                     <children>
-                        <LineChart fx:id="rewardGraph" title="Reward">
+                        <LineChart fx:id="rewardGraph" title="Reward" HBox.hgrow="ALWAYS">
                             <xAxis>
                                 <CategoryAxis side="BOTTOM"/>
                             </xAxis>
@@ -26,13 +27,16 @@
                                 <NumberAxis side="LEFT"/>
                             </yAxis>
                         </LineChart>
-                        <StackedBarChart fx:id="responseGraph">
+                        <StackedBarChart fx:id="responseGraph" HBox.hgrow="ALWAYS">
                             <xAxis>
                                 <CategoryAxis fx:id="responseChartXAxis" side="BOTTOM"/>
                             </xAxis>
                             <yAxis>
                                 <NumberAxis fx:id="responseChartYAxis" side="LEFT"/>
                             </yAxis>
+                            <HBox.margin>
+                                <Insets/>
+                            </HBox.margin>
                         </StackedBarChart>
                     </children>
                 </HBox>
@@ -52,9 +56,8 @@
     <center>
         <AnchorPane minHeight="100.0" BorderPane.alignment="CENTER">
             <children>
-                <FlowPane fx:id="imageAnchor" alignment="CENTER" columnHalignment="CENTER" prefHeight="200.0"
-                          prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0"
-                          AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0"/>
+                <Pane fx:id="imageAnchor" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0"
+                      AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0"/>
             </children>
         </AnchorPane>
     </center>

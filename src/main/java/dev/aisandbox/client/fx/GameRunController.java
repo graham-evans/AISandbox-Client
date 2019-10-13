@@ -9,6 +9,7 @@ import javafx.scene.chart.*;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.Pane;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
@@ -67,7 +68,7 @@ public class GameRunController {
     private Button startButton;
 
     @FXML
-    private FlowPane imageAnchor;
+    private Pane imageAnchor;
 
     private ImageView imageView;
 
@@ -125,11 +126,34 @@ public class GameRunController {
             LOG.log(Level.SEVERE, "Error loading testcard", e);
         }
         imageAnchor.getChildren().add(imageView);
-        imageView.setPreserveRatio(true);
-        imageView.fitHeightProperty().bind(imageAnchor.heightProperty());
-        imageView.fitWidthProperty().bind(imageAnchor.widthProperty());
+
+        imageAnchor.widthProperty().addListener((observableValue, number, t1) -> {
+            repositionImage(imageView, t1.doubleValue(), imageAnchor.getHeight());
+        });
+        imageAnchor.heightProperty().addListener((observableValue, number, t1) -> {
+            repositionImage(imageView, imageAnchor.getWidth(), t1.doubleValue());
+        });
+        // imageView.setPreserveRatio(true);
+        // imageView.fitHeightProperty().bind(imageAnchor.heightProperty());
+        // imageView.fitWidthProperty().bind(imageAnchor.widthProperty());
+
         // setup response graph
         responseChartYAxis.setLabel("milliseconds");
+    }
+
+    private void repositionImage(ImageView image, double paneWidth, double paneHeight) {
+        // get image width and height
+        double imageWidth = image.getImage().getWidth();
+        double imageHeight = image.getImage().getHeight();
+        LOG.info("Scaling image (" + imageWidth + "x" + imageHeight + ") to pane (" + paneWidth + "x" + paneHeight + ")");
+        // work out the best scale
+        double scaleX = paneWidth / imageWidth;
+        double scaleY = paneHeight / imageHeight;
+        double scale = Math.min(scaleX, scaleY);
+        image.setFitWidth(scale * imageWidth);
+        image.setFitHeight(scale * imageHeight);
+        image.setX((paneWidth - scale * imageWidth) / 2.0);
+        image.setY((paneHeight - scale * imageHeight) / 2.0);
     }
 
     /**
