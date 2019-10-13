@@ -6,9 +6,10 @@ import org.junit.rules.TemporaryFolder;
 
 import java.awt.*;
 import java.io.IOException;
+import java.util.Locale;
 import java.util.logging.Logger;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class PNGOutputWriterTest {
 
@@ -41,6 +42,13 @@ public class PNGOutputWriterTest {
     }
 
     @Test(expected = IOException.class)
+    public void writeToClosedTest() throws IOException {
+        // try to write to a session before it's open
+        PNGOutputWriter png = new PNGOutputWriter();
+        png.addFrame(OutputTools.getWhiteScreen());
+    }
+
+    @Test(expected = IOException.class)
     public void doubleOpenTest() throws IOException {
         // open a new session then try and open it without closing
         PNGOutputWriter png = new PNGOutputWriter();
@@ -60,6 +68,13 @@ public class PNGOutputWriterTest {
         png.open(folder.getRoot()); // No exception
         png.addFrame(OutputTools.getBlackScreen());
         png.close();
+    }
+
+    @Test
+    public void nameTest() {
+        PNGOutputWriter png = new PNGOutputWriter();
+        assertNotNull("Null name", png.getName(Locale.UK));
+        assertTrue("Short name", png.getName(Locale.UK).length() > 2);
     }
 
 }
