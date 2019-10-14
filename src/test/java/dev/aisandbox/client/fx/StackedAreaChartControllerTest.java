@@ -21,7 +21,6 @@ public class StackedAreaChartControllerTest extends ApplicationTest {
         reading.put("Initialise", 1.0);
         reading.put("Processing", 2.0);
         controller.add(reading);
-        assertEquals("Should have one categories", 1, ((CategoryAxis) areaChart.getXAxis()).getCategories().size());
         assertEquals("Should have two series", 2, areaChart.getData().size());
     }
 
@@ -37,7 +36,6 @@ public class StackedAreaChartControllerTest extends ApplicationTest {
         controller.add(reading);
         controller.add(reading);
         controller.reset();
-        assertEquals("Should have no categories", 0, ((CategoryAxis) areaChart.getXAxis()).getCategories().size());
         assertEquals("Shoudl have no series", 0, areaChart.getData().size());
     }
 

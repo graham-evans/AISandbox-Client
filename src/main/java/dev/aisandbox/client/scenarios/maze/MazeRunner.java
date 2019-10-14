@@ -13,6 +13,8 @@ import lombok.RequiredArgsConstructor;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Map;
+import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -47,14 +49,13 @@ public class MazeRunner extends Thread {
         BufferedImage background = maze.toImage();
         // setup agent
         agent.setupAgent();
-        // setup graph
-        controller.addResponseChartCategory("AI");
-        controller.addResponseChartCategory("Model");
-        controller.addResponseChartCategory("Rendering");
         // main game loop
         running = true;
         long step = 1;
         while (running) {
+            // keep timings
+            Map<String, Double> timings = new TreeMap<>();
+            long timer = System.currentTimeMillis();
             // work out postRequest
             MazeRequest request = new MazeRequest();
             // populate the config
@@ -63,10 +64,14 @@ public class MazeRunner extends Thread {
                 request.setHistory(lastMove);
             }
             request.setCurrentPosition(currentCell.getPosition());
+            timings.put("Setup", (double) (System.currentTimeMillis() - timer));
             // send and get response
             try {
+                timer = System.currentTimeMillis();
                 MazeResponse response = agent.postRequest(request, MazeResponse.class);
                 LOG.log(Level.INFO, "Recieved response from server - {0}", response);
+                timings.put("Network", (double) (System.currentTimeMillis() - timer));
+                timer = System.currentTimeMillis();
                 lastMove = new History();
                 lastMove.setLastPosition(currentCell.getPosition());
                 lastMove.setAction(response.getMove());
@@ -87,6 +92,8 @@ public class MazeRunner extends Thread {
                 }
                 LOG.log(Level.INFO, "Moved to {0}", new Object[]{currentCell});
                 lastMove.setNewPosition(currentCell.getPosition());
+                timings.put("Simulation", (double) (System.currentTimeMillis() - timer));
+                timer = System.currentTimeMillis();
                 // redraw the map
                 long startTime = System.currentTimeMillis();
                 BufferedImage image = OutputTools.getWhiteScreen();
@@ -99,8 +106,9 @@ public class MazeRunner extends Thread {
                 controller.updateBoardImage(image);
                 // output frame
                 output.addFrame(image);
+                timings.put("Graphics", (double) (System.currentTimeMillis() - timer));
                 long stopTime = System.currentTimeMillis();
-                controller.addResponseReading("Rendering", step, (stopTime - startTime));
+                controller.addResponseTimings(timings);
             } catch (Exception ex) {
                 LOG.log(Level.SEVERE, "Error running", ex);
                 running = false;

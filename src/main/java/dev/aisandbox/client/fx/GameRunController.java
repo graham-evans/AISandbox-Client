@@ -18,11 +18,9 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -53,15 +51,7 @@ public class GameRunController {
     private LineChart<?, ?> rewardGraph;
 
     @FXML
-    private StackedBarChart<?, ?> responseGraph;
-
-    @FXML
-    private CategoryAxis responseChartXAxis;
-
-    private Map<String, XYChart.Series<Long, Double>> responseSeries = new HashMap<>();
-
-    @FXML
-    private NumberAxis responseChartYAxis;
+    private StackedAreaChart<?, ?> responseGraph;
 
     @FXML
     private Button backButton;
@@ -73,6 +63,8 @@ public class GameRunController {
     private Pane imageAnchor;
 
     private ImageView imageView;
+
+    private StackedAreaChartController timingsController;
 
     @FXML
     void backButtonAction(ActionEvent event) {
@@ -86,7 +78,9 @@ public class GameRunController {
             model.getScenario().stopSimulation();
             startButton.setText("Start Simulation");
         } else {
-            // dicide which output class to use
+            // reset the charts
+            timingsController.reset();
+            // decide which output class to use
             FrameOutput out;
             switch (model.getOutputFormat()) {
                 case MP4:
@@ -114,13 +108,9 @@ public class GameRunController {
         assert imageAnchor != null : "fx:id=\"imageAnchor\" was not injected: check your FXML file 'GameRun.fxml'.";
         assert rewardGraph != null : "fx:id=\"rewardGraph\" was not injected: check your FXML file 'GameRun.fxml'.";
         assert responseGraph != null : "fx:id=\"responseGraph\" was not injected: check your FXML file 'GameRun.fxml'.";
-        assert responseChartXAxis != null : "fx:id=\"responseChartXAxis\" was not injected: check your FXML file 'GameRun.fxml'.";
-        assert responseChartYAxis != null : "fx:id=\"responseChartYAxis\" was not injected: check your FXML file 'GameRun.fxml'.";
         assert backButton != null : "fx:id=\"backButton\" was not injected: check your FXML file 'GameRun.fxml'.";
         assert startButton != null : "fx:id=\"startButton\" was not injected: check your FXML file 'GameRun.fxml'.";
-
         // setup autoscaling of imageview
-
         imageView = new ImageView();
         try {
             imageView.setImage(SwingFXUtils.toFXImage(ImageIO.read(GameRunController.class.getResourceAsStream("/dev/aisandbox/client/testcard.png")), null));
@@ -136,7 +126,10 @@ public class GameRunController {
             repositionImage(imageView, imageAnchor.getWidth(), t1.doubleValue());
         });
         // setup response graph
-        responseChartYAxis.setLabel("milliseconds");
+        responseGraph.getYAxis().setLabel("milliseconds");
+
+        timingsController = new StackedAreaChartController(responseGraph);
+
     }
 
     private void repositionImage(ImageView image, double paneWidth, double paneHeight) {
@@ -155,25 +148,16 @@ public class GameRunController {
     }
 
     /**
-     * <p>addResponseChartCategory.</p>
-     *
-     * @param category a {@link java.lang.String} object.
+     * Update the timings chart with new entries
+     * <p>
+     * Pass a Map (usualy a TreeMap) of name:value pairs which will be added to the chart.
+     * If there are more than 20 entries already - the oldest one should be removed.
+     * @param timings
      */
-    public void addResponseChartCategory(String category) {
-        XYChart.Series<Long, Double> series = new XYChart.Series<>();
-        series.setName(category);
-        responseSeries.put(category, series);
-    }
-
-    /**
-     * <p>addResponseReading.</p>
-     *
-     * @param category a {@link java.lang.String} object.
-     * @param step     a long.
-     * @param reading  a double.
-     */
-    public void addResponseReading(String category, long step, double reading) {
-        responseSeries.get(category).getData().add(new XYChart.Data(step, reading));
+    public void addResponseTimings(Map<String, Double> timings) {
+        Platform.runLater(() -> {
+            timingsController.add(timings);
+        });
     }
 
     private final AtomicBoolean imageReady = new AtomicBoolean(true);
