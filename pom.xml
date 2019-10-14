@@ -101,9 +101,9 @@
         </dependency>
 
         <dependency>
-            <groupId>org.testfx</groupId>
+            <groupId>org.jfxtras</groupId>
             <artifactId>openjfx-monocle</artifactId>
-            <version>jdk-11+26</version>
+            <version>1.8.0_20</version>
             <scope>test</scope>
         </dependency>
         <dependency>
