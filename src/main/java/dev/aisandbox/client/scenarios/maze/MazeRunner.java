@@ -51,7 +51,6 @@ public class MazeRunner extends Thread {
         agent.setupAgent();
         // main game loop
         running = true;
-        long step = 1;
         while (running) {
             // keep timings
             Map<String, Double> timings = new TreeMap<>();
@@ -95,7 +94,6 @@ public class MazeRunner extends Thread {
                 timings.put("Simulation", (double) (System.currentTimeMillis() - timer));
                 timer = System.currentTimeMillis();
                 // redraw the map
-                long startTime = System.currentTimeMillis();
                 BufferedImage image = OutputTools.getWhiteScreen();
                 Graphics2D g = image.createGraphics();
                 g.drawImage(background, 0, 0, null);
@@ -107,13 +105,11 @@ public class MazeRunner extends Thread {
                 // output frame
                 output.addFrame(image);
                 timings.put("Graphics", (double) (System.currentTimeMillis() - timer));
-                long stopTime = System.currentTimeMillis();
                 controller.addResponseTimings(timings);
             } catch (Exception ex) {
                 LOG.log(Level.SEVERE, "Error running", ex);
                 running = false;
             }
-            step++;
         }
         try {
             output.close();

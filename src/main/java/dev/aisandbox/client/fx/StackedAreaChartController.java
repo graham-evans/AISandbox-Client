@@ -6,6 +6,7 @@ import javafx.scene.chart.XYChart;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class StackedAreaChartController {
@@ -31,6 +32,7 @@ public class StackedAreaChartController {
         step++;
         // remove old entries
         int oldStep = step - HISTORY;
+        LOG.log(Level.FINE, "Moving chart bounds to {0} - {1}", new Object[]{oldStep, step});
         // check existing series
         for (XYChart.Series series : seriesMap.values()) {
             if (!series.getData().isEmpty()) {
@@ -41,8 +43,7 @@ public class StackedAreaChartController {
             }
         }
         // cycle through the series
-        for (String sname : timings.keySet()) {
-            double svalue = timings.get(sname);
+        timings.forEach((sname, svalue) -> {
             // do we already have this series created
             XYChart.Series series;
             if (seriesMap.containsKey(sname)) {
@@ -54,8 +55,9 @@ public class StackedAreaChartController {
                 seriesMap.put(sname, series);
             }
             series.getData().add(new XYChart.Data(step, svalue));
-        }
-        xAxis.setLowerBound(oldStep + 1);
+
+        });
+        xAxis.setLowerBound(oldStep + 1.0);
         xAxis.setUpperBound(step);
     }
 

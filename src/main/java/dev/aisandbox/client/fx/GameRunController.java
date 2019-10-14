@@ -119,12 +119,12 @@ public class GameRunController {
         }
         imageAnchor.getChildren().add(imageView);
         // setup automatic resize
-        imageAnchor.widthProperty().addListener((observableValue, number, t1) -> {
-            repositionImage(imageView, t1.doubleValue(), imageAnchor.getHeight());
-        });
-        imageAnchor.heightProperty().addListener((observableValue, number, t1) -> {
-            repositionImage(imageView, imageAnchor.getWidth(), t1.doubleValue());
-        });
+        imageAnchor.widthProperty().addListener((observableValue, number, t1) ->
+                repositionImage(imageView, t1.doubleValue(), imageAnchor.getHeight())
+        );
+        imageAnchor.heightProperty().addListener((observableValue, number, t1) ->
+                repositionImage(imageView, imageAnchor.getWidth(), t1.doubleValue())
+        );
         // setup response graph
         responseGraph.getYAxis().setLabel("milliseconds");
 
@@ -155,13 +155,12 @@ public class GameRunController {
      * @param timings
      */
     public void addResponseTimings(Map<String, Double> timings) {
-        Platform.runLater(() -> {
-            timingsController.add(timings);
-        });
+        Platform.runLater(() ->
+                timingsController.add(timings)
+        );
     }
 
     private final AtomicBoolean imageReady = new AtomicBoolean(true);
-    private BufferedImage offscreenBuffer = null;
     /**
      * Method to update the on-screen view of the simulation
      * <p>
@@ -170,10 +169,9 @@ public class GameRunController {
      * @param image The pre-drawn {@link java.awt.image.BufferedImage} to display.
      */
     public void updateBoardImage(BufferedImage image) {
-        offscreenBuffer = image;
         if (imageReady.getAndSet(false)) {
             Platform.runLater(() -> {
-                imageView.setImage(SwingFXUtils.toFXImage(offscreenBuffer, null));
+                imageView.setImage(SwingFXUtils.toFXImage(image, null));
                 imageReady.set(true);
             });
         }
