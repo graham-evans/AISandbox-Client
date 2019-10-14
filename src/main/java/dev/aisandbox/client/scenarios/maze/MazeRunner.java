@@ -96,7 +96,7 @@ public class MazeRunner extends Thread {
                 g.setColor(Color.yellow);
                 g.fillOval(currentCell.getPositionX() * Maze.SCALE + 1, currentCell.getPositionY() * Maze.SCALE + 1, Maze.SCALE - 2, Maze.SCALE - 2);
                 // update UI
-                Platform.runLater(() -> controller.updateBoardImage(image));
+                controller.updateBoardImage(image);
                 // output frame
                 output.addFrame(image);
                 long stopTime = System.currentTimeMillis();

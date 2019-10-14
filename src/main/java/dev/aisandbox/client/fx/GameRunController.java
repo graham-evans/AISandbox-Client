@@ -2,13 +2,13 @@ package dev.aisandbox.client.fx;
 
 import dev.aisandbox.client.RuntimeModel;
 import dev.aisandbox.client.output.*;
+import javafx.application.Platform;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.*;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -21,6 +21,8 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -126,17 +128,13 @@ public class GameRunController {
             LOG.log(Level.SEVERE, "Error loading testcard", e);
         }
         imageAnchor.getChildren().add(imageView);
-
+        // setup automatic resize
         imageAnchor.widthProperty().addListener((observableValue, number, t1) -> {
             repositionImage(imageView, t1.doubleValue(), imageAnchor.getHeight());
         });
         imageAnchor.heightProperty().addListener((observableValue, number, t1) -> {
             repositionImage(imageView, imageAnchor.getWidth(), t1.doubleValue());
         });
-        // imageView.setPreserveRatio(true);
-        // imageView.fitHeightProperty().bind(imageAnchor.heightProperty());
-        // imageView.fitWidthProperty().bind(imageAnchor.widthProperty());
-
         // setup response graph
         responseChartYAxis.setLabel("milliseconds");
     }
@@ -145,7 +143,7 @@ public class GameRunController {
         // get image width and height
         double imageWidth = image.getImage().getWidth();
         double imageHeight = image.getImage().getHeight();
-        LOG.info("Scaling image (" + imageWidth + "x" + imageHeight + ") to pane (" + paneWidth + "x" + paneHeight + ")");
+        LOG.log(Level.FINEST, "Scaling image {0}x{1} to pane {2}x{3}", new Object[]{imageWidth, imageHeight, paneWidth, paneHeight});
         // work out the best scale
         double scaleX = paneWidth / imageWidth;
         double scaleY = paneHeight / imageHeight;
@@ -178,15 +176,22 @@ public class GameRunController {
         responseSeries.get(category).getData().add(new XYChart.Data(step, reading));
     }
 
+    private final AtomicBoolean imageReady = new AtomicBoolean(true);
+    private BufferedImage offscreenBuffer = null;
     /**
      * Method to update the on-screen view of the simulation
      * <p>
-     * This must only be called in the JavaFX thread (use Platform.runLater)
+     * This can be called from any thread, but the screen will only update if the FX thread is not busy.
      *
      * @param image The pre-drawn {@link java.awt.image.BufferedImage} to display.
      */
     public void updateBoardImage(BufferedImage image) {
-        // TODO convert this to run in any thread and skip frames if the UI can't keep up.
-        imageView.setImage(SwingFXUtils.toFXImage(image, null));
+        offscreenBuffer = image;
+        if (imageReady.getAndSet(false)) {
+            Platform.runLater(() -> {
+                imageView.setImage(SwingFXUtils.toFXImage(offscreenBuffer, null));
+                imageReady.set(true);
+            });
+        }
     }
 }
