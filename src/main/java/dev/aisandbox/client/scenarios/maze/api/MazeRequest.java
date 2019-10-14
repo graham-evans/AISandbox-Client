@@ -15,7 +15,9 @@ import lombok.Data;
 public class MazeRequest implements ServerRequest {
 
     private Config config = new Config();
+
     private History history;
+
     private Position currentPosition;
 
 }

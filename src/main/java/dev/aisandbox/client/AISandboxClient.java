@@ -83,7 +83,10 @@ public class AISandboxClient extends Application {
     @Override
     public void stop() throws Exception {
         LOG.info("Stopping application");
+        RuntimeModel model = context.getBean(RuntimeModel.class);
+        model.getScenario().stopSimulation();
         context.close();
+        System.exit(0);
     }
 
 }
