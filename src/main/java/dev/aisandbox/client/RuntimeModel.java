@@ -21,6 +21,8 @@ import java.util.logging.Logger;
 @Component
 public class RuntimeModel {
 
+    private static final Logger LOG = Logger.getLogger(RuntimeModel.class.getName());
+
     @Getter
     Scenario scenario;
 
@@ -47,10 +49,6 @@ public class RuntimeModel {
     @Getter
     @Setter
     private File outputDirectory = new File("./");
-
-    private static final Logger LOG = Logger.getLogger(RuntimeModel.class.getName());
-
-    public enum OUTPUT_TYPE {NONE, FILE, VIDEO}
 
     /**
      * Setup the model with usefull default values.
