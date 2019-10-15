@@ -63,6 +63,7 @@ public class Maze {
      * @param height a int.
      */
     public Maze(int width, int height) {
+        LOG.log(Level.INFO,"Generated maze {0} with dimensions {1}x{2}",new Object[] {boardID,width,height});
         this.width = width;
         this.height = height;
         cellArray = new Cell[width][height];
