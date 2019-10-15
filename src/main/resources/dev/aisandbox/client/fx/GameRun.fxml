@@ -11,8 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="dev.aisandbox.client.fx.GameRunController">
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.aisandbox.client.fx.GameRunController">
     <bottom>
         <VBox BorderPane.alignment="CENTER">
             <children>
@@ -20,30 +19,26 @@
                     <children>
                         <LineChart fx:id="rewardGraph" title="Reward" HBox.hgrow="ALWAYS">
                             <xAxis>
-                                <CategoryAxis side="BOTTOM"/>
+                                <CategoryAxis side="BOTTOM" />
                             </xAxis>
                             <yAxis>
-                                <NumberAxis side="LEFT"/>
+                                <NumberAxis side="LEFT" />
                             </yAxis>
                         </LineChart>
                         <StackedAreaChart fx:id="responseGraph">
                             <xAxis>
-                                <NumberAxis animated="false" autoRanging="false" side="BOTTOM" upperBound="50.0"/>
+                                <NumberAxis animated="false" autoRanging="false" side="BOTTOM" upperBound="50.0" />
                             </xAxis>
                             <yAxis>
-                                <NumberAxis side="LEFT"/>
+                                <NumberAxis side="LEFT" />
                             </yAxis>
                         </StackedAreaChart>
                     </children>
                 </HBox>
                 <AnchorPane VBox.vgrow="NEVER">
                     <children>
-                        <Button fx:id="backButton" mnemonicParsing="false" onAction="#backButtonAction"
-                                text="%ui.button.back" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0"
-                                AnchorPane.topAnchor="8.0"/>
-                        <Button fx:id="startButton" mnemonicParsing="false" onAction="#startButtonAction"
-                                text="Start Simulation" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="8.0"
-                                AnchorPane.topAnchor="8.0"/>
+                        <Button fx:id="backButton" mnemonicParsing="false" onAction="#backButtonAction" text="%ui.button.back" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="8.0" />
+                        <Button fx:id="startButton" mnemonicParsing="false" onAction="#startButtonAction" text="Start Simulation" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="8.0" />
                     </children>
                 </AnchorPane>
             </children>
@@ -52,8 +47,7 @@
     <center>
         <AnchorPane minHeight="100.0" BorderPane.alignment="CENTER">
             <children>
-                <Pane fx:id="imageAnchor" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0"
-                      AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0"/>
+                <Pane fx:id="imageAnchor" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
             </children>
         </AnchorPane>
     </center>
