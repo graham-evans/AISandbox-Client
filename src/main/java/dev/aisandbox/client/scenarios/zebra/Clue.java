@@ -6,5 +6,5 @@ import lombok.Setter;
 public class Clue {
     @Getter
     @Setter
-    private String clueString;
+    private String clueString = "Unset";
 }

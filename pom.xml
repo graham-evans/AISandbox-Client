@@ -80,6 +80,12 @@
             <artifactId>javafx-swing</artifactId>
             <version>11.0.2</version>
         </dependency>
+        <!-- constraint solving -->
+        <dependency>
+            <groupId>org.choco-solver</groupId>
+            <artifactId>choco-solver</artifactId>
+            <version>4.10.1</version>
+        </dependency>
         <!-- Testing -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
