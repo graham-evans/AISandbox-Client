@@ -3,9 +3,9 @@ package dev.aisandbox.client.scenarios.zebra;
 import org.springframework.stereotype.Component;
 
 @Component
-public class LikesToEatCharacteristic implements Characteristic {
+public class FrontDoorCharacteristic implements Characteristic {
 
-    String[] names = new String[]{"apples", "limes", "oranges", "cake", "lamb", "plumbs", "jam", "peanuts", "bread", "mushrooms"};
+    String[] names = new String[]{"red", "blue", "green", "black", "grey", "orange", "brown", "lime coloured", "silver", "plum"};
 
     @Override
     public String getIcon(int num) {
@@ -19,11 +19,12 @@ public class LikesToEatCharacteristic implements Characteristic {
 
     @Override
     public String getDescription(int num) {
-        return "eats " + names[num];
+        return "has a " + names[num] + " front door";
     }
 
     @Override
     public String getNegativeDescription(int num) {
-        return "doesn't eat " + names[num];
+        return "doesn't have a " + names[num] + " front door";
     }
+
 }
