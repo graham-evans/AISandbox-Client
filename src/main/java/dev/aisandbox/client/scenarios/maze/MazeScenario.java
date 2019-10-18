@@ -106,6 +106,9 @@ public class MazeScenario implements Scenario {
      */
     @Override
     public boolean isSimulationRunning() {
-        return runner != null;
+        if (runner==null) {
+            return false;
+        }
+        return runner.isRunning();
     }
 }
