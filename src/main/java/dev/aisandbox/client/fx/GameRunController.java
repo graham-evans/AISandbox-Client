@@ -7,9 +7,14 @@ import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.*;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.Priority;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
@@ -17,6 +22,8 @@ import org.springframework.stereotype.Component;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.net.URL;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -75,32 +82,40 @@ public class GameRunController {
     @FXML
     void startButtonAction(ActionEvent event) {
         if (model.getScenario().isSimulationRunning()) {
-            model.getScenario().stopSimulation();
-            startButton.setText("Start Simulation");
+            stopSimulation();
         } else {
-            // reset the charts
-            timingsController.reset();
-            // decide which output class to use
-            FrameOutput out;
-            switch (model.getOutputFormat()) {
-                case MP4:
-                    out = new MP4Output();
-                    break;
-                case PNG:
-                    out = new PNGOutputWriter();
-                    break;
-                default:
-                    out = new NoOutput();
-            }
-            // setup output
-            try {
-                out.open(model.getOutputDirectory());
-            } catch (IOException e) {
-                LOG.log(Level.WARNING, "Error opening output", e);
-            }
-            model.getScenario().startSimulation(model.getAgentList(), this, out);
-            startButton.setText("Stop Simulation");
+            startSimulation();
         }
+    }
+
+    private void startSimulation() {
+        // reset the charts
+        timingsController.reset();
+        // decide which output class to use
+        FrameOutput out;
+        switch (model.getOutputFormat()) {
+            case MP4:
+                out = new MP4Output();
+                break;
+            case PNG:
+                out = new PNGOutputWriter();
+                break;
+            default:
+                out = new NoOutput();
+        }
+        // setup output
+        try {
+            out.open(model.getOutputDirectory());
+        } catch (IOException e) {
+            LOG.log(Level.WARNING, "Error opening output", e);
+        }
+        model.getScenario().startSimulation(model.getAgentList(), this, out);
+        startButton.setText("Stop Simulation");
+    }
+
+    private void stopSimulation() {
+        model.getScenario().stopSimulation();
+        resetStartButton();
     }
 
     @FXML
@@ -175,5 +190,48 @@ public class GameRunController {
                 imageReady.set(true);
             });
         }
+    }
+
+    public void resetStartButton() {
+        Platform.runLater(() -> {
+            startButton.setText("Start Simulation");
+        });
+    }
+
+    public void showAgentError(String description,Exception e) {
+        Platform.runLater(() -> {
+        // show the exception
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Exception Dialog");
+        alert.setHeaderText("Look, an Exception Dialog");
+        alert.setContentText("Could not find file blabla.txt!");
+
+        // Create expandable Exception.
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+        e.printStackTrace(pw);
+        String exceptionText = sw.toString();
+
+        Label label = new Label("The exception stacktrace was:");
+
+        TextArea textArea = new TextArea(exceptionText);
+        textArea.setEditable(false);
+        textArea.setWrapText(true);
+
+        textArea.setMaxWidth(Double.MAX_VALUE);
+        textArea.setMaxHeight(Double.MAX_VALUE);
+        GridPane.setVgrow(textArea, Priority.ALWAYS);
+        GridPane.setHgrow(textArea, Priority.ALWAYS);
+
+        GridPane expContent = new GridPane();
+        expContent.setMaxWidth(Double.MAX_VALUE);
+        expContent.add(label, 0, 0);
+        expContent.add(textArea, 0, 1);
+
+// Set expandable Exception into the dialog pane.
+        alert.getDialogPane().setExpandableContent(expContent);
+
+        alert.showAndWait();
+        });
     }
 }

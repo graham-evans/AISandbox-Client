@@ -5,6 +5,9 @@ import dev.aisandbox.client.scenarios.TestResponse;
 import org.junit.Test;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.http.client.BufferingClientHttpRequestFactory;
+import org.springframework.http.client.ClientHttpRequestFactory;
+import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.test.web.client.MockRestServiceServer;
 import org.springframework.web.client.RestTemplate;
 
@@ -17,14 +20,13 @@ import static org.springframework.test.web.client.response.MockRestResponseCreat
 public class AgentTest {
 
     @Test
-    public void testGetJSON() {
+    public void testGetJSON() throws AgentException {
         Agent a = new Agent();
         a.setTarget("http://localhost/getJSON");
         a.setEnableXML(false);
         a.setupAgent();
         // setup mock server
-        RestTemplate template = a.getRestTemplate();
-        MockRestServiceServer server = MockRestServiceServer.bindTo(template).build();
+        MockRestServiceServer server = AgentMockTool.createMockServer(a);
         // setup expectations
         server.expect(
                 requestTo("http://localhost/getJSON"))
@@ -36,14 +38,13 @@ public class AgentTest {
     }
 
     @Test
-    public void testGetXML() {
+    public void testGetXML() throws AgentException {
         Agent a = new Agent();
         a.setTarget("http://localhost/getXML");
         a.setEnableXML(true);
         a.setupAgent();
         // setup mock server
-        RestTemplate template = a.getRestTemplate();
-        MockRestServiceServer server = MockRestServiceServer.bindTo(template).build();
+        MockRestServiceServer server = AgentMockTool.createMockServer(a);
         // setup expectations
         server.expect(
                 requestTo("http://localhost/getXML"))
@@ -55,14 +56,13 @@ public class AgentTest {
     }
 
     @Test
-    public void testPostJSON() {
+    public void testPostJSON() throws AgentException{
         Agent a = new Agent();
         a.setTarget("http://localhost/postJSON");
         a.setEnableXML(false);
         a.setupAgent();
         // setup mock server
-        RestTemplate template = a.getRestTemplate();
-        MockRestServiceServer server = MockRestServiceServer.bindTo(template).build();
+        MockRestServiceServer server = AgentMockTool.createMockServer(a);
         // setup expectations
         server.expect(
                 requestTo("http://localhost/postJSON"))
@@ -85,8 +85,7 @@ public class AgentTest {
         a.setEnableXML(true);
         a.setupAgent();
         // setup mock server
-        RestTemplate template = a.getRestTemplate();
-        MockRestServiceServer server = MockRestServiceServer.bindTo(template).build();
+        MockRestServiceServer server = AgentMockTool.createMockServer(a);
         // setup expectations
         server.expect(
                 requestTo("http://localhost/postXML"))
@@ -103,7 +102,7 @@ public class AgentTest {
     }
 
     @Test
-    public void testGetBasicAuthXML() {
+    public void testGetBasicAuthXML() throws AgentException {
         Agent a = new Agent();
         a.setTarget("http://localhost/getXML");
         a.setEnableXML(true);
@@ -112,8 +111,7 @@ public class AgentTest {
         a.setBasicAuthPassword("OpenSesame");
         a.setupAgent();
         // setup mock server
-        RestTemplate template = a.getRestTemplate();
-        MockRestServiceServer server = MockRestServiceServer.bindTo(template).build();
+        MockRestServiceServer server = AgentMockTool.createMockServer(a);
         // setup expectations
         server.expect(
                 requestTo("http://localhost/getXML"))
@@ -126,7 +124,7 @@ public class AgentTest {
     }
 
     @Test
-    public void testGetKeyAuthXML() {
+    public void testGetKeyAuthXML() throws AgentException {
         Agent a = new Agent();
         a.setTarget("http://localhost/getXML");
         a.setEnableXML(true);
@@ -135,8 +133,7 @@ public class AgentTest {
         a.setApiKeyValue("OpenSesame");
         a.setupAgent();
         // setup mock server
-        RestTemplate template = a.getRestTemplate();
-        MockRestServiceServer server = MockRestServiceServer.bindTo(template).build();
+        MockRestServiceServer server = AgentMockTool.createMockServer(a);
         // setup expectations
         server.expect(
                 requestTo("http://localhost/getXML"))

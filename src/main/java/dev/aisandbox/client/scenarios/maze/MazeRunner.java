@@ -1,6 +1,7 @@
 package dev.aisandbox.client.scenarios.maze;
 
 import dev.aisandbox.client.Agent;
+import dev.aisandbox.client.AgentException;
 import dev.aisandbox.client.fx.GameRunController;
 import dev.aisandbox.client.output.FrameOutput;
 import dev.aisandbox.client.output.OutputTools;
@@ -8,6 +9,7 @@ import dev.aisandbox.client.scenarios.maze.api.History;
 import dev.aisandbox.client.scenarios.maze.api.MazeRequest;
 import dev.aisandbox.client.scenarios.maze.api.MazeResponse;
 import javafx.application.Platform;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 import java.awt.*;
@@ -35,6 +37,7 @@ public class MazeRunner extends Thread {
     private final Maze maze;
     private final FrameOutput output;
     private final GameRunController controller;
+    @Getter
     private boolean running = false;
 
     /**
@@ -106,6 +109,9 @@ public class MazeRunner extends Thread {
                 output.addFrame(image);
                 timings.put("Graphics", (double) (System.currentTimeMillis() - timer));
                 controller.addResponseTimings(timings);
+            } catch (AgentException ae) {
+                controller.showAgentError("Error talking to agent",ae);
+                running = false;
             } catch (Exception ex) {
                 LOG.log(Level.SEVERE, "Error running", ex);
                 running = false;
@@ -117,6 +123,7 @@ public class MazeRunner extends Thread {
             LOG.log(Level.WARNING, "Error closing output", e);
         }
         LOG.info("Finished run thread");
+        controller.resetStartButton();
     }
 
     /**
