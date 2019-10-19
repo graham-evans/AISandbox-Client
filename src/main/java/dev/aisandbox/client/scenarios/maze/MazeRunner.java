@@ -8,7 +8,6 @@ import dev.aisandbox.client.output.OutputTools;
 import dev.aisandbox.client.scenarios.maze.api.History;
 import dev.aisandbox.client.scenarios.maze.api.MazeRequest;
 import dev.aisandbox.client.scenarios.maze.api.MazeResponse;
-import javafx.application.Platform;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
