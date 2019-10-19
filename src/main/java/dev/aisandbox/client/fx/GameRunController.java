@@ -193,9 +193,7 @@ public class GameRunController {
     }
 
     public void resetStartButton() {
-        Platform.runLater(() -> {
-            startButton.setText("Start Simulation");
-        });
+        Platform.runLater(() -> startButton.setText("Start Simulation"));
     }
 
     public void showAgentError(String description,Exception e) {
