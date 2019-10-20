@@ -78,7 +78,7 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-swing</artifactId>
-            <version>11.0.2</version>
+            <version>13.0.1</version>
         </dependency>
         <!-- Testing -->
         <dependency>
