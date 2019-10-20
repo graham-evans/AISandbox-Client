@@ -109,7 +109,7 @@ public class MazeRunner extends Thread {
                 timings.put("Graphics", (double) (System.currentTimeMillis() - timer));
                 controller.addResponseTimings(timings);
             } catch (AgentException ae) {
-                controller.showAgentError("Error talking to agent",ae);
+                controller.showAgentError(agent.getTarget(), ae);
                 running = false;
             } catch (Exception ex) {
                 LOG.log(Level.SEVERE, "Error running", ex);

@@ -17,6 +17,8 @@ import org.springframework.http.client.BufferingClientHttpRequestFactory;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.util.CollectionUtils;
+import org.springframework.web.client.ResourceAccessException;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Collections;
@@ -144,6 +146,14 @@ public class Agent {
             );
             // convert
             return responseType.cast(response.getBody());
+        } catch (ResourceAccessException re) {
+            LOG.log(Level.SEVERE, "Error talking to remote resource", re);
+            throw new AgentConnectionException("Error accessing remote resource");
+        } catch (RestClientException me) {
+            // get the response from the Agent logger
+            LOG.log(Level.SEVERE, "Error converting response", me);
+            LOG.log(Level.SEVERE, "Last code {0} response {1}", new Object[]{responseLogger.lastHTTPCode, responseLogger.lastResponse});
+            throw new AgentParserException("Error converting response", responseLogger.lastHTTPCode, responseLogger.lastResponse);
         } catch (Exception e) {
             throw new AgentException("Error talking to server", e);
         }
@@ -168,6 +178,14 @@ public class Agent {
             );
             // convert
             return responseType.cast(response.getBody());
+        } catch (ResourceAccessException re) {
+            LOG.log(Level.SEVERE, "Error talking to remote resource", re);
+            throw new AgentConnectionException("Error accessing remote resource");
+        } catch (RestClientException me) {
+            // get the response from the Agent logger
+            LOG.log(Level.SEVERE, "Error converting response", me);
+            LOG.log(Level.SEVERE, "Last code {0} response {1}", new Object[]{responseLogger.lastHTTPCode, responseLogger.lastResponse});
+            throw new AgentParserException("Error converting response", responseLogger.lastHTTPCode, responseLogger.lastResponse);
         } catch (Exception e) {
             throw new AgentException("Error talking to server",e);
         }

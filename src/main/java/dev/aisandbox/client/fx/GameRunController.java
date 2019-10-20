@@ -1,6 +1,6 @@
 package dev.aisandbox.client.fx;
 
-import dev.aisandbox.client.RuntimeModel;
+import dev.aisandbox.client.*;
 import dev.aisandbox.client.output.*;
 import javafx.application.Platform;
 import javafx.embed.swing.SwingFXUtils;
@@ -196,23 +196,39 @@ public class GameRunController {
         Platform.runLater(() -> startButton.setText("Start Simulation"));
     }
 
-    public void showAgentError(String description,Exception e) {
+    public void showAgentError(String agentURL, Exception e) {
+        // special case - is this an agent excetpion
+        if (e instanceof AgentConnectionException) {
+            showAgentError(agentURL, "Error connecting to agent", e.getMessage());
+        } else if (e instanceof AgentParserException) {
+            AgentParserException ape = (AgentParserException) e;
+            StringBuilder sb = new StringBuilder();
+            sb.append("Connection to the server produced HTTP code ");
+            sb.append(ape.getResponseCode());
+            sb.append("\nResponse:\n");
+            sb.append(ape.getResponse());
+            showAgentError(agentURL, "Error parsing server response", sb.toString());
+        } else {
+            // show generic exception
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            e.printStackTrace(pw);
+            // pass this as the details
+            showAgentError(agentURL, "Agent Exception", sw.toString());
+        }
+    }
+
+    public void showAgentError(String agentURL, String description, String details) {
         Platform.runLater(() -> {
         // show the exception
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Exception Dialog");
-        alert.setHeaderText("Look, an Exception Dialog");
-        alert.setContentText("Could not find file blabla.txt!");
+            alert.setTitle("Agent Error");
+            alert.setHeaderText("There was an error talking to an agent");
+            alert.setContentText(agentURL);
 
-        // Create expandable Exception.
-        StringWriter sw = new StringWriter();
-        PrintWriter pw = new PrintWriter(sw);
-        e.printStackTrace(pw);
-        String exceptionText = sw.toString();
+            Label label = new Label(description);
 
-        Label label = new Label("The exception stacktrace was:");
-
-        TextArea textArea = new TextArea(exceptionText);
+            TextArea textArea = new TextArea(details);
         textArea.setEditable(false);
         textArea.setWrapText(true);
 

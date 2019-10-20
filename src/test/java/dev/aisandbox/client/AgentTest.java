@@ -158,4 +158,35 @@ public class AgentTest {
         a.setTarget("xxx://localhost/api");
         assertFalse("Inalid URL", a.getValidProperty().get());
     }
+
+    @Test(expected = AgentConnectionException.class)
+    public void testConnectionError() throws Exception {
+        Agent a = new Agent();
+        // use unreachable URL
+        a.setTarget("http://240.0.0.0:8181/getXML");
+        a.setEnableXML(true);
+        a.setApiKey(true);
+        a.setApiKeyHeader("APIKey");
+        a.setApiKeyValue("OpenSesame");
+        a.setupAgent();
+        TestResponse r = a.getRequest("", TestResponse.class);
+    }
+
+    @Test(expected = AgentParserException.class)
+    public void testGetBadXML() throws AgentException {
+        Agent a = new Agent();
+        a.setTarget("http://localhost/getXML");
+        a.setEnableXML(true);
+        a.setupAgent();
+        // setup mock server
+        MockRestServiceServer server = AgentMockTool.createMockServer(a);
+        // setup expectations
+        server.expect(
+                requestTo("http://localhost/getXML"))
+                .andExpect(method(HttpMethod.GET))
+                .andRespond(withSuccess("INVALID XML", MediaType.APPLICATION_XML));
+        TestResponse r = a.getRequest("", TestResponse.class);
+        server.verify();
+    }
+
 }
