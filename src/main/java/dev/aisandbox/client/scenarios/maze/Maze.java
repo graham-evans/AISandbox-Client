@@ -1,8 +1,10 @@
 package dev.aisandbox.client.scenarios.maze;
 
 import dev.aisandbox.client.scenarios.maze.api.Config;
+import dev.aisandbox.client.sprite.SpriteLoader;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -24,11 +26,6 @@ import java.util.logging.Logger;
 public class Maze {
 
     private static final Logger LOG = java.util.logging.Logger.getLogger(Maze.class.getName());
-
-    /**
-     * Constant <code>SCALE=25</code>
-     */
-    public static final int SCALE = 25;
 
     @Getter
     private final String boardID = UUID.randomUUID().toString();
@@ -110,75 +107,5 @@ public class Maze {
             }
         }
     }
-
-    /**
-     * <p>toImage.</p>
-     *
-     * @param colourize a boolean.
-     * @return a {@link java.awt.image.BufferedImage} object.
-     */
-    public BufferedImage toImage(boolean colourize) {
-        BufferedImage image = new BufferedImage(width * SCALE, height * SCALE, BufferedImage.TYPE_INT_RGB);
-        Graphics2D g = image.createGraphics();
-        g.setColor(Color.WHITE);
-        g.fillRect(0, 0, width * SCALE, height * SCALE);
-
-        for (Cell c : cellList) {
-            int x = c.getPositionX() * SCALE;
-            int y = c.getPositionY() * SCALE;
-            if (colourize) {
-                g.setColor(new Color(c.getValue(), 0.0f, 0.0f));
-                g.fillRect(x, y, x + SCALE, y + SCALE);
-            }
-            g.setColor(Color.DARK_GRAY);
-            if (!c.getPaths().contains(Direction.NORTH)) {
-                g.drawLine(x, y, x + SCALE - 1, y);
-            }
-            if (!c.getPaths().contains(Direction.WEST)) {
-                g.drawLine(x, y, x, y + SCALE - 1);
-            }
-            if (!c.getPaths().contains(Direction.EAST)) {
-                g.drawLine(x + SCALE - 1, y, x + SCALE - 1, y + SCALE - 1);
-            }
-            if (!c.getPaths().contains(Direction.SOUTH)) {
-                g.drawLine(x, y + SCALE - 1, x + SCALE - 1, y + SCALE - 1);
-            }
-        }
-        return image;
-    }
-
-    /**
-     * <p>toImage.</p>
-     *
-     * @return a {@link java.awt.image.BufferedImage} object.
-     */
-    public BufferedImage toImage() {
-        return toImage(false);
-    }
-
-    /**
-     * <p>toImage.</p>
-     *
-     * @param f a {@link java.io.File} object.
-     * @param colourize a boolean.
-     */
-    public void toImage(File f, boolean colourize) {
-        BufferedImage i = toImage(colourize);
-        try {
-            ImageIO.write(i, "PNG", f);
-        } catch (IOException e) {
-            LOG.log(Level.WARNING, "Error writing image file", e);
-        }
-    }
-
-    /**
-     * <p>toImage.</p>
-     *
-     * @param f a {@link java.io.File} object.
-     */
-    public void toImage(File f) {
-        toImage(f, false);
-    }
-
 
 }

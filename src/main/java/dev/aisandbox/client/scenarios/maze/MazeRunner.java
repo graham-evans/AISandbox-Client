@@ -29,13 +29,16 @@ import java.util.logging.Logger;
 public class MazeRunner extends Thread {
 
     private static final Logger LOG = Logger.getLogger(MazeRunner.class.getName());
-    private static final double REWARD_STEP = -0.1;
-    private static final double REWARD_HIT_WALL = -1.0;
-    private static final double REWARD_GOAL = +50.0;
+    private static final double REWARD_STEP = -1.0;
+    private static final double REWARD_HIT_WALL = -1000.0;
+    private static final double REWARD_GOAL = +1000.0;
     private final Agent agent;
     private final Maze maze;
     private final FrameOutput output;
     private final GameRunController controller;
+    private final BufferedImage background;
+    private static final int ORIGIN_X = (1920-1000)/2;
+    private static final int ORIGIN_Y = (1080-750)/2;
     @Getter
     private boolean running = false;
 
@@ -47,8 +50,6 @@ public class MazeRunner extends Thread {
         // setup data structures
         History lastMove = null;
         Cell currentCell = maze.getStartCell();
-        // get background
-        BufferedImage background = maze.toImage();
         // setup agent
         agent.setupAgent();
         // main game loop
@@ -98,10 +99,10 @@ public class MazeRunner extends Thread {
                 // redraw the map
                 BufferedImage image = OutputTools.getWhiteScreen();
                 Graphics2D g = image.createGraphics();
-                g.drawImage(background, 0, 0, null);
+                g.drawImage(background, ORIGIN_X, ORIGIN_Y, null);
 
                 g.setColor(Color.yellow);
-                g.fillOval(currentCell.getPositionX() * Maze.SCALE + 1, currentCell.getPositionY() * Maze.SCALE + 1, Maze.SCALE - 2, Maze.SCALE - 2);
+                g.fillOval(currentCell.getPositionX() * MazeRenderer.SCALE + 1+ORIGIN_X, ORIGIN_Y+currentCell.getPositionY() * MazeRenderer.SCALE + 1, MazeRenderer.SCALE - 2, MazeRenderer.SCALE - 2);
                 // update UI
                 controller.updateBoardImage(image);
                 // output frame

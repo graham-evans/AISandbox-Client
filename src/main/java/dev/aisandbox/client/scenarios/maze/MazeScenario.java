@@ -5,8 +5,10 @@ import dev.aisandbox.client.fx.GameRunController;
 import dev.aisandbox.client.output.FrameOutput;
 import dev.aisandbox.client.scenarios.Scenario;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.awt.image.BufferedImage;
 import java.util.List;
 import java.util.Random;
 import java.util.logging.Level;
@@ -29,6 +31,9 @@ public class MazeScenario implements Scenario {
     // configurable properties
     private Long scenarioSalt = 0l;
     private MazeType mazeType = MazeType.BINARYTREE;
+
+    @Autowired
+    MazeRenderer renderer;
 
     /**
      * {@inheritDoc}
@@ -84,7 +89,9 @@ public class MazeScenario implements Scenario {
                 break;
         }
         MazeUtilities.findFurthestPoints(maze);
-        runner = new MazeRunner(agentList.get(0), maze, output, ui);
+        // render base map
+        BufferedImage image = renderer.renderMaze(maze);
+        runner = new MazeRunner(agentList.get(0), maze, output, ui,image);
         LOG.info("Starting simulation");
         runner.start();
     }
