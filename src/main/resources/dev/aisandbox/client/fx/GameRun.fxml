@@ -17,7 +17,8 @@
             <children>
                 <HBox prefHeight="200.0" VBox.vgrow="NEVER">
                     <children>
-                        <LineChart fx:id="rewardGraph" title="Reward" HBox.hgrow="ALWAYS">
+                  <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                        <LineChart fx:id="rewardGraph" maxWidth="1.7976931348623157E308" prefWidth="500.0" title="Reward" HBox.hgrow="SOMETIMES">
                             <xAxis>
                                 <CategoryAxis side="BOTTOM" />
                             </xAxis>
@@ -25,7 +26,7 @@
                                 <NumberAxis side="LEFT" />
                             </yAxis>
                         </LineChart>
-                        <StackedAreaChart fx:id="responseGraph">
+                        <StackedAreaChart fx:id="responseGraph" maxWidth="1.7976931348623157E308" prefWidth="500.0" HBox.hgrow="SOMETIMES">
                             <xAxis>
                                 <NumberAxis animated="false" autoRanging="false" side="BOTTOM" upperBound="50.0" />
                             </xAxis>
@@ -33,6 +34,7 @@
                                 <NumberAxis side="LEFT" />
                             </yAxis>
                         </StackedAreaChart>
+                  <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
                     </children>
                 </HBox>
                 <AnchorPane VBox.vgrow="NEVER">
