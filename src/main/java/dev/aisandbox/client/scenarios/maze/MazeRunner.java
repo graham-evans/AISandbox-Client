@@ -11,6 +11,7 @@ import dev.aisandbox.client.scenarios.maze.api.MazeResponse;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -52,8 +53,18 @@ public class MazeRunner extends Thread {
         Cell currentCell = maze.getStartCell();
         // setup agent
         agent.setupAgent();
+        // load graphics
+        BufferedImage logo;
+        try {
+            logo = ImageIO.read(MazeRunner.class.getResourceAsStream("/dev/aisandbox/client/fx/logo1.png"));
+        } catch (IOException e) {
+            LOG.log(Level.SEVERE,"Error loading logo",e);
+            logo = new BufferedImage(10,10,BufferedImage.TYPE_INT_RGB);
+        }
+        Font myFont = new Font("Serif", Font.PLAIN, 32);
         // main game loop
         running = true;
+        long stepCount = 0;
         while (running) {
             // keep timings
             Map<String, Double> timings = new TreeMap<>();
@@ -99,10 +110,17 @@ public class MazeRunner extends Thread {
                 // redraw the map
                 BufferedImage image = OutputTools.getWhiteScreen();
                 Graphics2D g = image.createGraphics();
+                g.setFont(myFont);
+                // maze
                 g.drawImage(background, ORIGIN_X, ORIGIN_Y, null);
-
+                // player
                 g.setColor(Color.yellow);
                 g.fillOval(currentCell.getPositionX() * MazeRenderer.SCALE + 1+ORIGIN_X, ORIGIN_Y+currentCell.getPositionY() * MazeRenderer.SCALE + 1, MazeRenderer.SCALE - 2, MazeRenderer.SCALE - 2);
+                // logo
+                g.drawImage(logo,50,50,null);
+                // state
+                g.setColor(Color.BLACK);
+                g.drawString("Step : "+stepCount,40,200);
                 // update UI
                 controller.updateBoardImage(image);
                 // output frame
@@ -116,6 +134,7 @@ public class MazeRunner extends Thread {
                 LOG.log(Level.SEVERE, "Error running", ex);
                 running = false;
             }
+            stepCount++;
         }
         try {
             output.close();
