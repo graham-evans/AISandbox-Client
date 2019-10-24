@@ -61,10 +61,12 @@ public class MazeRunner extends Thread {
             LOG.log(Level.SEVERE,"Error loading logo",e);
             logo = new BufferedImage(10,10,BufferedImage.TYPE_INT_RGB);
         }
-        Font myFont = new Font("Serif", Font.PLAIN, 32);
+        Font myFont = new Font("Sans-Serif", Font.PLAIN, 28);
+        controller.setRewardTitle("Steps to finish");
         // main game loop
         running = true;
         long stepCount = 0;
+        long stepToFinish = 0;
         while (running) {
             // keep timings
             Map<String, Double> timings = new TreeMap<>();
@@ -102,6 +104,8 @@ public class MazeRunner extends Thread {
                 if (currentCell.equals(maze.getEndCell())) {
                     lastMove.setReward(REWARD_GOAL);
                     currentCell = maze.getStartCell();
+                    controller.addReward(stepToFinish);
+                    stepToFinish=0;
                 }
                 LOG.log(Level.INFO, "Moved to {0}", new Object[]{currentCell});
                 lastMove.setNewPosition(currentCell.getPosition());
@@ -117,10 +121,10 @@ public class MazeRunner extends Thread {
                 g.setColor(Color.yellow);
                 g.fillOval(currentCell.getPositionX() * MazeRenderer.SCALE + 1+ORIGIN_X, ORIGIN_Y+currentCell.getPositionY() * MazeRenderer.SCALE + 1, MazeRenderer.SCALE - 2, MazeRenderer.SCALE - 2);
                 // logo
-                g.drawImage(logo,50,50,null);
+                g.drawImage(logo,(1920-90)/2,20,null);
                 // state
                 g.setColor(Color.BLACK);
-                g.drawString("Step : "+stepCount,40,200);
+                g.drawString("Step : "+stepCount,ORIGIN_X,1080-100);
                 // update UI
                 controller.updateBoardImage(image);
                 // output frame
@@ -135,6 +139,7 @@ public class MazeRunner extends Thread {
                 running = false;
             }
             stepCount++;
+            stepToFinish++;
         }
         try {
             output.close();

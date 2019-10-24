@@ -72,6 +72,7 @@ public class GameRunController {
     private ImageView imageView;
 
     private StackedAreaChartController timingsController;
+    private LineChartController rewardController;
 
     @FXML
     void backButtonAction(ActionEvent event) {
@@ -142,9 +143,8 @@ public class GameRunController {
         );
         // setup response graph
         responseGraph.getYAxis().setLabel("milliseconds");
-
+        rewardController = new LineChartController(rewardGraph);
         timingsController = new StackedAreaChartController(responseGraph);
-
     }
 
     private void repositionImage(ImageView image, double paneWidth, double paneHeight) {
@@ -173,6 +173,23 @@ public class GameRunController {
         Platform.runLater(() ->
                 timingsController.add(timings)
         );
+    }
+
+    /**
+     * Show a reward in the left graph
+     * @param score
+     */
+    public void addReward(double score) {
+        Platform.runLater(() -> {
+            rewardController.addReward(score);
+        });
+    }
+
+
+    public void setRewardTitle(String title) {
+        Platform.runLater(() -> {
+            rewardGraph.setTitle(title);
+        });
     }
 
     private final AtomicBoolean imageReady = new AtomicBoolean(true);
