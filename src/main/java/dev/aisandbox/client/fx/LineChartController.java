@@ -25,6 +25,8 @@ public class LineChartController {
         xAxis.setForceZeroInRange(false);
         xAxis.setTickUnit(1.0);
         xAxis.setAutoRanging(false);
+        xAxis.setLowerBound(1);
+        xAxis.setUpperBound(25);
         chart.getData().add(series);
     }
 

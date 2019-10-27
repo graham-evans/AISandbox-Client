@@ -188,7 +188,7 @@ public class GameRunController {
 
     public void setRewardTitle(String title) {
         Platform.runLater(() -> {
-            rewardGraph.setTitle(title);
+            rewardGraph.getYAxis().setLabel(title);
         });
     }
 
