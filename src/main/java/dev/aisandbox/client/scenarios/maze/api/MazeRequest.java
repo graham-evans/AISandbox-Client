@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import dev.aisandbox.client.scenarios.ServerRequest;
 import lombok.Data;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * <p>MazeRequest class.</p>
  *
@@ -11,6 +13,7 @@ import lombok.Data;
  * @version $Id: $Id
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
+@XmlRootElement(name = "MazeRequest")
 @Data
 public class MazeRequest implements ServerRequest {
 
