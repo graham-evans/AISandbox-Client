@@ -31,6 +31,7 @@ public class MazeScenario implements Scenario {
     // configurable properties
     private Long scenarioSalt = 0l;
     private MazeType mazeType = MazeType.BINARYTREE;
+    private Boolean smallMaze = true;
 
     @Autowired
     MazeRenderer renderer;
@@ -89,6 +90,8 @@ public class MazeScenario implements Scenario {
                 break;
         }
         MazeUtilities.findFurthestPoints(maze);
+        // update UI
+        ui.setRewardTitle("Steps to finish");
         // render base map
         BufferedImage image = renderer.renderMaze(maze);
         runner = new MazeRunner(agentList.get(0), maze, output, ui,image);

@@ -62,7 +62,7 @@ public class MazeRunner extends Thread {
             logo = new BufferedImage(10,10,BufferedImage.TYPE_INT_RGB);
         }
         Font myFont = new Font("Sans-Serif", Font.PLAIN, 28);
-        controller.setRewardTitle("Steps to finish");
+
         // main game loop
         running = true;
         long stepCount = 0;
