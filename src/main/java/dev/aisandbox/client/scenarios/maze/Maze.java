@@ -45,6 +45,10 @@ public class Maze {
     @Setter
     private Cell endCell = null;
 
+    @Getter
+    @Setter
+    private int zoomLevel = 1;
+
     /**
      * <p>Constructor for Maze.</p>
      *

@@ -116,10 +116,10 @@ public class MazeRunner extends Thread {
                 Graphics2D g = image.createGraphics();
                 g.setFont(myFont);
                 // maze
-                g.drawImage(background, ORIGIN_X, ORIGIN_Y, null);
+                g.drawImage(background, ORIGIN_X, ORIGIN_Y,1000,750, null);
                 // player
                 g.setColor(Color.yellow);
-                g.fillOval(currentCell.getPositionX() * MazeRenderer.SCALE + 1+ORIGIN_X, ORIGIN_Y+currentCell.getPositionY() * MazeRenderer.SCALE + 1, MazeRenderer.SCALE - 2, MazeRenderer.SCALE - 2);
+                g.fillOval(currentCell.getPositionX() * MazeRenderer.SCALE*maze.getZoomLevel() + ORIGIN_X, ORIGIN_Y+currentCell.getPositionY() * MazeRenderer.SCALE*maze.getZoomLevel() , MazeRenderer.SCALE* maze.getZoomLevel(), MazeRenderer.SCALE *maze.getZoomLevel());
                 // logo
                 g.drawImage(logo,(1920-90)/2,20,null);
                 // state

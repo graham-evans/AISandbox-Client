@@ -27,14 +27,12 @@ public class MazeScenario implements Scenario {
     private static final Logger LOG = Logger.getLogger(MazeScenario.class.getName());
 
     MazeRunner runner = null;
-
+    @Autowired
+    MazeRenderer renderer;
     // configurable properties
     private Long scenarioSalt = 0l;
     private MazeType mazeType = MazeType.BINARYTREE;
-    private Boolean smallMaze = true;
-
-    @Autowired
-    MazeRenderer renderer;
+    private MazeSize mazeSize = MazeSize.MEDIUM;
 
     /**
      * {@inheritDoc}
@@ -44,42 +42,67 @@ public class MazeScenario implements Scenario {
         return "Introduction";
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getName() {
         return "Maze Runner";
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getOverview() {
         return "Navigate the maze and find the exit, then optimise the path to find the shortest route.";
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getDescription() {
         return "Long description about mazes";
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int getMinAgentCount() {
         return 1;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int getMaxAgentCount() {
         return 1;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void startSimulation(List<Agent> agentList, GameRunController ui, FrameOutput output) {
         LOG.log(Level.INFO, "Salt {0}", scenarioSalt);
         LOG.info("Generating maze");
-        Maze maze = new Maze(40, 30);
+        Maze maze;
+        switch (mazeSize) {
+            case SMALL:
+                maze = new Maze(8, 6);
+                maze.setZoomLevel(5);
+                break;
+            case MEDIUM:
+                maze = new Maze(20, 15);
+                maze.setZoomLevel(2);
+                break;
+            default: // LARGE
+                maze = new Maze(40, 30);
+                maze.setZoomLevel(1);
+        }
         Random rand = new Random(System.currentTimeMillis());
         switch (mazeType) {
             case BINARYTREE:
@@ -94,12 +117,14 @@ public class MazeScenario implements Scenario {
         ui.setRewardTitle("Steps to finish");
         // render base map
         BufferedImage image = renderer.renderMaze(maze);
-        runner = new MazeRunner(agentList.get(0), maze, output, ui,image);
+        runner = new MazeRunner(agentList.get(0), maze, output, ui, image);
         LOG.info("Starting simulation");
         runner.start();
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void stopSimulation() {
         LOG.info("Stopping simulation");
@@ -116,7 +141,7 @@ public class MazeScenario implements Scenario {
      */
     @Override
     public boolean isSimulationRunning() {
-        if (runner==null) {
+        if (runner == null) {
             return false;
         }
         return runner.isRunning();
