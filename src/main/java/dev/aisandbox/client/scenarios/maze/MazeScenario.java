@@ -111,6 +111,13 @@ public class MazeScenario implements Scenario {
             case SIDEWINDER:
                 MazeUtilities.applySidewinder(rand, maze);
                 break;
+            case RECURSIVEBACKTRACKER:
+                MazeUtilities.applyRecursiveBacktracker(rand,maze);
+                break;
+            case BRAIDED:
+                MazeUtilities.applyRecursiveBacktracker(rand,maze);
+                MazeUtilities.removeDeadEnds(rand,maze);
+                break;
         }
         MazeUtilities.findFurthestPoints(maze);
         // update UI
