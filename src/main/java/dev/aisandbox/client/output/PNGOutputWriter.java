@@ -65,7 +65,7 @@ public class PNGOutputWriter implements FrameOutput {
 
     /**
      * Finish writing files and reset for next open command
-     * @throws IOException
+     * @throws IOException never thrown in this implementation.
      */
     @Override
     public void close() throws IOException {
