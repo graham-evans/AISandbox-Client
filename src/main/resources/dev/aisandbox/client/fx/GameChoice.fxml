@@ -25,7 +25,7 @@
         </ScrollPane>
     </left>
     <top>
-        <Label fx:id="titleText" text="Select a game to play" BorderPane.alignment="CENTER"/>
+        <Label fx:id="titleText" text="%ui.gamechoice.heading" BorderPane.alignment="CENTER"/>
     </top>
     <center>
         <ScrollPane fitToHeight="true" fitToWidth="true" focusTraversable="false" pannable="true"

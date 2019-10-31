@@ -5,8 +5,10 @@ import dev.aisandbox.client.fx.GameRunController;
 import dev.aisandbox.client.output.FrameOutput;
 import dev.aisandbox.client.scenarios.Scenario;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.awt.image.BufferedImage;
 import java.util.List;
 import java.util.Random;
 import java.util.logging.Level;
@@ -25,10 +27,12 @@ public class MazeScenario implements Scenario {
     private static final Logger LOG = Logger.getLogger(MazeScenario.class.getName());
 
     MazeRunner runner = null;
-
+    @Autowired
+    MazeRenderer renderer;
     // configurable properties
     private Long scenarioSalt = 0l;
     private MazeType mazeType = MazeType.BINARYTREE;
+    private MazeSize mazeSize = MazeSize.MEDIUM;
 
     /**
      * {@inheritDoc}
@@ -38,42 +42,74 @@ public class MazeScenario implements Scenario {
         return "Introduction";
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getName() {
         return "Maze Runner";
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getOverview() {
         return "Navigate the maze and find the exit, then optimise the path to find the shortest route.";
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getDescription() {
-        return "Long description about mazes";
+        return "The AI agent will be placed in a Maze and tasked with finding its way to the exit. Once there it will be rewarded and returned to the beginning.\n" +
+                "At each turn the AI agent is given information about the maze (dimensions, directions etc), the result of the last move (any reward) and asked for the next move. This repeats until the scenario is manually stopped.\n" +
+                "Goals:\n" +
+                "Write an AI that can learn the solution to a maze.\n" +
+                "Optimize this solution and find the shortest path.\n" +
+                "Further problems:\n" +
+                "Take advantage of the mazes inbuilt biases to find solutions quicker.\n" +
+                "Adapt your AI to cope with larger mazes.\n";
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int getMinAgentCount() {
         return 1;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int getMaxAgentCount() {
         return 1;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void startSimulation(List<Agent> agentList, GameRunController ui, FrameOutput output) {
         LOG.log(Level.INFO, "Salt {0}", scenarioSalt);
         LOG.info("Generating maze");
-        Maze maze = new Maze(40, 30);
+        Maze maze;
+        switch (mazeSize) {
+            case SMALL:
+                maze = new Maze(8, 6);
+                maze.setZoomLevel(5);
+                break;
+            case MEDIUM:
+                maze = new Maze(20, 15);
+                maze.setZoomLevel(2);
+                break;
+            default: // LARGE
+                maze = new Maze(40, 30);
+                maze.setZoomLevel(1);
+        }
         Random rand = new Random(System.currentTimeMillis());
         switch (mazeType) {
             case BINARYTREE:
@@ -82,14 +118,27 @@ public class MazeScenario implements Scenario {
             case SIDEWINDER:
                 MazeUtilities.applySidewinder(rand, maze);
                 break;
+            case RECURSIVEBACKTRACKER:
+                MazeUtilities.applyRecursiveBacktracker(rand,maze);
+                break;
+            case BRAIDED:
+                MazeUtilities.applyRecursiveBacktracker(rand,maze);
+                MazeUtilities.removeDeadEnds(rand,maze);
+                break;
         }
         MazeUtilities.findFurthestPoints(maze);
-        runner = new MazeRunner(agentList.get(0), maze, output, ui);
+        // update UI
+        ui.setRewardTitle("Steps to finish");
+        // render base map
+        BufferedImage image = renderer.renderMaze(maze);
+        runner = new MazeRunner(agentList.get(0), maze, output, ui, image);
         LOG.info("Starting simulation");
         runner.start();
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void stopSimulation() {
         LOG.info("Stopping simulation");
@@ -106,6 +155,9 @@ public class MazeScenario implements Scenario {
      */
     @Override
     public boolean isSimulationRunning() {
-        return runner != null;
+        if (runner == null) {
+            return false;
+        }
+        return runner.isRunning();
     }
 }

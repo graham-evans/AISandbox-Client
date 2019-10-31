@@ -8,13 +8,21 @@ import lombok.Getter;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Base64;
 
 import lombok.Setter;
 import org.springframework.http.*;
+import org.springframework.http.client.BufferingClientHttpRequestFactory;
+import org.springframework.http.client.ClientHttpRequestInterceptor;
+import org.springframework.http.client.SimpleClientHttpRequestFactory;
+import org.springframework.util.CollectionUtils;
+import org.springframework.web.client.ResourceAccessException;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Collections;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -27,6 +35,8 @@ public class Agent {
     private static final Logger LOG = Logger.getLogger(Agent.class.getName());
     @Getter(AccessLevel.PROTECTED)
     private RestTemplate restTemplate = null;
+    @Getter
+    private AgentResponseLogger responseLogger = null;
     private HttpHeaders restHeaders = null;
     @Getter
     @Setter
@@ -79,7 +89,21 @@ public class Agent {
         if (apiKey) {
             restHeaders.add(apiKeyHeader, apiKeyValue);
         }
-        restTemplate = new RestTemplate();
+        // create template
+        restTemplate = new RestTemplate(
+                new BufferingClientHttpRequestFactory(
+                        new SimpleClientHttpRequestFactory()
+                )
+        );
+        // add logger
+        List<ClientHttpRequestInterceptor> interceptors
+                = restTemplate.getInterceptors();
+        if (CollectionUtils.isEmpty(interceptors)) {
+            interceptors = new ArrayList<>();
+        }
+        responseLogger = new AgentResponseLogger();
+        interceptors.add(responseLogger);
+        restTemplate.setInterceptors(interceptors);
     }
 
     /**
@@ -111,36 +135,60 @@ public class Agent {
      * @param responseType The class of a {@link dev.aisandbox.client.scenarios.ServerResponse} object to return
      * @return the JSON or XML response deserialised into the specified class.
      */
-    public <T> T getRequest(String params, Class<T> responseType) {
-        HttpEntity<ServerRequest> requestEntity = new HttpEntity<>(null, restHeaders);
-        ResponseEntity response = restTemplate.exchange(
-                target + params,
-                HttpMethod.GET,
-                requestEntity,
-                responseType
-        );
-        // convert
-        return responseType.cast(response.getBody());
+    public <T> T getRequest(String params, Class<T> responseType) throws AgentException {
+        try {
+            HttpEntity<ServerRequest> requestEntity = new HttpEntity<>(null, restHeaders);
+            ResponseEntity response = restTemplate.exchange(
+                    target + params,
+                    HttpMethod.GET,
+                    requestEntity,
+                    responseType
+            );
+            // convert
+            return responseType.cast(response.getBody());
+        } catch (ResourceAccessException re) {
+            LOG.log(Level.SEVERE, "Error talking to remote resource", re);
+            throw new AgentConnectionException("Error accessing remote resource");
+        } catch (RestClientException me) {
+            // get the response from the Agent logger
+            LOG.log(Level.SEVERE, "Error converting response", me);
+            LOG.log(Level.SEVERE, "Last code {0} response {1}", new Object[]{responseLogger.lastHTTPCode, responseLogger.lastResponse});
+            throw new AgentParserException("Error converting response", responseLogger.lastHTTPCode, responseLogger.lastResponse);
+        } catch (Exception e) {
+            throw new AgentException("Error talking to server", e);
+        }
     }
 
     /**
-     * Perform a POST request againsts the current target.
+     * Perform a POST request against the current target.
      *
      * @param req the request data, a instance of {@link dev.aisandbox.client.scenarios.ServerRequest}.
      * @param responseType The class of a {@link dev.aisandbox.client.scenarios.ServerResponse} object to return
      * @return the JSON or XML response deserialised into the specified class.
      */
-    public <T> T postRequest(ServerRequest req, Class<T> responseType) {
-        //request entity is created with request headers
-        HttpEntity<ServerRequest> requestEntity = new HttpEntity<>(req, restHeaders);
-        ResponseEntity response = restTemplate.exchange(
-                target,
-                HttpMethod.POST,
-                requestEntity,
-                responseType
-        );
-        // convert
-        return responseType.cast(response.getBody());
+    public <T> T postRequest(ServerRequest req, Class<T> responseType) throws AgentException {
+        try {
+            //request entity is created with request headers
+            HttpEntity<ServerRequest> requestEntity = new HttpEntity<>(req, restHeaders);
+            ResponseEntity response = restTemplate.exchange(
+                    target,
+                    HttpMethod.POST,
+                    requestEntity,
+                    responseType
+            );
+            // convert
+            return responseType.cast(response.getBody());
+        } catch (ResourceAccessException re) {
+            LOG.log(Level.SEVERE, "Error talking to remote resource", re);
+            throw new AgentConnectionException("Error accessing remote resource");
+        } catch (RestClientException me) {
+            // get the response from the Agent logger
+            LOG.log(Level.SEVERE, "Error converting response", me);
+            LOG.log(Level.SEVERE, "Last code {0} response {1}", new Object[]{responseLogger.lastHTTPCode, responseLogger.lastResponse});
+            throw new AgentParserException("Error converting response", responseLogger.lastHTTPCode, responseLogger.lastResponse);
+        } catch (Exception e) {
+            throw new AgentException("Error talking to server",e);
+        }
     }
 
 

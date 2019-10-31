@@ -106,6 +106,10 @@ public class Cell {
         getNeighbours().get(direction).getPaths().add(direction.opposite());
     }
 
+    public boolean isPath(Direction direction) {
+        return paths.contains(direction);
+    }
+
     /**
      * <p>addPath.</p>
      *

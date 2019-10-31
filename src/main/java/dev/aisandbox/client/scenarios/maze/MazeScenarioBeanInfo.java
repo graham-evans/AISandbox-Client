@@ -24,7 +24,10 @@ public class MazeScenarioBeanInfo extends SimpleBeanInfo {
             PropertyDescriptor fic = new PropertyDescriptor("mazeType", MazeScenario.class);
             fic.setDisplayName("Maze Type");
             fic.setName("B");
-            PropertyDescriptor[] list = { flc, fic};
+            PropertyDescriptor fsc = new PropertyDescriptor("mazeSize", MazeScenario.class);
+            fsc.setDisplayName("Maze Size");
+            fsc.setName("C");
+            PropertyDescriptor[] list = {flc, fic, fsc};
             return list;
         } catch (IntrospectionException iexErr) {
             throw new Error(iexErr.toString());

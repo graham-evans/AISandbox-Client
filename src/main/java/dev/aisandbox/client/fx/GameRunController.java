@@ -1,15 +1,20 @@
 package dev.aisandbox.client.fx;
 
-import dev.aisandbox.client.RuntimeModel;
+import dev.aisandbox.client.*;
 import dev.aisandbox.client.output.*;
 import javafx.application.Platform;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.*;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.Priority;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
@@ -17,6 +22,8 @@ import org.springframework.stereotype.Component;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.net.URL;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -31,40 +38,30 @@ import java.util.logging.Logger;
 public class GameRunController {
 
     private static final Logger LOG = Logger.getLogger(GameRunController.class.getName());
-
+    private final AtomicBoolean imageReady = new AtomicBoolean(true);
     @Autowired
     private ApplicationContext appContext;
-
     @Autowired
     private RuntimeModel model;
-
     @Autowired
     private FXTools fxtools;
-
     @FXML
     private ResourceBundle resources;
-
     @FXML
     private URL location;
-
     @FXML
     private LineChart<?, ?> rewardGraph;
-
     @FXML
     private StackedAreaChart<?, ?> responseGraph;
-
     @FXML
     private Button backButton;
-
     @FXML
     private Button startButton;
-
     @FXML
     private Pane imageAnchor;
-
     private ImageView imageView;
-
     private StackedAreaChartController timingsController;
+    private LineChartController rewardController;
 
     @FXML
     void backButtonAction(ActionEvent event) {
@@ -75,32 +72,42 @@ public class GameRunController {
     @FXML
     void startButtonAction(ActionEvent event) {
         if (model.getScenario().isSimulationRunning()) {
-            model.getScenario().stopSimulation();
-            startButton.setText("Start Simulation");
+            stopSimulation();
         } else {
-            // reset the charts
-            timingsController.reset();
-            // decide which output class to use
-            FrameOutput out;
-            switch (model.getOutputFormat()) {
-                case MP4:
-                    out = new MP4Output();
-                    break;
-                case PNG:
-                    out = new PNGOutputWriter();
-                    break;
-                default:
-                    out = new NoOutput();
-            }
-            // setup output
-            try {
-                out.open(model.getOutputDirectory());
-            } catch (IOException e) {
-                LOG.log(Level.WARNING, "Error opening output", e);
-            }
-            model.getScenario().startSimulation(model.getAgentList(), this, out);
-            startButton.setText("Stop Simulation");
+            startSimulation();
         }
+    }
+
+    private void startSimulation() {
+        // reset the charts
+        timingsController.reset();
+        // disable the back button
+        backButton.setDisable(true);
+        // decide which output class to use
+        FrameOutput out;
+        switch (model.getOutputFormat()) {
+            case MP4:
+                out = new MP4Output();
+                break;
+            case PNG:
+                out = new PNGOutputWriter();
+                break;
+            default:
+                out = new NoOutput();
+        }
+        // setup output
+        try {
+            out.open(model.getOutputDirectory());
+        } catch (IOException e) {
+            LOG.log(Level.WARNING, "Error opening output", e);
+        }
+        model.getScenario().startSimulation(model.getAgentList(), this, out);
+        startButton.setText("Stop Simulation");
+    }
+
+    private void stopSimulation() {
+        model.getScenario().stopSimulation();
+        resetStartButton();
     }
 
     @FXML
@@ -127,9 +134,8 @@ public class GameRunController {
         );
         // setup response graph
         responseGraph.getYAxis().setLabel("milliseconds");
-
+        rewardController = new LineChartController(rewardGraph);
         timingsController = new StackedAreaChartController(responseGraph);
-
     }
 
     private void repositionImage(ImageView image, double paneWidth, double paneHeight) {
@@ -152,6 +158,7 @@ public class GameRunController {
      * <p>
      * Pass a Map (usualy a TreeMap) of name:value pairs which will be added to the chart.
      * If there are more than 20 entries already - the oldest one should be removed.
+     *
      * @param timings
      */
     public void addResponseTimings(Map<String, Double> timings) {
@@ -160,7 +167,23 @@ public class GameRunController {
         );
     }
 
-    private final AtomicBoolean imageReady = new AtomicBoolean(true);
+    /**
+     * Show a reward in the left graph
+     *
+     * @param score
+     */
+    public void addReward(double score) {
+        Platform.runLater(() -> {
+            rewardController.addReward(score);
+        });
+    }
+
+    public void setRewardTitle(String title) {
+        Platform.runLater(() -> {
+            rewardGraph.getYAxis().setLabel(title);
+        });
+    }
+
     /**
      * Method to update the on-screen view of the simulation
      * <p>
@@ -175,5 +198,65 @@ public class GameRunController {
                 imageReady.set(true);
             });
         }
+    }
+
+    public void resetStartButton() {
+        Platform.runLater(() -> {
+            startButton.setText("Start Simulation");
+            backButton.setDisable(false);
+        });
+    }
+
+    public void showAgentError(String agentURL, Exception e) {
+        // special case - is this an agent excetpion
+        if (e instanceof AgentConnectionException) {
+            showAgentError(agentURL, "Error connecting to agent", e.getMessage());
+        } else if (e instanceof AgentParserException) {
+            AgentParserException ape = (AgentParserException) e;
+            StringBuilder sb = new StringBuilder();
+            sb.append("Connection to the server produced HTTP code ");
+            sb.append(ape.getResponseCode());
+            sb.append("\nResponse:\n");
+            sb.append(ape.getResponse());
+            showAgentError(agentURL, "Error parsing server response", sb.toString());
+        } else {
+            // show generic exception
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            e.printStackTrace(pw);
+            // pass this as the details
+            showAgentError(agentURL, "Agent Exception", sw.toString());
+        }
+    }
+
+    public void showAgentError(String agentURL, String description, String details) {
+        Platform.runLater(() -> {
+            // show the exception
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Agent Error");
+            alert.setHeaderText("There was an error talking to an agent");
+            alert.setContentText(agentURL);
+
+            Label label = new Label(description);
+
+            TextArea textArea = new TextArea(details);
+            textArea.setEditable(false);
+            textArea.setWrapText(true);
+
+            textArea.setMaxWidth(Double.MAX_VALUE);
+            textArea.setMaxHeight(Double.MAX_VALUE);
+            GridPane.setVgrow(textArea, Priority.ALWAYS);
+            GridPane.setHgrow(textArea, Priority.ALWAYS);
+
+            GridPane expContent = new GridPane();
+            expContent.setMaxWidth(Double.MAX_VALUE);
+            expContent.add(label, 0, 0);
+            expContent.add(textArea, 0, 1);
+
+// Set expandable Exception into the dialog pane.
+            alert.getDialogPane().setExpandableContent(expContent);
+
+            alert.showAndWait();
+        });
     }
 }

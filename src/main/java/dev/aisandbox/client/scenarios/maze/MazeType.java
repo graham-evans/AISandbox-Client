@@ -8,16 +8,28 @@ package dev.aisandbox.client.scenarios.maze;
  * @version $Id: $Id
  */
 public enum MazeType {
-    BINARYTREE{
+    BINARYTREE {
         @Override
         public String toString() {
             return "Binary Tree (Biased)";
         }
     },
-    SIDEWINDER{
+    SIDEWINDER {
         @Override
         public String toString() {
             return "Sidewinder";
+        }
+    },
+    RECURSIVEBACKTRACKER {
+        @Override
+        public String toString() {
+            return "Recursive Backtracker";
+        }
+    },
+    BRAIDED {
+        @Override
+        public String toString() {
+            return "Braided (includes loops)";
         }
     };
 

@@ -20,13 +20,13 @@
       minWidth="640.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1"
       xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.aisandbox.client.fx.GameOptionsController">
     <children>
-        <Label text="Select Game Options"/>
+        <Label text="%ui.gameoptions.heading"/>
         <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
             <children>
                 <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="400.0"
                       spacing="2.0" HBox.hgrow="ALWAYS">
                     <children>
-                        <Label maxWidth="1.7976931348623157E308" text="Options"/>
+                        <Label maxWidth="1.7976931348623157E308" text="%ui.gameoptions.options"/>
                         <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER"
                                     maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
                                     VBox.vgrow="ALWAYS">
@@ -43,7 +43,7 @@
                 <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="400.0"
                       spacing="2.0" HBox.hgrow="ALWAYS">
                     <children>
-                        <Label text="Agents"/>
+                        <Label text="%ui.gameoptions.agents"/>
                         <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER"
                                     maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
                                     prefWidth="200.0" VBox.vgrow="SOMETIMES">
@@ -54,14 +54,14 @@
                         <FlowPane alignment="TOP_RIGHT" hgap="2.0">
                             <children>
                                 <Button fx:id="removeAgentButton" disable="true" mnemonicParsing="false"
-                                        onAction="#removeAgentEvent" text="Remove Agent"/>
+                                        onAction="#removeAgentEvent" text="%ui.gameoptions.removeagent"/>
                                 <Button fx:id="editAgentButton" mnemonicParsing="false" onAction="#editAgentAction"
-                                        text="Edit Agent"/>
+                                        text="%ui.gameoptions.editagent"/>
                                 <Button fx:id="addAgentButton" mnemonicParsing="false" onAction="#addAgentAction"
-                                        text="Add Agent"/>
+                                        text="%ui.gameoptions.addagent"/>
                             </children>
                         </FlowPane>
-                        <Label text="Output">
+                        <Label text="%ui.gameoptions.output">
                             <font>
                                 <Font name="System Bold" size="12.0"/>
                             </font>
@@ -77,12 +77,12 @@
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                             </rowConstraints>
                             <children>
-                                <Label text="Output Format">
+                                <Label text="%ui.gameoptions.outputformat">
                                     <GridPane.margin>
                                         <Insets right="2.0"/>
                                     </GridPane.margin>
                                 </Label>
-                                <Label text="Ouput Directory" GridPane.rowIndex="1">
+                                <Label text="%ui.gameoptions.outputdirectory" GridPane.rowIndex="1">
                                     <GridPane.margin>
                                         <Insets right="2.0"/>
                                     </GridPane.margin>
@@ -92,8 +92,8 @@
                                 <TextField fx:id="outputDirectory" editable="false" GridPane.columnIndex="1"
                                            GridPane.rowIndex="1"/>
                                 <Button fx:id="outputDirectoryButton" mnemonicParsing="false"
-                                        onAction="#chooseOutputDirectory" text="Choose" GridPane.columnIndex="2"
-                                        GridPane.rowIndex="1">
+                                        onAction="#chooseOutputDirectory" text="%ui.button.choose"
+                                        GridPane.columnIndex="2" GridPane.rowIndex="1">
                                     <GridPane.margin>
                                         <Insets left="2.0"/>
                                     </GridPane.margin>

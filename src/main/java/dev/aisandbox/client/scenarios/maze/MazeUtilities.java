@@ -1,6 +1,8 @@
 package dev.aisandbox.client.scenarios.maze;
 
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * <p>MazeUtilities class.</p>
@@ -9,6 +11,8 @@ import java.util.*;
  * @version $Id: $Id
  */
 public class MazeUtilities {
+
+    private static final Logger LOG = Logger.getLogger(MazeUtilities.class.getName());
 
     private MazeUtilities() {
     }
@@ -20,6 +24,7 @@ public class MazeUtilities {
      * @param maze a {@link dev.aisandbox.client.scenarios.maze.Maze} object.
      */
     public static void applySidewinder(Random rand, Maze maze) {
+        LOG.info("Applying sidewinder to maze");
         // special case, join the top row
         for (int x = 0; x < maze.getWidth() - 1; x++) {
             maze.getCellArray()[x][0].addPath(Direction.EAST);
@@ -42,6 +47,7 @@ public class MazeUtilities {
                 }
             }
         }
+        LOG.info("Finished sidewinder");
     }
 
     /**
@@ -51,6 +57,7 @@ public class MazeUtilities {
      * @param maze a {@link dev.aisandbox.client.scenarios.maze.Maze} object.
      */
     public static void applyBinaryTree(Random rand, Maze maze) {
+        LOG.info("Applying binary tree to maze");
         for (Cell c : maze.getCellList()) {
             List<Cell> targets = new ArrayList<>();
             if (c.getNeighbours().get(Direction.EAST) != null) {
@@ -61,6 +68,55 @@ public class MazeUtilities {
             }
             if (!targets.isEmpty()) {
                 c.addPath(targets.get(rand.nextInt(targets.size())));
+            }
+        }
+        LOG.info("finished binary tree");
+    }
+
+    public static void applyRecursiveBacktracker(Random rand,Maze maze) {
+        LOG.info("Applying recursive backtracker");
+        List<Cell> stack = new ArrayList<>();
+        List<Cell> unvisited = new ArrayList<>();
+        unvisited.addAll(maze.getCellList());
+        stack.add(unvisited.remove(rand.nextInt(unvisited.size())));
+        while (!stack.isEmpty()) {
+            // copy the last entry off the stack
+            Cell current = stack.get(stack.size()-1);
+            // work out the unvisited neighbours
+            List<Cell> neighbours = new ArrayList<>();
+            for (Cell n : current.getNeighbours().values()) {
+                if (unvisited.contains(n)) {
+                    neighbours.add(n);
+                }
+            }
+            if (neighbours.isEmpty()) {
+                // no neighbours - remove from stack and step backwards
+                stack.remove(current);
+            } else {
+                // pick random neighbour - link, then add this to the stack
+                Cell next = neighbours.get(rand.nextInt(neighbours.size()));
+                current.addPath(next);
+                stack.add(next);
+                unvisited.remove(next);
+            }
+        }
+        LOG.info("Finished backtracker");
+    }
+
+    public static void removeDeadEnds(Random rand,Maze maze) {
+        // check each cell
+        for (Cell current : maze.getCellList()) {
+            // work out how many paths if less than two, add a new one
+            if (current.getPaths().size()<2) {
+                List<Cell> target = new ArrayList<>();
+                for (Direction d : current.getNeighbours().keySet()) {
+                    if (!current.isPath(d)) {
+                        target.add(current.getNeighbours().get(d));
+                    }
+                }
+                if (target.size()>0) {
+                    current.addPath(target.get(rand.nextInt(target.size())));
+                }
             }
         }
     }
@@ -87,6 +143,7 @@ public class MazeUtilities {
      * @param maze a {@link dev.aisandbox.client.scenarios.maze.Maze} object.
      */
     public static void applyDijkstra(Maze maze) {
+        LOG.log(Level.INFO,"Applying dijkstra - picking random start cell from maze with {0} cells",new Object[] {maze.getCellList().size()});
         Random rand = new Random(System.currentTimeMillis());
         applyDijkstra(maze, maze.getCellList().get(rand.nextInt(maze.getCellList().size())));
     }
