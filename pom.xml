@@ -54,6 +54,13 @@
             <artifactId>jcodec-javase</artifactId>
             <version>0.2.5</version>
         </dependency>
+        <!-- constraint solving -->
+        <dependency>
+            <groupId>org.choco-solver</groupId>
+            <artifactId>choco-solver</artifactId>
+            <version>4.10.1</version>
+        </dependency>
+
         <!-- JAVAFX - Repeated to create single runtime for win/linux/mac -->
         <dependency>
             <groupId>org.openjfx</groupId>
@@ -193,7 +200,6 @@
             <artifactId>controlsfx</artifactId>
             <version>11.0.0</version>
         </dependency>
-
         <!-- Testing -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
