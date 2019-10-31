@@ -38,39 +38,28 @@ import java.util.logging.Logger;
 public class GameRunController {
 
     private static final Logger LOG = Logger.getLogger(GameRunController.class.getName());
-
+    private final AtomicBoolean imageReady = new AtomicBoolean(true);
     @Autowired
     private ApplicationContext appContext;
-
     @Autowired
     private RuntimeModel model;
-
     @Autowired
     private FXTools fxtools;
-
     @FXML
     private ResourceBundle resources;
-
     @FXML
     private URL location;
-
     @FXML
     private LineChart<?, ?> rewardGraph;
-
     @FXML
     private StackedAreaChart<?, ?> responseGraph;
-
     @FXML
     private Button backButton;
-
     @FXML
     private Button startButton;
-
     @FXML
     private Pane imageAnchor;
-
     private ImageView imageView;
-
     private StackedAreaChartController timingsController;
     private LineChartController rewardController;
 
@@ -92,6 +81,8 @@ public class GameRunController {
     private void startSimulation() {
         // reset the charts
         timingsController.reset();
+        // disable the back button
+        backButton.setDisable(true);
         // decide which output class to use
         FrameOutput out;
         switch (model.getOutputFormat()) {
@@ -167,6 +158,7 @@ public class GameRunController {
      * <p>
      * Pass a Map (usualy a TreeMap) of name:value pairs which will be added to the chart.
      * If there are more than 20 entries already - the oldest one should be removed.
+     *
      * @param timings
      */
     public void addResponseTimings(Map<String, Double> timings) {
@@ -177,6 +169,7 @@ public class GameRunController {
 
     /**
      * Show a reward in the left graph
+     *
      * @param score
      */
     public void addReward(double score) {
@@ -185,14 +178,12 @@ public class GameRunController {
         });
     }
 
-
     public void setRewardTitle(String title) {
         Platform.runLater(() -> {
             rewardGraph.getYAxis().setLabel(title);
         });
     }
 
-    private final AtomicBoolean imageReady = new AtomicBoolean(true);
     /**
      * Method to update the on-screen view of the simulation
      * <p>
@@ -210,7 +201,10 @@ public class GameRunController {
     }
 
     public void resetStartButton() {
-        Platform.runLater(() -> startButton.setText("Start Simulation"));
+        Platform.runLater(() -> {
+            startButton.setText("Start Simulation");
+            backButton.setDisable(false);
+        });
     }
 
     public void showAgentError(String agentURL, Exception e) {
@@ -237,8 +231,8 @@ public class GameRunController {
 
     public void showAgentError(String agentURL, String description, String details) {
         Platform.runLater(() -> {
-        // show the exception
-        Alert alert = new Alert(Alert.AlertType.ERROR);
+            // show the exception
+            Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Agent Error");
             alert.setHeaderText("There was an error talking to an agent");
             alert.setContentText(agentURL);
@@ -246,23 +240,23 @@ public class GameRunController {
             Label label = new Label(description);
 
             TextArea textArea = new TextArea(details);
-        textArea.setEditable(false);
-        textArea.setWrapText(true);
+            textArea.setEditable(false);
+            textArea.setWrapText(true);
 
-        textArea.setMaxWidth(Double.MAX_VALUE);
-        textArea.setMaxHeight(Double.MAX_VALUE);
-        GridPane.setVgrow(textArea, Priority.ALWAYS);
-        GridPane.setHgrow(textArea, Priority.ALWAYS);
+            textArea.setMaxWidth(Double.MAX_VALUE);
+            textArea.setMaxHeight(Double.MAX_VALUE);
+            GridPane.setVgrow(textArea, Priority.ALWAYS);
+            GridPane.setHgrow(textArea, Priority.ALWAYS);
 
-        GridPane expContent = new GridPane();
-        expContent.setMaxWidth(Double.MAX_VALUE);
-        expContent.add(label, 0, 0);
-        expContent.add(textArea, 0, 1);
+            GridPane expContent = new GridPane();
+            expContent.setMaxWidth(Double.MAX_VALUE);
+            expContent.add(label, 0, 0);
+            expContent.add(textArea, 0, 1);
 
 // Set expandable Exception into the dialog pane.
-        alert.getDialogPane().setExpandableContent(expContent);
+            alert.getDialogPane().setExpandableContent(expContent);
 
-        alert.showAndWait();
+            alert.showAndWait();
         });
     }
 }
