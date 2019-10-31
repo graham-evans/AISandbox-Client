@@ -39,7 +39,9 @@
                 <AnchorPane VBox.vgrow="NEVER">
                     <children>
                         <Button fx:id="backButton" mnemonicParsing="false" onAction="#backButtonAction" text="%ui.button.back" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="8.0" />
-                        <Button fx:id="startButton" mnemonicParsing="false" onAction="#startButtonAction" text="Start Simulation" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="8.0" />
+                        <Button fx:id="startButton" mnemonicParsing="false" onAction="#startButtonAction"
+                                text="%ui.button.start" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="8.0"
+                                AnchorPane.topAnchor="8.0"/>
                     </children>
                 </AnchorPane>
             </children>

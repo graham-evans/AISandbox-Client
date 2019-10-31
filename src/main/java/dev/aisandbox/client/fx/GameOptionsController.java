@@ -131,6 +131,7 @@ public class GameOptionsController {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(GameOptionsController.class.getResource("EditAgent.fxml"));
+            loader.setResources(ResourceBundle.getBundle("dev.aisandbox.client.fx.UI"));
             VBox page = loader.load();
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Edit Agent");
