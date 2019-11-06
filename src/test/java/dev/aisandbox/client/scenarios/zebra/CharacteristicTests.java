@@ -28,7 +28,7 @@ public class CharacteristicTests {
         // check autowiring workd
         assertNotNull("Autowiring fail", characteristicList);
         // check count
-        assertEquals("count mismatch", ZebraPuzzle.PUZZLE_HEIGHT, characteristicList.size());
+        assertEquals("count mismatch", ZebraPuzzle.PUZZLE_CHARACTERISTICS, characteristicList.size());
     }
 
     @Test
@@ -36,13 +36,13 @@ public class CharacteristicTests {
         // every characteristic should have ZebraPuzzle.PUZZLE_WIDTH items
         for (Characteristic c : characteristicList) {
             // item name
-            assertNotNull(c.getClass().getName() + " item count", c.getItem(ZebraPuzzle.PUZZLE_WIDTH - 1));
+            assertNotNull(c.getClass().getName() + " item count", c.getItem(ZebraPuzzle.PUZZLE_HOUSES - 1));
             // icon name
-            assertNotNull(c.getClass().getName() + " icon count", c.getIcon(ZebraPuzzle.PUZZLE_WIDTH - 1));
+            assertNotNull(c.getClass().getName() + " icon count", c.getIcon(ZebraPuzzle.PUZZLE_HOUSES - 1));
             // positive description
-            assertNotNull(c.getClass().getName() + " positive description count", c.getDescription(ZebraPuzzle.PUZZLE_WIDTH - 1));
+            assertNotNull(c.getClass().getName() + " positive description count", c.getDescription(ZebraPuzzle.PUZZLE_HOUSES - 1));
             // negative description
-            assertNotNull(c.getClass().getName() + " negative description count", c.getNegativeDescription(ZebraPuzzle.PUZZLE_WIDTH - 1));
+            assertNotNull(c.getClass().getName() + " negative description count", c.getNegativeDescription(ZebraPuzzle.PUZZLE_HOUSES - 1));
         }
     }
 
@@ -51,7 +51,7 @@ public class CharacteristicTests {
         Set<String> names = new HashSet<>();
         // every description, from every characteristic, should be unique
         for (Characteristic c : characteristicList) {
-            for (int i = 0; i < ZebraPuzzle.PUZZLE_WIDTH; i++) {
+            for (int i = 0; i < ZebraPuzzle.PUZZLE_HOUSES; i++) {
                 String description = c.getDescription(i);
                 assertFalse("Duplicate description " + c.getClass().getName() + " " + description, names.contains(description));
                 names.add(description);

@@ -1,5 +1,6 @@
-package dev.aisandbox.client.scenarios.zebra;
+package dev.aisandbox.client.scenarios.zebra.characteristics;
 
+import dev.aisandbox.client.scenarios.zebra.Characteristic;
 import org.springframework.stereotype.Component;
 
 @Component

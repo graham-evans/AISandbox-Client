@@ -27,6 +27,7 @@ public class GeneratorTest {
         ZebraPuzzle puzzle = gen.generatePuzzle();
         assertNotNull(puzzle);
         assertNotNull(puzzle.getClues());
+        LOG.info("Clue list:");
         for (Clue c : puzzle.getClues()) {
             LOG.info(c.getClueString());
         }
