@@ -173,15 +173,15 @@ public class GameRunController {
      * @param score
      */
     public void addReward(double score) {
-        Platform.runLater(() -> {
-            rewardController.addReward(score);
-        });
+        Platform.runLater(() ->
+                rewardController.addReward(score)
+        );
     }
 
     public void setRewardTitle(String title) {
-        Platform.runLater(() -> {
-            rewardGraph.getYAxis().setLabel(title);
-        });
+        Platform.runLater(() ->
+                rewardGraph.getYAxis().setLabel(title)
+        );
     }
 
     /**

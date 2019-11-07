@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ZebraPuzzle {
@@ -41,7 +42,7 @@ public class ZebraPuzzle {
         for (int j = 0; j < PUZZLE_CHARACTERISTICS; j++) {
             // randomise the row
             Collections.shuffle(row, rand);
-            LOG.info("Puzzle characteristic " + j + " = " + row.toString());
+            LOG.log(Level.INFO, "Puzzle characteristic {0} = {1}", new Object[]{j, row.toString()});
             // copy contents to solution
             for (int i = 0; i < PUZZLE_HOUSES; i++) {
                 solution[i][j] = row.get(i);

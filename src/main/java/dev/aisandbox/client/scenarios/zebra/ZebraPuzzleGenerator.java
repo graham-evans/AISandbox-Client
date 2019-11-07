@@ -9,6 +9,7 @@ import org.chocosolver.solver.Solution;
 import org.chocosolver.solver.search.limits.SolutionCounter;
 
 import java.util.*;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @Component
@@ -39,7 +40,7 @@ public class ZebraPuzzleGenerator {
         ZebraPuzzle puzzle = new ZebraPuzzle(characteristicList, rand);
         // generate the model
         Model model = new Model();
-        IntVar places[][] = new IntVar[ZebraPuzzle.PUZZLE_HOUSES][ZebraPuzzle.PUZZLE_CHARACTERISTICS];
+        IntVar[][] places = new IntVar[ZebraPuzzle.PUZZLE_HOUSES][ZebraPuzzle.PUZZLE_CHARACTERISTICS];
         for (int i = 0; i < ZebraPuzzle.PUZZLE_CHARACTERISTICS; i++) {
             List<IntVar> row = new ArrayList<>();
             for (int j = 0; j < ZebraPuzzle.PUZZLE_HOUSES; j++) {
@@ -71,13 +72,13 @@ public class ZebraPuzzleGenerator {
             if (solutions.size() == 1) {
                 LOG.info("Found unique solution");
                 found = true;
-            } else if (solutions.size() == 0) {
+            } else if (solutions.isEmpty()) {
                 LOG.severe("No solutions !!!");
                 found = true;
             } else {
                 LOG.info("Multiple solutions");
                 for (Solution s : solutions) {
-                    LOG.info(">" + s.toString());
+                    LOG.log(Level.INFO, "> {0}", new Object[]{s.toString()});
                 }
                 count++;
                 LOG.info("No unique solution, adding another clue");
