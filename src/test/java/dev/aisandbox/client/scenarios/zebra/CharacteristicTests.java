@@ -37,8 +37,6 @@ public class CharacteristicTests {
         for (Characteristic c : characteristicList) {
             // item name
             assertNotNull(c.getClass().getName() + " item count", c.getItem(ZebraPuzzle.PUZZLE_HOUSES - 1));
-            // icon name
-            assertNotNull(c.getClass().getName() + " icon count", c.getIcon(ZebraPuzzle.PUZZLE_HOUSES - 1));
             // positive description
             assertNotNull(c.getClass().getName() + " positive description count", c.getDescription(ZebraPuzzle.PUZZLE_HOUSES - 1));
             // negative description
