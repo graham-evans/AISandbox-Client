@@ -2,20 +2,7 @@ package dev.aisandbox.client.scenarios.zebra;
 
 import dev.aisandbox.client.scenarios.zebra.characteristics.*;
 import lombok.Getter;
-import org.chocosolver.solver.ICause;
-import org.chocosolver.solver.constraints.Propagator;
-import org.chocosolver.solver.exception.ContradictionException;
 import org.chocosolver.solver.variables.*;
-import org.chocosolver.solver.variables.delta.IDelta;
-import org.chocosolver.solver.variables.delta.IIntDeltaMonitor;
-import org.chocosolver.solver.variables.events.IEventType;
-import org.chocosolver.solver.variables.view.IView;
-import org.chocosolver.util.iterators.DisposableRangeIterator;
-import org.chocosolver.util.iterators.DisposableValueIterator;
-import org.chocosolver.util.iterators.EvtScheduler;
-import org.chocosolver.util.objects.setDataStructures.iterable.IntIterableSet;
-import org.jcodec.common.DictionaryCompressor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.chocosolver.solver.Model;
 import org.chocosolver.solver.Solution;
@@ -46,8 +33,7 @@ public class ZebraPuzzleGenerator {
         characteristicList.add(new StarSignCharacteristic());
     }
 
-    public ZebraPuzzle generatePuzzle() {
-        Random rand = new Random();
+    public ZebraPuzzle generatePuzzle(Random rand) {
         LOG.info("Generating new puzzle");
         // generate puzzle with a solution
         ZebraPuzzle puzzle = new ZebraPuzzle(characteristicList, rand);

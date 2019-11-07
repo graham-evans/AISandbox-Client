@@ -24,7 +24,7 @@ public class GeneratorTest {
     @Test
     public void generateTest() {
         Random rand = new Random();
-        ZebraPuzzle puzzle = gen.generatePuzzle();
+        ZebraPuzzle puzzle = gen.generatePuzzle(rand);
         assertNotNull(puzzle);
         assertNotNull(puzzle.getClues());
         LOG.info("Clue list:");
