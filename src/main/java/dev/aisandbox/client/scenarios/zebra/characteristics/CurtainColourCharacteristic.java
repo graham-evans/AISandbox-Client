@@ -8,10 +8,6 @@ public class CurtainColourCharacteristic implements Characteristic {
 
     String[] names = new String[]{"red", "blue", "green", "black", "white", "maroon", "olive", "aquamarine", "fuchia", "pink"};
 
-    @Override
-    public String getIcon(int num) {
-        return names[num] + ".png";
-    }
 
     @Override
     public String getItem(int num) {

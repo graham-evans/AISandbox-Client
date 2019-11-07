@@ -1,31 +1,15 @@
 package dev.aisandbox.client.scenarios.zebra.characteristics;
 
 import dev.aisandbox.client.scenarios.zebra.Characteristic;
+import net.bytebuddy.description.type.TypeList;
 import org.springframework.stereotype.Component;
 
 @Component
-public class FrontDoorCharacteristic implements Characteristic {
+public class FrontDoorCharacteristic extends GenericCharacteristic implements Characteristic {
 
-    String[] names = new String[]{"red", "blue", "green", "black", "grey", "orange", "brown", "lime coloured", "silver", "plum"};
-
-    @Override
-    public String getIcon(int num) {
-        return names[num] + ".png";
+    public FrontDoorCharacteristic() {
+        super(new String[]{"red", "blue", "green", "black", "grey", "orange", "brown", "lime coloured", "silver", "plum"},
+                new String[]{"has a # front door"},
+                new String[]{"doens't have a # front door"});
     }
-
-    @Override
-    public String getItem(int num) {
-        return names[num];
-    }
-
-    @Override
-    public String getDescription(int num) {
-        return "has a " + names[num] + " front door";
-    }
-
-    @Override
-    public String getNegativeDescription(int num) {
-        return "doesn't have a " + names[num] + " front door";
-    }
-
 }
