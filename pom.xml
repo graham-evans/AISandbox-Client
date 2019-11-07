@@ -58,7 +58,7 @@
         <dependency>
             <groupId>org.choco-solver</groupId>
             <artifactId>choco-solver</artifactId>
-            <version>4.10.1</version>
+            <version>4.10.2</version>
         </dependency>
 
         <!-- JAVAFX - Repeated to create single runtime for win/linux/mac -->
