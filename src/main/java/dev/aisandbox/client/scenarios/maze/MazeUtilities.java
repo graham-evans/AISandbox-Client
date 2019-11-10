@@ -114,7 +114,7 @@ public class MazeUtilities {
                         target.add(current.getNeighbours().get(d));
                     }
                 }
-                if (target.isEmpty()) {
+                if (!target.isEmpty()) {
                     current.addPath(target.get(rand.nextInt(target.size())));
                 }
             }
