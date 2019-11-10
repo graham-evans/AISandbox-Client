@@ -5,6 +5,7 @@ import dev.aisandbox.client.AgentException;
 import dev.aisandbox.client.fx.GameRunController;
 import dev.aisandbox.client.output.FrameOutput;
 import dev.aisandbox.client.output.OutputTools;
+import dev.aisandbox.client.output.charts.LineGraph;
 import dev.aisandbox.client.scenarios.maze.api.History;
 import dev.aisandbox.client.scenarios.maze.api.MazeRequest;
 import dev.aisandbox.client.scenarios.maze.api.MazeResponse;
@@ -38,8 +39,10 @@ public class MazeRunner extends Thread {
     private final FrameOutput output;
     private final GameRunController controller;
     private final BufferedImage background;
-    private static final int ORIGIN_X = (1920-1000)/2;
-    private static final int ORIGIN_Y = (1080-750)/2;
+    private LineGraph graph;
+    private BufferedImage graphCache;
+    private static final int GRAPH_WIDTH=600;
+    private static final int GRAPH_HEIGHT=250;
     @Getter
     private boolean running = false;
 
@@ -62,11 +65,14 @@ public class MazeRunner extends Thread {
             logo = new BufferedImage(10,10,BufferedImage.TYPE_INT_RGB);
         }
         Font myFont = new Font("Sans-Serif", Font.PLAIN, 28);
-
+        graph = new LineGraph();
+        graph.setTitle("Steps to solve");
+        graphCache = graph.getGraph(GRAPH_WIDTH,GRAPH_HEIGHT);
         // main game loop
         running = true;
         long stepCount = 0;
         long stepToFinish = 0;
+        Long fastestSolve = null;
         while (running) {
             // keep timings
             Map<String, Double> timings = new TreeMap<>();
@@ -83,6 +89,8 @@ public class MazeRunner extends Thread {
             // send and get response
             try {
                 timer = System.currentTimeMillis();
+                stepCount++;
+                stepToFinish++;
                 MazeResponse response = agent.postRequest(request, MazeResponse.class);
                 LOG.log(Level.INFO, "Recieved response from server - {0}", response);
                 timings.put("Network", (double) (System.currentTimeMillis() - timer));
@@ -105,6 +113,11 @@ public class MazeRunner extends Thread {
                     lastMove.setReward(REWARD_GOAL);
                     currentCell = maze.getStartCell();
                     controller.addReward(stepToFinish);
+                    graph.addValue((double)stepToFinish);
+                    graphCache=graph.getGraph(GRAPH_WIDTH,GRAPH_HEIGHT);
+                    if ((fastestSolve == null) || (fastestSolve > stepToFinish)) {
+                        fastestSolve = stepToFinish;
+                    }
                     stepToFinish=0;
                 }
                 LOG.log(Level.INFO, "Moved to {0}", new Object[]{currentCell});
@@ -116,15 +129,19 @@ public class MazeRunner extends Thread {
                 Graphics2D g = image.createGraphics();
                 g.setFont(myFont);
                 // maze
-                g.drawImage(background, ORIGIN_X, ORIGIN_Y,1000,750, null);
+                g.drawImage(background, 100, 200,1000,750, null);
                 // player
                 g.setColor(Color.yellow);
-                g.fillOval(currentCell.getPositionX() * MazeRenderer.SCALE*maze.getZoomLevel() + ORIGIN_X, ORIGIN_Y+currentCell.getPositionY() * MazeRenderer.SCALE*maze.getZoomLevel() , MazeRenderer.SCALE* maze.getZoomLevel(), MazeRenderer.SCALE *maze.getZoomLevel());
+                g.fillOval(currentCell.getPositionX() * MazeRenderer.SCALE*maze.getZoomLevel() + 100, 200+currentCell.getPositionY() * MazeRenderer.SCALE*maze.getZoomLevel() , MazeRenderer.SCALE* maze.getZoomLevel(), MazeRenderer.SCALE *maze.getZoomLevel());
                 // logo
-                g.drawImage(logo,(1920-90)/2,20,null);
+                g.drawImage(logo,100,50,null);
                 // state
                 g.setColor(Color.BLACK);
-                g.drawString("Step : "+stepCount,ORIGIN_X,1080-100);
+                g.drawString("Steps : "+stepToFinish,1200,500);
+                g.drawString("Total Steps : "+stepCount,1200,500+30);
+                g.drawString("Fastest Solve: "+(fastestSolve==null?"NA":fastestSolve),1200,500+60);
+                // graph
+                g.drawImage(graphCache,1200,200,null);
                 // update UI
                 controller.updateBoardImage(image);
                 // output frame
@@ -138,8 +155,7 @@ public class MazeRunner extends Thread {
                 LOG.log(Level.SEVERE, "Error running", ex);
                 running = false;
             }
-            stepCount++;
-            stepToFinish++;
+
         }
         try {
             output.close();
