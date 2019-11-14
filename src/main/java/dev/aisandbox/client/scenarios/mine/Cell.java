@@ -2,36 +2,37 @@ package dev.aisandbox.client.scenarios.mine;
 
 import lombok.Data;
 
+/**
+ * A single cell (square) on the board, includes rules for how it should be displayed
+ * # - Covered
+ * F - Covered + flagged
+ * X - uncovered mine = GAME OVER
+ * f - missflagged empty square = GAME OVER
+ * 1-8 - uncovered + number of mines surrounding
+ * . - uncovered + no mines surrounding
+ */
 @Data
 public class Cell {
 
     private boolean mine;
 
-    public boolean isMine() { return mine;}
-    public void setMine(boolean m) { mine=m;}
-
     // is this cell still covered
     private boolean covered = true;
-
-    public boolean isCovered() { return covered;}
-    public void setCovered(boolean c) { covered = c; }
 
     // has this cell been flagged
     private boolean flagged;
 
-    public boolean isFlagged() { return flagged;}
-    public void setFlagged(boolean f) { flagged = f;}
-
     // the number of neighbours that are mines
     private int neighbours;
 
-    public int getNeighbours() { return neighbours; }
-    public void setNeighbours(int n) { neighbours=n;}
-    
     public char getPlayerView() {
         if (covered) {
             if (flagged) {
-                return 'F';
+                if (mine) {
+                    return 'F';
+                } else {
+                    return 'f';
+                }
             } else {
                 return '#';
             }
