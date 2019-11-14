@@ -2,10 +2,7 @@ package dev.aisandbox.client.scenarios.mine;
 
 import lombok.Getter;
 
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
-import java.util.Stack;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -60,6 +57,13 @@ public class Board {
         return sb.toString();
     }
 
+    /**
+     * look at the cell @ x,y and return 1 if it is mined. If it doesn't have a mine
+     * or is lies outside the grid, return 0.
+     * @param x
+     * @param y
+     * @return 0 or 1
+     */
     private int getMineBounds(int x, int y) {
         try {
             return grid[x][y].isMine() ? 1 : 0;
@@ -68,25 +72,29 @@ public class Board {
         }
     }
 
+    private int countNeighbours(int x,int y) {
+        int count = 0;
+        for (int dx = -1; dx < 2; dx++) {
+            for (int dy = -1; dy < 2; dy++) {
+                if ((dx != 0) || (dy != 0)) {
+                    count += getMineBounds(x + dx, y + dy);
+                }
+            }
+        }
+        return count;
+    }
+
     public void countNeighbours() {
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
-                int count = 0;
-                for (int dx = -1; dx < 2; dx++) {
-                    for (int dy = -1; dy < 2; dy++) {
-                        if ((dx != 0) || (dy != 0)) {
-                            count += getMineBounds(x + dx, y + dy);
-                        }
-                    }
-                }
-                grid[x][y].setNeighbours(count);
+                grid[x][y].setNeighbours(countNeighbours(x,y));
             }
         }
         state = GameState.PLAYING;
     }
 
     public void placeFlag(int x, int y) {
-        LOG.log(Level.INFO,"Placing flag @ {0},{1}",new Object[] {x,y});
+        LOG.log(Level.INFO, "Placing flag @ {0},{1}", new Object[]{x, y});
         Cell c = grid[x][y];
         if (c.isFlagged()) {
             LOG.info("Flagging an already flagged cell - ignoring");
@@ -96,7 +104,6 @@ public class Board {
             LOG.info("Correctly found a mine");
             c.setFlagged(true);
             unfoundMines--;
-            LOG.info(unfoundMines+" mines to go");
         } else {
             LOG.info("Incorrectly marked a mine");
             c.setFlagged(true);
@@ -124,35 +131,43 @@ public class Board {
 
     private void floodFill(int x, int y) {
         Set<CellLocation> visited = new HashSet<>();
-        Stack<CellLocation> stack = new Stack<>();
+        List<CellLocation> stack = new ArrayList<>();
         stack.add(new CellLocation(x, y));
         while (!stack.isEmpty()) {
-            CellLocation cl = stack.pop();
-            Cell c = grid[cl.getX()][cl.getY()];
-            visited.add(cl);
-            if (c.getNeighbours() == 0) {
+            // take the next sell from the stack
+            CellLocation currentCellLocation = stack.remove(0);
+            Cell currentCell = grid[currentCellLocation.getX()][currentCellLocation.getY()];
+            // add it to the visited pile
+            visited.add(currentCellLocation);
+            // uncover it
+            currentCell.setCovered(false);
+            // look at neighbours
+            if (currentCell.getNeighbours() == 0) {
                 // place neighbours on the stack
-                for (int dy = -1; dy < 2; dy++) {
-                    for (int dx = -1; dx < 2; dx++) {
-                        if ((dx != 0) || (dy != 0)) {
-                            try {
-                                Cell c2 = grid[cl.getX() + dx][cl.getY() + y];
-                                CellLocation cl2 = new CellLocation(cl.getX() + dx, cl.getY() + y);
-                                if ((!visited.contains(cl2)) && (!stack.contains(cl2))) {
-                                    // new cell
-                                    c2.setCovered(false);
-                                    if (c2.getNeighbours() == 0) {
-                                        stack.add(cl2);
-                                    }
-                                }
-                            } catch (ArrayIndexOutOfBoundsException e) {
-                                // ignore
-                            }
-                        }
+                List<CellLocation> neighbours = getNeighbours(currentCellLocation);
+                for (CellLocation c:neighbours) {
+                    if ((!visited.contains(c))&&(!stack.contains(c))) {
+                        stack.add(c);
                     }
                 }
             }
         }
+    }
+
+    private List<CellLocation> getNeighbours(CellLocation c) {
+        List<CellLocation> result = new ArrayList<>();
+        for (int dx = -1; dx < 2; dx++) {
+            int x = c.getX() + dx;
+            if ((x >= 0) && (x < width)) {
+                for (int dy = -1; dy < 2; dy++) {
+                    int y = c.getY() + dy;
+                    if ((y>=0)&&(y<height)) {
+                        result.add(new CellLocation(x,y));
+                    }
+                }
+            }
+        }
+        return result;
     }
 
 }
