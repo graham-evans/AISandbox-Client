@@ -41,4 +41,34 @@ public class BoardTest {
         assertEquals(1, b.getCell(1,0).getNeighbours());
     }
 
+  /*  @Test
+    public void uncoverTest() {
+        Board b = new Board(3,1);
+        b.getCell(0,0).setMine(true);
+        b.countNeighbours();
+        b.uncover(2, 0);
+        assertEquals("#1.", b.getRowToString(0));
+    }
+*/
+    @Test
+    public void mistakeTest() {
+        Board b = new Board(3,1);
+        b.getCell(0,0).setMine(true);
+        b.countNeighbours();
+        b.uncover(0, 0);
+        assertEquals(GameState.LOST, b.getState());
+    }
+
+ /*   @Test
+    public void finishTest() {
+        Board b = new Board(3,1);
+        b.getCell(0,0).setMine(true);
+        b.countNeighbours();
+        b.uncover(2, 0);
+        b.placeFlag(0, 0);
+        assertEquals(GameState.WON, b.getState());
+    }
+*/
+    
+
 }
