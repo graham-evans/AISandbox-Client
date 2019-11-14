@@ -1,14 +1,13 @@
-FROM gitpod/workspace-full
+ FROM gitpod/workspace-full
 
 USER root
 
 # Install custom tools, runtime, etc. using apt-get
-# For example, the command below would install "bastet" - a command line tetris clone:
-#
+
 # RUN apt-get update \
-#    && apt-get install -y bastet \
-#    && apt-get clean && rm -rf /var/cache/apt/* && rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*
-#
-# More information: https://www.gitpod.io/docs/42_config_docker/
-RUN bash -c ". /home/gitpod/.sdkman/bin/sdkman-init.sh \
-             && sdk install java 11.0.5.hs-adpt"
+#     && apt-get install -y graphviz \
+#     && apt-get clean
+
+# depends on 11.0.2-zulufx being installed in upsteam gitpod/workspace-full
+
+RUN bash -c ". /home/gitpod/.sdkman/bin/sdkman-init.sh && sdk default java 11.0.2-zulufx"
