@@ -4,53 +4,59 @@ import dev.aisandbox.client.Agent;
 import dev.aisandbox.client.fx.GameRunController;
 import dev.aisandbox.client.output.FrameOutput;
 
+import java.net.URL;
 import java.util.List;
 
 /**
- * <p>Scenario interface.</p>
- *
- * @author gde
- * @version $Id: $Id
+ * Interface class for describing and launching a scenario.
  */
 public interface Scenario {
 
     /**
-     * <p>getGroup.</p>
-     *
-     * @return a {@link java.lang.String} object.
+     * The type of scenario (used for grouping and colour-coding).
+     * @return a {@link ScenarioType} for this scenario
      */
-    public String getGroup();
+    public ScenarioType getGroup();
 
     /**
-     * <p>getName.</p>
-     *
-     * @return a {@link java.lang.String} object.
+     * The name of the scenario
+     * @return a {@link java.lang.String} name.
      */
     public String getName();
 
     /**
-     * <p>getOverview.</p>
-     *
-     * @return a {@link java.lang.String} object.
+     * Return a short overview of the scenario.
+     * @return a {@link java.lang.String} overview.
      */
     public String getOverview();
 
     /**
-     * <p>getDescription.</p>
-     *
-     * @return a {@link java.lang.String} object.
+     * Return a long description of the scenario
+     * @return a {@link java.lang.String} description.
      */
     public String getDescription();
 
     /**
-     * <p>getMinAgentCount.</p>
+     * The resource path for a 320x240 example image
+     * @return a {@link java.lang.String} reference to an image.
+     */
+    public String getImageReference();
+
+    /**
+     * The external link to get more information
+     * @return
+     */
+    public URL getExternalLink();
+
+    /**
+     * The minimum number of agents this scenario will work with.
      *
      * @return a int.
      */
     public int getMinAgentCount();
 
     /**
-     * <p>getMaxAgentCount.</p>
+     * The maximum number of agents this scenario will work with.
      *
      * @return a int.
      */
