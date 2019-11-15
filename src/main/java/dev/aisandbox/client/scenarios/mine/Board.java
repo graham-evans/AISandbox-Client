@@ -10,7 +10,9 @@ public class Board {
 
     private static final Logger LOG = Logger.getLogger(Board.class.getName());
 
+    @Getter
     private final int width;
+    @Getter
     private final int height;
 
     private final Cell[][] grid;
@@ -18,6 +20,10 @@ public class Board {
     @Getter
     private GameState state = GameState.INIT;
 
+    @Getter
+    private String boardID = UUID.randomUUID().toString();
+
+    @Getter
     private int unfoundMines = 0;
 
     public Board(int width, int height) {
