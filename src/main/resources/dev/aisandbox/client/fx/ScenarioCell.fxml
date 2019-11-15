@@ -30,7 +30,7 @@
         </VBox>
     </center>
     <left>
-        <Pane fx:id="colourPane" maxWidth="4.0" minWidth="4.0" prefWidth="4.0" style="-fx-background-color: #ff0000;"
+        <Pane fx:id="colourPane" maxWidth="4.0" minWidth="4.0" prefWidth="4.0"
               BorderPane.alignment="CENTER"/>
     </left>
 </BorderPane>

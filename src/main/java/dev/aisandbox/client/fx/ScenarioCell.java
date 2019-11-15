@@ -2,12 +2,15 @@ package dev.aisandbox.client.fx;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
-import dev.aisandbox.client.scenarios.Scenario;
 
+import dev.aisandbox.client.scenarios.Scenario;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Paint;
+
+import javafx.scene.paint.Color;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -63,6 +66,11 @@ public class ScenarioCell extends ListCell<Scenario> {
 
             scenarioName.setText(scenario.getName());
             scenarioDescription.setText(scenario.getOverview());
+            colourPane.setBackground(
+                    new Background(
+                            new BackgroundFill(scenario.getGroup().getTypeColour(), CornerRadii.EMPTY, Insets.EMPTY))
+            );
+
 
             setText(null);
             setGraphic(root);
