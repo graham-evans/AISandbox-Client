@@ -4,11 +4,14 @@ import dev.aisandbox.client.Agent;
 import dev.aisandbox.client.fx.GameRunController;
 import dev.aisandbox.client.output.FrameOutput;
 import dev.aisandbox.client.scenarios.Scenario;
+import dev.aisandbox.client.scenarios.ScenarioType;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.awt.image.BufferedImage;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
 import java.util.Random;
 import java.util.logging.Level;
@@ -34,12 +37,9 @@ public class MazeScenario implements Scenario {
     private MazeType mazeType = MazeType.BINARYTREE;
     private MazeSize mazeSize = MazeSize.MEDIUM;
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
-    public String getGroup() {
-        return "Introduction";
+    public ScenarioType getGroup() {
+        return ScenarioType.INTRODUCTION;
     }
 
     /**
@@ -87,6 +87,22 @@ public class MazeScenario implements Scenario {
     @Override
     public int getMaxAgentCount() {
         return 1;
+    }
+
+    @Override
+    public String getImageReference() {
+        return "/maze/sample.png";
+    }
+
+    @Override
+    public URL getExternalLink() {
+        URL link=null;
+        try {
+            link = new URL("https://www.aisandbox.dev/scenarios/Mazes.html");
+        } catch (MalformedURLException e) {
+            LOG.log(Level.SEVERE,"Error creating URL for external link",e);
+        }
+        return link;
     }
 
     /**

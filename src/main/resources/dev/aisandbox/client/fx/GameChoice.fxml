@@ -9,48 +9,46 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="800.0"
-            xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="dev.aisandbox.client.fx.GameChoiceController">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.aisandbox.client.fx.GameChoiceController">
     <left>
-        <ScrollPane fitToHeight="true" fitToWidth="true" maxWidth="300.0" minWidth="300.0" prefWidth="300.0"
-                    BorderPane.alignment="CENTER">
+        <ScrollPane fitToHeight="true" fitToWidth="true" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" BorderPane.alignment="CENTER">
             <content>
-                <ListView fx:id="gameList"/>
+                <ListView fx:id="gameList" />
             </content>
             <BorderPane.margin>
-                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0"/>
+                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
             </BorderPane.margin>
         </ScrollPane>
     </left>
     <top>
-        <Label fx:id="titleText" text="%ui.gamechoice.heading" BorderPane.alignment="CENTER"/>
+        <Label fx:id="titleText" text="%ui.gamechoice.heading" BorderPane.alignment="CENTER" />
     </top>
     <center>
-        <ScrollPane fitToHeight="true" fitToWidth="true" focusTraversable="false" pannable="true"
-                    BorderPane.alignment="CENTER">
+        <ScrollPane fitToHeight="true" fitToWidth="true" focusTraversable="false" pannable="true" BorderPane.alignment="CENTER">
             <content>
-                <VBox>
+                <VBox alignment="TOP_CENTER">
                     <children>
-                        <Label fx:id="gameNameField" text="Game Name"/>
-                        <Label fx:id="gameIntroField" text="Introducton" wrapText="true"/>
-                        <ImageView fx:id="gameImageField" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true"
-                                   preserveRatio="true"/>
-                        <Label fx:id="gameDescriptionField" text="Description" wrapText="true" VBox.vgrow="ALWAYS"/>
+                        <Label fx:id="gameNameField" text="Game Name">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Label>
+                        <Label fx:id="gameIntroField" text="Introducton" textAlignment="JUSTIFY" wrapText="true" />
+                        <ImageView fx:id="gameImageField" fitHeight="240.0" fitWidth="320.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="gameDescriptionField" text="Description" textAlignment="JUSTIFY" wrapText="true" VBox.vgrow="ALWAYS" />
                     </children>
                 </VBox>
             </content>
             <BorderPane.margin>
-                <Insets bottom="8.0" right="8.0" top="8.0"/>
+                <Insets bottom="8.0" right="8.0" top="8.0" />
             </BorderPane.margin>
         </ScrollPane>
     </center>
     <bottom>
         <AnchorPane BorderPane.alignment="CENTER">
             <children>
-                <Button fx:id="nextButton" mnemonicParsing="false" onAction="#nextAction" text="%ui.button.next"
-                        AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="8.0"/>
+                <Button fx:id="nextButton" mnemonicParsing="false" onAction="#nextAction" text="%ui.button.next" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="8.0" />
             </children>
         </AnchorPane>
     </bottom>

@@ -51,10 +51,9 @@ public class ScenarioAvailabilityTests {
     }
 
     @Test
-    public void GroupNamesTest() {
+    public void GroupTest() {
         for (Scenario scenario : scenarioList) {
             assertNotNull("Scenario " + scenario.getClass().getName() + " has a null group", scenario.getGroup());
-            assertTrue("Scenario " + scenario.getClass().getName() + " has a short group", scenario.getGroup().length() > 2);
         }
     }
 
