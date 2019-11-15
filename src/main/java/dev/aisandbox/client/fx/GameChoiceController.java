@@ -29,20 +29,15 @@ import javax.imageio.ImageIO;
 @Component
 public class GameChoiceController {
 
+    private static final Logger LOG = Logger.getLogger(GameChoiceController.class.getName());
     @Autowired
     private ApplicationContext appContext;
-
     @Autowired
     private List<Scenario> scenarioList;
-
     @Autowired
     private RuntimeModel model;
-
     @Autowired
     private FXTools fxtools;
-
-    private static final Logger LOG = Logger.getLogger(GameChoiceController.class.getName());
-
     @FXML
     private ResourceBundle resources;
 
@@ -93,12 +88,8 @@ public class GameChoiceController {
                         gameNameField.setText(newValue.getName());
                         gameIntroField.setText(newValue.getOverview());
                         gameDescriptionField.setText(newValue.getDescription());
-                        if (newValue.getImageReference()!=null) {
-//                            try {
-                                gameImageField.setImage(new Image(newValue.getImageReference()));
-  //                          } catch (IOException e) {
-    //                            LOG.log(Level.SEVERE,"Error loading image",e);
-      //                      }
+                        if (newValue.getImageReference() != null) {
+                            gameImageField.setImage(new Image(newValue.getImageReference()));
                         } else {
                             gameImageField.setImage(null);
                         }
