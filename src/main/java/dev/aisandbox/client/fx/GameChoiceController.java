@@ -1,5 +1,6 @@
 package dev.aisandbox.client.fx;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -9,12 +10,15 @@ import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import dev.aisandbox.client.RuntimeModel;
 import dev.aisandbox.client.scenarios.Scenario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
+
+import javax.imageio.ImageIO;
 
 /**
  * <p>GameChoiceController class.</p>
@@ -89,6 +93,16 @@ public class GameChoiceController {
                         gameNameField.setText(newValue.getName());
                         gameIntroField.setText(newValue.getOverview());
                         gameDescriptionField.setText(newValue.getDescription());
+                        if (newValue.getImageReference()!=null) {
+//                            try {
+                                gameImageField.setImage(new Image(newValue.getImageReference()));
+  //                          } catch (IOException e) {
+    //                            LOG.log(Level.SEVERE,"Error loading image",e);
+      //                      }
+                        } else {
+                            gameImageField.setImage(null);
+                        }
+
                         model.setScenario(newValue);
                     }
             );
