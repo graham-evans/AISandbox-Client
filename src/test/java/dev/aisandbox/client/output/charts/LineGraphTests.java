@@ -36,6 +36,8 @@ public class LineGraphTests {
         graph.addValue(120.0);
         BufferedImage image = graph.getGraph(300,250);
         assertNotNull(image);
-        ImageIO.write(image,"png",new File("test.png"));
+        File testFile = File.createTempFile("test",".png");
+        ImageIO.write(image,"png",testFile);
+        testFile.delete();
     }
 }

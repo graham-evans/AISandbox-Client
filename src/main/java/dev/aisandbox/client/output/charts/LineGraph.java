@@ -12,6 +12,9 @@ import org.jfree.data.xy.XYSeriesCollection;
 import java.awt.image.BufferedImage;
 import java.util.TreeMap;
 
+/**
+ * Utility class for storing and drawing trend graphs.
+ */
 public class LineGraph {
 
     @Getter
@@ -25,16 +28,16 @@ public class LineGraph {
     private String title = "Title";
 
     @Setter
-    private String XAxisTitle = null;
+    private String xAxisTitle = null;
 
     @Setter
-    private String YAxisTitle = null;
+    private String yAxisTitle = null;
 
-    private int XValue = 0;
+    private int xValue = 0;
 
     public void addValue(Double v) {
-        XValue++;
-        storage.put(XValue,v);
+        xValue++;
+        storage.put(xValue,v);
         while (storage.size()>memorySize) {
             storage.remove(storage.firstKey());
         }
@@ -42,14 +45,14 @@ public class LineGraph {
 
     public BufferedImage getGraph(int width, int height) {
         XYSeries series1 = new XYSeries("Results");
-        storage.forEach((key,value)->series1.add(key,value));
+        storage.forEach(series1::add);
         XYSeriesCollection dataset = new XYSeriesCollection();
         dataset.addSeries(series1);
         // create the chart
         JFreeChart chart = ChartFactory.createXYLineChart(
                 title,
-                XAxisTitle, // x axis label
-                YAxisTitle, // y axis label
+                xAxisTitle, // x axis label
+                yAxisTitle, // y axis label
                 dataset, // data
                 PlotOrientation.VERTICAL,
                 false, // include legend
