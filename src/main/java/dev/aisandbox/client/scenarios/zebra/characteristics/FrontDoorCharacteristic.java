@@ -1,7 +1,6 @@
 package dev.aisandbox.client.scenarios.zebra.characteristics;
 
 import dev.aisandbox.client.scenarios.zebra.Characteristic;
-import net.bytebuddy.description.type.TypeList;
 import org.springframework.stereotype.Component;
 
 @Component

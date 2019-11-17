@@ -8,9 +8,6 @@ import javafx.scene.control.ListCell;
 
 import dev.aisandbox.client.scenarios.Scenario;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Paint;
-
-import javafx.scene.paint.Color;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;

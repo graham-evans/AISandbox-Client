@@ -17,11 +17,11 @@ public class GenericCharacteristic implements Characteristic {
 
     @Override
     public String getDescription(int num) {
-        return positiveFormats[0].replaceAll("#", names[num]);
+        return positiveFormats[0].replace("#", names[num]);
     }
 
     @Override
     public String getNegativeDescription(int num) {
-        return negativeFormats[0].replaceAll("#", names[num]);
+        return negativeFormats[0].replace("#", names[num]);
     }
 }

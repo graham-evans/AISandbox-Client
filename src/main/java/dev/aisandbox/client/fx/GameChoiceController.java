@@ -1,6 +1,5 @@
 package dev.aisandbox.client.fx;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -17,8 +16,6 @@ import dev.aisandbox.client.scenarios.Scenario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
-
-import javax.imageio.ImageIO;
 
 /**
  * <p>GameChoiceController class.</p>
