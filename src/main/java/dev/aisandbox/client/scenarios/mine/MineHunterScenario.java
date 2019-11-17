@@ -1,11 +1,14 @@
 package dev.aisandbox.client.scenarios.mine;
 
+import com.dooapp.fxform.annotation.NonVisual;
 import dev.aisandbox.client.Agent;
 import dev.aisandbox.client.fx.GameRunController;
 import dev.aisandbox.client.output.FrameOutput;
 import dev.aisandbox.client.scenarios.Scenario;
 import dev.aisandbox.client.scenarios.ScenarioType;
 import dev.aisandbox.client.sprite.SpriteLoader;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,7 +20,16 @@ import java.util.logging.Logger;
 @Component
 public class MineHunterScenario implements Scenario {
 
+    @NonVisual
     private static final Logger LOG = Logger.getLogger(MineHunterScenario.class.getName());
+
+    // configuration
+    @Getter
+    @Setter
+    private Long scenarioSalt = 0l;
+    @Getter
+    @Setter
+    private SizeEnum mineHunterBoardSize = SizeEnum.MEDIUM;
 
     @Override
     public ScenarioType getGroup() {
@@ -60,8 +72,10 @@ public class MineHunterScenario implements Scenario {
     }
 
     @Autowired
+    @NonVisual
     SpriteLoader spriteLoader;
 
+    @NonVisual
     private MineHunterThread thread = null;
 
     @Override
