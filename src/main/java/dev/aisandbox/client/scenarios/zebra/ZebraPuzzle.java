@@ -42,7 +42,7 @@ public class ZebraPuzzle {
         for (int j = 0; j < PUZZLE_CHARACTERISTICS; j++) {
             // randomise the row
             Collections.shuffle(row, rand);
-            LOG.log(Level.INFO, "Puzzle characteristic {0} = {1}", new Object[]{j, row.toString()});
+            LOG.log(Level.INFO, "Puzzle characteristic {0} = {1}", new Object[]{j, row});
             // copy contents to solution
             for (int i = 0; i < PUZZLE_HOUSES; i++) {
                 solution[i][j] = row.get(i);

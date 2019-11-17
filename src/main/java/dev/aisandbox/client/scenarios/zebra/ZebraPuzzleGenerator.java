@@ -78,7 +78,7 @@ public class ZebraPuzzleGenerator {
             } else {
                 LOG.info("Multiple solutions");
                 for (Solution s : solutions) {
-                    LOG.log(Level.INFO, "> {0}", new Object[]{s.toString()});
+                    LOG.log(Level.INFO, "> {0}", new Object[]{s});
                 }
                 count++;
                 LOG.info("No unique solution, adding another clue");

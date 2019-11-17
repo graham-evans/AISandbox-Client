@@ -4,22 +4,22 @@ public enum SizeEnum {
     SMALL {
         @Override
         public String toString() {
-            return "Small (8x6)";
+            return "Small (8x6 10 Mines)";
         }
     }, MEDIUM {
         @Override
         public String toString() {
-            return "Medium (8x6)";
+            return "Medium (16x16 40 Mines)";
         }
     }, LARGE {
         @Override
         public String toString() {
-            return "Large (8x6)";
+            return "Large (24x24 99 Mines)";
         }
     }, MEGA {
         @Override
         public String toString() {
-            return "Mega (8x6)";
+            return "Mega (40x40 150 Mines)";
         }
     };
 }

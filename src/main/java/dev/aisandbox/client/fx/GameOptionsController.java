@@ -1,7 +1,6 @@
 package dev.aisandbox.client.fx;
 
 import com.dooapp.fxform.FXForm;
-import com.dooapp.fxform.view.FXFormSkin;
 import com.dooapp.fxform.view.FXFormSkinFactory;
 import dev.aisandbox.client.OutputFormat;
 import javafx.beans.binding.Bindings;
@@ -17,8 +16,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.*;
 import dev.aisandbox.client.Agent;
 import dev.aisandbox.client.RuntimeModel;
-import org.controlsfx.control.PropertySheet;
-import org.controlsfx.property.BeanPropertyUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
@@ -190,8 +187,7 @@ public class GameOptionsController {
         LOG.info("Adding scenario options");
         FXForm options = new FXForm(model.getScenario());
         options.setSkin(FXFormSkinFactory.INLINE_FACTORY.createSkin(options));
-        Node fxForm = (Node) options;
-        optionPane.setContent(fxForm);
+        optionPane.setContent(options);
 
         outputFormat.getItems().setAll(OutputFormat.values());
         outputFormat.getSelectionModel().select(model.getOutputFormat());

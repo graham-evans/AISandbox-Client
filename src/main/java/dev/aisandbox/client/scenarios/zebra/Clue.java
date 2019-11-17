@@ -19,7 +19,7 @@ public class Clue {
 
     protected void postClue() {
         for (Constraint c : constraintList) {
-            LOG.log(Level.INFO, "posting clue {0}", new Object[]{c.toString()});
+            LOG.log(Level.INFO, "posting clue {0}", new Object[]{c});
 
             c.post();
         }
