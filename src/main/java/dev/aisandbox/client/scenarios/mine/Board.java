@@ -63,6 +63,14 @@ public class Board {
         return sb.toString();
     }
 
+    public String[] getBoardToString() {
+        String[] result = new String[grid[0].length];
+        for (int y=0;y<height;y++) {
+            result[y] = getRowToString(y);
+        }
+        return result;
+    }
+
     /**
      * look at the cell @ x,y and return 1 if it is mined. If it doesn't have a mine
      * or is lies outside the grid, return 0.
@@ -99,9 +107,10 @@ public class Board {
         state = GameState.PLAYING;
     }
 
-    public void placeFlag(int x, int y) {
+    public boolean placeFlag(int x, int y) {
         LOG.log(Level.INFO, "Placing flag @ {0},{1}", new Object[]{x, y});
         Cell c = grid[x][y];
+        boolean change = false;
         if (c.isFlagged()) {
             LOG.info("Flagging an already flagged cell - ignoring");
         } else if (!c.isCovered()) {
@@ -110,22 +119,27 @@ public class Board {
             LOG.info("Correctly found a mine");
             c.setFlagged(true);
             unfoundMines--;
+            change = true;
         } else {
             LOG.info("Incorrectly marked a mine");
             c.setFlagged(true);
             state = GameState.LOST;
+            change = true;
         }
         if (unfoundMines == 0) {
             state = GameState.WON;
         }
+        return change;
     }
 
-    public void uncover(int x, int y) {
+    public boolean uncover(int x, int y) {
         Cell c = grid[x][y];
+        boolean change=false;
         if (c.isFlagged() || (!c.isCovered())) {
             LOG.warning("trying to uncover an used cell - ignoring");
         } else {
             c.setCovered(false);
+            change = true;
             if (c.isMine()) {
                 LOG.info("Bad move");
                 state = GameState.LOST;
@@ -133,6 +147,7 @@ public class Board {
                 floodFill(x, y);
             }
         }
+        return change;
     }
 
     private void floodFill(int x, int y) {

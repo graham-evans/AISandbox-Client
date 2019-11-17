@@ -80,6 +80,9 @@ public class MineHunterScenario implements Scenario {
 
     @Override
     public boolean isSimulationRunning() {
-        return false;
+        if (thread==null) {
+            return false;
+        }
+        return thread.isRunning();
     }
 }

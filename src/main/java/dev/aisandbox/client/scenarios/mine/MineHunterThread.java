@@ -1,11 +1,15 @@
 package dev.aisandbox.client.scenarios.mine;
 
 import dev.aisandbox.client.Agent;
+import dev.aisandbox.client.AgentException;
 import dev.aisandbox.client.fx.GameRunController;
 import dev.aisandbox.client.output.FrameOutput;
 import dev.aisandbox.client.output.OutputTools;
 import dev.aisandbox.client.scenarios.maze.MazeRunner;
 import dev.aisandbox.client.scenarios.mine.api.LastMove;
+import dev.aisandbox.client.scenarios.mine.api.MineHunterRequest;
+import dev.aisandbox.client.scenarios.mine.api.MineHunterResponse;
+import dev.aisandbox.client.scenarios.mine.api.Move;
 import dev.aisandbox.client.sprite.SpriteLoader;
 import lombok.Getter;
 import lombok.Setter;
@@ -56,14 +60,48 @@ public class MineHunterThread extends Thread {
 
     @Override
     public void run() {
+        // setup agent
+        agent.setupAgent();
+        // setup starting board
         getNewBoard();
         running = true;
         LastMove last = null;
+        // main loop
         while (running) {
             // draw image
             controller.updateBoardImage(createLevelImage());
             // send a request
-            running=false;
+            MineHunterRequest request = new MineHunterRequest();
+            request.setLastMove(last);
+            request.setBoardID(board.getBoardID());
+            request.setFlagsRemaining(board.getUnfoundMines());
+            request.setBoard(board.getBoardToString());
+            try {
+                MineHunterResponse response = agent.postRequest(request, MineHunterResponse.class);
+                for (Move move : response.getMoves()) {
+                    boolean change = move.isFlag() ? board.placeFlag(move.getX(),move.getY()) : board.uncover(move.getX(),move.getY());
+                    // if something has changed, redraw the screen
+                    if (change) {
+                        controller.updateBoardImage(createLevelImage());
+                    }
+                    // if the level has ended, dont make any more changes
+                    if (board.getState()!=GameState.PLAYING) {
+                        break;
+                    }
+                }
+            } catch (AgentException e) {
+                controller.showAgentError(agent.getTarget(), e);
+                running = false;
+            }
+            // record the result of the last move
+            last =new LastMove();
+            last.setBoardID(board.getBoardID());
+            last.setResult(board.getState().name());
+            // if the game has finished create a new one
+            if (board.getState()!=GameState.PLAYING) {
+                // TODO record result
+                getNewBoard();
+            }
         }
         LOG.info("Finished run thread");
         controller.resetStartButton();
@@ -125,7 +163,14 @@ public class MineHunterThread extends Thread {
     }
 
     protected void stopSimulation() {
-
+        running = false;
+        try {
+            this.join();
+        } catch (InterruptedException e) {
+            LOG.log(Level.WARNING, "Interrupted!", e);
+            // Restore interrupted state...
+            Thread.currentThread().interrupt();
+        }
     }
 
 }
