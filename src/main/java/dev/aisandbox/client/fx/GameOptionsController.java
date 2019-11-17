@@ -1,5 +1,8 @@
 package dev.aisandbox.client.fx;
 
+import com.dooapp.fxform.FXForm;
+import com.dooapp.fxform.view.FXFormSkin;
+import com.dooapp.fxform.view.FXFormSkinFactory;
 import dev.aisandbox.client.OutputFormat;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.IntegerBinding;
@@ -50,7 +53,7 @@ public class GameOptionsController {
     private ResourceBundle resources;
 
     @FXML
-    private VBox optionBox;
+    private ScrollPane optionPane;
 
     @FXML
     private ListView<Agent> agentList;
@@ -174,7 +177,7 @@ public class GameOptionsController {
 
     @FXML
     void initialize() {
-        assert optionBox != null : "fx:id=\"optionBox\" was not injected: check your FXML file 'GameOptions.fxml'.";
+        assert optionPane != null : "fx:id=\"optionPane\" was not injected: check your FXML file 'GameOptions.fxml'.";
         assert agentList != null : "fx:id=\"agentList\" was not injected: check your FXML file 'GameOptions.fxml'.";
         assert removeAgentButton != null : "fx:id=\"removeAgentButton\" was not injected: check your FXML file 'GameOptions.fxml'.";
         assert editAgentButton != null : "fx:id=\"editAgentButton\" was not injected: check your FXML file 'GameOptions.fxml'.";
@@ -185,12 +188,11 @@ public class GameOptionsController {
         assert nextButton != null : "fx:id=\"nextButton\" was not injected: check your FXML file 'GameOptions.fxml'.";
 
         LOG.info("Adding scenario options");
-        PropertySheet propertySheet = new PropertySheet(BeanPropertyUtils.getProperties(model.getScenario()));
-        optionBox.getChildren().add(propertySheet);
-        propertySheet.setModeSwitcherVisible(false);
-        // only show the search box if more than 30 items
-        propertySheet.setSearchBoxVisible(propertySheet.getItems().size() > 30);
-        // add output options
+        FXForm options = new FXForm(model.getScenario());
+        options.setSkin(FXFormSkinFactory.INLINE_FACTORY.createSkin(options));
+        Node fxForm = (Node) options;
+        optionPane.setContent(fxForm);
+
         outputFormat.getItems().setAll(OutputFormat.values());
         outputFormat.getSelectionModel().select(model.getOutputFormat());
         outputFormat.setOnAction(e -> model.setOutputFormat(outputFormat.getSelectionModel().getSelectedItem()));

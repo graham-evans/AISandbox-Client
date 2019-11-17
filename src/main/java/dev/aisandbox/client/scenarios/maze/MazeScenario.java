@@ -1,11 +1,13 @@
 package dev.aisandbox.client.scenarios.maze;
 
+import com.dooapp.fxform.annotation.NonVisual;
 import dev.aisandbox.client.Agent;
 import dev.aisandbox.client.fx.GameRunController;
 import dev.aisandbox.client.output.FrameOutput;
 import dev.aisandbox.client.scenarios.Scenario;
 import dev.aisandbox.client.scenarios.ScenarioType;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -24,17 +26,27 @@ import java.util.logging.Logger;
  * @version $Id: $Id
  */
 @Component
-@Data
 public class MazeScenario implements Scenario {
 
+    @NonVisual
     private static final Logger LOG = Logger.getLogger(MazeScenario.class.getName());
 
-    MazeRunner runner = null;
+    @NonVisual
+    private MazeRunner runner = null;
+
+    @NonVisual
     @Autowired
-    MazeRenderer renderer;
+    private MazeRenderer renderer;
+
     // configurable properties
+    @Getter
+    @Setter
     private Long scenarioSalt = 0l;
+    @Getter
+    @Setter
     private MazeType mazeType = MazeType.BINARYTREE;
+    @Getter
+    @Setter
     private MazeSize mazeSize = MazeSize.MEDIUM;
 
     @Override
