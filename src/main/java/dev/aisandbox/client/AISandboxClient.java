@@ -50,6 +50,7 @@ public class AISandboxClient extends Application {
     public void init() throws Exception {
         LOG.info("Initialising application");
         SpringApplicationBuilder builder = new SpringApplicationBuilder(AISandboxClient.class);
+        builder.headless(false);
         context = builder.run(getParameters().getRaw().toArray(new String[0]));
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/dev/aisandbox/client/fx/GameChoice.fxml"));
         loader.setResources(ResourceBundle.getBundle("dev.aisandbox.client.fx.UI"));
