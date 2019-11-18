@@ -5,6 +5,7 @@ import dev.aisandbox.client.output.*;
 import dev.aisandbox.client.profiler.AIProfiler;
 import dev.aisandbox.client.profiler.ProfileStep;
 import javafx.application.Platform;
+import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -65,6 +66,7 @@ public class GameRunController {
     private Pane imageAnchor;
 
     private AIProfiler profiler = null;
+    private long profileLastUpdate = 0l;
 
 
     private ImageView imageView;
@@ -146,6 +148,27 @@ public class GameRunController {
 
     public void addProfileStep(ProfileStep step) {
         profiler.addProfileStep(step);
+        // if it's been more than 2 seconds since the last update - redraw the state
+        if (System.currentTimeMillis()- profileLastUpdate>2000) {
+            Platform.runLater(() -> {
+                stepCountField.setText("Steps: "+profiler.getStepCount());
+                ObservableList<PieChart.Data> data = durationGraph.getData();
+                profiler.getAverageTime().forEach((name,value)->{
+                    boolean found = false;
+                    for (PieChart.Data d : data) {
+                        if (d.getName().equals(name)) {
+                            found=true;
+                            d.setPieValue(value);
+                        }
+                    }
+                    if (!found) {
+                        // new pie chart value
+                        data.add(new PieChart.Data(name,value));
+                    }
+                });
+            });
+            profileLastUpdate = System.currentTimeMillis();
+        }
     }
 
     private void repositionImage(ImageView image, double paneWidth, double paneHeight) {
