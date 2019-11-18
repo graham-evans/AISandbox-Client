@@ -5,6 +5,7 @@ import dev.aisandbox.client.AgentException;
 import dev.aisandbox.client.fx.GameRunController;
 import dev.aisandbox.client.output.FrameOutput;
 import dev.aisandbox.client.output.OutputTools;
+import dev.aisandbox.client.output.charts.RollingAverageGraph;
 import dev.aisandbox.client.scenarios.maze.MazeRunner;
 import dev.aisandbox.client.scenarios.mine.api.LastMove;
 import dev.aisandbox.client.scenarios.mine.api.MineHunterRequest;
@@ -34,10 +35,16 @@ public class MineHunterThread extends Thread {
     private final SizeEnum size;
 
     private Board board;
+    private double scale=1.0;
 
     private BufferedImage logo;
 
     private List<BufferedImage> sprites;
+
+    RollingAverageGraph winRateGraph = new RollingAverageGraph(25,20);
+    BufferedImage winRateGraphImage=null;
+
+    Font myFont = new Font("Sans-Serif", Font.PLAIN, 28);
 
     public MineHunterThread(Agent agent, FrameOutput output, GameRunController controller, Random random,SpriteLoader loader,SizeEnum size) {
         this.agent = agent;
@@ -101,7 +108,7 @@ public class MineHunterThread extends Thread {
             last.setResult(board.getState().name());
             // if the game has finished create a new one
             if (board.getState()!=GameState.PLAYING) {
-                // TODO record result
+                winRateGraph.addValue(board.getState() == GameState.WON ? 1.0 : 0.0);
                 getNewBoard();
             }
         }
@@ -131,6 +138,9 @@ public class MineHunterThread extends Thread {
                 break;
         }
         board.countNeighbours();
+        scale = 20.0/board.getHeight();
+        LOG.log(Level.INFO,"Scaling board to {0}",new Object[] {scale});
+        winRateGraphImage = winRateGraph.getGraph(600,250);
     }
 
     private BufferedImage createLevelImage() {
@@ -138,45 +148,52 @@ public class MineHunterThread extends Thread {
         Graphics2D g = image.createGraphics();
         // add logo
         g.drawImage(logo,100,50,null);
+        // draw graphcs
+        g.drawImage(winRateGraphImage,1200,200,null);
+        g.setColor(Color.BLACK);
+        g.setFont(myFont);
+        g.drawString("Mines Remaining : "+board.getUnfoundMines(),1200,500);
+
+        // transform for drawing the board
+        g.translate(100,200);
+        g.scale(scale,scale);
         for (int x=0;x<board.getWidth();x++) {
             for (int y=0;y<board.getHeight();y++) {
                 Cell c = board.getCell(x,y);
                 switch (c.getPlayerView()) {
-                    case '#' : g.drawImage(sprites.get(11),100+x*40,200+y*40,null);
+                    case '#' : g.drawImage(sprites.get(11),x*40,y*40,null);
                     break;
-                    case 'F' : g.drawImage(sprites.get(12),100+x*40,200+y*40,null);
+                    case 'F' : g.drawImage(sprites.get(12),x*40,y*40,null);
                         break;
-                    case 'f' : g.drawImage(sprites.get(13),100+x*40,200+y*40,null);
+                    case 'f' : g.drawImage(sprites.get(13),x*40,y*40,null);
                         break;
-                    case 'X' : g.drawImage(sprites.get(10),100+x*40,200+y*40,null);
+                    case 'X' : g.drawImage(sprites.get(10),x*40,y*40,null);
                         break;
-                    case '.' : g.drawImage(sprites.get(0),100+x*40,200+y*40,null);
+                    case '.' : g.drawImage(sprites.get(0),x*40,y*40,null);
                         break;
-                    case '1' : g.drawImage(sprites.get(1),100+x*40,200+y*40,null);
+                    case '1' : g.drawImage(sprites.get(1),x*40,y*40,null);
                         break;
-                    case '2' : g.drawImage(sprites.get(2),100+x*40,200+y*40,null);
+                    case '2' : g.drawImage(sprites.get(2),x*40,y*40,null);
                         break;
-                    case '3' : g.drawImage(sprites.get(3),100+x*40,200+y*40,null);
+                    case '3' : g.drawImage(sprites.get(3),x*40,y*40,null);
                         break;
-                    case '4' : g.drawImage(sprites.get(4),100+x*40,200+y*40,null);
+                    case '4' : g.drawImage(sprites.get(4),x*40,y*40,null);
                         break;
-                    case '5' : g.drawImage(sprites.get(5),100+x*40,200+y*40,null);
+                    case '5' : g.drawImage(sprites.get(5),x*40,y*40,null);
                         break;
-                    case '6' : g.drawImage(sprites.get(6),100+x*40,200+y*40,null);
+                    case '6' : g.drawImage(sprites.get(6),x*40,y*40,null);
                         break;
-                    case '7' : g.drawImage(sprites.get(7),100+x*40,200+y*40,null);
+                    case '7' : g.drawImage(sprites.get(7),x*40,y*40,null);
                         break;
-                    case '8' : g.drawImage(sprites.get(8),100+x*40,200+y*40,null);
+                    case '8' : g.drawImage(sprites.get(8),x*40,y*40,null);
                         break;
-                    case '9' : g.drawImage(sprites.get(9),100+x*40,200+y*40,null);
+                    case '9' : g.drawImage(sprites.get(9),x*40,y*40,null);
                         break;
                     default:
                         LOG.warning("Unexpected char");
                 }
             }
         }
-        g.setColor(Color.BLACK);
-        g.drawString("Mines Remaining : "+board.getUnfoundMines(),1000,100);
         return image;
     }
 
