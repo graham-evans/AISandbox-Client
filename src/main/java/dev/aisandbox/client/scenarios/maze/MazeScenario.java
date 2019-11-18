@@ -138,7 +138,12 @@ public class MazeScenario implements Scenario {
                 maze = new Maze(40, 30);
                 maze.setZoomLevel(1);
         }
-        Random rand = new Random(System.currentTimeMillis());
+        Random rand;
+        if (scenarioSalt == 0) {
+            rand = new Random();
+        } else {
+            rand = new Random(scenarioSalt);
+        }
         switch (mazeType) {
             case BINARYTREE:
                 MazeUtilities.applyBinaryTree(rand, maze);
