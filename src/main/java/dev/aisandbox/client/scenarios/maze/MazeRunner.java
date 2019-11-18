@@ -6,6 +6,7 @@ import dev.aisandbox.client.fx.GameRunController;
 import dev.aisandbox.client.output.FrameOutput;
 import dev.aisandbox.client.output.OutputTools;
 import dev.aisandbox.client.output.charts.LineGraph;
+import dev.aisandbox.client.profiler.ProfileStep;
 import dev.aisandbox.client.scenarios.maze.api.History;
 import dev.aisandbox.client.scenarios.maze.api.MazeRequest;
 import dev.aisandbox.client.scenarios.maze.api.MazeResponse;
@@ -75,8 +76,7 @@ public class MazeRunner extends Thread {
         Long fastestSolve = null;
         while (running) {
             // keep timings
-            Map<String, Double> timings = new TreeMap<>();
-            long timer = System.currentTimeMillis();
+            ProfileStep profileStep = new ProfileStep();
             // work out postRequest
             MazeRequest request = new MazeRequest();
             // populate the config
@@ -85,16 +85,14 @@ public class MazeRunner extends Thread {
                 request.setHistory(lastMove);
             }
             request.setCurrentPosition(currentCell.getPosition());
-            timings.put("Setup", (double) (System.currentTimeMillis() - timer));
+            profileStep.addStep("Setup");
             // send and get response
             try {
-                timer = System.currentTimeMillis();
                 stepCount++;
                 stepToFinish++;
                 MazeResponse response = agent.postRequest(request, MazeResponse.class);
                 LOG.log(Level.INFO, "Recieved response from server - {0}", response);
-                timings.put("Network", (double) (System.currentTimeMillis() - timer));
-                timer = System.currentTimeMillis();
+                profileStep.addStep("Network");
                 lastMove = new History();
                 lastMove.setLastPosition(currentCell.getPosition());
                 lastMove.setAction(response.getMove());
@@ -112,7 +110,6 @@ public class MazeRunner extends Thread {
                 if (currentCell.equals(maze.getEndCell())) {
                     lastMove.setReward(REWARD_GOAL);
                     currentCell = maze.getStartCell();
-                    controller.addReward(stepToFinish);
                     graph.addValue((double)stepToFinish);
                     graphCache=graph.getGraph(GRAPH_WIDTH,GRAPH_HEIGHT);
                     if ((fastestSolve == null) || (fastestSolve > stepToFinish)) {
@@ -122,8 +119,7 @@ public class MazeRunner extends Thread {
                 }
                 LOG.log(Level.INFO, "Moved to {0}", new Object[]{currentCell});
                 lastMove.setNewPosition(currentCell.getPosition());
-                timings.put("Simulation", (double) (System.currentTimeMillis() - timer));
-                timer = System.currentTimeMillis();
+                profileStep.addStep("Simulation");
                 // redraw the map
                 BufferedImage image = OutputTools.getWhiteScreen();
                 Graphics2D g = image.createGraphics();
@@ -146,8 +142,9 @@ public class MazeRunner extends Thread {
                 controller.updateBoardImage(image);
                 // output frame
                 output.addFrame(image);
-                timings.put("Graphics", (double) (System.currentTimeMillis() - timer));
-                controller.addResponseTimings(timings);
+                profileStep.addStep("Graphics");
+                // report profine information
+                controller.addProfileStep(profileStep);
             } catch (AgentException ae) {
                 controller.showAgentError(agent.getTarget(), ae);
                 running = false;

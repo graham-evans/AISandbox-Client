@@ -160,8 +160,6 @@ public class MazeScenario implements Scenario {
                 break;
         }
         MazeUtilities.findFurthestPoints(maze);
-        // update UI
-        ui.setRewardTitle("Steps to finish");
         // render base map
         BufferedImage image = renderer.renderMaze(maze);
         runner = new MazeRunner(agentList.get(0), maze, output, ui, image);

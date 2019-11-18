@@ -2,6 +2,8 @@ package dev.aisandbox.client.fx;
 
 import dev.aisandbox.client.*;
 import dev.aisandbox.client.output.*;
+import dev.aisandbox.client.profiler.AIProfiler;
+import dev.aisandbox.client.profiler.ProfileStep;
 import javafx.application.Platform;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
@@ -48,20 +50,25 @@ public class GameRunController {
     @FXML
     private ResourceBundle resources;
     @FXML
-    private URL location;
+    private PieChart durationGraph;
     @FXML
-    private LineChart<?, ?> rewardGraph;
+    private Label startTimeField;
     @FXML
-    private StackedAreaChart<?, ?> responseGraph;
+    private Label runningField;
+    @FXML
+    private Label stepCountField;
     @FXML
     private Button backButton;
     @FXML
     private Button startButton;
     @FXML
     private Pane imageAnchor;
+
+    private AIProfiler profiler = null;
+
+
     private ImageView imageView;
-    private StackedAreaChartController timingsController;
-    private LineChartController rewardController;
+
 
     @FXML
     void backButtonAction(ActionEvent event) {
@@ -79,8 +86,8 @@ public class GameRunController {
     }
 
     private void startSimulation() {
-        // reset the charts
-        timingsController.reset();
+        // reset the profiler
+        profiler = new AIProfiler();
         // disable the back button
         backButton.setDisable(true);
         // decide which output class to use
@@ -112,11 +119,14 @@ public class GameRunController {
 
     @FXML
     void initialize() {
-        assert imageAnchor != null : "fx:id=\"imageAnchor\" was not injected: check your FXML file 'GameRun.fxml'.";
-        assert rewardGraph != null : "fx:id=\"rewardGraph\" was not injected: check your FXML file 'GameRun.fxml'.";
-        assert responseGraph != null : "fx:id=\"responseGraph\" was not injected: check your FXML file 'GameRun.fxml'.";
+        assert durationGraph != null : "fx:id=\"durationGraph\" was not injected: check your FXML file 'GameRun.fxml'.";
+        assert startTimeField != null : "fx:id=\"startTimeField\" was not injected: check your FXML file 'GameRun.fxml'.";
+        assert runningField != null : "fx:id=\"runningField\" was not injected: check your FXML file 'GameRun.fxml'.";
+        assert stepCountField != null : "fx:id=\"stepCountField\" was not injected: check your FXML file 'GameRun.fxml'.";
         assert backButton != null : "fx:id=\"backButton\" was not injected: check your FXML file 'GameRun.fxml'.";
         assert startButton != null : "fx:id=\"startButton\" was not injected: check your FXML file 'GameRun.fxml'.";
+        assert imageAnchor != null : "fx:id=\"imageAnchor\" was not injected: check your FXML file 'GameRun.fxml'.";
+
         // setup autoscaling of imageview
         imageView = new ImageView();
         try {
@@ -132,10 +142,10 @@ public class GameRunController {
         imageAnchor.heightProperty().addListener((observableValue, number, t1) ->
                 repositionImage(imageView, imageAnchor.getWidth(), t1.doubleValue())
         );
-        // setup response graph
-        responseGraph.getYAxis().setLabel("milliseconds");
-        rewardController = new LineChartController(rewardGraph);
-        timingsController = new StackedAreaChartController(responseGraph);
+    }
+
+    public void addProfileStep(ProfileStep step) {
+        profiler.addProfileStep(step);
     }
 
     private void repositionImage(ImageView image, double paneWidth, double paneHeight) {
@@ -153,36 +163,6 @@ public class GameRunController {
         image.setY((paneHeight - scale * imageHeight) / 2.0);
     }
 
-    /**
-     * Update the timings chart with new entries
-     * <p>
-     * Pass a Map (usualy a TreeMap) of name:value pairs which will be added to the chart.
-     * If there are more than 20 entries already - the oldest one should be removed.
-     *
-     * @param timings
-     */
-    public void addResponseTimings(Map<String, Double> timings) {
-        Platform.runLater(() ->
-                timingsController.add(timings)
-        );
-    }
-
-    /**
-     * Show a reward in the left graph
-     *
-     * @param score
-     */
-    public void addReward(double score) {
-        Platform.runLater(() ->
-                rewardController.addReward(score)
-        );
-    }
-
-    public void setRewardTitle(String title) {
-        Platform.runLater(() ->
-                rewardGraph.getYAxis().setLabel(title)
-        );
-    }
 
     /**
      * Method to update the on-screen view of the simulation

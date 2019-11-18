@@ -6,6 +6,7 @@ import dev.aisandbox.client.fx.GameRunController;
 import dev.aisandbox.client.output.FrameOutput;
 import dev.aisandbox.client.output.OutputTools;
 import dev.aisandbox.client.output.charts.RollingAverageGraph;
+import dev.aisandbox.client.profiler.ProfileStep;
 import dev.aisandbox.client.scenarios.maze.MazeRunner;
 import dev.aisandbox.client.scenarios.mine.api.LastMove;
 import dev.aisandbox.client.scenarios.mine.api.MineHunterRequest;
@@ -77,8 +78,10 @@ public class MineHunterThread extends Thread {
         LastMove last = null;
         // main loop
         while (running) {
+            ProfileStep profileStep = new ProfileStep();
             // draw image
             controller.updateBoardImage(createLevelImage());
+            profileStep.addStep("Graphics");
             // send a request
             MineHunterRequest request = new MineHunterRequest();
             request.setLastMove(last);
@@ -87,6 +90,7 @@ public class MineHunterThread extends Thread {
             request.setBoard(board.getBoardToString());
             try {
                 MineHunterResponse response = agent.postRequest(request, MineHunterResponse.class);
+                profileStep.addStep("Network");
                 for (Move move : response.getMoves()) {
                     boolean change = move.isFlag() ? board.placeFlag(move.getX(),move.getY()) : board.uncover(move.getX(),move.getY());
                     // if something has changed, redraw the screen
@@ -98,10 +102,12 @@ public class MineHunterThread extends Thread {
                         break;
                     }
                 }
+                profileStep.addStep("Simulation");
             } catch (AgentException e) {
                 controller.showAgentError(agent.getTarget(), e);
                 running = false;
             }
+            controller.addProfileStep(profileStep);
             // record the result of the last move
             last =new LastMove();
             last.setBoardID(board.getBoardID());
