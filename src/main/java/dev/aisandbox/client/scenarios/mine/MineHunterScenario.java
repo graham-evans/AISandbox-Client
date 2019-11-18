@@ -63,7 +63,7 @@ public class MineHunterScenario implements Scenario {
 
     @Override
     public String getImageReference() {
-        return null;
+        return "/mine/sample.png";
     }
 
     @Override
@@ -80,8 +80,15 @@ public class MineHunterScenario implements Scenario {
 
     @Override
     public void startSimulation(List<Agent> agentList, GameRunController ui, FrameOutput output) {
+        // create random number generator
+        Random rand;
+        if (scenarioSalt==0) {
+            rand = new Random();
+        } else {
+            rand = new Random(scenarioSalt);
+        }
         LOG.info("Starting run thread");
-        thread = new MineHunterThread(agentList.get(0),output,ui,new Random(),spriteLoader);
+        thread = new MineHunterThread(agentList.get(0),output,ui,rand,spriteLoader,mineHunterBoardSize);
         thread.start();
     }
 

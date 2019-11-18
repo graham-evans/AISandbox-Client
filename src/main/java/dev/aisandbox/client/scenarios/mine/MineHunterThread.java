@@ -31,6 +31,7 @@ public class MineHunterThread extends Thread {
     private final FrameOutput output;
     private final GameRunController controller;
     private final Random random;
+    private final SizeEnum size;
 
     private Board board;
 
@@ -38,11 +39,12 @@ public class MineHunterThread extends Thread {
 
     private List<BufferedImage> sprites;
 
-    public MineHunterThread(Agent agent, FrameOutput output, GameRunController controller, Random random,SpriteLoader loader) {
+    public MineHunterThread(Agent agent, FrameOutput output, GameRunController controller, Random random,SpriteLoader loader,SizeEnum size) {
         this.agent = agent;
         this.output = output;
         this.controller = controller;
         this.random = random;
+        this.size = size;
         // load images
         LOG.info("Loading sprites");
         try {
@@ -110,8 +112,24 @@ public class MineHunterThread extends Thread {
     private void getNewBoard() {
         // create a board
         LOG.info("Initialising board");
-        board = new Board(9,9);
-        board.placeMines(random,10);
+        switch (size) {
+            case SMALL :
+                board = new Board(9,9);
+                board.placeMines(random,10);
+                break;
+            case MEDIUM:
+                board = new Board(16,16);
+                board.placeMines(random,40);
+                break;
+            case LARGE:
+                board = new Board(24,24);
+                board.placeMines(random, 99);
+                break;
+            case MEGA:
+                board = new Board(40,40);
+                board.placeMines(random,150);
+                break;
+        }
         board.countNeighbours();
     }
 
