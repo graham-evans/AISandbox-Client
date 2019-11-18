@@ -67,7 +67,12 @@ public class MineHunterScenario implements Scenario {
     }
 
     @Override
-    public URL getExternalLink() {
+    public String getScenarioURL() {
+        return null;
+    }
+
+    @Override
+    public String getSwaggerURL() {
         return null;
     }
 

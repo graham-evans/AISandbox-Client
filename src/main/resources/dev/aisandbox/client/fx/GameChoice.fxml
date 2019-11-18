@@ -32,14 +32,14 @@
             <content>
                 <VBox alignment="TOP_CENTER">
                     <children>
-                        <Label fx:id="gameNameField" text="Game Name">
+                        <Label fx:id="gameNameField" focusTraversable="false" text="Game Name">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                      <VBox.margin>
                         <Insets bottom="4.0" />
                      </VBox.margin></Label>
-                        <Label fx:id="gameIntroField" text="Introducton" textAlignment="JUSTIFY" wrapText="true">
+                        <Label fx:id="gameIntroField" focusTraversable="false" text="Introducton" textAlignment="JUSTIFY" wrapText="true">
                      <VBox.margin>
                         <Insets bottom="4.0" />
                      </VBox.margin></Label>
@@ -49,8 +49,8 @@
                         <Insets top="4.0" />
                      </VBox.margin>
                   </TextFlow>
-                  <Hyperlink fx:id="scenarioLink" onAction="#launchScenarioLink" text="Link to Scenario Description" />
-                  <Hyperlink fx:id="swaggerLink" onAction="#launchSwaggerLink" text="Link to Swagger" />
+                  <Hyperlink fx:id="scenarioLink" focusTraversable="false" onAction="#launchScenarioLink" text="Link to Scenario Description" />
+                  <Hyperlink fx:id="swaggerLink" focusTraversable="false" onAction="#launchSwaggerLink" text="Link to Swagger" />
                     </children>
                 </VBox>
             </content>

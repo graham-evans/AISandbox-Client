@@ -128,12 +128,12 @@ public class GameChoiceController {
 
     @FXML
     void launchScenarioLink(ActionEvent event) {
-        launchBrowser("https://www.aisandbox.dev/");
+        launchBrowser(model.getScenario().getScenarioURL());
     }
 
     @FXML
     void launchSwaggerLink(ActionEvent event) {
-        launchBrowser("https://www.aisandbox.dev/");
+        launchBrowser(model.getScenario().getSwaggerURL());
     }
 
     private void launchBrowser(String link) {

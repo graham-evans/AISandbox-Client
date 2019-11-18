@@ -43,12 +43,6 @@ public interface Scenario {
     public String getImageReference();
 
     /**
-     * The external link to get more information
-     * @return
-     */
-    public URL getExternalLink();
-
-    /**
      * The minimum number of agents this scenario will work with.
      *
      * @return a int.
@@ -82,4 +76,7 @@ public interface Scenario {
      * @return a boolean.
      */
     public boolean isSimulationRunning();
+
+    public String getScenarioURL();
+    public String getSwaggerURL();
 }

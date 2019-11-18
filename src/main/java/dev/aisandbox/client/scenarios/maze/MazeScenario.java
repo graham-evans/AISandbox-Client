@@ -107,15 +107,15 @@ public class MazeScenario implements Scenario {
     }
 
     @Override
-    public URL getExternalLink() {
-        URL link=null;
-        try {
-            link = new URL("https://www.aisandbox.dev/scenarios/Mazes.html");
-        } catch (MalformedURLException e) {
-            LOG.log(Level.SEVERE,"Error creating URL for external link",e);
-        }
-        return link;
+    public String getScenarioURL() {
+        return "https://www.aisandbox.dev/scenarios/Mazes.html";
     }
+
+    @Override
+    public String getSwaggerURL() {
+        return "https://www.aisandbox.dev/scenarios/maze.yaml";
+    }
+
 
     /**
      * {@inheritDoc}
