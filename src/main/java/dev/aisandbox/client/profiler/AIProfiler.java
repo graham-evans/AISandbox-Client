@@ -25,9 +25,9 @@ public class AIProfiler {
 
     public Map<String,Double> getAverageTime() {
         Map<String,Double>result = new HashMap<>();
-        cumulativeStepTiming.forEach((name,value)->{
-            result.put(name,value/stepCount);
-        });
+        cumulativeStepTiming.forEach((name,value)->
+            result.put(name,value/stepCount)
+        );
         return result;
     }
 }

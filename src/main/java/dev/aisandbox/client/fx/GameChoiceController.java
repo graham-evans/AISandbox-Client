@@ -122,8 +122,7 @@ public class GameChoiceController {
     }
 
     private Text convertStringToText(String s) {
-        Text t = new Text(s);
-        return t;
+        return new Text(s);
     }
 
     @FXML

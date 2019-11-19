@@ -4,7 +4,6 @@ import dev.aisandbox.client.Agent;
 import dev.aisandbox.client.fx.GameRunController;
 import dev.aisandbox.client.output.FrameOutput;
 
-import java.net.URL;
 import java.util.List;
 
 /**

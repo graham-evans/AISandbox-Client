@@ -3,7 +3,6 @@ package dev.aisandbox.client.profiler;
 import lombok.AccessLevel;
 import lombok.Getter;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 

@@ -29,7 +29,7 @@ public class Maze {
     private final int height;
 
     @Getter
-    private final static Direction[] DIRECTIONS = new Direction[]{Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST};
+    private static final Direction[] DIRECTIONS = new Direction[]{Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST};
 
     @Getter
     private final Cell[][] cellArray;

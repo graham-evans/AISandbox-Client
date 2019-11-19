@@ -22,7 +22,7 @@ public class Cell {
     private final int positionY;
 
     @Getter
-    Map<Direction, Cell> neighbours = new HashMap<>();
+    EnumMap<Direction, Cell> neighbours = new EnumMap<>(Direction.class);
 
     @Getter
     Set<Direction> paths = new HashSet<>();
