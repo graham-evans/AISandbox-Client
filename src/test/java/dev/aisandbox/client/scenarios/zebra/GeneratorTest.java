@@ -23,11 +23,13 @@ public class GeneratorTest {
 
     private static final Logger LOG = Logger.getLogger(GeneratorTest.class.getName());
 
+    Random rand = new Random();
+
     @Test
     public void generateTemplateTest() {
-        Template t = CharacteristicGenerator.createTemplate(10, 10);
+        Template t = CharacteristicGenerator.createTemplate(rand,11, 10);
         assertNotNull("Template=null",t);
-        assertEquals("Template characteristic count",10,t.getCharacteristics().size());
+        assertEquals("Template characteristic count",11,t.getCharacteristics().size());
         for (Characteristic c : t.getCharacteristics()) {
             assertEquals("Characteristic length for "+c.getName(),10,c.getInstances().size());
         }
@@ -35,7 +37,7 @@ public class GeneratorTest {
 
     @Test
     public void generateSmallTemplateTest() {
-        Template t = CharacteristicGenerator.createTemplate(8, 4);
+        Template t = CharacteristicGenerator.createTemplate(rand,8, 4);
         assertNotNull("Template=null",t);
         assertEquals("Template characteristic count",8,t.getCharacteristics().size());
         for (Characteristic c : t.getCharacteristics()) {
