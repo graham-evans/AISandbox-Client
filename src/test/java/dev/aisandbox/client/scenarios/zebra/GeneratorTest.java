@@ -15,7 +15,7 @@ import static org.junit.Assert.assertTrue;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class GeneratorTest {
-
+/*
     private static final Logger LOG = Logger.getLogger(GeneratorTest.class.getName());
 
     @Autowired
@@ -33,4 +33,6 @@ public class GeneratorTest {
         }
         assertTrue(true);
     }
+
+    */
 }
