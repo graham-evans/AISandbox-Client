@@ -1,6 +1,5 @@
 package dev.aisandbox.client.scenarios.zebra;
 
-import dev.aisandbox.client.scenarios.zebra.characteristics.*;
 import lombok.Getter;
 import org.chocosolver.solver.variables.*;
 import org.springframework.stereotype.Component;
