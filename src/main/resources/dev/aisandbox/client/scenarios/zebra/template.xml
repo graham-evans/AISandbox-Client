@@ -1,0 +1,915 @@
+<template>
+  <characteristic>
+    <name>CurtainColourCharacteristic</name>
+    <instance>
+      <name>red</name>
+      <positiveDescription>has red curtains</positiveDescription>
+      <negativeDescription>doesn&apos;t have red coloured curtains</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has red curtains</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t have red coloured curtains</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>blue</name>
+      <positiveDescription>has blue curtains</positiveDescription>
+      <negativeDescription>doesn&apos;t have blue coloured curtains</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has blue curtains</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t have blue coloured curtains</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>green</name>
+      <positiveDescription>has green curtains</positiveDescription>
+      <negativeDescription>doesn&apos;t have green coloured curtains</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has green curtains</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t have green coloured curtains</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>black</name>
+      <positiveDescription>has black curtains</positiveDescription>
+      <negativeDescription>doesn&apos;t have black coloured curtains</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has black curtains</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t have black coloured curtains</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>white</name>
+      <positiveDescription>has white curtains</positiveDescription>
+      <negativeDescription>doesn&apos;t have white coloured curtains</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has white curtains</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t have white coloured curtains</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>maroon</name>
+      <positiveDescription>has maroon curtains</positiveDescription>
+      <negativeDescription>doesn&apos;t have maroon coloured curtains</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has maroon curtains</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t have maroon coloured curtains</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>olive</name>
+      <positiveDescription>has olive curtains</positiveDescription>
+      <negativeDescription>doesn&apos;t have olive coloured curtains</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has olive curtains</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t have olive coloured curtains</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>aquamarine</name>
+      <positiveDescription>has aquamarine curtains</positiveDescription>
+      <negativeDescription>doesn&apos;t have aquamarine coloured curtains</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has aquamarine curtains</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t have aquamarine coloured curtains</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>fuchia</name>
+      <positiveDescription>has fuchia curtains</positiveDescription>
+      <negativeDescription>doesn&apos;t have fuchia coloured curtains</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has fuchia curtains</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t have fuchia coloured curtains</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>pink</name>
+      <positiveDescription>has pink curtains</positiveDescription>
+      <negativeDescription>doesn&apos;t have pink coloured curtains</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has pink curtains</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t have pink coloured curtains</alternativeNegativeDescription>
+    </instance>
+  </characteristic>
+  <characteristic>
+    <name>DrivesCharacteristic</name>
+    <instance>
+      <name>Mazda</name>
+      <positiveDescription>drives a Mazda</positiveDescription>
+      <negativeDescription>doesn&apos;t drive a Mazda</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>drives a Mazda</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t drive a Mazda</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>Vauxhall</name>
+      <positiveDescription>drives a Vauxhall</positiveDescription>
+      <negativeDescription>doesn&apos;t drive a Vauxhall</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>drives a Vauxhall</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t drive a Vauxhall</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>Volvo</name>
+      <positiveDescription>drives a Volvo</positiveDescription>
+      <negativeDescription>doesn&apos;t drive a Volvo</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>drives a Volvo</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t drive a Volvo</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>Audi</name>
+      <positiveDescription>drives a Audi</positiveDescription>
+      <negativeDescription>doesn&apos;t drive a Audi</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>drives a Audi</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t drive a Audi</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>BMW</name>
+      <positiveDescription>drives a BMW</positiveDescription>
+      <negativeDescription>doesn&apos;t drive a BMW</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>drives a BMW</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t drive a BMW</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>Citroen</name>
+      <positiveDescription>drives a Citroen</positiveDescription>
+      <negativeDescription>doesn&apos;t drive a Citroen</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>drives a Citroen</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t drive a Citroen</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>Fiat</name>
+      <positiveDescription>drives a Fiat</positiveDescription>
+      <negativeDescription>doesn&apos;t drive a Fiat</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>drives a Fiat</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t drive a Fiat</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>Ford</name>
+      <positiveDescription>drives a Ford</positiveDescription>
+      <negativeDescription>doesn&apos;t drive a Ford</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>drives a Ford</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t drive a Ford</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>Honda</name>
+      <positiveDescription>drives a Honda</positiveDescription>
+      <negativeDescription>doesn&apos;t drive a Honda</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>drives a Honda</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t drive a Honda</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>Land Rover</name>
+      <positiveDescription>drives a Land Rover</positiveDescription>
+      <negativeDescription>doesn&apos;t drive a Land Rover</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>drives a Land Rover</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t drive a Land Rover</alternativeNegativeDescription>
+    </instance>
+  </characteristic>
+  <characteristic>
+    <name>FlowersCharacteristic</name>
+    <instance>
+      <name>gerberas</name>
+      <positiveDescription>likes gerberas</positiveDescription>
+      <negativeDescription>doesn&apos;t like gerberas</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>likes gerberas</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t like gerberas</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>daisys</name>
+      <positiveDescription>likes daisys</positiveDescription>
+      <negativeDescription>doesn&apos;t like daisys</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>likes daisys</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t like daisys</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>geraniums</name>
+      <positiveDescription>likes geraniums</positiveDescription>
+      <negativeDescription>doesn&apos;t like geraniums</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>likes geraniums</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t like geraniums</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>crysanthemums</name>
+      <positiveDescription>likes crysanthemums</positiveDescription>
+      <negativeDescription>doesn&apos;t like crysanthemums</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>likes crysanthemums</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t like crysanthemums</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>lilies</name>
+      <positiveDescription>likes lilies</positiveDescription>
+      <negativeDescription>doesn&apos;t like lilies</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>likes lilies</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t like lilies</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>roses</name>
+      <positiveDescription>likes roses</positiveDescription>
+      <negativeDescription>doesn&apos;t like roses</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>likes roses</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t like roses</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>daffodils</name>
+      <positiveDescription>likes daffodils</positiveDescription>
+      <negativeDescription>doesn&apos;t like daffodils</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>likes daffodils</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t like daffodils</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>alastromeras</name>
+      <positiveDescription>likes alastromeras</positiveDescription>
+      <negativeDescription>doesn&apos;t like alastromeras</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>likes alastromeras</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t like alastromeras</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>cornflowers</name>
+      <positiveDescription>likes cornflowers</positiveDescription>
+      <negativeDescription>doesn&apos;t like cornflowers</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>likes cornflowers</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t like cornflowers</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>orchids</name>
+      <positiveDescription>likes orchids</positiveDescription>
+      <negativeDescription>doesn&apos;t like orchids</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>likes orchids</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t like orchids</alternativeNegativeDescription>
+    </instance>
+  </characteristic>
+  <characteristic>
+    <name>FrontDoorCharacteristic</name>
+    <instance>
+      <name>red</name>
+      <positiveDescription>has a red front door</positiveDescription>
+      <negativeDescription>doens&apos;t have a red front door</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has a red front door</alternativePositiveDescription>
+      <alternativeNegativeDescription>doens&apos;t have a red front door</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>blue</name>
+      <positiveDescription>has a blue front door</positiveDescription>
+      <negativeDescription>doens&apos;t have a blue front door</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has a blue front door</alternativePositiveDescription>
+      <alternativeNegativeDescription>doens&apos;t have a blue front door</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>green</name>
+      <positiveDescription>has a green front door</positiveDescription>
+      <negativeDescription>doens&apos;t have a green front door</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has a green front door</alternativePositiveDescription>
+      <alternativeNegativeDescription>doens&apos;t have a green front door</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>black</name>
+      <positiveDescription>has a black front door</positiveDescription>
+      <negativeDescription>doens&apos;t have a black front door</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has a black front door</alternativePositiveDescription>
+      <alternativeNegativeDescription>doens&apos;t have a black front door</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>grey</name>
+      <positiveDescription>has a grey front door</positiveDescription>
+      <negativeDescription>doens&apos;t have a grey front door</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has a grey front door</alternativePositiveDescription>
+      <alternativeNegativeDescription>doens&apos;t have a grey front door</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>orange</name>
+      <positiveDescription>has a orange front door</positiveDescription>
+      <negativeDescription>doens&apos;t have a orange front door</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has a orange front door</alternativePositiveDescription>
+      <alternativeNegativeDescription>doens&apos;t have a orange front door</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>brown</name>
+      <positiveDescription>has a brown front door</positiveDescription>
+      <negativeDescription>doens&apos;t have a brown front door</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has a brown front door</alternativePositiveDescription>
+      <alternativeNegativeDescription>doens&apos;t have a brown front door</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>lime coloured</name>
+      <positiveDescription>has a lime coloured front door</positiveDescription>
+      <negativeDescription>doens&apos;t have a lime coloured front door</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has a lime coloured front door</alternativePositiveDescription>
+      <alternativeNegativeDescription>doens&apos;t have a lime coloured front door</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>silver</name>
+      <positiveDescription>has a silver front door</positiveDescription>
+      <negativeDescription>doens&apos;t have a silver front door</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has a silver front door</alternativePositiveDescription>
+      <alternativeNegativeDescription>doens&apos;t have a silver front door</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>plum</name>
+      <positiveDescription>has a plum front door</positiveDescription>
+      <negativeDescription>doens&apos;t have a plum front door</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has a plum front door</alternativePositiveDescription>
+      <alternativeNegativeDescription>doens&apos;t have a plum front door</alternativeNegativeDescription>
+    </instance>
+  </characteristic>
+  <characteristic>
+    <name>HolidayCharacteristic</name>
+    <instance>
+      <name>Germany</name>
+      <positiveDescription>went to Germany on holiday</positiveDescription>
+      <negativeDescription>didn&apos;t go to Germany on holiday</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>went to Germany on holiday</alternativePositiveDescription>
+      <alternativeNegativeDescription>didn&apos;t go to Germany on holiday</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>Spain</name>
+      <positiveDescription>went to Spain on holiday</positiveDescription>
+      <negativeDescription>didn&apos;t go to Spain on holiday</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>went to Spain on holiday</alternativePositiveDescription>
+      <alternativeNegativeDescription>didn&apos;t go to Spain on holiday</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>Denmark</name>
+      <positiveDescription>went to Denmark on holiday</positiveDescription>
+      <negativeDescription>didn&apos;t go to Denmark on holiday</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>went to Denmark on holiday</alternativePositiveDescription>
+      <alternativeNegativeDescription>didn&apos;t go to Denmark on holiday</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>Norway</name>
+      <positiveDescription>went to Norway on holiday</positiveDescription>
+      <negativeDescription>didn&apos;t go to Norway on holiday</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>went to Norway on holiday</alternativePositiveDescription>
+      <alternativeNegativeDescription>didn&apos;t go to Norway on holiday</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>Sweden</name>
+      <positiveDescription>went to Sweden on holiday</positiveDescription>
+      <negativeDescription>didn&apos;t go to Sweden on holiday</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>went to Sweden on holiday</alternativePositiveDescription>
+      <alternativeNegativeDescription>didn&apos;t go to Sweden on holiday</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>Belgium</name>
+      <positiveDescription>went to Belgium on holiday</positiveDescription>
+      <negativeDescription>didn&apos;t go to Belgium on holiday</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>went to Belgium on holiday</alternativePositiveDescription>
+      <alternativeNegativeDescription>didn&apos;t go to Belgium on holiday</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>Poland</name>
+      <positiveDescription>went to Poland on holiday</positiveDescription>
+      <negativeDescription>didn&apos;t go to Poland on holiday</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>went to Poland on holiday</alternativePositiveDescription>
+      <alternativeNegativeDescription>didn&apos;t go to Poland on holiday</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>Italy</name>
+      <positiveDescription>went to Italy on holiday</positiveDescription>
+      <negativeDescription>didn&apos;t go to Italy on holiday</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>went to Italy on holiday</alternativePositiveDescription>
+      <alternativeNegativeDescription>didn&apos;t go to Italy on holiday</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>Portugal</name>
+      <positiveDescription>went to Portugal on holiday</positiveDescription>
+      <negativeDescription>didn&apos;t go to Portugal on holiday</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>went to Portugal on holiday</alternativePositiveDescription>
+      <alternativeNegativeDescription>didn&apos;t go to Portugal on holiday</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>USA</name>
+      <positiveDescription>went to USA on holiday</positiveDescription>
+      <negativeDescription>didn&apos;t go to USA on holiday</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>went to USA on holiday</alternativePositiveDescription>
+      <alternativeNegativeDescription>didn&apos;t go to USA on holiday</alternativeNegativeDescription>
+    </instance>
+  </characteristic>
+  <characteristic>
+    <name>LikesToDrinkCharacteristic</name>
+    <instance>
+      <name>beer</name>
+      <positiveDescription>drinks beer</positiveDescription>
+      <negativeDescription>doesn&apos;t drink beer</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>drinks beer</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t drink beer</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>tea</name>
+      <positiveDescription>drinks tea</positiveDescription>
+      <negativeDescription>doesn&apos;t drink tea</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>drinks tea</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t drink tea</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>milk</name>
+      <positiveDescription>drinks milk</positiveDescription>
+      <negativeDescription>doesn&apos;t drink milk</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>drinks milk</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t drink milk</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>coffee</name>
+      <positiveDescription>drinks coffee</positiveDescription>
+      <negativeDescription>doesn&apos;t drink coffee</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>drinks coffee</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t drink coffee</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>water</name>
+      <positiveDescription>drinks water</positiveDescription>
+      <negativeDescription>doesn&apos;t drink water</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>drinks water</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t drink water</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>lemonade</name>
+      <positiveDescription>drinks lemonade</positiveDescription>
+      <negativeDescription>doesn&apos;t drink lemonade</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>drinks lemonade</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t drink lemonade</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>red wine</name>
+      <positiveDescription>drinks red wine</positiveDescription>
+      <negativeDescription>doesn&apos;t drink red wine</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>drinks red wine</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t drink red wine</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>white wine</name>
+      <positiveDescription>drinks white wine</positiveDescription>
+      <negativeDescription>doesn&apos;t drink white wine</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>drinks white wine</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t drink white wine</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>vodka</name>
+      <positiveDescription>drinks vodka</positiveDescription>
+      <negativeDescription>doesn&apos;t drink vodka</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>drinks vodka</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t drink vodka</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>gin</name>
+      <positiveDescription>drinks gin</positiveDescription>
+      <negativeDescription>doesn&apos;t drink gin</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>drinks gin</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t drink gin</alternativeNegativeDescription>
+    </instance>
+  </characteristic>
+  <characteristic>
+    <name>LikesToEatCharacteristic</name>
+    <instance>
+      <name>apples</name>
+      <positiveDescription>eats apples</positiveDescription>
+      <negativeDescription>doesn&apos;t eat apples</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>eats apples</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t eat apples</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>limes</name>
+      <positiveDescription>eats limes</positiveDescription>
+      <negativeDescription>doesn&apos;t eat limes</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>eats limes</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t eat limes</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>oranges</name>
+      <positiveDescription>eats oranges</positiveDescription>
+      <negativeDescription>doesn&apos;t eat oranges</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>eats oranges</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t eat oranges</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>cake</name>
+      <positiveDescription>eats cake</positiveDescription>
+      <negativeDescription>doesn&apos;t eat cake</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>eats cake</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t eat cake</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>lamb</name>
+      <positiveDescription>eats lamb</positiveDescription>
+      <negativeDescription>doesn&apos;t eat lamb</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>eats lamb</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t eat lamb</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>plumbs</name>
+      <positiveDescription>eats plumbs</positiveDescription>
+      <negativeDescription>doesn&apos;t eat plumbs</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>eats plumbs</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t eat plumbs</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>jam</name>
+      <positiveDescription>eats jam</positiveDescription>
+      <negativeDescription>doesn&apos;t eat jam</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>eats jam</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t eat jam</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>peanuts</name>
+      <positiveDescription>eats peanuts</positiveDescription>
+      <negativeDescription>doesn&apos;t eat peanuts</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>eats peanuts</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t eat peanuts</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>bread</name>
+      <positiveDescription>eats bread</positiveDescription>
+      <negativeDescription>doesn&apos;t eat bread</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>eats bread</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t eat bread</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>mushrooms</name>
+      <positiveDescription>eats mushrooms</positiveDescription>
+      <negativeDescription>doesn&apos;t eat mushrooms</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>eats mushrooms</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t eat mushrooms</alternativeNegativeDescription>
+    </instance>
+  </characteristic>
+  <characteristic>
+    <name>NationalityCharacteristic</name>
+    <instance>
+      <name>German</name>
+      <positiveDescription>is German</positiveDescription>
+      <negativeDescription>isn&apos;t German</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>is German</alternativePositiveDescription>
+      <alternativeNegativeDescription>isn&apos;t German</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>British</name>
+      <positiveDescription>is British</positiveDescription>
+      <negativeDescription>isn&apos;t British</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>is British</alternativePositiveDescription>
+      <alternativeNegativeDescription>isn&apos;t British</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>Spanish</name>
+      <positiveDescription>is Spanish</positiveDescription>
+      <negativeDescription>isn&apos;t Spanish</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>is Spanish</alternativePositiveDescription>
+      <alternativeNegativeDescription>isn&apos;t Spanish</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>Danish</name>
+      <positiveDescription>is Danish</positiveDescription>
+      <negativeDescription>isn&apos;t Danish</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>is Danish</alternativePositiveDescription>
+      <alternativeNegativeDescription>isn&apos;t Danish</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>Norwegian</name>
+      <positiveDescription>is Norwegian</positiveDescription>
+      <negativeDescription>isn&apos;t Norwegian</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>is Norwegian</alternativePositiveDescription>
+      <alternativeNegativeDescription>isn&apos;t Norwegian</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>Dutch</name>
+      <positiveDescription>is Dutch</positiveDescription>
+      <negativeDescription>isn&apos;t Dutch</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>is Dutch</alternativePositiveDescription>
+      <alternativeNegativeDescription>isn&apos;t Dutch</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>French</name>
+      <positiveDescription>is French</positiveDescription>
+      <negativeDescription>isn&apos;t French</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>is French</alternativePositiveDescription>
+      <alternativeNegativeDescription>isn&apos;t French</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>Chinese</name>
+      <positiveDescription>is Chinese</positiveDescription>
+      <negativeDescription>isn&apos;t Chinese</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>is Chinese</alternativePositiveDescription>
+      <alternativeNegativeDescription>isn&apos;t Chinese</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>Greek</name>
+      <positiveDescription>is Greek</positiveDescription>
+      <negativeDescription>isn&apos;t Greek</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>is Greek</alternativePositiveDescription>
+      <alternativeNegativeDescription>isn&apos;t Greek</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>American</name>
+      <positiveDescription>is American</positiveDescription>
+      <negativeDescription>isn&apos;t American</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>is American</alternativePositiveDescription>
+      <alternativeNegativeDescription>isn&apos;t American</alternativeNegativeDescription>
+    </instance>
+  </characteristic>
+  <characteristic>
+    <name>PetCharacteristic</name>
+    <instance>
+      <name>cat</name>
+      <positiveDescription>has a cat</positiveDescription>
+      <negativeDescription>doesn&apos;t have a cat</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has a cat</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t have a cat</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>dog</name>
+      <positiveDescription>has a dog</positiveDescription>
+      <negativeDescription>doesn&apos;t have a dog</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has a dog</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t have a dog</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>fish</name>
+      <positiveDescription>has a fish</positiveDescription>
+      <negativeDescription>doesn&apos;t have a fish</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has a fish</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t have a fish</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>rabbit</name>
+      <positiveDescription>has a rabbit</positiveDescription>
+      <negativeDescription>doesn&apos;t have a rabbit</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has a rabbit</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t have a rabbit</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>mice</name>
+      <positiveDescription>has a mice</positiveDescription>
+      <negativeDescription>doesn&apos;t have a mice</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has a mice</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t have a mice</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>ferrets</name>
+      <positiveDescription>has a ferrets</positiveDescription>
+      <negativeDescription>doesn&apos;t have a ferrets</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has a ferrets</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t have a ferrets</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>frog</name>
+      <positiveDescription>has a frog</positiveDescription>
+      <negativeDescription>doesn&apos;t have a frog</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has a frog</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t have a frog</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>goat</name>
+      <positiveDescription>has a goat</positiveDescription>
+      <negativeDescription>doesn&apos;t have a goat</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has a goat</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t have a goat</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>horse</name>
+      <positiveDescription>has a horse</positiveDescription>
+      <negativeDescription>doesn&apos;t have a horse</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has a horse</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t have a horse</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>iguana</name>
+      <positiveDescription>has a iguana</positiveDescription>
+      <negativeDescription>doesn&apos;t have a iguana</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has a iguana</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t have a iguana</alternativeNegativeDescription>
+    </instance>
+  </characteristic>
+  <characteristic>
+    <name>SportCharacteristic</name>
+    <instance>
+      <name>football</name>
+      <positiveDescription>likes to watch football</positiveDescription>
+      <negativeDescription>doesn&apos;t watch football</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>likes to watch football</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t watch football</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>rugby</name>
+      <positiveDescription>likes to watch rugby</positiveDescription>
+      <negativeDescription>doesn&apos;t watch rugby</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>likes to watch rugby</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t watch rugby</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>golf</name>
+      <positiveDescription>likes to watch golf</positiveDescription>
+      <negativeDescription>doesn&apos;t watch golf</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>likes to watch golf</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t watch golf</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>tennis</name>
+      <positiveDescription>likes to watch tennis</positiveDescription>
+      <negativeDescription>doesn&apos;t watch tennis</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>likes to watch tennis</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t watch tennis</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>athletics</name>
+      <positiveDescription>likes to watch athletics</positiveDescription>
+      <negativeDescription>doesn&apos;t watch athletics</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>likes to watch athletics</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t watch athletics</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>basketball</name>
+      <positiveDescription>likes to watch basketball</positiveDescription>
+      <negativeDescription>doesn&apos;t watch basketball</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>likes to watch basketball</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t watch basketball</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>baseball</name>
+      <positiveDescription>likes to watch baseball</positiveDescription>
+      <negativeDescription>doesn&apos;t watch baseball</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>likes to watch baseball</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t watch baseball</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>badminton</name>
+      <positiveDescription>likes to watch badminton</positiveDescription>
+      <negativeDescription>doesn&apos;t watch badminton</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>likes to watch badminton</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t watch badminton</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>volleyball</name>
+      <positiveDescription>likes to watch volleyball</positiveDescription>
+      <negativeDescription>doesn&apos;t watch volleyball</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>likes to watch volleyball</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t watch volleyball</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>cycling</name>
+      <positiveDescription>likes to watch cycling</positiveDescription>
+      <negativeDescription>doesn&apos;t watch cycling</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>likes to watch cycling</alternativePositiveDescription>
+      <alternativeNegativeDescription>doesn&apos;t watch cycling</alternativeNegativeDescription>
+    </instance>
+  </characteristic>
+  <characteristic>
+    <name>StarSignCharacteristic</name>
+    <instance>
+      <name>pisces</name>
+      <positiveDescription>has pisces as their star sign</positiveDescription>
+      <negativeDescription>hasn&apos;t got pisces as their star sign</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has pisces as their star sign</alternativePositiveDescription>
+      <alternativeNegativeDescription>hasn&apos;t got pisces as their star sign</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>aries</name>
+      <positiveDescription>has aries as their star sign</positiveDescription>
+      <negativeDescription>hasn&apos;t got aries as their star sign</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has aries as their star sign</alternativePositiveDescription>
+      <alternativeNegativeDescription>hasn&apos;t got aries as their star sign</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>taurus</name>
+      <positiveDescription>has taurus as their star sign</positiveDescription>
+      <negativeDescription>hasn&apos;t got taurus as their star sign</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has taurus as their star sign</alternativePositiveDescription>
+      <alternativeNegativeDescription>hasn&apos;t got taurus as their star sign</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>gemini</name>
+      <positiveDescription>has gemini as their star sign</positiveDescription>
+      <negativeDescription>hasn&apos;t got gemini as their star sign</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has gemini as their star sign</alternativePositiveDescription>
+      <alternativeNegativeDescription>hasn&apos;t got gemini as their star sign</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>cancer</name>
+      <positiveDescription>has cancer as their star sign</positiveDescription>
+      <negativeDescription>hasn&apos;t got cancer as their star sign</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has cancer as their star sign</alternativePositiveDescription>
+      <alternativeNegativeDescription>hasn&apos;t got cancer as their star sign</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>leo</name>
+      <positiveDescription>has leo as their star sign</positiveDescription>
+      <negativeDescription>hasn&apos;t got leo as their star sign</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has leo as their star sign</alternativePositiveDescription>
+      <alternativeNegativeDescription>hasn&apos;t got leo as their star sign</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>vergo</name>
+      <positiveDescription>has vergo as their star sign</positiveDescription>
+      <negativeDescription>hasn&apos;t got vergo as their star sign</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has vergo as their star sign</alternativePositiveDescription>
+      <alternativeNegativeDescription>hasn&apos;t got vergo as their star sign</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>libra</name>
+      <positiveDescription>has libra as their star sign</positiveDescription>
+      <negativeDescription>hasn&apos;t got libra as their star sign</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has libra as their star sign</alternativePositiveDescription>
+      <alternativeNegativeDescription>hasn&apos;t got libra as their star sign</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>scorpio</name>
+      <positiveDescription>has scorpio as their star sign</positiveDescription>
+      <negativeDescription>hasn&apos;t got scorpio as their star sign</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has scorpio as their star sign</alternativePositiveDescription>
+      <alternativeNegativeDescription>hasn&apos;t got scorpio as their star sign</alternativeNegativeDescription>
+    </instance>
+    <instance>
+      <name>sagittarius</name>
+      <positiveDescription>has sagittarius as their star sign</positiveDescription>
+      <negativeDescription>hasn&apos;t got sagittarius as their star sign</negativeDescription>
+      <icon>undefined</icon>
+      <alternativePositiveDescription>has sagittarius as their star sign</alternativePositiveDescription>
+      <alternativeNegativeDescription>hasn&apos;t got sagittarius as their star sign</alternativeNegativeDescription>
+    </instance>
+  </characteristic>
+</template>

@@ -1,4 +1,4 @@
-package dev.aisandbox.client.scenarios.zebra;
+package dev.aisandbox.client.scenarios.zebra.vo;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
@@ -12,8 +12,8 @@ public class CharacteristicObject {
     String positiveDescription;
     String negativeDescription;
     String icon;
-    @XStreamImplicit
+    @XStreamImplicit(itemFieldName="alternativePositiveDescription")
     String[] alternativePositiveDescriptions;
-    @XStreamImplicit
+    @XStreamImplicit(itemFieldName="alternativeNegativeDescription")
     String[] alternativeNegativeDescription;
 }

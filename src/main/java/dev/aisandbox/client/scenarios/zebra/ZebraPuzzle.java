@@ -23,15 +23,15 @@ public class ZebraPuzzle {
     @Getter
     private List<Clue> clues = new ArrayList<>();
 
-    @Getter
-    private final List<Characteristic> characteristics;
+ //   @Getter
+ //   private final List<Characteristic> characteristics;
 
     /**
      * create a new puzzle, using the supplied random number generator
      *
      * @param rand
      */
-    public ZebraPuzzle(List<Characteristic> characteristics, Random rand) {
+ /*   public ZebraPuzzle(List<Characteristic> characteristics, Random rand) {
         this.characteristics = characteristics;
         LOG.info("Creating random puzzle");
         // initialise the solution
@@ -49,6 +49,6 @@ public class ZebraPuzzle {
             }
         }
     }
-
+*/
 
 }

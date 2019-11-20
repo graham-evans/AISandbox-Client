@@ -17,7 +17,7 @@ public class ZebraPuzzleGenerator {
 
     private static final Logger LOG = Logger.getLogger(ZebraPuzzleGenerator.class.getName());
 
-    @Getter
+ /*   @Getter
     private static final List<Characteristic> characteristicList = new ArrayList<>();
 
     public ZebraPuzzleGenerator() {
@@ -31,9 +31,10 @@ public class ZebraPuzzleGenerator {
         characteristicList.add(new LikesToEatCharacteristic());
         characteristicList.add(new PetCharacteristic());
         characteristicList.add(new SportCharacteristic());
-        characteristicList.add(new StarSignCharacteristic());
+        characteristicList.add(new StarSignCharacteristic()); 
     }
-
+    */
+/*
     public ZebraPuzzle generatePuzzle(Random rand) {
         LOG.info("Generating new puzzle");
         // generate puzzle with a solution
@@ -87,13 +88,13 @@ public class ZebraPuzzleGenerator {
         }
         return puzzle;
     }
-
+*/
     /**
      * Generate clues of the form "The person living at number # xxxxxxx"
      *
      * @return list of clues that can be used
      */
-    private List<Clue> livingClues(ZebraPuzzle puzzle, Model model, IntVar[][] places) {
+/*    private List<Clue> livingClues(ZebraPuzzle puzzle, Model model, IntVar[][] places) {
         LOG.info("Adding living clues");
         List<Clue> clues = new ArrayList<>();
         for (int i = 0; i < ZebraPuzzle.PUZZLE_CHARACTERISTICS; i++) {
@@ -107,13 +108,13 @@ public class ZebraPuzzleGenerator {
         }
         return clues;
     }
-
+*/
     /**
      * Generate clues of the form "The person living at number # doesn't xxxxxxx"
      *
      * @return list of clues that can be used
      */
-    private List<Clue> livingNegativeClues(ZebraPuzzle puzzle, Model model, IntVar[][] places) {
+ /*   private List<Clue> livingNegativeClues(ZebraPuzzle puzzle, Model model, IntVar[][] places) {
         LOG.info("Adding negative living clues");
         List<Clue> clues = new ArrayList<>();
         for (int i = 0; i < ZebraPuzzle.PUZZLE_CHARACTERISTICS; i++) {
@@ -131,5 +132,5 @@ public class ZebraPuzzleGenerator {
         }
         return clues;
     }
-
+*/
 }

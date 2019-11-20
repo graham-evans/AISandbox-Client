@@ -1,8 +1,9 @@
-package dev.aisandbox.client.scenarios.zebra;
+package dev.aisandbox.client.scenarios.zebra.vo;
 
 import java.util.List;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamImplicit;
 
 import lombok.Data;
 
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 @XStreamAlias("characteristic")
 public class Characteristic {
     private String name;
-
+    @XStreamImplicit(itemFieldName="instance")
     private List<CharacteristicObject> instances=new ArrayList<>();
 
 }

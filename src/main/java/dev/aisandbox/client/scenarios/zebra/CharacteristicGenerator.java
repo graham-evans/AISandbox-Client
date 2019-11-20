@@ -1,19 +1,28 @@
 package dev.aisandbox.client.scenarios.zebra;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import com.thoughtworks.xstream.XStream;
+
+import dev.aisandbox.client.scenarios.zebra.vo.Template;
+
 public class CharacteristicGenerator {
+
+    private static final Logger LOG = Logger.getLogger(CharacteristicGenerator.class.getName());
+
     public static Template createTemplate(int characteristics,int houses) {
-        Template t = new Template();
-        // populate template 
-        Characteristic c1 = new Characteristic();
-        c1.setName("Curtain Colour");
-        CharacteristicObject o1 = new CharacteristicObject();
-        o1.setName("Blue");
-        o1.setPositiveDescription("has blue curtains");
-        o1.setNegativeDescription("doesn't have blue curtains");
-        o1.setAlternativeNegativeDescription(new String[] {"has blue curtains","curtains are blue"});
-        o1.setAlternativeNegativeDescription(new String[] {"doesn't have blue curtains","does not have blue curtains"});
-        c1.getInstances().add(o1);
-        t.getCharacteristics().add(c1);
+        Template t = null;
+        try {
+            XStream x = new XStream();
+            // configure
+            x.processAnnotations(Template.class);
+            // read
+            t = (Template) x.fromXML(CharacteristicGenerator.class.getResourceAsStream("template.xml"));
+            // TODO Trim template down to the required dimentions
+        } catch (Exception e) {
+            LOG.log(Level.SEVERE,"Error reading template",e);
+        }
         return t;
     }
 }
