@@ -11,7 +11,7 @@ public class CharacteristicObject {
     String name;
     String positiveDescription;
     String negativeDescription;
-    String icon;
+    int icon;
     @XStreamImplicit(itemFieldName="alternativePositiveDescription")
     String[] alternativePositiveDescriptions;
     @XStreamImplicit(itemFieldName="alternativeNegativeDescription")
