@@ -17,7 +17,7 @@
                 <HBox prefHeight="200.0" VBox.vgrow="NEVER">
                     <children>
                   <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                  <PieChart fx:id="durationGraph" animated="false" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" title="Average Step Duration" HBox.hgrow="NEVER" />
+                  <PieChart fx:id="durationGraph" animated="false" labelLineLength="5.0" legendSide="LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" title="Average Step Duration" HBox.hgrow="NEVER" />
                   <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" spacing="4.0" HBox.hgrow="SOMETIMES">
                      <children>
                         <Label fx:id="startTimeField" text="Start Time : N/A" />
