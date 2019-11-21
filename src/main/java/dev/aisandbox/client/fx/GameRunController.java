@@ -5,10 +5,12 @@ import dev.aisandbox.client.output.*;
 import dev.aisandbox.client.profiler.AIProfiler;
 import dev.aisandbox.client.profiler.ProfileStep;
 import javafx.application.Platform;
+import javafx.beans.binding.Bindings;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.chart.*;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -18,6 +20,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
+import javafx.scene.text.Text;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
@@ -27,6 +30,9 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.logging.Level;
@@ -65,7 +71,7 @@ public class GameRunController {
 
     private AIProfiler profiler = null;
     private long profileLastUpdate = 0l;
-
+    private Map<String,PieChart.Data> profileMap = new HashMap<>();
 
     private ImageView imageView;
 
@@ -152,19 +158,32 @@ public class GameRunController {
                 stepCountField.setText("Steps: "+profiler.getStepCount());
                 ObservableList<PieChart.Data> data = durationGraph.getData();
                 profiler.getAverageTime().forEach((name,value)->{
-                    boolean found = false;
-                    for (PieChart.Data d : data) {
-                        if (d.getName().equals(name)) {
-                            found=true;
-                            d.setPieValue(value);
-                        }
-                    }
-                    if (!found) {
+                    PieChart.Data d = profileMap.get(name);
+                    if (d==null) {
                         // new pie chart value
-                        data.add(new PieChart.Data(name,value));
+                        d = new PieChart.Data(name,value);
+                        data.add(d);
+                        profileMap.put(name,d);
+
+//                        d.nameProperty().bind(
+//                                Bindings.concat(
+//                                        d.getName(), " ", d.pieValueProperty(), " ms"
+//                                )
+//                        );
+                    }
+//                    d.nameProperty().setValue(name+" "+value+"ms");
+                    d.pieValueProperty().setValue(value);
+                });
+                // update labels
+                data.forEach(d -> {
+                    Optional<Node> opTextNode = durationGraph.lookupAll(".chart-pie-label").stream().filter(n -> n instanceof Text && ((Text) n).getText().contains(d.getName())).findAny();
+                    if (opTextNode.isPresent()) {
+                        ((Text) opTextNode.get()).setText(d.getName() + " " + d.getPieValue() + " Tons");
                     }
                 });
+                durationGraph.layout();
             });
+
             profileLastUpdate = System.currentTimeMillis();
         }
     }
