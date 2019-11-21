@@ -25,6 +25,9 @@ public class GeneratorTest {
 
     Random rand = new Random();
 
+    /**
+     * Create an 11x10 grid - the largest possible
+     */
     @Test
     public void generateTemplateTest() {
         Template t = CharacteristicGenerator.createTemplate(rand,11, 10);
@@ -35,6 +38,9 @@ public class GeneratorTest {
         }
     }
 
+    /**
+     * Test grid trimming
+     */
     @Test
     public void generateSmallTemplateTest() {
         Template t = CharacteristicGenerator.createTemplate(rand,8, 4);

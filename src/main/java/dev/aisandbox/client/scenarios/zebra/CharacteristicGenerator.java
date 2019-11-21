@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 import com.thoughtworks.xstream.XStream;
 
 import dev.aisandbox.client.scenarios.zebra.vo.Characteristic;
+import dev.aisandbox.client.scenarios.zebra.vo.CharacteristicObject;
 import dev.aisandbox.client.scenarios.zebra.vo.Template;
 
 public class CharacteristicGenerator {
@@ -20,6 +21,7 @@ public class CharacteristicGenerator {
             XStream x = new XStream();
             // configure
             x.processAnnotations(Template.class);
+            x.allowTypes(new Class[]{Template.class, Characteristic.class, CharacteristicObject.class});
             // read
             t = (Template) x.fromXML(CharacteristicGenerator.class.getResourceAsStream("template.xml"));
             // randomise the characteristics
