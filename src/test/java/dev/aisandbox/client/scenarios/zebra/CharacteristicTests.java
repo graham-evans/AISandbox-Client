@@ -1,5 +1,8 @@
 package dev.aisandbox.client.scenarios.zebra;
 
+import dev.aisandbox.client.scenarios.zebra.vo.Characteristic;
+import dev.aisandbox.client.scenarios.zebra.vo.CharacteristicObject;
+import dev.aisandbox.client.scenarios.zebra.vo.Template;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,55 +12,66 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Random;
 import java.util.Set;
 
 import static org.junit.Assert.*;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
 public class CharacteristicTests {
 
-    @Autowired
-    private ApplicationContext appContext;
-
-    @Autowired
-    private List<Characteristic> characteristicList;
+    Random rand = new Random();
 
     @Test
-    public void characteristicAvailabilityTest() {
-        // check autowiring workd
-        assertNotNull("Autowiring fail", characteristicList);
-        // check count
-        assertEquals("count mismatch", ZebraPuzzle.PUZZLE_CHARACTERISTICS, characteristicList.size());
-    }
-
-    @Test
-    public void characteristicSizeTest() {
-        // every characteristic should have ZebraPuzzle.PUZZLE_WIDTH items
-        for (Characteristic c : characteristicList) {
-            // item name
-            assertNotNull(c.getClass().getName() + " item count", c.getItem(ZebraPuzzle.PUZZLE_HOUSES - 1));
-            // positive description
-            assertNotNull(c.getClass().getName() + " positive description count", c.getDescription(ZebraPuzzle.PUZZLE_HOUSES - 1));
-            // negative description
-            assertNotNull(c.getClass().getName() + " negative description count", c.getNegativeDescription(ZebraPuzzle.PUZZLE_HOUSES - 1));
+    public void uniqueCharacteristicNameTest() {
+        Template t = CharacteristicGenerator.createTemplate(rand,11,10);
+        Set<String> names = new HashSet<>();
+        for (Characteristic c : t.getCharacteristics()) {
+            assertFalse("Duplicate characteristic name'"+c.getName()+"'",names.contains(c.getName()));
+            names.add(c.getName());
         }
     }
 
     @Test
     public void uniqueDescriptionTest() {
+        // all descriptions (positive and negative) should be unique
         Set<String> names = new HashSet<>();
         // every description, from every characteristic, should be unique
-        for (Characteristic c : characteristicList) {
-            for (int i = 0; i < ZebraPuzzle.PUZZLE_HOUSES; i++) {
-                String description = c.getDescription(i);
-                assertFalse("Duplicate description " + c.getClass().getName() + " " + description, names.contains(description));
-                names.add(description);
-                String negativeDescription = c.getNegativeDescription(i);
-                assertFalse("Duplicate negative description " + c.getClass().getName() + " " + negativeDescription, names.contains(negativeDescription));
-                names.add(negativeDescription);
+        Template t = CharacteristicGenerator.createTemplate(rand,11,10);
+        for (Characteristic c : t.getCharacteristics()) {
+            for (CharacteristicObject o : c.getInstances()) {
+                String d1 = o.getPositiveDescription();
+                String d2 = o.getNegativeDescription();
+                assertFalse("Duplicate description '"+d1+"'",names.contains(d1));
+                names.add(d1);
+                assertFalse("Duplicate description '"+d2+"'",names.contains(d2));
+                names.add(d2);
             }
         }
     }
 
+    @Test
+    public void uniqueInstanceTest() {
+        // the name of each characteristic object should be unique within that characteristic
+        Template t = CharacteristicGenerator.createTemplate(rand,11,10);
+        for (Characteristic c : t.getCharacteristics()) {
+            Set<String> names = new HashSet<>();
+            for (CharacteristicObject o : c.getInstances()) {
+                assertFalse("Duplicate instance name '"+o.getName()+"'",names.contains(o.getName()));
+                names.add(o.getName());
+            }
+        }
+    }
+
+    @Test
+    public void uniqueIconTest() {
+        // the name of each icon object should be unique
+        Template t = CharacteristicGenerator.createTemplate(rand,11,10);
+        Set<Integer> names = new HashSet<>();
+        for (Characteristic c : t.getCharacteristics()) {
+            for (CharacteristicObject o : c.getInstances()) {
+                assertFalse("Duplicate icon name '"+o.getIcon()+"'",names.contains(o.getIcon()));
+                names.add(o.getIcon());
+            }
+        }
+    }
 }
