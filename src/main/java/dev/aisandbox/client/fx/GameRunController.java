@@ -10,6 +10,7 @@ import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Side;
 import javafx.scene.Node;
 import javafx.scene.chart.*;
 import javafx.scene.control.Alert;
@@ -21,6 +22,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.text.Text;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.fx.ChartViewer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
@@ -55,7 +58,7 @@ public class GameRunController {
     @FXML
     private ResourceBundle resources;
     @FXML
-    private PieChart durationGraph;
+    private Pane durationChartPane;
     @FXML
     private Label startTimeField;
     @FXML
@@ -71,9 +74,10 @@ public class GameRunController {
 
     private AIProfiler profiler = null;
     private long profileLastUpdate = 0l;
-    private Map<String,PieChart.Data> profileMap = new HashMap<>();
 
+    private ChartViewer durationChartViewer;
     private ImageView imageView;
+
 
 
     @FXML
@@ -125,7 +129,7 @@ public class GameRunController {
 
     @FXML
     void initialize() {
-        assert durationGraph != null : "fx:id=\"durationGraph\" was not injected: check your FXML file 'GameRun.fxml'.";
+        assert durationChartPane != null : "fx:id=\"durationGraph\" was not injected: check your FXML file 'GameRun.fxml'.";
         assert startTimeField != null : "fx:id=\"startTimeField\" was not injected: check your FXML file 'GameRun.fxml'.";
         assert runningField != null : "fx:id=\"runningField\" was not injected: check your FXML file 'GameRun.fxml'.";
         assert stepCountField != null : "fx:id=\"stepCountField\" was not injected: check your FXML file 'GameRun.fxml'.";
@@ -148,45 +152,28 @@ public class GameRunController {
         imageAnchor.heightProperty().addListener((observableValue, number, t1) ->
                 repositionImage(imageView, imageAnchor.getWidth(), t1.doubleValue())
         );
+
+        // insert duration chart
+        profiler = new AIProfiler();
+        durationChartViewer = new ChartViewer(profiler.getChart());
+        durationChartViewer.setMinSize(300.0,200.0);
+        durationChartViewer.setPrefSize(300.0,200.0);
+        durationChartViewer.setMaxSize(300.0,200.0);
+        durationChartPane.getChildren().add(durationChartViewer);
     }
 
     public void addProfileStep(ProfileStep step) {
         profiler.addProfileStep(step);
         // if it's been more than 2 seconds since the last update - redraw the state
-        if (System.currentTimeMillis()- profileLastUpdate>2000) {
+        if (System.currentTimeMillis() - profileLastUpdate > 2000) {
             Platform.runLater(() -> {
-                stepCountField.setText("Steps: "+profiler.getStepCount());
-                ObservableList<PieChart.Data> data = durationGraph.getData();
-                profiler.getAverageTime().forEach((name,value)->{
-                    PieChart.Data d = profileMap.get(name);
-                    if (d==null) {
-                        // new pie chart value
-                        d = new PieChart.Data(name,value);
-                        data.add(d);
-                        profileMap.put(name,d);
-
-//                        d.nameProperty().bind(
-//                                Bindings.concat(
-//                                        d.getName(), " ", d.pieValueProperty(), " ms"
-//                                )
-//                        );
-                    }
-//                    d.nameProperty().setValue(name+" "+value+"ms");
-                    d.pieValueProperty().setValue(value);
-                });
-                // update labels
-                data.forEach(d -> {
-                    Optional<Node> opTextNode = durationGraph.lookupAll(".chart-pie-label").stream().filter(n -> n instanceof Text && ((Text) n).getText().contains(d.getName())).findAny();
-                    if (opTextNode.isPresent()) {
-                        ((Text) opTextNode.get()).setText(d.getName() + " " + d.getPieValue() + " Tons");
-                    }
-                });
-                durationGraph.layout();
+                stepCountField.setText("Steps: " + profiler.getStepCount());
+                durationChartViewer.setChart(profiler.getChart());
             });
-
             profileLastUpdate = System.currentTimeMillis();
         }
     }
+
 
     private void repositionImage(ImageView image, double paneWidth, double paneHeight) {
         // get image width and height

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -14,11 +13,11 @@
     <bottom>
         <VBox BorderPane.alignment="CENTER">
             <children>
-                <HBox prefHeight="200.0" VBox.vgrow="NEVER">
+                <HBox maxHeight="-Infinity" minHeight="-Infinity" minWidth="610.0" prefHeight="200.0" spacing="4.0" VBox.vgrow="NEVER">
                     <children>
                   <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                  <PieChart fx:id="durationGraph" animated="false" labelLineLength="5.0" legendSide="LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" title="Average Step Duration" HBox.hgrow="NEVER" />
-                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" spacing="4.0" HBox.hgrow="SOMETIMES">
+                  <Pane fx:id="durationChartPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" HBox.hgrow="NEVER" />
+                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" spacing="4.0" HBox.hgrow="NEVER">
                      <children>
                         <Label fx:id="startTimeField" text="Start Time : N/A" />
                         <Label fx:id="runningField" text="Simulation Running : N/A" />
