@@ -5,7 +5,7 @@ import dev.aisandbox.client.AgentException;
 import dev.aisandbox.client.fx.GameRunController;
 import dev.aisandbox.client.output.FrameOutput;
 import dev.aisandbox.client.output.OutputTools;
-import dev.aisandbox.client.output.charts.RollingAverageGraph;
+import dev.aisandbox.client.output.charts.SuccessRateGraph;
 import dev.aisandbox.client.profiler.ProfileStep;
 import dev.aisandbox.client.scenarios.maze.MazeRunner;
 import dev.aisandbox.client.scenarios.mine.api.LastMove;
@@ -42,7 +42,7 @@ public class MineHunterThread extends Thread {
 
     private List<BufferedImage> sprites;
 
-    RollingAverageGraph winRateGraph = new RollingAverageGraph(25,20);
+    SuccessRateGraph winRateGraph = new SuccessRateGraph();
     BufferedImage winRateGraphImage=null;
 
     Font myFont = new Font("Sans-Serif", Font.PLAIN, 28);
@@ -70,53 +70,61 @@ public class MineHunterThread extends Thread {
 
     @Override
     public void run() {
-        // setup agent
-        agent.setupAgent();
-        // setup starting board
-        getNewBoard();
-        running = true;
-        LastMove last = null;
-        // main loop
-        while (running) {
-            ProfileStep profileStep = new ProfileStep();
-            // draw image
-            controller.updateBoardImage(createLevelImage());
-            profileStep.addStep("Graphics");
-            // send a request
-            MineHunterRequest request = new MineHunterRequest();
-            request.setLastMove(last);
-            request.setBoardID(board.getBoardID());
-            request.setFlagsRemaining(board.getUnfoundMines());
-            request.setBoard(board.getBoardToString());
-            try {
-                MineHunterResponse response = agent.postRequest(request, MineHunterResponse.class);
-                profileStep.addStep("Network");
-                for (Move move : response.getMoves()) {
-                    boolean change = move.isFlag() ? board.placeFlag(move.getX(),move.getY()) : board.uncover(move.getX(),move.getY());
-                    // if something has changed, redraw the screen
-                    if (change) {
-                        controller.updateBoardImage(createLevelImage());
+        try {
+            // setup agent
+            agent.setupAgent();
+            // setup starting board
+            getNewBoard();
+            running = true;
+            LastMove last = null;
+            // main loop
+            while (running) {
+                ProfileStep profileStep = new ProfileStep();
+                // draw image
+                BufferedImage image = createLevelImage();
+                controller.updateBoardImage(image);
+                output.addFrame(image);
+                profileStep.addStep("Graphics");
+                // send a request
+                MineHunterRequest request = new MineHunterRequest();
+                request.setLastMove(last);
+                request.setBoardID(board.getBoardID());
+                request.setFlagsRemaining(board.getUnfoundMines());
+                request.setBoard(board.getBoardToString());
+                try {
+                    MineHunterResponse response = agent.postRequest(request, MineHunterResponse.class);
+                    profileStep.addStep("Network");
+                    for (Move move : response.getMoves()) {
+                        boolean change = move.isFlag() ? board.placeFlag(move.getX(), move.getY()) : board.uncover(move.getX(), move.getY());
+                        // if something has changed, redraw the screen
+                        if (change) {
+                            image = createLevelImage();
+                            controller.updateBoardImage(image);
+                            output.addFrame(image);
+                        }
+                        // if the level has ended, dont make any more changes
+                        if (board.getState() != GameState.PLAYING) {
+                            break;
+                        }
                     }
-                    // if the level has ended, dont make any more changes
-                    if (board.getState()!=GameState.PLAYING) {
-                        break;
-                    }
+                    profileStep.addStep("Simulation");
+                } catch (AgentException e) {
+                    controller.showAgentError(agent.getTarget(), e);
+                    running = false;
                 }
-                profileStep.addStep("Simulation");
-            } catch (AgentException e) {
-                controller.showAgentError(agent.getTarget(), e);
-                running = false;
+                controller.addProfileStep(profileStep);
+                // record the result of the last move
+                last = new LastMove();
+                last.setBoardID(board.getBoardID());
+                last.setResult(board.getState().name());
+                // if the game has finished create a new one
+                if (board.getState() != GameState.PLAYING) {
+                    winRateGraph.addValue(board.getState() == GameState.WON ? 100.0 : 0.0);
+                    getNewBoard();
+                }
             }
-            controller.addProfileStep(profileStep);
-            // record the result of the last move
-            last =new LastMove();
-            last.setBoardID(board.getBoardID());
-            last.setResult(board.getState().name());
-            // if the game has finished create a new one
-            if (board.getState()!=GameState.PLAYING) {
-                winRateGraph.addValue(board.getState() == GameState.WON ? 1.0 : 0.0);
-                getNewBoard();
-            }
+        } catch (IOException e) {
+            LOG.log(Level.SEVERE,"Error running mine thread",e);
         }
         LOG.info("Finished run thread");
         controller.resetStartButton();
