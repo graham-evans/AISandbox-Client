@@ -2,9 +2,7 @@ package dev.aisandbox.client.output.charts;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.plot.XYPlot;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
@@ -16,6 +14,8 @@ public class SuccessRateGraph extends RollingAverageGraph {
         super(50,20);
     }
 
+
+    @Override
     public BufferedImage getGraph(int width, int height) {
 
         XYSeries series1 = new XYSeries("Average");

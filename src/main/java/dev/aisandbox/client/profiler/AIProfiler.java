@@ -3,7 +3,6 @@ package dev.aisandbox.client.profiler;
 import lombok.Getter;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.PiePlot;
 import org.jfree.data.general.DefaultPieDataset;
 
 import java.awt.*;
