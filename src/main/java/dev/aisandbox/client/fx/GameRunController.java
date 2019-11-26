@@ -50,9 +50,9 @@ public class GameRunController {
     @FXML
     private Pane durationChartPane;
     @FXML
-    private Label startTimeField;
+    private Label runTimeField;
     @FXML
-    private Label runningField;
+    private Label averageStepField;
     @FXML
     private Label stepCountField;
     @FXML
@@ -120,8 +120,8 @@ public class GameRunController {
     @FXML
     void initialize() {
         assert durationChartPane != null : "fx:id=\"durationGraph\" was not injected: check your FXML file 'GameRun.fxml'.";
-        assert startTimeField != null : "fx:id=\"startTimeField\" was not injected: check your FXML file 'GameRun.fxml'.";
-        assert runningField != null : "fx:id=\"runningField\" was not injected: check your FXML file 'GameRun.fxml'.";
+        assert runTimeField != null : "fx:id=\"startTimeField\" was not injected: check your FXML file 'GameRun.fxml'.";
+        assert averageStepField != null : "fx:id=\"runningField\" was not injected: check your FXML file 'GameRun.fxml'.";
         assert stepCountField != null : "fx:id=\"stepCountField\" was not injected: check your FXML file 'GameRun.fxml'.";
         assert backButton != null : "fx:id=\"backButton\" was not injected: check your FXML file 'GameRun.fxml'.";
         assert startButton != null : "fx:id=\"startButton\" was not injected: check your FXML file 'GameRun.fxml'.";
@@ -159,6 +159,8 @@ public class GameRunController {
             Platform.runLater(() -> {
                 stepCountField.setText("Steps: " + profiler.getStepCount());
                 durationChartViewer.setChart(profiler.getChart());
+                runTimeField.setText("Run Time : "+FormatTools.formatTime(profiler.getRunTime()));
+                averageStepField.setText("Average Step : "+FormatTools.formatTime(profiler.getAverateStepTime()));
             });
             profileLastUpdate = System.currentTimeMillis();
         }

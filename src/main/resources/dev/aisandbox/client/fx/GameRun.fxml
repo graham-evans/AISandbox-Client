@@ -17,15 +17,18 @@
                     <children>
                   <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
                   <Pane fx:id="durationChartPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" HBox.hgrow="NEVER" />
-                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" spacing="4.0" HBox.hgrow="NEVER">
+                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="184.0" prefWidth="300.0" spacing="4.0" HBox.hgrow="NEVER">
                      <children>
-                        <Label fx:id="startTimeField" text="Start Time : N/A" />
-                        <Label fx:id="runningField" text="Simulation Running : N/A" />
+                        <Label fx:id="runTimeField" text="Run Time : N/A" />
+                        <Label fx:id="averageStepField" text="Average Step : N/A" />
                         <Label fx:id="stepCountField" text="Steps: N/A" />
                      </children>
                      <padding>
                         <Insets top="4.0" />
                      </padding>
+                     <HBox.margin>
+                        <Insets top="16.0" />
+                     </HBox.margin>
                   </VBox>
                   <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
                     </children>

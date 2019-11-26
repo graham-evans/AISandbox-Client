@@ -14,7 +14,21 @@ public class AIProfiler {
     @Getter
     long stepCount=0;
 
+    private long startTime = System.currentTimeMillis();
+
     Map<String,Double> cumulativeStepTiming = new HashMap<>();
+
+    public long getRunTime() {
+        return System.currentTimeMillis() - startTime;
+    }
+
+    public long getAverateStepTime() {
+        if (stepCount>0) {
+            return (System.currentTimeMillis() - startTime) / stepCount;
+        } else {
+            return 0;
+        }
+    }
 
     public void addProfileStep(ProfileStep step) {
         stepCount++;

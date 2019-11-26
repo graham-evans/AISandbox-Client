@@ -26,7 +26,7 @@ public class MazeRenderer {
     public BufferedImage renderMaze(Maze maze) {
         LOG.log(Level.INFO, "Rendering maze {0}", maze.getBoardID());
         if (sprites == null) {
-            sprites = spriteLoader.loadSprites("/maze/bridge.png", 25, 25);
+            sprites = spriteLoader.loadSprites("/dev/aisandbox/client/scenarios/maze/bridge.png", 25, 25);
         }
         BufferedImage image = new BufferedImage(maze.getWidth() * SCALE, maze.getHeight() * SCALE, BufferedImage.TYPE_INT_RGB);
         Graphics2D g = image.createGraphics();

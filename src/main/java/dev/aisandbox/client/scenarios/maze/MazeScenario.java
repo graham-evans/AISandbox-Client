@@ -101,7 +101,7 @@ public class MazeScenario implements Scenario {
 
     @Override
     public String getImageReference() {
-        return "/maze/sample.png";
+        return "/dev/aisandbox/client/scenarios/maze/sample.png";
     }
 
     @Override

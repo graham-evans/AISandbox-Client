@@ -61,7 +61,7 @@ public class MineHunterThread extends Thread {
             LOG.log(Level.SEVERE,"Error loading logo",e);
             logo = new BufferedImage(10,10,BufferedImage.TYPE_INT_RGB);
         }
-        sprites = loader.loadSprites("/mine/grid.png",40,40);
+        sprites = loader.loadSprites("/dev/aisandbox/client/scenarios/mine/grid.png",40,40);
     }
 
     @Getter
