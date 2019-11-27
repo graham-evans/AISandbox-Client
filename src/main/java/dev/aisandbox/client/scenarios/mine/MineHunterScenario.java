@@ -47,7 +47,7 @@ public class MineHunterScenario implements Scenario {
 
     @Override
     public String getDescription() {
-        return "Long description";
+        return "Your AI will be given a rectangular grid with randomly placed “mines” and its goal is to work out where they are (without blowing any up).\n To help, un-mined squares will show how many of their eight neighbours contain mines.";
     }
 
     @Override
