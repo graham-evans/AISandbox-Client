@@ -46,7 +46,7 @@
                         <ImageView fx:id="gameImageField" fitHeight="240.0" fitWidth="320.0" pickOnBounds="true" preserveRatio="true" />
                   <TextFlow fx:id="gameDescription" lineSpacing="1.1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" textAlignment="JUSTIFY">
                      <VBox.margin>
-                        <Insets top="4.0" />
+                        <Insets left="2.0" right="2.0" top="4.0" />
                      </VBox.margin>
                   </TextFlow>
                   <Hyperlink fx:id="scenarioLink" focusTraversable="false" onAction="#launchScenarioLink" text="Link to Scenario Description" />

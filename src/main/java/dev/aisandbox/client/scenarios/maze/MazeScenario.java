@@ -74,13 +74,7 @@ public class MazeScenario implements Scenario {
     @Override
     public String getDescription() {
         return "The AI agent will be placed in a Maze and tasked with finding its way to the exit. Once there it will be rewarded and returned to the beginning.\n" +
-                "At each turn the AI agent is given information about the maze (dimensions, directions etc), the result of the last move (any reward) and asked for the next move. This repeats until the scenario is manually stopped.\n" +
-                "Goals:\n" +
-                "Write an AI that can learn the solution to a maze.\n" +
-                "Optimize this solution and find the shortest path.\n" +
-                "Further problems:\n" +
-                "Take advantage of the mazes inbuilt biases to find solutions quicker.\n" +
-                "Adapt your AI to cope with larger mazes.\n";
+                "At each turn the AI agent is given information about the maze (dimensions, directions etc), the result of the last move (any reward) and asked for the next move. This repeats until the scenario is manually stopped.";
     }
 
     /**

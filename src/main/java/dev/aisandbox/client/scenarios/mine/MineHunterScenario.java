@@ -47,7 +47,7 @@ public class MineHunterScenario implements Scenario {
 
     @Override
     public String getDescription() {
-        return "Long description";
+        return "Mine Hunter pits the AI against a minefield! A known quantity of mines has been distributed across a grid of squares and the AI agent must work out where they are. To help, each uncovered square will show how many mines are in the surrounding squares.";
     }
 
     @Override
