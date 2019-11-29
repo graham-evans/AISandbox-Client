@@ -24,7 +24,7 @@ public class SpriteLoaderTest {
 
     @Test
     public void loadMazeTest() {
-        List<BufferedImage> images = loader.loadSprites("/maze/bridge.png",25,25);
+        List<BufferedImage> images = loader.loadSprites("/dev/aisandbox/client/scenarios/maze/bridge.png",25,25);
         assertEquals("Wrong number of sprites",21,images.size());
         for (BufferedImage i : images) {
             assertEquals("Image wrong width",25,i.getWidth());
