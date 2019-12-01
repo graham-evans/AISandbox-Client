@@ -77,7 +77,7 @@ public class ParseTests {
                 .andExpect(jsonPath("$.lastMove.boardID").value("1233-5678-90abc"))
                 .andExpect(jsonPath("$.lastMove.result").value("LOST"))
                 .andExpect(jsonPath("$.boardID").value("1234-1234-1234-1234"))
-                .andExpect(jsonPath("$.board.[0]").value("##1..")) // note XPath indexes are 1-based
+                .andExpect(jsonPath("$.board.[0]").value("##1..")) // note JSON indexes are 0-based
                 .andExpect(jsonPath("$.board.[1]").value("##1.."))
                 .andExpect(jsonPath("$.board.[2]").value("221.."))
                 .andExpect(jsonPath("$.board.[3]").value("#1..."))
