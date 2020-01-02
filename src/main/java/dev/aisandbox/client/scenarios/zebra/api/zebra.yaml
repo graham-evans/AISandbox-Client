@@ -1,0 +1,125 @@
+openapi: 3.0.0
+servers: []
+info:
+  description: AI Sandbox API specification for the Zebra Puzzle scenario.
+  version: "1-oas3"
+  title: Zebra Puzzle API
+  contact:
+    url: www.aisandbox.dev
+  license:
+    name: GPLv3
+    url: 'https://www.aisandbox.dev/licence.html'
+paths:
+  /api/zebra:
+    post:
+      summary: Post a zebra puzzle
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ZebraRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ZebraRequest'
+      responses:
+        '200':
+          description: The worked out answer to the problem
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ZebraResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ZebraResponse'
+        '500':
+          description: Server error - halt simulation.
+components:
+  schemas:
+    ZebraRequest:
+      type: object
+      required:
+        - boardID
+        - board
+        - flagsRemaining
+      properties:
+        puzzleID:
+          type: string
+          example: 5434-456363-46455-25434
+        clues:
+          type: array
+          items:
+            type: string
+            example: The house with the cat has a blue door
+        properties:
+          $ref: '#/components/schemas/PropertyDefinition'
+        houseNumbers:
+          type: array
+          items:
+            type: integer
+            format: int32
+            example: 2
+        history:
+          type: object
+          required:
+            - puzzleID
+            - answer
+            - score
+          properties:
+            puzzleID:
+              type: string
+              example: 1234-56789-abcdef-123
+            answer:
+              $ref: '#/components/schemas/Answer'
+            score:
+              type: integer
+              format: int32
+              example: 354
+    ZebraResponse:
+      type: object
+      required:
+        - answer
+      properties:
+        answer:
+          $ref: '#/components/schemas/Answer'
+    Answer:
+      type: array
+      items:
+        $ref: '#/components/schemas/HouseAnswer'
+    HouseAnswer:
+      type: object
+      required:
+        - houseNumber
+        - attributes
+      properties:
+        houseNumber:
+          type: integer
+          format: int32
+          example: 2
+        attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/HouseAttribute'
+    HouseAttribute:
+      type: object
+      required:
+        - propertyName
+        - propertyValue
+      properties:
+        propertyName:
+          type: string
+          example: Door colour
+        propertyValue:
+          type: string
+          example: Red
+    PropertyDefinition:
+      type: object
+      properties:
+        propertyName:
+          type: string
+          example: Door colour
+        propertyValues:
+          type: array
+          items:
+            type: string
+            example: red

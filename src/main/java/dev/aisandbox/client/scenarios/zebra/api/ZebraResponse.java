@@ -1,7 +1,13 @@
 package dev.aisandbox.client.scenarios.zebra.api;
 
-import dev.aisandbox.client.scenarios.ServerResponse;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Data;
 
-public class ZebraResponse implements ServerResponse {
+import javax.xml.bind.annotation.XmlRootElement;
 
+@Data
+@JsonIgnoreProperties(ignoreUnknown = true)
+@XmlRootElement(name = "ZebraResponse")
+public class ZebraResponse {
+  private Answer answer = null;
 }
