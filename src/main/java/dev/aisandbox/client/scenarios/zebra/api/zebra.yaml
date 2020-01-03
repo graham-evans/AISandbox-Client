@@ -70,7 +70,9 @@ components:
               type: string
               example: 1234-56789-abcdef-123
             answer:
-              $ref: '#/components/schemas/Answer'
+              type: array
+              items:
+                $ref: '#/components/schemas/HouseAnswer'
             score:
               type: integer
               format: int32
@@ -81,11 +83,9 @@ components:
         - answer
       properties:
         answer:
-          $ref: '#/components/schemas/Answer'
-    Answer:
-      type: array
-      items:
-        $ref: '#/components/schemas/HouseAnswer'
+          type: array
+          items:
+            $ref: '#/components/schemas/HouseAnswer'
     HouseAnswer:
       type: object
       required:
