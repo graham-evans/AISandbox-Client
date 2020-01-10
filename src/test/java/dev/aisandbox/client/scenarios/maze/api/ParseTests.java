@@ -77,7 +77,7 @@ public class ParseTests {
         server.expect(
                 requestTo("http://localhost/postJSON"))
                 .andExpect(method(HttpMethod.POST))
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.config.boardID").value("board"))
                 .andExpect(jsonPath("$.config.width").value("10"))
                 .andExpect(jsonPath("$.config.height").value("10"))

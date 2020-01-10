@@ -67,7 +67,7 @@ public class AgentTest {
         server.expect(
                 requestTo("http://localhost/postJSON"))
                 .andExpect(method(HttpMethod.POST))
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("name").value("Betty"))
                 .andRespond(withSuccess("{\"number\":\"4\"}", MediaType.APPLICATION_JSON));
         // run request
@@ -163,7 +163,7 @@ public class AgentTest {
     public void testConnectionError() throws Exception {
         Agent a = new Agent();
         // use unreachable URL
-        a.setTarget("http://240.0.0.0:8181/getXML");
+        a.setTarget("http://localhost:9999/getXML");
         a.setEnableXML(true);
         a.setApiKey(true);
         a.setApiKeyHeader("APIKey");

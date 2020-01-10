@@ -73,7 +73,7 @@ public class ParseTests {
         server.expect(
                 requestTo("http://localhost/postJSON"))
                 .andExpect(method(HttpMethod.POST))
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.lastMove.boardID").value("1233-5678-90abc"))
                 .andExpect(jsonPath("$.lastMove.result").value("LOST"))
                 .andExpect(jsonPath("$.boardID").value("1234-1234-1234-1234"))
