@@ -76,7 +76,7 @@ public class Agent {
             restHeaders.setContentType(MediaType.APPLICATION_XML);
             restHeaders.setAccept(Collections.singletonList(MediaType.APPLICATION_XML));
         } else {
-            restHeaders.setContentType(MediaType.APPLICATION_JSON_UTF8);
+            restHeaders.setContentType(MediaType.APPLICATION_JSON);
             restHeaders.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
         }
         // add basic auth

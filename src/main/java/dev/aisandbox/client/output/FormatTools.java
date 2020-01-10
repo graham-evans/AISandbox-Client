@@ -1,5 +1,8 @@
 package dev.aisandbox.client.output;
 
+import lombok.experimental.UtilityClass;
+
+@UtilityClass
 public class FormatTools {
     /**
      * Format a time duration (in milliseconds) as HH:MM:SS.sss
