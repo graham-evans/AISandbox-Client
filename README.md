@@ -43,6 +43,6 @@ AI Sandbox relies on several underlying technologies, these include:
 
 In addition, [Install4J](https://www.ej-technologies.com/products/install4j/overview.html) is used to provide platform specific installers.
 
-# Authors
+# Authors 
 
 Lead Programmer : Graham Evans
