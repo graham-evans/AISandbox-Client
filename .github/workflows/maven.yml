@@ -22,3 +22,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        sonar.branch.name: ${{ github.base_ref }}
