@@ -12,6 +12,8 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
+import dev.aisandbox.client.cli.CLIRuntimeModelFactory;
+
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
@@ -36,7 +38,24 @@ public class AISandboxClient extends Application {
      * @param args an array of {@link java.lang.String} objects.
      */
     public static void main(String[] args) {
-        Application.launch(args);
+        if ((args!=null) &&(args.length>0)) {
+            // initialise CLI version
+            AISandboxClient client = new AISandboxClient();
+            client.runCLI(args);
+        } else {
+            // initialise FX version
+            Application.launch(args);
+        }
+    }
+
+    public void runCLI(String[] args) {
+        System.out.println("CLI activated");
+        SpringApplicationBuilder builder = new SpringApplicationBuilder(AISandboxClient.class);
+        builder.headless(false);
+        context = builder.run(getParameters().getRaw().toArray(new String[0]));
+        // generate the default model and update with CLI (and XML) options
+        RuntimeModel model = CLIRuntimeModelFactory.parseCommandLine(context.getBean(RuntimeModel.class), args);
+            System.exit(0);
     }
 
     /**
