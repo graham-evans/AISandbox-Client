@@ -2,6 +2,8 @@ name: Java CI
 
 on:
   push:
+    branches:
+    - master
 
 jobs:
   build:
@@ -19,4 +21,3 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        sonar.projectKey: aisandbox_AISandbox-Client-CLI
