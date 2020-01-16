@@ -12,6 +12,8 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
+import dev.aisandbox.client.cli.CLIRuntimeModelFactory;
+
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
@@ -20,9 +22,8 @@ import java.util.logging.Logger;
  * <p>
  * This initialises Spring Boot, sets the FXML loader to use Spring then starts the JavaFX application.
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "dev.aisandbox.client")
 @Configuration
-@ComponentScan
 public class AISandboxClient extends Application {
 
     private static final Logger LOG = Logger.getLogger(AISandboxClient.class.getName());
@@ -36,7 +37,27 @@ public class AISandboxClient extends Application {
      * @param args an array of {@link java.lang.String} objects.
      */
     public static void main(String[] args) {
-        Application.launch(args);
+        if ((args != null) && (args.length > 0)) {
+            // initialise CLI version
+            AISandboxClient client = new AISandboxClient();
+            client.runCLI(args);
+        } else {
+            // initialise FX version
+            Application.launch(args);
+        }
+    }
+
+    public void runCLI(String[] args) {
+        System.out.println("CLI activated");
+        SpringApplicationBuilder builder = new SpringApplicationBuilder(AISandboxClient.class);
+        builder.headless(true);
+        context = builder.run(args);
+        // generate the default model and update with CLI (and XML) options
+        RuntimeModel model = CLIRuntimeModelFactory.parseCommandLine(context.getBean(RuntimeModel.class), args);
+        // print the options
+        CLIRuntimeModelFactory.printHelp();
+        // exit
+        System.exit(0);
     }
 
     /**
@@ -64,6 +85,7 @@ public class AISandboxClient extends Application {
      * Called after the init() method.
      * <p>
      * Opens the main window and centers on screen.
+     *
      * @param primaryStage the main (empty) window
      * @throws Exception
      */
@@ -79,6 +101,7 @@ public class AISandboxClient extends Application {
 
     /**
      * Used by JavaFX when closing the application.
+     *
      * @throws Exception
      */
     @Override
