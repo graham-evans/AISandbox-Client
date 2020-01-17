@@ -13,6 +13,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 import dev.aisandbox.client.cli.CLIParser;
+import dev.aisandbox.client.fx.FakeGameRunController;
+import dev.aisandbox.client.output.FrameOutput;
+import dev.aisandbox.client.output.NoOutput;
 
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
@@ -55,10 +58,13 @@ public class AISandboxClient extends Application {
         // generate the default model and update with CLI (and XML) options
         CLIParser cli = context.getBean(CLIParser.class);
         RuntimeModel model = cli.parseCommandLine(context.getBean(RuntimeModel.class), args);
-        // print the options
-        cli.printHelp();
-        // exit
-        System.exit(0);
+        if (model.getValid().get()) {
+            // run the model manualy
+            FrameOutput out = new NoOutput();
+            model.getScenario().startSimulation(model.getAgentList(), new FakeGameRunController(), out);
+        } else {
+            cli.printHelp();
+        }
     }
 
     /**

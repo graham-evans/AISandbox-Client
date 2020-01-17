@@ -1,8 +1,8 @@
 package dev.aisandbox.client.cli;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Properties;
 
@@ -120,5 +120,23 @@ public class PropertiesParserTest {
         assertEquals("Incorrect salt",654321,(long) maze.getScenarioSalt());
         assertEquals("Incorrect board size",MazeSize.LARGE,maze.getMazeSize());
         assertEquals("Inncorrect maze type",MazeType.BRAIDED,maze.getMazeType());
+    }
+
+    @Test
+    public void readLimitTest() {
+        Properties props = new Properties();
+        props.setProperty("steps", "100");
+        PropertiesParser parser = new PropertiesParser();
+        RuntimeModel model = parser.parseConfiguration(new RuntimeModel(),props);
+        assertTrue("Step limit not set",model.isLimitRuntime());
+        assertEquals("Step limit incorrect",100,model.getMaxStepCount());
+    }
+
+    @Test
+    public void readNoLimitTest() {
+        Properties props = new Properties();
+        PropertiesParser parser = new PropertiesParser();
+        RuntimeModel model = parser.parseConfiguration(new RuntimeModel(),props);
+        assertFalse("Step limit set",model.isLimitRuntime());
     }
 }

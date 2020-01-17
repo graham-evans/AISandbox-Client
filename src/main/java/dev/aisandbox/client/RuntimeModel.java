@@ -31,6 +31,14 @@ public class RuntimeModel {
     Locale locale = Locale.UK;
 
     @Getter
+    @Setter
+    boolean limitRuntime = false;
+
+    @Getter
+    @Setter
+    long maxStepCount = 0l;
+
+    @Getter
     IntegerProperty minAgents = new SimpleIntegerProperty(1);
 
     @Getter

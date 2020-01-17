@@ -7,9 +7,13 @@ import dev.aisandbox.client.scenarios.maze.MazeType;
 import dev.aisandbox.client.scenarios.mine.MineHunterScenario;
 import dev.aisandbox.client.scenarios.mine.SizeEnum;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Properties;
+import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import org.springframework.stereotype.Component;
 
 @Component
@@ -19,12 +23,21 @@ private static final Logger LOG = Logger.getLogger(PropertiesParser.class.getNam
 
     public RuntimeModel parseConfiguration(RuntimeModel model, String filePath) {
         // read properties from file
+        File pfile = new File(filePath);
+        LOG.info("Loading properties from " + pfile.getAbsolutePath());
         Properties props = new Properties();
+        try {
+            props.load(new FileInputStream(pfile));
+        } catch (IOException e) {
+            LOG.log(Level.WARNING,"Error loading properties",e);
+		}
         // parse and return
         return parseConfiguration(model, props);
     }
 
     public RuntimeModel parseConfiguration(RuntimeModel model, Properties props) {
+        // read scenario specific properties
+        if (props.containsKey("scenario")) {
           switch (props.getProperty("scenario")) {
             case "maze" :
                 readMazeSettings(model, props);
@@ -33,7 +46,12 @@ private static final Logger LOG = Logger.getLogger(PropertiesParser.class.getNam
                 readMineSettings(model,props);
                 break;
         }
-   
+    }
+    // read general properties
+    if (props.containsKey("steps")) {
+        model.setLimitRuntime(true);
+        model.setMaxStepCount(Long.parseLong(props.getProperty("steps")));
+    }
         return model;
     }
 
