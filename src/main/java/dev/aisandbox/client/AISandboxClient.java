@@ -12,7 +12,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
-import dev.aisandbox.client.cli.CLIRuntimeModelFactory;
+import dev.aisandbox.client.cli.CLIParser;
 
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
@@ -53,9 +53,10 @@ public class AISandboxClient extends Application {
         builder.headless(true);
         context = builder.run(args);
         // generate the default model and update with CLI (and XML) options
-        RuntimeModel model = CLIRuntimeModelFactory.parseCommandLine(context.getBean(RuntimeModel.class), args);
+        CLIParser cli = context.getBean(CLIParser.class);
+        RuntimeModel model = cli.parseCommandLine(context.getBean(RuntimeModel.class), args);
         // print the options
-        CLIRuntimeModelFactory.printHelp();
+        cli.printHelp();
         // exit
         System.exit(0);
     }
