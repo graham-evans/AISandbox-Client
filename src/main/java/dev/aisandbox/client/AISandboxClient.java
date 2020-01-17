@@ -9,7 +9,6 @@ import javafx.stage.Stage;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 import dev.aisandbox.client.cli.CLIParser;
@@ -61,7 +60,7 @@ public class AISandboxClient extends Application {
         if (model.getValid().get()) {
             // run the model manualy
             FrameOutput out = new NoOutput();
-            model.getScenario().startSimulation(model.getAgentList(), new FakeGameRunController(), out);
+            model.getScenario().startSimulation(model.getAgentList(), new FakeGameRunController(), out, null);
         } else {
             cli.printHelp();
         }

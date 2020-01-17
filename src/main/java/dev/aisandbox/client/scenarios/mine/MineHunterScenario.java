@@ -83,7 +83,7 @@ public class MineHunterScenario implements Scenario {
     private MineHunterThread thread = null;
 
     @Override
-    public void startSimulation(List<Agent> agentList, GameRunController ui, FrameOutput output) {
+    public void startSimulation(List<Agent> agentList, GameRunController ui, FrameOutput output, Long stepCount) {
         // create random number generator
         Random rand;
         if (scenarioSalt==0) {
@@ -100,6 +100,19 @@ public class MineHunterScenario implements Scenario {
     public void stopSimulation() {
         if (thread!=null) {
             thread.stopSimulation();
+        }
+    }
+
+    @Override
+    public void joinSimulation() {
+        LOG.info("Joining simulation");
+        if (thread != null) {
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            thread = null;
         }
     }
 

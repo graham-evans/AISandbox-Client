@@ -113,7 +113,7 @@ public class MazeScenario implements Scenario {
      * {@inheritDoc}
      */
     @Override
-    public void startSimulation(List<Agent> agentList, GameRunController ui, FrameOutput output) {
+    public void startSimulation(List<Agent> agentList, GameRunController ui, FrameOutput output, Long stepCount) {
         LOG.log(Level.INFO, "Salt {0}", scenarioSalt);
         LOG.info("Generating maze");
         Maze maze;
@@ -144,17 +144,17 @@ public class MazeScenario implements Scenario {
                 MazeUtilities.applySidewinder(rand, maze);
                 break;
             case RECURSIVEBACKTRACKER:
-                MazeUtilities.applyRecursiveBacktracker(rand,maze);
+                MazeUtilities.applyRecursiveBacktracker(rand, maze);
                 break;
             case BRAIDED:
-                MazeUtilities.applyRecursiveBacktracker(rand,maze);
-                MazeUtilities.removeDeadEnds(rand,maze);
+                MazeUtilities.applyRecursiveBacktracker(rand, maze);
+                MazeUtilities.removeDeadEnds(rand, maze);
                 break;
         }
         MazeUtilities.findFurthestPoints(maze);
         // render base map
         BufferedImage image = renderer.renderMaze(maze);
-        runner = new MazeRunner(agentList.get(0), maze, output, ui, image);
+        runner = new MazeRunner(agentList.get(0), maze, output, ui, image, stepCount);
         LOG.info("Starting simulation");
         runner.start();
     }
@@ -167,6 +167,19 @@ public class MazeScenario implements Scenario {
         LOG.info("Stopping simulation");
         if (runner != null) {
             runner.stopSimulation();
+            runner = null;
+        }
+    }
+
+    @Override
+    public void joinSimulation() {
+        LOG.info("Joining simulation");
+        if (runner != null) {
+            try {
+                runner.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             runner = null;
         }
     }

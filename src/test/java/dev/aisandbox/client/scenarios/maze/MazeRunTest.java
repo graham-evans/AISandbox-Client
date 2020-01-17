@@ -3,8 +3,7 @@ package dev.aisandbox.client.scenarios.maze;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import java.util.Properties;
-
+import dev.aisandbox.client.output.PNGOutputWriter;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -20,12 +19,14 @@ import dev.aisandbox.client.output.FrameOutput;
 import dev.aisandbox.client.output.NoOutput;
 import dev.aisandbox.client.scenarios.maze.agent.MazeTestAgent;
 
+import java.io.File;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class MazeRunTest {
 
     @Test
-    public void runFullMazeTest() {
+    public void runFullMazeTest() throws Exception {
         System.out.println("Running simulation manualy");
         SpringApplicationBuilder builder = new SpringApplicationBuilder(AISandboxClient.class);
         builder.headless(true);
@@ -42,8 +43,10 @@ public class MazeRunTest {
         model.getAgentList().add(new MazeTestAgent());
         assertTrue("Model not ready",model.getValid().get());
         // manualy run the model
-        FrameOutput out = new NoOutput();
-        model.getScenario().startSimulation(model.getAgentList(), new FakeGameRunController(), out);
+        FrameOutput out = new PNGOutputWriter();
+        out.open(new File("target/test-run/maze1"));
+        model.getScenario().startSimulation(model.getAgentList(), new FakeGameRunController(), out, 10l);
+        model.getScenario().joinSimulation();
     }
 
 }

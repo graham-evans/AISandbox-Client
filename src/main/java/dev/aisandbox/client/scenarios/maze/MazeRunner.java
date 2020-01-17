@@ -38,6 +38,7 @@ public class MazeRunner extends Thread {
     private final FrameOutput output;
     private final GameRunController controller;
     private final BufferedImage background;
+    private final Long maxStepCount;
     private LineGraph graph;
     private BufferedImage graphCache;
     private static final int GRAPH_WIDTH=600;
@@ -150,7 +151,11 @@ public class MazeRunner extends Thread {
                 LOG.log(Level.SEVERE, "Error running", ex);
                 running = false;
             }
-
+            // check for step count
+            if ((maxStepCount!=null)&&(maxStepCount==stepCount)) {
+                LOG.info("Finishing simulation, max steps reached");
+                running = false;
+            }
         }
         try {
             output.close();
