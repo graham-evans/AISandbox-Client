@@ -34,6 +34,7 @@ public class MineHunterThread extends Thread {
     private final GameRunController controller;
     private final Random random;
     private final SizeEnum size;
+    private final Long maxStepCount;
 
     private Board board;
     private double scale=1.0;
@@ -47,12 +48,13 @@ public class MineHunterThread extends Thread {
 
     Font myFont = new Font("Sans-Serif", Font.PLAIN, 28);
 
-    public MineHunterThread(Agent agent, FrameOutput output, GameRunController controller, Random random,SpriteLoader loader,SizeEnum size) {
+    public MineHunterThread(Agent agent, FrameOutput output, GameRunController controller, Random random,SpriteLoader loader,SizeEnum size,Long maxSteps) {
         this.agent = agent;
         this.output = output;
         this.controller = controller;
         this.random = random;
         this.size = size;
+        this.maxStepCount = maxSteps;
         // load images
         LOG.info("Loading sprites");
         try {
@@ -77,8 +79,10 @@ public class MineHunterThread extends Thread {
             getNewBoard();
             running = true;
             LastMove last = null;
+            long stepCount = 0;
             // main loop
             while (running) {
+                stepCount++;
                 ProfileStep profileStep = new ProfileStep();
                 // draw image
                 BufferedImage image = createLevelImage();
@@ -121,6 +125,10 @@ public class MineHunterThread extends Thread {
                 if (board.getState() != GameState.PLAYING) {
                     winRateGraph.addValue(board.getState() == GameState.WON ? 100.0 : 0.0);
                     getNewBoard();
+                }
+                // if we reach the max step - finish
+                if ((maxStepCount!=null)&&(maxStepCount==stepCount)) {
+                    running = false;
                 }
             }
         } catch (IOException e) {

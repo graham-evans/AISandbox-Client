@@ -92,7 +92,7 @@ public class MineHunterScenario implements Scenario {
             rand = new Random(scenarioSalt);
         }
         LOG.info("Starting run thread");
-        thread = new MineHunterThread(agentList.get(0),output,ui,rand,spriteLoader,mineHunterBoardSize);
+        thread = new MineHunterThread(agentList.get(0),output,ui,rand,spriteLoader,mineHunterBoardSize,stepCount);
         thread.start();
     }
 
