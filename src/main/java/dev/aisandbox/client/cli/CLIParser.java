@@ -1,16 +1,28 @@
 package dev.aisandbox.client.cli;
 
 import dev.aisandbox.client.RuntimeModel;
-import org.apache.commons.cli.*;
-
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class CLIRuntimeModelFactory {
+import org.apache.commons.cli.CommandLine;
+import org.apache.commons.cli.CommandLineParser;
+import org.apache.commons.cli.DefaultParser;
+import org.apache.commons.cli.HelpFormatter;
+import org.apache.commons.cli.Option;
+import org.apache.commons.cli.Options;
+import org.apache.commons.cli.ParseException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-    private static final Logger LOG = Logger.getLogger(CLIRuntimeModelFactory.class.getName());
+@Component
+public class CLIParser {
 
-    public static RuntimeModel parseCommandLine(RuntimeModel model, String[] args) {
+    private static final Logger LOG = Logger.getLogger(CLIParser.class.getName());
+
+    @Autowired
+    PropertiesParser pp;
+
+    public RuntimeModel parseCommandLine(RuntimeModel model, String[] args) {
         Options options = getOptions();
         // parse the arguments
         try {
@@ -18,7 +30,7 @@ public class CLIRuntimeModelFactory {
             CommandLine cmd = parser.parse(options, args);
             // check for config
             if (cmd.hasOption("config")) {
-                XMLRuntimeModelFactory.parseCommandLine(model, cmd.getOptionValue("config"));
+                pp.parseConfiguration(model, cmd.getOptionValue("config"));
             }
         } catch (ParseException e) {
             LOG.log(Level.WARNING, "Error parsing command line arguments", e);
@@ -43,7 +55,7 @@ public class CLIRuntimeModelFactory {
     /**
      * Print the default options text
      */
-    public static void printHelp() {
+    public void printHelp() {
         Options options = getOptions();
         HelpFormatter formatter = new HelpFormatter();
         formatter.printHelp("java -jar AISandbox.jar", options);

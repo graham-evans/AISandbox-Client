@@ -57,12 +57,12 @@ public interface Scenario {
 
     /**
      * <p>startSimulation.</p>
-     *
-     * @param agentList a {@link java.util.List} object.
-     * @param ui        a {@link dev.aisandbox.client.fx.GameRunController} object.
-     * @param output    a {@link dev.aisandbox.client.output.FrameOutput} object.
+     *  @param agentList a {@link List} object.
+     * @param ui        a {@link GameRunController} object.
+     * @param output    a {@link FrameOutput} object.
+     * @param stepCount
      */
-    public void startSimulation(List<Agent> agentList, GameRunController ui, FrameOutput output);
+    public void startSimulation(List<Agent> agentList, GameRunController ui, FrameOutput output, Long stepCount);
 
     /**
      * <p>stopSimulation.</p>
@@ -76,6 +76,7 @@ public interface Scenario {
      */
     public boolean isSimulationRunning();
 
+    public void joinSimulation();
     public String getScenarioURL();
     public String getSwaggerURL();
 }
