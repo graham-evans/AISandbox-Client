@@ -3,8 +3,6 @@ package dev.aisandbox.client.cli;
 import dev.aisandbox.client.Agent;
 import dev.aisandbox.client.OutputFormat;
 import dev.aisandbox.client.RuntimeModel;
-import dev.aisandbox.client.scenarios.Scenario;
-import dev.aisandbox.client.scenarios.maze.Maze;
 import dev.aisandbox.client.scenarios.maze.MazeScenario;
 import dev.aisandbox.client.scenarios.maze.MazeSize;
 import dev.aisandbox.client.scenarios.maze.MazeType;
@@ -14,7 +12,6 @@ import dev.aisandbox.client.scenarios.mine.SizeEnum;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.List;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -47,14 +44,17 @@ public class PropertiesParser {
 
     public RuntimeModel parseConfiguration(RuntimeModel model, Properties props) {
         // read scenario specific properties
-        if (props.containsKey("scenario")) {
-            switch (props.getProperty("scenario")) {
+        String scenario = props.getProperty("scenario");
+        if (scenario!=null) {
+            switch (scenario) {
                 case "maze":
                     readMazeSettings(model, props);
                     break;
                 case "mine":
                     readMineSettings(model, props);
                     break;
+                default:
+                    LOG.log(Level.WARNING,"Unknown scenario name '{0}'",new Object[] {scenario});
             }
         }
         // read general properties
