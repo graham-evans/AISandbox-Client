@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Random;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @Component
@@ -110,7 +111,9 @@ public class MineHunterScenario implements Scenario {
             try {
                 thread.join();
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                LOG.log(Level.WARNING, "Interrupted!", e);
+                // Restore interrupted state...
+                Thread.currentThread().interrupt();
             }
             thread = null;
         }

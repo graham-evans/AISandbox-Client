@@ -178,7 +178,9 @@ public class MazeScenario implements Scenario {
             try {
                 runner.join();
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                LOG.log(Level.WARNING, "Interrupted!", e);
+                // Restore interrupted state...
+                Thread.currentThread().interrupt();
             }
             runner = null;
         }
