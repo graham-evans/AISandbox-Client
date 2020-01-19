@@ -30,7 +30,7 @@ mvn spring-boot:run
 
 # Licence
 
-This code is licenced under the GPLv3. For full details see the licence pages of [the website](https://aisandbox.dev/project/licence.html).
+This code is licenced under the GPLv3. For full details see the licence pages of [the website](https://aisandbox.dev/licence/).
 
 # Built With
 
