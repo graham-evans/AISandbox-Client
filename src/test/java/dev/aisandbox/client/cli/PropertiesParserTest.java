@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Properties;
 
+import dev.aisandbox.client.Agent;
 import dev.aisandbox.client.OutputFormat;
 import org.junit.Test;
 
@@ -171,4 +172,36 @@ public class PropertiesParserTest {
         assertEquals("Wrong output type", OutputFormat.MP4, model.getOutputFormat());
         assertEquals("Wrong output Directory", "test", model.getOutputDirectory().toString());
     }
+
+    @Test
+    public void agent1Test() {
+        Properties props = new Properties();
+        props.setProperty("agents","1");
+        props.setProperty("agent1URL","http://www.test.com/");
+        props.setProperty("agent1Lang","XML");
+        RuntimeModel model = parser.parseConfiguration(new RuntimeModel(), props);
+        assertEquals("Wrong number of agents configured",1,model.getAgentList().size());
+        Agent agent1 = model.getAgentList().get(0);
+        assertEquals("Agent 1 wrong URL","http://www.test.com/",agent1.getTarget());
+        assertTrue("Agent 1 not using XML",agent1.isEnableXML());
+    }
+
+    @Test
+    public void agent2Test() {
+        Properties props = new Properties();
+        props.setProperty("agents","2");
+        props.setProperty("agent1URL","http://www.test.com/");
+        props.setProperty("agent1Lang","JSON");
+        props.setProperty("agent2URL","http://www.test2.com/");
+        props.setProperty("agent2Lang","XML");
+        RuntimeModel model = parser.parseConfiguration(new RuntimeModel(), props);
+        assertEquals("Wrong number of agents configured",2,model.getAgentList().size());
+        Agent agent1 = model.getAgentList().get(0);
+        Agent agent2 = model.getAgentList().get(1);
+        assertEquals("Agent 1 wrong URL","http://www.test.com/",agent1.getTarget());
+        assertFalse("Agent 1 not using JSON",agent1.isEnableXML());
+        assertEquals("Agent 2 wrong URL","http://www.test2.com/",agent2.getTarget());
+        assertTrue("Agent 2 not using XML",agent2.isEnableXML());
+    }
+
 }

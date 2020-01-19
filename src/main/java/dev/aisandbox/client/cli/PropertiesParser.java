@@ -1,5 +1,6 @@
 package dev.aisandbox.client.cli;
 
+import dev.aisandbox.client.Agent;
 import dev.aisandbox.client.OutputFormat;
 import dev.aisandbox.client.RuntimeModel;
 import dev.aisandbox.client.scenarios.Scenario;
@@ -78,6 +79,19 @@ public class PropertiesParser {
         }
         if (props.containsKey("outputDir")) {
             model.setOutputDirectory(new File(props.getProperty("outputDir")));
+        }
+        if (props.containsKey("agents")) {
+            int agentCount = Integer.parseInt(props.getProperty("agents"));
+            for (int i=1;i<=agentCount;i++) {
+                Agent agent = new Agent();
+                if (props.containsKey("agent"+i+"URL")) {
+                    agent.setTarget(props.getProperty("agent"+i+"URL"));
+                }
+                if ("XML".equals(props.getProperty("agent"+i+"Lang"))) { // we only test for XML as JSON is the default
+                    agent.setEnableXML(true);
+                }
+                model.getAgentList().add(agent);
+            }
         }
         return model;
     }
