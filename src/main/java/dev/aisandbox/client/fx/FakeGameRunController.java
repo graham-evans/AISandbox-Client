@@ -1,7 +1,6 @@
 package dev.aisandbox.client.fx;
 
 import dev.aisandbox.client.profiler.ProfileStep;
-import javafx.event.ActionEvent;
 
 import java.awt.image.BufferedImage;
 
