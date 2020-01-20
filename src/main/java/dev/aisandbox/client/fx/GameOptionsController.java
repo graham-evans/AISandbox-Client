@@ -16,6 +16,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.*;
 import dev.aisandbox.client.Agent;
 import dev.aisandbox.client.RuntimeModel;
+import javafx.util.converter.NumberStringConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
@@ -75,6 +76,12 @@ public class GameOptionsController {
 
     @FXML
     private Button nextButton;
+
+    @FXML
+    private CheckBox simulationLimit;
+
+    @FXML
+    private TextField simulationLimitSteps;
 
     @FXML
     void removeAgentEvent(ActionEvent event) {
@@ -183,6 +190,8 @@ public class GameOptionsController {
         assert outputDirectory != null : "fx:id=\"outputDirectory\" was not injected: check your FXML file 'GameOptions.fxml'.";
         assert outputDirectoryButton != null : "fx:id=\"outputDirectoryButton\" was not injected: check your FXML file 'GameOptions.fxml'.";
         assert nextButton != null : "fx:id=\"nextButton\" was not injected: check your FXML file 'GameOptions.fxml'.";
+        assert simulationLimit != null : "fx:id=\"simulationLimit\" was not injected: check your FXML file 'GameOptions.fxml'.";
+        assert simulationLimitSteps != null : "fx:id=\"simulationLimitSteps\" was not injected: check your FXML file 'GameOptions.fxml'.";
 
         LOG.info("Adding scenario options");
         FXForm options = new FXForm(model.getScenario());
@@ -210,6 +219,19 @@ public class GameOptionsController {
         nextButton.disableProperty().bind(Bindings.not(model.getValid()));
         // set the agent formatting
         agentList.setCellFactory(agentListView -> new AgentCell());
+        // link the limit controls together
+        simulationLimitSteps.disableProperty().bind(simulationLimit.selectedProperty().not());
+        simulationLimit.selectedProperty().bindBidirectional(model.getLimitRuntime());
+        simulationLimitSteps.textProperty().bindBidirectional(model.getMaxStepCount(),new NumberStringConverter());
+        simulationLimitSteps.setTextFormatter(new TextFormatter<Object>(
+                change -> {
+                    String text = change.getText();
+                    if (text.matches("[0-9]*")) {
+                        return change;
+                    }
+                    return null;
+                }
+        ));
     }
 
 

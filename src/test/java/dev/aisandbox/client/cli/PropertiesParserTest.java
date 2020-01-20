@@ -132,15 +132,15 @@ public class PropertiesParserTest {
         Properties props = new Properties();
         props.setProperty("steps", "100");
         RuntimeModel model = parser.parseConfiguration(new RuntimeModel(), props);
-        assertTrue("Step limit not set", model.isLimitRuntime());
-        assertEquals("Step limit incorrect", 100, model.getMaxStepCount());
+        assertTrue("Step limit not set", model.getLimitRuntime().get());
+        assertEquals("Step limit incorrect", 100, model.getMaxStepCount().get());
     }
 
     @Test
     public void readNoLimitTest() {
         Properties props = new Properties();
         RuntimeModel model = parser.parseConfiguration(new RuntimeModel(), props);
-        assertFalse("Step limit set", model.isLimitRuntime());
+        assertFalse("Step limit set", model.getLimitRuntime().get());
     }
 
     @Test

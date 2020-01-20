@@ -108,7 +108,7 @@ public class GameRunController {
         } catch (IOException e) {
             LOG.log(Level.WARNING, "Error opening output", e);
         }
-        model.getScenario().startSimulation(model.getAgentList(), this, out, null);
+        model.getScenario().startSimulation(model.getAgentList(), this, out, model.getLimitRuntime().get() ? model.getMaxStepCount().get() : null);
         startButton.setText("Stop Simulation");
     }
 

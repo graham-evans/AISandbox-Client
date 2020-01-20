@@ -59,8 +59,8 @@ public class PropertiesParser {
         }
         // read general properties
         if (props.containsKey("steps")) {
-            model.setLimitRuntime(true);
-            model.setMaxStepCount(Long.parseLong(props.getProperty("steps")));
+            model.getLimitRuntime().set(true);
+            model.getMaxStepCount().set(Long.parseLong(props.getProperty("steps")));
         }
         if (props.containsKey("output")) {
             switch (props.getProperty("output")) {
