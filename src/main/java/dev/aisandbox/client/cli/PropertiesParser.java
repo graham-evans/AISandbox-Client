@@ -90,6 +90,16 @@ public class PropertiesParser {
                 if ("XML".equals(props.getProperty("agent"+i+"Lang"))) { // we only test for XML as JSON is the default
                     agent.setEnableXML(true);
                 }
+                if (props.containsKey("agent"+i+"Username")) {
+                    agent.setBasicAuth(true);
+                    agent.setBasicAuthUsername(props.getProperty("agent"+i+"Username"));
+                    agent.setBasicAuthPassword(props.getProperty("agent"+i+"Password"));
+                }
+                if (props.containsKey("agent"+i+"HeaderName")) {
+                    agent.setApiKey(true);
+                    agent.setApiKeyHeader(props.getProperty("agent"+i+"HeaderName"));
+                    agent.setApiKeyValue(props.getProperty("agent"+i+"HeaderValue"));
+                }
                 model.getAgentList().add(agent);
             }
         }

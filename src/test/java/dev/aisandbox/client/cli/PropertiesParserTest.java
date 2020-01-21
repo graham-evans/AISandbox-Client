@@ -204,4 +204,36 @@ public class PropertiesParserTest {
         assertTrue("Agent 2 not using XML",agent2.isEnableXML());
     }
 
+    @Test
+    public void authKeyTest() {
+        Properties props = new Properties();
+        props.setProperty("agents","1");
+        props.setProperty("agent1URL","http://www.test.com/");
+        props.setProperty("agent1Lang","JSON");
+        props.setProperty("agent1HeaderName","key");
+        props.setProperty("agent1HeaderValue", "value");
+        RuntimeModel model = parser.parseConfiguration(new RuntimeModel(), props);
+        assertEquals("Wrong number of agents configured",1,model.getAgentList().size());
+        Agent agent1 = model.getAgentList().get(0);
+        assertTrue("Header auth not enabled",agent1.isApiKey());
+        assertEquals("Header key incorrect","key",agent1.getApiKeyHeader());
+        assertEquals("Header value incorrect","value",agent1.getApiKeyValue());
+    }
+
+    @Test
+    public void basicAuthTest() {
+        Properties props = new Properties();
+        props.setProperty("agents","1");
+        props.setProperty("agent1URL","http://www.test.com/");
+        props.setProperty("agent1Lang","JSON");
+        props.setProperty("agent1Username","key");
+        props.setProperty("agent1Password", "value");
+        RuntimeModel model = parser.parseConfiguration(new RuntimeModel(), props);
+        assertEquals("Wrong number of agents configured",1,model.getAgentList().size());
+        Agent agent1 = model.getAgentList().get(0);
+        assertTrue("Basic auth not enabled",agent1.isBasicAuth());
+        assertEquals("Basic auth key incorrect","key",agent1.getBasicAuthUsername());
+        assertEquals("Basic auth value incorrect","value",agent1.getBasicAuthPassword());
+    }
+
 }
