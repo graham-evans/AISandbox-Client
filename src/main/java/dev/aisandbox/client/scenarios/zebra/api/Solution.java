@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
-public class ZebraRequestHistory {
-  private String puzzleID;
-  private Solution solution;
-  private int score;
+public class Solution {
+  private List<House> house = new ArrayList<>();
 }

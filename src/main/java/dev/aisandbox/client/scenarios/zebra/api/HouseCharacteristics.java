@@ -7,8 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
-public class ZebraRequestHistory {
-  private String puzzleID;
-  private Solution solution;
-  private int score;
+public class HouseCharacteristics {
+  private int characteristicNumber;
+  private int characteristicValue;
 }
