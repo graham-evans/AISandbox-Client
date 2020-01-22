@@ -64,6 +64,8 @@ public class Agent {
     @Getter
     private final BooleanProperty validProperty = new SimpleBooleanProperty(true);
 
+    private static final String RESPONSE_PARSE_ERROR = "Error parsing response";
+
     /**
      * Setup the agent ready for use.
      * <p>
@@ -151,7 +153,7 @@ public class Agent {
             throw new AgentConnectionException("Error accessing remote resource");
         } catch (RestClientException me) {
             // get the response from the Agent logger
-            LOG.log(Level.SEVERE, "Error converting response", me);
+            LOG.log(Level.SEVERE, RESPONSE_PARSE_ERROR, me);
             LOG.log(Level.SEVERE, "Last code {0} response {1}", new Object[]{responseLogger.lastHTTPCode, responseLogger.lastResponse});
             throw new AgentParserException("Error converting response", responseLogger.lastHTTPCode, responseLogger.lastResponse);
         } catch (Exception e) {
@@ -183,7 +185,7 @@ public class Agent {
             throw new AgentConnectionException("Error accessing remote resource");
         } catch (RestClientException me) {
             // get the response from the Agent logger
-            LOG.log(Level.SEVERE, "Error converting response", me);
+            LOG.log(Level.SEVERE, RESPONSE_PARSE_ERROR, me);
             LOG.log(Level.SEVERE, "Last code {0} response {1}", new Object[]{responseLogger.lastHTTPCode, responseLogger.lastResponse});
             throw new AgentParserException("Error converting response", responseLogger.lastHTTPCode, responseLogger.lastResponse);
         } catch (Exception e) {
