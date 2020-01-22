@@ -1,8 +1,10 @@
 package dev.aisandbox.client.scenarios.maze;
 
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * <p>MazeUtilities class.</p>
@@ -12,7 +14,7 @@ import java.util.logging.Logger;
  */
 public class MazeUtilities {
 
-    private static final Logger LOG = Logger.getLogger(MazeUtilities.class.getName());
+    private static final Logger LOG = LoggerFactory.getLogger(MazeUtilities.class.getName());
 
     private MazeUtilities() {
     }
@@ -143,7 +145,7 @@ public class MazeUtilities {
      * @param maze a {@link dev.aisandbox.client.scenarios.maze.Maze} object.
      */
     public static void applyDijkstra(Maze maze) {
-        LOG.log(Level.INFO,"Applying dijkstra - picking random start cell from maze with {0} cells",new Object[] {maze.getCellList().size()});
+        LOG.info("Applying dijkstra - picking random start cell from maze with {} cells",maze.getCellList().size());
         Random rand = new Random(System.currentTimeMillis());
         applyDijkstra(maze, maze.getCellList().get(rand.nextInt(maze.getCellList().size())));
     }

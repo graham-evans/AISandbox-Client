@@ -24,8 +24,10 @@ import org.springframework.stereotype.Component;
 import java.io.File;
 import java.io.IOException;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * <p>GameOptionsController class.</p>
@@ -36,7 +38,7 @@ import java.util.logging.Logger;
 @Component
 public class GameOptionsController {
 
-    private static final Logger LOG = Logger.getLogger(GameOptionsController.class.getName());
+    private static final Logger LOG = LoggerFactory.getLogger(GameOptionsController.class.getName());
 
     @Autowired
     private RuntimeModel model;
@@ -87,7 +89,7 @@ public class GameOptionsController {
     void removeAgentEvent(ActionEvent event) {
         // get the selected agent
         Agent agent = agentList.getSelectionModel().getSelectedItem();
-        LOG.log(Level.INFO, "Removing agent {0}", agent);
+        LOG.info( "Removing agent {}", agent);
         // remove it from the model
         model.getAgentList().remove(agent);
     }
@@ -155,7 +157,7 @@ public class GameOptionsController {
             // redraw the list just in case something has changed
             agentList.refresh();
         } catch (IOException e) {
-            LOG.log(Level.SEVERE, "Error loading FXML", e);
+            LOG.error( "Error loading FXML", e);
         }
     }
 
@@ -169,7 +171,7 @@ public class GameOptionsController {
                 dc.setInitialDirectory(f);
             }
         } catch (Exception e) {
-            LOG.log(Level.FINEST, "Invalid directory in text field", e);
+            LOG.debug( "Invalid directory in text field", e);
         }
         File fout = dc.showDialog(((Node) event.getTarget()).getScene().getWindow());
         if ((fout != null) && fout.isDirectory()) {

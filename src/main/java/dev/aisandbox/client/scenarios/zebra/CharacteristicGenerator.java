@@ -3,8 +3,10 @@ package dev.aisandbox.client.scenarios.zebra;
 import java.io.Writer;
 import java.util.Collections;
 import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.thoughtworks.xstream.XStream;
 
@@ -21,7 +23,7 @@ import dev.aisandbox.client.scenarios.zebra.vo.Template;
 
 public class CharacteristicGenerator {
 
-    private static final Logger LOG = Logger.getLogger(CharacteristicGenerator.class.getName());
+    private static final Logger LOG = LoggerFactory.getLogger(CharacteristicGenerator.class.getName());
 
     /**
      * Using XStream in modern JDKs is becoming problematic, as it uses private access methods (which now throw warnings)
@@ -84,7 +86,7 @@ public class CharacteristicGenerator {
                 }
             }
         } catch (Exception e) {
-            LOG.log(Level.SEVERE,"Error reading template",e);
+            LOG.error("Error reading template",e);
         }
         return t;
     }

@@ -11,7 +11,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static org.junit.Assert.*;
 
@@ -22,7 +23,7 @@ import static org.junit.Assert.*;
 @SpringBootTest
 public class ScenarioAvailabilityTests {
 
-    private static final Logger LOG = Logger.getLogger(ScenarioAvailabilityTests.class.getName());
+    private static final Logger LOG = LoggerFactory.getLogger(ScenarioAvailabilityTests.class.getName());
 
     @Autowired
     private ApplicationContext appContext;

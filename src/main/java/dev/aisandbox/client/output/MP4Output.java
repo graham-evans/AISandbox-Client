@@ -12,8 +12,10 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Locale;
 import java.util.UUID;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * <p>MP4Output class.</p>
@@ -24,7 +26,7 @@ import java.util.logging.Logger;
 @Component
 public class MP4Output implements FrameOutput {
 
-    private static final Logger LOG = Logger.getLogger(MP4Output.class.getName());
+    private static final Logger LOG = LoggerFactory.getLogger(MP4Output.class.getName());
 
     private SeekableByteChannel out = null;
     private AWTSequenceEncoder encoder;
@@ -45,7 +47,7 @@ public class MP4Output implements FrameOutput {
             out = NIOUtils.writableFileChannel(outputFile.getAbsolutePath());
             encoder = new AWTSequenceEncoder(out, Rational.R(25, 1));
         } catch (Exception e) {
-            LOG.log(Level.WARNING, "Error setting up the output", e);
+            LOG.warn( "Error setting up the output", e);
         }
     }
 

@@ -3,12 +3,14 @@ package dev.aisandbox.client.scenarios.mine;
 import lombok.Getter;
 
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Board {
 
-    private static final Logger LOG = Logger.getLogger(Board.class.getName());
+    private static final Logger LOG = LoggerFactory.getLogger(Board.class.getName());
 
     @Getter
     private final int width;
@@ -108,7 +110,7 @@ public class Board {
     }
 
     public boolean placeFlag(int x, int y) {
-        LOG.log(Level.INFO, "Placing flag @ {0},{1}", new Object[]{x, y});
+        LOG.info( "Placing flag @ {},{}", x, y);
         Cell c = grid[x][y];
         boolean change = false;
         if (c.isFlagged()) {
@@ -136,7 +138,7 @@ public class Board {
         Cell c = grid[x][y];
         boolean change=false;
         if (c.isFlagged() || (!c.isCovered())) {
-            LOG.warning("trying to uncover an used cell - ignoring");
+            LOG.warn("trying to uncover an used cell - ignoring");
         } else {
             c.setCovered(false);
             change = true;

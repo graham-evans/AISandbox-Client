@@ -4,7 +4,8 @@ import dev.aisandbox.client.scenarios.zebra.vo.Template;
 import org.junit.Test;
 
 import java.util.Random;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static org.junit.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
@@ -12,7 +13,7 @@ import static org.testng.Assert.assertTrue;
 public class PuzzleTests {
 
     Random rand = new Random();
-    private static final Logger LOG = Logger.getLogger(PuzzleTests.class.getName());
+    private static final Logger LOG = LoggerFactory.getLogger(PuzzleTests.class.getName());
 
     @Test
     public void tinyTest() {

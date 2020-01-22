@@ -14,8 +14,10 @@ import org.springframework.stereotype.Component;
 import java.awt.image.BufferedImage;
 import java.util.List;
 import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * <p>MazeScenario class.</p>
@@ -27,7 +29,7 @@ import java.util.logging.Logger;
 public class MazeScenario implements Scenario {
 
     @NonVisual
-    private static final Logger LOG = Logger.getLogger(MazeScenario.class.getName());
+    private static final Logger LOG = LoggerFactory.getLogger(MazeScenario.class.getName());
 
     @NonVisual
     private MazeRunner runner = null;
@@ -114,7 +116,7 @@ public class MazeScenario implements Scenario {
      */
     @Override
     public void startSimulation(List<Agent> agentList, GameRunController ui, FrameOutput output, Long stepCount) {
-        LOG.log(Level.INFO, "Salt {0}", scenarioSalt);
+        LOG.info( "Salt {}", scenarioSalt);
         LOG.info("Generating maze");
         Maze maze;
         switch (mazeSize) {
@@ -178,7 +180,7 @@ public class MazeScenario implements Scenario {
             try {
                 runner.join();
             } catch (InterruptedException e) {
-                LOG.log(Level.WARNING, "Interrupted!", e);
+                LOG.warn( "Interrupted!", e);
                 // Restore interrupted state...
                 Thread.currentThread().interrupt();
             }

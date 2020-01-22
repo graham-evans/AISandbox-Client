@@ -11,7 +11,8 @@ import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.test.web.client.MockRestServiceServer;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static org.junit.Assert.assertEquals;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.method;
@@ -20,7 +21,7 @@ import static org.springframework.test.web.client.response.MockRestResponseCreat
 
 public class AgentLoggerTest {
 
-    private static final Logger LOG = Logger.getLogger(AgentLoggerTest.class.getName());
+    private static final Logger LOG = LoggerFactory.getLogger(AgentLoggerTest.class.getName());
 
     private static final String JSON_TEXT = "{\"number\":\"4\"}";
 

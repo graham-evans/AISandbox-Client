@@ -1,23 +1,16 @@
 package dev.aisandbox.client.cli;
 
 import dev.aisandbox.client.RuntimeModel;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import org.apache.commons.cli.CommandLine;
-import org.apache.commons.cli.CommandLineParser;
-import org.apache.commons.cli.DefaultParser;
-import org.apache.commons.cli.HelpFormatter;
-import org.apache.commons.cli.Option;
-import org.apache.commons.cli.Options;
-import org.apache.commons.cli.ParseException;
+import org.apache.commons.cli.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class CLIParser {
 
-    private static final Logger LOG = Logger.getLogger(CLIParser.class.getName());
+    private static final Logger LOG = LoggerFactory.getLogger(CLIParser.class.getName());
 
     @Autowired
     PropertiesParser pp;
@@ -33,7 +26,7 @@ public class CLIParser {
                 pp.parseConfiguration(model, cmd.getOptionValue("config"));
             }
         } catch (ParseException e) {
-            LOG.log(Level.WARNING, "Error parsing command line arguments", e);
+            LOG.warn("Error parsing command line arguments", e);
         }
         return model;
     }

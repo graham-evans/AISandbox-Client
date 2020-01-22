@@ -6,8 +6,10 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -33,7 +35,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class GameChoiceController {
 
-    private static final Logger LOG = Logger.getLogger(GameChoiceController.class.getName());
+    private static final Logger LOG = LoggerFactory.getLogger(GameChoiceController.class.getName());
     @Autowired
     private ApplicationContext appContext;
     @Autowired
@@ -90,9 +92,9 @@ public class GameChoiceController {
 
         LOG.info("Initialising Game Choise controller");
         if (scenarioList == null) {
-            LOG.severe("scenarioList is null");
+            LOG.error("scenarioList is null");
         } else {
-            LOG.log(Level.INFO, "There are {0} scenarios", scenarioList.size());
+            LOG.info( "There are {} scenarios", scenarioList.size());
             // add scenarios to the list
             gameList.getItems().addAll(scenarioList);
             // set the formatting
@@ -139,9 +141,9 @@ public class GameChoiceController {
         try {
             Desktop.getDesktop().browse(new URL(link).toURI());
         } catch (IOException e) {
-            LOG.log(Level.SEVERE,"IO Error spawning browser",e);
+            LOG.error("IO Error spawning browser",e);
         } catch (URISyntaxException e) {
-            LOG.log(Level.SEVERE,"URL Error spawning browser",e);
+            LOG.error("URL Error spawning browser",e);
         }
     }
 

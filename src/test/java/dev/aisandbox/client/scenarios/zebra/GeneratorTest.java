@@ -11,7 +11,8 @@ import dev.aisandbox.client.scenarios.zebra.vo.Characteristic;
 import dev.aisandbox.client.scenarios.zebra.vo.Template;
 
 import java.util.Random;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -21,7 +22,7 @@ import static org.junit.Assert.assertTrue;
 @SpringBootTest
 public class GeneratorTest {
 
-    private static final Logger LOG = Logger.getLogger(GeneratorTest.class.getName());
+    private static final Logger LOG = LoggerFactory.getLogger(GeneratorTest.class.getName());
 
     Random rand = new Random();
 

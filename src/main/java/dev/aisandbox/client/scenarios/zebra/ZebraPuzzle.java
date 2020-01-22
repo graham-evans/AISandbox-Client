@@ -14,8 +14,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * A class representing an entire Zebra puzzle.
@@ -24,7 +26,7 @@ import java.util.logging.Logger;
  */
 public class ZebraPuzzle {
 
-    private static final Logger LOG = Logger.getLogger(ZebraPuzzle.class.getName());
+    private static final Logger LOG = LoggerFactory.getLogger(ZebraPuzzle.class.getName());
 
     private final Random rand;
     private final int characteristicCount;
@@ -108,12 +110,12 @@ public class ZebraPuzzle {
                 LOG.info("Found unique solution");
                 found = true;
             } else if (solutions.isEmpty()) {
-                LOG.severe("No solutions !!!");
+                LOG.error("No solutions !!!");
                 found = true;
             } else {
 //                LOG.info("Multiple solutions");
 //                for (Solution s : solutions) {
-//                    LOG.log(Level.INFO, "> {0}", new Object[]{s});
+//                    LOG.info( "> {0}", new Object[]{s});
 //                }
                 count++;
                 LOG.info("No unique solution, adding another clue");
@@ -182,7 +184,7 @@ public class ZebraPuzzle {
         for (int j = 0; j < PUZZLE_CHARACTERISTICS; j++) {
             // randomise the row
             Collections.shuffle(row, rand);
-            LOG.log(Level.INFO, "Puzzle characteristic {0} = {1}", new Object[]{j, row});
+            LOG.info( "Puzzle characteristic {0} = {1}", new Object[]{j, row});
             // copy contents to solution
             for (int i = 0; i < PUZZLE_HOUSES; i++) {
                 solution[i][j] = row.get(i);

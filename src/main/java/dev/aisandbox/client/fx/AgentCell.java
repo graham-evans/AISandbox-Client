@@ -10,8 +10,10 @@ import javafx.scene.paint.Color;
 import org.controlsfx.glyphfont.Glyph;
 
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * <p>AgentCell class.</p>
@@ -21,7 +23,7 @@ import java.util.logging.Logger;
  */
 public class AgentCell extends ListCell<Agent> {
 
-    private static final Logger LOG = Logger.getLogger(AgentCell.class.getName());
+    private static final Logger LOG = LoggerFactory.getLogger(AgentCell.class.getName());
 
     @FXML
     private Label protocolLabel;
@@ -57,7 +59,7 @@ public class AgentCell extends ListCell<Agent> {
                 try {
                     mLLoader.load();
                 } catch (IOException e) {
-                    LOG.log(Level.SEVERE, "Error loading FXML", e);
+                    LOG.error( "Error loading FXML", e);
                 }
 
             }

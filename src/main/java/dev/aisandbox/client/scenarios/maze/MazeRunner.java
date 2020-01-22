@@ -17,8 +17,10 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * <p>MazeRunner class.</p>
@@ -29,7 +31,7 @@ import java.util.logging.Logger;
 @RequiredArgsConstructor
 public class MazeRunner extends Thread {
 
-    private static final Logger LOG = Logger.getLogger(MazeRunner.class.getName());
+    private static final Logger LOG = LoggerFactory.getLogger(MazeRunner.class.getName());
     private static final double REWARD_STEP = -1.0;
     private static final double REWARD_HIT_WALL = -1000.0;
     private static final double REWARD_GOAL = +1000.0;
@@ -61,7 +63,7 @@ public class MazeRunner extends Thread {
         try {
             logo = ImageIO.read(MazeRunner.class.getResourceAsStream("/dev/aisandbox/client/fx/logo1.png"));
         } catch (IOException e) {
-            LOG.log(Level.SEVERE,"Error loading logo",e);
+            LOG.error("Error loading logo",e);
             logo = new BufferedImage(10,10,BufferedImage.TYPE_INT_RGB);
         }
         Font myFont = new Font("Sans-Serif", Font.PLAIN, 28);
@@ -90,7 +92,7 @@ public class MazeRunner extends Thread {
                 stepCount++;
                 stepToFinish++;
                 MazeResponse response = agent.postRequest(request, MazeResponse.class);
-                LOG.log(Level.INFO, "Recieved response from server - {0}", response);
+                LOG.info( "Recieved response from server - {}", response);
                 profileStep.addStep("Network");
                 lastMove = new History();
                 lastMove.setLastPosition(currentCell.getPosition());
@@ -116,7 +118,7 @@ public class MazeRunner extends Thread {
                     }
                     stepToFinish=0;
                 }
-                LOG.log(Level.INFO, "Moved to {0}", new Object[]{currentCell});
+                LOG.info( "Moved to {}",currentCell);
                 lastMove.setNewPosition(currentCell.getPosition());
                 profileStep.addStep("Simulation");
                 // redraw the map
@@ -148,7 +150,7 @@ public class MazeRunner extends Thread {
                 controller.showAgentError(agent.getTarget(), ae);
                 running = false;
             } catch (Exception ex) {
-                LOG.log(Level.SEVERE, "Error running", ex);
+                LOG.error( "Error running", ex);
                 running = false;
             }
             // check for step count
@@ -160,7 +162,7 @@ public class MazeRunner extends Thread {
         try {
             output.close();
         } catch (IOException e) {
-            LOG.log(Level.WARNING, "Error closing output", e);
+            LOG.warn( "Error closing output", e);
         }
         LOG.info("Finished run thread");
         controller.resetStartButton();
@@ -174,7 +176,7 @@ public class MazeRunner extends Thread {
         try {
             this.join();
         } catch (InterruptedException e) {
-            LOG.log(Level.WARNING, "Interrupted!", e);
+            LOG.warn( "Interrupted!", e);
             // Restore interrupted state...
             Thread.currentThread().interrupt();
         }

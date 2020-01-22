@@ -17,7 +17,8 @@ import dev.aisandbox.client.output.FrameOutput;
 import dev.aisandbox.client.output.NoOutput;
 
 import java.util.ResourceBundle;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Launcher for the AI Sandbox Client.
@@ -28,7 +29,7 @@ import java.util.logging.Logger;
 @Configuration
 public class AISandboxClient extends Application {
 
-    private static final Logger LOG = Logger.getLogger(AISandboxClient.class.getName());
+    private static final Logger LOG = LoggerFactory.getLogger(AISandboxClient.class.getName());
 
     private ConfigurableApplicationContext context;
     private Parent rootNode;
@@ -50,7 +51,7 @@ public class AISandboxClient extends Application {
     }
 
     public void runCLI(String[] args) {
-        System.out.println("CLI activated");
+        LOG.info("CLI activated");
         SpringApplicationBuilder builder = new SpringApplicationBuilder(AISandboxClient.class);
         builder.headless(true);
         context = builder.run(args);
@@ -75,7 +76,6 @@ public class AISandboxClient extends Application {
      */
     @Override
     public void init() throws Exception {
-        LOG.info("Initialising application");
         SpringApplicationBuilder builder = new SpringApplicationBuilder(AISandboxClient.class);
         builder.headless(false);
         context = builder.run(getParameters().getRaw().toArray(new String[0]));

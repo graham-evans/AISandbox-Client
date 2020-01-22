@@ -6,14 +6,16 @@ import javafx.scene.chart.XYChart;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class StackedAreaChartController {
 
     private final StackedAreaChart chart;
     private final NumberAxis xAxis;
-    private static final Logger LOG = Logger.getLogger(StackedAreaChartController.class.getName());
+    private static final Logger LOG = LoggerFactory.getLogger(StackedAreaChartController.class.getName());
     // map of series
     private final Map<String, XYChart.Series> seriesMap = new HashMap<>();
     private int step = 0;
@@ -32,7 +34,7 @@ public class StackedAreaChartController {
         step++;
         // remove old entries
         int oldStep = step - HISTORY;
-        LOG.log(Level.FINE, "Moving chart bounds to {0} - {1}", new Object[]{oldStep, step});
+        LOG.debug( "Moving chart bounds to {} - {}", oldStep, step);
         // check existing series
         for (XYChart.Series series : seriesMap.values()) {
             if (!series.getData().isEmpty()) {

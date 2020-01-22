@@ -14,14 +14,17 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Component
 public class MineHunterScenario implements Scenario {
 
     @NonVisual
-    private static final Logger LOG = Logger.getLogger(MineHunterScenario.class.getName());
+    private static final Logger LOG = LoggerFactory.getLogger(MineHunterScenario.class.getName());
 
     // configuration
     @Getter
@@ -87,19 +90,19 @@ public class MineHunterScenario implements Scenario {
     public void startSimulation(List<Agent> agentList, GameRunController ui, FrameOutput output, Long stepCount) {
         // create random number generator
         Random rand;
-        if (scenarioSalt==0) {
+        if (scenarioSalt == 0) {
             rand = new Random();
         } else {
             rand = new Random(scenarioSalt);
         }
         LOG.info("Starting run thread");
-        thread = new MineHunterThread(agentList.get(0),output,ui,rand,spriteLoader,mineHunterBoardSize,stepCount);
+        thread = new MineHunterThread(agentList.get(0), output, ui, rand, spriteLoader, mineHunterBoardSize, stepCount);
         thread.start();
     }
 
     @Override
     public void stopSimulation() {
-        if (thread!=null) {
+        if (thread != null) {
             thread.stopSimulation();
         }
     }
@@ -111,7 +114,7 @@ public class MineHunterScenario implements Scenario {
             try {
                 thread.join();
             } catch (InterruptedException e) {
-                LOG.log(Level.WARNING, "Interrupted!", e);
+                LOG.warn("Interrupted!", e);
                 // Restore interrupted state...
                 Thread.currentThread().interrupt();
             }
@@ -121,7 +124,7 @@ public class MineHunterScenario implements Scenario {
 
     @Override
     public boolean isSimulationRunning() {
-        if (thread==null) {
+        if (thread == null) {
             return false;
         }
         return thread.isRunning();

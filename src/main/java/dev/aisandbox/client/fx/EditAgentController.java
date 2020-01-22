@@ -9,7 +9,8 @@ import lombok.Setter;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * <p>EditAgentController class.</p>
@@ -20,7 +21,7 @@ import java.util.logging.Logger;
 public class EditAgentController {
 
     private Agent agent;
-    private static final Logger LOG = Logger.getLogger(EditAgentController.class.getName());
+    private static final Logger LOG = LoggerFactory.getLogger(EditAgentController.class.getName());
 
     @Setter
     Stage dialogStage;

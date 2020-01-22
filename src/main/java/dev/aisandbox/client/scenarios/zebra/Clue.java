@@ -6,11 +6,13 @@ import org.chocosolver.solver.constraints.Constraint;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Clue {
-    private static final Logger LOG = Logger.getLogger(Clue.class.getName());
+    private static final Logger LOG = LoggerFactory.getLogger(Clue.class.getName());
     @Getter
     @Setter
     private String clueString = "Unset";
@@ -19,7 +21,7 @@ public class Clue {
 
     protected void postClue() {
         for (Constraint c : constraintList) {
-            LOG.log(Level.INFO, "posting clue {0}", new Object[]{c});
+            LOG.info( "posting clue {}",c);
 
             c.post();
         }

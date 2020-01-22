@@ -28,8 +28,10 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Controller class used when running the simulations
@@ -37,7 +39,7 @@ import java.util.logging.Logger;
 @Component
 public class GameRunController {
 
-    private static final Logger LOG = Logger.getLogger(GameRunController.class.getName());
+    private static final Logger LOG = LoggerFactory.getLogger(GameRunController.class.getName());
     private final AtomicBoolean imageReady = new AtomicBoolean(true);
     @Autowired
     private ApplicationContext appContext;
@@ -106,7 +108,7 @@ public class GameRunController {
         try {
             out.open(model.getOutputDirectory());
         } catch (IOException e) {
-            LOG.log(Level.WARNING, "Error opening output", e);
+            LOG.warn("Error opening output", e);
         }
         model.getScenario().startSimulation(model.getAgentList(), this, out, model.getLimitRuntime().get() ? model.getMaxStepCount().get() : null);
         startButton.setText("Stop Simulation");
@@ -132,7 +134,7 @@ public class GameRunController {
         try {
             imageView.setImage(SwingFXUtils.toFXImage(ImageIO.read(GameRunController.class.getResourceAsStream("/dev/aisandbox/client/testcard.png")), null));
         } catch (IOException e) {
-            LOG.log(Level.SEVERE, "Error loading testcard", e);
+            LOG.error("Error loading testcard", e);
         }
         imageAnchor.getChildren().add(imageView);
         // setup automatic resize
@@ -171,7 +173,7 @@ public class GameRunController {
         // get image width and height
         double imageWidth = image.getImage().getWidth();
         double imageHeight = image.getImage().getHeight();
-        LOG.log(Level.FINEST, "Scaling image {0}x{1} to pane {2}x{3}", new Object[]{imageWidth, imageHeight, paneWidth, paneHeight});
+        LOG.debug("Scaling image {}x{} to pane {}x{}",imageWidth, imageHeight, paneWidth, paneHeight);
         // work out the best scale
         double scaleX = paneWidth / imageWidth;
         double scaleY = paneHeight / imageHeight;

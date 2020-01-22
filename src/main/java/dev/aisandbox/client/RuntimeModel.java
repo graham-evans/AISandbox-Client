@@ -12,7 +12,8 @@ import org.springframework.stereotype.Component;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Locale;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * The main (POJO) class used to hold the application state.
@@ -21,7 +22,7 @@ import java.util.logging.Logger;
 @Component
 public class RuntimeModel {
 
-    private static final Logger LOG = Logger.getLogger(RuntimeModel.class.getName());
+    private static final Logger LOG = LoggerFactory.getLogger(RuntimeModel.class.getName());
 
     @Getter
     Scenario scenario;
