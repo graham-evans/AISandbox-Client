@@ -58,7 +58,7 @@ public class PNGOutputWriterTest {
         png.close();
     }
 
-    @Test
+    @Test(expected = Test.None.class /* no exception expected */)
     public void openCloseTest() throws IOException {
         // open a new session then try and open it without closing
         PNGOutputWriter png = new PNGOutputWriter();
