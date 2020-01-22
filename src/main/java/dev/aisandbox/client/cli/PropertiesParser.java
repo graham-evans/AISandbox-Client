@@ -57,29 +57,12 @@ public class PropertiesParser {
                     LOG.log(Level.WARNING,"Unknown scenario name '{0}'",new Object[] {scenario});
             }
         }
-        // read general properties
-        if (props.containsKey("steps")) {
-            model.getLimitRuntime().set(true);
-            model.getMaxStepCount().set(Long.parseLong(props.getProperty("steps")));
-        }
-        if (props.containsKey("output")) {
-            switch (props.getProperty("output")) {
-                case "none":
-                    model.setOutputFormat(OutputFormat.NONE);
-                    break;
-                case "mp4":
-                    model.setOutputFormat(OutputFormat.MP4);
-                    break;
-                case "png":
-                    model.setOutputFormat(OutputFormat.PNG);
-                    break;
-                default:
-                    LOG.log(Level.WARNING, "Unknown output format");
-            }
-        }
-        if (props.containsKey("outputDir")) {
-            model.setOutputDirectory(new File(props.getProperty("outputDir")));
-        }
+        readGeneralSettings(model,props);
+        readAgentSettings(model, props);
+        return model;
+    }
+
+    public void readAgentSettings(RuntimeModel model,Properties props) {
         if (props.containsKey("agents")) {
             int agentCount = Integer.parseInt(props.getProperty("agents"));
             for (int i=1;i<=agentCount;i++) {
@@ -103,7 +86,32 @@ public class PropertiesParser {
                 model.getAgentList().add(agent);
             }
         }
-        return model;
+    }
+
+    public void readGeneralSettings(RuntimeModel model,Properties props) {
+        // read general properties
+        if (props.containsKey("steps")) {
+            model.getLimitRuntime().set(true);
+            model.getMaxStepCount().set(Long.parseLong(props.getProperty("steps")));
+        }
+        if (props.containsKey("output")) {
+            switch (props.getProperty("output")) {
+                case "none":
+                    model.setOutputFormat(OutputFormat.NONE);
+                    break;
+                case "mp4":
+                    model.setOutputFormat(OutputFormat.MP4);
+                    break;
+                case "png":
+                    model.setOutputFormat(OutputFormat.PNG);
+                    break;
+                default:
+                    LOG.log(Level.WARNING, "Unknown output format");
+            }
+        }
+        if (props.containsKey("outputDir")) {
+            model.setOutputDirectory(new File(props.getProperty("outputDir")));
+        }
     }
 
     public void readMineSettings(RuntimeModel model, Properties props) {
