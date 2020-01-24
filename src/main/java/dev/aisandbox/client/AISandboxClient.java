@@ -76,6 +76,7 @@ public class AISandboxClient extends Application {
      */
     @Override
     public void init() throws Exception {
+        LOG.info("Initialising application");
         SpringApplicationBuilder builder = new SpringApplicationBuilder(AISandboxClient.class);
         builder.headless(false);
         context = builder.run(getParameters().getRaw().toArray(new String[0]));
