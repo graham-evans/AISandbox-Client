@@ -25,6 +25,7 @@
         <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
         <sonar.java.binaries>${project.basedir}/target/classes</sonar.java.binaries>
         <sonar.java.test.binaries>${project.basedir}/target/test-classes</sonar.java.test.binaries>
+        <sonar.java.checkstyle.reportPaths>${project.basedir}/target/checkstyle-result.xml</sonar.java.checkstyle.reportPaths>
     </properties>
 
     <dependencies>
