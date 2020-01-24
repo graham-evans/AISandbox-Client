@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class CellLocation {
-    private final int x;
-    private final int y;
+  private final int x;
+  private final int y;
 }

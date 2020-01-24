@@ -1,10 +1,9 @@
 package dev.aisandbox.client.scenarios;
 
 /**
- * <p>ServerResponse interface.</p>
+ * ServerResponse interface.
  *
  * @author gde
  * @version $Id: $Id
  */
-public interface ServerResponse {
-}
+public interface ServerResponse {}

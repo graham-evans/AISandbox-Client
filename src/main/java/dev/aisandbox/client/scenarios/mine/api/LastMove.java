@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class LastMove {
-    private String boardID;
-    private String result;
+  private String boardID;
+  private String result;
 }

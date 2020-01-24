@@ -1,11 +1,9 @@
 package dev.aisandbox.client.scenarios;
 
 /**
- * <p>ServerRequest interface.</p>
+ * ServerRequest interface.
  *
  * @author gde
  * @version $Id: $Id
  */
-public interface ServerRequest {
-
-}
+public interface ServerRequest {}

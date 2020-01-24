@@ -5,14 +5,13 @@
  */
 package dev.aisandbox.client.scenarios.maze.api;
 
+import java.util.Objects;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Objects;
-
 /**
- * <p>Position class.</p>
+ * Position class.
  *
  * @author gde
  * @version $Id: $Id
@@ -22,24 +21,21 @@ import java.util.Objects;
 @AllArgsConstructor
 public class Position {
 
-    int x;
-    int y;
+  int x;
+  int y;
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Position position = (Position) o;
-        return x == position.x &&
-                y == position.y;
-    }
+  /** {@inheritDoc} */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Position position = (Position) o;
+    return x == position.x && y == position.y;
+  }
 
-    /** {@inheritDoc} */
-    @Override
-    public int hashCode() {
-        return Objects.hash(x, y);
-    }
+  /** {@inheritDoc} */
+  @Override
+  public int hashCode() {
+    return Objects.hash(x, y);
+  }
 }

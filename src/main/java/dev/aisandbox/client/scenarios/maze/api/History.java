@@ -8,7 +8,7 @@ package dev.aisandbox.client.scenarios.maze.api;
 import lombok.Data;
 
 /**
- * <p>History class.</p>
+ * History class.
  *
  * @author gde
  * @version $Id: $Id
@@ -16,9 +16,8 @@ import lombok.Data;
 @Data
 public class History {
 
-    private Position lastPosition;
-    private String action;
-    private double reward;
-    private Position newPosition;
-
+  private Position lastPosition;
+  private String action;
+  private double reward;
+  private Position newPosition;
 }

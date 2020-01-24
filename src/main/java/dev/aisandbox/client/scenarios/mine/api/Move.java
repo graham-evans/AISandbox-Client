@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class Move {
-    private int x;
-    private int y;
-    private boolean flag;
+  private int x;
+  private int y;
+  private boolean flag;
 }
