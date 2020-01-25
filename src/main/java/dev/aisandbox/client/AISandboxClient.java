@@ -49,8 +49,12 @@ public class AISandboxClient extends Application {
     }
   }
 
+  /**
+   * The command line running version of the app - reads config from file.
+   * @param args the command line arguments
+   */
   public void runCLI(String[] args) {
-    System.out.println("CLI activated");
+    LOG.info("CLI activated");
     SpringApplicationBuilder builder = new SpringApplicationBuilder(AISandboxClient.class);
     builder.headless(true);
     context = builder.run(args);
