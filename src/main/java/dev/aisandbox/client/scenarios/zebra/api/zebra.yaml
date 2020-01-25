@@ -1,0 +1,152 @@
+openapi: 3.0.0
+info:
+  description: API interface for running the Zebra Puzzle scenario
+  version: "1.0.0"
+  title: Zebra Puzzle
+paths:
+  /api/zebra:
+    post:
+      summary: Solve a Zebra Puzzle variant
+      description: Based on the clues, work out the characteristics of the people who live in the same street.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ZebraRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ZebraRequest'
+      responses:
+        '200':
+          description: A (potentialy partial) solution.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ZebraResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ZebraResponse'
+        '500':
+          description: Server error - halt simulation.
+
+components:
+  schemas:
+    ZebraRequest:
+      type: object
+      required:
+        - puzzleID
+        - clues
+        - characteristics
+        - numberOfHouses
+      properties:
+        history:
+          type: object
+          required:
+            - puzzleID
+            - solution
+            - score
+          properties:
+            puzzleID:
+              type: string
+              example: 1233-5678-90abc
+              nullable: false
+            solution:
+              $ref: '#/components/schemas/Solution'
+              nullable: false
+            score:
+              type: integer
+              format: int32
+              example: 3400
+              nullable: false
+        puzzleID:
+          type: string
+          example: 1234-1234-1234-1234
+          nullable: false
+        clues:
+          type: array
+          items:
+            type: string
+            example: "The person who lives at number 4 has a red front door"
+        characteristics:
+          type: array
+          items:
+            type: object
+            required:
+              - characteristicNumber
+              - characteristicName
+              - entries
+            properties:
+              characteristicNumber:
+                type: integer
+                format: int32
+                example: 5
+                nullable: false
+              characteristicName:
+                type: string
+                example: Door Colour
+                nullable: false
+              entries:
+                type: array
+                items:
+                  type: object
+                  required:
+                    - characteristicValue
+                    - characteristicItemName
+                  properties:
+                    characteristicValue:
+                      type: integer
+                      format: int32
+                      example: 4
+                      nullable: false
+                    characteristicItemName:
+                      type: string
+                      example: Blue
+                      nullable: false
+        numberOfHouses:
+          type: integer
+          format: int32
+          example: 10
+          nullable: false
+    ZebraResponse:
+      type: object
+      required:
+        - solution
+      properties:
+        solution:
+          $ref: '#/components/schemas/Solution'
+    House:
+      type: object
+      required:
+        - housenumber
+      properties:
+        housenumber:
+          type: integer
+          format: int32
+          example: 1
+          nullable: false
+        characteristics:
+          type: array
+          items:
+            type: object
+            required:
+              - characteristicNumber
+              - characteristicValue
+            properties:
+              characteristicNumber:
+                type: integer
+                format: int32;
+                example: 3
+                nullable: false
+              characteristicValue:
+                type: integer
+                format: int32
+                example: 4
+                nullable: false
+    Solution:
+      type: object
+      properties:
+        house:
+          type: array
+          items:
+            $ref: '#/components/schemas/House'

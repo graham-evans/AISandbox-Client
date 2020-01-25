@@ -45,4 +45,4 @@ In addition, [Install4J](https://www.ej-technologies.com/products/install4j/over
 
 # Authors 
 
-Lead Programmer : Graham Evans
+Lead Programmer : Graham Evans.
