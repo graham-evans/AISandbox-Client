@@ -1,77 +1,72 @@
 package dev.aisandbox.client.fx;
 
+import dev.aisandbox.client.scenarios.Scenario;
+import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
-
-import dev.aisandbox.client.scenarios.Scenario;
-import javafx.scene.layout.*;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.Pane;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * <p>ScenarioCell class.</p>
+ * ScenarioCell class.
  *
  * @author gde
  * @version $Id: $Id
  */
 public class ScenarioCell extends ListCell<Scenario> {
 
-    private static final Logger LOG = Logger.getLogger(ScenarioCell.class.getName());
+  private static final Logger LOG = LoggerFactory.getLogger(ScenarioCell.class.getName());
 
-    @FXML
-    private Label scenarioName;
+  @FXML private Label scenarioName;
 
-    @FXML
-    private Label scenarioDescription;
+  @FXML private Label scenarioDescription;
 
-    @FXML
-    private Pane colourPane;
+  @FXML private Pane colourPane;
 
-    @FXML
-    private BorderPane root;
+  @FXML private BorderPane root;
 
-    private FXMLLoader mLLoader = null;
+  private FXMLLoader mLLoader = null;
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected void updateItem(Scenario scenario, boolean empty) {
-        super.updateItem(scenario, empty);
+  /** {@inheritDoc} */
+  @Override
+  protected void updateItem(Scenario scenario, boolean empty) {
+    super.updateItem(scenario, empty);
 
-        if (empty || scenario == null) {
+    if (empty || scenario == null) {
 
-            setText(null);
-            setGraphic(null);
+      setText(null);
+      setGraphic(null);
 
-        } else {
-            if (mLLoader == null) {
-                mLLoader = new FXMLLoader(getClass().getResource("/dev/aisandbox/client/fx/ScenarioCell.fxml"));
-                mLLoader.setController(this);
+    } else {
+      if (mLLoader == null) {
+        mLLoader =
+            new FXMLLoader(getClass().getResource("/dev/aisandbox/client/fx/ScenarioCell.fxml"));
+        mLLoader.setController(this);
 
-                try {
-                    mLLoader.load();
-                } catch (IOException e) {
-                    LOG.log(Level.SEVERE, "Error loading FXML", e);
-                }
-
-            }
-
-            scenarioName.setText(scenario.getName());
-            scenarioDescription.setText(scenario.getOverview());
-            colourPane.setBackground(
-                    new Background(
-                            new BackgroundFill(scenario.getGroup().getTypeColour(), CornerRadii.EMPTY, Insets.EMPTY))
-            );
-
-
-            setText(null);
-            setGraphic(root);
+        try {
+          mLLoader.load();
+        } catch (IOException e) {
+          LOG.error("Error loading FXML", e);
         }
+      }
 
+      scenarioName.setText(scenario.getName());
+      scenarioDescription.setText(scenario.getOverview());
+      colourPane.setBackground(
+          new Background(
+              new BackgroundFill(
+                  scenario.getGroup().getTypeColour(), CornerRadii.EMPTY, Insets.EMPTY)));
+
+      setText(null);
+      setGraphic(root);
     }
+  }
 }

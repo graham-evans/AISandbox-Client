@@ -4,7 +4,6 @@ on:
   push:
     branches:
     - master
-    - release/*
 
 jobs:
   build:
@@ -18,4 +17,7 @@ jobs:
       with:
         java-version: 11
     - name: Build with Maven
-      run: mvn package --file pom.xml
+      run: mvn clean verify sonar:sonar --file pom.xml
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

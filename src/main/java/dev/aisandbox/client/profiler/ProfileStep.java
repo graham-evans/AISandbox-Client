@@ -1,23 +1,23 @@
 package dev.aisandbox.client.profiler;
 
+import java.util.Map;
+import java.util.TreeMap;
 import lombok.AccessLevel;
 import lombok.Getter;
 
-import java.util.Map;
-import java.util.TreeMap;
-
 public class ProfileStep {
-    private long cursor;
-    @Getter(AccessLevel.PROTECTED)
-    private Map<String,Long> timings = new TreeMap<>();
+  private long cursor;
 
-    public ProfileStep() {
-        cursor = System.currentTimeMillis();
-    }
+  @Getter(AccessLevel.PROTECTED)
+  private Map<String, Long> timings = new TreeMap<>();
 
-    public void addStep(String name) {
-        long time = System.currentTimeMillis();
-        timings.put(name,time-cursor);
-        cursor = time;
-    }
+  public ProfileStep() {
+    cursor = System.currentTimeMillis();
+  }
+
+  public void addStep(String name) {
+    long time = System.currentTimeMillis();
+    timings.put(name, time - cursor);
+    cursor = time;
+  }
 }

@@ -3,17 +3,17 @@ package dev.aisandbox.client.scenarios;
 import javafx.scene.paint.Color;
 
 public enum ScenarioType {
-    INTRODUCTION,
-    TEXT;
+  INTRODUCTION,
+  TEXT;
 
-    private Color typeColour;
+  private Color typeColour;
 
-    static {
-        INTRODUCTION.typeColour = Color.DARKGREEN;
-        TEXT.typeColour = Color.BLACK;
-    }
+  static {
+    INTRODUCTION.typeColour = Color.DARKGREEN;
+    TEXT.typeColour = Color.BLACK;
+  }
 
-    public Color getTypeColour() {
-        return typeColour;
-    }
+  public Color getTypeColour() {
+    return typeColour;
+  }
 }
