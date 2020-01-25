@@ -1,6 +1,7 @@
 package dev.aisandbox.client.profiler;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Font;
 import java.util.HashMap;
 import java.util.Map;
 import lombok.Getter;

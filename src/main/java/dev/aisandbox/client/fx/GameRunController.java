@@ -1,7 +1,13 @@
 package dev.aisandbox.client.fx;
 
-import dev.aisandbox.client.*;
-import dev.aisandbox.client.output.*;
+import dev.aisandbox.client.AgentConnectionException;
+import dev.aisandbox.client.AgentParserException;
+import dev.aisandbox.client.RuntimeModel;
+import dev.aisandbox.client.output.FormatTools;
+import dev.aisandbox.client.output.FrameOutput;
+import dev.aisandbox.client.output.MP4Output;
+import dev.aisandbox.client.output.NoOutput;
+import dev.aisandbox.client.output.PNGOutputWriter;
 import dev.aisandbox.client.profiler.AIProfiler;
 import dev.aisandbox.client.profiler.ProfileStep;
 import java.awt.image.BufferedImage;
@@ -178,9 +184,7 @@ public class GameRunController {
     // get image width and height
     double imageWidth = image.getImage().getWidth();
     double imageHeight = image.getImage().getHeight();
-    LOG.debug(
-        "Scaling image {0}x{1} to pane {2}x{3}",
-        new Object[] {imageWidth, imageHeight, paneWidth, paneHeight});
+    LOG.debug("Scaling image {}x{} to pane {}x{}", imageWidth, imageHeight, paneWidth, paneHeight);
     // work out the best scale
     double scaleX = paneWidth / imageWidth;
     double scaleY = paneHeight / imageHeight;

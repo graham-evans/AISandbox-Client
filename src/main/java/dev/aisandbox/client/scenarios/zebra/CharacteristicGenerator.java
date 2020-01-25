@@ -1,7 +1,16 @@
 package dev.aisandbox.client.scenarios.zebra;
 
 import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.converters.basic.*;
+import com.thoughtworks.xstream.converters.basic.BooleanConverter;
+import com.thoughtworks.xstream.converters.basic.ByteConverter;
+import com.thoughtworks.xstream.converters.basic.DateConverter;
+import com.thoughtworks.xstream.converters.basic.DoubleConverter;
+import com.thoughtworks.xstream.converters.basic.FloatConverter;
+import com.thoughtworks.xstream.converters.basic.IntConverter;
+import com.thoughtworks.xstream.converters.basic.LongConverter;
+import com.thoughtworks.xstream.converters.basic.NullConverter;
+import com.thoughtworks.xstream.converters.basic.ShortConverter;
+import com.thoughtworks.xstream.converters.basic.StringConverter;
 import com.thoughtworks.xstream.converters.collections.CollectionConverter;
 import com.thoughtworks.xstream.converters.reflection.ReflectionConverter;
 import com.thoughtworks.xstream.io.HierarchicalStreamWriter;

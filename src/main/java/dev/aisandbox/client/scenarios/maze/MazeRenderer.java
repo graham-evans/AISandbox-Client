@@ -1,7 +1,7 @@
 package dev.aisandbox.client.scenarios.maze;
 
 import dev.aisandbox.client.sprite.SpriteLoader;
-import java.awt.*;
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.util.List;
 import org.slf4j.Logger;

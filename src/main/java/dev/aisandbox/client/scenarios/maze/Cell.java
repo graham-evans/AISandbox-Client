@@ -1,7 +1,14 @@
 package dev.aisandbox.client.scenarios.maze;
 
 import dev.aisandbox.client.scenarios.maze.api.Position;
-import java.util.*;
+import java.util.Collection;
+import java.util.EnumMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Objects;
+import java.util.Set;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -79,7 +86,7 @@ public class Cell {
 
   /** disconnect. */
   public void disconnect() {
-    Iterator<Map.Entry<Direction, Cell>> itr = neighbours.entrySet().iterator();
+    Iterator<Entry<Direction, Cell>> itr = neighbours.entrySet().iterator();
     while (itr.hasNext()) {
       Map.Entry<Direction, Cell> entry = itr.next();
       entry.getValue().getNeighbours().remove(entry.getKey().opposite(), this);
