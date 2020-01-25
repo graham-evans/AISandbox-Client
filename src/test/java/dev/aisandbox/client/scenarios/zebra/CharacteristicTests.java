@@ -1,6 +1,6 @@
 package dev.aisandbox.client.scenarios.zebra;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
 
 import dev.aisandbox.client.scenarios.zebra.vo.Characteristic;
 import dev.aisandbox.client.scenarios.zebra.vo.CharacteristicObject;

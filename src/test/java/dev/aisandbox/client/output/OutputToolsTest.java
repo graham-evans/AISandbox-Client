@@ -2,7 +2,7 @@ package dev.aisandbox.client.output;
 
 import static org.junit.Assert.assertEquals;
 
-import java.awt.*;
+import java.awt.Color;
 import java.awt.image.BufferedImage;
 import org.junit.Test;
 

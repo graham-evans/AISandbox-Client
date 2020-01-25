@@ -1,7 +1,9 @@
 package dev.aisandbox.client;
 
 import static junit.framework.TestCase.assertTrue;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertSame;
 
 import dev.aisandbox.client.scenarios.maze.MazeScenario;
 import org.junit.Test;

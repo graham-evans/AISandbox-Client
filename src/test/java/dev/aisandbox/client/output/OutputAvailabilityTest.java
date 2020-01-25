@@ -2,7 +2,6 @@ package dev.aisandbox.client.output;
 
 import static org.junit.Assert.assertFalse;
 
-import java.awt.*;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;

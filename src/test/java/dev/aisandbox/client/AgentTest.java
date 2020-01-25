@@ -1,7 +1,14 @@
 package dev.aisandbox.client;
 
-import static org.junit.Assert.*;
-import static org.springframework.test.web.client.match.MockRestRequestMatchers.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.springframework.test.web.client.match.MockRestRequestMatchers.content;
+import static org.springframework.test.web.client.match.MockRestRequestMatchers.header;
+import static org.springframework.test.web.client.match.MockRestRequestMatchers.jsonPath;
+import static org.springframework.test.web.client.match.MockRestRequestMatchers.method;
+import static org.springframework.test.web.client.match.MockRestRequestMatchers.requestTo;
+import static org.springframework.test.web.client.match.MockRestRequestMatchers.xpath;
 import static org.springframework.test.web.client.response.MockRestResponseCreators.withSuccess;
 
 import dev.aisandbox.client.scenarios.TestRequest;

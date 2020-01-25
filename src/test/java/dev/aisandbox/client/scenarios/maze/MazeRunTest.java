@@ -1,6 +1,8 @@
 package dev.aisandbox.client.scenarios.maze;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import dev.aisandbox.client.AISandboxClient;
 import dev.aisandbox.client.RuntimeModel;
