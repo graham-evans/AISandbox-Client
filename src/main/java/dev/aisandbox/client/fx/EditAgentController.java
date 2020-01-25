@@ -3,12 +3,13 @@ package dev.aisandbox.client.fx;
 import dev.aisandbox.client.Agent;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import lombok.Setter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * EditAgentController class.
@@ -19,7 +20,7 @@ import lombok.Setter;
 public class EditAgentController {
 
   private Agent agent;
-  private static final Logger LOG = Logger.getLogger(EditAgentController.class.getName());
+  private static final Logger LOG = LoggerFactory.getLogger(EditAgentController.class.getName());
 
   @Setter Stage dialogStage;
 

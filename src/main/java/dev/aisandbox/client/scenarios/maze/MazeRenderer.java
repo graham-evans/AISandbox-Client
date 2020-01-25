@@ -4,15 +4,15 @@ import dev.aisandbox.client.sprite.SpriteLoader;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class MazeRenderer {
 
-  private static final Logger LOG = Logger.getLogger(MazeRenderer.class.getName());
+  private static final Logger LOG = LoggerFactory.getLogger(MazeRenderer.class.getName());
 
   public static final int SCALE = 25;
 
@@ -22,7 +22,7 @@ public class MazeRenderer {
   List<BufferedImage> sprites = null;
 
   public BufferedImage renderMaze(Maze maze) {
-    LOG.log(Level.INFO, "Rendering maze {0}", maze.getBoardID());
+    LOG.info("Rendering maze {}", maze.getBoardID());
     if (sprites == null) {
       sprites = spriteLoader.loadSprites("/dev/aisandbox/client/scenarios/maze/bridge.png", 25, 25);
     }

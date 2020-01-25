@@ -5,13 +5,14 @@ import dev.aisandbox.client.fx.FakeGameRunController;
 import dev.aisandbox.client.output.FrameOutput;
 import dev.aisandbox.client.output.NoOutput;
 import java.util.ResourceBundle;
-import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -27,7 +28,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AISandboxClient extends Application {
 
-  private static final Logger LOG = Logger.getLogger(AISandboxClient.class.getName());
+  private static final Logger LOG = LoggerFactory.getLogger(AISandboxClient.class.getName());
 
   private ConfigurableApplicationContext context;
   private Parent rootNode;

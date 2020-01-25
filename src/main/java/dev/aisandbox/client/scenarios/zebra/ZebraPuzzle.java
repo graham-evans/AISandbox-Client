@@ -7,13 +7,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
-import java.util.logging.Logger;
 import lombok.AccessLevel;
 import lombok.Getter;
 import org.chocosolver.solver.Model;
 import org.chocosolver.solver.Solution;
 import org.chocosolver.solver.search.limits.SolutionCounter;
 import org.chocosolver.solver.variables.IntVar;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * A class representing an entire Zebra puzzle.
@@ -22,7 +23,7 @@ import org.chocosolver.solver.variables.IntVar;
  */
 public class ZebraPuzzle {
 
-  private static final Logger LOG = Logger.getLogger(ZebraPuzzle.class.getName());
+  private static final Logger LOG = LoggerFactory.getLogger(ZebraPuzzle.class.getName());
 
   private final Random rand;
   private final int characteristicCount;
@@ -109,7 +110,7 @@ public class ZebraPuzzle {
         LOG.info("Found unique solution");
         found = true;
       } else if (solutions.isEmpty()) {
-        LOG.severe("No solutions !!!");
+        LOG.error("No solutions !!!");
         found = true;
       } else {
         //                LOG.info("Multiple solutions");

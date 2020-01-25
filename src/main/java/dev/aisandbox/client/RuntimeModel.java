@@ -4,13 +4,14 @@ import dev.aisandbox.client.scenarios.Scenario;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Locale;
-import java.util.logging.Logger;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import lombok.Getter;
 import lombok.Setter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /**
@@ -21,7 +22,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class RuntimeModel {
 
-  private static final Logger LOG = Logger.getLogger(RuntimeModel.class.getName());
+  private static final Logger LOG = LoggerFactory.getLogger(RuntimeModel.class.getName());
 
   @Getter Scenario scenario;
 

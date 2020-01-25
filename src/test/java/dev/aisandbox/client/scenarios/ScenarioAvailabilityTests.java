@@ -5,9 +5,10 @@ import static org.junit.Assert.*;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.logging.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
@@ -18,7 +19,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class ScenarioAvailabilityTests {
 
-  private static final Logger LOG = Logger.getLogger(ScenarioAvailabilityTests.class.getName());
+  private static final Logger LOG =
+      LoggerFactory.getLogger(ScenarioAvailabilityTests.class.getName());
 
   @Autowired private ApplicationContext appContext;
 

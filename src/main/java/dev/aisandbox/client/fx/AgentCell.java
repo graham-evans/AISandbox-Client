@@ -2,8 +2,6 @@ package dev.aisandbox.client.fx;
 
 import dev.aisandbox.client.Agent;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -11,6 +9,8 @@ import javafx.scene.control.ListCell;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import org.controlsfx.glyphfont.Glyph;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * AgentCell class.
@@ -20,7 +20,7 @@ import org.controlsfx.glyphfont.Glyph;
  */
 public class AgentCell extends ListCell<Agent> {
 
-  private static final Logger LOG = Logger.getLogger(AgentCell.class.getName());
+  private static final Logger LOG = LoggerFactory.getLogger(AgentCell.class.getName());
 
   @FXML private Label protocolLabel;
 
@@ -51,7 +51,7 @@ public class AgentCell extends ListCell<Agent> {
         try {
           mLLoader.load();
         } catch (IOException e) {
-          LOG.log(Level.SEVERE, "Error loading FXML", e);
+          LOG.error("Error loading FXML", e);
         }
       }
       // show red URLs when invalid

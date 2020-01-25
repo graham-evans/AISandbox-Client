@@ -9,17 +9,18 @@ import dev.aisandbox.client.scenarios.ScenarioType;
 import dev.aisandbox.client.sprite.SpriteLoader;
 import java.util.List;
 import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import lombok.Getter;
 import lombok.Setter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class MineHunterScenario implements Scenario {
 
-  @NonVisual private static final Logger LOG = Logger.getLogger(MineHunterScenario.class.getName());
+  @NonVisual
+  private static final Logger LOG = LoggerFactory.getLogger(MineHunterScenario.class.getName());
 
   // configuration
   @Getter @Setter private Long scenarioSalt = 0l;
@@ -105,7 +106,7 @@ public class MineHunterScenario implements Scenario {
       try {
         thread.join();
       } catch (InterruptedException e) {
-        LOG.log(Level.WARNING, "Interrupted!", e);
+        LOG.warn("Interrupted!", e);
         // Restore interrupted state...
         Thread.currentThread().interrupt();
       }

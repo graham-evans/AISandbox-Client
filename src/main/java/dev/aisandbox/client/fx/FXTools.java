@@ -4,14 +4,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
@@ -25,7 +25,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class FXTools {
 
-  private static final Logger LOG = Logger.getLogger(FXTools.class.getName());
+  private static final Logger LOG = LoggerFactory.getLogger(FXTools.class.getName());
 
   @Autowired private ApplicationContext appContext;
 
@@ -38,7 +38,7 @@ public class FXTools {
   public void moveToScreen(ActionEvent event, String fxml) {
     LOG.info("Selecting last screen");
     try {
-      LOG.log(Level.INFO, "Selecting {0} screen", fxml);
+      LOG.info("Selecting {0} screen", fxml);
       FXMLLoader loader = new FXMLLoader(FXTools.class.getResource(fxml));
       loader.setResources(ResourceBundle.getBundle("dev.aisandbox.client.fx.UI"));
       loader.setControllerFactory(appContext::getBean);
@@ -47,7 +47,7 @@ public class FXTools {
       Scene s2 = new Scene(loader.load(), s1.getWidth(), s1.getHeight());
       stage.setScene(s2);
     } catch (IOException e) {
-      LOG.log(Level.SEVERE, "Error switching Javafx scenes", e);
+      LOG.error("Error switching Javafx scenes", e);
     }
   }
 

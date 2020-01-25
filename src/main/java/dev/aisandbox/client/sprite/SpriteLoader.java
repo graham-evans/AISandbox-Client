@@ -4,15 +4,15 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Component
 public class SpriteLoader {
 
-  private static final Logger LOG = Logger.getLogger(SpriteLoader.class.getName());
+  private static final Logger LOG = LoggerFactory.getLogger(SpriteLoader.class.getName());
 
   private final boolean licencedAvailable;
 
@@ -25,7 +25,7 @@ public class SpriteLoader {
     try {
       return loadSpritesFromResources(path, width, height);
     } catch (IOException e) {
-      LOG.log(Level.SEVERE, "Error loading sprites for " + path, e);
+      LOG.error("Error loading sprites for {}", path, e);
       return new ArrayList<>();
     }
   }

@@ -2,14 +2,14 @@ package dev.aisandbox.client.fx;
 
 import dev.aisandbox.client.scenarios.Scenario;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.layout.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * ScenarioCell class.
@@ -19,7 +19,7 @@ import javafx.scene.layout.*;
  */
 public class ScenarioCell extends ListCell<Scenario> {
 
-  private static final Logger LOG = Logger.getLogger(ScenarioCell.class.getName());
+  private static final Logger LOG = LoggerFactory.getLogger(ScenarioCell.class.getName());
 
   @FXML private Label scenarioName;
 
@@ -50,7 +50,7 @@ public class ScenarioCell extends ListCell<Scenario> {
         try {
           mLLoader.load();
         } catch (IOException e) {
-          LOG.log(Level.SEVERE, "Error loading FXML", e);
+          LOG.error("Error loading FXML", e);
         }
       }
 

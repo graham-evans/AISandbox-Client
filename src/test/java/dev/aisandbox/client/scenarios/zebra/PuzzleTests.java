@@ -4,13 +4,14 @@ import static org.junit.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 import java.util.Random;
-import java.util.logging.Logger;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class PuzzleTests {
 
   Random rand = new Random();
-  private static final Logger LOG = Logger.getLogger(PuzzleTests.class.getName());
+  private static final Logger LOG = LoggerFactory.getLogger(PuzzleTests.class.getName());
 
   @Test
   public void tinyTest() {

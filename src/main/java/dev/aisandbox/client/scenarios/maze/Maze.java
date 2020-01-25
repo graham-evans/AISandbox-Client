@@ -4,10 +4,10 @@ import dev.aisandbox.client.scenarios.maze.api.Config;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import lombok.Getter;
 import lombok.Setter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Maze class.
@@ -17,7 +17,7 @@ import lombok.Setter;
  */
 public class Maze {
 
-  private static final Logger LOG = java.util.logging.Logger.getLogger(Maze.class.getName());
+  private static final Logger LOG = LoggerFactory.getLogger(Maze.class.getName());
 
   @Getter private final String boardID = UUID.randomUUID().toString();
 
@@ -46,10 +46,7 @@ public class Maze {
    * @param height a int.
    */
   public Maze(int width, int height) {
-    LOG.log(
-        Level.INFO,
-        "Generated maze {0} with dimensions {1}x{2}",
-        new Object[] {boardID, width, height});
+    LOG.info("Generated maze {} with dimensions {}x{}", boardID, width, height);
     this.width = width;
     this.height = height;
     cellArray = new Cell[width][height];

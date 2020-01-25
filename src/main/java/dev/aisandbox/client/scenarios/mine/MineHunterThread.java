@@ -18,15 +18,15 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.List;
 import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import lombok.Getter;
 import lombok.Setter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class MineHunterThread extends Thread {
 
-  private static final Logger LOG = Logger.getLogger(MineHunterThread.class.getName());
+  private static final Logger LOG = LoggerFactory.getLogger(MineHunterThread.class.getName());
 
   private final Agent agent;
   private final FrameOutput output;
@@ -67,7 +67,7 @@ public class MineHunterThread extends Thread {
       logo =
           ImageIO.read(MazeRunner.class.getResourceAsStream("/dev/aisandbox/client/fx/logo1.png"));
     } catch (IOException e) {
-      LOG.log(Level.SEVERE, "Error loading logo", e);
+      LOG.error("Error loading logo", e);
       logo = new BufferedImage(10, 10, BufferedImage.TYPE_INT_RGB);
     }
     sprites = loader.loadSprites("/dev/aisandbox/client/scenarios/mine/grid.png", 40, 40);
@@ -140,7 +140,7 @@ public class MineHunterThread extends Thread {
         }
       }
     } catch (IOException e) {
-      LOG.log(Level.SEVERE, "Error running mine thread", e);
+      LOG.error("Error running mine thread", e);
     }
     LOG.info("Finished run thread");
     controller.resetStartButton();
@@ -169,7 +169,7 @@ public class MineHunterThread extends Thread {
     }
     board.countNeighbours();
     scale = 20.0 / board.getHeight();
-    LOG.log(Level.INFO, "Scaling board to {0}", new Object[] {scale});
+    LOG.info("Scaling board to {}", scale);
     winRateGraphImage = winRateGraph.getGraph(600, 250);
   }
 
@@ -234,7 +234,7 @@ public class MineHunterThread extends Thread {
             g.drawImage(sprites.get(9), x * 40, y * 40, null);
             break;
           default:
-            LOG.warning("Unexpected char");
+            LOG.warn("Unexpected char");
         }
       }
     }
@@ -246,7 +246,7 @@ public class MineHunterThread extends Thread {
     try {
       this.join();
     } catch (InterruptedException e) {
-      LOG.log(Level.WARNING, "Interrupted!", e);
+      LOG.warn("Interrupted!", e);
       // Restore interrupted state...
       Thread.currentThread().interrupt();
     }

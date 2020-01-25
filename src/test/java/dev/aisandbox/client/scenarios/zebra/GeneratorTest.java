@@ -6,9 +6,10 @@ import static org.junit.Assert.assertNotNull;
 import dev.aisandbox.client.scenarios.zebra.vo.Characteristic;
 import dev.aisandbox.client.scenarios.zebra.vo.Template;
 import java.util.Random;
-import java.util.logging.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -16,7 +17,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class GeneratorTest {
 
-  private static final Logger LOG = Logger.getLogger(GeneratorTest.class.getName());
+  private static final Logger LOG = LoggerFactory.getLogger(GeneratorTest.class.getName());
 
   Random rand = new Random();
 

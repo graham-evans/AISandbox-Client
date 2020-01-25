@@ -10,8 +10,6 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
@@ -26,6 +24,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javax.imageio.ImageIO;
 import org.jfree.chart.fx.ChartViewer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
@@ -34,7 +34,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class GameRunController {
 
-  private static final Logger LOG = Logger.getLogger(GameRunController.class.getName());
+  private static final Logger LOG = LoggerFactory.getLogger(GameRunController.class.getName());
   private final AtomicBoolean imageReady = new AtomicBoolean(true);
   @Autowired private ApplicationContext appContext;
   @Autowired private RuntimeModel model;
@@ -90,7 +90,7 @@ public class GameRunController {
     try {
       out.open(model.getOutputDirectory());
     } catch (IOException e) {
-      LOG.log(Level.WARNING, "Error opening output", e);
+      LOG.warn("Error opening output", e);
     }
     model
         .getScenario()
@@ -134,7 +134,7 @@ public class GameRunController {
                       "/dev/aisandbox/client/testcard.png")),
               null));
     } catch (IOException e) {
-      LOG.log(Level.SEVERE, "Error loading testcard", e);
+      LOG.error("Error loading testcard", e);
     }
     imageAnchor.getChildren().add(imageView);
     // setup automatic resize
@@ -178,8 +178,7 @@ public class GameRunController {
     // get image width and height
     double imageWidth = image.getImage().getWidth();
     double imageHeight = image.getImage().getHeight();
-    LOG.log(
-        Level.FINEST,
+    LOG.debug(
         "Scaling image {0}x{1} to pane {2}x{3}",
         new Object[] {imageWidth, imageHeight, paneWidth, paneHeight});
     // work out the best scale

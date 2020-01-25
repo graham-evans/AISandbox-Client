@@ -6,15 +6,16 @@ import static org.springframework.test.web.client.match.MockRestRequestMatchers.
 import static org.springframework.test.web.client.response.MockRestResponseCreators.withSuccess;
 
 import dev.aisandbox.client.scenarios.TestResponse;
-import java.util.logging.Logger;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.client.MockRestServiceServer;
 
 public class AgentLoggerTest {
 
-  private static final Logger LOG = Logger.getLogger(AgentLoggerTest.class.getName());
+  private static final Logger LOG = LoggerFactory.getLogger(AgentLoggerTest.class.getName());
 
   private static final String JSON_TEXT = "{\"number\":\"4\"}";
 
