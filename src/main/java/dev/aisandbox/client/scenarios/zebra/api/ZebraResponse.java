@@ -8,4 +8,3 @@ import java.util.List;
 public class ZebraResponse {
   private Solution solution = null;
 }
-

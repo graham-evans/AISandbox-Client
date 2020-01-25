@@ -7,5 +7,5 @@ import lombok.Data;
 
 @Data
 public class MoveChain {
-    private List<String> pieceIDs = new ArrayList<>();
+  private List<String> pieceIDs = new ArrayList<>();
 }

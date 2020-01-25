@@ -7,7 +7,7 @@ import lombok.Data;
 
 @Data
 public class Piece {
-    int defaultColourIndex;
-    int currentColourIndex;
-    List<Point> points = new ArrayList<>();
+  int defaultColourIndex;
+  int currentColourIndex;
+  List<Point> points = new ArrayList<>();
 }

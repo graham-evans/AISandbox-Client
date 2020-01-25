@@ -7,6 +7,6 @@ import lombok.Data;
 
 @Data
 public class Face {
-    String faceName;
-    List<Piece> pieces = new ArrayList<>();
+  String faceName;
+  List<Piece> pieces = new ArrayList<>();
 }
