@@ -39,9 +39,9 @@
         <appender-ref ref="LOG"/>
     </logger>
 
-    <logger name="dev.aisandbox" level="DEBUG">
+    <!--logger name="dev.aisandbox" level="DEBUG">
         <appender-ref ref="lilith"/>
-    </logger>
+    </logger-->
 
     <root level="NONE"/>
 
