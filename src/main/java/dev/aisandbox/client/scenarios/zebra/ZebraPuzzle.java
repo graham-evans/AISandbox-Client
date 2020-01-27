@@ -134,7 +134,8 @@ public class ZebraPuzzle {
     List<Clue> clues = new ArrayList<>();
     for (int characteristic = 0; characteristic < characteristicCount; characteristic++) {
       LOG.info(
-          "Adding living clues for {}",template.getCharacteristics().get(characteristic).getName());
+          "Adding living clues for {}",
+          template.getCharacteristics().get(characteristic).getName());
       for (int houseNumber = 0; houseNumber < houses; houseNumber++) {
         Clue c = new Clue();
         c.setClueString(
@@ -166,7 +167,7 @@ public class ZebraPuzzle {
     for (int characteristic = 0; characteristic < characteristicCount; characteristic++) {
       LOG.info(
           "Adding living negative clues for {}",
-              template.getCharacteristics().get(characteristic).getName());
+          template.getCharacteristics().get(characteristic).getName());
       for (int houseNumber = 0; houseNumber < houses; houseNumber++) {
         for (int characteristicObjectNumber = 0;
             characteristicObjectNumber < houses;

@@ -32,7 +32,7 @@ public class AgentCell extends ListCell<Agent> {
 
   private FXMLLoader mLLoader = null;
 
-  /** 
+  /**
    * {@inheritDoc}
    */
   @Override

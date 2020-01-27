@@ -166,6 +166,7 @@ public class GameRunController {
 
   /**
    * Add a ProfileSet to the profiler, redrawing the profiler state if older than two seconds.
+   *
    * @param step the ProfileStep
    */
   public void addProfileStep(ProfileStep step) {

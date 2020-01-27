@@ -69,7 +69,7 @@ public class RuntimeModel {
    */
   public void setScenario(Scenario s) {
     this.scenario = s;
-    LOG.debug("changing scenario to {}",s.getName());
+    LOG.debug("changing scenario to {}", s.getName());
     minAgents.setValue(s.getMinAgentCount());
     maxAgents.setValue(s.getMaxAgentCount());
   }

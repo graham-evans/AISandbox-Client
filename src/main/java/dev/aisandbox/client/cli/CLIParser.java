@@ -22,6 +22,7 @@ public class CLIParser {
 
   /**
    * Parse arguments from the command line, updating the runtime model if required.
+   *
    * @param model the runtime model
    * @param args the command line arguments
    * @return the updated runtime model
@@ -44,8 +45,9 @@ public class CLIParser {
 
   /**
    * Generate and return the options object.
-   * 
+   *
    * <p>This discribes the different options available to the user.
+   *
    * @return The Options object.
    */
   public static Options getOptions() {

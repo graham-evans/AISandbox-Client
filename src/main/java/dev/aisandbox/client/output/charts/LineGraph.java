@@ -15,24 +15,41 @@ public class LineGraph {
 
   @Getter private final TreeMap<Integer, Double> storage = new TreeMap<>();
 
-  @Getter @Setter private int memorySize = 50;
+  @Getter
+  @Setter
+  private int memorySize = 50;
 
-  @Setter private String title = "Title";
+  @Setter
+  private String title = "Title";
 
-  @Setter private String xAxisTitle = null;
+  @Setter
+  private String axisXTitle = null;
 
-  @Setter private String yAxisTitle = null;
+  @Setter
+  private String axisYTitle = null;
 
-  private int xValue = 0;
+  private int valueX = 0;
 
+  /**
+   * Add a value to the graph.
+   *
+   * @param v the value to add.
+   */
   public void addValue(Double v) {
-    xValue++;
-    storage.put(xValue, v);
+    valueX++;
+    storage.put(valueX, v);
     while (storage.size() > memorySize) {
       storage.remove(storage.firstKey());
     }
   }
 
+  /**
+   * Render the graph to a bufferedimage.
+   *
+   * @param width  the width of the image
+   * @param height the height of the image
+   * @return the BufferedImage
+   */
   public BufferedImage getGraph(int width, int height) {
     XYSeries series1 = new XYSeries("Results");
     storage.forEach(series1::add);
@@ -42,14 +59,14 @@ public class LineGraph {
     JFreeChart chart =
         ChartFactory.createXYLineChart(
             title,
-            xAxisTitle, // x axis label
-            yAxisTitle, // y axis label
+            axisXTitle, // x axis label
+            axisYTitle, // y axis label
             dataset, // data
             PlotOrientation.VERTICAL,
             false, // include legend
             true, // tooltips
             false // urls
-            );
+        );
     return chart.createBufferedImage(width, height, null);
   }
 }

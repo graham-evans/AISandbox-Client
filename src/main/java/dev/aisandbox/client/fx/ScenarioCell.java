@@ -37,6 +37,7 @@ public class ScenarioCell extends ListCell<Scenario> {
 
   /**
    * Regenerate the cell based on the current scenario.
+   *
    * @param scenario the scenario to render
    * @param empty true if we're drawing an empty cell.
    */
