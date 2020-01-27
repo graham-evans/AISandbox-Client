@@ -35,7 +35,7 @@ public class RuntimeModel {
 
   @Getter BooleanProperty limitRuntime = new SimpleBooleanProperty(false);
 
-  @Getter LongProperty maxStepCount = new SimpleLongProperty(100l);
+  @Getter LongProperty maxStepCount = new SimpleLongProperty(100L);
 
   @Getter IntegerProperty minAgents = new SimpleIntegerProperty(1);
 
@@ -69,7 +69,7 @@ public class RuntimeModel {
    */
   public void setScenario(Scenario s) {
     this.scenario = s;
-    LOG.info("changing scenario to " + s.getName());
+    LOG.debug("changing scenario to {}",s.getName());
     minAgents.setValue(s.getMinAgentCount());
     maxAgents.setValue(s.getMaxAgentCount());
   }

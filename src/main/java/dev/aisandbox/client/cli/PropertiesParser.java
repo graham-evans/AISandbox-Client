@@ -25,10 +25,16 @@ public class PropertiesParser {
 
   @Autowired private ApplicationContext appContext;
 
+  /**
+   * Parse a configuration file, updateing the RuntimeModel to match.
+   * @param model The existing runtime model
+   * @param filePath a reference to the file to be parsed
+   * @return the (updated) runtime model
+   */
   public RuntimeModel parseConfiguration(RuntimeModel model, String filePath) {
     // read properties from file
     File pfile = new File(filePath);
-    LOG.info("Loading properties from " + pfile.getAbsolutePath());
+    LOG.debug("Loading properties from {}",pfile.getAbsolutePath());
     Properties props = new Properties();
     try {
       props.load(new FileInputStream(pfile));
@@ -39,6 +45,12 @@ public class PropertiesParser {
     return parseConfiguration(model, props);
   }
 
+  /**
+   * Parse a properties object and update the runtime model to match.
+   * @param model The runtime model to update
+   * @param props A properties object
+   * @return the (updated) runtime model
+   */
   public RuntimeModel parseConfiguration(RuntimeModel model, Properties props) {
     // read scenario specific properties
     String scenario = props.getProperty("scenario");
@@ -59,6 +71,11 @@ public class PropertiesParser {
     return model;
   }
 
+  /**
+   * Parse a properties object for settings related to agents
+   * @param model the runtime model
+   * @param props the properties object to scan
+   */
   public void readAgentSettings(RuntimeModel model, Properties props) {
     if (props.containsKey("agents")) {
       int agentCount = Integer.parseInt(props.getProperty("agents"));
@@ -88,6 +105,11 @@ public class PropertiesParser {
     }
   }
 
+  /**
+   * Scan a properties object for settings common accross all scenarios
+   * @param model the runtime model
+   * @param props the properties object to scan.
+   */
   public void readGeneralSettings(RuntimeModel model, Properties props) {
     // read general properties
     if (props.containsKey("steps")) {
@@ -114,6 +136,11 @@ public class PropertiesParser {
     }
   }
 
+  /**
+   * Scan a properties object for settings specific to the Mine Hunter scenario.
+   * @param model the runtime model
+   * @param props the properties to scan
+   */
   public void readMineSettings(RuntimeModel model, Properties props) {
     MineHunterScenario mine = appContext.getBean(MineHunterScenario.class);
     model.setScenario(mine);
@@ -137,6 +164,11 @@ public class PropertiesParser {
     }
   }
 
+  /**
+   * Scan a properties object for settings specific to the Maze scenario.
+   * @param model the runtime model
+   * @param props the properties to scan
+   */
   public void readMazeSettings(RuntimeModel model, Properties props) {
     MazeScenario maze = appContext.getBean(MazeScenario.class);
     model.setScenario(maze);

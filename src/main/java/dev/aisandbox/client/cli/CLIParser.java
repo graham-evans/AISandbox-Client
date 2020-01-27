@@ -20,6 +20,12 @@ public class CLIParser {
 
   @Autowired PropertiesParser pp;
 
+  /**
+   * Parse arguments from the command line, updating the runtime model if required.
+   * @param model the runtime model
+   * @param args the command line arguments
+   * @return the updated runtime model
+   */
   public RuntimeModel parseCommandLine(RuntimeModel model, String[] args) {
     Options options = getOptions();
     // parse the arguments
@@ -36,6 +42,11 @@ public class CLIParser {
     return model;
   }
 
+  /**
+   * Generate and return the options object.
+   * <p>This discribes the different options available to the user.
+   * @return The Options object.
+   */
   public static Options getOptions() {
     Options options = new Options();
 
@@ -49,7 +60,7 @@ public class CLIParser {
     return options;
   }
 
-  /** Print the default options text */
+  /** Print the default options text. */
   public void printHelp() {
     Options options = getOptions();
     HelpFormatter formatter = new HelpFormatter();

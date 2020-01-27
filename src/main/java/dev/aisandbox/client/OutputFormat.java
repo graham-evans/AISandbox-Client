@@ -1,6 +1,6 @@
 package dev.aisandbox.client;
 
-/** Enum for the choice of output format, none/MP4/PNG */
+/** Enum for the choice of output format, none/MP4/PNG. */
 public enum OutputFormat {
   NONE {
     @Override

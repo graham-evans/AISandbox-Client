@@ -78,7 +78,7 @@ public class AISandboxClient extends Application {
    *
    * <p>This is called during the start process, and includes the setup of the Spring context.
    *
-   * @throws Exception
+   * @throws Exception Thrown by the FX loader
    */
   @Override
   public void init() throws Exception {
@@ -101,7 +101,7 @@ public class AISandboxClient extends Application {
    * <p>Opens the main window and centers on screen.
    *
    * @param primaryStage the main (empty) window
-   * @throws Exception
+   * @throws Exception Throws by the FX loader
    */
   @Override
   public void start(Stage primaryStage) throws Exception {
@@ -118,7 +118,7 @@ public class AISandboxClient extends Application {
   /**
    * Used by JavaFX when closing the application.
    *
-   * @throws Exception
+   * @throws Exception Thrown when closing the application
    */
   @Override
   public void stop() throws Exception {
