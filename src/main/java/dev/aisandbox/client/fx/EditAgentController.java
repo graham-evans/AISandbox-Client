@@ -79,14 +79,14 @@ public class EditAgentController {
   }
 
   /**
-   * Copy the agent information to the controller
+   * Copy the agent information to the controller.
    *
    * @param a Agent
    */
   public void assignAgent(Agent a) {
     /*
-    NOTE - we copy the data rather than bind, so we can use a cancel button (which leaves the opriginal agent
-    unchanged).
+    * NOTE - we copy the data rather than bind, so we can use a cancel button (which leaves the
+    * original agent unchanged).
      */
     this.agent = a;
     // copy the data to the UI

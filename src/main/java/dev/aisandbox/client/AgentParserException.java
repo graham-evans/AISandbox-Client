@@ -8,7 +8,7 @@ public class AgentParserException extends AgentException {
   @Getter private final String response;
 
   /**
-   * Exception thrown when the agent tries to decode the JSON / XML
+   * Exception thrown when the agent tries to decode the JSON / XML.
    * @param message User readable message
    */
   public AgentParserException(String message) {
@@ -18,7 +18,7 @@ public class AgentParserException extends AgentException {
   }
 
   /**
-   * More detailed constructor
+   * More detailed constructor.
    * @param message Description of the error
    * @param code HTTP code from the server
    * @param content The payload that was sent

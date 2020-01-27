@@ -44,6 +44,7 @@ public class CLIParser {
 
   /**
    * Generate and return the options object.
+   * 
    * <p>This discribes the different options available to the user.
    * @return The Options object.
    */

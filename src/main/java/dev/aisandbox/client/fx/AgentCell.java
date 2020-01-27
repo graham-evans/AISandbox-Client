@@ -32,7 +32,9 @@ public class AgentCell extends ListCell<Agent> {
 
   private FXMLLoader mLLoader = null;
 
-  /** {@inheritDoc} */
+  /** 
+   * {@inheritDoc}
+   */
   @Override
   protected void updateItem(Agent agent, boolean empty) {
     super.updateItem(agent, empty);

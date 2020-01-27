@@ -72,7 +72,7 @@ public class PropertiesParser {
   }
 
   /**
-   * Parse a properties object for settings related to agents
+   * Parse a properties object for settings related to agents.
    * @param model the runtime model
    * @param props the properties object to scan
    */
@@ -106,7 +106,7 @@ public class PropertiesParser {
   }
 
   /**
-   * Scan a properties object for settings common accross all scenarios
+   * Scan a properties object for settings common accross all scenarios.
    * @param model the runtime model
    * @param props the properties object to scan.
    */

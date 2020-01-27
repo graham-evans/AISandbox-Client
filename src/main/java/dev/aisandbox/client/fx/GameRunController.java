@@ -36,7 +36,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
-/** Controller class used when running the simulations */
+/** Controller class used when running the simulations. */
 @Component
 public class GameRunController {
 
@@ -55,7 +55,7 @@ public class GameRunController {
   @FXML private Pane imageAnchor;
 
   private AIProfiler profiler = null;
-  private long profileLastUpdate = 0l;
+  private long profileLastUpdate = 0L;
 
   private ChartViewer durationChartViewer;
   private ImageView imageView;
@@ -164,6 +164,10 @@ public class GameRunController {
     durationChartPane.getChildren().add(durationChartViewer);
   }
 
+  /**
+   * Add a ProfileSet to the profiler, redrawing the profiler state if older than two seconds.
+   * @param step the ProfileStep
+   */
   public void addProfileStep(ProfileStep step) {
     profiler.addProfileStep(step);
     // if it's been more than 2 seconds since the last update - redraw the state
