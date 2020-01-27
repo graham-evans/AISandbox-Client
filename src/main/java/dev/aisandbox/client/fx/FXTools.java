@@ -36,9 +36,8 @@ public class FXTools {
    * @param fxml a {@link java.lang.String} object.
    */
   public void moveToScreen(ActionEvent event, String fxml) {
-    LOG.info("Selecting last screen");
     try {
-      LOG.info("Selecting {0} screen", fxml);
+      LOG.debug("Selecting {} screen", fxml);
       FXMLLoader loader = new FXMLLoader(FXTools.class.getResource(fxml));
       loader.setResources(ResourceBundle.getBundle("dev.aisandbox.client.fx.UI"));
       loader.setControllerFactory(appContext::getBean);

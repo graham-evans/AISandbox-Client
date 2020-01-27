@@ -101,7 +101,7 @@ public class ZebraPuzzle {
       Clue c = rawClueList.get(count);
       // enable the clue
       c.postClue();
-      LOG.info("Posting clue '" + c.getClueString() + "'");
+      LOG.info("Posting clue '{}''", c.getClueString());
       // add it to the output
       clueList.add(c);
       // test there is only 1 solution
@@ -134,7 +134,7 @@ public class ZebraPuzzle {
     List<Clue> clues = new ArrayList<>();
     for (int characteristic = 0; characteristic < characteristicCount; characteristic++) {
       LOG.info(
-          "Adding living clues for " + template.getCharacteristics().get(characteristic).getName());
+          "Adding living clues for {}",template.getCharacteristics().get(characteristic).getName());
       for (int houseNumber = 0; houseNumber < houses; houseNumber++) {
         Clue c = new Clue();
         c.setClueString(
@@ -165,8 +165,8 @@ public class ZebraPuzzle {
     List<Clue> clues = new ArrayList<>();
     for (int characteristic = 0; characteristic < characteristicCount; characteristic++) {
       LOG.info(
-          "Adding living negative clues for "
-              + template.getCharacteristics().get(characteristic).getName());
+          "Adding living negative clues for {}",
+              template.getCharacteristics().get(characteristic).getName());
       for (int houseNumber = 0; houseNumber < houses; houseNumber++) {
         for (int characteristicObjectNumber = 0;
             characteristicObjectNumber < houses;
