@@ -1,9 +1,9 @@
 package dev.aisandbox.client.scenarios.zebra.api;
 
+import static pl.pojo.tester.api.assertion.Assertions.assertPojoMethodsFor;
+
 import org.junit.Test;
 import pl.pojo.tester.api.assertion.Method;
-
-import static pl.pojo.tester.api.assertion.Assertions.assertPojoMethodsFor;
 
 public class ZebraPOJOTests {
 

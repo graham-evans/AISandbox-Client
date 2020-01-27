@@ -1,8 +1,12 @@
 package dev.aisandbox.client.scenarios.zebra.api;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class HouseCharacteristics {
   private int characteristicNumber;
   private int characteristicValue;
