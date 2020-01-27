@@ -15,18 +15,13 @@ public class LineGraph {
 
   @Getter private final TreeMap<Integer, Double> storage = new TreeMap<>();
 
-  @Getter
-  @Setter
-  private int memorySize = 50;
+  @Getter @Setter private int memorySize = 50;
 
-  @Setter
-  private String title = "Title";
+  @Setter private String title = "Title";
 
-  @Setter
-  private String axisXTitle = null;
+  @Setter private String axisXTitle = null;
 
-  @Setter
-  private String axisYTitle = null;
+  @Setter private String axisYTitle = null;
 
   private int valueX = 0;
 
@@ -46,7 +41,7 @@ public class LineGraph {
   /**
    * Render the graph to a bufferedimage.
    *
-   * @param width  the width of the image
+   * @param width the width of the image
    * @param height the height of the image
    * @return the BufferedImage
    */
@@ -66,7 +61,7 @@ public class LineGraph {
             false, // include legend
             true, // tooltips
             false // urls
-        );
+            );
     return chart.createBufferedImage(width, height, null);
   }
 }
