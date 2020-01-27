@@ -33,9 +33,13 @@ public class ScenarioCell extends ListCell<Scenario> {
 
   @FXML private BorderPane root;
 
-  private FXMLLoader mLLoader = null;
+  private FXMLLoader fxmlLoader = null;
 
-  /** {@inheritDoc} */
+  /**
+   * Regenerate the cell based on the current scenario.
+   * @param scenario the scenario to render
+   * @param empty true if we're drawing an empty cell.
+   */
   @Override
   protected void updateItem(Scenario scenario, boolean empty) {
     super.updateItem(scenario, empty);
@@ -46,13 +50,13 @@ public class ScenarioCell extends ListCell<Scenario> {
       setGraphic(null);
 
     } else {
-      if (mLLoader == null) {
-        mLLoader =
+      if (fxmlLoader == null) {
+        fxmlLoader =
             new FXMLLoader(getClass().getResource("/dev/aisandbox/client/fx/ScenarioCell.fxml"));
-        mLLoader.setController(this);
+        fxmlLoader.setController(this);
 
         try {
-          mLLoader.load();
+          fxmlLoader.load();
         } catch (IOException e) {
           LOG.error("Error loading FXML", e);
         }

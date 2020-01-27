@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 public class StackedAreaChartController {
 
   private final StackedAreaChart chart;
-  private final NumberAxis xAxis;
+  private final NumberAxis axisX;
   private static final Logger LOG =
       LoggerFactory.getLogger(StackedAreaChartController.class.getName());
   // map of series
@@ -22,10 +22,10 @@ public class StackedAreaChartController {
   public StackedAreaChartController(StackedAreaChart chart) {
     this.chart = chart;
     chart.setAnimated(false);
-    xAxis = (NumberAxis) chart.getXAxis();
-    xAxis.setForceZeroInRange(false);
-    xAxis.setTickUnit(1.0);
-    xAxis.setAutoRanging(false);
+    axisX = (NumberAxis) chart.getXAxis();
+    axisX.setForceZeroInRange(false);
+    axisX.setTickUnit(1.0);
+    axisX.setAutoRanging(false);
   }
 
   public void add(Map<String, Double> timings) {
@@ -57,15 +57,15 @@ public class StackedAreaChartController {
           }
           series.getData().add(new XYChart.Data(step, svalue));
         });
-    xAxis.setLowerBound(oldStep + 1.0);
-    xAxis.setUpperBound(step);
+    axisX.setLowerBound(oldStep + 1.0);
+    axisX.setUpperBound(step);
   }
 
   public void reset() {
     chart.getData().clear();
     seriesMap.clear();
     step = 0;
-    xAxis.setLowerBound(0);
-    xAxis.setUpperBound(HISTORY);
+    axisX.setLowerBound(0);
+    axisX.setUpperBound(HISTORY);
   }
 }
