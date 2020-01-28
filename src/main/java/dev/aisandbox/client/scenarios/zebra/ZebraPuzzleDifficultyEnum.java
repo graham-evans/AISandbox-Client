@@ -1,10 +1,10 @@
 package dev.aisandbox.client.scenarios.zebra;
 
-public enum ZebraPuzzleSizeEnum {
-  SMALL {
+public enum ZebraPuzzleDifficultyEnum {
+  EASY {
     @Override
     public String toString() {
-      return "Small (6 houses, 5 characteristics)";
+      return "Easy (6 houses, 5 characteristics)";
     }
   },
   MEDIUM {
@@ -13,10 +13,10 @@ public enum ZebraPuzzleSizeEnum {
       return "Medium (8 houses, 7 characteristics)";
     }
   },
-  LARGE {
+  HARD {
     @Override
     public String toString() {
-      return "Large (10 houses, 11 characteristics)";
+      return "Hard (10 houses, 11 characteristics)";
     }
   };
 }

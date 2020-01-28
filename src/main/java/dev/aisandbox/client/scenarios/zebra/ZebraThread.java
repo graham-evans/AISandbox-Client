@@ -6,13 +6,16 @@ import dev.aisandbox.client.output.FrameOutput;
 import java.util.Random;
 import lombok.Getter;
 import lombok.Setter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ZebraThread extends Thread {
+  private static final Logger LOG = LoggerFactory.getLogger(ZebraThread.class);
   private final Random rand;
   private final Agent agent;
   private final FrameOutput output;
   private final GameRunController controller;
-  private final ZebraPuzzleSizeEnum size;
+  private final ZebraPuzzleDifficultyEnum size;
   private final boolean multipleGuesses;
   private final long maxSteps;
 
@@ -22,7 +25,7 @@ public class ZebraThread extends Thread {
       GameRunController controller,
       long randomSalt,
       boolean multipleGuesses,
-      ZebraPuzzleSizeEnum size,
+      ZebraPuzzleDifficultyEnum size,
       long maxSteps) {
     this.agent = agent;
     this.output = output;
@@ -61,5 +64,16 @@ public class ZebraThread extends Thread {
     }
 
     running = false;
+  }
+
+  protected void stopSimulation() {
+    running = false;
+    try {
+      this.join();
+    } catch (InterruptedException e) {
+      LOG.warn("Interrupted!", e);
+      // Restore interrupted state...
+      Thread.currentThread().interrupt();
+    }
   }
 }

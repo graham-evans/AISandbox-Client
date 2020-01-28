@@ -21,8 +21,11 @@ public class ZebraScenario implements Scenario {
 
   // configuration
   @Getter @Setter private Long scenarioSalt = 0l;
-  @Getter @Setter private ZebraPuzzleSizeEnum size = ZebraPuzzleSizeEnum.MEDIUM;
-  @Getter @Setter private boolean multipleGuesses = true;
+
+  @Getter @Setter
+  private ZebraPuzzleDifficultyEnum zebraDifficulty = ZebraPuzzleDifficultyEnum.MEDIUM;
+
+  @Getter @Setter private boolean zebraMultipleGuesses = true;
 
   @Override
   public ScenarioType getGroup() {
@@ -46,7 +49,7 @@ public class ZebraScenario implements Scenario {
 
   @Override
   public String getImageReference() {
-    return null;
+    return "/dev/aisandbox/client/scenarios/zebra/sample.png";
   }
 
   @Override
@@ -86,6 +89,6 @@ public class ZebraScenario implements Scenario {
 
   @Override
   public boolean isBeta() {
-    return true;
+    return false;
   }
 }
