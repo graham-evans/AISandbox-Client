@@ -83,4 +83,6 @@ public interface Scenario {
   public String getScenarioURL();
 
   public String getSwaggerURL();
+
+  public boolean isBeta();
 }

@@ -88,6 +88,7 @@ public class GameChoiceController {
     } else {
       LOG.info("There are {} scenarios", scenarioList.size());
       // add scenarios to the list
+      scenarioList.removeIf(scenario -> scenario.isBeta());
       gameList.getItems().addAll(scenarioList);
       // set the formatting
       gameList.setCellFactory(cellListView -> new ScenarioCell());

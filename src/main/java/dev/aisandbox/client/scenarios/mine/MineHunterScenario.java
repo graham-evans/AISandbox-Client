@@ -63,12 +63,17 @@ public class MineHunterScenario implements Scenario {
 
   @Override
   public String getScenarioURL() {
-    return "https://www.aisandbox.dev/scenarios/MineHunter.html";
+    return "https://aisandbox.dev/scenarios-mine/";
   }
 
   @Override
   public String getSwaggerURL() {
-    return "https://www.aisandbox.dev/scenarios/mine.yaml";
+    return "https://files.aisandbox.dev/swagger/mine.yaml";
+  }
+
+  @Override
+  public boolean isBeta() {
+    return false;
   }
 
   @Autowired @NonVisual SpriteLoader spriteLoader;

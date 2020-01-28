@@ -80,12 +80,17 @@ public class MazeScenario implements Scenario {
 
   @Override
   public String getScenarioURL() {
-    return "https://www.aisandbox.dev/scenarios/Mazes.html";
+    return "https://aisandbox.dev/scenarios-maze/";
   }
 
   @Override
   public String getSwaggerURL() {
-    return "https://www.aisandbox.dev/scenarios/maze.yaml";
+    return "https://files.aisandbox.dev/swagger/maze.yaml";
+  }
+
+  @Override
+  public boolean isBeta() {
+    return false;
   }
 
   /** {@inheritDoc} */

@@ -76,11 +76,16 @@ public class ZebraScenario implements Scenario {
 
   @Override
   public String getScenarioURL() {
-    return null;
+    return "https://aisandbox.dev/scenarios-zebra/";
   }
 
   @Override
   public String getSwaggerURL() {
-    return null;
+    return "https://files.aisandbox.dev/swagger/zebra.yaml";
+  }
+
+  @Override
+  public boolean isBeta() {
+    return true;
   }
 }
