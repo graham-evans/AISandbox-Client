@@ -6,8 +6,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 
 @Data
-@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonIgnoreProperties(ignoreUnknown = false)
 @XmlRootElement(name = "ZebraResponse")
 public class ZebraResponse implements ServerResponse {
-  private Solution solution = null;
+  private Solution solution = new Solution();
 }

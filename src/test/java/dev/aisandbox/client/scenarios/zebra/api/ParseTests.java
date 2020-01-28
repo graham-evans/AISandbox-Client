@@ -3,6 +3,7 @@ package dev.aisandbox.client.scenarios.zebra.api;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.content;
+import static org.springframework.test.web.client.match.MockRestRequestMatchers.jsonPath;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.method;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.requestTo;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.xpath;
@@ -11,11 +12,15 @@ import static org.springframework.test.web.client.response.MockRestResponseCreat
 import dev.aisandbox.client.Agent;
 import dev.aisandbox.client.AgentMockTool;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.client.MockRestServiceServer;
 
 public class ParseTests {
+
+  Logger LOG = LoggerFactory.getLogger(ParseTests.class);
 
   @Test
   public void testPostXML() throws Exception {
@@ -59,6 +64,50 @@ public class ParseTests {
     request.setPuzzleID("1234-1234-1234-1234");
     request.getClues().add("The person who lives at number 4 has a red front door");
     ZebraResponse response = a.postRequest(request, ZebraResponse.class);
+    server.verify();
+    assertNotNull("No Solution", response.getSolution());
+    assertEquals("Wrong number of houses", 1, response.getSolution().getHouse().size());
+    House hs = response.getSolution().getHouse().get(0);
+    assertEquals("House number", 1, hs.getHousenumber());
+    assertEquals("House characteristic size", 1, hs.getCharacteristics().size());
+    HouseCharacteristics hc = h.getCharacteristics().get(0);
+    assertEquals("Characteristic number", 3, hc.getCharacteristicNumber());
+    assertEquals("Characteristic value", 4, hc.getCharacteristicValue());
+  }
+
+  @Test
+  public void testPostJSON() throws Exception {
+    Agent a = new Agent();
+    a.setTarget("http://localhost/postJSON");
+    a.setEnableXML(false);
+    a.setupAgent();
+    // setup mock server
+    MockRestServiceServer server = AgentMockTool.createMockServer(a);
+    // setup expectations
+    server
+        .expect(requestTo("http://localhost/postJSON"))
+        .andExpect(method(HttpMethod.POST))
+        .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+        .andExpect(jsonPath("$.history.puzzleID").value("1233-5678-90abc"))
+        .andExpect(jsonPath("$.puzzleID").value("1234-1234-1234-1234"))
+        .andRespond(
+            withSuccess(
+                "{  \"solution\": { \"house\": [ { \"housenumber\": 1, \"characteristics\": [ { \"characteristicNumber\": 3,"
+                    + "\"characteristicValue\": 4 }]}]}}",
+                MediaType.APPLICATION_JSON));
+    // run request
+    ZebraRequestHistory history = new ZebraRequestHistory();
+    history.setPuzzleID("1233-5678-90abc");
+    House h = new House();
+    h.getCharacteristics().add(new HouseCharacteristics(3, 4));
+    history.getSolution().getHouse().add(h);
+    history.setScore(3400);
+    ZebraRequest request = new ZebraRequest();
+    request.setHistory(history);
+    request.setPuzzleID("1234-1234-1234-1234");
+    request.getClues().add("The person who lives at number 4 has a red front door");
+    ZebraResponse response = a.postRequest(request, ZebraResponse.class);
+    LOG.info("Response = {}", response.toString());
     server.verify();
     assertNotNull("No Solution", response.getSolution());
     assertEquals("Wrong number of houses", 1, response.getSolution().getHouse().size());
