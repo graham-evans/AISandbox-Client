@@ -71,6 +71,11 @@ public class MineHunterScenario implements Scenario {
     return "https://files.aisandbox.dev/swagger/mine.yaml";
   }
 
+  @Override
+  public boolean isBeta() {
+    return false;
+  }
+
   @Autowired @NonVisual SpriteLoader spriteLoader;
 
   @NonVisual private MineHunterThread thread = null;

@@ -88,6 +88,11 @@ public class MazeScenario implements Scenario {
     return "https://files.aisandbox.dev/swagger/maze.yaml";
   }
 
+  @Override
+  public boolean isBeta() {
+    return false;
+  }
+
   /** {@inheritDoc} */
   @Override
   public void startSimulation(
