@@ -1,4 +1,4 @@
-package dev.aisandbox.client;
+package dev.aisandbox.client.agent;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;

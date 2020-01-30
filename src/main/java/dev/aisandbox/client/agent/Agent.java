@@ -1,4 +1,4 @@
-package dev.aisandbox.client;
+package dev.aisandbox.client.agent;
 
 import dev.aisandbox.client.scenarios.ServerRequest;
 import java.net.MalformedURLException;

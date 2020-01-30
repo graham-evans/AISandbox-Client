@@ -1,7 +1,7 @@
 package dev.aisandbox.client.scenarios.maze;
 
-import dev.aisandbox.client.Agent;
-import dev.aisandbox.client.AgentException;
+import dev.aisandbox.client.agent.Agent;
+import dev.aisandbox.client.agent.AgentException;
 import dev.aisandbox.client.fx.GameRunController;
 import dev.aisandbox.client.output.FrameOutput;
 import dev.aisandbox.client.output.OutputTools;

@@ -1,8 +1,8 @@
 package dev.aisandbox.client.fx;
 
-import dev.aisandbox.client.AgentConnectionException;
-import dev.aisandbox.client.AgentParserException;
 import dev.aisandbox.client.RuntimeModel;
+import dev.aisandbox.client.agent.AgentConnectionException;
+import dev.aisandbox.client.agent.AgentParserException;
 import dev.aisandbox.client.output.FormatTools;
 import dev.aisandbox.client.output.FrameOutput;
 import dev.aisandbox.client.output.MP4Output;

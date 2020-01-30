@@ -1,6 +1,6 @@
 package dev.aisandbox.client.fx;
 
-import dev.aisandbox.client.Agent;
+import dev.aisandbox.client.agent.Agent;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;

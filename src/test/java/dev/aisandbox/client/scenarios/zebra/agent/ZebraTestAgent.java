@@ -1,7 +1,7 @@
 package dev.aisandbox.client.scenarios.zebra.agent;
 
-import dev.aisandbox.client.Agent;
-import dev.aisandbox.client.AgentException;
+import dev.aisandbox.client.agent.Agent;
+import dev.aisandbox.client.agent.AgentException;
 import dev.aisandbox.client.scenarios.ServerRequest;
 import dev.aisandbox.client.scenarios.zebra.api.House;
 import dev.aisandbox.client.scenarios.zebra.api.HouseCharacteristics;

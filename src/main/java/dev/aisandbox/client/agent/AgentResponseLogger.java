@@ -1,4 +1,4 @@
-package dev.aisandbox.client;
+package dev.aisandbox.client.agent;
 
 import java.io.BufferedReader;
 import java.io.IOException;

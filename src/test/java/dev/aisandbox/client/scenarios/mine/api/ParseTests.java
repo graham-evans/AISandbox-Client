@@ -9,8 +9,8 @@ import static org.springframework.test.web.client.match.MockRestRequestMatchers.
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.xpath;
 import static org.springframework.test.web.client.response.MockRestResponseCreators.withSuccess;
 
-import dev.aisandbox.client.Agent;
-import dev.aisandbox.client.AgentMockTool;
+import dev.aisandbox.client.agent.Agent;
+import dev.aisandbox.client.agent.AgentMockTool;
 import org.junit.Test;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;

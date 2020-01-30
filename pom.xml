@@ -273,6 +273,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <executable>true</executable>
+                    <mainClass>dev.aisandbox.launcher.AISandboxLauncher</mainClass>
                 </configuration>
             </plugin>
             <plugin>

@@ -3,8 +3,6 @@ package dev.aisandbox.client;
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.classic.joran.JoranConfigurator;
 import ch.qos.logback.core.joran.spi.JoranException;
-import dev.aisandbox.client.cli.CLIParser;
-import dev.aisandbox.client.cli.PropertiesParser;
 import dev.aisandbox.client.fx.FakeGameRunController;
 import dev.aisandbox.client.output.FrameOutput;
 import dev.aisandbox.client.output.NoOutput;
@@ -15,12 +13,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import org.apache.commons.cli.CommandLine;
-import org.apache.commons.cli.CommandLineParser;
-import org.apache.commons.cli.DefaultParser;
-import org.apache.commons.cli.HelpFormatter;
-import org.apache.commons.cli.Options;
-import org.apache.commons.cli.ParseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -36,6 +28,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @SpringBootApplication(scanBasePackages = "dev.aisandbox.client")
 @Configuration
+@Deprecated
 public class AISandboxClient extends Application {
 
   private static final Logger LOG = LoggerFactory.getLogger(AISandboxClient.class.getName());
@@ -48,42 +41,42 @@ public class AISandboxClient extends Application {
    *
    * @param args an array of {@link java.lang.String} objects.
    */
-  public static void main(String[] args) {
-    // get command line options
-    Options options = CLIParser.getOptions();
-    // parse them
-    CommandLine cmd = null;
-    try {
-      CommandLineParser parser = new DefaultParser();
-      cmd = parser.parse(options, args);
-    } catch (ParseException e) {
-      LOG.warn("Error parsing command line arguments");
-      HelpFormatter formatter = new HelpFormatter();
-      formatter.printHelp("java -jar AISandbox_<version>.jar", options);
-      System.exit(-1);
-    }
-    // enable debug logs?
-    if (cmd.hasOption(CLIParser.OPTION_DEBUG)) {
-      enableDegug();
-    }
-    if (cmd.hasOption(CLIParser.OPTION_LILITH)) {
-      enableLilith();
-    }
-    // get runtime model
-    if (cmd.hasOption(CLIParser.OPTION_CONFIG)) {
-      PropertiesParser parser = SpringContext.getBean(PropertiesParser.class);
-      RuntimeModel model = SpringContext.getBean(RuntimeModel.class);
-      parser.parseConfiguration(model, cmd.getOptionValue(CLIParser.OPTION_CONFIG));
-      if (cmd.hasOption(CLIParser.OPTION_HEADLESS)) {
-        // run the model headless
-        runSimulationHeadless(model);
-        System.exit(0);
+  /* public static void main(String[] args) {
+      // get command line options
+      Options options = CLIParser.getOptions();
+      // parse them
+      CommandLine cmd = null;
+      try {
+        CommandLineParser parser = new DefaultParser();
+        cmd = parser.parse(options, args);
+      } catch (ParseException e) {
+        LOG.warn("Error parsing command line arguments");
+        HelpFormatter formatter = new HelpFormatter();
+        formatter.printHelp("java -jar AISandbox_<version>.jar", options);
+        System.exit(-1);
       }
+      // enable debug logs?
+      if (cmd.hasOption(CLIParser.OPTION_DEBUG)) {
+        enableDegug();
+      }
+      if (cmd.hasOption(CLIParser.OPTION_LILITH)) {
+        enableLilith();
+      }
+      // get runtime model
+      if (cmd.hasOption(CLIParser.OPTION_CONFIG)) {
+        PropertiesParser parser = SpringContext.getBean(PropertiesParser.class);
+        RuntimeModel model = SpringContext.getBean(RuntimeModel.class);
+        parser.parseConfiguration(model, cmd.getOptionValue(CLIParser.OPTION_CONFIG));
+        if (cmd.hasOption(CLIParser.OPTION_HEADLESS)) {
+          // run the model headless
+          runSimulationHeadless(model);
+          System.exit(0);
+        }
+      }
+      // initialise FX version
+      Application.launch(args);
     }
-    // initialise FX version
-    Application.launch(args);
-  }
-
+  */
   private static void enableDegug() {
     LOG.warn("Writing debug to file.");
     // Get the logback context

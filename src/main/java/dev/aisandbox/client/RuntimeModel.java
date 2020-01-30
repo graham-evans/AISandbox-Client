@@ -1,5 +1,7 @@
 package dev.aisandbox.client;
 
+import dev.aisandbox.client.agent.Agent;
+import dev.aisandbox.client.output.OutputFormat;
 import dev.aisandbox.client.scenarios.Scenario;
 import java.io.File;
 import java.util.ArrayList;

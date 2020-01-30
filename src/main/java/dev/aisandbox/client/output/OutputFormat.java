@@ -1,4 +1,4 @@
-package dev.aisandbox.client;
+package dev.aisandbox.client.output;
 
 /** Enum for the choice of output format, none/MP4/PNG. */
 public enum OutputFormat {

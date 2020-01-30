@@ -4,9 +4,9 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import dev.aisandbox.client.Agent;
-import dev.aisandbox.client.OutputFormat;
 import dev.aisandbox.client.RuntimeModel;
+import dev.aisandbox.client.agent.Agent;
+import dev.aisandbox.client.output.OutputFormat;
 import dev.aisandbox.client.scenarios.maze.MazeScenario;
 import dev.aisandbox.client.scenarios.maze.MazeSize;
 import dev.aisandbox.client.scenarios.maze.MazeType;
