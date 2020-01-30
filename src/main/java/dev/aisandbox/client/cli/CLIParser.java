@@ -4,8 +4,14 @@ import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.classic.joran.JoranConfigurator;
 import ch.qos.logback.core.joran.spi.JoranException;
 import dev.aisandbox.client.AISandboxClient;
+import javafx.scene.web.HTMLEditorSkin.Command;
+import org.apache.commons.cli.CommandLine;
+import org.apache.commons.cli.CommandLineParser;
+import org.apache.commons.cli.DefaultParser;
+import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
+import org.apache.commons.cli.ParseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -41,8 +47,23 @@ public class CLIParser {
     return options;
   }
 
+  public static CommandLine parseOptions(String[] args) {
+    Options options = getOptions();
+    CommandLine line = null;
+    try {
+      CommandLineParser parser = new DefaultParser();
+      line = parser.parse(options, args);
+    } catch (ParseException e) {
+      LOG.warn("Error parsing command line arguments");
+      HelpFormatter formatter = new HelpFormatter();
+      formatter.printHelp("java -jar AISandbox_<version>.jar", options);
+      System.exit(-1);
+    }
+    return line;
+  }
+
   /** Enable the debug logfile. */
-  private static void enableDegug() {
+  public static void enableDegug() {
     LOG.warn("Writing debug to file.");
     // Get the logback context
     LoggerContext context = (LoggerContext) LoggerFactory.getILoggerFactory();
@@ -58,7 +79,7 @@ public class CLIParser {
   }
 
   /** Enable logging to the Lilith logback app */
-  private static void enableLilith() {
+  public static void enableLilith() {
     LOG.warn("Enabling lilith logging.");
     // Get the logback context
     LoggerContext context = (LoggerContext) LoggerFactory.getILoggerFactory();

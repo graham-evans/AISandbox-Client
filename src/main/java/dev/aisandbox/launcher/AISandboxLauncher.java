@@ -1,6 +1,8 @@
 package dev.aisandbox.launcher;
 
+import dev.aisandbox.client.cli.CLIParser;
 import javafx.application.Application;
+import org.apache.commons.cli.CommandLine;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -21,14 +23,18 @@ public class AISandboxLauncher {
    */
   public static void main(String[] args) {
     LOG.info("Launching AISandbox");
-    // test for the headless option
-    boolean headless = false;
-    for (String arg : args) {
-      if ("-headless".equals(arg)) {
-        headless = true;
-      }
+    // read command line arguments
+    CommandLine cmd = CLIParser.parseOptions(args);
+    // check for debug
+    if (cmd.hasOption(CLIParser.OPTION_DEBUG)) {
+      CLIParser.enableDegug();
     }
-    if (headless) {
+    // check for lilith
+    if (cmd.hasOption(CLIParser.OPTION_LILITH)) {
+      CLIParser.enableLilith();
+    }
+    // check for headless and launch the correct application (passing the args)
+    if (cmd.hasOption(CLIParser.OPTION_HEADLESS)) {
       SpringApplication.run(AISandboxFX.class, args);
     } else {
       Application.launch(AISandboxFX.class, args);

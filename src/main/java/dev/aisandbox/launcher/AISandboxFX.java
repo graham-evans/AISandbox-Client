@@ -55,13 +55,12 @@ public class AISandboxFX extends Application {
   @Override
   public void start(Stage primaryStage) throws Exception {
     LOG.info("Starting application - FX");
-
     primaryStage.setScene(new Scene(rootNode, 800, 600));
     primaryStage.centerOnScreen();
     primaryStage.setTitle("AI Sandbox");
     primaryStage
         .getIcons()
-        .add(new Image(AISandboxClient.class.getResourceAsStream("fx/logo-small.png")));
+        .add(new Image(AISandboxFX.class.getResourceAsStream("/dev/aisandbox/client/fx/logo-small.png")));
     primaryStage.show();
   }
 
