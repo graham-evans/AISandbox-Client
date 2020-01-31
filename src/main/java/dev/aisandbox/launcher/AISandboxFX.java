@@ -1,6 +1,5 @@
 package dev.aisandbox.launcher;
 
-import dev.aisandbox.client.AISandboxClient;
 import dev.aisandbox.client.RuntimeModel;
 import java.util.ResourceBundle;
 import javafx.application.Application;
@@ -60,7 +59,9 @@ public class AISandboxFX extends Application {
     primaryStage.setTitle("AI Sandbox");
     primaryStage
         .getIcons()
-        .add(new Image(AISandboxFX.class.getResourceAsStream("/dev/aisandbox/client/fx/logo-small.png")));
+        .add(
+            new Image(
+                AISandboxFX.class.getResourceAsStream("/dev/aisandbox/client/fx/logo-small.png")));
     primaryStage.show();
   }
 
