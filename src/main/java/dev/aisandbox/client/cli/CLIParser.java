@@ -3,8 +3,6 @@ package dev.aisandbox.client.cli;
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.classic.joran.JoranConfigurator;
 import ch.qos.logback.core.joran.spi.JoranException;
-import dev.aisandbox.client.AISandboxClient;
-import javafx.scene.web.HTMLEditorSkin.Command;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
@@ -64,33 +62,31 @@ public class CLIParser {
 
   /** Enable the debug logfile. */
   public static void enableDegug() {
-    LOG.warn("Writing debug to file.");
     // Get the logback context
     LoggerContext context = (LoggerContext) LoggerFactory.getILoggerFactory();
     try {
       JoranConfigurator configurator = new JoranConfigurator();
       configurator.setContext(context);
       // Dont call reset - we want to add this configuration to the existing one
-      configurator.doConfigure(AISandboxClient.class.getResourceAsStream("/logback-debug.xml"));
+      configurator.doConfigure(CLIParser.class.getResourceAsStream("/logback-debug.xml"));
     } catch (JoranException je) {
       // StatusPrinter will handle this
     }
-    LOG.info("Enabled logfile");
+    LOG.info("Enabled logging to file.");
   }
 
   /** Enable logging to the Lilith logback app */
   public static void enableLilith() {
-    LOG.warn("Enabling lilith logging.");
     // Get the logback context
     LoggerContext context = (LoggerContext) LoggerFactory.getILoggerFactory();
     try {
       JoranConfigurator configurator = new JoranConfigurator();
       configurator.setContext(context);
       // Dont call reset - we want to add this configuration to the existing one
-      configurator.doConfigure(AISandboxClient.class.getResourceAsStream("/logback-lilith.xml"));
+      configurator.doConfigure(CLIParser.class.getResourceAsStream("/logback-lilith.xml"));
     } catch (JoranException je) {
       // StatusPrinter will handle this
     }
-    LOG.info("Enabled lilith logging");
+    LOG.info("Enabled lilith logging.");
   }
 }
