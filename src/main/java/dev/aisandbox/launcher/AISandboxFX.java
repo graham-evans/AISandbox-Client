@@ -1,6 +1,8 @@
 package dev.aisandbox.launcher;
 
 import dev.aisandbox.client.RuntimeModel;
+import dev.aisandbox.client.cli.CLIParser;
+import dev.aisandbox.client.cli.PropertiesParser;
 import java.util.ResourceBundle;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -8,8 +10,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import org.apache.commons.cli.CommandLine;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -44,6 +48,24 @@ public class AISandboxFX extends Application {
     SpringApplicationBuilder builder = new SpringApplicationBuilder(AISandboxFX.class);
     builder.headless(false);
     context = builder.run(getParameters().getRaw().toArray(new String[0]));
+    // parse parameters
+    CommandLine cmd = CLIParser.parseOptions(getParameters().getRaw().toArray(new String[] {}));
+    // check for debug
+    if (cmd.hasOption(CLIParser.OPTION_DEBUG)) {
+      CLIParser.enableDegug();
+    }
+    // check for lilith
+    if (cmd.hasOption(CLIParser.OPTION_LILITH)) {
+      CLIParser.enableLilith();
+    }
+    // check for config file
+    if (cmd.hasOption(CLIParser.OPTION_CONFIG)) {
+      // get the runtime model and properties parser from the spring context
+      RuntimeModel model = context.getBean(RuntimeModel.class);
+      PropertiesParser parser = context.getBean(PropertiesParser.class);
+      parser.parseConfiguration(model,cmd.getOptionValue(CLIParser.OPTION_CONFIG));
+    }
+    // load the root FXML screen, using spring to create the controller
     FXMLLoader loader =
         new FXMLLoader(getClass().getResource("/dev/aisandbox/client/fx/GameChoice.fxml"));
     loader.setResources(ResourceBundle.getBundle("dev.aisandbox.client.fx.UI"));

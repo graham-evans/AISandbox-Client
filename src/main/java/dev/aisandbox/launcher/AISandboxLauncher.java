@@ -25,14 +25,6 @@ public class AISandboxLauncher {
     LOG.info("Launching AISandbox");
     // read command line arguments
     CommandLine cmd = CLIParser.parseOptions(args);
-    // check for debug
-    if (cmd.hasOption(CLIParser.OPTION_DEBUG)) {
-      CLIParser.enableDegug();
-    }
-    // check for lilith
-    if (cmd.hasOption(CLIParser.OPTION_LILITH)) {
-      CLIParser.enableLilith();
-    }
     // check for headless and launch the correct application (passing the args)
     if (cmd.hasOption(CLIParser.OPTION_HEADLESS)) {
       SpringApplication.run(AISandboxFX.class, args);

@@ -5,15 +5,18 @@ import static org.junit.Assert.assertNotNull;
 
 import dev.aisandbox.client.scenarios.zebra.vo.Characteristic;
 import dev.aisandbox.client.scenarios.zebra.vo.Template;
+import dev.aisandbox.launcher.AISandboxCLI;
 import java.util.Random;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
+@ContextConfiguration(classes = {AISandboxCLI.class})
 @SpringBootTest
 public class GeneratorTest {
 

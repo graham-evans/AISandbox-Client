@@ -4,13 +4,13 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import dev.aisandbox.client.AISandboxClient;
 import dev.aisandbox.client.RuntimeModel;
 import dev.aisandbox.client.cli.PropertiesParser;
 import dev.aisandbox.client.fx.FakeGameRunController;
 import dev.aisandbox.client.output.FrameOutput;
 import dev.aisandbox.client.output.PNGOutputWriter;
 import dev.aisandbox.client.scenarios.mine.agent.MineTestAgent;
+import dev.aisandbox.launcher.AISandboxCLI;
 import java.io.File;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,9 +19,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
+@ContextConfiguration(classes = {AISandboxCLI.class})
 @SpringBootTest
 public class MineRunTest {
 
@@ -51,7 +53,7 @@ public class MineRunTest {
   @Test(timeout = 10000) // shouldn't take more than 10 seconds
   public void runFullMineTest() throws Exception {
     System.out.println("Running simulation manualy");
-    SpringApplicationBuilder builder = new SpringApplicationBuilder(AISandboxClient.class);
+    SpringApplicationBuilder builder = new SpringApplicationBuilder(AISandboxCLI.class);
     builder.headless(true);
     ConfigurableApplicationContext context = builder.run();
     // generate the default model and update with CLI (and XML) options

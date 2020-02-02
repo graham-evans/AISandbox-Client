@@ -2,6 +2,7 @@ package dev.aisandbox.client.sprite;
 
 import static org.junit.Assert.assertEquals;
 
+import dev.aisandbox.launcher.AISandboxCLI;
 import java.awt.image.BufferedImage;
 import java.util.List;
 import org.junit.Test;
@@ -9,9 +10,11 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
+@ContextConfiguration(classes = {AISandboxCLI.class})
 @SpringBootTest
 public class SpriteLoaderTest {
 

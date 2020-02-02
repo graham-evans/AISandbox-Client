@@ -12,14 +12,17 @@ import dev.aisandbox.client.scenarios.maze.MazeSize;
 import dev.aisandbox.client.scenarios.maze.MazeType;
 import dev.aisandbox.client.scenarios.mine.MineHunterScenario;
 import dev.aisandbox.client.scenarios.mine.SizeEnum;
+import dev.aisandbox.launcher.AISandboxCLI;
 import java.util.Properties;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
+@ContextConfiguration(classes = {AISandboxCLI.class})
 @SpringBootTest
 public class PropertiesParserTest {
 
