@@ -13,7 +13,6 @@ import javafx.stage.Stage;
 import org.apache.commons.cli.CommandLine;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -63,7 +62,7 @@ public class AISandboxFX extends Application {
       // get the runtime model and properties parser from the spring context
       RuntimeModel model = context.getBean(RuntimeModel.class);
       PropertiesParser parser = context.getBean(PropertiesParser.class);
-      parser.parseConfiguration(model,cmd.getOptionValue(CLIParser.OPTION_CONFIG));
+      parser.parseConfiguration(model, cmd.getOptionValue(CLIParser.OPTION_CONFIG));
     }
     // load the root FXML screen, using spring to create the controller
     FXMLLoader loader =
