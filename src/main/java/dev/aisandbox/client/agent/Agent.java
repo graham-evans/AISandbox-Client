@@ -12,8 +12,7 @@ import javafx.beans.property.SimpleBooleanProperty;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -32,9 +31,8 @@ import org.springframework.web.client.RestTemplate;
  *
  * <p>Uses the Lombok library to auto generate lots of the getters / setters.
  */
+@Slf4j
 public class Agent {
-
-  private static final Logger LOG = LoggerFactory.getLogger(Agent.class.getName());
 
   @Getter(AccessLevel.PROTECTED)
   private RestTemplate restTemplate = null;
@@ -59,7 +57,7 @@ public class Agent {
    * <p>This compiles the HTTP headers based on the supplied settings.
    */
   public void setupAgent() {
-    LOG.info("Setting up agent to use {}", enableXML ? "XML" : "JSON");
+    log.info("Setting up agent to use {}", enableXML ? "XML" : "JSON");
     restHeaders = new HttpHeaders();
     if (enableXML) {
       restHeaders.setContentType(MediaType.APPLICATION_XML);
@@ -102,13 +100,13 @@ public class Agent {
    * @param url The URL in the form of a {@link java.lang.String}.
    */
   public void setTarget(String url) {
-    LOG.info("Setting target to {}", url);
+    log.info("Setting target to {}", url);
     this.target = url;
     try {
       new URL(url);
       validProperty.set(true);
     } catch (MalformedURLException e) {
-      LOG.warn("Invalid URL passed", e);
+      log.warn("Invalid URL passed", e);
       validProperty.set(false);
     }
   }
@@ -132,12 +130,12 @@ public class Agent {
       // convert
       return responseType.cast(response.getBody());
     } catch (ResourceAccessException re) {
-      LOG.error("Error talking to remote resource", re);
+      log.error("Error talking to remote resource", re);
       throw new AgentConnectionException("Error accessing remote resource");
     } catch (RestClientException me) {
       // get the response from the Agent logger
-      LOG.error(RESPONSE_PARSE_ERROR, me);
-      LOG.error(
+      log.error(RESPONSE_PARSE_ERROR, me);
+      log.error(
           "Last code {} response {}", responseLogger.lastHTTPCode, responseLogger.lastResponse);
       throw new AgentParserException(
           "Error converting response", responseLogger.lastHTTPCode, responseLogger.lastResponse);
@@ -164,12 +162,12 @@ public class Agent {
       // convert
       return responseType.cast(response.getBody());
     } catch (ResourceAccessException re) {
-      LOG.error("Error talking to remote resource", re);
+      log.error("Error talking to remote resource", re);
       throw new AgentConnectionException("Error accessing remote resource");
     } catch (RestClientException me) {
       // get the response from the Agent logger
-      LOG.error(RESPONSE_PARSE_ERROR, me);
-      LOG.error(
+      log.error(RESPONSE_PARSE_ERROR, me);
+      log.error(
           "Last code {} response {}", responseLogger.lastHTTPCode, responseLogger.lastResponse);
       throw new AgentParserException(
           "Error converting response", responseLogger.lastHTTPCode, responseLogger.lastResponse);

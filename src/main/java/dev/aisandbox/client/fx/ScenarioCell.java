@@ -12,8 +12,7 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.Pane;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * ScenarioCell class.
@@ -21,9 +20,8 @@ import org.slf4j.LoggerFactory;
  * @author gde
  * @version $Id: $Id
  */
+@Slf4j
 public class ScenarioCell extends ListCell<Scenario> {
-
-  private static final Logger LOG = LoggerFactory.getLogger(ScenarioCell.class.getName());
 
   @FXML private Label scenarioName;
 
@@ -59,7 +57,7 @@ public class ScenarioCell extends ListCell<Scenario> {
         try {
           fxmlLoader.load();
         } catch (IOException e) {
-          LOG.error("Error loading FXML", e);
+          log.error("Error loading FXML", e);
         }
       }
 

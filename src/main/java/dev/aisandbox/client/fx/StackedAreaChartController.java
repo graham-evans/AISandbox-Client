@@ -5,15 +5,13 @@ import java.util.Map;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.StackedAreaChart;
 import javafx.scene.chart.XYChart;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class StackedAreaChartController {
 
   private final StackedAreaChart chart;
   private final NumberAxis axisX;
-  private static final Logger LOG =
-      LoggerFactory.getLogger(StackedAreaChartController.class.getName());
   // map of series
   private final Map<String, XYChart.Series> seriesMap = new HashMap<>();
   private int step = 0;
@@ -32,7 +30,7 @@ public class StackedAreaChartController {
     step++;
     // remove old entries
     int oldStep = step - HISTORY;
-    LOG.debug("Moving chart bounds to {} - {}", oldStep, step);
+    log.debug("Moving chart bounds to {} - {}", oldStep, step);
     // check existing series
     for (XYChart.Series series : seriesMap.values()) {
       if (!series.getData().isEmpty()) {

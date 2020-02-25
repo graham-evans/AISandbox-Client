@@ -29,18 +29,17 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javax.imageio.ImageIO;
+import lombok.extern.slf4j.Slf4j;
 import org.jfree.chart.fx.ChartViewer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 /** Controller class used when running the simulations. */
 @Component
+@Slf4j
 public class GameRunController {
 
-  private static final Logger LOG = LoggerFactory.getLogger(GameRunController.class.getName());
   private final AtomicBoolean imageReady = new AtomicBoolean(true);
   @Autowired private ApplicationContext appContext;
   @Autowired private RuntimeModel model;
@@ -62,7 +61,7 @@ public class GameRunController {
 
   @FXML
   void backButtonAction(ActionEvent event) {
-    LOG.info("Selecting options screen");
+    log.info("Selecting options screen");
     fxtools.moveToScreen(event, "/dev/aisandbox/client/fx/GameOptions.fxml");
   }
 
@@ -96,7 +95,7 @@ public class GameRunController {
     try {
       out.open(model.getOutputDirectory());
     } catch (IOException e) {
-      LOG.warn("Error opening output", e);
+      log.warn("Error opening output", e);
     }
     model
         .getScenario()
@@ -140,7 +139,7 @@ public class GameRunController {
                       "/dev/aisandbox/client/testcard.png")),
               null));
     } catch (IOException e) {
-      LOG.error("Error loading testcard", e);
+      log.error("Error loading testcard", e);
     }
     imageAnchor.getChildren().add(imageView);
     // setup automatic resize
@@ -189,7 +188,7 @@ public class GameRunController {
     // get image width and height
     double imageWidth = image.getImage().getWidth();
     double imageHeight = image.getImage().getHeight();
-    LOG.debug("Scaling image {}x{} to pane {}x{}", imageWidth, imageHeight, paneWidth, paneHeight);
+    log.debug("Scaling image {}x{} to pane {}x{}", imageWidth, imageHeight, paneWidth, paneHeight);
     // work out the best scale
     double scaleX = paneWidth / imageWidth;
     double scaleY = paneHeight / imageHeight;

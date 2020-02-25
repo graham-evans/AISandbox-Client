@@ -13,8 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 import lombok.Setter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * EditAgentController class.
@@ -22,10 +21,10 @@ import org.slf4j.LoggerFactory;
  * @author gde
  * @version $Id: $Id
  */
+@Slf4j
 public class EditAgentController {
 
   private Agent agent;
-  private static final Logger LOG = LoggerFactory.getLogger(EditAgentController.class.getName());
 
   @Setter Stage dialogStage;
 
@@ -57,13 +56,13 @@ public class EditAgentController {
 
   @FXML
   void onCancelAction(ActionEvent event) {
-    LOG.info("Closing without saving");
+    log.info("Closing without saving");
     dialogStage.close();
   }
 
   @FXML
   void onSaveAction(ActionEvent event) {
-    LOG.info("Saving agent info");
+    log.info("Saving agent info");
     // TODO check target URL is valid
     // copy data from UI to agent
     agent.setTarget(url.getText());

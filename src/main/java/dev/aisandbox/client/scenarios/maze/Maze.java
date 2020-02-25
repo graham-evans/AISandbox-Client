@@ -6,8 +6,7 @@ import java.util.List;
 import java.util.UUID;
 import lombok.Getter;
 import lombok.Setter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Maze class.
@@ -15,9 +14,8 @@ import org.slf4j.LoggerFactory;
  * @author gde
  * @version $Id: $Id
  */
+@Slf4j
 public class Maze {
-
-  private static final Logger LOG = LoggerFactory.getLogger(Maze.class.getName());
 
   @Getter private final String boardID = UUID.randomUUID().toString();
 
@@ -46,7 +44,7 @@ public class Maze {
    * @param height a int.
    */
   public Maze(int width, int height) {
-    LOG.info("Generated maze {} with dimensions {}x{}", boardID, width, height);
+    log.info("Generated maze {} with dimensions {}x{}", boardID, width, height);
     this.width = width;
     this.height = height;
     cellArray = new Cell[width][height];

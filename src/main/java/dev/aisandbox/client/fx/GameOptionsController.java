@@ -29,8 +29,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import javafx.util.converter.NumberStringConverter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
@@ -42,9 +41,8 @@ import org.springframework.stereotype.Component;
  * @version $Id: $Id
  */
 @Component
+@Slf4j
 public class GameOptionsController {
-
-  private static final Logger LOG = LoggerFactory.getLogger(GameOptionsController.class.getName());
 
   @Autowired private RuntimeModel model;
 
@@ -80,7 +78,7 @@ public class GameOptionsController {
   void removeAgentEvent(ActionEvent event) {
     // get the selected agent
     Agent agent = agentList.getSelectionModel().getSelectedItem();
-    LOG.info("Removing agent {}", agent);
+    log.info("Removing agent {}", agent);
     // remove it from the model
     model.getAgentList().remove(agent);
   }
@@ -96,13 +94,13 @@ public class GameOptionsController {
 
   @FXML
   void lastAction(ActionEvent event) {
-    LOG.info("Selecting game choice screen");
+    log.info("Selecting game choice screen");
     fxtools.moveToScreen(event, "/dev/aisandbox/client/fx/GameChoice.fxml");
   }
 
   @FXML
   void nextAction(ActionEvent event) {
-    LOG.info("Selecting run game screen");
+    log.info("Selecting run game screen");
     fxtools.moveToScreen(event, "/dev/aisandbox/client/fx/GameRun.fxml");
   }
 
@@ -118,7 +116,7 @@ public class GameOptionsController {
   void clickAgentList(MouseEvent event) {
     // is this the second click
     if (event.getClickCount() == 2) {
-      LOG.info("Double click on agent list");
+      log.info("Double click on agent list");
       Agent agent = agentList.getSelectionModel().getSelectedItem();
       if (agent != null) {
         // edit agent
@@ -148,7 +146,7 @@ public class GameOptionsController {
       // redraw the list just in case something has changed
       agentList.refresh();
     } catch (IOException e) {
-      LOG.error("Error loading FXML", e);
+      log.error("Error loading FXML", e);
     }
   }
 
@@ -162,7 +160,7 @@ public class GameOptionsController {
         dc.setInitialDirectory(f);
       }
     } catch (Exception e) {
-      LOG.debug("Invalid directory in text field", e);
+      log.debug("Invalid directory in text field", e);
     }
     File fout = dc.showDialog(((Node) event.getTarget()).getScene().getWindow());
     if ((fout != null) && fout.isDirectory()) {
@@ -196,7 +194,7 @@ public class GameOptionsController {
     assert simulationLimitSteps != null
         : "fx:id=\"simulationLimitSteps\" was not injected: check your FXML file 'GameOptions.fxml'.";
 
-    LOG.info("Adding scenario options");
+    log.info("Adding scenario options");
     FXForm options = new FXForm(model.getScenario());
     options.setSkin(FXFormSkinFactory.INLINE_FACTORY.createSkin(options));
     optionPane.setContent(options);
@@ -210,7 +208,7 @@ public class GameOptionsController {
     } else {
       outputDirectory.setText("");
     }
-    LOG.info("Registering property bindings");
+    log.info("Registering property bindings");
     agentList.setItems(model.getAgentList());
     // disable remove agent if we dont have one selected
     removeAgentButton

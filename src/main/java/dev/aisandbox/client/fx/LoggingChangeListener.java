@@ -2,8 +2,7 @@ package dev.aisandbox.client.fx;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * LoggingChangeListener class.
@@ -11,9 +10,8 @@ import org.slf4j.LoggerFactory;
  * @author gde
  * @version $Id: $Id
  */
+@Slf4j
 public class LoggingChangeListener implements ChangeListener<Number> {
-
-  private static final Logger LOG = LoggerFactory.getLogger(LoggingChangeListener.class.getName());
 
   private final String name;
 
@@ -30,6 +28,6 @@ public class LoggingChangeListener implements ChangeListener<Number> {
   @Override
   public void changed(
       ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-    LOG.info("{} => {}", name, newValue);
+    log.info("{} => {}", name, newValue);
   }
 }

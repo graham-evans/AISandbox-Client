@@ -12,16 +12,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 @Component
+@Slf4j
 public class PropertiesParser {
-
-  private static final Logger LOG = LoggerFactory.getLogger(PropertiesParser.class.getName());
 
   @Autowired private ApplicationContext appContext;
 
@@ -35,12 +33,12 @@ public class PropertiesParser {
   public RuntimeModel parseConfiguration(RuntimeModel model, String filePath) {
     // read properties from file
     File pfile = new File(filePath);
-    LOG.debug("Loading properties from {}", pfile.getAbsolutePath());
+    log.debug("Loading properties from {}", pfile.getAbsolutePath());
     Properties props = new Properties();
     try {
       props.load(new FileInputStream(pfile));
     } catch (IOException e) {
-      LOG.warn("Error loading properties", e);
+      log.warn("Error loading properties", e);
     }
     // parse and return
     return parseConfiguration(model, props);
@@ -65,7 +63,7 @@ public class PropertiesParser {
           readMineSettings(model, props);
           break;
         default:
-          LOG.warn("Unknown scenario name '{}'", scenario);
+          log.warn("Unknown scenario name '{}'", scenario);
       }
     }
     readGeneralSettings(model, props);
@@ -132,7 +130,7 @@ public class PropertiesParser {
           model.setOutputFormat(OutputFormat.PNG);
           break;
         default:
-          LOG.warn("Unknown output format");
+          log.warn("Unknown output format");
       }
     }
     if (props.containsKey("outputDir")) {
@@ -164,7 +162,7 @@ public class PropertiesParser {
           mine.setMineHunterBoardSize(SizeEnum.LARGE);
           break;
         default:
-          LOG.warn("unrecognised board size");
+          log.warn("unrecognised board size");
       }
     }
   }
@@ -193,7 +191,7 @@ public class PropertiesParser {
           maze.setMazeSize(MazeSize.LARGE);
           break;
         default:
-          LOG.warn("unrecognised board size");
+          log.warn("unrecognised board size");
       }
     }
     if (props.containsKey("type")) {
@@ -211,7 +209,7 @@ public class PropertiesParser {
           maze.setMazeType(MazeType.BRAIDED);
           break;
         default:
-          LOG.warn("unrecognised maze type");
+          log.warn("unrecognised maze type");
       }
     }
   }

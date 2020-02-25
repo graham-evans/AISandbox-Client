@@ -18,8 +18,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
@@ -31,9 +30,9 @@ import org.springframework.stereotype.Component;
  * @version $Id: $Id
  */
 @Component
+@Slf4j
 public class GameChoiceController {
 
-  private static final Logger LOG = LoggerFactory.getLogger(GameChoiceController.class.getName());
   @Autowired private ApplicationContext appContext;
   @Autowired private List<Scenario> scenarioList;
   @Autowired private RuntimeModel model;
@@ -82,11 +81,11 @@ public class GameChoiceController {
     assert nextButton != null
         : "fx:id=\"nextButton\" was not injected: check your FXML file 'GameChoice.fxml'.";
 
-    LOG.info("Initialising Game Choise controller");
+    log.info("Initialising Game Choise controller");
     if (scenarioList == null) {
-      LOG.error("scenarioList is null");
+      log.error("scenarioList is null");
     } else {
-      LOG.info("There are {} scenarios", scenarioList.size());
+      log.info("There are {} scenarios", scenarioList.size());
       // add scenarios to the list
       scenarioList.removeIf(Scenario::isBeta);
       gameList.getItems().addAll(scenarioList);
@@ -137,15 +136,15 @@ public class GameChoiceController {
     try {
       Desktop.getDesktop().browse(new URL(link).toURI());
     } catch (IOException e) {
-      LOG.error("IO Error spawning browser", e);
+      log.error("IO Error spawning browser", e);
     } catch (URISyntaxException e) {
-      LOG.error("URL Error spawning browser", e);
+      log.error("URL Error spawning browser", e);
     }
   }
 
   @FXML
   void nextAction(ActionEvent event) {
-    LOG.info("Moving to game options screen");
+    log.info("Moving to game options screen");
     fxtools.moveToScreen(event, "/dev/aisandbox/client/fx/GameOptions.fxml");
   }
 }

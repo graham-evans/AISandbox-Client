@@ -10,8 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
@@ -23,9 +22,8 @@ import org.springframework.stereotype.Component;
  * @version $Id: $Id
  */
 @Component
+@Slf4j
 public class FXTools {
-
-  private static final Logger LOG = LoggerFactory.getLogger(FXTools.class.getName());
 
   @Autowired private ApplicationContext appContext;
 
@@ -37,7 +35,7 @@ public class FXTools {
    */
   public void moveToScreen(ActionEvent event, String fxml) {
     try {
-      LOG.debug("Selecting {} screen", fxml);
+      log.debug("Selecting {} screen", fxml);
       FXMLLoader loader = new FXMLLoader(FXTools.class.getResource(fxml));
       loader.setResources(ResourceBundle.getBundle("dev.aisandbox.client.fx.UI"));
       loader.setControllerFactory(appContext::getBean);
@@ -46,7 +44,7 @@ public class FXTools {
       Scene s2 = new Scene(loader.load(), s1.getWidth(), s1.getHeight());
       stage.setScene(s2);
     } catch (IOException e) {
-      LOG.error("Error switching Javafx scenes", e);
+      log.error("Error switching Javafx scenes", e);
     }
   }
 

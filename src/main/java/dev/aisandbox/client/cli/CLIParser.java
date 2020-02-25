@@ -3,6 +3,7 @@ package dev.aisandbox.client.cli;
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.classic.joran.JoranConfigurator;
 import ch.qos.logback.core.joran.spi.JoranException;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
@@ -10,14 +11,12 @@ import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Component
+@Slf4j
 public class CLIParser {
-
-  private static final Logger LOG = LoggerFactory.getLogger(CLIParser.class.getName());
 
   public static final String OPTION_DEBUG = "logfile";
   public static final String OPTION_LILITH = "lilith";
@@ -52,7 +51,7 @@ public class CLIParser {
       CommandLineParser parser = new DefaultParser();
       line = parser.parse(options, args);
     } catch (ParseException e) {
-      LOG.warn("Error parsing command line arguments");
+      log.warn("Error parsing command line arguments");
       HelpFormatter formatter = new HelpFormatter();
       formatter.printHelp("java -jar AISandbox_<version>.jar", options);
       System.exit(-1);
@@ -72,7 +71,7 @@ public class CLIParser {
     } catch (JoranException je) {
       // StatusPrinter will handle this
     }
-    LOG.info("Enabled logging to file.");
+    log.info("Enabled logging to file.");
   }
 
   /** Enable logging to the Lilith logback app */
@@ -87,6 +86,6 @@ public class CLIParser {
     } catch (JoranException je) {
       // StatusPrinter will handle this
     }
-    LOG.info("Enabled lilith logging.");
+    log.info("Enabled lilith logging.");
   }
 }

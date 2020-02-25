@@ -5,8 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * MazeUtilities class.
@@ -14,9 +13,8 @@ import org.slf4j.LoggerFactory;
  * @author gde
  * @version $Id: $Id
  */
+@Slf4j
 public class MazeUtilities {
-
-  private static final Logger LOG = LoggerFactory.getLogger(MazeUtilities.class.getName());
 
   private MazeUtilities() {}
 
@@ -27,7 +25,7 @@ public class MazeUtilities {
    * @param maze a {@link dev.aisandbox.client.scenarios.maze.Maze} object.
    */
   public static void applySidewinder(Random rand, Maze maze) {
-    LOG.info("Applying sidewinder to maze");
+    log.info("Applying sidewinder to maze");
     // special case, join the top row
     for (int x = 0; x < maze.getWidth() - 1; x++) {
       maze.getCellArray()[x][0].addPath(Direction.EAST);
@@ -50,7 +48,7 @@ public class MazeUtilities {
         }
       }
     }
-    LOG.info("Finished sidewinder");
+    log.info("Finished sidewinder");
   }
 
   /**
@@ -60,7 +58,7 @@ public class MazeUtilities {
    * @param maze a {@link dev.aisandbox.client.scenarios.maze.Maze} object.
    */
   public static void applyBinaryTree(Random rand, Maze maze) {
-    LOG.info("Applying binary tree to maze");
+    log.info("Applying binary tree to maze");
     for (Cell c : maze.getCellList()) {
       List<Cell> targets = new ArrayList<>();
       if (c.getNeighbours().get(Direction.EAST) != null) {
@@ -73,11 +71,11 @@ public class MazeUtilities {
         c.addPath(targets.get(rand.nextInt(targets.size())));
       }
     }
-    LOG.info("finished binary tree");
+    log.info("finished binary tree");
   }
 
   public static void applyRecursiveBacktracker(Random rand, Maze maze) {
-    LOG.info("Applying recursive backtracker");
+    log.info("Applying recursive backtracker");
     List<Cell> stack = new ArrayList<>();
     List<Cell> unvisited = new ArrayList<>();
     unvisited.addAll(maze.getCellList());
@@ -103,7 +101,7 @@ public class MazeUtilities {
         unvisited.remove(next);
       }
     }
-    LOG.info("Finished backtracker");
+    log.info("Finished backtracker");
   }
 
   public static void removeDeadEnds(Random rand, Maze maze) {
@@ -146,7 +144,7 @@ public class MazeUtilities {
    * @param maze a {@link dev.aisandbox.client.scenarios.maze.Maze} object.
    */
   public static void applyDijkstra(Maze maze) {
-    LOG.info(
+    log.info(
         "Applying dijkstra - picking random start cell from maze with {} cells",
         maze.getCellList().size());
     Random rand = new Random(System.currentTimeMillis());

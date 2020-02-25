@@ -8,9 +8,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
+import lombok.extern.slf4j.Slf4j;
 import org.controlsfx.glyphfont.Glyph;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * AgentCell class.
@@ -18,9 +17,8 @@ import org.slf4j.LoggerFactory;
  * @author gde
  * @version $Id: $Id
  */
+@Slf4j
 public class AgentCell extends ListCell<Agent> {
-
-  private static final Logger LOG = LoggerFactory.getLogger(AgentCell.class.getName());
 
   @FXML private Label protocolLabel;
 
@@ -51,7 +49,7 @@ public class AgentCell extends ListCell<Agent> {
         try {
           mLLoader.load();
         } catch (IOException e) {
-          LOG.error("Error loading FXML", e);
+          log.error("Error loading FXML", e);
         }
       }
       // show red URLs when invalid

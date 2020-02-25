@@ -26,7 +26,7 @@ import org.springframework.stereotype.Component;
 public class MazeScenario implements Scenario {
 
   @NonVisual
-  private static final Logger LOG = LoggerFactory.getLogger(MazeScenario.class.getName());
+  private static final Logger log = LoggerFactory.getLogger(MazeScenario.class.getName());
 
   @NonVisual private MazeRunner runner = null;
 
@@ -97,8 +97,8 @@ public class MazeScenario implements Scenario {
   @Override
   public void startSimulation(
       List<Agent> agentList, GameRunController ui, FrameOutput output, Long stepCount) {
-    LOG.info("Salt {}", scenarioSalt);
-    LOG.info("Generating maze");
+    log.info("Salt {}", scenarioSalt);
+    log.info("Generating maze");
     Maze maze;
     switch (mazeSize) {
       case SMALL:
@@ -138,14 +138,14 @@ public class MazeScenario implements Scenario {
     // render base map
     BufferedImage image = renderer.renderMaze(maze);
     runner = new MazeRunner(agentList.get(0), maze, output, ui, image, stepCount);
-    LOG.info("Starting simulation");
+    log.info("Starting simulation");
     runner.start();
   }
 
   /** {@inheritDoc} */
   @Override
   public void stopSimulation() {
-    LOG.info("Stopping simulation");
+    log.info("Stopping simulation");
     if (runner != null) {
       runner.stopSimulation();
       runner = null;
@@ -154,12 +154,12 @@ public class MazeScenario implements Scenario {
 
   @Override
   public void joinSimulation() {
-    LOG.info("Joining simulation");
+    log.info("Joining simulation");
     if (runner != null) {
       try {
         runner.join();
       } catch (InterruptedException e) {
-        LOG.warn("Interrupted!", e);
+        log.warn("Interrupted!", e);
         // Restore interrupted state...
         Thread.currentThread().interrupt();
       }

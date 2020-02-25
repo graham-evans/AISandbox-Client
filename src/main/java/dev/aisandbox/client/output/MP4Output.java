@@ -5,12 +5,11 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Locale;
 import java.util.UUID;
+import lombok.extern.slf4j.Slf4j;
 import org.jcodec.api.awt.AWTSequenceEncoder;
 import org.jcodec.common.io.NIOUtils;
 import org.jcodec.common.io.SeekableByteChannel;
 import org.jcodec.common.model.Rational;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /**
@@ -20,9 +19,8 @@ import org.springframework.stereotype.Component;
  * @version $Id: $Id
  */
 @Component
+@Slf4j
 public class MP4Output implements FrameOutput {
-
-  private static final Logger LOG = LoggerFactory.getLogger(MP4Output.class.getName());
 
   private SeekableByteChannel out = null;
   private AWTSequenceEncoder encoder;
@@ -41,7 +39,7 @@ public class MP4Output implements FrameOutput {
       out = NIOUtils.writableFileChannel(outputFile.getAbsolutePath());
       encoder = new AWTSequenceEncoder(out, Rational.R(25, 1));
     } catch (Exception e) {
-      LOG.warn("Error setting up the output", e);
+      log.warn("Error setting up the output", e);
     }
   }
 
