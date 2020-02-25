@@ -37,7 +37,7 @@ public class AISandboxFX extends Application {
   private Parent rootNode;
 
   /**
-   * Init method, sets up the Spring context and connects it to the FXMLLoader
+   * Init method, sets up the Spring context and connects it to the FXMLLoader.
    *
    * @throws Exception Exeption setting up the FX app
    */

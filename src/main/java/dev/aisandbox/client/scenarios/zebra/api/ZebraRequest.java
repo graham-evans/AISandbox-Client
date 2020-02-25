@@ -14,7 +14,6 @@ public class ZebraRequest implements ServerRequest {
   private ZebraRequestHistory history;
   private String puzzleID;
   private List<String> clues = new ArrayList<>();
-  private List<ZebraRequestCharacteristics> characteristics =
-      new ArrayList<ZebraRequestCharacteristics>();
+  private List<ZebraRequestCharacteristics> characteristics = new ArrayList<>();
   private int numberOfHouses;
 }

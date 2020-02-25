@@ -63,10 +63,14 @@ public class ZebraScenario implements Scenario {
 
   @Override
   public void startSimulation(
-      List<Agent> agentList, GameRunController ui, FrameOutput output, Long stepCount) {}
+      List<Agent> agentList, GameRunController ui, FrameOutput output, Long stepCount) {
+    throw new UnsupportedOperationException();
+  }
 
   @Override
-  public void stopSimulation() {}
+  public void stopSimulation() {
+    throw new UnsupportedOperationException();
+  }
 
   @Override
   public boolean isSimulationRunning() {
@@ -74,7 +78,9 @@ public class ZebraScenario implements Scenario {
   }
 
   @Override
-  public void joinSimulation() {}
+  public void joinSimulation() {
+    throw new UnsupportedOperationException();
+  }
 
   @Override
   public String getScenarioURL() {
