@@ -4,13 +4,15 @@ import javafx.scene.paint.Color;
 
 public enum ScenarioType {
   INTRODUCTION,
-  TEXT;
+  TEXT,
+  INTERMEDIATE;
 
   private Color typeColour;
 
   static {
     INTRODUCTION.typeColour = Color.DARKGREEN;
     TEXT.typeColour = Color.BLACK;
+    INTERMEDIATE.typeColour = Color.BLUE;
   }
 
   public Color getTypeColour() {

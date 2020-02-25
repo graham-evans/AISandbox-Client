@@ -6,6 +6,6 @@ import lombok.Data;
 
 @Data
 public class Face {
-  String faceName;
-  List<Piece> pieces = new ArrayList<>();
+  List<String> cells = new ArrayList<>();
+  Integer requiredColor = null;
 }

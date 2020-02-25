@@ -1,11 +1,11 @@
 package dev.aisandbox.client.scenarios.twisty.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 import lombok.Data;
 
 @Data
 public class Move {
-  private int cost;
-  private List<MoveChain> chains = new ArrayList<>();
+  int cost;
+  Map<String, String> cellMapping = new HashMap<>();
 }
