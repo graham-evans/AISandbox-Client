@@ -1,0 +1,14 @@
+<configuration>
+
+  <appender name="lilith" class="ch.qos.logback.classic.net.SocketAppender">
+    <RemoteHost>localhost</RemoteHost>
+    <Port>4560</Port>
+    <ReconnectionDelay>170</ReconnectionDelay>
+    <IncludeCallerData>true</IncludeCallerData>
+  </appender>
+
+  <logger name="dev.aisandbox" level="DEBUG">
+    <appender-ref ref="lilith"/>
+  </logger>
+
+</configuration>

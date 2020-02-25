@@ -4,22 +4,25 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import dev.aisandbox.client.Agent;
-import dev.aisandbox.client.OutputFormat;
 import dev.aisandbox.client.RuntimeModel;
+import dev.aisandbox.client.agent.Agent;
+import dev.aisandbox.client.output.OutputFormat;
 import dev.aisandbox.client.scenarios.maze.MazeScenario;
 import dev.aisandbox.client.scenarios.maze.MazeSize;
 import dev.aisandbox.client.scenarios.maze.MazeType;
 import dev.aisandbox.client.scenarios.mine.MineHunterScenario;
 import dev.aisandbox.client.scenarios.mine.SizeEnum;
+import dev.aisandbox.launcher.AISandboxCLI;
 import java.util.Properties;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
+@ContextConfiguration(classes = {AISandboxCLI.class})
 @SpringBootTest
 public class PropertiesParserTest {
 

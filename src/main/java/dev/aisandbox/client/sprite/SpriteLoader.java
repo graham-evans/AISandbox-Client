@@ -17,7 +17,7 @@ public class SpriteLoader {
   private final boolean licencedAvailable;
 
   public SpriteLoader() {
-    LOG.info("Initialising sprite loader");
+    LOG.debug("Initialising sprite loader");
     licencedAvailable = false;
   }
 

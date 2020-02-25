@@ -2,9 +2,9 @@ package dev.aisandbox.client.fx;
 
 import com.dooapp.fxform.FXForm;
 import com.dooapp.fxform.view.FXFormSkinFactory;
-import dev.aisandbox.client.Agent;
-import dev.aisandbox.client.OutputFormat;
 import dev.aisandbox.client.RuntimeModel;
+import dev.aisandbox.client.agent.Agent;
+import dev.aisandbox.client.output.OutputFormat;
 import java.io.File;
 import java.io.IOException;
 import java.util.ResourceBundle;

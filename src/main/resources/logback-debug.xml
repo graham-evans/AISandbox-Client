@@ -1,0 +1,22 @@
+<configuration>
+
+  <appender name="LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>AISandbox.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+      <fileNamePattern>AISandbox.log.%i.gz</fileNamePattern>
+      <minIndex>1</minIndex>
+      <maxIndex>3</maxIndex>
+    </rollingPolicy>
+    <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+      <maxFileSize>10MB</maxFileSize>
+    </triggeringPolicy>
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <logger name="dev.aisandbox.client" level="DEBUG">
+    <appender-ref ref="LOG"/>
+  </logger>
+
+</configuration>

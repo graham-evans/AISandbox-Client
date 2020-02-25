@@ -1,6 +1,6 @@
 package dev.aisandbox.client.fx;
 
-import dev.aisandbox.client.Agent;
+import dev.aisandbox.client.agent.Agent;
 import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

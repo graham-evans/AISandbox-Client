@@ -1,8 +1,8 @@
 package dev.aisandbox.client.cli;
 
-import dev.aisandbox.client.Agent;
-import dev.aisandbox.client.OutputFormat;
 import dev.aisandbox.client.RuntimeModel;
+import dev.aisandbox.client.agent.Agent;
+import dev.aisandbox.client.output.OutputFormat;
 import dev.aisandbox.client.scenarios.maze.MazeScenario;
 import dev.aisandbox.client.scenarios.maze.MazeSize;
 import dev.aisandbox.client.scenarios.maze.MazeType;
