@@ -7,15 +7,19 @@ import dev.aisandbox.client.output.FrameOutput;
 import dev.aisandbox.client.scenarios.Scenario;
 import dev.aisandbox.client.scenarios.ScenarioType;
 import java.util.List;
+import java.util.Random;
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 @Component
 @Data
+@Slf4j
 public class TwistyScenario implements Scenario {
 
   private PuzzleType twistyType = PuzzleType.CUBE3;
   private boolean twistyMultipleSteps = true;
+  private Long scenarioSalt = 0l;
 
   @NonVisual // dont show this on the UI
   private TwistyThread thread = null;
@@ -58,12 +62,23 @@ public class TwistyScenario implements Scenario {
   @Override
   public void startSimulation(
       List<Agent> agentList, GameRunController ui, FrameOutput output, Long stepCount) {
-    throw new UnsupportedOperationException();
+    // create random number generator
+    Random rand;
+    if (scenarioSalt == 0) {
+      rand = new Random();
+    } else {
+      rand = new Random(scenarioSalt);
+    }
+    log.info("Starting run thread");
+    thread = new TwistyThread(agentList.get(0), output, ui, rand, twistyType, stepCount);
+    thread.start();
   }
 
   @Override
   public void stopSimulation() {
-    throw new UnsupportedOperationException();
+    if (thread != null) {
+      thread.stopSimulation();
+    }
   }
 
   @Override
@@ -73,7 +88,17 @@ public class TwistyScenario implements Scenario {
 
   @Override
   public void joinSimulation() {
-    throw new UnsupportedOperationException();
+    log.info("Joining simulation");
+    if (thread != null) {
+      try {
+        thread.join();
+      } catch (InterruptedException e) {
+        log.warn("Interrupted!", e);
+        // Restore interrupted state...
+        Thread.currentThread().interrupt();
+      }
+      thread = null;
+    }
   }
 
   @Override

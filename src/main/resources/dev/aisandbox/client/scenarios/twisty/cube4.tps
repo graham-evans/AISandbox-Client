@@ -1,60 +1,485 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Puzzle>
-    <colour>#ffffff</colour>
-    <colour>#00ff00</colour>
-    <colour>#ff0000</colour>
-    <colour>#0000ff</colour>
-    <colour>#ffc800</colour>
-    <colour>#ffff00</colour>
+    <faces>
+        <entry>
+            <key>66</key>
+            <value>
+                <baseColour>#0000ff</baseColour>
+                <cells>B0000</cells>
+                <cells>B0100</cells>
+                <cells>B0200</cells>
+                <cells>B0300</cells>
+                <cells>B0001</cells>
+                <cells>B0101</cells>
+                <cells>B0201</cells>
+                <cells>B0301</cells>
+                <cells>B0002</cells>
+                <cells>B0102</cells>
+                <cells>B0202</cells>
+                <cells>B0302</cells>
+                <cells>B0003</cells>
+                <cells>B0103</cells>
+                <cells>B0203</cells>
+                <cells>B0303</cells>
+                <strictColour>false</strictColour>
+            </value>
+        </entry>
+        <entry>
+            <key>82</key>
+            <value>
+                <baseColour>#ff0000</baseColour>
+                <cells>R0000</cells>
+                <cells>R0100</cells>
+                <cells>R0200</cells>
+                <cells>R0300</cells>
+                <cells>R0001</cells>
+                <cells>R0101</cells>
+                <cells>R0201</cells>
+                <cells>R0301</cells>
+                <cells>R0002</cells>
+                <cells>R0102</cells>
+                <cells>R0202</cells>
+                <cells>R0302</cells>
+                <cells>R0003</cells>
+                <cells>R0103</cells>
+                <cells>R0203</cells>
+                <cells>R0303</cells>
+                <strictColour>false</strictColour>
+            </value>
+        </entry>
+        <entry>
+            <key>68</key>
+            <value>
+                <baseColour>#ffff00</baseColour>
+                <cells>D0000</cells>
+                <cells>D0100</cells>
+                <cells>D0200</cells>
+                <cells>D0300</cells>
+                <cells>D0001</cells>
+                <cells>D0101</cells>
+                <cells>D0201</cells>
+                <cells>D0301</cells>
+                <cells>D0002</cells>
+                <cells>D0102</cells>
+                <cells>D0202</cells>
+                <cells>D0302</cells>
+                <cells>D0003</cells>
+                <cells>D0103</cells>
+                <cells>D0203</cells>
+                <cells>D0303</cells>
+                <strictColour>false</strictColour>
+            </value>
+        </entry>
+        <entry>
+            <key>85</key>
+            <value>
+                <baseColour>#ffffff</baseColour>
+                <cells>U0000</cells>
+                <cells>U0100</cells>
+                <cells>U0200</cells>
+                <cells>U0300</cells>
+                <cells>U0001</cells>
+                <cells>U0101</cells>
+                <cells>U0201</cells>
+                <cells>U0301</cells>
+                <cells>U0002</cells>
+                <cells>U0102</cells>
+                <cells>U0202</cells>
+                <cells>U0302</cells>
+                <cells>U0003</cells>
+                <cells>U0103</cells>
+                <cells>U0203</cells>
+                <cells>U0303</cells>
+                <strictColour>false</strictColour>
+            </value>
+        </entry>
+        <entry>
+            <key>70</key>
+            <value>
+                <baseColour>#00ff00</baseColour>
+                <cells>F0000</cells>
+                <cells>F0100</cells>
+                <cells>F0200</cells>
+                <cells>F0300</cells>
+                <cells>F0001</cells>
+                <cells>F0101</cells>
+                <cells>F0201</cells>
+                <cells>F0301</cells>
+                <cells>F0002</cells>
+                <cells>F0102</cells>
+                <cells>F0202</cells>
+                <cells>F0302</cells>
+                <cells>F0003</cells>
+                <cells>F0103</cells>
+                <cells>F0203</cells>
+                <cells>F0303</cells>
+                <strictColour>false</strictColour>
+            </value>
+        </entry>
+        <entry>
+            <key>76</key>
+            <value>
+                <baseColour>#ffc800</baseColour>
+                <cells>L0000</cells>
+                <cells>L0100</cells>
+                <cells>L0200</cells>
+                <cells>L0300</cells>
+                <cells>L0001</cells>
+                <cells>L0101</cells>
+                <cells>L0201</cells>
+                <cells>L0301</cells>
+                <cells>L0002</cells>
+                <cells>L0102</cells>
+                <cells>L0202</cells>
+                <cells>L0302</cells>
+                <cells>L0003</cells>
+                <cells>L0103</cells>
+                <cells>L0203</cells>
+                <cells>L0303</cells>
+                <strictColour>false</strictColour>
+            </value>
+        </entry>
+    </faces>
     <cells>
         <entry>
-            <key>R0303</key>
+            <key>U0000</key>
             <value>
-                <currentColour>3</currentColour>
                 <points>
-                    <x>916</x>
-                    <y>632</y>
+                    <x>364</x>
+                    <y>80</y>
                 </points>
                 <points>
-                    <x>992</x>
-                    <y>632</y>
+                    <x>440</x>
+                    <y>80</y>
                 </points>
                 <points>
-                    <x>992</x>
-                    <y>708</y>
+                    <x>440</x>
+                    <y>156</y>
                 </points>
                 <points>
-                    <x>916</x>
-                    <y>708</y>
+                    <x>364</x>
+                    <y>156</y>
                 </points>
             </value>
         </entry>
         <entry>
-            <key>L0001</key>
+            <key>U0100</key>
             <value>
-                <currentColour>1</currentColour>
                 <points>
-                    <x>40</x>
-                    <y>480</y>
+                    <x>440</x>
+                    <y>80</y>
                 </points>
                 <points>
-                    <x>116</x>
-                    <y>480</y>
+                    <x>516</x>
+                    <y>80</y>
                 </points>
                 <points>
-                    <x>116</x>
-                    <y>556</y>
+                    <x>516</x>
+                    <y>156</y>
                 </points>
                 <points>
-                    <x>40</x>
-                    <y>556</y>
+                    <x>440</x>
+                    <y>156</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>U0200</key>
+            <value>
+                <points>
+                    <x>516</x>
+                    <y>80</y>
+                </points>
+                <points>
+                    <x>592</x>
+                    <y>80</y>
+                </points>
+                <points>
+                    <x>592</x>
+                    <y>156</y>
+                </points>
+                <points>
+                    <x>516</x>
+                    <y>156</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>U0300</key>
+            <value>
+                <points>
+                    <x>592</x>
+                    <y>80</y>
+                </points>
+                <points>
+                    <x>668</x>
+                    <y>80</y>
+                </points>
+                <points>
+                    <x>668</x>
+                    <y>156</y>
+                </points>
+                <points>
+                    <x>592</x>
+                    <y>156</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>U0001</key>
+            <value>
+                <points>
+                    <x>364</x>
+                    <y>156</y>
+                </points>
+                <points>
+                    <x>440</x>
+                    <y>156</y>
+                </points>
+                <points>
+                    <x>440</x>
+                    <y>232</y>
+                </points>
+                <points>
+                    <x>364</x>
+                    <y>232</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>U0101</key>
+            <value>
+                <points>
+                    <x>440</x>
+                    <y>156</y>
+                </points>
+                <points>
+                    <x>516</x>
+                    <y>156</y>
+                </points>
+                <points>
+                    <x>516</x>
+                    <y>232</y>
+                </points>
+                <points>
+                    <x>440</x>
+                    <y>232</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>U0201</key>
+            <value>
+                <points>
+                    <x>516</x>
+                    <y>156</y>
+                </points>
+                <points>
+                    <x>592</x>
+                    <y>156</y>
+                </points>
+                <points>
+                    <x>592</x>
+                    <y>232</y>
+                </points>
+                <points>
+                    <x>516</x>
+                    <y>232</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>U0301</key>
+            <value>
+                <points>
+                    <x>592</x>
+                    <y>156</y>
+                </points>
+                <points>
+                    <x>668</x>
+                    <y>156</y>
+                </points>
+                <points>
+                    <x>668</x>
+                    <y>232</y>
+                </points>
+                <points>
+                    <x>592</x>
+                    <y>232</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>U0002</key>
+            <value>
+                <points>
+                    <x>364</x>
+                    <y>232</y>
+                </points>
+                <points>
+                    <x>440</x>
+                    <y>232</y>
+                </points>
+                <points>
+                    <x>440</x>
+                    <y>308</y>
+                </points>
+                <points>
+                    <x>364</x>
+                    <y>308</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>U0102</key>
+            <value>
+                <points>
+                    <x>440</x>
+                    <y>232</y>
+                </points>
+                <points>
+                    <x>516</x>
+                    <y>232</y>
+                </points>
+                <points>
+                    <x>516</x>
+                    <y>308</y>
+                </points>
+                <points>
+                    <x>440</x>
+                    <y>308</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>U0202</key>
+            <value>
+                <points>
+                    <x>516</x>
+                    <y>232</y>
+                </points>
+                <points>
+                    <x>592</x>
+                    <y>232</y>
+                </points>
+                <points>
+                    <x>592</x>
+                    <y>308</y>
+                </points>
+                <points>
+                    <x>516</x>
+                    <y>308</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>U0302</key>
+            <value>
+                <points>
+                    <x>592</x>
+                    <y>232</y>
+                </points>
+                <points>
+                    <x>668</x>
+                    <y>232</y>
+                </points>
+                <points>
+                    <x>668</x>
+                    <y>308</y>
+                </points>
+                <points>
+                    <x>592</x>
+                    <y>308</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>U0003</key>
+            <value>
+                <points>
+                    <x>364</x>
+                    <y>308</y>
+                </points>
+                <points>
+                    <x>440</x>
+                    <y>308</y>
+                </points>
+                <points>
+                    <x>440</x>
+                    <y>384</y>
+                </points>
+                <points>
+                    <x>364</x>
+                    <y>384</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>U0103</key>
+            <value>
+                <points>
+                    <x>440</x>
+                    <y>308</y>
+                </points>
+                <points>
+                    <x>516</x>
+                    <y>308</y>
+                </points>
+                <points>
+                    <x>516</x>
+                    <y>384</y>
+                </points>
+                <points>
+                    <x>440</x>
+                    <y>384</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>U0203</key>
+            <value>
+                <points>
+                    <x>516</x>
+                    <y>308</y>
+                </points>
+                <points>
+                    <x>592</x>
+                    <y>308</y>
+                </points>
+                <points>
+                    <x>592</x>
+                    <y>384</y>
+                </points>
+                <points>
+                    <x>516</x>
+                    <y>384</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>U0303</key>
+            <value>
+                <points>
+                    <x>592</x>
+                    <y>308</y>
+                </points>
+                <points>
+                    <x>668</x>
+                    <y>308</y>
+                </points>
+                <points>
+                    <x>668</x>
+                    <y>384</y>
+                </points>
+                <points>
+                    <x>592</x>
+                    <y>384</y>
                 </points>
             </value>
         </entry>
         <entry>
             <key>L0000</key>
             <value>
-                <currentColour>1</currentColour>
                 <points>
                     <x>40</x>
                     <y>404</y>
@@ -74,53 +499,113 @@
             </value>
         </entry>
         <entry>
-            <key>R0100</key>
+            <key>L0100</key>
             <value>
-                <currentColour>3</currentColour>
                 <points>
-                    <x>764</x>
+                    <x>116</x>
                     <y>404</y>
                 </points>
                 <points>
-                    <x>840</x>
+                    <x>192</x>
                     <y>404</y>
                 </points>
                 <points>
-                    <x>840</x>
+                    <x>192</x>
                     <y>480</y>
                 </points>
                 <points>
-                    <x>764</x>
+                    <x>116</x>
                     <y>480</y>
                 </points>
             </value>
         </entry>
         <entry>
-            <key>L0003</key>
+            <key>L0200</key>
             <value>
-                <currentColour>1</currentColour>
+                <points>
+                    <x>192</x>
+                    <y>404</y>
+                </points>
+                <points>
+                    <x>268</x>
+                    <y>404</y>
+                </points>
+                <points>
+                    <x>268</x>
+                    <y>480</y>
+                </points>
+                <points>
+                    <x>192</x>
+                    <y>480</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>L0300</key>
+            <value>
+                <points>
+                    <x>268</x>
+                    <y>404</y>
+                </points>
+                <points>
+                    <x>344</x>
+                    <y>404</y>
+                </points>
+                <points>
+                    <x>344</x>
+                    <y>480</y>
+                </points>
+                <points>
+                    <x>268</x>
+                    <y>480</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>L0001</key>
+            <value>
                 <points>
                     <x>40</x>
-                    <y>632</y>
+                    <y>480</y>
                 </points>
                 <points>
                     <x>116</x>
-                    <y>632</y>
+                    <y>480</y>
                 </points>
                 <points>
                     <x>116</x>
-                    <y>708</y>
+                    <y>556</y>
                 </points>
                 <points>
                     <x>40</x>
-                    <y>708</y>
+                    <y>556</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>L0101</key>
+            <value>
+                <points>
+                    <x>116</x>
+                    <y>480</y>
+                </points>
+                <points>
+                    <x>192</x>
+                    <y>480</y>
+                </points>
+                <points>
+                    <x>192</x>
+                    <y>556</y>
+                </points>
+                <points>
+                    <x>116</x>
+                    <y>556</y>
                 </points>
             </value>
         </entry>
         <entry>
             <key>L0201</key>
             <value>
-                <currentColour>1</currentColour>
                 <points>
                     <x>192</x>
                     <y>480</y>
@@ -135,6 +620,27 @@
                 </points>
                 <points>
                     <x>192</x>
+                    <y>556</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>L0301</key>
+            <value>
+                <points>
+                    <x>268</x>
+                    <y>480</y>
+                </points>
+                <points>
+                    <x>344</x>
+                    <y>480</y>
+                </points>
+                <points>
+                    <x>344</x>
+                    <y>556</y>
+                </points>
+                <points>
+                    <x>268</x>
                     <y>556</y>
                 </points>
             </value>
@@ -142,7 +648,6 @@
         <entry>
             <key>L0002</key>
             <value>
-                <currentColour>1</currentColour>
                 <points>
                     <x>40</x>
                     <y>556</y>
@@ -162,405 +667,29 @@
             </value>
         </entry>
         <entry>
-            <key>L0200</key>
+            <key>L0102</key>
             <value>
-                <currentColour>1</currentColour>
                 <points>
-                    <x>192</x>
-                    <y>404</y>
-                </points>
-                <points>
-                    <x>268</x>
-                    <y>404</y>
-                </points>
-                <points>
-                    <x>268</x>
-                    <y>480</y>
+                    <x>116</x>
+                    <y>556</y>
                 </points>
                 <points>
                     <x>192</x>
-                    <y>480</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>R0103</key>
-            <value>
-                <currentColour>3</currentColour>
-                <points>
-                    <x>764</x>
-                    <y>632</y>
-                </points>
-                <points>
-                    <x>840</x>
-                    <y>632</y>
-                </points>
-                <points>
-                    <x>840</x>
-                    <y>708</y>
-                </points>
-                <points>
-                    <x>764</x>
-                    <y>708</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>R0301</key>
-            <value>
-                <currentColour>3</currentColour>
-                <points>
-                    <x>916</x>
-                    <y>480</y>
-                </points>
-                <points>
-                    <x>992</x>
-                    <y>480</y>
-                </points>
-                <points>
-                    <x>992</x>
                     <y>556</y>
                 </points>
-                <points>
-                    <x>916</x>
-                    <y>556</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>R0302</key>
-            <value>
-                <currentColour>3</currentColour>
-                <points>
-                    <x>916</x>
-                    <y>556</y>
-                </points>
-                <points>
-                    <x>992</x>
-                    <y>556</y>
-                </points>
-                <points>
-                    <x>992</x>
-                    <y>632</y>
-                </points>
-                <points>
-                    <x>916</x>
-                    <y>632</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>R0101</key>
-            <value>
-                <currentColour>3</currentColour>
-                <points>
-                    <x>764</x>
-                    <y>480</y>
-                </points>
-                <points>
-                    <x>840</x>
-                    <y>480</y>
-                </points>
-                <points>
-                    <x>840</x>
-                    <y>556</y>
-                </points>
-                <points>
-                    <x>764</x>
-                    <y>556</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>R0102</key>
-            <value>
-                <currentColour>3</currentColour>
-                <points>
-                    <x>764</x>
-                    <y>556</y>
-                </points>
-                <points>
-                    <x>840</x>
-                    <y>556</y>
-                </points>
-                <points>
-                    <x>840</x>
-                    <y>632</y>
-                </points>
-                <points>
-                    <x>764</x>
-                    <y>632</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>R0300</key>
-            <value>
-                <currentColour>3</currentColour>
-                <points>
-                    <x>916</x>
-                    <y>404</y>
-                </points>
-                <points>
-                    <x>992</x>
-                    <y>404</y>
-                </points>
-                <points>
-                    <x>992</x>
-                    <y>480</y>
-                </points>
-                <points>
-                    <x>916</x>
-                    <y>480</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>D0000</key>
-            <value>
-                <currentColour>5</currentColour>
-                <points>
-                    <x>364</x>
-                    <y>728</y>
-                </points>
-                <points>
-                    <x>440</x>
-                    <y>728</y>
-                </points>
-                <points>
-                    <x>440</x>
-                    <y>804</y>
-                </points>
-                <points>
-                    <x>364</x>
-                    <y>804</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>U0000</key>
-            <value>
-                <currentColour>0</currentColour>
-                <points>
-                    <x>364</x>
-                    <y>80</y>
-                </points>
-                <points>
-                    <x>440</x>
-                    <y>80</y>
-                </points>
-                <points>
-                    <x>440</x>
-                    <y>156</y>
-                </points>
-                <points>
-                    <x>364</x>
-                    <y>156</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>D0001</key>
-            <value>
-                <currentColour>5</currentColour>
-                <points>
-                    <x>364</x>
-                    <y>804</y>
-                </points>
-                <points>
-                    <x>440</x>
-                    <y>804</y>
-                </points>
-                <points>
-                    <x>440</x>
-                    <y>880</y>
-                </points>
-                <points>
-                    <x>364</x>
-                    <y>880</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>U0001</key>
-            <value>
-                <currentColour>0</currentColour>
-                <points>
-                    <x>364</x>
-                    <y>156</y>
-                </points>
-                <points>
-                    <x>440</x>
-                    <y>156</y>
-                </points>
-                <points>
-                    <x>440</x>
-                    <y>232</y>
-                </points>
-                <points>
-                    <x>364</x>
-                    <y>232</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>D0002</key>
-            <value>
-                <currentColour>5</currentColour>
-                <points>
-                    <x>364</x>
-                    <y>880</y>
-                </points>
-                <points>
-                    <x>440</x>
-                    <y>880</y>
-                </points>
-                <points>
-                    <x>440</x>
-                    <y>956</y>
-                </points>
-                <points>
-                    <x>364</x>
-                    <y>956</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>D0200</key>
-            <value>
-                <currentColour>5</currentColour>
-                <points>
-                    <x>516</x>
-                    <y>728</y>
-                </points>
-                <points>
-                    <x>592</x>
-                    <y>728</y>
-                </points>
-                <points>
-                    <x>592</x>
-                    <y>804</y>
-                </points>
-                <points>
-                    <x>516</x>
-                    <y>804</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>U0002</key>
-            <value>
-                <currentColour>0</currentColour>
-                <points>
-                    <x>364</x>
-                    <y>232</y>
-                </points>
-                <points>
-                    <x>440</x>
-                    <y>232</y>
-                </points>
-                <points>
-                    <x>440</x>
-                    <y>308</y>
-                </points>
-                <points>
-                    <x>364</x>
-                    <y>308</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>U0200</key>
-            <value>
-                <currentColour>0</currentColour>
-                <points>
-                    <x>516</x>
-                    <y>80</y>
-                </points>
-                <points>
-                    <x>592</x>
-                    <y>80</y>
-                </points>
-                <points>
-                    <x>592</x>
-                    <y>156</y>
-                </points>
-                <points>
-                    <x>516</x>
-                    <y>156</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>D0003</key>
-            <value>
-                <currentColour>5</currentColour>
-                <points>
-                    <x>364</x>
-                    <y>956</y>
-                </points>
-                <points>
-                    <x>440</x>
-                    <y>956</y>
-                </points>
-                <points>
-                    <x>440</x>
-                    <y>1032</y>
-                </points>
-                <points>
-                    <x>364</x>
-                    <y>1032</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>D0201</key>
-            <value>
-                <currentColour>5</currentColour>
-                <points>
-                    <x>516</x>
-                    <y>804</y>
-                </points>
-                <points>
-                    <x>592</x>
-                    <y>804</y>
-                </points>
-                <points>
-                    <x>592</x>
-                    <y>880</y>
-                </points>
-                <points>
-                    <x>516</x>
-                    <y>880</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>L0203</key>
-            <value>
-                <currentColour>1</currentColour>
                 <points>
                     <x>192</x>
                     <y>632</y>
                 </points>
                 <points>
-                    <x>268</x>
+                    <x>116</x>
                     <y>632</y>
-                </points>
-                <points>
-                    <x>268</x>
-                    <y>708</y>
-                </points>
-                <points>
-                    <x>192</x>
-                    <y>708</y>
                 </points>
             </value>
         </entry>
         <entry>
             <key>L0202</key>
             <value>
-                <currentColour>1</currentColour>
                 <points>
                     <x>192</x>
                     <y>556</y>
@@ -580,155 +709,106 @@
             </value>
         </entry>
         <entry>
-            <key>U0003</key>
+            <key>L0302</key>
             <value>
-                <currentColour>0</currentColour>
                 <points>
-                    <x>364</x>
-                    <y>308</y>
+                    <x>268</x>
+                    <y>556</y>
                 </points>
                 <points>
-                    <x>440</x>
-                    <y>308</y>
+                    <x>344</x>
+                    <y>556</y>
                 </points>
                 <points>
-                    <x>440</x>
-                    <y>384</y>
-                </points>
-                <points>
-                    <x>364</x>
-                    <y>384</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>U0201</key>
-            <value>
-                <currentColour>0</currentColour>
-                <points>
-                    <x>516</x>
-                    <y>156</y>
-                </points>
-                <points>
-                    <x>592</x>
-                    <y>156</y>
-                </points>
-                <points>
-                    <x>592</x>
-                    <y>232</y>
-                </points>
-                <points>
-                    <x>516</x>
-                    <y>232</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>D0202</key>
-            <value>
-                <currentColour>5</currentColour>
-                <points>
-                    <x>516</x>
-                    <y>880</y>
-                </points>
-                <points>
-                    <x>592</x>
-                    <y>880</y>
-                </points>
-                <points>
-                    <x>592</x>
-                    <y>956</y>
-                </points>
-                <points>
-                    <x>516</x>
-                    <y>956</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>U0202</key>
-            <value>
-                <currentColour>0</currentColour>
-                <points>
-                    <x>516</x>
-                    <y>232</y>
-                </points>
-                <points>
-                    <x>592</x>
-                    <y>232</y>
-                </points>
-                <points>
-                    <x>592</x>
-                    <y>308</y>
-                </points>
-                <points>
-                    <x>516</x>
-                    <y>308</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>D0203</key>
-            <value>
-                <currentColour>5</currentColour>
-                <points>
-                    <x>516</x>
-                    <y>956</y>
-                </points>
-                <points>
-                    <x>592</x>
-                    <y>956</y>
-                </points>
-                <points>
-                    <x>592</x>
-                    <y>1032</y>
-                </points>
-                <points>
-                    <x>516</x>
-                    <y>1032</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>U0203</key>
-            <value>
-                <currentColour>0</currentColour>
-                <points>
-                    <x>516</x>
-                    <y>308</y>
-                </points>
-                <points>
-                    <x>592</x>
-                    <y>308</y>
-                </points>
-                <points>
-                    <x>592</x>
-                    <y>384</y>
-                </points>
-                <points>
-                    <x>516</x>
-                    <y>384</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>B0303</key>
-            <value>
-                <currentColour>4</currentColour>
-                <points>
-                    <x>1240</x>
+                    <x>344</x>
                     <y>632</y>
                 </points>
                 <points>
-                    <x>1316</x>
+                    <x>268</x>
+                    <y>632</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>L0003</key>
+            <value>
+                <points>
+                    <x>40</x>
                     <y>632</y>
                 </points>
                 <points>
-                    <x>1316</x>
+                    <x>116</x>
+                    <y>632</y>
+                </points>
+                <points>
+                    <x>116</x>
                     <y>708</y>
                 </points>
                 <points>
-                    <x>1240</x>
+                    <x>40</x>
+                    <y>708</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>L0103</key>
+            <value>
+                <points>
+                    <x>116</x>
+                    <y>632</y>
+                </points>
+                <points>
+                    <x>192</x>
+                    <y>632</y>
+                </points>
+                <points>
+                    <x>192</x>
+                    <y>708</y>
+                </points>
+                <points>
+                    <x>116</x>
+                    <y>708</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>L0203</key>
+            <value>
+                <points>
+                    <x>192</x>
+                    <y>632</y>
+                </points>
+                <points>
+                    <x>268</x>
+                    <y>632</y>
+                </points>
+                <points>
+                    <x>268</x>
+                    <y>708</y>
+                </points>
+                <points>
+                    <x>192</x>
+                    <y>708</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>L0303</key>
+            <value>
+                <points>
+                    <x>268</x>
+                    <y>632</y>
+                </points>
+                <points>
+                    <x>344</x>
+                    <y>632</y>
+                </points>
+                <points>
+                    <x>344</x>
+                    <y>708</y>
+                </points>
+                <points>
+                    <x>268</x>
                     <y>708</y>
                 </points>
             </value>
@@ -736,7 +816,6 @@
         <entry>
             <key>F0000</key>
             <value>
-                <currentColour>2</currentColour>
                 <points>
                     <x>364</x>
                     <y>404</y>
@@ -751,6 +830,69 @@
                 </points>
                 <points>
                     <x>364</x>
+                    <y>480</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>F0100</key>
+            <value>
+                <points>
+                    <x>440</x>
+                    <y>404</y>
+                </points>
+                <points>
+                    <x>516</x>
+                    <y>404</y>
+                </points>
+                <points>
+                    <x>516</x>
+                    <y>480</y>
+                </points>
+                <points>
+                    <x>440</x>
+                    <y>480</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>F0200</key>
+            <value>
+                <points>
+                    <x>516</x>
+                    <y>404</y>
+                </points>
+                <points>
+                    <x>592</x>
+                    <y>404</y>
+                </points>
+                <points>
+                    <x>592</x>
+                    <y>480</y>
+                </points>
+                <points>
+                    <x>516</x>
+                    <y>480</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>F0300</key>
+            <value>
+                <points>
+                    <x>592</x>
+                    <y>404</y>
+                </points>
+                <points>
+                    <x>668</x>
+                    <y>404</y>
+                </points>
+                <points>
+                    <x>668</x>
+                    <y>480</y>
+                </points>
+                <points>
+                    <x>592</x>
                     <y>480</y>
                 </points>
             </value>
@@ -758,7 +900,6 @@
         <entry>
             <key>F0001</key>
             <value>
-                <currentColour>2</currentColour>
                 <points>
                     <x>364</x>
                     <y>480</y>
@@ -773,6 +914,69 @@
                 </points>
                 <points>
                     <x>364</x>
+                    <y>556</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>F0101</key>
+            <value>
+                <points>
+                    <x>440</x>
+                    <y>480</y>
+                </points>
+                <points>
+                    <x>516</x>
+                    <y>480</y>
+                </points>
+                <points>
+                    <x>516</x>
+                    <y>556</y>
+                </points>
+                <points>
+                    <x>440</x>
+                    <y>556</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>F0201</key>
+            <value>
+                <points>
+                    <x>516</x>
+                    <y>480</y>
+                </points>
+                <points>
+                    <x>592</x>
+                    <y>480</y>
+                </points>
+                <points>
+                    <x>592</x>
+                    <y>556</y>
+                </points>
+                <points>
+                    <x>516</x>
+                    <y>556</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>F0301</key>
+            <value>
+                <points>
+                    <x>592</x>
+                    <y>480</y>
+                </points>
+                <points>
+                    <x>668</x>
+                    <y>480</y>
+                </points>
+                <points>
+                    <x>668</x>
+                    <y>556</y>
+                </points>
+                <points>
+                    <x>592</x>
                     <y>556</y>
                 </points>
             </value>
@@ -780,7 +984,6 @@
         <entry>
             <key>F0002</key>
             <value>
-                <currentColour>2</currentColour>
                 <points>
                     <x>364</x>
                     <y>556</y>
@@ -800,97 +1003,29 @@
             </value>
         </entry>
         <entry>
-            <key>F0201</key>
+            <key>F0102</key>
             <value>
-                <currentColour>2</currentColour>
                 <points>
-                    <x>516</x>
-                    <y>480</y>
-                </points>
-                <points>
-                    <x>592</x>
-                    <y>480</y>
-                </points>
-                <points>
-                    <x>592</x>
+                    <x>440</x>
                     <y>556</y>
                 </points>
                 <points>
                     <x>516</x>
                     <y>556</y>
                 </points>
-            </value>
-        </entry>
-        <entry>
-            <key>F0003</key>
-            <value>
-                <currentColour>2</currentColour>
                 <points>
-                    <x>364</x>
+                    <x>516</x>
                     <y>632</y>
                 </points>
                 <points>
                     <x>440</x>
                     <y>632</y>
-                </points>
-                <points>
-                    <x>440</x>
-                    <y>708</y>
-                </points>
-                <points>
-                    <x>364</x>
-                    <y>708</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>F0200</key>
-            <value>
-                <currentColour>2</currentColour>
-                <points>
-                    <x>516</x>
-                    <y>404</y>
-                </points>
-                <points>
-                    <x>592</x>
-                    <y>404</y>
-                </points>
-                <points>
-                    <x>592</x>
-                    <y>480</y>
-                </points>
-                <points>
-                    <x>516</x>
-                    <y>480</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>F0203</key>
-            <value>
-                <currentColour>2</currentColour>
-                <points>
-                    <x>516</x>
-                    <y>632</y>
-                </points>
-                <points>
-                    <x>592</x>
-                    <y>632</y>
-                </points>
-                <points>
-                    <x>592</x>
-                    <y>708</y>
-                </points>
-                <points>
-                    <x>516</x>
-                    <y>708</y>
                 </points>
             </value>
         </entry>
         <entry>
             <key>F0202</key>
             <value>
-                <currentColour>2</currentColour>
                 <points>
                     <x>516</x>
                     <y>556</y>
@@ -910,185 +1045,113 @@
             </value>
         </entry>
         <entry>
-            <key>B0100</key>
+            <key>F0302</key>
             <value>
-                <currentColour>4</currentColour>
                 <points>
-                    <x>1088</x>
-                    <y>404</y>
-                </points>
-                <points>
-                    <x>1164</x>
-                    <y>404</y>
-                </points>
-                <points>
-                    <x>1164</x>
-                    <y>480</y>
-                </points>
-                <points>
-                    <x>1088</x>
-                    <y>480</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>B0101</key>
-            <value>
-                <currentColour>4</currentColour>
-                <points>
-                    <x>1088</x>
-                    <y>480</y>
-                </points>
-                <points>
-                    <x>1164</x>
-                    <y>480</y>
-                </points>
-                <points>
-                    <x>1164</x>
+                    <x>592</x>
                     <y>556</y>
                 </points>
                 <points>
-                    <x>1088</x>
-                    <y>556</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>B0102</key>
-            <value>
-                <currentColour>4</currentColour>
-                <points>
-                    <x>1088</x>
+                    <x>668</x>
                     <y>556</y>
                 </points>
                 <points>
-                    <x>1164</x>
-                    <y>556</y>
-                </points>
-                <points>
-                    <x>1164</x>
+                    <x>668</x>
                     <y>632</y>
                 </points>
                 <points>
-                    <x>1088</x>
+                    <x>592</x>
                     <y>632</y>
                 </points>
             </value>
         </entry>
         <entry>
-            <key>B0300</key>
+            <key>F0003</key>
             <value>
-                <currentColour>4</currentColour>
                 <points>
-                    <x>1240</x>
-                    <y>404</y>
-                </points>
-                <points>
-                    <x>1316</x>
-                    <y>404</y>
-                </points>
-                <points>
-                    <x>1316</x>
-                    <y>480</y>
-                </points>
-                <points>
-                    <x>1240</x>
-                    <y>480</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>B0103</key>
-            <value>
-                <currentColour>4</currentColour>
-                <points>
-                    <x>1088</x>
+                    <x>364</x>
                     <y>632</y>
                 </points>
                 <points>
-                    <x>1164</x>
+                    <x>440</x>
                     <y>632</y>
                 </points>
                 <points>
-                    <x>1164</x>
+                    <x>440</x>
                     <y>708</y>
                 </points>
                 <points>
-                    <x>1088</x>
+                    <x>364</x>
                     <y>708</y>
                 </points>
             </value>
         </entry>
         <entry>
-            <key>B0301</key>
+            <key>F0103</key>
             <value>
-                <currentColour>4</currentColour>
                 <points>
-                    <x>1240</x>
-                    <y>480</y>
+                    <x>440</x>
+                    <y>632</y>
                 </points>
                 <points>
-                    <x>1316</x>
-                    <y>480</y>
+                    <x>516</x>
+                    <y>632</y>
                 </points>
                 <points>
-                    <x>1316</x>
-                    <y>556</y>
+                    <x>516</x>
+                    <y>708</y>
                 </points>
                 <points>
-                    <x>1240</x>
-                    <y>556</y>
+                    <x>440</x>
+                    <y>708</y>
                 </points>
             </value>
         </entry>
         <entry>
-            <key>B0302</key>
+            <key>F0203</key>
             <value>
-                <currentColour>4</currentColour>
                 <points>
-                    <x>1240</x>
-                    <y>556</y>
-                </points>
-                <points>
-                    <x>1316</x>
-                    <y>556</y>
-                </points>
-                <points>
-                    <x>1316</x>
+                    <x>516</x>
                     <y>632</y>
                 </points>
                 <points>
-                    <x>1240</x>
+                    <x>592</x>
                     <y>632</y>
+                </points>
+                <points>
+                    <x>592</x>
+                    <y>708</y>
+                </points>
+                <points>
+                    <x>516</x>
+                    <y>708</y>
                 </points>
             </value>
         </entry>
         <entry>
-            <key>L0100</key>
+            <key>F0303</key>
             <value>
-                <currentColour>1</currentColour>
                 <points>
-                    <x>116</x>
-                    <y>404</y>
+                    <x>592</x>
+                    <y>632</y>
                 </points>
                 <points>
-                    <x>192</x>
-                    <y>404</y>
+                    <x>668</x>
+                    <y>632</y>
                 </points>
                 <points>
-                    <x>192</x>
-                    <y>480</y>
+                    <x>668</x>
+                    <y>708</y>
                 </points>
                 <points>
-                    <x>116</x>
-                    <y>480</y>
+                    <x>592</x>
+                    <y>708</y>
                 </points>
             </value>
         </entry>
         <entry>
             <key>R0000</key>
             <value>
-                <currentColour>3</currentColour>
                 <points>
                     <x>688</x>
                     <y>404</y>
@@ -1103,6 +1166,69 @@
                 </points>
                 <points>
                     <x>688</x>
+                    <y>480</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>R0100</key>
+            <value>
+                <points>
+                    <x>764</x>
+                    <y>404</y>
+                </points>
+                <points>
+                    <x>840</x>
+                    <y>404</y>
+                </points>
+                <points>
+                    <x>840</x>
+                    <y>480</y>
+                </points>
+                <points>
+                    <x>764</x>
+                    <y>480</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>R0200</key>
+            <value>
+                <points>
+                    <x>840</x>
+                    <y>404</y>
+                </points>
+                <points>
+                    <x>916</x>
+                    <y>404</y>
+                </points>
+                <points>
+                    <x>916</x>
+                    <y>480</y>
+                </points>
+                <points>
+                    <x>840</x>
+                    <y>480</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>R0300</key>
+            <value>
+                <points>
+                    <x>916</x>
+                    <y>404</y>
+                </points>
+                <points>
+                    <x>992</x>
+                    <y>404</y>
+                </points>
+                <points>
+                    <x>992</x>
+                    <y>480</y>
+                </points>
+                <points>
+                    <x>916</x>
                     <y>480</y>
                 </points>
             </value>
@@ -1110,7 +1236,6 @@
         <entry>
             <key>R0001</key>
             <value>
-                <currentColour>3</currentColour>
                 <points>
                     <x>688</x>
                     <y>480</y>
@@ -1130,185 +1255,29 @@
             </value>
         </entry>
         <entry>
-            <key>L0102</key>
+            <key>R0101</key>
             <value>
-                <currentColour>1</currentColour>
                 <points>
-                    <x>116</x>
-                    <y>556</y>
-                </points>
-                <points>
-                    <x>192</x>
-                    <y>556</y>
-                </points>
-                <points>
-                    <x>192</x>
-                    <y>632</y>
-                </points>
-                <points>
-                    <x>116</x>
-                    <y>632</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>L0300</key>
-            <value>
-                <currentColour>1</currentColour>
-                <points>
-                    <x>268</x>
-                    <y>404</y>
-                </points>
-                <points>
-                    <x>344</x>
-                    <y>404</y>
-                </points>
-                <points>
-                    <x>344</x>
+                    <x>764</x>
                     <y>480</y>
                 </points>
                 <points>
-                    <x>268</x>
-                    <y>480</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>L0101</key>
-            <value>
-                <currentColour>1</currentColour>
-                <points>
-                    <x>116</x>
+                    <x>840</x>
                     <y>480</y>
                 </points>
                 <points>
-                    <x>192</x>
-                    <y>480</y>
-                </points>
-                <points>
-                    <x>192</x>
-                    <y>556</y>
-                </points>
-                <points>
-                    <x>116</x>
-                    <y>556</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>R0202</key>
-            <value>
-                <currentColour>3</currentColour>
-                <points>
                     <x>840</x>
-                    <y>556</y>
-                </points>
-                <points>
-                    <x>916</x>
-                    <y>556</y>
-                </points>
-                <points>
-                    <x>916</x>
-                    <y>632</y>
-                </points>
-                <points>
-                    <x>840</x>
-                    <y>632</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>R0203</key>
-            <value>
-                <currentColour>3</currentColour>
-                <points>
-                    <x>840</x>
-                    <y>632</y>
-                </points>
-                <points>
-                    <x>916</x>
-                    <y>632</y>
-                </points>
-                <points>
-                    <x>916</x>
-                    <y>708</y>
-                </points>
-                <points>
-                    <x>840</x>
-                    <y>708</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>R0002</key>
-            <value>
-                <currentColour>3</currentColour>
-                <points>
-                    <x>688</x>
                     <y>556</y>
                 </points>
                 <points>
                     <x>764</x>
                     <y>556</y>
-                </points>
-                <points>
-                    <x>764</x>
-                    <y>632</y>
-                </points>
-                <points>
-                    <x>688</x>
-                    <y>632</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>R0200</key>
-            <value>
-                <currentColour>3</currentColour>
-                <points>
-                    <x>840</x>
-                    <y>404</y>
-                </points>
-                <points>
-                    <x>916</x>
-                    <y>404</y>
-                </points>
-                <points>
-                    <x>916</x>
-                    <y>480</y>
-                </points>
-                <points>
-                    <x>840</x>
-                    <y>480</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>R0003</key>
-            <value>
-                <currentColour>3</currentColour>
-                <points>
-                    <x>688</x>
-                    <y>632</y>
-                </points>
-                <points>
-                    <x>764</x>
-                    <y>632</y>
-                </points>
-                <points>
-                    <x>764</x>
-                    <y>708</y>
-                </points>
-                <points>
-                    <x>688</x>
-                    <y>708</y>
                 </points>
             </value>
         </entry>
         <entry>
             <key>R0201</key>
             <value>
-                <currentColour>3</currentColour>
                 <points>
                     <x>840</x>
                     <y>480</y>
@@ -1328,581 +1297,197 @@
             </value>
         </entry>
         <entry>
-            <key>D0100</key>
+            <key>R0301</key>
             <value>
-                <currentColour>5</currentColour>
                 <points>
-                    <x>440</x>
-                    <y>728</y>
+                    <x>916</x>
+                    <y>480</y>
                 </points>
                 <points>
-                    <x>516</x>
-                    <y>728</y>
+                    <x>992</x>
+                    <y>480</y>
                 </points>
                 <points>
-                    <x>516</x>
-                    <y>804</y>
-                </points>
-                <points>
-                    <x>440</x>
-                    <y>804</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>U0100</key>
-            <value>
-                <currentColour>0</currentColour>
-                <points>
-                    <x>440</x>
-                    <y>80</y>
-                </points>
-                <points>
-                    <x>516</x>
-                    <y>80</y>
-                </points>
-                <points>
-                    <x>516</x>
-                    <y>156</y>
-                </points>
-                <points>
-                    <x>440</x>
-                    <y>156</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>D0101</key>
-            <value>
-                <currentColour>5</currentColour>
-                <points>
-                    <x>440</x>
-                    <y>804</y>
-                </points>
-                <points>
-                    <x>516</x>
-                    <y>804</y>
-                </points>
-                <points>
-                    <x>516</x>
-                    <y>880</y>
-                </points>
-                <points>
-                    <x>440</x>
-                    <y>880</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>U0101</key>
-            <value>
-                <currentColour>0</currentColour>
-                <points>
-                    <x>440</x>
-                    <y>156</y>
-                </points>
-                <points>
-                    <x>516</x>
-                    <y>156</y>
-                </points>
-                <points>
-                    <x>516</x>
-                    <y>232</y>
-                </points>
-                <points>
-                    <x>440</x>
-                    <y>232</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>D0102</key>
-            <value>
-                <currentColour>5</currentColour>
-                <points>
-                    <x>440</x>
-                    <y>880</y>
-                </points>
-                <points>
-                    <x>516</x>
-                    <y>880</y>
-                </points>
-                <points>
-                    <x>516</x>
-                    <y>956</y>
-                </points>
-                <points>
-                    <x>440</x>
-                    <y>956</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>D0300</key>
-            <value>
-                <currentColour>5</currentColour>
-                <points>
-                    <x>592</x>
-                    <y>728</y>
-                </points>
-                <points>
-                    <x>668</x>
-                    <y>728</y>
-                </points>
-                <points>
-                    <x>668</x>
-                    <y>804</y>
-                </points>
-                <points>
-                    <x>592</x>
-                    <y>804</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>L0302</key>
-            <value>
-                <currentColour>1</currentColour>
-                <points>
-                    <x>268</x>
+                    <x>992</x>
                     <y>556</y>
                 </points>
                 <points>
-                    <x>344</x>
+                    <x>916</x>
+                    <y>556</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>R0002</key>
+            <value>
+                <points>
+                    <x>688</x>
                     <y>556</y>
                 </points>
                 <points>
-                    <x>344</x>
+                    <x>764</x>
+                    <y>556</y>
+                </points>
+                <points>
+                    <x>764</x>
                     <y>632</y>
                 </points>
                 <points>
-                    <x>268</x>
+                    <x>688</x>
                     <y>632</y>
                 </points>
             </value>
         </entry>
         <entry>
-            <key>L0103</key>
+            <key>R0102</key>
             <value>
-                <currentColour>1</currentColour>
                 <points>
-                    <x>116</x>
+                    <x>764</x>
+                    <y>556</y>
+                </points>
+                <points>
+                    <x>840</x>
+                    <y>556</y>
+                </points>
+                <points>
+                    <x>840</x>
                     <y>632</y>
                 </points>
                 <points>
-                    <x>192</x>
+                    <x>764</x>
+                    <y>632</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>R0202</key>
+            <value>
+                <points>
+                    <x>840</x>
+                    <y>556</y>
+                </points>
+                <points>
+                    <x>916</x>
+                    <y>556</y>
+                </points>
+                <points>
+                    <x>916</x>
                     <y>632</y>
                 </points>
                 <points>
-                    <x>192</x>
+                    <x>840</x>
+                    <y>632</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>R0302</key>
+            <value>
+                <points>
+                    <x>916</x>
+                    <y>556</y>
+                </points>
+                <points>
+                    <x>992</x>
+                    <y>556</y>
+                </points>
+                <points>
+                    <x>992</x>
+                    <y>632</y>
+                </points>
+                <points>
+                    <x>916</x>
+                    <y>632</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>R0003</key>
+            <value>
+                <points>
+                    <x>688</x>
+                    <y>632</y>
+                </points>
+                <points>
+                    <x>764</x>
+                    <y>632</y>
+                </points>
+                <points>
+                    <x>764</x>
                     <y>708</y>
                 </points>
                 <points>
-                    <x>116</x>
+                    <x>688</x>
                     <y>708</y>
                 </points>
             </value>
         </entry>
         <entry>
-            <key>L0301</key>
+            <key>R0103</key>
             <value>
-                <currentColour>1</currentColour>
                 <points>
-                    <x>268</x>
-                    <y>480</y>
-                </points>
-                <points>
-                    <x>344</x>
-                    <y>480</y>
-                </points>
-                <points>
-                    <x>344</x>
-                    <y>556</y>
-                </points>
-                <points>
-                    <x>268</x>
-                    <y>556</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>L0303</key>
-            <value>
-                <currentColour>1</currentColour>
-                <points>
-                    <x>268</x>
+                    <x>764</x>
                     <y>632</y>
                 </points>
                 <points>
-                    <x>344</x>
+                    <x>840</x>
                     <y>632</y>
                 </points>
                 <points>
-                    <x>344</x>
+                    <x>840</x>
                     <y>708</y>
                 </points>
                 <points>
-                    <x>268</x>
+                    <x>764</x>
                     <y>708</y>
                 </points>
             </value>
         </entry>
         <entry>
-            <key>U0102</key>
+            <key>R0203</key>
             <value>
-                <currentColour>0</currentColour>
                 <points>
-                    <x>440</x>
-                    <y>232</y>
-                </points>
-                <points>
-                    <x>516</x>
-                    <y>232</y>
-                </points>
-                <points>
-                    <x>516</x>
-                    <y>308</y>
-                </points>
-                <points>
-                    <x>440</x>
-                    <y>308</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>U0300</key>
-            <value>
-                <currentColour>0</currentColour>
-                <points>
-                    <x>592</x>
-                    <y>80</y>
-                </points>
-                <points>
-                    <x>668</x>
-                    <y>80</y>
-                </points>
-                <points>
-                    <x>668</x>
-                    <y>156</y>
-                </points>
-                <points>
-                    <x>592</x>
-                    <y>156</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>D0103</key>
-            <value>
-                <currentColour>5</currentColour>
-                <points>
-                    <x>440</x>
-                    <y>956</y>
-                </points>
-                <points>
-                    <x>516</x>
-                    <y>956</y>
-                </points>
-                <points>
-                    <x>516</x>
-                    <y>1032</y>
-                </points>
-                <points>
-                    <x>440</x>
-                    <y>1032</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>D0301</key>
-            <value>
-                <currentColour>5</currentColour>
-                <points>
-                    <x>592</x>
-                    <y>804</y>
-                </points>
-                <points>
-                    <x>668</x>
-                    <y>804</y>
-                </points>
-                <points>
-                    <x>668</x>
-                    <y>880</y>
-                </points>
-                <points>
-                    <x>592</x>
-                    <y>880</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>U0103</key>
-            <value>
-                <currentColour>0</currentColour>
-                <points>
-                    <x>440</x>
-                    <y>308</y>
-                </points>
-                <points>
-                    <x>516</x>
-                    <y>308</y>
-                </points>
-                <points>
-                    <x>516</x>
-                    <y>384</y>
-                </points>
-                <points>
-                    <x>440</x>
-                    <y>384</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>U0301</key>
-            <value>
-                <currentColour>0</currentColour>
-                <points>
-                    <x>592</x>
-                    <y>156</y>
-                </points>
-                <points>
-                    <x>668</x>
-                    <y>156</y>
-                </points>
-                <points>
-                    <x>668</x>
-                    <y>232</y>
-                </points>
-                <points>
-                    <x>592</x>
-                    <y>232</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>D0302</key>
-            <value>
-                <currentColour>5</currentColour>
-                <points>
-                    <x>592</x>
-                    <y>880</y>
-                </points>
-                <points>
-                    <x>668</x>
-                    <y>880</y>
-                </points>
-                <points>
-                    <x>668</x>
-                    <y>956</y>
-                </points>
-                <points>
-                    <x>592</x>
-                    <y>956</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>U0302</key>
-            <value>
-                <currentColour>0</currentColour>
-                <points>
-                    <x>592</x>
-                    <y>232</y>
-                </points>
-                <points>
-                    <x>668</x>
-                    <y>232</y>
-                </points>
-                <points>
-                    <x>668</x>
-                    <y>308</y>
-                </points>
-                <points>
-                    <x>592</x>
-                    <y>308</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>D0303</key>
-            <value>
-                <currentColour>5</currentColour>
-                <points>
-                    <x>592</x>
-                    <y>956</y>
-                </points>
-                <points>
-                    <x>668</x>
-                    <y>956</y>
-                </points>
-                <points>
-                    <x>668</x>
-                    <y>1032</y>
-                </points>
-                <points>
-                    <x>592</x>
-                    <y>1032</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>U0303</key>
-            <value>
-                <currentColour>0</currentColour>
-                <points>
-                    <x>592</x>
-                    <y>308</y>
-                </points>
-                <points>
-                    <x>668</x>
-                    <y>308</y>
-                </points>
-                <points>
-                    <x>668</x>
-                    <y>384</y>
-                </points>
-                <points>
-                    <x>592</x>
-                    <y>384</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>F0100</key>
-            <value>
-                <currentColour>2</currentColour>
-                <points>
-                    <x>440</x>
-                    <y>404</y>
-                </points>
-                <points>
-                    <x>516</x>
-                    <y>404</y>
-                </points>
-                <points>
-                    <x>516</x>
-                    <y>480</y>
-                </points>
-                <points>
-                    <x>440</x>
-                    <y>480</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>F0101</key>
-            <value>
-                <currentColour>2</currentColour>
-                <points>
-                    <x>440</x>
-                    <y>480</y>
-                </points>
-                <points>
-                    <x>516</x>
-                    <y>480</y>
-                </points>
-                <points>
-                    <x>516</x>
-                    <y>556</y>
-                </points>
-                <points>
-                    <x>440</x>
-                    <y>556</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>F0300</key>
-            <value>
-                <currentColour>2</currentColour>
-                <points>
-                    <x>592</x>
-                    <y>404</y>
-                </points>
-                <points>
-                    <x>668</x>
-                    <y>404</y>
-                </points>
-                <points>
-                    <x>668</x>
-                    <y>480</y>
-                </points>
-                <points>
-                    <x>592</x>
-                    <y>480</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>F0102</key>
-            <value>
-                <currentColour>2</currentColour>
-                <points>
-                    <x>440</x>
-                    <y>556</y>
-                </points>
-                <points>
-                    <x>516</x>
-                    <y>556</y>
-                </points>
-                <points>
-                    <x>516</x>
+                    <x>840</x>
                     <y>632</y>
                 </points>
                 <points>
-                    <x>440</x>
-                    <y>632</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>F0103</key>
-            <value>
-                <currentColour>2</currentColour>
-                <points>
-                    <x>440</x>
+                    <x>916</x>
                     <y>632</y>
                 </points>
                 <points>
-                    <x>516</x>
-                    <y>632</y>
-                </points>
-                <points>
-                    <x>516</x>
+                    <x>916</x>
                     <y>708</y>
                 </points>
                 <points>
-                    <x>440</x>
+                    <x>840</x>
                     <y>708</y>
                 </points>
             </value>
         </entry>
         <entry>
-            <key>F0302</key>
+            <key>R0303</key>
             <value>
-                <currentColour>2</currentColour>
                 <points>
-                    <x>592</x>
-                    <y>556</y>
-                </points>
-                <points>
-                    <x>668</x>
-                    <y>556</y>
-                </points>
-                <points>
-                    <x>668</x>
+                    <x>916</x>
                     <y>632</y>
                 </points>
                 <points>
-                    <x>592</x>
+                    <x>992</x>
                     <y>632</y>
+                </points>
+                <points>
+                    <x>992</x>
+                    <y>708</y>
+                </points>
+                <points>
+                    <x>916</x>
+                    <y>708</y>
                 </points>
             </value>
         </entry>
         <entry>
             <key>B0000</key>
             <value>
-                <currentColour>4</currentColour>
                 <points>
                     <x>1012</x>
                     <y>404</y>
@@ -1922,31 +1507,71 @@
             </value>
         </entry>
         <entry>
-            <key>F0301</key>
+            <key>B0100</key>
             <value>
-                <currentColour>2</currentColour>
                 <points>
-                    <x>592</x>
+                    <x>1088</x>
+                    <y>404</y>
+                </points>
+                <points>
+                    <x>1164</x>
+                    <y>404</y>
+                </points>
+                <points>
+                    <x>1164</x>
                     <y>480</y>
                 </points>
                 <points>
-                    <x>668</x>
+                    <x>1088</x>
+                    <y>480</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>B0200</key>
+            <value>
+                <points>
+                    <x>1164</x>
+                    <y>404</y>
+                </points>
+                <points>
+                    <x>1240</x>
+                    <y>404</y>
+                </points>
+                <points>
+                    <x>1240</x>
                     <y>480</y>
                 </points>
                 <points>
-                    <x>668</x>
-                    <y>556</y>
+                    <x>1164</x>
+                    <y>480</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>B0300</key>
+            <value>
+                <points>
+                    <x>1240</x>
+                    <y>404</y>
                 </points>
                 <points>
-                    <x>592</x>
-                    <y>556</y>
+                    <x>1316</x>
+                    <y>404</y>
+                </points>
+                <points>
+                    <x>1316</x>
+                    <y>480</y>
+                </points>
+                <points>
+                    <x>1240</x>
+                    <y>480</y>
                 </points>
             </value>
         </entry>
         <entry>
             <key>B0001</key>
             <value>
-                <currentColour>4</currentColour>
                 <points>
                     <x>1012</x>
                     <y>480</y>
@@ -1961,6 +1586,69 @@
                 </points>
                 <points>
                     <x>1012</x>
+                    <y>556</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>B0101</key>
+            <value>
+                <points>
+                    <x>1088</x>
+                    <y>480</y>
+                </points>
+                <points>
+                    <x>1164</x>
+                    <y>480</y>
+                </points>
+                <points>
+                    <x>1164</x>
+                    <y>556</y>
+                </points>
+                <points>
+                    <x>1088</x>
+                    <y>556</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>B0201</key>
+            <value>
+                <points>
+                    <x>1164</x>
+                    <y>480</y>
+                </points>
+                <points>
+                    <x>1240</x>
+                    <y>480</y>
+                </points>
+                <points>
+                    <x>1240</x>
+                    <y>556</y>
+                </points>
+                <points>
+                    <x>1164</x>
+                    <y>556</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>B0301</key>
+            <value>
+                <points>
+                    <x>1240</x>
+                    <y>480</y>
+                </points>
+                <points>
+                    <x>1316</x>
+                    <y>480</y>
+                </points>
+                <points>
+                    <x>1316</x>
+                    <y>556</y>
+                </points>
+                <points>
+                    <x>1240</x>
                     <y>556</y>
                 </points>
             </value>
@@ -1968,7 +1656,6 @@
         <entry>
             <key>B0002</key>
             <value>
-                <currentColour>4</currentColour>
                 <points>
                     <x>1012</x>
                     <y>556</y>
@@ -1988,97 +1675,29 @@
             </value>
         </entry>
         <entry>
-            <key>B0200</key>
+            <key>B0102</key>
             <value>
-                <currentColour>4</currentColour>
-                <points>
-                    <x>1164</x>
-                    <y>404</y>
-                </points>
-                <points>
-                    <x>1240</x>
-                    <y>404</y>
-                </points>
-                <points>
-                    <x>1240</x>
-                    <y>480</y>
-                </points>
-                <points>
-                    <x>1164</x>
-                    <y>480</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>F0303</key>
-            <value>
-                <currentColour>2</currentColour>
-                <points>
-                    <x>592</x>
-                    <y>632</y>
-                </points>
-                <points>
-                    <x>668</x>
-                    <y>632</y>
-                </points>
-                <points>
-                    <x>668</x>
-                    <y>708</y>
-                </points>
-                <points>
-                    <x>592</x>
-                    <y>708</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>B0003</key>
-            <value>
-                <currentColour>4</currentColour>
-                <points>
-                    <x>1012</x>
-                    <y>632</y>
-                </points>
                 <points>
                     <x>1088</x>
-                    <y>632</y>
-                </points>
-                <points>
-                    <x>1088</x>
-                    <y>708</y>
-                </points>
-                <points>
-                    <x>1012</x>
-                    <y>708</y>
-                </points>
-            </value>
-        </entry>
-        <entry>
-            <key>B0201</key>
-            <value>
-                <currentColour>4</currentColour>
-                <points>
-                    <x>1164</x>
-                    <y>480</y>
-                </points>
-                <points>
-                    <x>1240</x>
-                    <y>480</y>
-                </points>
-                <points>
-                    <x>1240</x>
                     <y>556</y>
                 </points>
                 <points>
                     <x>1164</x>
                     <y>556</y>
+                </points>
+                <points>
+                    <x>1164</x>
+                    <y>632</y>
+                </points>
+                <points>
+                    <x>1088</x>
+                    <y>632</y>
                 </points>
             </value>
         </entry>
         <entry>
             <key>B0202</key>
             <value>
-                <currentColour>4</currentColour>
                 <points>
                     <x>1164</x>
                     <y>556</y>
@@ -2098,9 +1717,71 @@
             </value>
         </entry>
         <entry>
+            <key>B0302</key>
+            <value>
+                <points>
+                    <x>1240</x>
+                    <y>556</y>
+                </points>
+                <points>
+                    <x>1316</x>
+                    <y>556</y>
+                </points>
+                <points>
+                    <x>1316</x>
+                    <y>632</y>
+                </points>
+                <points>
+                    <x>1240</x>
+                    <y>632</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>B0003</key>
+            <value>
+                <points>
+                    <x>1012</x>
+                    <y>632</y>
+                </points>
+                <points>
+                    <x>1088</x>
+                    <y>632</y>
+                </points>
+                <points>
+                    <x>1088</x>
+                    <y>708</y>
+                </points>
+                <points>
+                    <x>1012</x>
+                    <y>708</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>B0103</key>
+            <value>
+                <points>
+                    <x>1088</x>
+                    <y>632</y>
+                </points>
+                <points>
+                    <x>1164</x>
+                    <y>632</y>
+                </points>
+                <points>
+                    <x>1164</x>
+                    <y>708</y>
+                </points>
+                <points>
+                    <x>1088</x>
+                    <y>708</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
             <key>B0203</key>
             <value>
-                <currentColour>4</currentColour>
                 <points>
                     <x>1164</x>
                     <y>632</y>
@@ -2116,6 +1797,363 @@
                 <points>
                     <x>1164</x>
                     <y>708</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>B0303</key>
+            <value>
+                <points>
+                    <x>1240</x>
+                    <y>632</y>
+                </points>
+                <points>
+                    <x>1316</x>
+                    <y>632</y>
+                </points>
+                <points>
+                    <x>1316</x>
+                    <y>708</y>
+                </points>
+                <points>
+                    <x>1240</x>
+                    <y>708</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>D0000</key>
+            <value>
+                <points>
+                    <x>364</x>
+                    <y>728</y>
+                </points>
+                <points>
+                    <x>440</x>
+                    <y>728</y>
+                </points>
+                <points>
+                    <x>440</x>
+                    <y>804</y>
+                </points>
+                <points>
+                    <x>364</x>
+                    <y>804</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>D0100</key>
+            <value>
+                <points>
+                    <x>440</x>
+                    <y>728</y>
+                </points>
+                <points>
+                    <x>516</x>
+                    <y>728</y>
+                </points>
+                <points>
+                    <x>516</x>
+                    <y>804</y>
+                </points>
+                <points>
+                    <x>440</x>
+                    <y>804</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>D0200</key>
+            <value>
+                <points>
+                    <x>516</x>
+                    <y>728</y>
+                </points>
+                <points>
+                    <x>592</x>
+                    <y>728</y>
+                </points>
+                <points>
+                    <x>592</x>
+                    <y>804</y>
+                </points>
+                <points>
+                    <x>516</x>
+                    <y>804</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>D0300</key>
+            <value>
+                <points>
+                    <x>592</x>
+                    <y>728</y>
+                </points>
+                <points>
+                    <x>668</x>
+                    <y>728</y>
+                </points>
+                <points>
+                    <x>668</x>
+                    <y>804</y>
+                </points>
+                <points>
+                    <x>592</x>
+                    <y>804</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>D0001</key>
+            <value>
+                <points>
+                    <x>364</x>
+                    <y>804</y>
+                </points>
+                <points>
+                    <x>440</x>
+                    <y>804</y>
+                </points>
+                <points>
+                    <x>440</x>
+                    <y>880</y>
+                </points>
+                <points>
+                    <x>364</x>
+                    <y>880</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>D0101</key>
+            <value>
+                <points>
+                    <x>440</x>
+                    <y>804</y>
+                </points>
+                <points>
+                    <x>516</x>
+                    <y>804</y>
+                </points>
+                <points>
+                    <x>516</x>
+                    <y>880</y>
+                </points>
+                <points>
+                    <x>440</x>
+                    <y>880</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>D0201</key>
+            <value>
+                <points>
+                    <x>516</x>
+                    <y>804</y>
+                </points>
+                <points>
+                    <x>592</x>
+                    <y>804</y>
+                </points>
+                <points>
+                    <x>592</x>
+                    <y>880</y>
+                </points>
+                <points>
+                    <x>516</x>
+                    <y>880</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>D0301</key>
+            <value>
+                <points>
+                    <x>592</x>
+                    <y>804</y>
+                </points>
+                <points>
+                    <x>668</x>
+                    <y>804</y>
+                </points>
+                <points>
+                    <x>668</x>
+                    <y>880</y>
+                </points>
+                <points>
+                    <x>592</x>
+                    <y>880</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>D0002</key>
+            <value>
+                <points>
+                    <x>364</x>
+                    <y>880</y>
+                </points>
+                <points>
+                    <x>440</x>
+                    <y>880</y>
+                </points>
+                <points>
+                    <x>440</x>
+                    <y>956</y>
+                </points>
+                <points>
+                    <x>364</x>
+                    <y>956</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>D0102</key>
+            <value>
+                <points>
+                    <x>440</x>
+                    <y>880</y>
+                </points>
+                <points>
+                    <x>516</x>
+                    <y>880</y>
+                </points>
+                <points>
+                    <x>516</x>
+                    <y>956</y>
+                </points>
+                <points>
+                    <x>440</x>
+                    <y>956</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>D0202</key>
+            <value>
+                <points>
+                    <x>516</x>
+                    <y>880</y>
+                </points>
+                <points>
+                    <x>592</x>
+                    <y>880</y>
+                </points>
+                <points>
+                    <x>592</x>
+                    <y>956</y>
+                </points>
+                <points>
+                    <x>516</x>
+                    <y>956</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>D0302</key>
+            <value>
+                <points>
+                    <x>592</x>
+                    <y>880</y>
+                </points>
+                <points>
+                    <x>668</x>
+                    <y>880</y>
+                </points>
+                <points>
+                    <x>668</x>
+                    <y>956</y>
+                </points>
+                <points>
+                    <x>592</x>
+                    <y>956</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>D0003</key>
+            <value>
+                <points>
+                    <x>364</x>
+                    <y>956</y>
+                </points>
+                <points>
+                    <x>440</x>
+                    <y>956</y>
+                </points>
+                <points>
+                    <x>440</x>
+                    <y>1032</y>
+                </points>
+                <points>
+                    <x>364</x>
+                    <y>1032</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>D0103</key>
+            <value>
+                <points>
+                    <x>440</x>
+                    <y>956</y>
+                </points>
+                <points>
+                    <x>516</x>
+                    <y>956</y>
+                </points>
+                <points>
+                    <x>516</x>
+                    <y>1032</y>
+                </points>
+                <points>
+                    <x>440</x>
+                    <y>1032</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>D0203</key>
+            <value>
+                <points>
+                    <x>516</x>
+                    <y>956</y>
+                </points>
+                <points>
+                    <x>592</x>
+                    <y>956</y>
+                </points>
+                <points>
+                    <x>592</x>
+                    <y>1032</y>
+                </points>
+                <points>
+                    <x>516</x>
+                    <y>1032</y>
+                </points>
+            </value>
+        </entry>
+        <entry>
+            <key>D0303</key>
+            <value>
+                <points>
+                    <x>592</x>
+                    <y>956</y>
+                </points>
+                <points>
+                    <x>668</x>
+                    <y>956</y>
+                </points>
+                <points>
+                    <x>668</x>
+                    <y>1032</y>
+                </points>
+                <points>
+                    <x>592</x>
+                    <y>1032</y>
                 </points>
             </value>
         </entry>
@@ -2175,7 +2213,7 @@
                     </entry>
                     <entry>
                         <key>D0201</key>
-                        <value>F0102</value>
+                        <value>D0201</value>
                     </entry>
                     <entry>
                         <key>U0003</key>
@@ -2183,11 +2221,11 @@
                     </entry>
                     <entry>
                         <key>D0202</key>
-                        <value>F0101</value>
+                        <value>D0202</value>
                     </entry>
                     <entry>
                         <key>D0203</key>
-                        <value>F0100</value>
+                        <value>D0203</value>
                     </entry>
                     <entry>
                         <key>B0303</key>
@@ -2195,11 +2233,11 @@
                     </entry>
                     <entry>
                         <key>F0201</key>
-                        <value>D0102</value>
+                        <value>B0201</value>
                     </entry>
                     <entry>
                         <key>F0200</key>
-                        <value>D0103</value>
+                        <value>B0200</value>
                     </entry>
                     <entry>
                         <key>F0203</key>
@@ -2207,19 +2245,19 @@
                     </entry>
                     <entry>
                         <key>F0202</key>
-                        <value>D0101</value>
+                        <value>B0202</value>
                     </entry>
                     <entry>
                         <key>B0300</key>
-                        <value>B0300</value>
+                        <value>F0300</value>
                     </entry>
                     <entry>
                         <key>B0301</key>
-                        <value>B0301</value>
+                        <value>F0301</value>
                     </entry>
                     <entry>
                         <key>B0302</key>
-                        <value>B0302</value>
+                        <value>F0302</value>
                     </entry>
                     <entry>
                         <key>L0100</key>
@@ -2271,7 +2309,7 @@
                     </entry>
                     <entry>
                         <key>D0301</key>
-                        <value>F0002</value>
+                        <value>D0301</value>
                     </entry>
                     <entry>
                         <key>U0103</key>
@@ -2279,27 +2317,27 @@
                     </entry>
                     <entry>
                         <key>D0302</key>
-                        <value>F0001</value>
+                        <value>D0302</value>
                     </entry>
                     <entry>
                         <key>D0303</key>
-                        <value>F0000</value>
+                        <value>D0303</value>
                     </entry>
                     <entry>
                         <key>F0300</key>
-                        <value>D0003</value>
+                        <value>B0300</value>
                     </entry>
                     <entry>
                         <key>F0302</key>
-                        <value>D0001</value>
+                        <value>B0302</value>
                     </entry>
                     <entry>
                         <key>F0301</key>
-                        <value>D0002</value>
+                        <value>B0301</value>
                     </entry>
                     <entry>
                         <key>B0200</key>
-                        <value>B0200</value>
+                        <value>F0200</value>
                     </entry>
                     <entry>
                         <key>F0303</key>
@@ -2307,11 +2345,11 @@
                     </entry>
                     <entry>
                         <key>B0201</key>
-                        <value>B0201</value>
+                        <value>F0201</value>
                     </entry>
                     <entry>
                         <key>B0202</key>
-                        <value>B0202</value>
+                        <value>F0202</value>
                     </entry>
                     <entry>
                         <key>B0203</key>
@@ -2347,11 +2385,11 @@
                     </entry>
                     <entry>
                         <key>D0001</key>
-                        <value>F0302</value>
+                        <value>D0001</value>
                     </entry>
                     <entry>
                         <key>D0002</key>
-                        <value>F0301</value>
+                        <value>D0002</value>
                     </entry>
                     <entry>
                         <key>U0200</key>
@@ -2359,7 +2397,7 @@
                     </entry>
                     <entry>
                         <key>D0003</key>
-                        <value>F0300</value>
+                        <value>D0003</value>
                     </entry>
                     <entry>
                         <key>L0203</key>
@@ -2383,15 +2421,15 @@
                     </entry>
                     <entry>
                         <key>F0000</key>
-                        <value>D0303</value>
+                        <value>B0000</value>
                     </entry>
                     <entry>
                         <key>F0001</key>
-                        <value>D0302</value>
+                        <value>B0001</value>
                     </entry>
                     <entry>
                         <key>F0002</key>
-                        <value>D0301</value>
+                        <value>B0002</value>
                     </entry>
                     <entry>
                         <key>F0003</key>
@@ -2399,15 +2437,15 @@
                     </entry>
                     <entry>
                         <key>B0100</key>
-                        <value>B0100</value>
+                        <value>F0100</value>
                     </entry>
                     <entry>
                         <key>B0101</key>
-                        <value>B0101</value>
+                        <value>F0101</value>
                     </entry>
                     <entry>
                         <key>B0102</key>
-                        <value>B0102</value>
+                        <value>F0102</value>
                     </entry>
                     <entry>
                         <key>B0103</key>
@@ -2439,11 +2477,11 @@
                     </entry>
                     <entry>
                         <key>D0101</key>
-                        <value>F0202</value>
+                        <value>D0101</value>
                     </entry>
                     <entry>
                         <key>D0102</key>
-                        <value>F0201</value>
+                        <value>D0102</value>
                     </entry>
                     <entry>
                         <key>L0302</key>
@@ -2463,7 +2501,7 @@
                     </entry>
                     <entry>
                         <key>D0103</key>
-                        <value>F0200</value>
+                        <value>D0103</value>
                     </entry>
                     <entry>
                         <key>U0301</key>
@@ -2479,15 +2517,15 @@
                     </entry>
                     <entry>
                         <key>F0100</key>
-                        <value>D0203</value>
+                        <value>B0100</value>
                     </entry>
                     <entry>
                         <key>F0101</key>
-                        <value>D0202</value>
+                        <value>B0101</value>
                     </entry>
                     <entry>
                         <key>F0102</key>
-                        <value>D0201</value>
+                        <value>B0102</value>
                     </entry>
                     <entry>
                         <key>F0103</key>
@@ -2495,15 +2533,15 @@
                     </entry>
                     <entry>
                         <key>B0000</key>
-                        <value>B0000</value>
+                        <value>F0000</value>
                     </entry>
                     <entry>
                         <key>B0001</key>
-                        <value>B0001</value>
+                        <value>F0001</value>
                     </entry>
                     <entry>
                         <key>B0002</key>
-                        <value>B0002</value>
+                        <value>F0002</value>
                     </entry>
                     <entry>
                         <key>B0003</key>
@@ -2523,11 +2561,11 @@
                     </entry>
                     <entry>
                         <key>L0001</key>
-                        <value>D0302</value>
+                        <value>B0001</value>
                     </entry>
                     <entry>
                         <key>L0000</key>
-                        <value>D0303</value>
+                        <value>B0000</value>
                     </entry>
                     <entry>
                         <key>L0003</key>
@@ -2535,7 +2573,7 @@
                     </entry>
                     <entry>
                         <key>L0002</key>
-                        <value>D0301</value>
+                        <value>B0002</value>
                     </entry>
                     <entry>
                         <key>R0301</key>
@@ -2567,7 +2605,7 @@
                     </entry>
                     <entry>
                         <key>D0201</key>
-                        <value>R0102</value>
+                        <value>D0201</value>
                     </entry>
                     <entry>
                         <key>U0003</key>
@@ -2575,11 +2613,11 @@
                     </entry>
                     <entry>
                         <key>D0202</key>
-                        <value>R0101</value>
+                        <value>D0202</value>
                     </entry>
                     <entry>
                         <key>D0203</key>
-                        <value>R0100</value>
+                        <value>D0203</value>
                     </entry>
                     <entry>
                         <key>B0303</key>
@@ -2603,27 +2641,27 @@
                     </entry>
                     <entry>
                         <key>B0300</key>
-                        <value>B0300</value>
+                        <value>R0300</value>
                     </entry>
                     <entry>
                         <key>B0301</key>
-                        <value>B0301</value>
+                        <value>R0301</value>
                     </entry>
                     <entry>
                         <key>B0302</key>
-                        <value>B0302</value>
+                        <value>R0302</value>
                     </entry>
                     <entry>
                         <key>L0100</key>
-                        <value>D0203</value>
+                        <value>B0100</value>
                     </entry>
                     <entry>
                         <key>L0102</key>
-                        <value>D0201</value>
+                        <value>B0102</value>
                     </entry>
                     <entry>
                         <key>L0101</key>
-                        <value>D0202</value>
+                        <value>B0101</value>
                     </entry>
                     <entry>
                         <key>R0202</key>
@@ -2663,7 +2701,7 @@
                     </entry>
                     <entry>
                         <key>D0301</key>
-                        <value>R0002</value>
+                        <value>D0301</value>
                     </entry>
                     <entry>
                         <key>U0103</key>
@@ -2671,11 +2709,11 @@
                     </entry>
                     <entry>
                         <key>D0302</key>
-                        <value>R0001</value>
+                        <value>D0302</value>
                     </entry>
                     <entry>
                         <key>D0303</key>
-                        <value>R0000</value>
+                        <value>D0303</value>
                     </entry>
                     <entry>
                         <key>F0300</key>
@@ -2691,7 +2729,7 @@
                     </entry>
                     <entry>
                         <key>B0200</key>
-                        <value>B0200</value>
+                        <value>R0200</value>
                     </entry>
                     <entry>
                         <key>F0303</key>
@@ -2699,11 +2737,11 @@
                     </entry>
                     <entry>
                         <key>B0201</key>
-                        <value>B0201</value>
+                        <value>R0201</value>
                     </entry>
                     <entry>
                         <key>B0202</key>
-                        <value>B0202</value>
+                        <value>R0202</value>
                     </entry>
                     <entry>
                         <key>B0203</key>
@@ -2715,11 +2753,11 @@
                     </entry>
                     <entry>
                         <key>L0201</key>
-                        <value>D0102</value>
+                        <value>B0201</value>
                     </entry>
                     <entry>
                         <key>L0200</key>
-                        <value>D0103</value>
+                        <value>B0200</value>
                     </entry>
                     <entry>
                         <key>R0103</key>
@@ -2739,11 +2777,11 @@
                     </entry>
                     <entry>
                         <key>D0001</key>
-                        <value>R0302</value>
+                        <value>D0001</value>
                     </entry>
                     <entry>
                         <key>D0002</key>
-                        <value>R0301</value>
+                        <value>D0002</value>
                     </entry>
                     <entry>
                         <key>U0200</key>
@@ -2751,7 +2789,7 @@
                     </entry>
                     <entry>
                         <key>D0003</key>
-                        <value>R0300</value>
+                        <value>D0003</value>
                     </entry>
                     <entry>
                         <key>L0203</key>
@@ -2759,7 +2797,7 @@
                     </entry>
                     <entry>
                         <key>L0202</key>
-                        <value>D0101</value>
+                        <value>B0202</value>
                     </entry>
                     <entry>
                         <key>U0201</key>
@@ -2791,15 +2829,15 @@
                     </entry>
                     <entry>
                         <key>B0100</key>
-                        <value>B0100</value>
+                        <value>R0100</value>
                     </entry>
                     <entry>
                         <key>B0101</key>
-                        <value>B0101</value>
+                        <value>R0101</value>
                     </entry>
                     <entry>
                         <key>B0102</key>
-                        <value>B0102</value>
+                        <value>R0102</value>
                     </entry>
                     <entry>
                         <key>B0103</key>
@@ -2815,7 +2853,7 @@
                     </entry>
                     <entry>
                         <key>L0300</key>
-                        <value>D0003</value>
+                        <value>B0300</value>
                     </entry>
                     <entry>
                         <key>R0002</key>
@@ -2831,19 +2869,19 @@
                     </entry>
                     <entry>
                         <key>D0101</key>
-                        <value>R0202</value>
+                        <value>D0101</value>
                     </entry>
                     <entry>
                         <key>D0102</key>
-                        <value>R0201</value>
+                        <value>D0102</value>
                     </entry>
                     <entry>
                         <key>L0302</key>
-                        <value>D0001</value>
+                        <value>B0302</value>
                     </entry>
                     <entry>
                         <key>L0301</key>
-                        <value>D0002</value>
+                        <value>B0301</value>
                     </entry>
                     <entry>
                         <key>L0303</key>
@@ -2855,7 +2893,7 @@
                     </entry>
                     <entry>
                         <key>D0103</key>
-                        <value>R0200</value>
+                        <value>D0103</value>
                     </entry>
                     <entry>
                         <key>U0301</key>
@@ -2887,15 +2925,15 @@
                     </entry>
                     <entry>
                         <key>B0000</key>
-                        <value>B0000</value>
+                        <value>R0000</value>
                     </entry>
                     <entry>
                         <key>B0001</key>
-                        <value>B0001</value>
+                        <value>R0001</value>
                     </entry>
                     <entry>
                         <key>B0002</key>
-                        <value>B0002</value>
+                        <value>R0002</value>
                     </entry>
                     <entry>
                         <key>B0003</key>
@@ -3302,10 +3340,6 @@
             <value>
                 <cellMapping>
                     <entry>
-                        <key>R0303</key>
-                        <value>R0303</value>
-                    </entry>
-                    <entry>
                         <key>L0001</key>
                         <value>L0103</value>
                     </entry>
@@ -3320,18 +3354,6 @@
                     <entry>
                         <key>L0002</key>
                         <value>L0203</value>
-                    </entry>
-                    <entry>
-                        <key>R0301</key>
-                        <value>R0301</value>
-                    </entry>
-                    <entry>
-                        <key>R0302</key>
-                        <value>R0302</value>
-                    </entry>
-                    <entry>
-                        <key>R0300</key>
-                        <value>R0300</value>
                     </entry>
                     <entry>
                         <key>U0000</key>
@@ -3410,32 +3432,12 @@
                         <value>L0102</value>
                     </entry>
                     <entry>
-                        <key>R0202</key>
-                        <value>R0202</value>
-                    </entry>
-                    <entry>
-                        <key>R0203</key>
-                        <value>R0203</value>
-                    </entry>
-                    <entry>
-                        <key>R0200</key>
-                        <value>R0200</value>
-                    </entry>
-                    <entry>
-                        <key>R0201</key>
-                        <value>R0201</value>
-                    </entry>
-                    <entry>
                         <key>U0100</key>
                         <value>B0203</value>
                     </entry>
                     <entry>
                         <key>U0101</key>
                         <value>B0202</value>
-                    </entry>
-                    <entry>
-                        <key>D0300</key>
-                        <value>D0300</value>
                     </entry>
                     <entry>
                         <key>L0103</key>
@@ -3446,40 +3448,12 @@
                         <value>B0201</value>
                     </entry>
                     <entry>
-                        <key>D0301</key>
-                        <value>D0301</value>
-                    </entry>
-                    <entry>
                         <key>U0103</key>
                         <value>B0200</value>
                     </entry>
                     <entry>
-                        <key>D0302</key>
-                        <value>D0302</value>
-                    </entry>
-                    <entry>
-                        <key>D0303</key>
-                        <value>D0303</value>
-                    </entry>
-                    <entry>
-                        <key>F0300</key>
-                        <value>F0300</value>
-                    </entry>
-                    <entry>
-                        <key>F0302</key>
-                        <value>F0302</value>
-                    </entry>
-                    <entry>
-                        <key>F0301</key>
-                        <value>F0301</value>
-                    </entry>
-                    <entry>
                         <key>B0200</key>
                         <value>D0103</value>
-                    </entry>
-                    <entry>
-                        <key>F0303</key>
-                        <value>F0303</value>
                     </entry>
                     <entry>
                         <key>B0201</key>
@@ -3494,28 +3468,12 @@
                         <value>D0100</value>
                     </entry>
                     <entry>
-                        <key>R0100</key>
-                        <value>R0100</value>
-                    </entry>
-                    <entry>
                         <key>L0201</key>
                         <value>L0101</value>
                     </entry>
                     <entry>
                         <key>L0200</key>
                         <value>L0001</value>
-                    </entry>
-                    <entry>
-                        <key>R0103</key>
-                        <value>R0103</value>
-                    </entry>
-                    <entry>
-                        <key>R0101</key>
-                        <value>R0101</value>
-                    </entry>
-                    <entry>
-                        <key>R0102</key>
-                        <value>R0102</value>
                     </entry>
                     <entry>
                         <key>D0000</key>
@@ -3590,24 +3548,8 @@
                         <value>D0200</value>
                     </entry>
                     <entry>
-                        <key>R0000</key>
-                        <value>R0000</value>
-                    </entry>
-                    <entry>
-                        <key>R0001</key>
-                        <value>R0001</value>
-                    </entry>
-                    <entry>
                         <key>L0300</key>
                         <value>L0000</value>
-                    </entry>
-                    <entry>
-                        <key>R0002</key>
-                        <value>R0002</value>
-                    </entry>
-                    <entry>
-                        <key>R0003</key>
-                        <value>R0003</value>
                     </entry>
                     <entry>
                         <key>D0100</key>
@@ -3634,24 +3576,8 @@
                         <value>L0300</value>
                     </entry>
                     <entry>
-                        <key>U0300</key>
-                        <value>U0300</value>
-                    </entry>
-                    <entry>
                         <key>D0103</key>
                         <value>F0103</value>
-                    </entry>
-                    <entry>
-                        <key>U0301</key>
-                        <value>U0301</value>
-                    </entry>
-                    <entry>
-                        <key>U0302</key>
-                        <value>U0302</value>
-                    </entry>
-                    <entry>
-                        <key>U0303</key>
-                        <value>U0303</value>
                     </entry>
                     <entry>
                         <key>F0100</key>
@@ -3668,22 +3594,6 @@
                     <entry>
                         <key>F0103</key>
                         <value>U0103</value>
-                    </entry>
-                    <entry>
-                        <key>B0000</key>
-                        <value>B0000</value>
-                    </entry>
-                    <entry>
-                        <key>B0001</key>
-                        <value>B0001</value>
-                    </entry>
-                    <entry>
-                        <key>B0002</key>
-                        <value>B0002</value>
-                    </entry>
-                    <entry>
-                        <key>B0003</key>
-                        <value>B0003</value>
                     </entry>
                 </cellMapping>
                 <cost>1</cost>
@@ -4483,11 +4393,11 @@
                     </entry>
                     <entry>
                         <key>L0001</key>
-                        <value>D0302</value>
+                        <value>B0001</value>
                     </entry>
                     <entry>
                         <key>L0000</key>
-                        <value>D0303</value>
+                        <value>B0000</value>
                     </entry>
                     <entry>
                         <key>L0003</key>
@@ -4535,11 +4445,11 @@
                     </entry>
                     <entry>
                         <key>D0202</key>
-                        <value>R0101</value>
+                        <value>D0202</value>
                     </entry>
                     <entry>
                         <key>D0203</key>
-                        <value>R0100</value>
+                        <value>D0203</value>
                     </entry>
                     <entry>
                         <key>B0303</key>
@@ -4563,11 +4473,11 @@
                     </entry>
                     <entry>
                         <key>B0300</key>
-                        <value>B0300</value>
+                        <value>R0300</value>
                     </entry>
                     <entry>
                         <key>B0301</key>
-                        <value>B0301</value>
+                        <value>R0301</value>
                     </entry>
                     <entry>
                         <key>B0302</key>
@@ -4575,7 +4485,7 @@
                     </entry>
                     <entry>
                         <key>L0100</key>
-                        <value>D0203</value>
+                        <value>B0100</value>
                     </entry>
                     <entry>
                         <key>L0102</key>
@@ -4583,7 +4493,7 @@
                     </entry>
                     <entry>
                         <key>L0101</key>
-                        <value>D0202</value>
+                        <value>B0101</value>
                     </entry>
                     <entry>
                         <key>R0202</key>
@@ -4631,11 +4541,11 @@
                     </entry>
                     <entry>
                         <key>D0302</key>
-                        <value>R0001</value>
+                        <value>D0302</value>
                     </entry>
                     <entry>
                         <key>D0303</key>
-                        <value>R0000</value>
+                        <value>D0303</value>
                     </entry>
                     <entry>
                         <key>F0300</key>
@@ -4651,7 +4561,7 @@
                     </entry>
                     <entry>
                         <key>B0200</key>
-                        <value>B0200</value>
+                        <value>R0200</value>
                     </entry>
                     <entry>
                         <key>F0303</key>
@@ -4659,7 +4569,7 @@
                     </entry>
                     <entry>
                         <key>B0201</key>
-                        <value>B0201</value>
+                        <value>R0201</value>
                     </entry>
                     <entry>
                         <key>B0202</key>
@@ -4675,11 +4585,11 @@
                     </entry>
                     <entry>
                         <key>L0201</key>
-                        <value>D0102</value>
+                        <value>B0201</value>
                     </entry>
                     <entry>
                         <key>L0200</key>
-                        <value>D0103</value>
+                        <value>B0200</value>
                     </entry>
                     <entry>
                         <key>R0103</key>
@@ -4703,7 +4613,7 @@
                     </entry>
                     <entry>
                         <key>D0002</key>
-                        <value>R0301</value>
+                        <value>D0002</value>
                     </entry>
                     <entry>
                         <key>U0200</key>
@@ -4711,7 +4621,7 @@
                     </entry>
                     <entry>
                         <key>D0003</key>
-                        <value>R0300</value>
+                        <value>D0003</value>
                     </entry>
                     <entry>
                         <key>L0203</key>
@@ -4751,11 +4661,11 @@
                     </entry>
                     <entry>
                         <key>B0100</key>
-                        <value>B0100</value>
+                        <value>R0100</value>
                     </entry>
                     <entry>
                         <key>B0101</key>
-                        <value>B0101</value>
+                        <value>R0101</value>
                     </entry>
                     <entry>
                         <key>B0102</key>
@@ -4775,7 +4685,7 @@
                     </entry>
                     <entry>
                         <key>L0300</key>
-                        <value>D0003</value>
+                        <value>B0300</value>
                     </entry>
                     <entry>
                         <key>R0002</key>
@@ -4795,7 +4705,7 @@
                     </entry>
                     <entry>
                         <key>D0102</key>
-                        <value>R0201</value>
+                        <value>D0102</value>
                     </entry>
                     <entry>
                         <key>L0302</key>
@@ -4803,7 +4713,7 @@
                     </entry>
                     <entry>
                         <key>L0301</key>
-                        <value>D0002</value>
+                        <value>B0301</value>
                     </entry>
                     <entry>
                         <key>L0303</key>
@@ -4815,7 +4725,7 @@
                     </entry>
                     <entry>
                         <key>D0103</key>
-                        <value>R0200</value>
+                        <value>D0103</value>
                     </entry>
                     <entry>
                         <key>U0301</key>
@@ -4847,11 +4757,11 @@
                     </entry>
                     <entry>
                         <key>B0000</key>
-                        <value>B0000</value>
+                        <value>R0000</value>
                     </entry>
                     <entry>
                         <key>B0001</key>
-                        <value>B0001</value>
+                        <value>R0001</value>
                     </entry>
                     <entry>
                         <key>B0002</key>
@@ -5270,10 +5180,6 @@
                         <value>B0001</value>
                     </entry>
                     <entry>
-                        <key>L0000</key>
-                        <value>L0000</value>
-                    </entry>
-                    <entry>
                         <key>L0003</key>
                         <value>B0003</value>
                     </entry>
@@ -5290,32 +5196,12 @@
                         <value>F0302</value>
                     </entry>
                     <entry>
-                        <key>R0300</key>
-                        <value>R0300</value>
-                    </entry>
-                    <entry>
-                        <key>U0000</key>
-                        <value>U0000</value>
-                    </entry>
-                    <entry>
-                        <key>U0001</key>
-                        <value>U0001</value>
-                    </entry>
-                    <entry>
                         <key>D0200</key>
                         <value>D0001</value>
                     </entry>
                     <entry>
-                        <key>U0002</key>
-                        <value>U0002</value>
-                    </entry>
-                    <entry>
                         <key>D0201</key>
                         <value>D0101</value>
-                    </entry>
-                    <entry>
-                        <key>U0003</key>
-                        <value>U0003</value>
                     </entry>
                     <entry>
                         <key>D0202</key>
@@ -5334,10 +5220,6 @@
                         <value>L0201</value>
                     </entry>
                     <entry>
-                        <key>F0200</key>
-                        <value>F0200</value>
-                    </entry>
-                    <entry>
                         <key>F0203</key>
                         <value>L0203</value>
                     </entry>
@@ -5346,20 +5228,12 @@
                         <value>L0202</value>
                     </entry>
                     <entry>
-                        <key>B0300</key>
-                        <value>B0300</value>
-                    </entry>
-                    <entry>
                         <key>B0301</key>
                         <value>R0301</value>
                     </entry>
                     <entry>
                         <key>B0302</key>
                         <value>R0302</value>
-                    </entry>
-                    <entry>
-                        <key>L0100</key>
-                        <value>L0100</value>
                     </entry>
                     <entry>
                         <key>L0102</key>
@@ -5378,20 +5252,8 @@
                         <value>F0203</value>
                     </entry>
                     <entry>
-                        <key>R0200</key>
-                        <value>R0200</value>
-                    </entry>
-                    <entry>
                         <key>R0201</key>
                         <value>F0201</value>
-                    </entry>
-                    <entry>
-                        <key>U0100</key>
-                        <value>U0100</value>
-                    </entry>
-                    <entry>
-                        <key>U0101</key>
-                        <value>U0101</value>
                     </entry>
                     <entry>
                         <key>D0300</key>
@@ -5402,16 +5264,8 @@
                         <value>B0103</value>
                     </entry>
                     <entry>
-                        <key>U0102</key>
-                        <value>U0102</value>
-                    </entry>
-                    <entry>
                         <key>D0301</key>
                         <value>D0100</value>
-                    </entry>
-                    <entry>
-                        <key>U0103</key>
-                        <value>U0103</value>
                     </entry>
                     <entry>
                         <key>D0302</key>
@@ -5422,20 +5276,12 @@
                         <value>D0300</value>
                     </entry>
                     <entry>
-                        <key>F0300</key>
-                        <value>F0300</value>
-                    </entry>
-                    <entry>
                         <key>F0302</key>
                         <value>L0302</value>
                     </entry>
                     <entry>
                         <key>F0301</key>
                         <value>L0301</value>
-                    </entry>
-                    <entry>
-                        <key>B0200</key>
-                        <value>B0200</value>
                     </entry>
                     <entry>
                         <key>F0303</key>
@@ -5454,16 +5300,8 @@
                         <value>R0203</value>
                     </entry>
                     <entry>
-                        <key>R0100</key>
-                        <value>R0100</value>
-                    </entry>
-                    <entry>
                         <key>L0201</key>
                         <value>B0201</value>
-                    </entry>
-                    <entry>
-                        <key>L0200</key>
-                        <value>L0200</value>
                     </entry>
                     <entry>
                         <key>R0103</key>
@@ -5490,10 +5328,6 @@
                         <value>D0203</value>
                     </entry>
                     <entry>
-                        <key>U0200</key>
-                        <value>U0200</value>
-                    </entry>
-                    <entry>
                         <key>D0003</key>
                         <value>D0303</value>
                     </entry>
@@ -5504,22 +5338,6 @@
                     <entry>
                         <key>L0202</key>
                         <value>B0202</value>
-                    </entry>
-                    <entry>
-                        <key>U0201</key>
-                        <value>U0201</value>
-                    </entry>
-                    <entry>
-                        <key>U0202</key>
-                        <value>U0202</value>
-                    </entry>
-                    <entry>
-                        <key>U0203</key>
-                        <value>U0203</value>
-                    </entry>
-                    <entry>
-                        <key>F0000</key>
-                        <value>F0000</value>
                     </entry>
                     <entry>
                         <key>F0001</key>
@@ -5534,10 +5352,6 @@
                         <value>L0003</value>
                     </entry>
                     <entry>
-                        <key>B0100</key>
-                        <value>B0100</value>
-                    </entry>
-                    <entry>
                         <key>B0101</key>
                         <value>R0101</value>
                     </entry>
@@ -5550,16 +5364,8 @@
                         <value>R0103</value>
                     </entry>
                     <entry>
-                        <key>R0000</key>
-                        <value>R0000</value>
-                    </entry>
-                    <entry>
                         <key>R0001</key>
                         <value>F0001</value>
-                    </entry>
-                    <entry>
-                        <key>L0300</key>
-                        <value>L0300</value>
                     </entry>
                     <entry>
                         <key>R0002</key>
@@ -5594,28 +5400,8 @@
                         <value>B0303</value>
                     </entry>
                     <entry>
-                        <key>U0300</key>
-                        <value>U0300</value>
-                    </entry>
-                    <entry>
                         <key>D0103</key>
                         <value>D0302</value>
-                    </entry>
-                    <entry>
-                        <key>U0301</key>
-                        <value>U0301</value>
-                    </entry>
-                    <entry>
-                        <key>U0302</key>
-                        <value>U0302</value>
-                    </entry>
-                    <entry>
-                        <key>U0303</key>
-                        <value>U0303</value>
-                    </entry>
-                    <entry>
-                        <key>F0100</key>
-                        <value>F0100</value>
                     </entry>
                     <entry>
                         <key>F0101</key>
@@ -5628,10 +5414,6 @@
                     <entry>
                         <key>F0103</key>
                         <value>L0103</value>
-                    </entry>
-                    <entry>
-                        <key>B0000</key>
-                        <value>B0000</value>
                     </entry>
                     <entry>
                         <key>B0001</key>
@@ -6046,10 +5828,6 @@
             <value>
                 <cellMapping>
                     <entry>
-                        <key>R0303</key>
-                        <value>R0303</value>
-                    </entry>
-                    <entry>
                         <key>L0001</key>
                         <value>L0103</value>
                     </entry>
@@ -6066,18 +5844,6 @@
                         <value>L0203</value>
                     </entry>
                     <entry>
-                        <key>R0301</key>
-                        <value>R0301</value>
-                    </entry>
-                    <entry>
-                        <key>R0302</key>
-                        <value>R0302</value>
-                    </entry>
-                    <entry>
-                        <key>R0300</key>
-                        <value>R0300</value>
-                    </entry>
-                    <entry>
                         <key>U0000</key>
                         <value>B0303</value>
                     </entry>
@@ -6086,48 +5852,16 @@
                         <value>B0302</value>
                     </entry>
                     <entry>
-                        <key>D0200</key>
-                        <value>D0200</value>
-                    </entry>
-                    <entry>
                         <key>U0002</key>
                         <value>B0301</value>
-                    </entry>
-                    <entry>
-                        <key>D0201</key>
-                        <value>D0201</value>
                     </entry>
                     <entry>
                         <key>U0003</key>
                         <value>B0300</value>
                     </entry>
                     <entry>
-                        <key>D0202</key>
-                        <value>D0202</value>
-                    </entry>
-                    <entry>
-                        <key>D0203</key>
-                        <value>D0203</value>
-                    </entry>
-                    <entry>
                         <key>B0303</key>
                         <value>D0000</value>
-                    </entry>
-                    <entry>
-                        <key>F0201</key>
-                        <value>F0201</value>
-                    </entry>
-                    <entry>
-                        <key>F0200</key>
-                        <value>F0200</value>
-                    </entry>
-                    <entry>
-                        <key>F0203</key>
-                        <value>F0203</value>
-                    </entry>
-                    <entry>
-                        <key>F0202</key>
-                        <value>F0202</value>
                     </entry>
                     <entry>
                         <key>B0300</key>
@@ -6154,32 +5888,12 @@
                         <value>L0102</value>
                     </entry>
                     <entry>
-                        <key>R0202</key>
-                        <value>R0202</value>
-                    </entry>
-                    <entry>
-                        <key>R0203</key>
-                        <value>R0203</value>
-                    </entry>
-                    <entry>
-                        <key>R0200</key>
-                        <value>R0200</value>
-                    </entry>
-                    <entry>
-                        <key>R0201</key>
-                        <value>R0201</value>
-                    </entry>
-                    <entry>
                         <key>U0100</key>
                         <value>B0203</value>
                     </entry>
                     <entry>
                         <key>U0101</key>
                         <value>B0202</value>
-                    </entry>
-                    <entry>
-                        <key>D0300</key>
-                        <value>D0300</value>
                     </entry>
                     <entry>
                         <key>L0103</key>
@@ -6190,40 +5904,12 @@
                         <value>B0201</value>
                     </entry>
                     <entry>
-                        <key>D0301</key>
-                        <value>D0301</value>
-                    </entry>
-                    <entry>
                         <key>U0103</key>
                         <value>B0200</value>
                     </entry>
                     <entry>
-                        <key>D0302</key>
-                        <value>D0302</value>
-                    </entry>
-                    <entry>
-                        <key>D0303</key>
-                        <value>D0303</value>
-                    </entry>
-                    <entry>
-                        <key>F0300</key>
-                        <value>F0300</value>
-                    </entry>
-                    <entry>
-                        <key>F0302</key>
-                        <value>F0302</value>
-                    </entry>
-                    <entry>
-                        <key>F0301</key>
-                        <value>F0301</value>
-                    </entry>
-                    <entry>
                         <key>B0200</key>
                         <value>D0103</value>
-                    </entry>
-                    <entry>
-                        <key>F0303</key>
-                        <value>F0303</value>
                     </entry>
                     <entry>
                         <key>B0201</key>
@@ -6238,28 +5924,12 @@
                         <value>D0100</value>
                     </entry>
                     <entry>
-                        <key>R0100</key>
-                        <value>R0100</value>
-                    </entry>
-                    <entry>
                         <key>L0201</key>
                         <value>L0101</value>
                     </entry>
                     <entry>
                         <key>L0200</key>
                         <value>L0001</value>
-                    </entry>
-                    <entry>
-                        <key>R0103</key>
-                        <value>R0103</value>
-                    </entry>
-                    <entry>
-                        <key>R0101</key>
-                        <value>R0101</value>
-                    </entry>
-                    <entry>
-                        <key>R0102</key>
-                        <value>R0102</value>
                     </entry>
                     <entry>
                         <key>D0000</key>
@@ -6274,10 +5944,6 @@
                         <value>F0002</value>
                     </entry>
                     <entry>
-                        <key>U0200</key>
-                        <value>U0200</value>
-                    </entry>
-                    <entry>
                         <key>D0003</key>
                         <value>F0003</value>
                     </entry>
@@ -6288,18 +5954,6 @@
                     <entry>
                         <key>L0202</key>
                         <value>L0201</value>
-                    </entry>
-                    <entry>
-                        <key>U0201</key>
-                        <value>U0201</value>
-                    </entry>
-                    <entry>
-                        <key>U0202</key>
-                        <value>U0202</value>
-                    </entry>
-                    <entry>
-                        <key>U0203</key>
-                        <value>U0203</value>
                     </entry>
                     <entry>
                         <key>F0000</key>
@@ -6318,40 +5972,8 @@
                         <value>U0003</value>
                     </entry>
                     <entry>
-                        <key>B0100</key>
-                        <value>B0100</value>
-                    </entry>
-                    <entry>
-                        <key>B0101</key>
-                        <value>B0101</value>
-                    </entry>
-                    <entry>
-                        <key>B0102</key>
-                        <value>B0102</value>
-                    </entry>
-                    <entry>
-                        <key>B0103</key>
-                        <value>B0103</value>
-                    </entry>
-                    <entry>
-                        <key>R0000</key>
-                        <value>R0000</value>
-                    </entry>
-                    <entry>
-                        <key>R0001</key>
-                        <value>R0001</value>
-                    </entry>
-                    <entry>
                         <key>L0300</key>
                         <value>L0000</value>
-                    </entry>
-                    <entry>
-                        <key>R0002</key>
-                        <value>R0002</value>
-                    </entry>
-                    <entry>
-                        <key>R0003</key>
-                        <value>R0003</value>
                     </entry>
                     <entry>
                         <key>D0100</key>
@@ -6378,24 +6000,8 @@
                         <value>L0300</value>
                     </entry>
                     <entry>
-                        <key>U0300</key>
-                        <value>U0300</value>
-                    </entry>
-                    <entry>
                         <key>D0103</key>
                         <value>F0103</value>
-                    </entry>
-                    <entry>
-                        <key>U0301</key>
-                        <value>U0301</value>
-                    </entry>
-                    <entry>
-                        <key>U0302</key>
-                        <value>U0302</value>
-                    </entry>
-                    <entry>
-                        <key>U0303</key>
-                        <value>U0303</value>
                     </entry>
                     <entry>
                         <key>F0100</key>
@@ -6412,22 +6018,6 @@
                     <entry>
                         <key>F0103</key>
                         <value>U0103</value>
-                    </entry>
-                    <entry>
-                        <key>B0000</key>
-                        <value>B0000</value>
-                    </entry>
-                    <entry>
-                        <key>B0001</key>
-                        <value>B0001</value>
-                    </entry>
-                    <entry>
-                        <key>B0002</key>
-                        <value>B0002</value>
-                    </entry>
-                    <entry>
-                        <key>B0003</key>
-                        <value>B0003</value>
                     </entry>
                 </cellMapping>
                 <cost>1</cost>
@@ -6823,398 +6413,6 @@
                     </entry>
                 </cellMapping>
                 <cost>2</cost>
-            </value>
-        </entry>
-        <entry>
-            <key>x'</key>
-            <value>
-                <cellMapping>
-                    <entry>
-                        <key>R0303</key>
-                        <value>R0303</value>
-                    </entry>
-                    <entry>
-                        <key>L0001</key>
-                        <value>L0001</value>
-                    </entry>
-                    <entry>
-                        <key>L0000</key>
-                        <value>L0000</value>
-                    </entry>
-                    <entry>
-                        <key>R0100</key>
-                        <value>R0100</value>
-                    </entry>
-                    <entry>
-                        <key>L0003</key>
-                        <value>L0003</value>
-                    </entry>
-                    <entry>
-                        <key>L0201</key>
-                        <value>L0201</value>
-                    </entry>
-                    <entry>
-                        <key>L0002</key>
-                        <value>L0002</value>
-                    </entry>
-                    <entry>
-                        <key>L0200</key>
-                        <value>L0200</value>
-                    </entry>
-                    <entry>
-                        <key>R0103</key>
-                        <value>R0103</value>
-                    </entry>
-                    <entry>
-                        <key>R0301</key>
-                        <value>R0301</value>
-                    </entry>
-                    <entry>
-                        <key>R0302</key>
-                        <value>R0302</value>
-                    </entry>
-                    <entry>
-                        <key>R0101</key>
-                        <value>R0101</value>
-                    </entry>
-                    <entry>
-                        <key>R0102</key>
-                        <value>R0102</value>
-                    </entry>
-                    <entry>
-                        <key>R0300</key>
-                        <value>R0300</value>
-                    </entry>
-                    <entry>
-                        <key>D0000</key>
-                        <value>D0000</value>
-                    </entry>
-                    <entry>
-                        <key>U0000</key>
-                        <value>U0000</value>
-                    </entry>
-                    <entry>
-                        <key>D0001</key>
-                        <value>D0001</value>
-                    </entry>
-                    <entry>
-                        <key>U0001</key>
-                        <value>U0001</value>
-                    </entry>
-                    <entry>
-                        <key>D0002</key>
-                        <value>D0002</value>
-                    </entry>
-                    <entry>
-                        <key>D0200</key>
-                        <value>D0200</value>
-                    </entry>
-                    <entry>
-                        <key>U0002</key>
-                        <value>U0002</value>
-                    </entry>
-                    <entry>
-                        <key>U0200</key>
-                        <value>U0200</value>
-                    </entry>
-                    <entry>
-                        <key>D0003</key>
-                        <value>D0003</value>
-                    </entry>
-                    <entry>
-                        <key>D0201</key>
-                        <value>D0201</value>
-                    </entry>
-                    <entry>
-                        <key>L0203</key>
-                        <value>L0203</value>
-                    </entry>
-                    <entry>
-                        <key>L0202</key>
-                        <value>L0202</value>
-                    </entry>
-                    <entry>
-                        <key>U0003</key>
-                        <value>U0003</value>
-                    </entry>
-                    <entry>
-                        <key>U0201</key>
-                        <value>U0201</value>
-                    </entry>
-                    <entry>
-                        <key>D0202</key>
-                        <value>D0202</value>
-                    </entry>
-                    <entry>
-                        <key>U0202</key>
-                        <value>U0202</value>
-                    </entry>
-                    <entry>
-                        <key>D0203</key>
-                        <value>D0203</value>
-                    </entry>
-                    <entry>
-                        <key>U0203</key>
-                        <value>U0203</value>
-                    </entry>
-                    <entry>
-                        <key>B0303</key>
-                        <value>B0303</value>
-                    </entry>
-                    <entry>
-                        <key>F0000</key>
-                        <value>F0000</value>
-                    </entry>
-                    <entry>
-                        <key>F0001</key>
-                        <value>F0001</value>
-                    </entry>
-                    <entry>
-                        <key>F0002</key>
-                        <value>F0002</value>
-                    </entry>
-                    <entry>
-                        <key>F0201</key>
-                        <value>F0201</value>
-                    </entry>
-                    <entry>
-                        <key>F0003</key>
-                        <value>F0003</value>
-                    </entry>
-                    <entry>
-                        <key>F0200</key>
-                        <value>F0200</value>
-                    </entry>
-                    <entry>
-                        <key>F0203</key>
-                        <value>F0203</value>
-                    </entry>
-                    <entry>
-                        <key>F0202</key>
-                        <value>F0202</value>
-                    </entry>
-                    <entry>
-                        <key>B0100</key>
-                        <value>B0100</value>
-                    </entry>
-                    <entry>
-                        <key>B0101</key>
-                        <value>B0101</value>
-                    </entry>
-                    <entry>
-                        <key>B0102</key>
-                        <value>B0102</value>
-                    </entry>
-                    <entry>
-                        <key>B0300</key>
-                        <value>B0300</value>
-                    </entry>
-                    <entry>
-                        <key>B0103</key>
-                        <value>B0103</value>
-                    </entry>
-                    <entry>
-                        <key>B0301</key>
-                        <value>B0301</value>
-                    </entry>
-                    <entry>
-                        <key>B0302</key>
-                        <value>B0302</value>
-                    </entry>
-                    <entry>
-                        <key>L0100</key>
-                        <value>L0100</value>
-                    </entry>
-                    <entry>
-                        <key>R0000</key>
-                        <value>R0000</value>
-                    </entry>
-                    <entry>
-                        <key>R0001</key>
-                        <value>R0001</value>
-                    </entry>
-                    <entry>
-                        <key>L0102</key>
-                        <value>L0102</value>
-                    </entry>
-                    <entry>
-                        <key>L0300</key>
-                        <value>L0300</value>
-                    </entry>
-                    <entry>
-                        <key>L0101</key>
-                        <value>L0101</value>
-                    </entry>
-                    <entry>
-                        <key>R0202</key>
-                        <value>R0202</value>
-                    </entry>
-                    <entry>
-                        <key>R0203</key>
-                        <value>R0203</value>
-                    </entry>
-                    <entry>
-                        <key>R0002</key>
-                        <value>R0002</value>
-                    </entry>
-                    <entry>
-                        <key>R0200</key>
-                        <value>R0200</value>
-                    </entry>
-                    <entry>
-                        <key>R0003</key>
-                        <value>R0003</value>
-                    </entry>
-                    <entry>
-                        <key>R0201</key>
-                        <value>R0201</value>
-                    </entry>
-                    <entry>
-                        <key>D0100</key>
-                        <value>D0100</value>
-                    </entry>
-                    <entry>
-                        <key>U0100</key>
-                        <value>U0100</value>
-                    </entry>
-                    <entry>
-                        <key>D0101</key>
-                        <value>D0101</value>
-                    </entry>
-                    <entry>
-                        <key>U0101</key>
-                        <value>U0101</value>
-                    </entry>
-                    <entry>
-                        <key>D0102</key>
-                        <value>D0102</value>
-                    </entry>
-                    <entry>
-                        <key>D0300</key>
-                        <value>D0300</value>
-                    </entry>
-                    <entry>
-                        <key>L0302</key>
-                        <value>L0302</value>
-                    </entry>
-                    <entry>
-                        <key>L0103</key>
-                        <value>L0103</value>
-                    </entry>
-                    <entry>
-                        <key>L0301</key>
-                        <value>L0301</value>
-                    </entry>
-                    <entry>
-                        <key>L0303</key>
-                        <value>L0303</value>
-                    </entry>
-                    <entry>
-                        <key>U0102</key>
-                        <value>U0102</value>
-                    </entry>
-                    <entry>
-                        <key>U0300</key>
-                        <value>U0300</value>
-                    </entry>
-                    <entry>
-                        <key>D0103</key>
-                        <value>D0103</value>
-                    </entry>
-                    <entry>
-                        <key>D0301</key>
-                        <value>D0301</value>
-                    </entry>
-                    <entry>
-                        <key>U0103</key>
-                        <value>U0103</value>
-                    </entry>
-                    <entry>
-                        <key>U0301</key>
-                        <value>U0301</value>
-                    </entry>
-                    <entry>
-                        <key>D0302</key>
-                        <value>D0302</value>
-                    </entry>
-                    <entry>
-                        <key>U0302</key>
-                        <value>U0302</value>
-                    </entry>
-                    <entry>
-                        <key>D0303</key>
-                        <value>D0303</value>
-                    </entry>
-                    <entry>
-                        <key>U0303</key>
-                        <value>U0303</value>
-                    </entry>
-                    <entry>
-                        <key>F0100</key>
-                        <value>F0100</value>
-                    </entry>
-                    <entry>
-                        <key>F0101</key>
-                        <value>F0101</value>
-                    </entry>
-                    <entry>
-                        <key>F0300</key>
-                        <value>F0300</value>
-                    </entry>
-                    <entry>
-                        <key>F0102</key>
-                        <value>F0102</value>
-                    </entry>
-                    <entry>
-                        <key>F0103</key>
-                        <value>F0103</value>
-                    </entry>
-                    <entry>
-                        <key>F0302</key>
-                        <value>F0302</value>
-                    </entry>
-                    <entry>
-                        <key>B0000</key>
-                        <value>B0000</value>
-                    </entry>
-                    <entry>
-                        <key>F0301</key>
-                        <value>F0301</value>
-                    </entry>
-                    <entry>
-                        <key>B0001</key>
-                        <value>B0001</value>
-                    </entry>
-                    <entry>
-                        <key>B0002</key>
-                        <value>B0002</value>
-                    </entry>
-                    <entry>
-                        <key>B0200</key>
-                        <value>B0200</value>
-                    </entry>
-                    <entry>
-                        <key>F0303</key>
-                        <value>F0303</value>
-                    </entry>
-                    <entry>
-                        <key>B0003</key>
-                        <value>B0003</value>
-                    </entry>
-                    <entry>
-                        <key>B0201</key>
-                        <value>B0201</value>
-                    </entry>
-                    <entry>
-                        <key>B0202</key>
-                        <value>B0202</value>
-                    </entry>
-                    <entry>
-                        <key>B0203</key>
-                        <value>B0203</value>
-                    </entry>
-                </cellMapping>
-                <cost>0</cost>
             </value>
         </entry>
         <entry>
@@ -7671,11 +6869,11 @@
                     </entry>
                     <entry>
                         <key>D0202</key>
-                        <value>F0101</value>
+                        <value>D0202</value>
                     </entry>
                     <entry>
                         <key>D0203</key>
-                        <value>F0100</value>
+                        <value>D0203</value>
                     </entry>
                     <entry>
                         <key>B0303</key>
@@ -7683,11 +6881,11 @@
                     </entry>
                     <entry>
                         <key>F0201</key>
-                        <value>D0102</value>
+                        <value>B0201</value>
                     </entry>
                     <entry>
                         <key>F0200</key>
-                        <value>D0103</value>
+                        <value>B0200</value>
                     </entry>
                     <entry>
                         <key>F0203</key>
@@ -7699,11 +6897,11 @@
                     </entry>
                     <entry>
                         <key>B0300</key>
-                        <value>B0300</value>
+                        <value>F0300</value>
                     </entry>
                     <entry>
                         <key>B0301</key>
-                        <value>B0301</value>
+                        <value>F0301</value>
                     </entry>
                     <entry>
                         <key>B0302</key>
@@ -7767,15 +6965,15 @@
                     </entry>
                     <entry>
                         <key>D0302</key>
-                        <value>F0001</value>
+                        <value>D0302</value>
                     </entry>
                     <entry>
                         <key>D0303</key>
-                        <value>F0000</value>
+                        <value>D0303</value>
                     </entry>
                     <entry>
                         <key>F0300</key>
-                        <value>D0003</value>
+                        <value>B0300</value>
                     </entry>
                     <entry>
                         <key>F0302</key>
@@ -7783,11 +6981,11 @@
                     </entry>
                     <entry>
                         <key>F0301</key>
-                        <value>D0002</value>
+                        <value>B0301</value>
                     </entry>
                     <entry>
                         <key>B0200</key>
-                        <value>B0200</value>
+                        <value>F0200</value>
                     </entry>
                     <entry>
                         <key>F0303</key>
@@ -7795,7 +6993,7 @@
                     </entry>
                     <entry>
                         <key>B0201</key>
-                        <value>B0201</value>
+                        <value>F0201</value>
                     </entry>
                     <entry>
                         <key>B0202</key>
@@ -7839,7 +7037,7 @@
                     </entry>
                     <entry>
                         <key>D0002</key>
-                        <value>F0301</value>
+                        <value>D0002</value>
                     </entry>
                     <entry>
                         <key>U0200</key>
@@ -7847,7 +7045,7 @@
                     </entry>
                     <entry>
                         <key>D0003</key>
-                        <value>F0300</value>
+                        <value>D0003</value>
                     </entry>
                     <entry>
                         <key>L0203</key>
@@ -7871,11 +7069,11 @@
                     </entry>
                     <entry>
                         <key>F0000</key>
-                        <value>D0303</value>
+                        <value>B0000</value>
                     </entry>
                     <entry>
                         <key>F0001</key>
-                        <value>D0302</value>
+                        <value>B0001</value>
                     </entry>
                     <entry>
                         <key>F0002</key>
@@ -7887,11 +7085,11 @@
                     </entry>
                     <entry>
                         <key>B0100</key>
-                        <value>B0100</value>
+                        <value>F0100</value>
                     </entry>
                     <entry>
                         <key>B0101</key>
-                        <value>B0101</value>
+                        <value>F0101</value>
                     </entry>
                     <entry>
                         <key>B0102</key>
@@ -7931,7 +7129,7 @@
                     </entry>
                     <entry>
                         <key>D0102</key>
-                        <value>F0201</value>
+                        <value>D0102</value>
                     </entry>
                     <entry>
                         <key>L0302</key>
@@ -7951,7 +7149,7 @@
                     </entry>
                     <entry>
                         <key>D0103</key>
-                        <value>F0200</value>
+                        <value>D0103</value>
                     </entry>
                     <entry>
                         <key>U0301</key>
@@ -7967,11 +7165,11 @@
                     </entry>
                     <entry>
                         <key>F0100</key>
-                        <value>D0203</value>
+                        <value>B0100</value>
                     </entry>
                     <entry>
                         <key>F0101</key>
-                        <value>D0202</value>
+                        <value>B0101</value>
                     </entry>
                     <entry>
                         <key>F0102</key>
@@ -7983,11 +7181,11 @@
                     </entry>
                     <entry>
                         <key>B0000</key>
-                        <value>B0000</value>
+                        <value>F0000</value>
                     </entry>
                     <entry>
                         <key>B0001</key>
-                        <value>B0001</value>
+                        <value>F0001</value>
                     </entry>
                     <entry>
                         <key>B0002</key>
@@ -8010,14 +7208,6 @@
                         <value>F0303</value>
                     </entry>
                     <entry>
-                        <key>L0001</key>
-                        <value>L0001</value>
-                    </entry>
-                    <entry>
-                        <key>L0000</key>
-                        <value>L0000</value>
-                    </entry>
-                    <entry>
                         <key>L0003</key>
                         <value>B0003</value>
                     </entry>
@@ -8026,40 +7216,16 @@
                         <value>B0002</value>
                     </entry>
                     <entry>
-                        <key>R0301</key>
-                        <value>R0301</value>
-                    </entry>
-                    <entry>
                         <key>R0302</key>
                         <value>F0302</value>
-                    </entry>
-                    <entry>
-                        <key>R0300</key>
-                        <value>R0300</value>
-                    </entry>
-                    <entry>
-                        <key>U0000</key>
-                        <value>U0000</value>
-                    </entry>
-                    <entry>
-                        <key>U0001</key>
-                        <value>U0001</value>
                     </entry>
                     <entry>
                         <key>D0200</key>
                         <value>D0001</value>
                     </entry>
                     <entry>
-                        <key>U0002</key>
-                        <value>U0002</value>
-                    </entry>
-                    <entry>
                         <key>D0201</key>
                         <value>D0101</value>
-                    </entry>
-                    <entry>
-                        <key>U0003</key>
-                        <value>U0003</value>
                     </entry>
                     <entry>
                         <key>D0202</key>
@@ -8074,14 +7240,6 @@
                         <value>R0303</value>
                     </entry>
                     <entry>
-                        <key>F0201</key>
-                        <value>F0201</value>
-                    </entry>
-                    <entry>
-                        <key>F0200</key>
-                        <value>F0200</value>
-                    </entry>
-                    <entry>
                         <key>F0203</key>
                         <value>L0203</value>
                     </entry>
@@ -8090,28 +7248,12 @@
                         <value>L0202</value>
                     </entry>
                     <entry>
-                        <key>B0300</key>
-                        <value>B0300</value>
-                    </entry>
-                    <entry>
-                        <key>B0301</key>
-                        <value>B0301</value>
-                    </entry>
-                    <entry>
                         <key>B0302</key>
                         <value>R0302</value>
                     </entry>
                     <entry>
-                        <key>L0100</key>
-                        <value>L0100</value>
-                    </entry>
-                    <entry>
                         <key>L0102</key>
                         <value>B0102</value>
-                    </entry>
-                    <entry>
-                        <key>L0101</key>
-                        <value>L0101</value>
                     </entry>
                     <entry>
                         <key>R0202</key>
@@ -8122,22 +7264,6 @@
                         <value>F0203</value>
                     </entry>
                     <entry>
-                        <key>R0200</key>
-                        <value>R0200</value>
-                    </entry>
-                    <entry>
-                        <key>R0201</key>
-                        <value>R0201</value>
-                    </entry>
-                    <entry>
-                        <key>U0100</key>
-                        <value>U0100</value>
-                    </entry>
-                    <entry>
-                        <key>U0101</key>
-                        <value>U0101</value>
-                    </entry>
-                    <entry>
                         <key>D0300</key>
                         <value>D0000</value>
                     </entry>
@@ -8146,16 +7272,8 @@
                         <value>B0103</value>
                     </entry>
                     <entry>
-                        <key>U0102</key>
-                        <value>U0102</value>
-                    </entry>
-                    <entry>
                         <key>D0301</key>
                         <value>D0100</value>
-                    </entry>
-                    <entry>
-                        <key>U0103</key>
-                        <value>U0103</value>
                     </entry>
                     <entry>
                         <key>D0302</key>
@@ -8166,28 +7284,12 @@
                         <value>D0300</value>
                     </entry>
                     <entry>
-                        <key>F0300</key>
-                        <value>F0300</value>
-                    </entry>
-                    <entry>
                         <key>F0302</key>
                         <value>L0302</value>
                     </entry>
                     <entry>
-                        <key>F0301</key>
-                        <value>F0301</value>
-                    </entry>
-                    <entry>
-                        <key>B0200</key>
-                        <value>B0200</value>
-                    </entry>
-                    <entry>
                         <key>F0303</key>
                         <value>L0303</value>
-                    </entry>
-                    <entry>
-                        <key>B0201</key>
-                        <value>B0201</value>
                     </entry>
                     <entry>
                         <key>B0202</key>
@@ -8198,24 +7300,8 @@
                         <value>R0203</value>
                     </entry>
                     <entry>
-                        <key>R0100</key>
-                        <value>R0100</value>
-                    </entry>
-                    <entry>
-                        <key>L0201</key>
-                        <value>L0201</value>
-                    </entry>
-                    <entry>
-                        <key>L0200</key>
-                        <value>L0200</value>
-                    </entry>
-                    <entry>
                         <key>R0103</key>
                         <value>F0103</value>
-                    </entry>
-                    <entry>
-                        <key>R0101</key>
-                        <value>R0101</value>
                     </entry>
                     <entry>
                         <key>R0102</key>
@@ -8234,10 +7320,6 @@
                         <value>D0203</value>
                     </entry>
                     <entry>
-                        <key>U0200</key>
-                        <value>U0200</value>
-                    </entry>
-                    <entry>
                         <key>D0003</key>
                         <value>D0303</value>
                     </entry>
@@ -8250,26 +7332,6 @@
                         <value>B0202</value>
                     </entry>
                     <entry>
-                        <key>U0201</key>
-                        <value>U0201</value>
-                    </entry>
-                    <entry>
-                        <key>U0202</key>
-                        <value>U0202</value>
-                    </entry>
-                    <entry>
-                        <key>U0203</key>
-                        <value>U0203</value>
-                    </entry>
-                    <entry>
-                        <key>F0000</key>
-                        <value>F0000</value>
-                    </entry>
-                    <entry>
-                        <key>F0001</key>
-                        <value>F0001</value>
-                    </entry>
-                    <entry>
                         <key>F0002</key>
                         <value>L0002</value>
                     </entry>
@@ -8278,32 +7340,12 @@
                         <value>L0003</value>
                     </entry>
                     <entry>
-                        <key>B0100</key>
-                        <value>B0100</value>
-                    </entry>
-                    <entry>
-                        <key>B0101</key>
-                        <value>B0101</value>
-                    </entry>
-                    <entry>
                         <key>B0102</key>
                         <value>R0102</value>
                     </entry>
                     <entry>
                         <key>B0103</key>
                         <value>R0103</value>
-                    </entry>
-                    <entry>
-                        <key>R0000</key>
-                        <value>R0000</value>
-                    </entry>
-                    <entry>
-                        <key>R0001</key>
-                        <value>R0001</value>
-                    </entry>
-                    <entry>
-                        <key>L0300</key>
-                        <value>L0300</value>
                     </entry>
                     <entry>
                         <key>R0002</key>
@@ -8330,40 +7372,12 @@
                         <value>B0302</value>
                     </entry>
                     <entry>
-                        <key>L0301</key>
-                        <value>L0301</value>
-                    </entry>
-                    <entry>
                         <key>L0303</key>
                         <value>B0303</value>
                     </entry>
                     <entry>
-                        <key>U0300</key>
-                        <value>U0300</value>
-                    </entry>
-                    <entry>
                         <key>D0103</key>
                         <value>D0302</value>
-                    </entry>
-                    <entry>
-                        <key>U0301</key>
-                        <value>U0301</value>
-                    </entry>
-                    <entry>
-                        <key>U0302</key>
-                        <value>U0302</value>
-                    </entry>
-                    <entry>
-                        <key>U0303</key>
-                        <value>U0303</value>
-                    </entry>
-                    <entry>
-                        <key>F0100</key>
-                        <value>F0100</value>
-                    </entry>
-                    <entry>
-                        <key>F0101</key>
-                        <value>F0101</value>
                     </entry>
                     <entry>
                         <key>F0102</key>
@@ -8372,14 +7386,6 @@
                     <entry>
                         <key>F0103</key>
                         <value>L0103</value>
-                    </entry>
-                    <entry>
-                        <key>B0000</key>
-                        <value>B0000</value>
-                    </entry>
-                    <entry>
-                        <key>B0001</key>
-                        <value>B0001</value>
                     </entry>
                     <entry>
                         <key>B0002</key>
@@ -8398,10 +7404,6 @@
             <value>
                 <cellMapping>
                     <entry>
-                        <key>R0303</key>
-                        <value>R0303</value>
-                    </entry>
-                    <entry>
                         <key>L0001</key>
                         <value>F0001</value>
                     </entry>
@@ -8410,24 +7412,20 @@
                         <value>F0000</value>
                     </entry>
                     <entry>
-                        <key>L0003</key>
-                        <value>L0003</value>
-                    </entry>
-                    <entry>
                         <key>L0002</key>
                         <value>F0002</value>
                     </entry>
                     <entry>
                         <key>R0301</key>
-                        <value>D0002</value>
+                        <value>B0301</value>
                     </entry>
                     <entry>
                         <key>R0302</key>
-                        <value>D0001</value>
+                        <value>B0302</value>
                     </entry>
                     <entry>
                         <key>R0300</key>
-                        <value>D0003</value>
+                        <value>B0300</value>
                     </entry>
                     <entry>
                         <key>U0000</key>
@@ -8438,32 +7436,12 @@
                         <value>U0103</value>
                     </entry>
                     <entry>
-                        <key>D0200</key>
-                        <value>D0200</value>
-                    </entry>
-                    <entry>
                         <key>U0002</key>
                         <value>U0203</value>
                     </entry>
                     <entry>
-                        <key>D0201</key>
-                        <value>L0102</value>
-                    </entry>
-                    <entry>
                         <key>U0003</key>
                         <value>U0303</value>
-                    </entry>
-                    <entry>
-                        <key>D0202</key>
-                        <value>L0101</value>
-                    </entry>
-                    <entry>
-                        <key>D0203</key>
-                        <value>L0100</value>
-                    </entry>
-                    <entry>
-                        <key>B0303</key>
-                        <value>B0303</value>
                     </entry>
                     <entry>
                         <key>F0201</key>
@@ -8474,24 +7452,20 @@
                         <value>R0200</value>
                     </entry>
                     <entry>
-                        <key>F0203</key>
-                        <value>F0203</value>
-                    </entry>
-                    <entry>
                         <key>F0202</key>
                         <value>R0202</value>
                     </entry>
                     <entry>
                         <key>B0300</key>
-                        <value>B0300</value>
+                        <value>L0300</value>
                     </entry>
                     <entry>
                         <key>B0301</key>
-                        <value>B0301</value>
+                        <value>L0301</value>
                     </entry>
                     <entry>
                         <key>B0302</key>
-                        <value>B0302</value>
+                        <value>L0302</value>
                     </entry>
                     <entry>
                         <key>L0100</key>
@@ -8507,19 +7481,15 @@
                     </entry>
                     <entry>
                         <key>R0202</key>
-                        <value>D0101</value>
-                    </entry>
-                    <entry>
-                        <key>R0203</key>
-                        <value>R0203</value>
+                        <value>B0202</value>
                     </entry>
                     <entry>
                         <key>R0200</key>
-                        <value>D0103</value>
+                        <value>B0200</value>
                     </entry>
                     <entry>
                         <key>R0201</key>
-                        <value>D0102</value>
+                        <value>B0201</value>
                     </entry>
                     <entry>
                         <key>U0100</key>
@@ -8530,32 +7500,12 @@
                         <value>U0102</value>
                     </entry>
                     <entry>
-                        <key>D0300</key>
-                        <value>D0300</value>
-                    </entry>
-                    <entry>
-                        <key>L0103</key>
-                        <value>L0103</value>
-                    </entry>
-                    <entry>
                         <key>U0102</key>
                         <value>U0202</value>
                     </entry>
                     <entry>
-                        <key>D0301</key>
-                        <value>L0002</value>
-                    </entry>
-                    <entry>
                         <key>U0103</key>
                         <value>U0302</value>
-                    </entry>
-                    <entry>
-                        <key>D0302</key>
-                        <value>L0001</value>
-                    </entry>
-                    <entry>
-                        <key>D0303</key>
-                        <value>L0000</value>
                     </entry>
                     <entry>
                         <key>F0300</key>
@@ -8571,27 +7521,19 @@
                     </entry>
                     <entry>
                         <key>B0200</key>
-                        <value>B0200</value>
-                    </entry>
-                    <entry>
-                        <key>F0303</key>
-                        <value>F0303</value>
+                        <value>L0200</value>
                     </entry>
                     <entry>
                         <key>B0201</key>
-                        <value>B0201</value>
+                        <value>L0201</value>
                     </entry>
                     <entry>
                         <key>B0202</key>
-                        <value>B0202</value>
-                    </entry>
-                    <entry>
-                        <key>B0203</key>
-                        <value>B0203</value>
+                        <value>L0202</value>
                     </entry>
                     <entry>
                         <key>R0100</key>
-                        <value>D0203</value>
+                        <value>B0100</value>
                     </entry>
                     <entry>
                         <key>L0201</key>
@@ -8602,40 +7544,16 @@
                         <value>F0200</value>
                     </entry>
                     <entry>
-                        <key>R0103</key>
-                        <value>R0103</value>
-                    </entry>
-                    <entry>
                         <key>R0101</key>
-                        <value>D0202</value>
+                        <value>B0101</value>
                     </entry>
                     <entry>
                         <key>R0102</key>
-                        <value>D0201</value>
-                    </entry>
-                    <entry>
-                        <key>D0000</key>
-                        <value>D0000</value>
-                    </entry>
-                    <entry>
-                        <key>D0001</key>
-                        <value>L0302</value>
-                    </entry>
-                    <entry>
-                        <key>D0002</key>
-                        <value>L0301</value>
+                        <value>B0102</value>
                     </entry>
                     <entry>
                         <key>U0200</key>
                         <value>U0001</value>
-                    </entry>
-                    <entry>
-                        <key>D0003</key>
-                        <value>L0300</value>
-                    </entry>
-                    <entry>
-                        <key>L0203</key>
-                        <value>L0203</value>
                     </entry>
                     <entry>
                         <key>L0202</key>
@@ -8666,32 +7584,24 @@
                         <value>R0002</value>
                     </entry>
                     <entry>
-                        <key>F0003</key>
-                        <value>F0003</value>
-                    </entry>
-                    <entry>
                         <key>B0100</key>
-                        <value>B0100</value>
+                        <value>L0100</value>
                     </entry>
                     <entry>
                         <key>B0101</key>
-                        <value>B0101</value>
+                        <value>L0101</value>
                     </entry>
                     <entry>
                         <key>B0102</key>
-                        <value>B0102</value>
-                    </entry>
-                    <entry>
-                        <key>B0103</key>
-                        <value>B0103</value>
+                        <value>L0102</value>
                     </entry>
                     <entry>
                         <key>R0000</key>
-                        <value>D0303</value>
+                        <value>B0000</value>
                     </entry>
                     <entry>
                         <key>R0001</key>
-                        <value>D0302</value>
+                        <value>B0001</value>
                     </entry>
                     <entry>
                         <key>L0300</key>
@@ -8699,23 +7609,7 @@
                     </entry>
                     <entry>
                         <key>R0002</key>
-                        <value>D0301</value>
-                    </entry>
-                    <entry>
-                        <key>R0003</key>
-                        <value>R0003</value>
-                    </entry>
-                    <entry>
-                        <key>D0100</key>
-                        <value>D0100</value>
-                    </entry>
-                    <entry>
-                        <key>D0101</key>
-                        <value>L0202</value>
-                    </entry>
-                    <entry>
-                        <key>D0102</key>
-                        <value>L0201</value>
+                        <value>B0002</value>
                     </entry>
                     <entry>
                         <key>L0302</key>
@@ -8726,16 +7620,8 @@
                         <value>F0301</value>
                     </entry>
                     <entry>
-                        <key>L0303</key>
-                        <value>L0303</value>
-                    </entry>
-                    <entry>
                         <key>U0300</key>
                         <value>U0000</value>
-                    </entry>
-                    <entry>
-                        <key>D0103</key>
-                        <value>L0200</value>
                     </entry>
                     <entry>
                         <key>U0301</key>
@@ -8762,419 +7648,19 @@
                         <value>R0102</value>
                     </entry>
                     <entry>
-                        <key>F0103</key>
-                        <value>F0103</value>
-                    </entry>
-                    <entry>
                         <key>B0000</key>
-                        <value>B0000</value>
+                        <value>L0000</value>
                     </entry>
                     <entry>
                         <key>B0001</key>
-                        <value>B0001</value>
+                        <value>L0001</value>
                     </entry>
                     <entry>
                         <key>B0002</key>
-                        <value>B0002</value>
-                    </entry>
-                    <entry>
-                        <key>B0003</key>
-                        <value>B0003</value>
+                        <value>L0002</value>
                     </entry>
                 </cellMapping>
                 <cost>1</cost>
-            </value>
-        </entry>
-        <entry>
-            <key>x2</key>
-            <value>
-                <cellMapping>
-                    <entry>
-                        <key>R0303</key>
-                        <value>R0303</value>
-                    </entry>
-                    <entry>
-                        <key>L0001</key>
-                        <value>L0001</value>
-                    </entry>
-                    <entry>
-                        <key>L0000</key>
-                        <value>L0000</value>
-                    </entry>
-                    <entry>
-                        <key>R0100</key>
-                        <value>R0100</value>
-                    </entry>
-                    <entry>
-                        <key>L0003</key>
-                        <value>L0003</value>
-                    </entry>
-                    <entry>
-                        <key>L0201</key>
-                        <value>L0201</value>
-                    </entry>
-                    <entry>
-                        <key>L0002</key>
-                        <value>L0002</value>
-                    </entry>
-                    <entry>
-                        <key>L0200</key>
-                        <value>L0200</value>
-                    </entry>
-                    <entry>
-                        <key>R0103</key>
-                        <value>R0103</value>
-                    </entry>
-                    <entry>
-                        <key>R0301</key>
-                        <value>R0301</value>
-                    </entry>
-                    <entry>
-                        <key>R0302</key>
-                        <value>R0302</value>
-                    </entry>
-                    <entry>
-                        <key>R0101</key>
-                        <value>R0101</value>
-                    </entry>
-                    <entry>
-                        <key>R0102</key>
-                        <value>R0102</value>
-                    </entry>
-                    <entry>
-                        <key>R0300</key>
-                        <value>R0300</value>
-                    </entry>
-                    <entry>
-                        <key>D0000</key>
-                        <value>D0000</value>
-                    </entry>
-                    <entry>
-                        <key>U0000</key>
-                        <value>U0000</value>
-                    </entry>
-                    <entry>
-                        <key>D0001</key>
-                        <value>D0001</value>
-                    </entry>
-                    <entry>
-                        <key>U0001</key>
-                        <value>U0001</value>
-                    </entry>
-                    <entry>
-                        <key>D0002</key>
-                        <value>D0002</value>
-                    </entry>
-                    <entry>
-                        <key>D0200</key>
-                        <value>D0200</value>
-                    </entry>
-                    <entry>
-                        <key>U0002</key>
-                        <value>U0002</value>
-                    </entry>
-                    <entry>
-                        <key>U0200</key>
-                        <value>U0200</value>
-                    </entry>
-                    <entry>
-                        <key>D0003</key>
-                        <value>D0003</value>
-                    </entry>
-                    <entry>
-                        <key>D0201</key>
-                        <value>D0201</value>
-                    </entry>
-                    <entry>
-                        <key>L0203</key>
-                        <value>L0203</value>
-                    </entry>
-                    <entry>
-                        <key>L0202</key>
-                        <value>L0202</value>
-                    </entry>
-                    <entry>
-                        <key>U0003</key>
-                        <value>U0003</value>
-                    </entry>
-                    <entry>
-                        <key>U0201</key>
-                        <value>U0201</value>
-                    </entry>
-                    <entry>
-                        <key>D0202</key>
-                        <value>D0202</value>
-                    </entry>
-                    <entry>
-                        <key>U0202</key>
-                        <value>U0202</value>
-                    </entry>
-                    <entry>
-                        <key>D0203</key>
-                        <value>D0203</value>
-                    </entry>
-                    <entry>
-                        <key>U0203</key>
-                        <value>U0203</value>
-                    </entry>
-                    <entry>
-                        <key>B0303</key>
-                        <value>B0303</value>
-                    </entry>
-                    <entry>
-                        <key>F0000</key>
-                        <value>F0000</value>
-                    </entry>
-                    <entry>
-                        <key>F0001</key>
-                        <value>F0001</value>
-                    </entry>
-                    <entry>
-                        <key>F0002</key>
-                        <value>F0002</value>
-                    </entry>
-                    <entry>
-                        <key>F0201</key>
-                        <value>F0201</value>
-                    </entry>
-                    <entry>
-                        <key>F0003</key>
-                        <value>F0003</value>
-                    </entry>
-                    <entry>
-                        <key>F0200</key>
-                        <value>F0200</value>
-                    </entry>
-                    <entry>
-                        <key>F0203</key>
-                        <value>F0203</value>
-                    </entry>
-                    <entry>
-                        <key>F0202</key>
-                        <value>F0202</value>
-                    </entry>
-                    <entry>
-                        <key>B0100</key>
-                        <value>B0100</value>
-                    </entry>
-                    <entry>
-                        <key>B0101</key>
-                        <value>B0101</value>
-                    </entry>
-                    <entry>
-                        <key>B0102</key>
-                        <value>B0102</value>
-                    </entry>
-                    <entry>
-                        <key>B0300</key>
-                        <value>B0300</value>
-                    </entry>
-                    <entry>
-                        <key>B0103</key>
-                        <value>B0103</value>
-                    </entry>
-                    <entry>
-                        <key>B0301</key>
-                        <value>B0301</value>
-                    </entry>
-                    <entry>
-                        <key>B0302</key>
-                        <value>B0302</value>
-                    </entry>
-                    <entry>
-                        <key>L0100</key>
-                        <value>L0100</value>
-                    </entry>
-                    <entry>
-                        <key>R0000</key>
-                        <value>R0000</value>
-                    </entry>
-                    <entry>
-                        <key>R0001</key>
-                        <value>R0001</value>
-                    </entry>
-                    <entry>
-                        <key>L0102</key>
-                        <value>L0102</value>
-                    </entry>
-                    <entry>
-                        <key>L0300</key>
-                        <value>L0300</value>
-                    </entry>
-                    <entry>
-                        <key>L0101</key>
-                        <value>L0101</value>
-                    </entry>
-                    <entry>
-                        <key>R0202</key>
-                        <value>R0202</value>
-                    </entry>
-                    <entry>
-                        <key>R0203</key>
-                        <value>R0203</value>
-                    </entry>
-                    <entry>
-                        <key>R0002</key>
-                        <value>R0002</value>
-                    </entry>
-                    <entry>
-                        <key>R0200</key>
-                        <value>R0200</value>
-                    </entry>
-                    <entry>
-                        <key>R0003</key>
-                        <value>R0003</value>
-                    </entry>
-                    <entry>
-                        <key>R0201</key>
-                        <value>R0201</value>
-                    </entry>
-                    <entry>
-                        <key>D0100</key>
-                        <value>D0100</value>
-                    </entry>
-                    <entry>
-                        <key>U0100</key>
-                        <value>U0100</value>
-                    </entry>
-                    <entry>
-                        <key>D0101</key>
-                        <value>D0101</value>
-                    </entry>
-                    <entry>
-                        <key>U0101</key>
-                        <value>U0101</value>
-                    </entry>
-                    <entry>
-                        <key>D0102</key>
-                        <value>D0102</value>
-                    </entry>
-                    <entry>
-                        <key>D0300</key>
-                        <value>D0300</value>
-                    </entry>
-                    <entry>
-                        <key>L0302</key>
-                        <value>L0302</value>
-                    </entry>
-                    <entry>
-                        <key>L0103</key>
-                        <value>L0103</value>
-                    </entry>
-                    <entry>
-                        <key>L0301</key>
-                        <value>L0301</value>
-                    </entry>
-                    <entry>
-                        <key>L0303</key>
-                        <value>L0303</value>
-                    </entry>
-                    <entry>
-                        <key>U0102</key>
-                        <value>U0102</value>
-                    </entry>
-                    <entry>
-                        <key>U0300</key>
-                        <value>U0300</value>
-                    </entry>
-                    <entry>
-                        <key>D0103</key>
-                        <value>D0103</value>
-                    </entry>
-                    <entry>
-                        <key>D0301</key>
-                        <value>D0301</value>
-                    </entry>
-                    <entry>
-                        <key>U0103</key>
-                        <value>U0103</value>
-                    </entry>
-                    <entry>
-                        <key>U0301</key>
-                        <value>U0301</value>
-                    </entry>
-                    <entry>
-                        <key>D0302</key>
-                        <value>D0302</value>
-                    </entry>
-                    <entry>
-                        <key>U0302</key>
-                        <value>U0302</value>
-                    </entry>
-                    <entry>
-                        <key>D0303</key>
-                        <value>D0303</value>
-                    </entry>
-                    <entry>
-                        <key>U0303</key>
-                        <value>U0303</value>
-                    </entry>
-                    <entry>
-                        <key>F0100</key>
-                        <value>F0100</value>
-                    </entry>
-                    <entry>
-                        <key>F0101</key>
-                        <value>F0101</value>
-                    </entry>
-                    <entry>
-                        <key>F0300</key>
-                        <value>F0300</value>
-                    </entry>
-                    <entry>
-                        <key>F0102</key>
-                        <value>F0102</value>
-                    </entry>
-                    <entry>
-                        <key>F0103</key>
-                        <value>F0103</value>
-                    </entry>
-                    <entry>
-                        <key>F0302</key>
-                        <value>F0302</value>
-                    </entry>
-                    <entry>
-                        <key>B0000</key>
-                        <value>B0000</value>
-                    </entry>
-                    <entry>
-                        <key>F0301</key>
-                        <value>F0301</value>
-                    </entry>
-                    <entry>
-                        <key>B0001</key>
-                        <value>B0001</value>
-                    </entry>
-                    <entry>
-                        <key>B0002</key>
-                        <value>B0002</value>
-                    </entry>
-                    <entry>
-                        <key>B0200</key>
-                        <value>B0200</value>
-                    </entry>
-                    <entry>
-                        <key>F0303</key>
-                        <value>F0303</value>
-                    </entry>
-                    <entry>
-                        <key>B0003</key>
-                        <value>B0003</value>
-                    </entry>
-                    <entry>
-                        <key>B0201</key>
-                        <value>B0201</value>
-                    </entry>
-                    <entry>
-                        <key>B0202</key>
-                        <value>B0202</value>
-                    </entry>
-                    <entry>
-                        <key>B0203</key>
-                        <value>B0203</value>
-                    </entry>
-                </cellMapping>
-                <cost>0</cost>
             </value>
         </entry>
         <entry>
@@ -9218,52 +7704,12 @@
                         <value>R0300</value>
                     </entry>
                     <entry>
-                        <key>U0001</key>
-                        <value>U0001</value>
-                    </entry>
-                    <entry>
-                        <key>D0200</key>
-                        <value>D0200</value>
-                    </entry>
-                    <entry>
-                        <key>U0002</key>
-                        <value>U0002</value>
-                    </entry>
-                    <entry>
-                        <key>D0201</key>
-                        <value>D0201</value>
-                    </entry>
-                    <entry>
-                        <key>U0003</key>
-                        <value>U0003</value>
-                    </entry>
-                    <entry>
-                        <key>D0202</key>
-                        <value>D0202</value>
-                    </entry>
-                    <entry>
                         <key>D0203</key>
                         <value>L0002</value>
                     </entry>
                     <entry>
                         <key>B0303</key>
                         <value>B0300</value>
-                    </entry>
-                    <entry>
-                        <key>F0201</key>
-                        <value>F0201</value>
-                    </entry>
-                    <entry>
-                        <key>F0200</key>
-                        <value>F0200</value>
-                    </entry>
-                    <entry>
-                        <key>F0203</key>
-                        <value>F0203</value>
-                    </entry>
-                    <entry>
-                        <key>F0202</key>
-                        <value>F0202</value>
                     </entry>
                     <entry>
                         <key>B0300</key>
@@ -9278,88 +7724,16 @@
                         <value>B0200</value>
                     </entry>
                     <entry>
-                        <key>L0100</key>
-                        <value>L0100</value>
-                    </entry>
-                    <entry>
-                        <key>L0102</key>
-                        <value>L0102</value>
-                    </entry>
-                    <entry>
-                        <key>L0101</key>
-                        <value>L0101</value>
-                    </entry>
-                    <entry>
-                        <key>R0202</key>
-                        <value>R0202</value>
-                    </entry>
-                    <entry>
-                        <key>R0203</key>
-                        <value>R0203</value>
-                    </entry>
-                    <entry>
-                        <key>R0200</key>
-                        <value>R0200</value>
-                    </entry>
-                    <entry>
-                        <key>R0201</key>
-                        <value>R0201</value>
-                    </entry>
-                    <entry>
                         <key>U0100</key>
                         <value>R0301</value>
-                    </entry>
-                    <entry>
-                        <key>U0101</key>
-                        <value>U0101</value>
-                    </entry>
-                    <entry>
-                        <key>D0300</key>
-                        <value>D0300</value>
-                    </entry>
-                    <entry>
-                        <key>L0103</key>
-                        <value>L0103</value>
-                    </entry>
-                    <entry>
-                        <key>U0102</key>
-                        <value>U0102</value>
-                    </entry>
-                    <entry>
-                        <key>D0301</key>
-                        <value>D0301</value>
-                    </entry>
-                    <entry>
-                        <key>U0103</key>
-                        <value>U0103</value>
-                    </entry>
-                    <entry>
-                        <key>D0302</key>
-                        <value>D0302</value>
                     </entry>
                     <entry>
                         <key>D0303</key>
                         <value>L0003</value>
                     </entry>
                     <entry>
-                        <key>F0300</key>
-                        <value>F0300</value>
-                    </entry>
-                    <entry>
-                        <key>F0302</key>
-                        <value>F0302</value>
-                    </entry>
-                    <entry>
-                        <key>F0301</key>
-                        <value>F0301</value>
-                    </entry>
-                    <entry>
                         <key>B0200</key>
                         <value>B0001</value>
-                    </entry>
-                    <entry>
-                        <key>F0303</key>
-                        <value>F0303</value>
                     </entry>
                     <entry>
                         <key>B0201</key>
@@ -9374,84 +7748,12 @@
                         <value>B0301</value>
                     </entry>
                     <entry>
-                        <key>R0100</key>
-                        <value>R0100</value>
-                    </entry>
-                    <entry>
-                        <key>L0201</key>
-                        <value>L0201</value>
-                    </entry>
-                    <entry>
-                        <key>L0200</key>
-                        <value>L0200</value>
-                    </entry>
-                    <entry>
-                        <key>R0103</key>
-                        <value>R0103</value>
-                    </entry>
-                    <entry>
-                        <key>R0101</key>
-                        <value>R0101</value>
-                    </entry>
-                    <entry>
-                        <key>R0102</key>
-                        <value>R0102</value>
-                    </entry>
-                    <entry>
-                        <key>D0000</key>
-                        <value>D0000</value>
-                    </entry>
-                    <entry>
-                        <key>D0001</key>
-                        <value>D0001</value>
-                    </entry>
-                    <entry>
-                        <key>D0002</key>
-                        <value>D0002</value>
-                    </entry>
-                    <entry>
                         <key>U0200</key>
                         <value>R0302</value>
                     </entry>
                     <entry>
                         <key>D0003</key>
                         <value>L0000</value>
-                    </entry>
-                    <entry>
-                        <key>L0203</key>
-                        <value>L0203</value>
-                    </entry>
-                    <entry>
-                        <key>L0202</key>
-                        <value>L0202</value>
-                    </entry>
-                    <entry>
-                        <key>U0201</key>
-                        <value>U0201</value>
-                    </entry>
-                    <entry>
-                        <key>U0202</key>
-                        <value>U0202</value>
-                    </entry>
-                    <entry>
-                        <key>U0203</key>
-                        <value>U0203</value>
-                    </entry>
-                    <entry>
-                        <key>F0000</key>
-                        <value>F0000</value>
-                    </entry>
-                    <entry>
-                        <key>F0001</key>
-                        <value>F0001</value>
-                    </entry>
-                    <entry>
-                        <key>F0002</key>
-                        <value>F0002</value>
-                    </entry>
-                    <entry>
-                        <key>F0003</key>
-                        <value>F0003</value>
                     </entry>
                     <entry>
                         <key>B0100</key>
@@ -9470,84 +7772,12 @@
                         <value>B0302</value>
                     </entry>
                     <entry>
-                        <key>R0000</key>
-                        <value>R0000</value>
-                    </entry>
-                    <entry>
-                        <key>R0001</key>
-                        <value>R0001</value>
-                    </entry>
-                    <entry>
-                        <key>L0300</key>
-                        <value>L0300</value>
-                    </entry>
-                    <entry>
-                        <key>R0002</key>
-                        <value>R0002</value>
-                    </entry>
-                    <entry>
-                        <key>R0003</key>
-                        <value>R0003</value>
-                    </entry>
-                    <entry>
-                        <key>D0100</key>
-                        <value>D0100</value>
-                    </entry>
-                    <entry>
-                        <key>D0101</key>
-                        <value>D0101</value>
-                    </entry>
-                    <entry>
-                        <key>D0102</key>
-                        <value>D0102</value>
-                    </entry>
-                    <entry>
-                        <key>L0302</key>
-                        <value>L0302</value>
-                    </entry>
-                    <entry>
-                        <key>L0301</key>
-                        <value>L0301</value>
-                    </entry>
-                    <entry>
-                        <key>L0303</key>
-                        <value>L0303</value>
-                    </entry>
-                    <entry>
                         <key>U0300</key>
                         <value>R0303</value>
                     </entry>
                     <entry>
                         <key>D0103</key>
                         <value>L0001</value>
-                    </entry>
-                    <entry>
-                        <key>U0301</key>
-                        <value>U0301</value>
-                    </entry>
-                    <entry>
-                        <key>U0302</key>
-                        <value>U0302</value>
-                    </entry>
-                    <entry>
-                        <key>U0303</key>
-                        <value>U0303</value>
-                    </entry>
-                    <entry>
-                        <key>F0100</key>
-                        <value>F0100</value>
-                    </entry>
-                    <entry>
-                        <key>F0101</key>
-                        <value>F0101</value>
-                    </entry>
-                    <entry>
-                        <key>F0102</key>
-                        <value>F0102</value>
-                    </entry>
-                    <entry>
-                        <key>F0103</key>
-                        <value>F0103</value>
                     </entry>
                     <entry>
                         <key>B0000</key>
@@ -9574,10 +7804,6 @@
             <value>
                 <cellMapping>
                     <entry>
-                        <key>R0303</key>
-                        <value>R0303</value>
-                    </entry>
-                    <entry>
                         <key>L0001</key>
                         <value>F0001</value>
                     </entry>
@@ -9586,24 +7812,12 @@
                         <value>F0000</value>
                     </entry>
                     <entry>
-                        <key>L0003</key>
-                        <value>L0003</value>
-                    </entry>
-                    <entry>
-                        <key>L0002</key>
-                        <value>L0002</value>
-                    </entry>
-                    <entry>
                         <key>R0301</key>
-                        <value>D0002</value>
-                    </entry>
-                    <entry>
-                        <key>R0302</key>
-                        <value>R0302</value>
+                        <value>B0301</value>
                     </entry>
                     <entry>
                         <key>R0300</key>
-                        <value>D0003</value>
+                        <value>B0300</value>
                     </entry>
                     <entry>
                         <key>U0000</key>
@@ -9614,32 +7828,12 @@
                         <value>U0103</value>
                     </entry>
                     <entry>
-                        <key>D0200</key>
-                        <value>D0200</value>
-                    </entry>
-                    <entry>
                         <key>U0002</key>
                         <value>U0203</value>
                     </entry>
                     <entry>
-                        <key>D0201</key>
-                        <value>D0201</value>
-                    </entry>
-                    <entry>
                         <key>U0003</key>
                         <value>U0303</value>
-                    </entry>
-                    <entry>
-                        <key>D0202</key>
-                        <value>L0101</value>
-                    </entry>
-                    <entry>
-                        <key>D0203</key>
-                        <value>L0100</value>
-                    </entry>
-                    <entry>
-                        <key>B0303</key>
-                        <value>B0303</value>
                     </entry>
                     <entry>
                         <key>F0201</key>
@@ -9650,52 +7844,28 @@
                         <value>R0200</value>
                     </entry>
                     <entry>
-                        <key>F0203</key>
-                        <value>F0203</value>
-                    </entry>
-                    <entry>
-                        <key>F0202</key>
-                        <value>F0202</value>
-                    </entry>
-                    <entry>
                         <key>B0300</key>
-                        <value>B0300</value>
+                        <value>L0300</value>
                     </entry>
                     <entry>
                         <key>B0301</key>
-                        <value>B0301</value>
-                    </entry>
-                    <entry>
-                        <key>B0302</key>
-                        <value>B0302</value>
+                        <value>L0301</value>
                     </entry>
                     <entry>
                         <key>L0100</key>
                         <value>F0100</value>
                     </entry>
                     <entry>
-                        <key>L0102</key>
-                        <value>L0102</value>
-                    </entry>
-                    <entry>
                         <key>L0101</key>
                         <value>F0101</value>
                     </entry>
                     <entry>
-                        <key>R0202</key>
-                        <value>R0202</value>
-                    </entry>
-                    <entry>
-                        <key>R0203</key>
-                        <value>R0203</value>
-                    </entry>
-                    <entry>
                         <key>R0200</key>
-                        <value>D0103</value>
+                        <value>B0200</value>
                     </entry>
                     <entry>
                         <key>R0201</key>
-                        <value>D0102</value>
+                        <value>B0201</value>
                     </entry>
                     <entry>
                         <key>U0100</key>
@@ -9706,40 +7876,16 @@
                         <value>U0102</value>
                     </entry>
                     <entry>
-                        <key>D0300</key>
-                        <value>D0300</value>
-                    </entry>
-                    <entry>
-                        <key>L0103</key>
-                        <value>L0103</value>
-                    </entry>
-                    <entry>
                         <key>U0102</key>
                         <value>U0202</value>
-                    </entry>
-                    <entry>
-                        <key>D0301</key>
-                        <value>D0301</value>
                     </entry>
                     <entry>
                         <key>U0103</key>
                         <value>U0302</value>
                     </entry>
                     <entry>
-                        <key>D0302</key>
-                        <value>L0001</value>
-                    </entry>
-                    <entry>
-                        <key>D0303</key>
-                        <value>L0000</value>
-                    </entry>
-                    <entry>
                         <key>F0300</key>
                         <value>R0300</value>
-                    </entry>
-                    <entry>
-                        <key>F0302</key>
-                        <value>F0302</value>
                     </entry>
                     <entry>
                         <key>F0301</key>
@@ -9747,27 +7893,15 @@
                     </entry>
                     <entry>
                         <key>B0200</key>
-                        <value>B0200</value>
-                    </entry>
-                    <entry>
-                        <key>F0303</key>
-                        <value>F0303</value>
+                        <value>L0200</value>
                     </entry>
                     <entry>
                         <key>B0201</key>
-                        <value>B0201</value>
-                    </entry>
-                    <entry>
-                        <key>B0202</key>
-                        <value>B0202</value>
-                    </entry>
-                    <entry>
-                        <key>B0203</key>
-                        <value>B0203</value>
+                        <value>L0201</value>
                     </entry>
                     <entry>
                         <key>R0100</key>
-                        <value>D0203</value>
+                        <value>B0100</value>
                     </entry>
                     <entry>
                         <key>L0201</key>
@@ -9778,44 +7912,12 @@
                         <value>F0200</value>
                     </entry>
                     <entry>
-                        <key>R0103</key>
-                        <value>R0103</value>
-                    </entry>
-                    <entry>
                         <key>R0101</key>
-                        <value>D0202</value>
-                    </entry>
-                    <entry>
-                        <key>R0102</key>
-                        <value>R0102</value>
-                    </entry>
-                    <entry>
-                        <key>D0000</key>
-                        <value>D0000</value>
-                    </entry>
-                    <entry>
-                        <key>D0001</key>
-                        <value>D0001</value>
-                    </entry>
-                    <entry>
-                        <key>D0002</key>
-                        <value>L0301</value>
+                        <value>B0101</value>
                     </entry>
                     <entry>
                         <key>U0200</key>
                         <value>U0001</value>
-                    </entry>
-                    <entry>
-                        <key>D0003</key>
-                        <value>L0300</value>
-                    </entry>
-                    <entry>
-                        <key>L0203</key>
-                        <value>L0203</value>
-                    </entry>
-                    <entry>
-                        <key>L0202</key>
-                        <value>L0202</value>
                     </entry>
                     <entry>
                         <key>U0201</key>
@@ -9838,80 +7940,32 @@
                         <value>R0001</value>
                     </entry>
                     <entry>
-                        <key>F0002</key>
-                        <value>F0002</value>
-                    </entry>
-                    <entry>
-                        <key>F0003</key>
-                        <value>F0003</value>
-                    </entry>
-                    <entry>
                         <key>B0100</key>
-                        <value>B0100</value>
+                        <value>L0100</value>
                     </entry>
                     <entry>
                         <key>B0101</key>
-                        <value>B0101</value>
-                    </entry>
-                    <entry>
-                        <key>B0102</key>
-                        <value>B0102</value>
-                    </entry>
-                    <entry>
-                        <key>B0103</key>
-                        <value>B0103</value>
+                        <value>L0101</value>
                     </entry>
                     <entry>
                         <key>R0000</key>
-                        <value>D0303</value>
+                        <value>B0000</value>
                     </entry>
                     <entry>
                         <key>R0001</key>
-                        <value>D0302</value>
+                        <value>B0001</value>
                     </entry>
                     <entry>
                         <key>L0300</key>
                         <value>F0300</value>
                     </entry>
                     <entry>
-                        <key>R0002</key>
-                        <value>R0002</value>
-                    </entry>
-                    <entry>
-                        <key>R0003</key>
-                        <value>R0003</value>
-                    </entry>
-                    <entry>
-                        <key>D0100</key>
-                        <value>D0100</value>
-                    </entry>
-                    <entry>
-                        <key>D0101</key>
-                        <value>D0101</value>
-                    </entry>
-                    <entry>
-                        <key>D0102</key>
-                        <value>L0201</value>
-                    </entry>
-                    <entry>
-                        <key>L0302</key>
-                        <value>L0302</value>
-                    </entry>
-                    <entry>
                         <key>L0301</key>
                         <value>F0301</value>
                     </entry>
                     <entry>
-                        <key>L0303</key>
-                        <value>L0303</value>
-                    </entry>
-                    <entry>
                         <key>U0300</key>
                         <value>U0000</value>
-                    </entry>
-                    <entry>
-                        <key>D0103</key>
-                        <value>L0200</value>
                     </entry>
                     <entry>
                         <key>U0301</key>
@@ -9934,28 +7988,12 @@
                         <value>R0101</value>
                     </entry>
                     <entry>
-                        <key>F0102</key>
-                        <value>F0102</value>
-                    </entry>
-                    <entry>
-                        <key>F0103</key>
-                        <value>F0103</value>
-                    </entry>
-                    <entry>
                         <key>B0000</key>
-                        <value>B0000</value>
+                        <value>L0000</value>
                     </entry>
                     <entry>
                         <key>B0001</key>
-                        <value>B0001</value>
-                    </entry>
-                    <entry>
-                        <key>B0002</key>
-                        <value>B0002</value>
-                    </entry>
-                    <entry>
-                        <key>B0003</key>
-                        <value>B0003</value>
+                        <value>L0001</value>
                     </entry>
                 </cellMapping>
                 <cost>1</cost>
@@ -10362,56 +8400,16 @@
                         <value>F0303</value>
                     </entry>
                     <entry>
-                        <key>L0001</key>
-                        <value>L0001</value>
-                    </entry>
-                    <entry>
-                        <key>L0000</key>
-                        <value>L0000</value>
-                    </entry>
-                    <entry>
                         <key>L0003</key>
                         <value>B0003</value>
-                    </entry>
-                    <entry>
-                        <key>L0002</key>
-                        <value>L0002</value>
-                    </entry>
-                    <entry>
-                        <key>R0301</key>
-                        <value>R0301</value>
-                    </entry>
-                    <entry>
-                        <key>R0302</key>
-                        <value>R0302</value>
-                    </entry>
-                    <entry>
-                        <key>R0300</key>
-                        <value>R0300</value>
-                    </entry>
-                    <entry>
-                        <key>U0000</key>
-                        <value>U0000</value>
-                    </entry>
-                    <entry>
-                        <key>U0001</key>
-                        <value>U0001</value>
                     </entry>
                     <entry>
                         <key>D0200</key>
                         <value>D0001</value>
                     </entry>
                     <entry>
-                        <key>U0002</key>
-                        <value>U0002</value>
-                    </entry>
-                    <entry>
                         <key>D0201</key>
                         <value>D0101</value>
-                    </entry>
-                    <entry>
-                        <key>U0003</key>
-                        <value>U0003</value>
                     </entry>
                     <entry>
                         <key>D0202</key>
@@ -10426,68 +8424,12 @@
                         <value>R0303</value>
                     </entry>
                     <entry>
-                        <key>F0201</key>
-                        <value>F0201</value>
-                    </entry>
-                    <entry>
-                        <key>F0200</key>
-                        <value>F0200</value>
-                    </entry>
-                    <entry>
                         <key>F0203</key>
                         <value>L0203</value>
                     </entry>
                     <entry>
-                        <key>F0202</key>
-                        <value>F0202</value>
-                    </entry>
-                    <entry>
-                        <key>B0300</key>
-                        <value>B0300</value>
-                    </entry>
-                    <entry>
-                        <key>B0301</key>
-                        <value>B0301</value>
-                    </entry>
-                    <entry>
-                        <key>B0302</key>
-                        <value>B0302</value>
-                    </entry>
-                    <entry>
-                        <key>L0100</key>
-                        <value>L0100</value>
-                    </entry>
-                    <entry>
-                        <key>L0102</key>
-                        <value>L0102</value>
-                    </entry>
-                    <entry>
-                        <key>L0101</key>
-                        <value>L0101</value>
-                    </entry>
-                    <entry>
-                        <key>R0202</key>
-                        <value>R0202</value>
-                    </entry>
-                    <entry>
                         <key>R0203</key>
                         <value>F0203</value>
-                    </entry>
-                    <entry>
-                        <key>R0200</key>
-                        <value>R0200</value>
-                    </entry>
-                    <entry>
-                        <key>R0201</key>
-                        <value>R0201</value>
-                    </entry>
-                    <entry>
-                        <key>U0100</key>
-                        <value>U0100</value>
-                    </entry>
-                    <entry>
-                        <key>U0101</key>
-                        <value>U0101</value>
                     </entry>
                     <entry>
                         <key>D0300</key>
@@ -10498,16 +8440,8 @@
                         <value>B0103</value>
                     </entry>
                     <entry>
-                        <key>U0102</key>
-                        <value>U0102</value>
-                    </entry>
-                    <entry>
                         <key>D0301</key>
                         <value>D0100</value>
-                    </entry>
-                    <entry>
-                        <key>U0103</key>
-                        <value>U0103</value>
                     </entry>
                     <entry>
                         <key>D0302</key>
@@ -10518,60 +8452,16 @@
                         <value>D0300</value>
                     </entry>
                     <entry>
-                        <key>F0300</key>
-                        <value>F0300</value>
-                    </entry>
-                    <entry>
-                        <key>F0302</key>
-                        <value>F0302</value>
-                    </entry>
-                    <entry>
-                        <key>F0301</key>
-                        <value>F0301</value>
-                    </entry>
-                    <entry>
-                        <key>B0200</key>
-                        <value>B0200</value>
-                    </entry>
-                    <entry>
                         <key>F0303</key>
                         <value>L0303</value>
-                    </entry>
-                    <entry>
-                        <key>B0201</key>
-                        <value>B0201</value>
-                    </entry>
-                    <entry>
-                        <key>B0202</key>
-                        <value>B0202</value>
                     </entry>
                     <entry>
                         <key>B0203</key>
                         <value>R0203</value>
                     </entry>
                     <entry>
-                        <key>R0100</key>
-                        <value>R0100</value>
-                    </entry>
-                    <entry>
-                        <key>L0201</key>
-                        <value>L0201</value>
-                    </entry>
-                    <entry>
-                        <key>L0200</key>
-                        <value>L0200</value>
-                    </entry>
-                    <entry>
                         <key>R0103</key>
                         <value>F0103</value>
-                    </entry>
-                    <entry>
-                        <key>R0101</key>
-                        <value>R0101</value>
-                    </entry>
-                    <entry>
-                        <key>R0102</key>
-                        <value>R0102</value>
                     </entry>
                     <entry>
                         <key>D0000</key>
@@ -10586,10 +8476,6 @@
                         <value>D0203</value>
                     </entry>
                     <entry>
-                        <key>U0200</key>
-                        <value>U0200</value>
-                    </entry>
-                    <entry>
                         <key>D0003</key>
                         <value>D0303</value>
                     </entry>
@@ -10598,68 +8484,12 @@
                         <value>B0203</value>
                     </entry>
                     <entry>
-                        <key>L0202</key>
-                        <value>L0202</value>
-                    </entry>
-                    <entry>
-                        <key>U0201</key>
-                        <value>U0201</value>
-                    </entry>
-                    <entry>
-                        <key>U0202</key>
-                        <value>U0202</value>
-                    </entry>
-                    <entry>
-                        <key>U0203</key>
-                        <value>U0203</value>
-                    </entry>
-                    <entry>
-                        <key>F0000</key>
-                        <value>F0000</value>
-                    </entry>
-                    <entry>
-                        <key>F0001</key>
-                        <value>F0001</value>
-                    </entry>
-                    <entry>
-                        <key>F0002</key>
-                        <value>F0002</value>
-                    </entry>
-                    <entry>
                         <key>F0003</key>
                         <value>L0003</value>
                     </entry>
                     <entry>
-                        <key>B0100</key>
-                        <value>B0100</value>
-                    </entry>
-                    <entry>
-                        <key>B0101</key>
-                        <value>B0101</value>
-                    </entry>
-                    <entry>
-                        <key>B0102</key>
-                        <value>B0102</value>
-                    </entry>
-                    <entry>
                         <key>B0103</key>
                         <value>R0103</value>
-                    </entry>
-                    <entry>
-                        <key>R0000</key>
-                        <value>R0000</value>
-                    </entry>
-                    <entry>
-                        <key>R0001</key>
-                        <value>R0001</value>
-                    </entry>
-                    <entry>
-                        <key>L0300</key>
-                        <value>L0300</value>
-                    </entry>
-                    <entry>
-                        <key>R0002</key>
-                        <value>R0002</value>
                     </entry>
                     <entry>
                         <key>R0003</key>
@@ -10678,64 +8508,16 @@
                         <value>D0202</value>
                     </entry>
                     <entry>
-                        <key>L0302</key>
-                        <value>L0302</value>
-                    </entry>
-                    <entry>
-                        <key>L0301</key>
-                        <value>L0301</value>
-                    </entry>
-                    <entry>
                         <key>L0303</key>
                         <value>B0303</value>
-                    </entry>
-                    <entry>
-                        <key>U0300</key>
-                        <value>U0300</value>
                     </entry>
                     <entry>
                         <key>D0103</key>
                         <value>D0302</value>
                     </entry>
                     <entry>
-                        <key>U0301</key>
-                        <value>U0301</value>
-                    </entry>
-                    <entry>
-                        <key>U0302</key>
-                        <value>U0302</value>
-                    </entry>
-                    <entry>
-                        <key>U0303</key>
-                        <value>U0303</value>
-                    </entry>
-                    <entry>
-                        <key>F0100</key>
-                        <value>F0100</value>
-                    </entry>
-                    <entry>
-                        <key>F0101</key>
-                        <value>F0101</value>
-                    </entry>
-                    <entry>
-                        <key>F0102</key>
-                        <value>F0102</value>
-                    </entry>
-                    <entry>
                         <key>F0103</key>
                         <value>L0103</value>
-                    </entry>
-                    <entry>
-                        <key>B0000</key>
-                        <value>B0000</value>
-                    </entry>
-                    <entry>
-                        <key>B0001</key>
-                        <value>B0001</value>
-                    </entry>
-                    <entry>
-                        <key>B0002</key>
-                        <value>B0002</value>
                     </entry>
                     <entry>
                         <key>B0003</key>
@@ -10750,72 +8532,12 @@
             <value>
                 <cellMapping>
                     <entry>
-                        <key>R0303</key>
-                        <value>R0303</value>
-                    </entry>
-                    <entry>
-                        <key>L0001</key>
-                        <value>L0001</value>
-                    </entry>
-                    <entry>
-                        <key>L0000</key>
-                        <value>L0000</value>
-                    </entry>
-                    <entry>
-                        <key>L0003</key>
-                        <value>L0003</value>
-                    </entry>
-                    <entry>
-                        <key>L0002</key>
-                        <value>L0002</value>
-                    </entry>
-                    <entry>
-                        <key>R0301</key>
-                        <value>R0301</value>
-                    </entry>
-                    <entry>
-                        <key>R0302</key>
-                        <value>R0302</value>
-                    </entry>
-                    <entry>
-                        <key>R0300</key>
-                        <value>R0300</value>
-                    </entry>
-                    <entry>
-                        <key>U0000</key>
-                        <value>U0000</value>
-                    </entry>
-                    <entry>
-                        <key>U0001</key>
-                        <value>U0001</value>
-                    </entry>
-                    <entry>
                         <key>D0200</key>
                         <value>R0001</value>
                     </entry>
                     <entry>
-                        <key>U0002</key>
-                        <value>U0002</value>
-                    </entry>
-                    <entry>
-                        <key>D0201</key>
-                        <value>D0201</value>
-                    </entry>
-                    <entry>
                         <key>U0003</key>
                         <value>L0303</value>
-                    </entry>
-                    <entry>
-                        <key>D0202</key>
-                        <value>D0202</value>
-                    </entry>
-                    <entry>
-                        <key>D0203</key>
-                        <value>D0203</value>
-                    </entry>
-                    <entry>
-                        <key>B0303</key>
-                        <value>B0303</value>
                     </entry>
                     <entry>
                         <key>F0201</key>
@@ -10834,80 +8556,12 @@
                         <value>F0201</value>
                     </entry>
                     <entry>
-                        <key>B0300</key>
-                        <value>B0300</value>
-                    </entry>
-                    <entry>
-                        <key>B0301</key>
-                        <value>B0301</value>
-                    </entry>
-                    <entry>
-                        <key>B0302</key>
-                        <value>B0302</value>
-                    </entry>
-                    <entry>
-                        <key>L0100</key>
-                        <value>L0100</value>
-                    </entry>
-                    <entry>
-                        <key>L0102</key>
-                        <value>L0102</value>
-                    </entry>
-                    <entry>
-                        <key>L0101</key>
-                        <value>L0101</value>
-                    </entry>
-                    <entry>
-                        <key>R0202</key>
-                        <value>R0202</value>
-                    </entry>
-                    <entry>
-                        <key>R0203</key>
-                        <value>R0203</value>
-                    </entry>
-                    <entry>
-                        <key>R0200</key>
-                        <value>R0200</value>
-                    </entry>
-                    <entry>
-                        <key>R0201</key>
-                        <value>R0201</value>
-                    </entry>
-                    <entry>
-                        <key>U0100</key>
-                        <value>U0100</value>
-                    </entry>
-                    <entry>
-                        <key>U0101</key>
-                        <value>U0101</value>
-                    </entry>
-                    <entry>
                         <key>D0300</key>
                         <value>R0000</value>
                     </entry>
                     <entry>
-                        <key>L0103</key>
-                        <value>L0103</value>
-                    </entry>
-                    <entry>
-                        <key>U0102</key>
-                        <value>U0102</value>
-                    </entry>
-                    <entry>
-                        <key>D0301</key>
-                        <value>D0301</value>
-                    </entry>
-                    <entry>
                         <key>U0103</key>
                         <value>L0302</value>
-                    </entry>
-                    <entry>
-                        <key>D0302</key>
-                        <value>D0302</value>
-                    </entry>
-                    <entry>
-                        <key>D0303</key>
-                        <value>D0303</value>
                     </entry>
                     <entry>
                         <key>F0300</key>
@@ -10922,84 +8576,12 @@
                         <value>F0100</value>
                     </entry>
                     <entry>
-                        <key>B0200</key>
-                        <value>B0200</value>
-                    </entry>
-                    <entry>
                         <key>F0303</key>
                         <value>F0300</value>
                     </entry>
                     <entry>
-                        <key>B0201</key>
-                        <value>B0201</value>
-                    </entry>
-                    <entry>
-                        <key>B0202</key>
-                        <value>B0202</value>
-                    </entry>
-                    <entry>
-                        <key>B0203</key>
-                        <value>B0203</value>
-                    </entry>
-                    <entry>
-                        <key>R0100</key>
-                        <value>R0100</value>
-                    </entry>
-                    <entry>
-                        <key>L0201</key>
-                        <value>L0201</value>
-                    </entry>
-                    <entry>
-                        <key>L0200</key>
-                        <value>L0200</value>
-                    </entry>
-                    <entry>
-                        <key>R0103</key>
-                        <value>R0103</value>
-                    </entry>
-                    <entry>
-                        <key>R0101</key>
-                        <value>R0101</value>
-                    </entry>
-                    <entry>
-                        <key>R0102</key>
-                        <value>R0102</value>
-                    </entry>
-                    <entry>
                         <key>D0000</key>
                         <value>R0003</value>
-                    </entry>
-                    <entry>
-                        <key>D0001</key>
-                        <value>D0001</value>
-                    </entry>
-                    <entry>
-                        <key>D0002</key>
-                        <value>D0002</value>
-                    </entry>
-                    <entry>
-                        <key>U0200</key>
-                        <value>U0200</value>
-                    </entry>
-                    <entry>
-                        <key>D0003</key>
-                        <value>D0003</value>
-                    </entry>
-                    <entry>
-                        <key>L0203</key>
-                        <value>L0203</value>
-                    </entry>
-                    <entry>
-                        <key>L0202</key>
-                        <value>L0202</value>
-                    </entry>
-                    <entry>
-                        <key>U0201</key>
-                        <value>U0201</value>
-                    </entry>
-                    <entry>
-                        <key>U0202</key>
-                        <value>U0202</value>
                     </entry>
                     <entry>
                         <key>U0203</key>
@@ -11020,22 +8602,6 @@
                     <entry>
                         <key>F0003</key>
                         <value>F0303</value>
-                    </entry>
-                    <entry>
-                        <key>B0100</key>
-                        <value>B0100</value>
-                    </entry>
-                    <entry>
-                        <key>B0101</key>
-                        <value>B0101</value>
-                    </entry>
-                    <entry>
-                        <key>B0102</key>
-                        <value>B0102</value>
-                    </entry>
-                    <entry>
-                        <key>B0103</key>
-                        <value>B0103</value>
                     </entry>
                     <entry>
                         <key>R0000</key>
@@ -11062,14 +8628,6 @@
                         <value>R0002</value>
                     </entry>
                     <entry>
-                        <key>D0101</key>
-                        <value>D0101</value>
-                    </entry>
-                    <entry>
-                        <key>D0102</key>
-                        <value>D0102</value>
-                    </entry>
-                    <entry>
                         <key>L0302</key>
                         <value>D0200</value>
                     </entry>
@@ -11080,22 +8638,6 @@
                     <entry>
                         <key>L0303</key>
                         <value>D0300</value>
-                    </entry>
-                    <entry>
-                        <key>U0300</key>
-                        <value>U0300</value>
-                    </entry>
-                    <entry>
-                        <key>D0103</key>
-                        <value>D0103</value>
-                    </entry>
-                    <entry>
-                        <key>U0301</key>
-                        <value>U0301</value>
-                    </entry>
-                    <entry>
-                        <key>U0302</key>
-                        <value>U0302</value>
                     </entry>
                     <entry>
                         <key>U0303</key>
@@ -11116,22 +8658,6 @@
                     <entry>
                         <key>F0103</key>
                         <value>F0302</value>
-                    </entry>
-                    <entry>
-                        <key>B0000</key>
-                        <value>B0000</value>
-                    </entry>
-                    <entry>
-                        <key>B0001</key>
-                        <value>B0001</value>
-                    </entry>
-                    <entry>
-                        <key>B0002</key>
-                        <value>B0002</value>
-                    </entry>
-                    <entry>
-                        <key>B0003</key>
-                        <value>B0003</value>
                     </entry>
                 </cellMapping>
                 <cost>1</cost>
@@ -11142,10 +8668,6 @@
             <value>
                 <cellMapping>
                     <entry>
-                        <key>R0303</key>
-                        <value>R0303</value>
-                    </entry>
-                    <entry>
                         <key>L0001</key>
                         <value>L0103</value>
                     </entry>
@@ -11162,18 +8684,6 @@
                         <value>L0203</value>
                     </entry>
                     <entry>
-                        <key>R0301</key>
-                        <value>R0301</value>
-                    </entry>
-                    <entry>
-                        <key>R0302</key>
-                        <value>R0302</value>
-                    </entry>
-                    <entry>
-                        <key>R0300</key>
-                        <value>R0300</value>
-                    </entry>
-                    <entry>
                         <key>U0000</key>
                         <value>B0303</value>
                     </entry>
@@ -11182,48 +8692,16 @@
                         <value>B0302</value>
                     </entry>
                     <entry>
-                        <key>D0200</key>
-                        <value>D0200</value>
-                    </entry>
-                    <entry>
                         <key>U0002</key>
                         <value>B0301</value>
-                    </entry>
-                    <entry>
-                        <key>D0201</key>
-                        <value>D0201</value>
                     </entry>
                     <entry>
                         <key>U0003</key>
                         <value>B0300</value>
                     </entry>
                     <entry>
-                        <key>D0202</key>
-                        <value>D0202</value>
-                    </entry>
-                    <entry>
-                        <key>D0203</key>
-                        <value>D0203</value>
-                    </entry>
-                    <entry>
                         <key>B0303</key>
                         <value>D0000</value>
-                    </entry>
-                    <entry>
-                        <key>F0201</key>
-                        <value>F0201</value>
-                    </entry>
-                    <entry>
-                        <key>F0200</key>
-                        <value>F0200</value>
-                    </entry>
-                    <entry>
-                        <key>F0203</key>
-                        <value>F0203</value>
-                    </entry>
-                    <entry>
-                        <key>F0202</key>
-                        <value>F0202</value>
                     </entry>
                     <entry>
                         <key>B0300</key>
@@ -11250,92 +8728,8 @@
                         <value>L0102</value>
                     </entry>
                     <entry>
-                        <key>R0202</key>
-                        <value>R0202</value>
-                    </entry>
-                    <entry>
-                        <key>R0203</key>
-                        <value>R0203</value>
-                    </entry>
-                    <entry>
-                        <key>R0200</key>
-                        <value>R0200</value>
-                    </entry>
-                    <entry>
-                        <key>R0201</key>
-                        <value>R0201</value>
-                    </entry>
-                    <entry>
-                        <key>U0100</key>
-                        <value>U0100</value>
-                    </entry>
-                    <entry>
-                        <key>U0101</key>
-                        <value>U0101</value>
-                    </entry>
-                    <entry>
-                        <key>D0300</key>
-                        <value>D0300</value>
-                    </entry>
-                    <entry>
                         <key>L0103</key>
                         <value>L0302</value>
-                    </entry>
-                    <entry>
-                        <key>U0102</key>
-                        <value>U0102</value>
-                    </entry>
-                    <entry>
-                        <key>D0301</key>
-                        <value>D0301</value>
-                    </entry>
-                    <entry>
-                        <key>U0103</key>
-                        <value>U0103</value>
-                    </entry>
-                    <entry>
-                        <key>D0302</key>
-                        <value>D0302</value>
-                    </entry>
-                    <entry>
-                        <key>D0303</key>
-                        <value>D0303</value>
-                    </entry>
-                    <entry>
-                        <key>F0300</key>
-                        <value>F0300</value>
-                    </entry>
-                    <entry>
-                        <key>F0302</key>
-                        <value>F0302</value>
-                    </entry>
-                    <entry>
-                        <key>F0301</key>
-                        <value>F0301</value>
-                    </entry>
-                    <entry>
-                        <key>B0200</key>
-                        <value>B0200</value>
-                    </entry>
-                    <entry>
-                        <key>F0303</key>
-                        <value>F0303</value>
-                    </entry>
-                    <entry>
-                        <key>B0201</key>
-                        <value>B0201</value>
-                    </entry>
-                    <entry>
-                        <key>B0202</key>
-                        <value>B0202</value>
-                    </entry>
-                    <entry>
-                        <key>B0203</key>
-                        <value>B0203</value>
-                    </entry>
-                    <entry>
-                        <key>R0100</key>
-                        <value>R0100</value>
                     </entry>
                     <entry>
                         <key>L0201</key>
@@ -11344,18 +8738,6 @@
                     <entry>
                         <key>L0200</key>
                         <value>L0001</value>
-                    </entry>
-                    <entry>
-                        <key>R0103</key>
-                        <value>R0103</value>
-                    </entry>
-                    <entry>
-                        <key>R0101</key>
-                        <value>R0101</value>
-                    </entry>
-                    <entry>
-                        <key>R0102</key>
-                        <value>R0102</value>
                     </entry>
                     <entry>
                         <key>D0000</key>
@@ -11370,10 +8752,6 @@
                         <value>F0002</value>
                     </entry>
                     <entry>
-                        <key>U0200</key>
-                        <value>U0200</value>
-                    </entry>
-                    <entry>
                         <key>D0003</key>
                         <value>F0003</value>
                     </entry>
@@ -11384,18 +8762,6 @@
                     <entry>
                         <key>L0202</key>
                         <value>L0201</value>
-                    </entry>
-                    <entry>
-                        <key>U0201</key>
-                        <value>U0201</value>
-                    </entry>
-                    <entry>
-                        <key>U0202</key>
-                        <value>U0202</value>
-                    </entry>
-                    <entry>
-                        <key>U0203</key>
-                        <value>U0203</value>
                     </entry>
                     <entry>
                         <key>F0000</key>
@@ -11414,52 +8780,8 @@
                         <value>U0003</value>
                     </entry>
                     <entry>
-                        <key>B0100</key>
-                        <value>B0100</value>
-                    </entry>
-                    <entry>
-                        <key>B0101</key>
-                        <value>B0101</value>
-                    </entry>
-                    <entry>
-                        <key>B0102</key>
-                        <value>B0102</value>
-                    </entry>
-                    <entry>
-                        <key>B0103</key>
-                        <value>B0103</value>
-                    </entry>
-                    <entry>
-                        <key>R0000</key>
-                        <value>R0000</value>
-                    </entry>
-                    <entry>
-                        <key>R0001</key>
-                        <value>R0001</value>
-                    </entry>
-                    <entry>
                         <key>L0300</key>
                         <value>L0000</value>
-                    </entry>
-                    <entry>
-                        <key>R0002</key>
-                        <value>R0002</value>
-                    </entry>
-                    <entry>
-                        <key>R0003</key>
-                        <value>R0003</value>
-                    </entry>
-                    <entry>
-                        <key>D0100</key>
-                        <value>D0100</value>
-                    </entry>
-                    <entry>
-                        <key>D0101</key>
-                        <value>D0101</value>
-                    </entry>
-                    <entry>
-                        <key>D0102</key>
-                        <value>D0102</value>
                     </entry>
                     <entry>
                         <key>L0302</key>
@@ -11472,58 +8794,6 @@
                     <entry>
                         <key>L0303</key>
                         <value>L0300</value>
-                    </entry>
-                    <entry>
-                        <key>U0300</key>
-                        <value>U0300</value>
-                    </entry>
-                    <entry>
-                        <key>D0103</key>
-                        <value>D0103</value>
-                    </entry>
-                    <entry>
-                        <key>U0301</key>
-                        <value>U0301</value>
-                    </entry>
-                    <entry>
-                        <key>U0302</key>
-                        <value>U0302</value>
-                    </entry>
-                    <entry>
-                        <key>U0303</key>
-                        <value>U0303</value>
-                    </entry>
-                    <entry>
-                        <key>F0100</key>
-                        <value>F0100</value>
-                    </entry>
-                    <entry>
-                        <key>F0101</key>
-                        <value>F0101</value>
-                    </entry>
-                    <entry>
-                        <key>F0102</key>
-                        <value>F0102</value>
-                    </entry>
-                    <entry>
-                        <key>F0103</key>
-                        <value>F0103</value>
-                    </entry>
-                    <entry>
-                        <key>B0000</key>
-                        <value>B0000</value>
-                    </entry>
-                    <entry>
-                        <key>B0001</key>
-                        <value>B0001</value>
-                    </entry>
-                    <entry>
-                        <key>B0002</key>
-                        <value>B0002</value>
-                    </entry>
-                    <entry>
-                        <key>B0003</key>
-                        <value>B0003</value>
                     </entry>
                 </cellMapping>
                 <cost>1</cost>
@@ -11919,398 +9189,6 @@
                     </entry>
                 </cellMapping>
                 <cost>2</cost>
-            </value>
-        </entry>
-        <entry>
-            <key>y'</key>
-            <value>
-                <cellMapping>
-                    <entry>
-                        <key>R0303</key>
-                        <value>R0303</value>
-                    </entry>
-                    <entry>
-                        <key>L0001</key>
-                        <value>L0001</value>
-                    </entry>
-                    <entry>
-                        <key>L0000</key>
-                        <value>L0000</value>
-                    </entry>
-                    <entry>
-                        <key>R0100</key>
-                        <value>R0100</value>
-                    </entry>
-                    <entry>
-                        <key>L0003</key>
-                        <value>L0003</value>
-                    </entry>
-                    <entry>
-                        <key>L0201</key>
-                        <value>L0201</value>
-                    </entry>
-                    <entry>
-                        <key>L0002</key>
-                        <value>L0002</value>
-                    </entry>
-                    <entry>
-                        <key>L0200</key>
-                        <value>L0200</value>
-                    </entry>
-                    <entry>
-                        <key>R0103</key>
-                        <value>R0103</value>
-                    </entry>
-                    <entry>
-                        <key>R0301</key>
-                        <value>R0301</value>
-                    </entry>
-                    <entry>
-                        <key>R0302</key>
-                        <value>R0302</value>
-                    </entry>
-                    <entry>
-                        <key>R0101</key>
-                        <value>R0101</value>
-                    </entry>
-                    <entry>
-                        <key>R0102</key>
-                        <value>R0102</value>
-                    </entry>
-                    <entry>
-                        <key>R0300</key>
-                        <value>R0300</value>
-                    </entry>
-                    <entry>
-                        <key>D0000</key>
-                        <value>D0000</value>
-                    </entry>
-                    <entry>
-                        <key>U0000</key>
-                        <value>U0000</value>
-                    </entry>
-                    <entry>
-                        <key>D0001</key>
-                        <value>D0001</value>
-                    </entry>
-                    <entry>
-                        <key>U0001</key>
-                        <value>U0001</value>
-                    </entry>
-                    <entry>
-                        <key>D0002</key>
-                        <value>D0002</value>
-                    </entry>
-                    <entry>
-                        <key>D0200</key>
-                        <value>D0200</value>
-                    </entry>
-                    <entry>
-                        <key>U0002</key>
-                        <value>U0002</value>
-                    </entry>
-                    <entry>
-                        <key>U0200</key>
-                        <value>U0200</value>
-                    </entry>
-                    <entry>
-                        <key>D0003</key>
-                        <value>D0003</value>
-                    </entry>
-                    <entry>
-                        <key>D0201</key>
-                        <value>D0201</value>
-                    </entry>
-                    <entry>
-                        <key>L0203</key>
-                        <value>L0203</value>
-                    </entry>
-                    <entry>
-                        <key>L0202</key>
-                        <value>L0202</value>
-                    </entry>
-                    <entry>
-                        <key>U0003</key>
-                        <value>U0003</value>
-                    </entry>
-                    <entry>
-                        <key>U0201</key>
-                        <value>U0201</value>
-                    </entry>
-                    <entry>
-                        <key>D0202</key>
-                        <value>D0202</value>
-                    </entry>
-                    <entry>
-                        <key>U0202</key>
-                        <value>U0202</value>
-                    </entry>
-                    <entry>
-                        <key>D0203</key>
-                        <value>D0203</value>
-                    </entry>
-                    <entry>
-                        <key>U0203</key>
-                        <value>U0203</value>
-                    </entry>
-                    <entry>
-                        <key>B0303</key>
-                        <value>B0303</value>
-                    </entry>
-                    <entry>
-                        <key>F0000</key>
-                        <value>F0000</value>
-                    </entry>
-                    <entry>
-                        <key>F0001</key>
-                        <value>F0001</value>
-                    </entry>
-                    <entry>
-                        <key>F0002</key>
-                        <value>F0002</value>
-                    </entry>
-                    <entry>
-                        <key>F0201</key>
-                        <value>F0201</value>
-                    </entry>
-                    <entry>
-                        <key>F0003</key>
-                        <value>F0003</value>
-                    </entry>
-                    <entry>
-                        <key>F0200</key>
-                        <value>F0200</value>
-                    </entry>
-                    <entry>
-                        <key>F0203</key>
-                        <value>F0203</value>
-                    </entry>
-                    <entry>
-                        <key>F0202</key>
-                        <value>F0202</value>
-                    </entry>
-                    <entry>
-                        <key>B0100</key>
-                        <value>B0100</value>
-                    </entry>
-                    <entry>
-                        <key>B0101</key>
-                        <value>B0101</value>
-                    </entry>
-                    <entry>
-                        <key>B0102</key>
-                        <value>B0102</value>
-                    </entry>
-                    <entry>
-                        <key>B0300</key>
-                        <value>B0300</value>
-                    </entry>
-                    <entry>
-                        <key>B0103</key>
-                        <value>B0103</value>
-                    </entry>
-                    <entry>
-                        <key>B0301</key>
-                        <value>B0301</value>
-                    </entry>
-                    <entry>
-                        <key>B0302</key>
-                        <value>B0302</value>
-                    </entry>
-                    <entry>
-                        <key>L0100</key>
-                        <value>L0100</value>
-                    </entry>
-                    <entry>
-                        <key>R0000</key>
-                        <value>R0000</value>
-                    </entry>
-                    <entry>
-                        <key>R0001</key>
-                        <value>R0001</value>
-                    </entry>
-                    <entry>
-                        <key>L0102</key>
-                        <value>L0102</value>
-                    </entry>
-                    <entry>
-                        <key>L0300</key>
-                        <value>L0300</value>
-                    </entry>
-                    <entry>
-                        <key>L0101</key>
-                        <value>L0101</value>
-                    </entry>
-                    <entry>
-                        <key>R0202</key>
-                        <value>R0202</value>
-                    </entry>
-                    <entry>
-                        <key>R0203</key>
-                        <value>R0203</value>
-                    </entry>
-                    <entry>
-                        <key>R0002</key>
-                        <value>R0002</value>
-                    </entry>
-                    <entry>
-                        <key>R0200</key>
-                        <value>R0200</value>
-                    </entry>
-                    <entry>
-                        <key>R0003</key>
-                        <value>R0003</value>
-                    </entry>
-                    <entry>
-                        <key>R0201</key>
-                        <value>R0201</value>
-                    </entry>
-                    <entry>
-                        <key>D0100</key>
-                        <value>D0100</value>
-                    </entry>
-                    <entry>
-                        <key>U0100</key>
-                        <value>U0100</value>
-                    </entry>
-                    <entry>
-                        <key>D0101</key>
-                        <value>D0101</value>
-                    </entry>
-                    <entry>
-                        <key>U0101</key>
-                        <value>U0101</value>
-                    </entry>
-                    <entry>
-                        <key>D0102</key>
-                        <value>D0102</value>
-                    </entry>
-                    <entry>
-                        <key>D0300</key>
-                        <value>D0300</value>
-                    </entry>
-                    <entry>
-                        <key>L0302</key>
-                        <value>L0302</value>
-                    </entry>
-                    <entry>
-                        <key>L0103</key>
-                        <value>L0103</value>
-                    </entry>
-                    <entry>
-                        <key>L0301</key>
-                        <value>L0301</value>
-                    </entry>
-                    <entry>
-                        <key>L0303</key>
-                        <value>L0303</value>
-                    </entry>
-                    <entry>
-                        <key>U0102</key>
-                        <value>U0102</value>
-                    </entry>
-                    <entry>
-                        <key>U0300</key>
-                        <value>U0300</value>
-                    </entry>
-                    <entry>
-                        <key>D0103</key>
-                        <value>D0103</value>
-                    </entry>
-                    <entry>
-                        <key>D0301</key>
-                        <value>D0301</value>
-                    </entry>
-                    <entry>
-                        <key>U0103</key>
-                        <value>U0103</value>
-                    </entry>
-                    <entry>
-                        <key>U0301</key>
-                        <value>U0301</value>
-                    </entry>
-                    <entry>
-                        <key>D0302</key>
-                        <value>D0302</value>
-                    </entry>
-                    <entry>
-                        <key>U0302</key>
-                        <value>U0302</value>
-                    </entry>
-                    <entry>
-                        <key>D0303</key>
-                        <value>D0303</value>
-                    </entry>
-                    <entry>
-                        <key>U0303</key>
-                        <value>U0303</value>
-                    </entry>
-                    <entry>
-                        <key>F0100</key>
-                        <value>F0100</value>
-                    </entry>
-                    <entry>
-                        <key>F0101</key>
-                        <value>F0101</value>
-                    </entry>
-                    <entry>
-                        <key>F0300</key>
-                        <value>F0300</value>
-                    </entry>
-                    <entry>
-                        <key>F0102</key>
-                        <value>F0102</value>
-                    </entry>
-                    <entry>
-                        <key>F0103</key>
-                        <value>F0103</value>
-                    </entry>
-                    <entry>
-                        <key>F0302</key>
-                        <value>F0302</value>
-                    </entry>
-                    <entry>
-                        <key>B0000</key>
-                        <value>B0000</value>
-                    </entry>
-                    <entry>
-                        <key>F0301</key>
-                        <value>F0301</value>
-                    </entry>
-                    <entry>
-                        <key>B0001</key>
-                        <value>B0001</value>
-                    </entry>
-                    <entry>
-                        <key>B0002</key>
-                        <value>B0002</value>
-                    </entry>
-                    <entry>
-                        <key>B0200</key>
-                        <value>B0200</value>
-                    </entry>
-                    <entry>
-                        <key>F0303</key>
-                        <value>F0303</value>
-                    </entry>
-                    <entry>
-                        <key>B0003</key>
-                        <value>B0003</value>
-                    </entry>
-                    <entry>
-                        <key>B0201</key>
-                        <value>B0201</value>
-                    </entry>
-                    <entry>
-                        <key>B0202</key>
-                        <value>B0202</value>
-                    </entry>
-                    <entry>
-                        <key>B0203</key>
-                        <value>B0203</value>
-                    </entry>
-                </cellMapping>
-                <cost>0</cost>
             </value>
         </entry>
         <entry>
@@ -12714,22 +9592,6 @@
                         <value>R0300</value>
                     </entry>
                     <entry>
-                        <key>L0001</key>
-                        <value>L0001</value>
-                    </entry>
-                    <entry>
-                        <key>L0000</key>
-                        <value>L0000</value>
-                    </entry>
-                    <entry>
-                        <key>L0003</key>
-                        <value>L0003</value>
-                    </entry>
-                    <entry>
-                        <key>L0002</key>
-                        <value>L0002</value>
-                    </entry>
-                    <entry>
                         <key>R0301</key>
                         <value>R0100</value>
                     </entry>
@@ -12740,82 +9602,6 @@
                     <entry>
                         <key>R0300</key>
                         <value>R0000</value>
-                    </entry>
-                    <entry>
-                        <key>U0000</key>
-                        <value>U0000</value>
-                    </entry>
-                    <entry>
-                        <key>U0001</key>
-                        <value>U0001</value>
-                    </entry>
-                    <entry>
-                        <key>D0200</key>
-                        <value>D0200</value>
-                    </entry>
-                    <entry>
-                        <key>U0002</key>
-                        <value>U0002</value>
-                    </entry>
-                    <entry>
-                        <key>D0201</key>
-                        <value>D0201</value>
-                    </entry>
-                    <entry>
-                        <key>U0003</key>
-                        <value>U0003</value>
-                    </entry>
-                    <entry>
-                        <key>D0202</key>
-                        <value>D0202</value>
-                    </entry>
-                    <entry>
-                        <key>D0203</key>
-                        <value>D0203</value>
-                    </entry>
-                    <entry>
-                        <key>B0303</key>
-                        <value>B0303</value>
-                    </entry>
-                    <entry>
-                        <key>F0201</key>
-                        <value>F0201</value>
-                    </entry>
-                    <entry>
-                        <key>F0200</key>
-                        <value>F0200</value>
-                    </entry>
-                    <entry>
-                        <key>F0203</key>
-                        <value>F0203</value>
-                    </entry>
-                    <entry>
-                        <key>F0202</key>
-                        <value>F0202</value>
-                    </entry>
-                    <entry>
-                        <key>B0300</key>
-                        <value>B0300</value>
-                    </entry>
-                    <entry>
-                        <key>B0301</key>
-                        <value>B0301</value>
-                    </entry>
-                    <entry>
-                        <key>B0302</key>
-                        <value>B0302</value>
-                    </entry>
-                    <entry>
-                        <key>L0100</key>
-                        <value>L0100</value>
-                    </entry>
-                    <entry>
-                        <key>L0102</key>
-                        <value>L0102</value>
-                    </entry>
-                    <entry>
-                        <key>L0101</key>
-                        <value>L0101</value>
                     </entry>
                     <entry>
                         <key>R0202</key>
@@ -12834,32 +9620,12 @@
                         <value>R0101</value>
                     </entry>
                     <entry>
-                        <key>U0100</key>
-                        <value>U0100</value>
-                    </entry>
-                    <entry>
-                        <key>U0101</key>
-                        <value>U0101</value>
-                    </entry>
-                    <entry>
                         <key>D0300</key>
                         <value>B0003</value>
                     </entry>
                     <entry>
-                        <key>L0103</key>
-                        <value>L0103</value>
-                    </entry>
-                    <entry>
-                        <key>U0102</key>
-                        <value>U0102</value>
-                    </entry>
-                    <entry>
                         <key>D0301</key>
                         <value>B0002</value>
-                    </entry>
-                    <entry>
-                        <key>U0103</key>
-                        <value>U0103</value>
                     </entry>
                     <entry>
                         <key>D0302</key>
@@ -12882,36 +9648,12 @@
                         <value>D0301</value>
                     </entry>
                     <entry>
-                        <key>B0200</key>
-                        <value>B0200</value>
-                    </entry>
-                    <entry>
                         <key>F0303</key>
                         <value>D0303</value>
                     </entry>
                     <entry>
-                        <key>B0201</key>
-                        <value>B0201</value>
-                    </entry>
-                    <entry>
-                        <key>B0202</key>
-                        <value>B0202</value>
-                    </entry>
-                    <entry>
-                        <key>B0203</key>
-                        <value>B0203</value>
-                    </entry>
-                    <entry>
                         <key>R0100</key>
                         <value>R0002</value>
-                    </entry>
-                    <entry>
-                        <key>L0201</key>
-                        <value>L0201</value>
-                    </entry>
-                    <entry>
-                        <key>L0200</key>
-                        <value>L0200</value>
                     </entry>
                     <entry>
                         <key>R0103</key>
@@ -12926,88 +9668,12 @@
                         <value>R0202</value>
                     </entry>
                     <entry>
-                        <key>D0000</key>
-                        <value>D0000</value>
-                    </entry>
-                    <entry>
-                        <key>D0001</key>
-                        <value>D0001</value>
-                    </entry>
-                    <entry>
-                        <key>D0002</key>
-                        <value>D0002</value>
-                    </entry>
-                    <entry>
-                        <key>U0200</key>
-                        <value>U0200</value>
-                    </entry>
-                    <entry>
-                        <key>D0003</key>
-                        <value>D0003</value>
-                    </entry>
-                    <entry>
-                        <key>L0203</key>
-                        <value>L0203</value>
-                    </entry>
-                    <entry>
-                        <key>L0202</key>
-                        <value>L0202</value>
-                    </entry>
-                    <entry>
-                        <key>U0201</key>
-                        <value>U0201</value>
-                    </entry>
-                    <entry>
-                        <key>U0202</key>
-                        <value>U0202</value>
-                    </entry>
-                    <entry>
-                        <key>U0203</key>
-                        <value>U0203</value>
-                    </entry>
-                    <entry>
-                        <key>F0000</key>
-                        <value>F0000</value>
-                    </entry>
-                    <entry>
-                        <key>F0001</key>
-                        <value>F0001</value>
-                    </entry>
-                    <entry>
-                        <key>F0002</key>
-                        <value>F0002</value>
-                    </entry>
-                    <entry>
-                        <key>F0003</key>
-                        <value>F0003</value>
-                    </entry>
-                    <entry>
-                        <key>B0100</key>
-                        <value>B0100</value>
-                    </entry>
-                    <entry>
-                        <key>B0101</key>
-                        <value>B0101</value>
-                    </entry>
-                    <entry>
-                        <key>B0102</key>
-                        <value>B0102</value>
-                    </entry>
-                    <entry>
-                        <key>B0103</key>
-                        <value>B0103</value>
-                    </entry>
-                    <entry>
                         <key>R0000</key>
                         <value>R0003</value>
                     </entry>
                     <entry>
                         <key>R0001</key>
                         <value>R0103</value>
-                    </entry>
-                    <entry>
-                        <key>L0300</key>
-                        <value>L0300</value>
                     </entry>
                     <entry>
                         <key>R0002</key>
@@ -13018,36 +9684,8 @@
                         <value>R0303</value>
                     </entry>
                     <entry>
-                        <key>D0100</key>
-                        <value>D0100</value>
-                    </entry>
-                    <entry>
-                        <key>D0101</key>
-                        <value>D0101</value>
-                    </entry>
-                    <entry>
-                        <key>D0102</key>
-                        <value>D0102</value>
-                    </entry>
-                    <entry>
-                        <key>L0302</key>
-                        <value>L0302</value>
-                    </entry>
-                    <entry>
-                        <key>L0301</key>
-                        <value>L0301</value>
-                    </entry>
-                    <entry>
-                        <key>L0303</key>
-                        <value>L0303</value>
-                    </entry>
-                    <entry>
                         <key>U0300</key>
                         <value>F0300</value>
-                    </entry>
-                    <entry>
-                        <key>D0103</key>
-                        <value>D0103</value>
                     </entry>
                     <entry>
                         <key>U0301</key>
@@ -13060,22 +9698,6 @@
                     <entry>
                         <key>U0303</key>
                         <value>F0303</value>
-                    </entry>
-                    <entry>
-                        <key>F0100</key>
-                        <value>F0100</value>
-                    </entry>
-                    <entry>
-                        <key>F0101</key>
-                        <value>F0101</value>
-                    </entry>
-                    <entry>
-                        <key>F0102</key>
-                        <value>F0102</value>
-                    </entry>
-                    <entry>
-                        <key>F0103</key>
-                        <value>F0103</value>
                     </entry>
                     <entry>
                         <key>B0000</key>
@@ -14278,36 +10900,12 @@
             <value>
                 <cellMapping>
                     <entry>
-                        <key>R0303</key>
-                        <value>R0303</value>
-                    </entry>
-                    <entry>
-                        <key>L0001</key>
-                        <value>L0001</value>
-                    </entry>
-                    <entry>
                         <key>L0000</key>
                         <value>F0000</value>
                     </entry>
                     <entry>
-                        <key>L0003</key>
-                        <value>L0003</value>
-                    </entry>
-                    <entry>
-                        <key>L0002</key>
-                        <value>L0002</value>
-                    </entry>
-                    <entry>
-                        <key>R0301</key>
-                        <value>R0301</value>
-                    </entry>
-                    <entry>
-                        <key>R0302</key>
-                        <value>R0302</value>
-                    </entry>
-                    <entry>
                         <key>R0300</key>
-                        <value>D0003</value>
+                        <value>B0300</value>
                     </entry>
                     <entry>
                         <key>U0000</key>
@@ -14318,88 +10916,28 @@
                         <value>U0103</value>
                     </entry>
                     <entry>
-                        <key>D0200</key>
-                        <value>D0200</value>
-                    </entry>
-                    <entry>
                         <key>U0002</key>
                         <value>U0203</value>
-                    </entry>
-                    <entry>
-                        <key>D0201</key>
-                        <value>D0201</value>
                     </entry>
                     <entry>
                         <key>U0003</key>
                         <value>U0303</value>
                     </entry>
                     <entry>
-                        <key>D0202</key>
-                        <value>D0202</value>
-                    </entry>
-                    <entry>
-                        <key>D0203</key>
-                        <value>L0100</value>
-                    </entry>
-                    <entry>
-                        <key>B0303</key>
-                        <value>B0303</value>
-                    </entry>
-                    <entry>
-                        <key>F0201</key>
-                        <value>F0201</value>
-                    </entry>
-                    <entry>
                         <key>F0200</key>
                         <value>R0200</value>
                     </entry>
                     <entry>
-                        <key>F0203</key>
-                        <value>F0203</value>
-                    </entry>
-                    <entry>
-                        <key>F0202</key>
-                        <value>F0202</value>
-                    </entry>
-                    <entry>
                         <key>B0300</key>
-                        <value>B0300</value>
-                    </entry>
-                    <entry>
-                        <key>B0301</key>
-                        <value>B0301</value>
-                    </entry>
-                    <entry>
-                        <key>B0302</key>
-                        <value>B0302</value>
+                        <value>L0300</value>
                     </entry>
                     <entry>
                         <key>L0100</key>
                         <value>F0100</value>
                     </entry>
                     <entry>
-                        <key>L0102</key>
-                        <value>L0102</value>
-                    </entry>
-                    <entry>
-                        <key>L0101</key>
-                        <value>L0101</value>
-                    </entry>
-                    <entry>
-                        <key>R0202</key>
-                        <value>R0202</value>
-                    </entry>
-                    <entry>
-                        <key>R0203</key>
-                        <value>R0203</value>
-                    </entry>
-                    <entry>
                         <key>R0200</key>
-                        <value>D0103</value>
-                    </entry>
-                    <entry>
-                        <key>R0201</key>
-                        <value>R0201</value>
+                        <value>B0200</value>
                     </entry>
                     <entry>
                         <key>U0100</key>
@@ -14410,116 +10948,32 @@
                         <value>U0102</value>
                     </entry>
                     <entry>
-                        <key>D0300</key>
-                        <value>D0300</value>
-                    </entry>
-                    <entry>
-                        <key>L0103</key>
-                        <value>L0103</value>
-                    </entry>
-                    <entry>
                         <key>U0102</key>
                         <value>U0202</value>
-                    </entry>
-                    <entry>
-                        <key>D0301</key>
-                        <value>D0301</value>
                     </entry>
                     <entry>
                         <key>U0103</key>
                         <value>U0302</value>
                     </entry>
                     <entry>
-                        <key>D0302</key>
-                        <value>D0302</value>
-                    </entry>
-                    <entry>
-                        <key>D0303</key>
-                        <value>L0000</value>
-                    </entry>
-                    <entry>
                         <key>F0300</key>
                         <value>R0300</value>
                     </entry>
                     <entry>
-                        <key>F0302</key>
-                        <value>F0302</value>
-                    </entry>
-                    <entry>
-                        <key>F0301</key>
-                        <value>F0301</value>
-                    </entry>
-                    <entry>
                         <key>B0200</key>
-                        <value>B0200</value>
-                    </entry>
-                    <entry>
-                        <key>F0303</key>
-                        <value>F0303</value>
-                    </entry>
-                    <entry>
-                        <key>B0201</key>
-                        <value>B0201</value>
-                    </entry>
-                    <entry>
-                        <key>B0202</key>
-                        <value>B0202</value>
-                    </entry>
-                    <entry>
-                        <key>B0203</key>
-                        <value>B0203</value>
+                        <value>L0200</value>
                     </entry>
                     <entry>
                         <key>R0100</key>
-                        <value>D0203</value>
-                    </entry>
-                    <entry>
-                        <key>L0201</key>
-                        <value>L0201</value>
+                        <value>B0100</value>
                     </entry>
                     <entry>
                         <key>L0200</key>
                         <value>F0200</value>
                     </entry>
                     <entry>
-                        <key>R0103</key>
-                        <value>R0103</value>
-                    </entry>
-                    <entry>
-                        <key>R0101</key>
-                        <value>R0101</value>
-                    </entry>
-                    <entry>
-                        <key>R0102</key>
-                        <value>R0102</value>
-                    </entry>
-                    <entry>
-                        <key>D0000</key>
-                        <value>D0000</value>
-                    </entry>
-                    <entry>
-                        <key>D0001</key>
-                        <value>D0001</value>
-                    </entry>
-                    <entry>
-                        <key>D0002</key>
-                        <value>D0002</value>
-                    </entry>
-                    <entry>
                         <key>U0200</key>
                         <value>U0001</value>
-                    </entry>
-                    <entry>
-                        <key>D0003</key>
-                        <value>L0300</value>
-                    </entry>
-                    <entry>
-                        <key>L0203</key>
-                        <value>L0203</value>
-                    </entry>
-                    <entry>
-                        <key>L0202</key>
-                        <value>L0202</value>
                     </entry>
                     <entry>
                         <key>U0201</key>
@@ -14538,84 +10992,20 @@
                         <value>R0000</value>
                     </entry>
                     <entry>
-                        <key>F0001</key>
-                        <value>F0001</value>
-                    </entry>
-                    <entry>
-                        <key>F0002</key>
-                        <value>F0002</value>
-                    </entry>
-                    <entry>
-                        <key>F0003</key>
-                        <value>F0003</value>
-                    </entry>
-                    <entry>
                         <key>B0100</key>
-                        <value>B0100</value>
-                    </entry>
-                    <entry>
-                        <key>B0101</key>
-                        <value>B0101</value>
-                    </entry>
-                    <entry>
-                        <key>B0102</key>
-                        <value>B0102</value>
-                    </entry>
-                    <entry>
-                        <key>B0103</key>
-                        <value>B0103</value>
+                        <value>L0100</value>
                     </entry>
                     <entry>
                         <key>R0000</key>
-                        <value>D0303</value>
-                    </entry>
-                    <entry>
-                        <key>R0001</key>
-                        <value>R0001</value>
+                        <value>B0000</value>
                     </entry>
                     <entry>
                         <key>L0300</key>
                         <value>F0300</value>
                     </entry>
                     <entry>
-                        <key>R0002</key>
-                        <value>R0002</value>
-                    </entry>
-                    <entry>
-                        <key>R0003</key>
-                        <value>R0003</value>
-                    </entry>
-                    <entry>
-                        <key>D0100</key>
-                        <value>D0100</value>
-                    </entry>
-                    <entry>
-                        <key>D0101</key>
-                        <value>D0101</value>
-                    </entry>
-                    <entry>
-                        <key>D0102</key>
-                        <value>D0102</value>
-                    </entry>
-                    <entry>
-                        <key>L0302</key>
-                        <value>L0302</value>
-                    </entry>
-                    <entry>
-                        <key>L0301</key>
-                        <value>L0301</value>
-                    </entry>
-                    <entry>
-                        <key>L0303</key>
-                        <value>L0303</value>
-                    </entry>
-                    <entry>
                         <key>U0300</key>
                         <value>U0000</value>
-                    </entry>
-                    <entry>
-                        <key>D0103</key>
-                        <value>L0200</value>
                     </entry>
                     <entry>
                         <key>U0301</key>
@@ -14634,32 +11024,8 @@
                         <value>R0100</value>
                     </entry>
                     <entry>
-                        <key>F0101</key>
-                        <value>F0101</value>
-                    </entry>
-                    <entry>
-                        <key>F0102</key>
-                        <value>F0102</value>
-                    </entry>
-                    <entry>
-                        <key>F0103</key>
-                        <value>F0103</value>
-                    </entry>
-                    <entry>
                         <key>B0000</key>
-                        <value>B0000</value>
-                    </entry>
-                    <entry>
-                        <key>B0001</key>
-                        <value>B0001</value>
-                    </entry>
-                    <entry>
-                        <key>B0002</key>
-                        <value>B0002</value>
-                    </entry>
-                    <entry>
-                        <key>B0003</key>
-                        <value>B0003</value>
+                        <value>L0000</value>
                     </entry>
                 </cellMapping>
                 <cost>1</cost>
@@ -16242,22 +12608,6 @@
                         <value>R0300</value>
                     </entry>
                     <entry>
-                        <key>L0001</key>
-                        <value>L0001</value>
-                    </entry>
-                    <entry>
-                        <key>L0000</key>
-                        <value>L0000</value>
-                    </entry>
-                    <entry>
-                        <key>L0003</key>
-                        <value>L0003</value>
-                    </entry>
-                    <entry>
-                        <key>L0002</key>
-                        <value>L0002</value>
-                    </entry>
-                    <entry>
                         <key>R0301</key>
                         <value>R0100</value>
                     </entry>
@@ -16270,28 +12620,12 @@
                         <value>R0000</value>
                     </entry>
                     <entry>
-                        <key>U0000</key>
-                        <value>U0000</value>
-                    </entry>
-                    <entry>
-                        <key>U0001</key>
-                        <value>U0001</value>
-                    </entry>
-                    <entry>
                         <key>D0200</key>
                         <value>B0103</value>
                     </entry>
                     <entry>
-                        <key>U0002</key>
-                        <value>U0002</value>
-                    </entry>
-                    <entry>
                         <key>D0201</key>
                         <value>B0102</value>
-                    </entry>
-                    <entry>
-                        <key>U0003</key>
-                        <value>U0003</value>
                     </entry>
                     <entry>
                         <key>D0202</key>
@@ -16300,10 +12634,6 @@
                     <entry>
                         <key>D0203</key>
                         <value>B0100</value>
-                    </entry>
-                    <entry>
-                        <key>B0303</key>
-                        <value>B0303</value>
                     </entry>
                     <entry>
                         <key>F0201</key>
@@ -16320,30 +12650,6 @@
                     <entry>
                         <key>F0202</key>
                         <value>D0202</value>
-                    </entry>
-                    <entry>
-                        <key>B0300</key>
-                        <value>B0300</value>
-                    </entry>
-                    <entry>
-                        <key>B0301</key>
-                        <value>B0301</value>
-                    </entry>
-                    <entry>
-                        <key>B0302</key>
-                        <value>B0302</value>
-                    </entry>
-                    <entry>
-                        <key>L0100</key>
-                        <value>L0100</value>
-                    </entry>
-                    <entry>
-                        <key>L0102</key>
-                        <value>L0102</value>
-                    </entry>
-                    <entry>
-                        <key>L0101</key>
-                        <value>L0101</value>
                     </entry>
                     <entry>
                         <key>R0202</key>
@@ -16372,10 +12678,6 @@
                     <entry>
                         <key>D0300</key>
                         <value>B0003</value>
-                    </entry>
-                    <entry>
-                        <key>L0103</key>
-                        <value>L0103</value>
                     </entry>
                     <entry>
                         <key>U0102</key>
@@ -16434,14 +12736,6 @@
                         <value>R0002</value>
                     </entry>
                     <entry>
-                        <key>L0201</key>
-                        <value>L0201</value>
-                    </entry>
-                    <entry>
-                        <key>L0200</key>
-                        <value>L0200</value>
-                    </entry>
-                    <entry>
                         <key>R0103</key>
                         <value>R0302</value>
                     </entry>
@@ -16454,32 +12748,8 @@
                         <value>R0202</value>
                     </entry>
                     <entry>
-                        <key>D0000</key>
-                        <value>D0000</value>
-                    </entry>
-                    <entry>
-                        <key>D0001</key>
-                        <value>D0001</value>
-                    </entry>
-                    <entry>
-                        <key>D0002</key>
-                        <value>D0002</value>
-                    </entry>
-                    <entry>
                         <key>U0200</key>
                         <value>F0200</value>
-                    </entry>
-                    <entry>
-                        <key>D0003</key>
-                        <value>D0003</value>
-                    </entry>
-                    <entry>
-                        <key>L0203</key>
-                        <value>L0203</value>
-                    </entry>
-                    <entry>
-                        <key>L0202</key>
-                        <value>L0202</value>
                     </entry>
                     <entry>
                         <key>U0201</key>
@@ -16492,22 +12762,6 @@
                     <entry>
                         <key>U0203</key>
                         <value>F0203</value>
-                    </entry>
-                    <entry>
-                        <key>F0000</key>
-                        <value>F0000</value>
-                    </entry>
-                    <entry>
-                        <key>F0001</key>
-                        <value>F0001</value>
-                    </entry>
-                    <entry>
-                        <key>F0002</key>
-                        <value>F0002</value>
-                    </entry>
-                    <entry>
-                        <key>F0003</key>
-                        <value>F0003</value>
                     </entry>
                     <entry>
                         <key>B0100</key>
@@ -16534,10 +12788,6 @@
                         <value>R0103</value>
                     </entry>
                     <entry>
-                        <key>L0300</key>
-                        <value>L0300</value>
-                    </entry>
-                    <entry>
                         <key>R0002</key>
                         <value>R0203</value>
                     </entry>
@@ -16556,18 +12806,6 @@
                     <entry>
                         <key>D0102</key>
                         <value>B0201</value>
-                    </entry>
-                    <entry>
-                        <key>L0302</key>
-                        <value>L0302</value>
-                    </entry>
-                    <entry>
-                        <key>L0301</key>
-                        <value>L0301</value>
-                    </entry>
-                    <entry>
-                        <key>L0303</key>
-                        <value>L0303</value>
                     </entry>
                     <entry>
                         <key>U0300</key>
@@ -17015,398 +13253,6 @@
                     </entry>
                 </cellMapping>
                 <cost>1</cost>
-            </value>
-        </entry>
-        <entry>
-            <key>y2</key>
-            <value>
-                <cellMapping>
-                    <entry>
-                        <key>R0303</key>
-                        <value>R0303</value>
-                    </entry>
-                    <entry>
-                        <key>L0001</key>
-                        <value>L0001</value>
-                    </entry>
-                    <entry>
-                        <key>L0000</key>
-                        <value>L0000</value>
-                    </entry>
-                    <entry>
-                        <key>R0100</key>
-                        <value>R0100</value>
-                    </entry>
-                    <entry>
-                        <key>L0003</key>
-                        <value>L0003</value>
-                    </entry>
-                    <entry>
-                        <key>L0201</key>
-                        <value>L0201</value>
-                    </entry>
-                    <entry>
-                        <key>L0002</key>
-                        <value>L0002</value>
-                    </entry>
-                    <entry>
-                        <key>L0200</key>
-                        <value>L0200</value>
-                    </entry>
-                    <entry>
-                        <key>R0103</key>
-                        <value>R0103</value>
-                    </entry>
-                    <entry>
-                        <key>R0301</key>
-                        <value>R0301</value>
-                    </entry>
-                    <entry>
-                        <key>R0302</key>
-                        <value>R0302</value>
-                    </entry>
-                    <entry>
-                        <key>R0101</key>
-                        <value>R0101</value>
-                    </entry>
-                    <entry>
-                        <key>R0102</key>
-                        <value>R0102</value>
-                    </entry>
-                    <entry>
-                        <key>R0300</key>
-                        <value>R0300</value>
-                    </entry>
-                    <entry>
-                        <key>D0000</key>
-                        <value>D0000</value>
-                    </entry>
-                    <entry>
-                        <key>U0000</key>
-                        <value>U0000</value>
-                    </entry>
-                    <entry>
-                        <key>D0001</key>
-                        <value>D0001</value>
-                    </entry>
-                    <entry>
-                        <key>U0001</key>
-                        <value>U0001</value>
-                    </entry>
-                    <entry>
-                        <key>D0002</key>
-                        <value>D0002</value>
-                    </entry>
-                    <entry>
-                        <key>D0200</key>
-                        <value>D0200</value>
-                    </entry>
-                    <entry>
-                        <key>U0002</key>
-                        <value>U0002</value>
-                    </entry>
-                    <entry>
-                        <key>U0200</key>
-                        <value>U0200</value>
-                    </entry>
-                    <entry>
-                        <key>D0003</key>
-                        <value>D0003</value>
-                    </entry>
-                    <entry>
-                        <key>D0201</key>
-                        <value>D0201</value>
-                    </entry>
-                    <entry>
-                        <key>L0203</key>
-                        <value>L0203</value>
-                    </entry>
-                    <entry>
-                        <key>L0202</key>
-                        <value>L0202</value>
-                    </entry>
-                    <entry>
-                        <key>U0003</key>
-                        <value>U0003</value>
-                    </entry>
-                    <entry>
-                        <key>U0201</key>
-                        <value>U0201</value>
-                    </entry>
-                    <entry>
-                        <key>D0202</key>
-                        <value>D0202</value>
-                    </entry>
-                    <entry>
-                        <key>U0202</key>
-                        <value>U0202</value>
-                    </entry>
-                    <entry>
-                        <key>D0203</key>
-                        <value>D0203</value>
-                    </entry>
-                    <entry>
-                        <key>U0203</key>
-                        <value>U0203</value>
-                    </entry>
-                    <entry>
-                        <key>B0303</key>
-                        <value>B0303</value>
-                    </entry>
-                    <entry>
-                        <key>F0000</key>
-                        <value>F0000</value>
-                    </entry>
-                    <entry>
-                        <key>F0001</key>
-                        <value>F0001</value>
-                    </entry>
-                    <entry>
-                        <key>F0002</key>
-                        <value>F0002</value>
-                    </entry>
-                    <entry>
-                        <key>F0201</key>
-                        <value>F0201</value>
-                    </entry>
-                    <entry>
-                        <key>F0003</key>
-                        <value>F0003</value>
-                    </entry>
-                    <entry>
-                        <key>F0200</key>
-                        <value>F0200</value>
-                    </entry>
-                    <entry>
-                        <key>F0203</key>
-                        <value>F0203</value>
-                    </entry>
-                    <entry>
-                        <key>F0202</key>
-                        <value>F0202</value>
-                    </entry>
-                    <entry>
-                        <key>B0100</key>
-                        <value>B0100</value>
-                    </entry>
-                    <entry>
-                        <key>B0101</key>
-                        <value>B0101</value>
-                    </entry>
-                    <entry>
-                        <key>B0102</key>
-                        <value>B0102</value>
-                    </entry>
-                    <entry>
-                        <key>B0300</key>
-                        <value>B0300</value>
-                    </entry>
-                    <entry>
-                        <key>B0103</key>
-                        <value>B0103</value>
-                    </entry>
-                    <entry>
-                        <key>B0301</key>
-                        <value>B0301</value>
-                    </entry>
-                    <entry>
-                        <key>B0302</key>
-                        <value>B0302</value>
-                    </entry>
-                    <entry>
-                        <key>L0100</key>
-                        <value>L0100</value>
-                    </entry>
-                    <entry>
-                        <key>R0000</key>
-                        <value>R0000</value>
-                    </entry>
-                    <entry>
-                        <key>R0001</key>
-                        <value>R0001</value>
-                    </entry>
-                    <entry>
-                        <key>L0102</key>
-                        <value>L0102</value>
-                    </entry>
-                    <entry>
-                        <key>L0300</key>
-                        <value>L0300</value>
-                    </entry>
-                    <entry>
-                        <key>L0101</key>
-                        <value>L0101</value>
-                    </entry>
-                    <entry>
-                        <key>R0202</key>
-                        <value>R0202</value>
-                    </entry>
-                    <entry>
-                        <key>R0203</key>
-                        <value>R0203</value>
-                    </entry>
-                    <entry>
-                        <key>R0002</key>
-                        <value>R0002</value>
-                    </entry>
-                    <entry>
-                        <key>R0200</key>
-                        <value>R0200</value>
-                    </entry>
-                    <entry>
-                        <key>R0003</key>
-                        <value>R0003</value>
-                    </entry>
-                    <entry>
-                        <key>R0201</key>
-                        <value>R0201</value>
-                    </entry>
-                    <entry>
-                        <key>D0100</key>
-                        <value>D0100</value>
-                    </entry>
-                    <entry>
-                        <key>U0100</key>
-                        <value>U0100</value>
-                    </entry>
-                    <entry>
-                        <key>D0101</key>
-                        <value>D0101</value>
-                    </entry>
-                    <entry>
-                        <key>U0101</key>
-                        <value>U0101</value>
-                    </entry>
-                    <entry>
-                        <key>D0102</key>
-                        <value>D0102</value>
-                    </entry>
-                    <entry>
-                        <key>D0300</key>
-                        <value>D0300</value>
-                    </entry>
-                    <entry>
-                        <key>L0302</key>
-                        <value>L0302</value>
-                    </entry>
-                    <entry>
-                        <key>L0103</key>
-                        <value>L0103</value>
-                    </entry>
-                    <entry>
-                        <key>L0301</key>
-                        <value>L0301</value>
-                    </entry>
-                    <entry>
-                        <key>L0303</key>
-                        <value>L0303</value>
-                    </entry>
-                    <entry>
-                        <key>U0102</key>
-                        <value>U0102</value>
-                    </entry>
-                    <entry>
-                        <key>U0300</key>
-                        <value>U0300</value>
-                    </entry>
-                    <entry>
-                        <key>D0103</key>
-                        <value>D0103</value>
-                    </entry>
-                    <entry>
-                        <key>D0301</key>
-                        <value>D0301</value>
-                    </entry>
-                    <entry>
-                        <key>U0103</key>
-                        <value>U0103</value>
-                    </entry>
-                    <entry>
-                        <key>U0301</key>
-                        <value>U0301</value>
-                    </entry>
-                    <entry>
-                        <key>D0302</key>
-                        <value>D0302</value>
-                    </entry>
-                    <entry>
-                        <key>U0302</key>
-                        <value>U0302</value>
-                    </entry>
-                    <entry>
-                        <key>D0303</key>
-                        <value>D0303</value>
-                    </entry>
-                    <entry>
-                        <key>U0303</key>
-                        <value>U0303</value>
-                    </entry>
-                    <entry>
-                        <key>F0100</key>
-                        <value>F0100</value>
-                    </entry>
-                    <entry>
-                        <key>F0101</key>
-                        <value>F0101</value>
-                    </entry>
-                    <entry>
-                        <key>F0300</key>
-                        <value>F0300</value>
-                    </entry>
-                    <entry>
-                        <key>F0102</key>
-                        <value>F0102</value>
-                    </entry>
-                    <entry>
-                        <key>F0103</key>
-                        <value>F0103</value>
-                    </entry>
-                    <entry>
-                        <key>F0302</key>
-                        <value>F0302</value>
-                    </entry>
-                    <entry>
-                        <key>B0000</key>
-                        <value>B0000</value>
-                    </entry>
-                    <entry>
-                        <key>F0301</key>
-                        <value>F0301</value>
-                    </entry>
-                    <entry>
-                        <key>B0001</key>
-                        <value>B0001</value>
-                    </entry>
-                    <entry>
-                        <key>B0002</key>
-                        <value>B0002</value>
-                    </entry>
-                    <entry>
-                        <key>B0200</key>
-                        <value>B0200</value>
-                    </entry>
-                    <entry>
-                        <key>F0303</key>
-                        <value>F0303</value>
-                    </entry>
-                    <entry>
-                        <key>B0003</key>
-                        <value>B0003</value>
-                    </entry>
-                    <entry>
-                        <key>B0201</key>
-                        <value>B0201</value>
-                    </entry>
-                    <entry>
-                        <key>B0202</key>
-                        <value>B0202</value>
-                    </entry>
-                    <entry>
-                        <key>B0203</key>
-                        <value>B0203</value>
-                    </entry>
-                </cellMapping>
-                <cost>0</cost>
             </value>
         </entry>
         <entry>
@@ -20550,42 +16396,6 @@
             <value>
                 <cellMapping>
                     <entry>
-                        <key>R0303</key>
-                        <value>R0303</value>
-                    </entry>
-                    <entry>
-                        <key>L0001</key>
-                        <value>L0001</value>
-                    </entry>
-                    <entry>
-                        <key>L0000</key>
-                        <value>L0000</value>
-                    </entry>
-                    <entry>
-                        <key>L0003</key>
-                        <value>L0003</value>
-                    </entry>
-                    <entry>
-                        <key>L0002</key>
-                        <value>L0002</value>
-                    </entry>
-                    <entry>
-                        <key>R0301</key>
-                        <value>R0301</value>
-                    </entry>
-                    <entry>
-                        <key>R0302</key>
-                        <value>R0302</value>
-                    </entry>
-                    <entry>
-                        <key>R0300</key>
-                        <value>R0300</value>
-                    </entry>
-                    <entry>
-                        <key>U0000</key>
-                        <value>U0000</value>
-                    </entry>
-                    <entry>
                         <key>U0001</key>
                         <value>L0103</value>
                     </entry>
@@ -20610,14 +16420,6 @@
                         <value>R0201</value>
                     </entry>
                     <entry>
-                        <key>D0203</key>
-                        <value>D0203</value>
-                    </entry>
-                    <entry>
-                        <key>B0303</key>
-                        <value>B0303</value>
-                    </entry>
-                    <entry>
                         <key>F0201</key>
                         <value>F0101</value>
                     </entry>
@@ -20632,18 +16434,6 @@
                     <entry>
                         <key>F0202</key>
                         <value>F0201</value>
-                    </entry>
-                    <entry>
-                        <key>B0300</key>
-                        <value>B0300</value>
-                    </entry>
-                    <entry>
-                        <key>B0301</key>
-                        <value>B0301</value>
-                    </entry>
-                    <entry>
-                        <key>B0302</key>
-                        <value>B0302</value>
                     </entry>
                     <entry>
                         <key>L0100</key>
@@ -20674,10 +16464,6 @@
                         <value>U0101</value>
                     </entry>
                     <entry>
-                        <key>U0100</key>
-                        <value>U0100</value>
-                    </entry>
-                    <entry>
                         <key>U0101</key>
                         <value>L0102</value>
                     </entry>
@@ -20706,10 +16492,6 @@
                         <value>R0200</value>
                     </entry>
                     <entry>
-                        <key>D0303</key>
-                        <value>D0303</value>
-                    </entry>
-                    <entry>
                         <key>F0300</key>
                         <value>F0000</value>
                     </entry>
@@ -20722,24 +16504,8 @@
                         <value>F0100</value>
                     </entry>
                     <entry>
-                        <key>B0200</key>
-                        <value>B0200</value>
-                    </entry>
-                    <entry>
                         <key>F0303</key>
                         <value>F0300</value>
-                    </entry>
-                    <entry>
-                        <key>B0201</key>
-                        <value>B0201</value>
-                    </entry>
-                    <entry>
-                        <key>B0202</key>
-                        <value>B0202</value>
-                    </entry>
-                    <entry>
-                        <key>B0203</key>
-                        <value>B0203</value>
                     </entry>
                     <entry>
                         <key>R0100</key>
@@ -20778,14 +16544,6 @@
                         <value>R0203</value>
                     </entry>
                     <entry>
-                        <key>U0200</key>
-                        <value>U0200</value>
-                    </entry>
-                    <entry>
-                        <key>D0003</key>
-                        <value>D0003</value>
-                    </entry>
-                    <entry>
                         <key>L0203</key>
                         <value>D0301</value>
                     </entry>
@@ -20820,22 +16578,6 @@
                     <entry>
                         <key>F0003</key>
                         <value>F0303</value>
-                    </entry>
-                    <entry>
-                        <key>B0100</key>
-                        <value>B0100</value>
-                    </entry>
-                    <entry>
-                        <key>B0101</key>
-                        <value>B0101</value>
-                    </entry>
-                    <entry>
-                        <key>B0102</key>
-                        <value>B0102</value>
-                    </entry>
-                    <entry>
-                        <key>B0103</key>
-                        <value>B0103</value>
                     </entry>
                     <entry>
                         <key>R0000</key>
@@ -20882,14 +16624,6 @@
                         <value>D0300</value>
                     </entry>
                     <entry>
-                        <key>U0300</key>
-                        <value>U0300</value>
-                    </entry>
-                    <entry>
-                        <key>D0103</key>
-                        <value>D0103</value>
-                    </entry>
-                    <entry>
                         <key>U0301</key>
                         <value>L0100</value>
                     </entry>
@@ -20917,22 +16651,6 @@
                         <key>F0103</key>
                         <value>F0302</value>
                     </entry>
-                    <entry>
-                        <key>B0000</key>
-                        <value>B0000</value>
-                    </entry>
-                    <entry>
-                        <key>B0001</key>
-                        <value>B0001</value>
-                    </entry>
-                    <entry>
-                        <key>B0002</key>
-                        <value>B0002</value>
-                    </entry>
-                    <entry>
-                        <key>B0003</key>
-                        <value>B0003</value>
-                    </entry>
                 </cellMapping>
                 <cost>1</cost>
             </value>
@@ -20944,22 +16662,6 @@
                     <entry>
                         <key>R0303</key>
                         <value>R0300</value>
-                    </entry>
-                    <entry>
-                        <key>L0001</key>
-                        <value>L0001</value>
-                    </entry>
-                    <entry>
-                        <key>L0000</key>
-                        <value>L0000</value>
-                    </entry>
-                    <entry>
-                        <key>L0003</key>
-                        <value>L0003</value>
-                    </entry>
-                    <entry>
-                        <key>L0002</key>
-                        <value>L0002</value>
                     </entry>
                     <entry>
                         <key>R0301</key>
@@ -20974,28 +16676,12 @@
                         <value>R0000</value>
                     </entry>
                     <entry>
-                        <key>U0000</key>
-                        <value>U0000</value>
-                    </entry>
-                    <entry>
-                        <key>U0001</key>
-                        <value>U0001</value>
-                    </entry>
-                    <entry>
                         <key>D0200</key>
                         <value>B0103</value>
                     </entry>
                     <entry>
-                        <key>U0002</key>
-                        <value>U0002</value>
-                    </entry>
-                    <entry>
                         <key>D0201</key>
                         <value>B0102</value>
-                    </entry>
-                    <entry>
-                        <key>U0003</key>
-                        <value>U0003</value>
                     </entry>
                     <entry>
                         <key>D0202</key>
@@ -21004,10 +16690,6 @@
                     <entry>
                         <key>D0203</key>
                         <value>B0100</value>
-                    </entry>
-                    <entry>
-                        <key>B0303</key>
-                        <value>B0303</value>
                     </entry>
                     <entry>
                         <key>F0201</key>
@@ -21026,30 +16708,6 @@
                         <value>D0202</value>
                     </entry>
                     <entry>
-                        <key>B0300</key>
-                        <value>B0300</value>
-                    </entry>
-                    <entry>
-                        <key>B0301</key>
-                        <value>B0301</value>
-                    </entry>
-                    <entry>
-                        <key>B0302</key>
-                        <value>B0302</value>
-                    </entry>
-                    <entry>
-                        <key>L0100</key>
-                        <value>L0100</value>
-                    </entry>
-                    <entry>
-                        <key>L0102</key>
-                        <value>L0102</value>
-                    </entry>
-                    <entry>
-                        <key>L0101</key>
-                        <value>L0101</value>
-                    </entry>
-                    <entry>
                         <key>R0202</key>
                         <value>R0201</value>
                     </entry>
@@ -21066,32 +16724,12 @@
                         <value>R0101</value>
                     </entry>
                     <entry>
-                        <key>U0100</key>
-                        <value>U0100</value>
-                    </entry>
-                    <entry>
-                        <key>U0101</key>
-                        <value>U0101</value>
-                    </entry>
-                    <entry>
                         <key>D0300</key>
                         <value>B0003</value>
                     </entry>
                     <entry>
-                        <key>L0103</key>
-                        <value>L0103</value>
-                    </entry>
-                    <entry>
-                        <key>U0102</key>
-                        <value>U0102</value>
-                    </entry>
-                    <entry>
                         <key>D0301</key>
                         <value>B0002</value>
-                    </entry>
-                    <entry>
-                        <key>U0103</key>
-                        <value>U0103</value>
                     </entry>
                     <entry>
                         <key>D0302</key>
@@ -21114,36 +16752,12 @@
                         <value>D0301</value>
                     </entry>
                     <entry>
-                        <key>B0200</key>
-                        <value>B0200</value>
-                    </entry>
-                    <entry>
                         <key>F0303</key>
                         <value>D0303</value>
                     </entry>
                     <entry>
-                        <key>B0201</key>
-                        <value>B0201</value>
-                    </entry>
-                    <entry>
-                        <key>B0202</key>
-                        <value>B0202</value>
-                    </entry>
-                    <entry>
-                        <key>B0203</key>
-                        <value>B0203</value>
-                    </entry>
-                    <entry>
                         <key>R0100</key>
                         <value>R0002</value>
-                    </entry>
-                    <entry>
-                        <key>L0201</key>
-                        <value>L0201</value>
-                    </entry>
-                    <entry>
-                        <key>L0200</key>
-                        <value>L0200</value>
                     </entry>
                     <entry>
                         <key>R0103</key>
@@ -21158,32 +16772,8 @@
                         <value>R0202</value>
                     </entry>
                     <entry>
-                        <key>D0000</key>
-                        <value>D0000</value>
-                    </entry>
-                    <entry>
-                        <key>D0001</key>
-                        <value>D0001</value>
-                    </entry>
-                    <entry>
-                        <key>D0002</key>
-                        <value>D0002</value>
-                    </entry>
-                    <entry>
                         <key>U0200</key>
                         <value>F0200</value>
-                    </entry>
-                    <entry>
-                        <key>D0003</key>
-                        <value>D0003</value>
-                    </entry>
-                    <entry>
-                        <key>L0203</key>
-                        <value>L0203</value>
-                    </entry>
-                    <entry>
-                        <key>L0202</key>
-                        <value>L0202</value>
                     </entry>
                     <entry>
                         <key>U0201</key>
@@ -21196,22 +16786,6 @@
                     <entry>
                         <key>U0203</key>
                         <value>F0203</value>
-                    </entry>
-                    <entry>
-                        <key>F0000</key>
-                        <value>F0000</value>
-                    </entry>
-                    <entry>
-                        <key>F0001</key>
-                        <value>F0001</value>
-                    </entry>
-                    <entry>
-                        <key>F0002</key>
-                        <value>F0002</value>
-                    </entry>
-                    <entry>
-                        <key>F0003</key>
-                        <value>F0003</value>
                     </entry>
                     <entry>
                         <key>B0100</key>
@@ -21238,10 +16812,6 @@
                         <value>R0103</value>
                     </entry>
                     <entry>
-                        <key>L0300</key>
-                        <value>L0300</value>
-                    </entry>
-                    <entry>
                         <key>R0002</key>
                         <value>R0203</value>
                     </entry>
@@ -21250,36 +16820,8 @@
                         <value>R0303</value>
                     </entry>
                     <entry>
-                        <key>D0100</key>
-                        <value>D0100</value>
-                    </entry>
-                    <entry>
-                        <key>D0101</key>
-                        <value>D0101</value>
-                    </entry>
-                    <entry>
-                        <key>D0102</key>
-                        <value>D0102</value>
-                    </entry>
-                    <entry>
-                        <key>L0302</key>
-                        <value>L0302</value>
-                    </entry>
-                    <entry>
-                        <key>L0301</key>
-                        <value>L0301</value>
-                    </entry>
-                    <entry>
-                        <key>L0303</key>
-                        <value>L0303</value>
-                    </entry>
-                    <entry>
                         <key>U0300</key>
                         <value>F0300</value>
-                    </entry>
-                    <entry>
-                        <key>D0103</key>
-                        <value>D0103</value>
                     </entry>
                     <entry>
                         <key>U0301</key>
@@ -21292,22 +16834,6 @@
                     <entry>
                         <key>U0303</key>
                         <value>F0303</value>
-                    </entry>
-                    <entry>
-                        <key>F0100</key>
-                        <value>F0100</value>
-                    </entry>
-                    <entry>
-                        <key>F0101</key>
-                        <value>F0101</value>
-                    </entry>
-                    <entry>
-                        <key>F0102</key>
-                        <value>F0102</value>
-                    </entry>
-                    <entry>
-                        <key>F0103</key>
-                        <value>F0103</value>
                     </entry>
                     <entry>
                         <key>B0000</key>
@@ -22158,20 +17684,12 @@
                         <value>R0200</value>
                     </entry>
                     <entry>
-                        <key>D0200</key>
-                        <value>D0200</value>
-                    </entry>
-                    <entry>
                         <key>U0002</key>
                         <value>R0100</value>
                     </entry>
                     <entry>
                         <key>D0201</key>
                         <value>L0202</value>
-                    </entry>
-                    <entry>
-                        <key>U0003</key>
-                        <value>U0003</value>
                     </entry>
                     <entry>
                         <key>D0202</key>
@@ -22184,22 +17702,6 @@
                     <entry>
                         <key>B0303</key>
                         <value>B0300</value>
-                    </entry>
-                    <entry>
-                        <key>F0201</key>
-                        <value>F0201</value>
-                    </entry>
-                    <entry>
-                        <key>F0200</key>
-                        <value>F0200</value>
-                    </entry>
-                    <entry>
-                        <key>F0203</key>
-                        <value>F0203</value>
-                    </entry>
-                    <entry>
-                        <key>F0202</key>
-                        <value>F0202</value>
                     </entry>
                     <entry>
                         <key>B0300</key>
@@ -22250,10 +17752,6 @@
                         <value>R0201</value>
                     </entry>
                     <entry>
-                        <key>D0300</key>
-                        <value>D0300</value>
-                    </entry>
-                    <entry>
                         <key>L0103</key>
                         <value>U0001</value>
                     </entry>
@@ -22266,10 +17764,6 @@
                         <value>L0203</value>
                     </entry>
                     <entry>
-                        <key>U0103</key>
-                        <value>U0103</value>
-                    </entry>
-                    <entry>
                         <key>D0302</key>
                         <value>L0103</value>
                     </entry>
@@ -22278,24 +17772,8 @@
                         <value>L0003</value>
                     </entry>
                     <entry>
-                        <key>F0300</key>
-                        <value>F0300</value>
-                    </entry>
-                    <entry>
-                        <key>F0302</key>
-                        <value>F0302</value>
-                    </entry>
-                    <entry>
-                        <key>F0301</key>
-                        <value>F0301</value>
-                    </entry>
-                    <entry>
                         <key>B0200</key>
                         <value>B0001</value>
-                    </entry>
-                    <entry>
-                        <key>F0303</key>
-                        <value>F0303</value>
                     </entry>
                     <entry>
                         <key>B0201</key>
@@ -22334,10 +17812,6 @@
                         <value>D0101</value>
                     </entry>
                     <entry>
-                        <key>D0000</key>
-                        <value>D0000</value>
-                    </entry>
-                    <entry>
                         <key>D0001</key>
                         <value>L0200</value>
                     </entry>
@@ -22370,26 +17844,6 @@
                         <value>R0102</value>
                     </entry>
                     <entry>
-                        <key>U0203</key>
-                        <value>U0203</value>
-                    </entry>
-                    <entry>
-                        <key>F0000</key>
-                        <value>F0000</value>
-                    </entry>
-                    <entry>
-                        <key>F0001</key>
-                        <value>F0001</value>
-                    </entry>
-                    <entry>
-                        <key>F0002</key>
-                        <value>F0002</value>
-                    </entry>
-                    <entry>
-                        <key>F0003</key>
-                        <value>F0003</value>
-                    </entry>
-                    <entry>
                         <key>B0100</key>
                         <value>B0002</value>
                     </entry>
@@ -22406,48 +17860,12 @@
                         <value>B0302</value>
                     </entry>
                     <entry>
-                        <key>R0000</key>
-                        <value>R0000</value>
-                    </entry>
-                    <entry>
-                        <key>R0001</key>
-                        <value>R0001</value>
-                    </entry>
-                    <entry>
-                        <key>L0300</key>
-                        <value>L0300</value>
-                    </entry>
-                    <entry>
-                        <key>R0002</key>
-                        <value>R0002</value>
-                    </entry>
-                    <entry>
-                        <key>R0003</key>
-                        <value>R0003</value>
-                    </entry>
-                    <entry>
-                        <key>D0100</key>
-                        <value>D0100</value>
-                    </entry>
-                    <entry>
                         <key>D0101</key>
                         <value>L0201</value>
                     </entry>
                     <entry>
                         <key>D0102</key>
                         <value>L0101</value>
-                    </entry>
-                    <entry>
-                        <key>L0302</key>
-                        <value>L0302</value>
-                    </entry>
-                    <entry>
-                        <key>L0301</key>
-                        <value>L0301</value>
-                    </entry>
-                    <entry>
-                        <key>L0303</key>
-                        <value>L0303</value>
                     </entry>
                     <entry>
                         <key>U0300</key>
@@ -22464,26 +17882,6 @@
                     <entry>
                         <key>U0302</key>
                         <value>R0103</value>
-                    </entry>
-                    <entry>
-                        <key>U0303</key>
-                        <value>U0303</value>
-                    </entry>
-                    <entry>
-                        <key>F0100</key>
-                        <value>F0100</value>
-                    </entry>
-                    <entry>
-                        <key>F0101</key>
-                        <value>F0101</value>
-                    </entry>
-                    <entry>
-                        <key>F0102</key>
-                        <value>F0102</value>
-                    </entry>
-                    <entry>
-                        <key>F0103</key>
-                        <value>F0103</value>
                     </entry>
                     <entry>
                         <key>B0000</key>
@@ -22898,398 +18296,6 @@
             </value>
         </entry>
         <entry>
-            <key>z'</key>
-            <value>
-                <cellMapping>
-                    <entry>
-                        <key>R0303</key>
-                        <value>R0303</value>
-                    </entry>
-                    <entry>
-                        <key>L0001</key>
-                        <value>L0001</value>
-                    </entry>
-                    <entry>
-                        <key>L0000</key>
-                        <value>L0000</value>
-                    </entry>
-                    <entry>
-                        <key>R0100</key>
-                        <value>R0100</value>
-                    </entry>
-                    <entry>
-                        <key>L0003</key>
-                        <value>L0003</value>
-                    </entry>
-                    <entry>
-                        <key>L0201</key>
-                        <value>L0201</value>
-                    </entry>
-                    <entry>
-                        <key>L0002</key>
-                        <value>L0002</value>
-                    </entry>
-                    <entry>
-                        <key>L0200</key>
-                        <value>L0200</value>
-                    </entry>
-                    <entry>
-                        <key>R0103</key>
-                        <value>R0103</value>
-                    </entry>
-                    <entry>
-                        <key>R0301</key>
-                        <value>R0301</value>
-                    </entry>
-                    <entry>
-                        <key>R0302</key>
-                        <value>R0302</value>
-                    </entry>
-                    <entry>
-                        <key>R0101</key>
-                        <value>R0101</value>
-                    </entry>
-                    <entry>
-                        <key>R0102</key>
-                        <value>R0102</value>
-                    </entry>
-                    <entry>
-                        <key>R0300</key>
-                        <value>R0300</value>
-                    </entry>
-                    <entry>
-                        <key>D0000</key>
-                        <value>D0000</value>
-                    </entry>
-                    <entry>
-                        <key>U0000</key>
-                        <value>U0000</value>
-                    </entry>
-                    <entry>
-                        <key>D0001</key>
-                        <value>D0001</value>
-                    </entry>
-                    <entry>
-                        <key>U0001</key>
-                        <value>U0001</value>
-                    </entry>
-                    <entry>
-                        <key>D0002</key>
-                        <value>D0002</value>
-                    </entry>
-                    <entry>
-                        <key>D0200</key>
-                        <value>D0200</value>
-                    </entry>
-                    <entry>
-                        <key>U0002</key>
-                        <value>U0002</value>
-                    </entry>
-                    <entry>
-                        <key>U0200</key>
-                        <value>U0200</value>
-                    </entry>
-                    <entry>
-                        <key>D0003</key>
-                        <value>D0003</value>
-                    </entry>
-                    <entry>
-                        <key>D0201</key>
-                        <value>D0201</value>
-                    </entry>
-                    <entry>
-                        <key>L0203</key>
-                        <value>L0203</value>
-                    </entry>
-                    <entry>
-                        <key>L0202</key>
-                        <value>L0202</value>
-                    </entry>
-                    <entry>
-                        <key>U0003</key>
-                        <value>U0003</value>
-                    </entry>
-                    <entry>
-                        <key>U0201</key>
-                        <value>U0201</value>
-                    </entry>
-                    <entry>
-                        <key>D0202</key>
-                        <value>D0202</value>
-                    </entry>
-                    <entry>
-                        <key>U0202</key>
-                        <value>U0202</value>
-                    </entry>
-                    <entry>
-                        <key>D0203</key>
-                        <value>D0203</value>
-                    </entry>
-                    <entry>
-                        <key>U0203</key>
-                        <value>U0203</value>
-                    </entry>
-                    <entry>
-                        <key>B0303</key>
-                        <value>B0303</value>
-                    </entry>
-                    <entry>
-                        <key>F0000</key>
-                        <value>F0000</value>
-                    </entry>
-                    <entry>
-                        <key>F0001</key>
-                        <value>F0001</value>
-                    </entry>
-                    <entry>
-                        <key>F0002</key>
-                        <value>F0002</value>
-                    </entry>
-                    <entry>
-                        <key>F0201</key>
-                        <value>F0201</value>
-                    </entry>
-                    <entry>
-                        <key>F0003</key>
-                        <value>F0003</value>
-                    </entry>
-                    <entry>
-                        <key>F0200</key>
-                        <value>F0200</value>
-                    </entry>
-                    <entry>
-                        <key>F0203</key>
-                        <value>F0203</value>
-                    </entry>
-                    <entry>
-                        <key>F0202</key>
-                        <value>F0202</value>
-                    </entry>
-                    <entry>
-                        <key>B0100</key>
-                        <value>B0100</value>
-                    </entry>
-                    <entry>
-                        <key>B0101</key>
-                        <value>B0101</value>
-                    </entry>
-                    <entry>
-                        <key>B0102</key>
-                        <value>B0102</value>
-                    </entry>
-                    <entry>
-                        <key>B0300</key>
-                        <value>B0300</value>
-                    </entry>
-                    <entry>
-                        <key>B0103</key>
-                        <value>B0103</value>
-                    </entry>
-                    <entry>
-                        <key>B0301</key>
-                        <value>B0301</value>
-                    </entry>
-                    <entry>
-                        <key>B0302</key>
-                        <value>B0302</value>
-                    </entry>
-                    <entry>
-                        <key>L0100</key>
-                        <value>L0100</value>
-                    </entry>
-                    <entry>
-                        <key>R0000</key>
-                        <value>R0000</value>
-                    </entry>
-                    <entry>
-                        <key>R0001</key>
-                        <value>R0001</value>
-                    </entry>
-                    <entry>
-                        <key>L0102</key>
-                        <value>L0102</value>
-                    </entry>
-                    <entry>
-                        <key>L0300</key>
-                        <value>L0300</value>
-                    </entry>
-                    <entry>
-                        <key>L0101</key>
-                        <value>L0101</value>
-                    </entry>
-                    <entry>
-                        <key>R0202</key>
-                        <value>R0202</value>
-                    </entry>
-                    <entry>
-                        <key>R0203</key>
-                        <value>R0203</value>
-                    </entry>
-                    <entry>
-                        <key>R0002</key>
-                        <value>R0002</value>
-                    </entry>
-                    <entry>
-                        <key>R0200</key>
-                        <value>R0200</value>
-                    </entry>
-                    <entry>
-                        <key>R0003</key>
-                        <value>R0003</value>
-                    </entry>
-                    <entry>
-                        <key>R0201</key>
-                        <value>R0201</value>
-                    </entry>
-                    <entry>
-                        <key>D0100</key>
-                        <value>D0100</value>
-                    </entry>
-                    <entry>
-                        <key>U0100</key>
-                        <value>U0100</value>
-                    </entry>
-                    <entry>
-                        <key>D0101</key>
-                        <value>D0101</value>
-                    </entry>
-                    <entry>
-                        <key>U0101</key>
-                        <value>U0101</value>
-                    </entry>
-                    <entry>
-                        <key>D0102</key>
-                        <value>D0102</value>
-                    </entry>
-                    <entry>
-                        <key>D0300</key>
-                        <value>D0300</value>
-                    </entry>
-                    <entry>
-                        <key>L0302</key>
-                        <value>L0302</value>
-                    </entry>
-                    <entry>
-                        <key>L0103</key>
-                        <value>L0103</value>
-                    </entry>
-                    <entry>
-                        <key>L0301</key>
-                        <value>L0301</value>
-                    </entry>
-                    <entry>
-                        <key>L0303</key>
-                        <value>L0303</value>
-                    </entry>
-                    <entry>
-                        <key>U0102</key>
-                        <value>U0102</value>
-                    </entry>
-                    <entry>
-                        <key>U0300</key>
-                        <value>U0300</value>
-                    </entry>
-                    <entry>
-                        <key>D0103</key>
-                        <value>D0103</value>
-                    </entry>
-                    <entry>
-                        <key>D0301</key>
-                        <value>D0301</value>
-                    </entry>
-                    <entry>
-                        <key>U0103</key>
-                        <value>U0103</value>
-                    </entry>
-                    <entry>
-                        <key>U0301</key>
-                        <value>U0301</value>
-                    </entry>
-                    <entry>
-                        <key>D0302</key>
-                        <value>D0302</value>
-                    </entry>
-                    <entry>
-                        <key>U0302</key>
-                        <value>U0302</value>
-                    </entry>
-                    <entry>
-                        <key>D0303</key>
-                        <value>D0303</value>
-                    </entry>
-                    <entry>
-                        <key>U0303</key>
-                        <value>U0303</value>
-                    </entry>
-                    <entry>
-                        <key>F0100</key>
-                        <value>F0100</value>
-                    </entry>
-                    <entry>
-                        <key>F0101</key>
-                        <value>F0101</value>
-                    </entry>
-                    <entry>
-                        <key>F0300</key>
-                        <value>F0300</value>
-                    </entry>
-                    <entry>
-                        <key>F0102</key>
-                        <value>F0102</value>
-                    </entry>
-                    <entry>
-                        <key>F0103</key>
-                        <value>F0103</value>
-                    </entry>
-                    <entry>
-                        <key>F0302</key>
-                        <value>F0302</value>
-                    </entry>
-                    <entry>
-                        <key>B0000</key>
-                        <value>B0000</value>
-                    </entry>
-                    <entry>
-                        <key>F0301</key>
-                        <value>F0301</value>
-                    </entry>
-                    <entry>
-                        <key>B0001</key>
-                        <value>B0001</value>
-                    </entry>
-                    <entry>
-                        <key>B0002</key>
-                        <value>B0002</value>
-                    </entry>
-                    <entry>
-                        <key>B0200</key>
-                        <value>B0200</value>
-                    </entry>
-                    <entry>
-                        <key>F0303</key>
-                        <value>F0303</value>
-                    </entry>
-                    <entry>
-                        <key>B0003</key>
-                        <value>B0003</value>
-                    </entry>
-                    <entry>
-                        <key>B0201</key>
-                        <value>B0201</value>
-                    </entry>
-                    <entry>
-                        <key>B0202</key>
-                        <value>B0202</value>
-                    </entry>
-                    <entry>
-                        <key>B0203</key>
-                        <value>B0203</value>
-                    </entry>
-                </cellMapping>
-                <cost>0</cost>
-            </value>
-        </entry>
-        <entry>
             <key>D2</key>
             <value>
                 <cellMapping>
@@ -23686,46 +18692,6 @@
             <value>
                 <cellMapping>
                     <entry>
-                        <key>R0303</key>
-                        <value>R0303</value>
-                    </entry>
-                    <entry>
-                        <key>L0001</key>
-                        <value>L0001</value>
-                    </entry>
-                    <entry>
-                        <key>L0000</key>
-                        <value>L0000</value>
-                    </entry>
-                    <entry>
-                        <key>L0003</key>
-                        <value>L0003</value>
-                    </entry>
-                    <entry>
-                        <key>L0002</key>
-                        <value>L0002</value>
-                    </entry>
-                    <entry>
-                        <key>R0301</key>
-                        <value>R0301</value>
-                    </entry>
-                    <entry>
-                        <key>R0302</key>
-                        <value>R0302</value>
-                    </entry>
-                    <entry>
-                        <key>R0300</key>
-                        <value>R0300</value>
-                    </entry>
-                    <entry>
-                        <key>U0000</key>
-                        <value>U0000</value>
-                    </entry>
-                    <entry>
-                        <key>U0001</key>
-                        <value>U0001</value>
-                    </entry>
-                    <entry>
                         <key>D0200</key>
                         <value>R0001</value>
                     </entry>
@@ -23740,18 +18706,6 @@
                     <entry>
                         <key>U0003</key>
                         <value>L0303</value>
-                    </entry>
-                    <entry>
-                        <key>D0202</key>
-                        <value>D0202</value>
-                    </entry>
-                    <entry>
-                        <key>D0203</key>
-                        <value>D0203</value>
-                    </entry>
-                    <entry>
-                        <key>B0303</key>
-                        <value>B0303</value>
                     </entry>
                     <entry>
                         <key>F0201</key>
@@ -23770,60 +18724,8 @@
                         <value>F0201</value>
                     </entry>
                     <entry>
-                        <key>B0300</key>
-                        <value>B0300</value>
-                    </entry>
-                    <entry>
-                        <key>B0301</key>
-                        <value>B0301</value>
-                    </entry>
-                    <entry>
-                        <key>B0302</key>
-                        <value>B0302</value>
-                    </entry>
-                    <entry>
-                        <key>L0100</key>
-                        <value>L0100</value>
-                    </entry>
-                    <entry>
-                        <key>L0102</key>
-                        <value>L0102</value>
-                    </entry>
-                    <entry>
-                        <key>L0101</key>
-                        <value>L0101</value>
-                    </entry>
-                    <entry>
-                        <key>R0202</key>
-                        <value>R0202</value>
-                    </entry>
-                    <entry>
-                        <key>R0203</key>
-                        <value>R0203</value>
-                    </entry>
-                    <entry>
-                        <key>R0200</key>
-                        <value>R0200</value>
-                    </entry>
-                    <entry>
-                        <key>R0201</key>
-                        <value>R0201</value>
-                    </entry>
-                    <entry>
-                        <key>U0100</key>
-                        <value>U0100</value>
-                    </entry>
-                    <entry>
-                        <key>U0101</key>
-                        <value>U0101</value>
-                    </entry>
-                    <entry>
                         <key>D0300</key>
                         <value>R0000</value>
-                    </entry>
-                    <entry>
-                        <key>L0103</key>
-                        <value>L0103</value>
                     </entry>
                     <entry>
                         <key>U0102</key>
@@ -23838,14 +18740,6 @@
                         <value>L0302</value>
                     </entry>
                     <entry>
-                        <key>D0302</key>
-                        <value>D0302</value>
-                    </entry>
-                    <entry>
-                        <key>D0303</key>
-                        <value>D0303</value>
-                    </entry>
-                    <entry>
                         <key>F0300</key>
                         <value>F0000</value>
                     </entry>
@@ -23858,24 +18752,8 @@
                         <value>F0100</value>
                     </entry>
                     <entry>
-                        <key>B0200</key>
-                        <value>B0200</value>
-                    </entry>
-                    <entry>
                         <key>F0303</key>
                         <value>F0300</value>
-                    </entry>
-                    <entry>
-                        <key>B0201</key>
-                        <value>B0201</value>
-                    </entry>
-                    <entry>
-                        <key>B0202</key>
-                        <value>B0202</value>
-                    </entry>
-                    <entry>
-                        <key>B0203</key>
-                        <value>B0203</value>
                     </entry>
                     <entry>
                         <key>R0100</key>
@@ -23910,28 +18788,12 @@
                         <value>R0103</value>
                     </entry>
                     <entry>
-                        <key>D0002</key>
-                        <value>D0002</value>
-                    </entry>
-                    <entry>
-                        <key>U0200</key>
-                        <value>U0200</value>
-                    </entry>
-                    <entry>
-                        <key>D0003</key>
-                        <value>D0003</value>
-                    </entry>
-                    <entry>
                         <key>L0203</key>
                         <value>D0301</value>
                     </entry>
                     <entry>
                         <key>L0202</key>
                         <value>D0201</value>
-                    </entry>
-                    <entry>
-                        <key>U0201</key>
-                        <value>U0201</value>
                     </entry>
                     <entry>
                         <key>U0202</key>
@@ -23956,22 +18818,6 @@
                     <entry>
                         <key>F0003</key>
                         <value>F0303</value>
-                    </entry>
-                    <entry>
-                        <key>B0100</key>
-                        <value>B0100</value>
-                    </entry>
-                    <entry>
-                        <key>B0101</key>
-                        <value>B0101</value>
-                    </entry>
-                    <entry>
-                        <key>B0102</key>
-                        <value>B0102</value>
-                    </entry>
-                    <entry>
-                        <key>B0103</key>
-                        <value>B0103</value>
                     </entry>
                     <entry>
                         <key>R0000</key>
@@ -24002,10 +18848,6 @@
                         <value>R0102</value>
                     </entry>
                     <entry>
-                        <key>D0102</key>
-                        <value>D0102</value>
-                    </entry>
-                    <entry>
                         <key>L0302</key>
                         <value>D0200</value>
                     </entry>
@@ -24016,18 +18858,6 @@
                     <entry>
                         <key>L0303</key>
                         <value>D0300</value>
-                    </entry>
-                    <entry>
-                        <key>U0300</key>
-                        <value>U0300</value>
-                    </entry>
-                    <entry>
-                        <key>D0103</key>
-                        <value>D0103</value>
-                    </entry>
-                    <entry>
-                        <key>U0301</key>
-                        <value>U0301</value>
                     </entry>
                     <entry>
                         <key>U0302</key>
@@ -24052,22 +18882,6 @@
                     <entry>
                         <key>F0103</key>
                         <value>F0302</value>
-                    </entry>
-                    <entry>
-                        <key>B0000</key>
-                        <value>B0000</value>
-                    </entry>
-                    <entry>
-                        <key>B0001</key>
-                        <value>B0001</value>
-                    </entry>
-                    <entry>
-                        <key>B0002</key>
-                        <value>B0002</value>
-                    </entry>
-                    <entry>
-                        <key>B0003</key>
-                        <value>B0003</value>
                     </entry>
                 </cellMapping>
                 <cost>1</cost>
@@ -24087,7 +18901,7 @@
                     </entry>
                     <entry>
                         <key>L0000</key>
-                        <value>D0303</value>
+                        <value>B0000</value>
                     </entry>
                     <entry>
                         <key>L0003</key>
@@ -24139,7 +18953,7 @@
                     </entry>
                     <entry>
                         <key>D0203</key>
-                        <value>R0100</value>
+                        <value>D0203</value>
                     </entry>
                     <entry>
                         <key>B0303</key>
@@ -24163,7 +18977,7 @@
                     </entry>
                     <entry>
                         <key>B0300</key>
-                        <value>B0300</value>
+                        <value>R0300</value>
                     </entry>
                     <entry>
                         <key>B0301</key>
@@ -24175,7 +18989,7 @@
                     </entry>
                     <entry>
                         <key>L0100</key>
-                        <value>D0203</value>
+                        <value>B0100</value>
                     </entry>
                     <entry>
                         <key>L0102</key>
@@ -24235,7 +19049,7 @@
                     </entry>
                     <entry>
                         <key>D0303</key>
-                        <value>R0000</value>
+                        <value>D0303</value>
                     </entry>
                     <entry>
                         <key>F0300</key>
@@ -24251,7 +19065,7 @@
                     </entry>
                     <entry>
                         <key>B0200</key>
-                        <value>B0200</value>
+                        <value>R0200</value>
                     </entry>
                     <entry>
                         <key>F0303</key>
@@ -24279,7 +19093,7 @@
                     </entry>
                     <entry>
                         <key>L0200</key>
-                        <value>D0103</value>
+                        <value>B0200</value>
                     </entry>
                     <entry>
                         <key>R0103</key>
@@ -24311,7 +19125,7 @@
                     </entry>
                     <entry>
                         <key>D0003</key>
-                        <value>R0300</value>
+                        <value>D0003</value>
                     </entry>
                     <entry>
                         <key>L0203</key>
@@ -24351,7 +19165,7 @@
                     </entry>
                     <entry>
                         <key>B0100</key>
-                        <value>B0100</value>
+                        <value>R0100</value>
                     </entry>
                     <entry>
                         <key>B0101</key>
@@ -24375,7 +19189,7 @@
                     </entry>
                     <entry>
                         <key>L0300</key>
-                        <value>D0003</value>
+                        <value>B0300</value>
                     </entry>
                     <entry>
                         <key>R0002</key>
@@ -24415,7 +19229,7 @@
                     </entry>
                     <entry>
                         <key>D0103</key>
-                        <value>R0200</value>
+                        <value>D0103</value>
                     </entry>
                     <entry>
                         <key>U0301</key>
@@ -24447,7 +19261,7 @@
                     </entry>
                     <entry>
                         <key>B0000</key>
-                        <value>B0000</value>
+                        <value>R0000</value>
                     </entry>
                     <entry>
                         <key>B0001</key>
@@ -24510,22 +19324,6 @@
                         <value>R0200</value>
                     </entry>
                     <entry>
-                        <key>D0200</key>
-                        <value>D0200</value>
-                    </entry>
-                    <entry>
-                        <key>U0002</key>
-                        <value>U0002</value>
-                    </entry>
-                    <entry>
-                        <key>D0201</key>
-                        <value>D0201</value>
-                    </entry>
-                    <entry>
-                        <key>U0003</key>
-                        <value>U0003</value>
-                    </entry>
-                    <entry>
                         <key>D0202</key>
                         <value>L0102</value>
                     </entry>
@@ -24536,22 +19334,6 @@
                     <entry>
                         <key>B0303</key>
                         <value>B0300</value>
-                    </entry>
-                    <entry>
-                        <key>F0201</key>
-                        <value>F0201</value>
-                    </entry>
-                    <entry>
-                        <key>F0200</key>
-                        <value>F0200</value>
-                    </entry>
-                    <entry>
-                        <key>F0203</key>
-                        <value>F0203</value>
-                    </entry>
-                    <entry>
-                        <key>F0202</key>
-                        <value>F0202</value>
                     </entry>
                     <entry>
                         <key>B0300</key>
@@ -24602,24 +19384,8 @@
                         <value>R0201</value>
                     </entry>
                     <entry>
-                        <key>D0300</key>
-                        <value>D0300</value>
-                    </entry>
-                    <entry>
                         <key>L0103</key>
                         <value>U0001</value>
-                    </entry>
-                    <entry>
-                        <key>U0102</key>
-                        <value>U0102</value>
-                    </entry>
-                    <entry>
-                        <key>D0301</key>
-                        <value>D0301</value>
-                    </entry>
-                    <entry>
-                        <key>U0103</key>
-                        <value>U0103</value>
                     </entry>
                     <entry>
                         <key>D0302</key>
@@ -24630,24 +19396,8 @@
                         <value>L0003</value>
                     </entry>
                     <entry>
-                        <key>F0300</key>
-                        <value>F0300</value>
-                    </entry>
-                    <entry>
-                        <key>F0302</key>
-                        <value>F0302</value>
-                    </entry>
-                    <entry>
-                        <key>F0301</key>
-                        <value>F0301</value>
-                    </entry>
-                    <entry>
                         <key>B0200</key>
                         <value>B0001</value>
-                    </entry>
-                    <entry>
-                        <key>F0303</key>
-                        <value>F0303</value>
                     </entry>
                     <entry>
                         <key>B0201</key>
@@ -24662,38 +19412,6 @@
                         <value>B0301</value>
                     </entry>
                     <entry>
-                        <key>R0100</key>
-                        <value>R0100</value>
-                    </entry>
-                    <entry>
-                        <key>L0201</key>
-                        <value>L0201</value>
-                    </entry>
-                    <entry>
-                        <key>L0200</key>
-                        <value>L0200</value>
-                    </entry>
-                    <entry>
-                        <key>R0103</key>
-                        <value>R0103</value>
-                    </entry>
-                    <entry>
-                        <key>R0101</key>
-                        <value>R0101</value>
-                    </entry>
-                    <entry>
-                        <key>R0102</key>
-                        <value>R0102</value>
-                    </entry>
-                    <entry>
-                        <key>D0000</key>
-                        <value>D0000</value>
-                    </entry>
-                    <entry>
-                        <key>D0001</key>
-                        <value>D0001</value>
-                    </entry>
-                    <entry>
                         <key>D0002</key>
                         <value>L0100</value>
                     </entry>
@@ -24706,40 +19424,8 @@
                         <value>L0000</value>
                     </entry>
                     <entry>
-                        <key>L0203</key>
-                        <value>L0203</value>
-                    </entry>
-                    <entry>
-                        <key>L0202</key>
-                        <value>L0202</value>
-                    </entry>
-                    <entry>
                         <key>U0201</key>
                         <value>R0202</value>
-                    </entry>
-                    <entry>
-                        <key>U0202</key>
-                        <value>U0202</value>
-                    </entry>
-                    <entry>
-                        <key>U0203</key>
-                        <value>U0203</value>
-                    </entry>
-                    <entry>
-                        <key>F0000</key>
-                        <value>F0000</value>
-                    </entry>
-                    <entry>
-                        <key>F0001</key>
-                        <value>F0001</value>
-                    </entry>
-                    <entry>
-                        <key>F0002</key>
-                        <value>F0002</value>
-                    </entry>
-                    <entry>
-                        <key>F0003</key>
-                        <value>F0003</value>
                     </entry>
                     <entry>
                         <key>B0100</key>
@@ -24758,48 +19444,8 @@
                         <value>B0302</value>
                     </entry>
                     <entry>
-                        <key>R0000</key>
-                        <value>R0000</value>
-                    </entry>
-                    <entry>
-                        <key>R0001</key>
-                        <value>R0001</value>
-                    </entry>
-                    <entry>
-                        <key>L0300</key>
-                        <value>L0300</value>
-                    </entry>
-                    <entry>
-                        <key>R0002</key>
-                        <value>R0002</value>
-                    </entry>
-                    <entry>
-                        <key>R0003</key>
-                        <value>R0003</value>
-                    </entry>
-                    <entry>
-                        <key>D0100</key>
-                        <value>D0100</value>
-                    </entry>
-                    <entry>
-                        <key>D0101</key>
-                        <value>D0101</value>
-                    </entry>
-                    <entry>
                         <key>D0102</key>
                         <value>L0101</value>
-                    </entry>
-                    <entry>
-                        <key>L0302</key>
-                        <value>L0302</value>
-                    </entry>
-                    <entry>
-                        <key>L0301</key>
-                        <value>L0301</value>
-                    </entry>
-                    <entry>
-                        <key>L0303</key>
-                        <value>L0303</value>
                     </entry>
                     <entry>
                         <key>U0300</key>
@@ -24812,30 +19458,6 @@
                     <entry>
                         <key>U0301</key>
                         <value>R0203</value>
-                    </entry>
-                    <entry>
-                        <key>U0302</key>
-                        <value>U0302</value>
-                    </entry>
-                    <entry>
-                        <key>U0303</key>
-                        <value>U0303</value>
-                    </entry>
-                    <entry>
-                        <key>F0100</key>
-                        <value>F0100</value>
-                    </entry>
-                    <entry>
-                        <key>F0101</key>
-                        <value>F0101</value>
-                    </entry>
-                    <entry>
-                        <key>F0102</key>
-                        <value>F0102</value>
-                    </entry>
-                    <entry>
-                        <key>F0103</key>
-                        <value>F0103</value>
                     </entry>
                     <entry>
                         <key>B0000</key>
@@ -24867,19 +19489,19 @@
                     </entry>
                     <entry>
                         <key>L0001</key>
-                        <value>L0001</value>
+                        <value>L0200</value>
                     </entry>
                     <entry>
                         <key>L0000</key>
-                        <value>L0000</value>
+                        <value>L0300</value>
                     </entry>
                     <entry>
                         <key>L0003</key>
-                        <value>L0003</value>
+                        <value>L0000</value>
                     </entry>
                     <entry>
                         <key>L0002</key>
-                        <value>L0002</value>
+                        <value>L0100</value>
                     </entry>
                     <entry>
                         <key>R0301</key>
@@ -24895,11 +19517,11 @@
                     </entry>
                     <entry>
                         <key>U0000</key>
-                        <value>U0000</value>
+                        <value>F0000</value>
                     </entry>
                     <entry>
                         <key>U0001</key>
-                        <value>U0001</value>
+                        <value>F0001</value>
                     </entry>
                     <entry>
                         <key>D0200</key>
@@ -24907,7 +19529,7 @@
                     </entry>
                     <entry>
                         <key>U0002</key>
-                        <value>U0002</value>
+                        <value>F0002</value>
                     </entry>
                     <entry>
                         <key>D0201</key>
@@ -24915,7 +19537,7 @@
                     </entry>
                     <entry>
                         <key>U0003</key>
-                        <value>U0003</value>
+                        <value>F0003</value>
                     </entry>
                     <entry>
                         <key>D0202</key>
@@ -24927,7 +19549,7 @@
                     </entry>
                     <entry>
                         <key>B0303</key>
-                        <value>B0303</value>
+                        <value>U0000</value>
                     </entry>
                     <entry>
                         <key>F0201</key>
@@ -24947,27 +19569,27 @@
                     </entry>
                     <entry>
                         <key>B0300</key>
-                        <value>B0300</value>
+                        <value>U0003</value>
                     </entry>
                     <entry>
                         <key>B0301</key>
-                        <value>B0301</value>
+                        <value>U0002</value>
                     </entry>
                     <entry>
                         <key>B0302</key>
-                        <value>B0302</value>
+                        <value>U0001</value>
                     </entry>
                     <entry>
                         <key>L0100</key>
-                        <value>L0100</value>
+                        <value>L0301</value>
                     </entry>
                     <entry>
                         <key>L0102</key>
-                        <value>L0102</value>
+                        <value>L0101</value>
                     </entry>
                     <entry>
                         <key>L0101</key>
-                        <value>L0101</value>
+                        <value>L0201</value>
                     </entry>
                     <entry>
                         <key>R0202</key>
@@ -24999,7 +19621,7 @@
                     </entry>
                     <entry>
                         <key>L0103</key>
-                        <value>L0103</value>
+                        <value>L0001</value>
                     </entry>
                     <entry>
                         <key>U0102</key>
@@ -25059,11 +19681,11 @@
                     </entry>
                     <entry>
                         <key>L0201</key>
-                        <value>L0201</value>
+                        <value>L0202</value>
                     </entry>
                     <entry>
                         <key>L0200</key>
-                        <value>L0200</value>
+                        <value>L0302</value>
                     </entry>
                     <entry>
                         <key>R0103</key>
@@ -25079,15 +19701,15 @@
                     </entry>
                     <entry>
                         <key>D0000</key>
-                        <value>D0000</value>
+                        <value>B0303</value>
                     </entry>
                     <entry>
                         <key>D0001</key>
-                        <value>D0001</value>
+                        <value>B0302</value>
                     </entry>
                     <entry>
                         <key>D0002</key>
-                        <value>D0002</value>
+                        <value>B0301</value>
                     </entry>
                     <entry>
                         <key>U0200</key>
@@ -25095,15 +19717,15 @@
                     </entry>
                     <entry>
                         <key>D0003</key>
-                        <value>D0003</value>
+                        <value>B0300</value>
                     </entry>
                     <entry>
                         <key>L0203</key>
-                        <value>L0203</value>
+                        <value>L0002</value>
                     </entry>
                     <entry>
                         <key>L0202</key>
-                        <value>L0202</value>
+                        <value>L0102</value>
                     </entry>
                     <entry>
                         <key>U0201</key>
@@ -25119,19 +19741,19 @@
                     </entry>
                     <entry>
                         <key>F0000</key>
-                        <value>F0000</value>
+                        <value>D0000</value>
                     </entry>
                     <entry>
                         <key>F0001</key>
-                        <value>F0001</value>
+                        <value>D0001</value>
                     </entry>
                     <entry>
                         <key>F0002</key>
-                        <value>F0002</value>
+                        <value>D0002</value>
                     </entry>
                     <entry>
                         <key>F0003</key>
-                        <value>F0003</value>
+                        <value>D0003</value>
                     </entry>
                     <entry>
                         <key>B0100</key>
@@ -25159,7 +19781,7 @@
                     </entry>
                     <entry>
                         <key>L0300</key>
-                        <value>L0300</value>
+                        <value>L0303</value>
                     </entry>
                     <entry>
                         <key>R0002</key>
@@ -25183,459 +19805,67 @@
                     </entry>
                     <entry>
                         <key>L0302</key>
-                        <value>L0302</value>
-                    </entry>
-                    <entry>
-                        <key>L0301</key>
-                        <value>L0301</value>
-                    </entry>
-                    <entry>
-                        <key>L0303</key>
-                        <value>L0303</value>
-                    </entry>
-                    <entry>
-                        <key>U0300</key>
-                        <value>F0300</value>
-                    </entry>
-                    <entry>
-                        <key>D0103</key>
-                        <value>B0200</value>
-                    </entry>
-                    <entry>
-                        <key>U0301</key>
-                        <value>F0301</value>
-                    </entry>
-                    <entry>
-                        <key>U0302</key>
-                        <value>F0302</value>
-                    </entry>
-                    <entry>
-                        <key>U0303</key>
-                        <value>F0303</value>
-                    </entry>
-                    <entry>
-                        <key>F0100</key>
-                        <value>D0100</value>
-                    </entry>
-                    <entry>
-                        <key>F0101</key>
-                        <value>D0101</value>
-                    </entry>
-                    <entry>
-                        <key>F0102</key>
-                        <value>D0102</value>
-                    </entry>
-                    <entry>
-                        <key>F0103</key>
-                        <value>D0103</value>
-                    </entry>
-                    <entry>
-                        <key>B0000</key>
-                        <value>U0303</value>
-                    </entry>
-                    <entry>
-                        <key>B0001</key>
-                        <value>U0302</value>
-                    </entry>
-                    <entry>
-                        <key>B0002</key>
-                        <value>U0301</value>
-                    </entry>
-                    <entry>
-                        <key>B0003</key>
-                        <value>U0300</value>
-                    </entry>
-                </cellMapping>
-                <cost>0</cost>
-            </value>
-        </entry>
-        <entry>
-            <key>z2</key>
-            <value>
-                <cellMapping>
-                    <entry>
-                        <key>R0303</key>
-                        <value>R0303</value>
-                    </entry>
-                    <entry>
-                        <key>L0001</key>
-                        <value>L0001</value>
-                    </entry>
-                    <entry>
-                        <key>L0000</key>
-                        <value>L0000</value>
-                    </entry>
-                    <entry>
-                        <key>R0100</key>
-                        <value>R0100</value>
-                    </entry>
-                    <entry>
-                        <key>L0003</key>
-                        <value>L0003</value>
-                    </entry>
-                    <entry>
-                        <key>L0201</key>
-                        <value>L0201</value>
-                    </entry>
-                    <entry>
-                        <key>L0002</key>
-                        <value>L0002</value>
-                    </entry>
-                    <entry>
-                        <key>L0200</key>
-                        <value>L0200</value>
-                    </entry>
-                    <entry>
-                        <key>R0103</key>
-                        <value>R0103</value>
-                    </entry>
-                    <entry>
-                        <key>R0301</key>
-                        <value>R0301</value>
-                    </entry>
-                    <entry>
-                        <key>R0302</key>
-                        <value>R0302</value>
-                    </entry>
-                    <entry>
-                        <key>R0101</key>
-                        <value>R0101</value>
-                    </entry>
-                    <entry>
-                        <key>R0102</key>
-                        <value>R0102</value>
-                    </entry>
-                    <entry>
-                        <key>R0300</key>
-                        <value>R0300</value>
-                    </entry>
-                    <entry>
-                        <key>D0000</key>
-                        <value>D0000</value>
-                    </entry>
-                    <entry>
-                        <key>U0000</key>
-                        <value>U0000</value>
-                    </entry>
-                    <entry>
-                        <key>D0001</key>
-                        <value>D0001</value>
-                    </entry>
-                    <entry>
-                        <key>U0001</key>
-                        <value>U0001</value>
-                    </entry>
-                    <entry>
-                        <key>D0002</key>
-                        <value>D0002</value>
-                    </entry>
-                    <entry>
-                        <key>D0200</key>
-                        <value>D0200</value>
-                    </entry>
-                    <entry>
-                        <key>U0002</key>
-                        <value>U0002</value>
-                    </entry>
-                    <entry>
-                        <key>U0200</key>
-                        <value>U0200</value>
-                    </entry>
-                    <entry>
-                        <key>D0003</key>
-                        <value>D0003</value>
-                    </entry>
-                    <entry>
-                        <key>D0201</key>
-                        <value>D0201</value>
-                    </entry>
-                    <entry>
-                        <key>L0203</key>
-                        <value>L0203</value>
-                    </entry>
-                    <entry>
-                        <key>L0202</key>
-                        <value>L0202</value>
-                    </entry>
-                    <entry>
-                        <key>U0003</key>
-                        <value>U0003</value>
-                    </entry>
-                    <entry>
-                        <key>U0201</key>
-                        <value>U0201</value>
-                    </entry>
-                    <entry>
-                        <key>D0202</key>
-                        <value>D0202</value>
-                    </entry>
-                    <entry>
-                        <key>U0202</key>
-                        <value>U0202</value>
-                    </entry>
-                    <entry>
-                        <key>D0203</key>
-                        <value>D0203</value>
-                    </entry>
-                    <entry>
-                        <key>U0203</key>
-                        <value>U0203</value>
-                    </entry>
-                    <entry>
-                        <key>B0303</key>
-                        <value>B0303</value>
-                    </entry>
-                    <entry>
-                        <key>F0000</key>
-                        <value>F0000</value>
-                    </entry>
-                    <entry>
-                        <key>F0001</key>
-                        <value>F0001</value>
-                    </entry>
-                    <entry>
-                        <key>F0002</key>
-                        <value>F0002</value>
-                    </entry>
-                    <entry>
-                        <key>F0201</key>
-                        <value>F0201</value>
-                    </entry>
-                    <entry>
-                        <key>F0003</key>
-                        <value>F0003</value>
-                    </entry>
-                    <entry>
-                        <key>F0200</key>
-                        <value>F0200</value>
-                    </entry>
-                    <entry>
-                        <key>F0203</key>
-                        <value>F0203</value>
-                    </entry>
-                    <entry>
-                        <key>F0202</key>
-                        <value>F0202</value>
-                    </entry>
-                    <entry>
-                        <key>B0100</key>
-                        <value>B0100</value>
-                    </entry>
-                    <entry>
-                        <key>B0101</key>
-                        <value>B0101</value>
-                    </entry>
-                    <entry>
-                        <key>B0102</key>
-                        <value>B0102</value>
-                    </entry>
-                    <entry>
-                        <key>B0300</key>
-                        <value>B0300</value>
-                    </entry>
-                    <entry>
-                        <key>B0103</key>
-                        <value>B0103</value>
-                    </entry>
-                    <entry>
-                        <key>B0301</key>
-                        <value>B0301</value>
-                    </entry>
-                    <entry>
-                        <key>B0302</key>
-                        <value>B0302</value>
-                    </entry>
-                    <entry>
-                        <key>L0100</key>
-                        <value>L0100</value>
-                    </entry>
-                    <entry>
-                        <key>R0000</key>
-                        <value>R0000</value>
-                    </entry>
-                    <entry>
-                        <key>R0001</key>
-                        <value>R0001</value>
-                    </entry>
-                    <entry>
-                        <key>L0102</key>
-                        <value>L0102</value>
-                    </entry>
-                    <entry>
-                        <key>L0300</key>
-                        <value>L0300</value>
-                    </entry>
-                    <entry>
-                        <key>L0101</key>
-                        <value>L0101</value>
-                    </entry>
-                    <entry>
-                        <key>R0202</key>
-                        <value>R0202</value>
-                    </entry>
-                    <entry>
-                        <key>R0203</key>
-                        <value>R0203</value>
-                    </entry>
-                    <entry>
-                        <key>R0002</key>
-                        <value>R0002</value>
-                    </entry>
-                    <entry>
-                        <key>R0200</key>
-                        <value>R0200</value>
-                    </entry>
-                    <entry>
-                        <key>R0003</key>
-                        <value>R0003</value>
-                    </entry>
-                    <entry>
-                        <key>R0201</key>
-                        <value>R0201</value>
-                    </entry>
-                    <entry>
-                        <key>D0100</key>
-                        <value>D0100</value>
-                    </entry>
-                    <entry>
-                        <key>U0100</key>
-                        <value>U0100</value>
-                    </entry>
-                    <entry>
-                        <key>D0101</key>
-                        <value>D0101</value>
-                    </entry>
-                    <entry>
-                        <key>U0101</key>
-                        <value>U0101</value>
-                    </entry>
-                    <entry>
-                        <key>D0102</key>
-                        <value>D0102</value>
-                    </entry>
-                    <entry>
-                        <key>D0300</key>
-                        <value>D0300</value>
-                    </entry>
-                    <entry>
-                        <key>L0302</key>
-                        <value>L0302</value>
-                    </entry>
-                    <entry>
-                        <key>L0103</key>
                         <value>L0103</value>
                     </entry>
                     <entry>
                         <key>L0301</key>
-                        <value>L0301</value>
+                        <value>L0203</value>
                     </entry>
                     <entry>
                         <key>L0303</key>
-                        <value>L0303</value>
-                    </entry>
-                    <entry>
-                        <key>U0102</key>
-                        <value>U0102</value>
+                        <value>L0003</value>
                     </entry>
                     <entry>
                         <key>U0300</key>
-                        <value>U0300</value>
-                    </entry>
-                    <entry>
-                        <key>D0103</key>
-                        <value>D0103</value>
-                    </entry>
-                    <entry>
-                        <key>D0301</key>
-                        <value>D0301</value>
-                    </entry>
-                    <entry>
-                        <key>U0103</key>
-                        <value>U0103</value>
-                    </entry>
-                    <entry>
-                        <key>U0301</key>
-                        <value>U0301</value>
-                    </entry>
-                    <entry>
-                        <key>D0302</key>
-                        <value>D0302</value>
-                    </entry>
-                    <entry>
-                        <key>U0302</key>
-                        <value>U0302</value>
-                    </entry>
-                    <entry>
-                        <key>D0303</key>
-                        <value>D0303</value>
-                    </entry>
-                    <entry>
-                        <key>U0303</key>
-                        <value>U0303</value>
-                    </entry>
-                    <entry>
-                        <key>F0100</key>
-                        <value>F0100</value>
-                    </entry>
-                    <entry>
-                        <key>F0101</key>
-                        <value>F0101</value>
-                    </entry>
-                    <entry>
-                        <key>F0300</key>
                         <value>F0300</value>
                     </entry>
                     <entry>
-                        <key>F0102</key>
-                        <value>F0102</value>
-                    </entry>
-                    <entry>
-                        <key>F0103</key>
-                        <value>F0103</value>
-                    </entry>
-                    <entry>
-                        <key>F0302</key>
-                        <value>F0302</value>
-                    </entry>
-                    <entry>
-                        <key>B0000</key>
-                        <value>B0000</value>
-                    </entry>
-                    <entry>
-                        <key>F0301</key>
-                        <value>F0301</value>
-                    </entry>
-                    <entry>
-                        <key>B0001</key>
-                        <value>B0001</value>
-                    </entry>
-                    <entry>
-                        <key>B0002</key>
-                        <value>B0002</value>
-                    </entry>
-                    <entry>
-                        <key>B0200</key>
+                        <key>D0103</key>
                         <value>B0200</value>
                     </entry>
                     <entry>
-                        <key>F0303</key>
+                        <key>U0301</key>
+                        <value>F0301</value>
+                    </entry>
+                    <entry>
+                        <key>U0302</key>
+                        <value>F0302</value>
+                    </entry>
+                    <entry>
+                        <key>U0303</key>
                         <value>F0303</value>
                     </entry>
                     <entry>
+                        <key>F0100</key>
+                        <value>D0100</value>
+                    </entry>
+                    <entry>
+                        <key>F0101</key>
+                        <value>D0101</value>
+                    </entry>
+                    <entry>
+                        <key>F0102</key>
+                        <value>D0102</value>
+                    </entry>
+                    <entry>
+                        <key>F0103</key>
+                        <value>D0103</value>
+                    </entry>
+                    <entry>
+                        <key>B0000</key>
+                        <value>U0303</value>
+                    </entry>
+                    <entry>
+                        <key>B0001</key>
+                        <value>U0302</value>
+                    </entry>
+                    <entry>
+                        <key>B0002</key>
+                        <value>U0301</value>
+                    </entry>
+                    <entry>
                         <key>B0003</key>
-                        <value>B0003</value>
-                    </entry>
-                    <entry>
-                        <key>B0201</key>
-                        <value>B0201</value>
-                    </entry>
-                    <entry>
-                        <key>B0202</key>
-                        <value>B0202</value>
-                    </entry>
-                    <entry>
-                        <key>B0203</key>
-                        <value>B0203</value>
+                        <value>U0300</value>
                     </entry>
                 </cellMapping>
                 <cost>0</cost>
@@ -25647,7 +19877,7 @@
                 <cellMapping>
                     <entry>
                         <key>R0303</key>
-                        <value>R0303</value>
+                        <value>B0303</value>
                     </entry>
                     <entry>
                         <key>L0001</key>
@@ -25659,7 +19889,7 @@
                     </entry>
                     <entry>
                         <key>L0003</key>
-                        <value>L0003</value>
+                        <value>F0003</value>
                     </entry>
                     <entry>
                         <key>L0002</key>
@@ -25667,15 +19897,15 @@
                     </entry>
                     <entry>
                         <key>R0301</key>
-                        <value>D0002</value>
+                        <value>B0301</value>
                     </entry>
                     <entry>
                         <key>R0302</key>
-                        <value>D0001</value>
+                        <value>B0302</value>
                     </entry>
                     <entry>
                         <key>R0300</key>
-                        <value>D0003</value>
+                        <value>B0300</value>
                     </entry>
                     <entry>
                         <key>U0000</key>
@@ -25687,7 +19917,7 @@
                     </entry>
                     <entry>
                         <key>D0200</key>
-                        <value>D0200</value>
+                        <value>D0302</value>
                     </entry>
                     <entry>
                         <key>U0002</key>
@@ -25695,7 +19925,7 @@
                     </entry>
                     <entry>
                         <key>D0201</key>
-                        <value>L0102</value>
+                        <value>D0202</value>
                     </entry>
                     <entry>
                         <key>U0003</key>
@@ -25703,15 +19933,15 @@
                     </entry>
                     <entry>
                         <key>D0202</key>
-                        <value>L0101</value>
+                        <value>D0102</value>
                     </entry>
                     <entry>
                         <key>D0203</key>
-                        <value>L0100</value>
+                        <value>D0002</value>
                     </entry>
                     <entry>
                         <key>B0303</key>
-                        <value>B0303</value>
+                        <value>L0303</value>
                     </entry>
                     <entry>
                         <key>F0201</key>
@@ -25723,7 +19953,7 @@
                     </entry>
                     <entry>
                         <key>F0203</key>
-                        <value>F0203</value>
+                        <value>R0203</value>
                     </entry>
                     <entry>
                         <key>F0202</key>
@@ -25731,15 +19961,15 @@
                     </entry>
                     <entry>
                         <key>B0300</key>
-                        <value>B0300</value>
+                        <value>L0300</value>
                     </entry>
                     <entry>
                         <key>B0301</key>
-                        <value>B0301</value>
+                        <value>L0301</value>
                     </entry>
                     <entry>
                         <key>B0302</key>
-                        <value>B0302</value>
+                        <value>L0302</value>
                     </entry>
                     <entry>
                         <key>L0100</key>
@@ -25755,19 +19985,19 @@
                     </entry>
                     <entry>
                         <key>R0202</key>
-                        <value>D0101</value>
+                        <value>B0202</value>
                     </entry>
                     <entry>
                         <key>R0203</key>
-                        <value>R0203</value>
+                        <value>B0203</value>
                     </entry>
                     <entry>
                         <key>R0200</key>
-                        <value>D0103</value>
+                        <value>B0200</value>
                     </entry>
                     <entry>
                         <key>R0201</key>
-                        <value>D0102</value>
+                        <value>B0201</value>
                     </entry>
                     <entry>
                         <key>U0100</key>
@@ -25779,11 +20009,11 @@
                     </entry>
                     <entry>
                         <key>D0300</key>
-                        <value>D0300</value>
+                        <value>D0303</value>
                     </entry>
                     <entry>
                         <key>L0103</key>
-                        <value>L0103</value>
+                        <value>F0103</value>
                     </entry>
                     <entry>
                         <key>U0102</key>
@@ -25791,7 +20021,7 @@
                     </entry>
                     <entry>
                         <key>D0301</key>
-                        <value>L0002</value>
+                        <value>D0203</value>
                     </entry>
                     <entry>
                         <key>U0103</key>
@@ -25799,11 +20029,11 @@
                     </entry>
                     <entry>
                         <key>D0302</key>
-                        <value>L0001</value>
+                        <value>D0103</value>
                     </entry>
                     <entry>
                         <key>D0303</key>
-                        <value>L0000</value>
+                        <value>D0003</value>
                     </entry>
                     <entry>
                         <key>F0300</key>
@@ -25819,27 +20049,27 @@
                     </entry>
                     <entry>
                         <key>B0200</key>
-                        <value>B0200</value>
+                        <value>L0200</value>
                     </entry>
                     <entry>
                         <key>F0303</key>
-                        <value>F0303</value>
+                        <value>R0303</value>
                     </entry>
                     <entry>
                         <key>B0201</key>
-                        <value>B0201</value>
+                        <value>L0201</value>
                     </entry>
                     <entry>
                         <key>B0202</key>
-                        <value>B0202</value>
+                        <value>L0202</value>
                     </entry>
                     <entry>
                         <key>B0203</key>
-                        <value>B0203</value>
+                        <value>L0203</value>
                     </entry>
                     <entry>
                         <key>R0100</key>
-                        <value>D0203</value>
+                        <value>B0100</value>
                     </entry>
                     <entry>
                         <key>L0201</key>
@@ -25851,27 +20081,27 @@
                     </entry>
                     <entry>
                         <key>R0103</key>
-                        <value>R0103</value>
+                        <value>B0103</value>
                     </entry>
                     <entry>
                         <key>R0101</key>
-                        <value>D0202</value>
+                        <value>B0101</value>
                     </entry>
                     <entry>
                         <key>R0102</key>
-                        <value>D0201</value>
+                        <value>B0102</value>
                     </entry>
                     <entry>
                         <key>D0000</key>
-                        <value>D0000</value>
+                        <value>D0300</value>
                     </entry>
                     <entry>
                         <key>D0001</key>
-                        <value>L0302</value>
+                        <value>D0200</value>
                     </entry>
                     <entry>
                         <key>D0002</key>
-                        <value>L0301</value>
+                        <value>D0100</value>
                     </entry>
                     <entry>
                         <key>U0200</key>
@@ -25879,11 +20109,11 @@
                     </entry>
                     <entry>
                         <key>D0003</key>
-                        <value>L0300</value>
+                        <value>D0000</value>
                     </entry>
                     <entry>
                         <key>L0203</key>
-                        <value>L0203</value>
+                        <value>F0203</value>
                     </entry>
                     <entry>
                         <key>L0202</key>
@@ -25915,31 +20145,31 @@
                     </entry>
                     <entry>
                         <key>F0003</key>
-                        <value>F0003</value>
+                        <value>R0003</value>
                     </entry>
                     <entry>
                         <key>B0100</key>
-                        <value>B0100</value>
+                        <value>L0100</value>
                     </entry>
                     <entry>
                         <key>B0101</key>
-                        <value>B0101</value>
+                        <value>L0101</value>
                     </entry>
                     <entry>
                         <key>B0102</key>
-                        <value>B0102</value>
+                        <value>L0102</value>
                     </entry>
                     <entry>
                         <key>B0103</key>
-                        <value>B0103</value>
+                        <value>L0103</value>
                     </entry>
                     <entry>
                         <key>R0000</key>
-                        <value>D0303</value>
+                        <value>B0000</value>
                     </entry>
                     <entry>
                         <key>R0001</key>
-                        <value>D0302</value>
+                        <value>B0001</value>
                     </entry>
                     <entry>
                         <key>L0300</key>
@@ -25947,23 +20177,23 @@
                     </entry>
                     <entry>
                         <key>R0002</key>
-                        <value>D0301</value>
+                        <value>B0002</value>
                     </entry>
                     <entry>
                         <key>R0003</key>
-                        <value>R0003</value>
+                        <value>B0003</value>
                     </entry>
                     <entry>
                         <key>D0100</key>
-                        <value>D0100</value>
+                        <value>D0301</value>
                     </entry>
                     <entry>
                         <key>D0101</key>
-                        <value>L0202</value>
+                        <value>D0201</value>
                     </entry>
                     <entry>
                         <key>D0102</key>
-                        <value>L0201</value>
+                        <value>D0101</value>
                     </entry>
                     <entry>
                         <key>L0302</key>
@@ -25975,7 +20205,7 @@
                     </entry>
                     <entry>
                         <key>L0303</key>
-                        <value>L0303</value>
+                        <value>F0303</value>
                     </entry>
                     <entry>
                         <key>U0300</key>
@@ -25983,7 +20213,7 @@
                     </entry>
                     <entry>
                         <key>D0103</key>
-                        <value>L0200</value>
+                        <value>D0001</value>
                     </entry>
                     <entry>
                         <key>U0301</key>
@@ -26011,23 +20241,23 @@
                     </entry>
                     <entry>
                         <key>F0103</key>
-                        <value>F0103</value>
+                        <value>R0103</value>
                     </entry>
                     <entry>
                         <key>B0000</key>
-                        <value>B0000</value>
+                        <value>L0000</value>
                     </entry>
                     <entry>
                         <key>B0001</key>
-                        <value>B0001</value>
+                        <value>L0001</value>
                     </entry>
                     <entry>
                         <key>B0002</key>
-                        <value>B0002</value>
+                        <value>L0002</value>
                     </entry>
                     <entry>
                         <key>B0003</key>
-                        <value>B0003</value>
+                        <value>L0003</value>
                     </entry>
                 </cellMapping>
                 <cost>0</cost>
@@ -26039,39 +20269,39 @@
                 <cellMapping>
                     <entry>
                         <key>R0303</key>
-                        <value>R0303</value>
+                        <value>U0300</value>
                     </entry>
                     <entry>
                         <key>L0001</key>
-                        <value>L0001</value>
+                        <value>D0103</value>
                     </entry>
                     <entry>
                         <key>L0000</key>
-                        <value>L0000</value>
+                        <value>D0003</value>
                     </entry>
                     <entry>
                         <key>L0003</key>
-                        <value>L0003</value>
+                        <value>D0303</value>
                     </entry>
                     <entry>
                         <key>L0002</key>
-                        <value>L0002</value>
+                        <value>D0203</value>
                     </entry>
                     <entry>
                         <key>R0301</key>
-                        <value>R0301</value>
+                        <value>U0100</value>
                     </entry>
                     <entry>
                         <key>R0302</key>
-                        <value>R0302</value>
+                        <value>U0200</value>
                     </entry>
                     <entry>
                         <key>R0300</key>
-                        <value>R0300</value>
+                        <value>U0000</value>
                     </entry>
                     <entry>
                         <key>U0000</key>
-                        <value>U0000</value>
+                        <value>L0003</value>
                     </entry>
                     <entry>
                         <key>U0001</key>
@@ -26099,11 +20329,11 @@
                     </entry>
                     <entry>
                         <key>D0203</key>
-                        <value>D0203</value>
+                        <value>R0301</value>
                     </entry>
                     <entry>
                         <key>B0303</key>
-                        <value>B0303</value>
+                        <value>B0003</value>
                     </entry>
                     <entry>
                         <key>F0201</key>
@@ -26123,15 +20353,15 @@
                     </entry>
                     <entry>
                         <key>B0300</key>
-                        <value>B0300</value>
+                        <value>B0303</value>
                     </entry>
                     <entry>
                         <key>B0301</key>
-                        <value>B0301</value>
+                        <value>B0203</value>
                     </entry>
                     <entry>
                         <key>B0302</key>
-                        <value>B0302</value>
+                        <value>B0103</value>
                     </entry>
                     <entry>
                         <key>L0100</key>
@@ -26163,7 +20393,7 @@
                     </entry>
                     <entry>
                         <key>U0100</key>
-                        <value>U0100</value>
+                        <value>L0002</value>
                     </entry>
                     <entry>
                         <key>U0101</key>
@@ -26195,7 +20425,7 @@
                     </entry>
                     <entry>
                         <key>D0303</key>
-                        <value>D0303</value>
+                        <value>R0300</value>
                     </entry>
                     <entry>
                         <key>F0300</key>
@@ -26211,7 +20441,7 @@
                     </entry>
                     <entry>
                         <key>B0200</key>
-                        <value>B0200</value>
+                        <value>B0302</value>
                     </entry>
                     <entry>
                         <key>F0303</key>
@@ -26219,15 +20449,15 @@
                     </entry>
                     <entry>
                         <key>B0201</key>
-                        <value>B0201</value>
-                    </entry>
-                    <entry>
-                        <key>B0202</key>
                         <value>B0202</value>
                     </entry>
                     <entry>
+                        <key>B0202</key>
+                        <value>B0102</value>
+                    </entry>
+                    <entry>
                         <key>B0203</key>
-                        <value>B0203</value>
+                        <value>B0002</value>
                     </entry>
                     <entry>
                         <key>R0100</key>
@@ -26267,11 +20497,11 @@
                     </entry>
                     <entry>
                         <key>U0200</key>
-                        <value>U0200</value>
+                        <value>L0001</value>
                     </entry>
                     <entry>
                         <key>D0003</key>
-                        <value>D0003</value>
+                        <value>R0303</value>
                     </entry>
                     <entry>
                         <key>L0203</key>
@@ -26311,19 +20541,19 @@
                     </entry>
                     <entry>
                         <key>B0100</key>
-                        <value>B0100</value>
+                        <value>B0301</value>
                     </entry>
                     <entry>
                         <key>B0101</key>
-                        <value>B0101</value>
+                        <value>B0201</value>
                     </entry>
                     <entry>
                         <key>B0102</key>
-                        <value>B0102</value>
+                        <value>B0101</value>
                     </entry>
                     <entry>
                         <key>B0103</key>
-                        <value>B0103</value>
+                        <value>B0001</value>
                     </entry>
                     <entry>
                         <key>R0000</key>
@@ -26371,11 +20601,11 @@
                     </entry>
                     <entry>
                         <key>U0300</key>
-                        <value>U0300</value>
+                        <value>L0000</value>
                     </entry>
                     <entry>
                         <key>D0103</key>
-                        <value>D0103</value>
+                        <value>R0302</value>
                     </entry>
                     <entry>
                         <key>U0301</key>
@@ -26407,19 +20637,19 @@
                     </entry>
                     <entry>
                         <key>B0000</key>
-                        <value>B0000</value>
+                        <value>B0300</value>
                     </entry>
                     <entry>
                         <key>B0001</key>
-                        <value>B0001</value>
+                        <value>B0200</value>
                     </entry>
                     <entry>
                         <key>B0002</key>
-                        <value>B0002</value>
+                        <value>B0100</value>
                     </entry>
                     <entry>
                         <key>B0003</key>
-                        <value>B0003</value>
+                        <value>B0000</value>
                     </entry>
                 </cellMapping>
                 <cost>0</cost>
@@ -26491,7 +20721,7 @@
                     </entry>
                     <entry>
                         <key>D0203</key>
-                        <value>F0100</value>
+                        <value>D0203</value>
                     </entry>
                     <entry>
                         <key>B0303</key>
@@ -26503,7 +20733,7 @@
                     </entry>
                     <entry>
                         <key>F0200</key>
-                        <value>D0103</value>
+                        <value>B0200</value>
                     </entry>
                     <entry>
                         <key>F0203</key>
@@ -26515,7 +20745,7 @@
                     </entry>
                     <entry>
                         <key>B0300</key>
-                        <value>B0300</value>
+                        <value>F0300</value>
                     </entry>
                     <entry>
                         <key>B0301</key>
@@ -26587,11 +20817,11 @@
                     </entry>
                     <entry>
                         <key>D0303</key>
-                        <value>F0000</value>
+                        <value>D0303</value>
                     </entry>
                     <entry>
                         <key>F0300</key>
-                        <value>D0003</value>
+                        <value>B0300</value>
                     </entry>
                     <entry>
                         <key>F0302</key>
@@ -26603,7 +20833,7 @@
                     </entry>
                     <entry>
                         <key>B0200</key>
-                        <value>B0200</value>
+                        <value>F0200</value>
                     </entry>
                     <entry>
                         <key>F0303</key>
@@ -26663,7 +20893,7 @@
                     </entry>
                     <entry>
                         <key>D0003</key>
-                        <value>F0300</value>
+                        <value>D0003</value>
                     </entry>
                     <entry>
                         <key>L0203</key>
@@ -26687,7 +20917,7 @@
                     </entry>
                     <entry>
                         <key>F0000</key>
-                        <value>D0303</value>
+                        <value>B0000</value>
                     </entry>
                     <entry>
                         <key>F0001</key>
@@ -26703,7 +20933,7 @@
                     </entry>
                     <entry>
                         <key>B0100</key>
-                        <value>B0100</value>
+                        <value>F0100</value>
                     </entry>
                     <entry>
                         <key>B0101</key>
@@ -26767,7 +20997,7 @@
                     </entry>
                     <entry>
                         <key>D0103</key>
-                        <value>F0200</value>
+                        <value>D0103</value>
                     </entry>
                     <entry>
                         <key>U0301</key>
@@ -26783,7 +21013,7 @@
                     </entry>
                     <entry>
                         <key>F0100</key>
-                        <value>D0203</value>
+                        <value>B0100</value>
                     </entry>
                     <entry>
                         <key>F0101</key>
@@ -26799,7 +21029,7 @@
                     </entry>
                     <entry>
                         <key>B0000</key>
-                        <value>B0000</value>
+                        <value>F0000</value>
                     </entry>
                     <entry>
                         <key>B0001</key>
@@ -26818,112 +21048,4 @@
             </value>
         </entry>
     </moves>
-    <faces>
-        <cells>U0000</cells>
-        <cells>U0001</cells>
-        <cells>U0002</cells>
-        <cells>U0003</cells>
-        <cells>U0100</cells>
-        <cells>U0101</cells>
-        <cells>U0102</cells>
-        <cells>U0103</cells>
-        <cells>U0200</cells>
-        <cells>U0201</cells>
-        <cells>U0202</cells>
-        <cells>U0203</cells>
-        <cells>U0300</cells>
-        <cells>U0301</cells>
-        <cells>U0302</cells>
-        <cells>U0303</cells>
-    </faces>
-    <faces>
-        <cells>D0000</cells>
-        <cells>D0001</cells>
-        <cells>D0002</cells>
-        <cells>D0003</cells>
-        <cells>D0100</cells>
-        <cells>D0101</cells>
-        <cells>D0102</cells>
-        <cells>D0103</cells>
-        <cells>D0200</cells>
-        <cells>D0201</cells>
-        <cells>D0202</cells>
-        <cells>D0203</cells>
-        <cells>D0300</cells>
-        <cells>D0301</cells>
-        <cells>D0302</cells>
-        <cells>D0303</cells>
-    </faces>
-    <faces>
-        <cells>F0000</cells>
-        <cells>F0001</cells>
-        <cells>F0002</cells>
-        <cells>F0003</cells>
-        <cells>F0100</cells>
-        <cells>F0101</cells>
-        <cells>F0102</cells>
-        <cells>F0103</cells>
-        <cells>F0200</cells>
-        <cells>F0201</cells>
-        <cells>F0202</cells>
-        <cells>F0203</cells>
-        <cells>F0300</cells>
-        <cells>F0301</cells>
-        <cells>F0302</cells>
-        <cells>F0303</cells>
-    </faces>
-    <faces>
-        <cells>B0000</cells>
-        <cells>B0001</cells>
-        <cells>B0002</cells>
-        <cells>B0003</cells>
-        <cells>B0100</cells>
-        <cells>B0101</cells>
-        <cells>B0102</cells>
-        <cells>B0103</cells>
-        <cells>B0200</cells>
-        <cells>B0201</cells>
-        <cells>B0202</cells>
-        <cells>B0203</cells>
-        <cells>B0300</cells>
-        <cells>B0301</cells>
-        <cells>B0302</cells>
-        <cells>B0303</cells>
-    </faces>
-    <faces>
-        <cells>R0000</cells>
-        <cells>R0001</cells>
-        <cells>R0002</cells>
-        <cells>R0003</cells>
-        <cells>R0100</cells>
-        <cells>R0101</cells>
-        <cells>R0102</cells>
-        <cells>R0103</cells>
-        <cells>R0200</cells>
-        <cells>R0201</cells>
-        <cells>R0202</cells>
-        <cells>R0203</cells>
-        <cells>R0300</cells>
-        <cells>R0301</cells>
-        <cells>R0302</cells>
-        <cells>R0303</cells>
-    </faces>
-    <faces>
-        <cells>L0000</cells>
-        <cells>L0001</cells>
-        <cells>L0002</cells>
-        <cells>L0003</cells>
-        <cells>L0100</cells>
-        <cells>L0101</cells>
-        <cells>L0102</cells>
-        <cells>L0103</cells>
-        <cells>L0200</cells>
-        <cells>L0201</cells>
-        <cells>L0202</cells>
-        <cells>L0203</cells>
-        <cells>L0300</cells>
-        <cells>L0301</cells>
-        <cells>L0302</cells>
-        <cells>L0303</cells>
-    </faces>
 </Puzzle>

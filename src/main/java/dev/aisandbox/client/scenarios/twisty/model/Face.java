@@ -7,5 +7,6 @@ import lombok.Data;
 @Data
 public class Face {
   List<String> cells = new ArrayList<>();
-  Integer requiredColor = null;
+  String baseColour;
+  boolean strictColour = false;
 }
