@@ -1,0 +1,88 @@
+openapi: 3.0.0
+info:
+  description: API interface for running Twisty Puzzle scenarios
+  version: "1.0.0"
+  title: Twisty Puzzles
+paths:
+  /api/twisty:
+    post:
+      summary: Solve a Twisty Puzzle
+      description: Read the current board and return a set of moves to make
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TwistyRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/TwistyRequest'
+      responses:
+        '200':
+          description: A (potentialy partial) solution.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TwistyResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TwistyResponse'
+        '204':
+          description: No solution - Give up
+        '205':
+          description: Reset Puzzle
+        '500':
+          description: Server error - halt simulation.
+
+components:
+  schemas:
+    TwistyRequest:
+      type: object
+      required:
+        - puzzleType
+        - moves
+        - state
+      properties:
+        history:
+          type: object
+          required:
+            - startState
+            - moves
+            - endState
+            - success
+          properties:
+            startState:
+              type: string
+              example: RBGRBGRBGRBGRBGRBGRBGRBGRBGRBGRBGRBGRBGRBGRB
+              nullable: false
+            moves:
+              type: string
+              example: R L R' 2Rw
+              nullable: false
+            endState:
+              type: string
+              example: RRRGGGBBBRRRGGGBBBRRRGGGBBBRRRGGGBBBRRRGGGBBB
+              nullable: false
+            success:
+              type: boolean
+              example: false
+              nullable: false
+        puzzleType:
+          type: string
+          example: Cube 3x3x3
+          nullable: false
+        moves:
+          type: array
+          items:
+            type: string
+            example: "R"
+        state:
+          type: string
+          example: RBGRBGRBGRBGRBGRBGRBGRBGRBGRBGRBGRBGRBGRBGRB
+          nullable: false
+    TwistyResponse:
+      type: object
+      properties:
+        move:
+          type: string
+          example: "R L' 2Rw"

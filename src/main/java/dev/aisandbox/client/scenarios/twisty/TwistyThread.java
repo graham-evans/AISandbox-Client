@@ -1,10 +1,13 @@
 package dev.aisandbox.client.scenarios.twisty;
 
 import dev.aisandbox.client.agent.Agent;
+import dev.aisandbox.client.agent.AgentException;
 import dev.aisandbox.client.fx.GameRunController;
 import dev.aisandbox.client.output.FrameOutput;
 import dev.aisandbox.client.output.OutputTools;
 import dev.aisandbox.client.scenarios.maze.MazeRunner;
+import dev.aisandbox.client.scenarios.twisty.api.TwistyRequest;
+import dev.aisandbox.client.scenarios.twisty.api.TwistyResponse;
 import dev.aisandbox.client.scenarios.twisty.model.Cell;
 import dev.aisandbox.client.scenarios.twisty.model.Move;
 import dev.aisandbox.client.scenarios.twisty.model.TwistyPuzzle;
@@ -14,15 +17,15 @@ import java.awt.Polygon;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import javax.imageio.ImageIO;
-import lombok.Data;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
-@Data
 @Slf4j
 public class TwistyThread extends Thread {
 
@@ -36,7 +39,7 @@ public class TwistyThread extends Thread {
   private Map<Character, Color> faceColourCache = new HashMap<>();
   private static final int SCRAMBLE_MOVES = 200;
 
-  private boolean running = false;
+  @Getter private boolean running = false;
 
   public TwistyThread(
       Agent agent,
@@ -63,6 +66,9 @@ public class TwistyThread extends Thread {
   public void run() {
     running = true;
     try {
+      // setup agent
+      agent.setupAgent();
+      // setup puzzle
       TwistyPuzzle twistyPuzzle = PuzzleLoader.loadPuzzle(puzzleType);
       // cache the face colours
       twistyPuzzle
@@ -71,9 +77,11 @@ public class TwistyThread extends Thread {
               (c, f) -> {
                 faceColourCache.put(c, Color.decode(f.getBaseColour()));
               });
+      log.debug("Found {} face colours ({})", faceColourCache.size(), faceColourCache);
       // cache the list of moves
       List<String> moveNames = new ArrayList<>();
       moveNames.addAll(twistyPuzzle.getMoves().keySet());
+      log.debug("Found {} moves ({})", moveNames.size(), moveNames);
       // reset the puzzle
       resetPuzzle(twistyPuzzle);
       // scramble the puzzle
@@ -81,13 +89,43 @@ public class TwistyThread extends Thread {
         String randomMove = moveNames.get(random.nextInt(moveNames.size()));
         applyMove(twistyPuzzle, randomMove);
       }
+      // save the cell colours - just in case we want to reset the puzzle
+      Map<String, Character> savedColours = new HashMap<>();
+      twistyPuzzle
+          .getCells()
+          .forEach((name, cell) -> savedColours.put(name, cell.getCurrentColour()));
+      // create move list
+      List<String> actions = new ArrayList<>();
+      // draw current state
+      BufferedImage image = renderPuzzle(twistyPuzzle);
+      controller.updateBoardImage(image);
+      output.addFrame(image);
       while (running) {
-        // draw current state
-        BufferedImage image = renderPuzzle(twistyPuzzle);
-        controller.updateBoardImage(image);
-        output.addFrame(image);
-        running = false;
+        if (actions.isEmpty()) {
+          // get next set of actions
+          TwistyRequest request = new TwistyRequest();
+          request.setPuzzleType(puzzleType.toString());
+          request.setMoves(moveNames);
+          request.setState(twistyPuzzle.getState());
+          // TODO - include history
+          TwistyResponse response = agent.postRequest(request, TwistyResponse.class);
+          actions.addAll(Arrays.asList(response.getMove().split(" ")));
+        }
+        // perform actions
+        if (!actions.isEmpty()) {
+          String action = actions.remove(0);
+          applyMove(twistyPuzzle, action);
+          // draw current state
+          image = renderPuzzle(twistyPuzzle);
+          controller.updateBoardImage(image);
+          output.addFrame(image);
+        }
+
+        // check for completeness
+        // running = false;
       }
+    } catch (AgentException ae) {
+      controller.showAgentError(agent.getTarget(), ae);
     } catch (NotExistentMoveException e) {
       log.error("Tried to use a non existing move", e);
     } catch (IOException e) {
@@ -117,7 +155,7 @@ public class TwistyThread extends Thread {
     m.getCellMapping()
         .forEach(
             (target, src) -> {
-              log.info("Copying {} from {}", target, src);
+              log.debug("Copying {} from {}", target, src);
               Cell sourceCell = puzzle.getCells().get(src);
               Cell targetCell = puzzle.getCells().get(target);
               targetCell.setNextColour(sourceCell.getCurrentColour());

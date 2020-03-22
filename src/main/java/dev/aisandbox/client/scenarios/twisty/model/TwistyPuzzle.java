@@ -12,4 +12,10 @@ public class TwistyPuzzle {
   Map<String, Cell> cells = new LinkedHashMap<>();
   Map<String, Move> moves = new HashMap<>();
   Map<Character, Face> faces = new HashMap<>();
+
+  public String getState() {
+    StringBuilder sb = new StringBuilder();
+    cells.forEach((name, cell) -> sb.append(cell.currentColour));
+    return sb.toString();
+  }
 }
