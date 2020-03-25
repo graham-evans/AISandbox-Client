@@ -8,14 +8,18 @@ import dev.aisandbox.client.scenarios.Scenario;
 import dev.aisandbox.client.scenarios.ScenarioType;
 import java.util.List;
 import java.util.Random;
+
 import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Component
 @Data
-@Slf4j
 public class TwistyScenario implements Scenario {
+
+  @NonVisual
+  private static final Logger log = LoggerFactory.getLogger(TwistyScenario.class.getName());
 
   private PuzzleType twistyType = PuzzleType.CUBE3;
   private boolean twistyMultipleSteps = true;

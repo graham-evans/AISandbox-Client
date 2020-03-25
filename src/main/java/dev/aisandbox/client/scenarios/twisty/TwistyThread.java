@@ -4,23 +4,16 @@ import dev.aisandbox.client.agent.Agent;
 import dev.aisandbox.client.agent.AgentException;
 import dev.aisandbox.client.fx.GameRunController;
 import dev.aisandbox.client.output.FrameOutput;
-import dev.aisandbox.client.output.OutputTools;
 import dev.aisandbox.client.scenarios.maze.MazeRunner;
 import dev.aisandbox.client.scenarios.twisty.api.TwistyRequest;
 import dev.aisandbox.client.scenarios.twisty.api.TwistyResponse;
-import dev.aisandbox.client.scenarios.twisty.model.Cell;
-import dev.aisandbox.client.scenarios.twisty.model.Move;
-import dev.aisandbox.client.scenarios.twisty.model.TwistyPuzzle;
-import java.awt.Color;
+import dev.aisandbox.client.scenarios.twisty.puzzles.Cube3x3x3;
 import java.awt.Graphics2D;
-import java.awt.Polygon;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 import javax.imageio.ImageIO;
 import lombok.Getter;
@@ -36,7 +29,6 @@ public class TwistyThread extends Thread {
   private final PuzzleType puzzleType;
   private final Long maxStepCount;
   private BufferedImage logo;
-  private Map<Character, Color> faceColourCache = new HashMap<>();
   private static final int SCRAMBLE_MOVES = 200;
 
   @Getter private boolean running = false;
@@ -62,6 +54,14 @@ public class TwistyThread extends Thread {
     }
   }
 
+  private void scramblePuzzle(TwistyPuzzle twistyPuzzle) throws NotExistentMoveException {
+    for (int i = 0; i < SCRAMBLE_MOVES; i++) {
+      String randomMove =
+          twistyPuzzle.getMoveList().get(random.nextInt(twistyPuzzle.getMoveList().size()));
+      twistyPuzzle.applyMove(randomMove);
+    }
+  }
+
   @Override
   public void run() {
     running = true;
@@ -69,32 +69,12 @@ public class TwistyThread extends Thread {
       // setup agent
       agent.setupAgent();
       // setup puzzle
-      TwistyPuzzle twistyPuzzle = PuzzleLoader.loadPuzzle(puzzleType);
-      // cache the face colours
-      twistyPuzzle
-          .getFaces()
-          .forEach(
-              (c, f) -> {
-                faceColourCache.put(c, Color.decode(f.getBaseColour()));
-              });
-      log.debug("Found {} face colours ({})", faceColourCache.size(), faceColourCache);
-      // cache the list of moves
-      List<String> moveNames = new ArrayList<>();
-      moveNames.addAll(twistyPuzzle.getMoves().keySet());
-      log.debug("Found {} moves ({})", moveNames.size(), moveNames);
-      // reset the puzzle
-      resetPuzzle(twistyPuzzle);
+      TwistyPuzzle twistyPuzzle = new Cube3x3x3();
       // scramble the puzzle
-      for (int i = 0; i < SCRAMBLE_MOVES; i++) {
-        String randomMove = moveNames.get(random.nextInt(moveNames.size()));
-        applyMove(twistyPuzzle, randomMove);
-      }
+      scramblePuzzle(twistyPuzzle);
       // save the cell colours - just in case we want to reset the puzzle
-      Map<String, Character> savedColours = new HashMap<>();
-      twistyPuzzle
-          .getCells()
-          .forEach((name, cell) -> savedColours.put(name, cell.getCurrentColour()));
-      // create move list
+      String savedPuzzle = twistyPuzzle.getState();
+      // create an (empty) list of actions
       List<String> actions = new ArrayList<>();
       // draw current state
       BufferedImage image = renderPuzzle(twistyPuzzle);
@@ -105,24 +85,32 @@ public class TwistyThread extends Thread {
           // get next set of actions
           TwistyRequest request = new TwistyRequest();
           request.setPuzzleType(puzzleType.toString());
-          request.setMoves(moveNames);
+          request.setMoves(twistyPuzzle.getMoveList());
           request.setState(twistyPuzzle.getState());
           // TODO - include history
           TwistyResponse response = agent.postRequest(request, TwistyResponse.class);
-          actions.addAll(Arrays.asList(response.getMove().split(" ")));
+          actions.addAll(Arrays.asList(response.getMove().trim().split(" ")));
         }
         // perform actions
         if (!actions.isEmpty()) {
           String action = actions.remove(0);
-          applyMove(twistyPuzzle, action);
+          // TODO count move scores
+          twistyPuzzle.applyMove(action);
           // draw current state
           image = renderPuzzle(twistyPuzzle);
           controller.updateBoardImage(image);
           output.addFrame(image);
         }
-
-        // check for completeness
-        // running = false;
+        if (twistyPuzzle.isSolved()) {
+          // TODO register goal
+          // scramble
+          scramblePuzzle(twistyPuzzle);
+          savedPuzzle = twistyPuzzle.getState();
+          // draw new state
+          image = renderPuzzle(twistyPuzzle);
+          controller.updateBoardImage(image);
+          output.addFrame(image);
+        }
       }
     } catch (AgentException ae) {
       controller.showAgentError(agent.getTarget(), ae);
@@ -146,60 +134,12 @@ public class TwistyThread extends Thread {
     }
   }
 
-  protected void applyMove(TwistyPuzzle puzzle, String move) throws NotExistentMoveException {
-    log.info("Applying move {}", move);
-    Move m = puzzle.getMoves().get(move);
-    if (m == null) {
-      throw new NotExistentMoveException("Move '" + move + "' isn't defined");
-    }
-    m.getCellMapping()
-        .forEach(
-            (target, src) -> {
-              log.debug("Copying {} from {}", target, src);
-              Cell sourceCell = puzzle.getCells().get(src);
-              Cell targetCell = puzzle.getCells().get(target);
-              targetCell.setNextColour(sourceCell.getCurrentColour());
-            });
-    // bake move
-    for (Cell cell : puzzle.getCells().values()) {
-      if (cell.getNextColour() != null) {
-        cell.setCurrentColour(cell.getNextColour());
-        cell.setNextColour(null);
-      }
-    }
-  }
-
-  /**
-   * reset each cells current colour to the colour of the face it's on.
-   *
-   * @param puzzle the puzzle object to reset
-   */
-  private void resetPuzzle(TwistyPuzzle puzzle) {
-    log.info("Resetting puzzle");
-    puzzle
-        .getFaces()
-        .forEach(
-            (c, f) -> {
-              for (String cellID : f.getCells()) {
-                Cell cell = puzzle.getCells().get(cellID);
-                cell.setCurrentColour(c);
-              }
-            });
-  }
-
   private BufferedImage renderPuzzle(TwistyPuzzle puzzle) {
-    BufferedImage image = OutputTools.getWhiteScreen();
+    BufferedImage image = puzzle.getStateImage();
     Graphics2D g = image.createGraphics();
     // add logo
     g.drawImage(logo, 100, 50, null);
-    for (Cell cell : puzzle.getCells().values()) {
-      Color colour = faceColourCache.get(cell.getCurrentColour());
-      Polygon polygon = cell.getPolygon();
-      g.setColor(colour);
-      g.fillPolygon(polygon);
-      g.setColor(Color.LIGHT_GRAY);
-      g.drawPolygon(polygon);
-    }
+    // TODO draw move history and graphs
     return image;
   }
 }
