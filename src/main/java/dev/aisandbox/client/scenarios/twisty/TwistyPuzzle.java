@@ -23,4 +23,8 @@ public interface TwistyPuzzle {
   public boolean isSolved();
 
   public BufferedImage getStateImage();
+
+  public BufferedImage getMoveImage(String move);
+
+  public BufferedImage getMoveSpriteSheet();
 }

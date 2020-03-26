@@ -27,7 +27,7 @@ public class GraphicsTest {
   public void createImageTest() throws IOException {
     for (TwistyPuzzle puzzle : puzzleList) {
       puzzle.resetPuzzle();
-      File out = new File("target/test-images/twisty/" + puzzle.getPuzzleName() + ".png");
+      File out = new File("target/test-images/twisty/" + puzzle.getPuzzleName() + "/puzzle.png");
       out.getParentFile().mkdirs();
       BufferedImage image = puzzle.getStateImage();
       ImageIO.write(image, "PNG", out);
@@ -39,14 +39,32 @@ public class GraphicsTest {
   public void createMoveImageTest() throws IOException, NotExistentMoveException {
     for (TwistyPuzzle puzzle : puzzleList) {
       for (String move : puzzle.getMoveList()) {
+        // move result
         puzzle.resetPuzzle();
         File out =
-            new File("target/test-images/twisty/" + puzzle.getPuzzleName() + "-" + move + ".png");
+            new File("target/test-images/twisty/" + puzzle.getPuzzleName() + "/" + move + ".png");
         out.getParentFile().mkdirs();
         puzzle.applyMove(move);
         BufferedImage image = puzzle.getStateImage();
         ImageIO.write(image, "PNG", out);
+        // move image
+        out =
+            new File(
+                "target/test-images/twisty/" + puzzle.getPuzzleName() + "/" + move + "-icon.png");
+        ImageIO.write(puzzle.getMoveImage(move), "PNG", out);
       }
+    }
+    assertTrue(true);
+  }
+
+  @Test
+  public void createMoveSpriteSheet() throws IOException, NotExistentMoveException {
+    for (TwistyPuzzle puzzle : puzzleList) {
+      puzzle.resetPuzzle();
+      File out = new File("target/test-images/twisty/" + puzzle.getPuzzleName() + "/sprites.png");
+      out.getParentFile().mkdirs();
+      BufferedImage image = puzzle.getMoveSpriteSheet();
+      ImageIO.write(image, "PNG", out);
     }
     assertTrue(true);
   }

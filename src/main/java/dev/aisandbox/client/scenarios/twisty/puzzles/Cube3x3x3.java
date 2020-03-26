@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
-public class Cube3x3x3 implements TwistyPuzzle {
+public class Cube3x3x3 extends CubePuzzle implements TwistyPuzzle {
 
   // screen constants
   private static final int SCREEN_WIDTH = 1920;
@@ -27,6 +27,7 @@ public class Cube3x3x3 implements TwistyPuzzle {
   private final Map<String, Polygon> cells = new HashMap<>();
   private final String solvedState;
   private final List<String> moveList;
+  private final Map<String, BufferedImage> moveImageMap = new HashMap<>();
   // state settings
   private Map<String, Character> currentState = new LinkedHashMap<>();
 
@@ -560,5 +561,68 @@ public class Cube3x3x3 implements TwistyPuzzle {
           g.drawPolygon(polygon);
         });
     return image;
+  }
+
+  @Override
+  public BufferedImage getMoveImage(String move) {
+
+    int WIDTH = 80;
+    int HEIGHT = 120;
+
+    BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
+    Graphics2D g = image.createGraphics();
+    g.setColor(Color.LIGHT_GRAY);
+    g.fillRect(0, 0, WIDTH, HEIGHT);
+
+    Font font = new Font(Font.SANS_SERIF, Font.BOLD, 14);
+    // Get the FontMetrics
+    FontMetrics metrics = g.getFontMetrics(font);
+    // Determine the X coordinate for the text
+    int dx = (metrics.stringWidth(move)) / 2;
+    // Determine the Y coordinate for the text (note we add the ascent, as in java 2d 0 is top of
+    // the screen)
+    int dy = ((metrics.getHeight()) / 2) + metrics.getAscent();
+    // Set the font
+    g.setFont(font);
+    g.setColor(Color.BLACK);
+    // Draw the String
+    g.drawString(move, WIDTH / 2 - dx, HEIGHT - 2);
+
+    return image;
+  }
+
+  public final int MOVE_ICON_WIDTH = 60;
+  public final int MOVE_ICON_HEIGHT = 100;
+
+  public final int MOVE_SPRITESHEET_WIDTH = 6;
+
+  @Override
+  public BufferedImage getMoveSpriteSheet() {
+    // generate sprite sheet with all the move icons
+    int num = moveList.size();
+    BufferedImage sheet =
+        new BufferedImage(
+            MOVE_SPRITESHEET_WIDTH * MOVE_ICON_WIDTH,
+            MOVE_ICON_HEIGHT * (int) Math.ceil(num * 1.0 / MOVE_SPRITESHEET_WIDTH),
+            BufferedImage.TYPE_INT_RGB);
+    Graphics2D g = sheet.createGraphics();
+    Font font = new Font(Font.SANS_SERIF, Font.BOLD, 14);
+    g.setFont(font);
+    // Get the FontMetrics
+    FontMetrics metrics = g.getFontMetrics(font);
+    for (int i = 0; i < moveList.size(); i++) {
+      String move = moveList.get(i);
+      int x = (i % MOVE_SPRITESHEET_WIDTH) * MOVE_ICON_WIDTH;
+      int y = (i / MOVE_SPRITESHEET_WIDTH) * MOVE_ICON_HEIGHT;
+      g.setColor(Color.white);
+      g.fillRect(x, y, MOVE_ICON_WIDTH, MOVE_ICON_HEIGHT);
+      // Determine the X coordinate for the text
+      int dx = (metrics.stringWidth(move)) / 2;
+      // Set the font
+      g.setColor(Color.BLACK);
+      // Draw the String
+      g.drawString(move, x + dx, y + MOVE_ICON_HEIGHT - 2);
+    }
+    return sheet;
   }
 }
