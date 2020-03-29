@@ -26,5 +26,5 @@ public interface TwistyPuzzle {
 
   public BufferedImage getMoveImage(String move);
 
-  public BufferedImage getMoveSpriteSheet();
+  public BufferedImage createMoveSpriteSheet();
 }

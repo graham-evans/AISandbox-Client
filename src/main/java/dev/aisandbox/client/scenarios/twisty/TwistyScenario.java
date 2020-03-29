@@ -8,7 +8,6 @@ import dev.aisandbox.client.scenarios.Scenario;
 import dev.aisandbox.client.scenarios.ScenarioType;
 import java.util.List;
 import java.util.Random;
-
 import lombok.Data;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

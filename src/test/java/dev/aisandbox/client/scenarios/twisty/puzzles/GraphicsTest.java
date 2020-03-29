@@ -46,12 +46,16 @@ public class GraphicsTest {
         out.getParentFile().mkdirs();
         puzzle.applyMove(move);
         BufferedImage image = puzzle.getStateImage();
+
         ImageIO.write(image, "PNG", out);
         // move image
         out =
             new File(
                 "target/test-images/twisty/" + puzzle.getPuzzleName() + "/" + move + "-icon.png");
-        ImageIO.write(puzzle.getMoveImage(move), "PNG", out);
+        image = puzzle.getMoveImage(move);
+        if (image != null) {
+          ImageIO.write(image, "PNG", out);
+        }
       }
     }
     assertTrue(true);
@@ -63,7 +67,7 @@ public class GraphicsTest {
       puzzle.resetPuzzle();
       File out = new File("target/test-images/twisty/" + puzzle.getPuzzleName() + "/sprites.png");
       out.getParentFile().mkdirs();
-      BufferedImage image = puzzle.getMoveSpriteSheet();
+      BufferedImage image = puzzle.createMoveSpriteSheet();
       ImageIO.write(image, "PNG", out);
     }
     assertTrue(true);

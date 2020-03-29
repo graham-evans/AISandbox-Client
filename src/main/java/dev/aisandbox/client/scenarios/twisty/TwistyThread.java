@@ -87,15 +87,19 @@ public class TwistyThread extends Thread {
           request.setPuzzleType(puzzleType.toString());
           request.setMoves(twistyPuzzle.getMoveList());
           request.setState(twistyPuzzle.getState());
+          log.info("Requesting new actions from state {}", twistyPuzzle.getState());
           // TODO - include history
           TwistyResponse response = agent.postRequest(request, TwistyResponse.class);
           actions.addAll(Arrays.asList(response.getMove().trim().split(" ")));
+          log.info("Action list now '{}'", actions);
         }
         // perform actions
         if (!actions.isEmpty()) {
           String action = actions.remove(0);
           // TODO count move scores
+          log.info("Applying move '{}'", action);
           twistyPuzzle.applyMove(action);
+          log.info("State now {}", twistyPuzzle.getState());
           // draw current state
           image = renderPuzzle(twistyPuzzle);
           controller.updateBoardImage(image);

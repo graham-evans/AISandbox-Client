@@ -30,7 +30,7 @@ public class SpriteLoader {
     }
   }
 
-  private List<BufferedImage> loadSpritesFromResources(String path, int width, int height)
+  public static List<BufferedImage> loadSpritesFromResources(String path, int width, int height)
       throws IOException {
     BufferedImage sheet = ImageIO.read(SpriteLoader.class.getResourceAsStream(path));
     List<BufferedImage> images = new ArrayList<>();
