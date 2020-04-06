@@ -9,7 +9,9 @@ import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.Polygon;
+import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -355,9 +357,27 @@ public abstract class CubePuzzle implements TwistyPuzzle {
             MOVE_SPRITESHEET_WIDTH * MOVE_ICON_WIDTH,
             MOVE_ICON_HEIGHT * (int) Math.ceil(num * 1.0 / MOVE_SPRITESHEET_WIDTH),
             BufferedImage.TYPE_INT_RGB);
+    // work out how big to draw the cube
+    int cubeBoxSize = (MOVE_ICON_WIDTH - 4) / size;
+    int cubeMarginX = (MOVE_ICON_WIDTH - size * cubeBoxSize) / 2;
+    int cubeMarginY = (MOVE_ICON_HEIGHT - 20 - size * cubeBoxSize) / 2;
+    // load the background arrows
+    List<BufferedImage> arrows = null;
+    try {
+      arrows =
+          SpriteLoader.loadSpritesFromResources(
+              "/dev/aisandbox/client/scenarios/twisty/arrows.png",
+              MOVE_ICON_WIDTH,
+              MOVE_ICON_HEIGHT);
+    } catch (IOException e) {
+      log.error("Error loading arrows", e);
+    }
+
     Graphics2D g = sheet.createGraphics();
     Font font = new Font(Font.SANS_SERIF, Font.BOLD, 14);
     g.setFont(font);
+    g.setRenderingHint(
+        RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_GASP);
     // Get the FontMetrics
     FontMetrics metrics = g.getFontMetrics(font);
     for (int i = 0; i < moveList.size(); i++) {
@@ -367,13 +387,128 @@ public abstract class CubePuzzle implements TwistyPuzzle {
       g.setColor(Color.white);
       g.fillRect(x, y, MOVE_ICON_WIDTH, MOVE_ICON_HEIGHT);
       // Determine the X coordinate for the text
-      int dx = (metrics.stringWidth(move)) / 2;
+      int dx = (MOVE_ICON_WIDTH - metrics.stringWidth(move)) / 2;
       // Set the font
       g.setColor(Color.BLACK);
       // Draw the String
       g.drawString(move, x + dx, y + MOVE_ICON_HEIGHT - 4);
+      // cube background
+      g.setColor(Color.LIGHT_GRAY);
+      if (move.matches(".*F.*")) {
+        g.fillRect(x + cubeMarginX, y + cubeMarginY, size * cubeBoxSize, size * cubeBoxSize);
+      }
+      if (move.matches(".*U.*")) {
+        int levels = parseLevels(move);
+        g.fillRect(x + cubeMarginX, y + cubeMarginY, size * cubeBoxSize, levels * cubeBoxSize);
+      }
+      if (move.matches(".*R.*")) {
+        int levels = parseLevels(move);
+        g.fillRect(
+            x + cubeMarginX + (size - levels) * cubeBoxSize,
+            y + cubeMarginY,
+            levels * cubeBoxSize,
+            size * cubeBoxSize);
+      }
+      if (move.matches(".*L.*")) {
+        int levels = parseLevels(move);
+        g.fillRect(x + cubeMarginX, y + cubeMarginY, levels * cubeBoxSize, size * cubeBoxSize);
+      }
+      if (move.matches(".*D.*")) {
+        int levels = parseLevels(move);
+        g.fillRect(
+            x + cubeMarginX,
+            y + cubeMarginY + (size - levels) * cubeBoxSize,
+            size * cubeBoxSize,
+            levels * cubeBoxSize);
+      }
+      if (move.startsWith("x") || (move.startsWith("y")) || (move.startsWith("z"))) {
+        g.fillRect(x + cubeMarginX, y + cubeMarginY, size * cubeBoxSize, size * cubeBoxSize);
+      }
+      // draw the cube
+      g.setColor(Color.DARK_GRAY);
+      for (int cx = 0; cx < size; cx++) {
+        for (int cy = 0; cy < size; cy++) {
+          g.drawRect(
+              x + cx * cubeBoxSize + cubeMarginX,
+              y + cy * cubeBoxSize + cubeMarginY,
+              cubeBoxSize,
+              cubeBoxSize);
+        }
+      }
+      // draw arrows
+      String arrow = move.replaceAll("[0-9w]", "");
+      switch (arrow) {
+        case "F":
+          g.drawImage(arrows.get(12), x, y, null);
+          break;
+        case "F'":
+          g.drawImage(arrows.get(13), x, y, null);
+          break;
+        case "B":
+          g.drawImage(arrows.get(13), x, y, null);
+          break;
+        case "B'":
+          g.drawImage(arrows.get(12), x, y, null);
+          break;
+        case "U":
+          g.drawImage(arrows.get(7), x, y, null);
+          break;
+        case "U'":
+          g.drawImage(arrows.get(6), x, y, null);
+          break;
+        case "R":
+          g.drawImage(arrows.get(4), x, y, null);
+          break;
+        case "R'":
+          g.drawImage(arrows.get(5), x, y, null);
+          break;
+        case "L":
+          g.drawImage(arrows.get(9), x, y, null);
+          break;
+        case "L'":
+          g.drawImage(arrows.get(8), x, y, null);
+          break;
+        case "D":
+          g.drawImage(arrows.get(11), x, y, null);
+          break;
+        case "D'":
+          g.drawImage(arrows.get(10), x, y, null);
+          break;
+        case "x":
+          g.drawImage(arrows.get(0), x, y, null);
+          break;
+        case "x'":
+          g.drawImage(arrows.get(1), x, y, null);
+          break;
+        case "y":
+          g.drawImage(arrows.get(3), x, y, null);
+          break;
+        case "y'":
+          g.drawImage(arrows.get(2), x, y, null);
+          break;
+        case "z":
+          g.drawImage(arrows.get(12), x, y, null);
+          break;
+        case "z'":
+          g.drawImage(arrows.get(13), x, y, null);
+          break;
+        default:
+          log.warn("Can't draw arrow for move class '{}'", arrow);
+      }
     }
     return sheet;
+  }
+
+  private static int parseLevels(String move) {
+    int level = 1;
+    if (move.matches(".*w.*")) {
+      level = 2;
+      String num = move.replaceAll("^([0-9]*).*", "$1");
+      if (num.length() > 0) {
+        level = Integer.parseInt(num);
+      }
+    }
+    return level;
   }
 
   @Override
