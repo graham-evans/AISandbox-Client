@@ -31,6 +31,11 @@ public abstract class CubePuzzle implements TwistyPuzzle {
   private static final int SCREEN_LEFT_MARGIN = 40;
   private static final int SCREEN_RIGHT_MARGIN = 40;
   private static final int FACE_SEPERATION = 20;
+  // move icons
+  public static final int MOVE_ICON_WIDTH = 60;
+  public static final int MOVE_ICON_HEIGHT = 100;
+  public static final int MOVE_SPRITESHEET_WIDTH = 6;
+
   // puzzle settings - once setup they dont get changed
   private final int size;
   private final Map<Character, Color> colorMap = new HashMap<>();
@@ -342,11 +347,6 @@ public abstract class CubePuzzle implements TwistyPuzzle {
         });
     return image;
   }
-
-  public final int MOVE_ICON_WIDTH = 60;
-  public final int MOVE_ICON_HEIGHT = 100;
-
-  public final int MOVE_SPRITESHEET_WIDTH = 6;
 
   @Override
   public BufferedImage createMoveSpriteSheet() {

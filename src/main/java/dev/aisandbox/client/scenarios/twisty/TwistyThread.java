@@ -8,6 +8,7 @@ import dev.aisandbox.client.scenarios.maze.MazeRunner;
 import dev.aisandbox.client.scenarios.twisty.api.TwistyRequest;
 import dev.aisandbox.client.scenarios.twisty.api.TwistyResponse;
 import dev.aisandbox.client.scenarios.twisty.puzzles.Cube3x3x3;
+import dev.aisandbox.client.scenarios.twisty.puzzles.CubePuzzle;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -30,6 +31,11 @@ public class TwistyThread extends Thread {
   private final Long maxStepCount;
   private BufferedImage logo;
   private static final int SCRAMBLE_MOVES = 200;
+
+  private List<String> moveHistory = new ArrayList<>();
+  private static final int HISTORY_WIDTH = 9;
+  private static final int HISTORY_HEIGHT = 5;
+  private static final int MOVE_HISTORY_MAX = HISTORY_WIDTH * HISTORY_HEIGHT;
 
   @Getter private boolean running = false;
 
@@ -65,11 +71,11 @@ public class TwistyThread extends Thread {
   @Override
   public void run() {
     running = true;
+    // setup puzzle
+    TwistyPuzzle twistyPuzzle = new Cube3x3x3();
     try {
       // setup agent
       agent.setupAgent();
-      // setup puzzle
-      TwistyPuzzle twistyPuzzle = new Cube3x3x3();
       // scramble the puzzle
       scramblePuzzle(twistyPuzzle);
       // save the cell colours - just in case we want to reset the puzzle
@@ -99,6 +105,10 @@ public class TwistyThread extends Thread {
           // TODO count move scores
           log.info("Applying move '{}'", action);
           twistyPuzzle.applyMove(action);
+          moveHistory.add(action);
+          while (moveHistory.size() > MOVE_HISTORY_MAX) {
+            moveHistory.remove(0);
+          }
           log.info("State now {}", twistyPuzzle.getState());
           // draw current state
           image = renderPuzzle(twistyPuzzle);
@@ -123,6 +133,8 @@ public class TwistyThread extends Thread {
     } catch (IOException e) {
       log.error("IO Error running simulation", e);
     }
+    // update the board just in case the screen isn't up-to-date
+    controller.forceUpdateBoardImage(renderPuzzle(twistyPuzzle));
     running = false;
     controller.resetStartButton();
   }
@@ -143,6 +155,17 @@ public class TwistyThread extends Thread {
     Graphics2D g = image.createGraphics();
     // add logo
     g.drawImage(logo, 100, 50, null);
+    // draw history
+    for (int i = 0; i < moveHistory.size(); i++) {
+      BufferedImage moveImage = puzzle.getMoveImage(moveHistory.get(i));
+      if (moveImage != null) {
+        g.drawImage(
+            moveImage,
+            (i % HISTORY_WIDTH) * CubePuzzle.MOVE_ICON_WIDTH + 1350,
+            (i / HISTORY_WIDTH) * CubePuzzle.MOVE_ICON_HEIGHT + 600,
+            null);
+      }
+    }
     // TODO draw move history and graphs
     return image;
   }

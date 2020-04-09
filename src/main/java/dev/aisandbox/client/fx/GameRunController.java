@@ -217,6 +217,21 @@ public class GameRunController {
     }
   }
 
+  /**
+   * Method to force the update the on-screen view of the simulation
+   *
+   * <p>This can be called from any thread, and will wait until the FX thread is free.
+   *
+   * @param image The pre-drawn {@link java.awt.image.BufferedImage} to display.
+   */
+  public void forceUpdateBoardImage(BufferedImage image) {
+    Platform.runLater(
+        () -> {
+          imageView.setImage(SwingFXUtils.toFXImage(image, null));
+          imageReady.set(true);
+        });
+  }
+
   public void resetStartButton() {
     Platform.runLater(
         () -> {
