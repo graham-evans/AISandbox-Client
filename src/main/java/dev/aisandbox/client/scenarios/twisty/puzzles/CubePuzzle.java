@@ -15,9 +15,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -328,9 +330,30 @@ public abstract class CubePuzzle implements TwistyPuzzle {
     }
   }
 
+  /**
+   * A cube is solved if all sides are the same colour - rotation doesn't matter
+   *
+   * @return
+   */
   @Override
   public boolean isSolved() {
-    return getState().equals(solvedState);
+    // iterate through all tiles matching the colour with other tiles on the same face
+    Map<Character, Character> faceColourMap = new HashMap<>();
+    Iterator<Entry<String, Character>> iterator = currentState.entrySet().iterator();
+    while (iterator.hasNext()) {
+      Map.Entry<String, Character> entry = iterator.next();
+      char face = entry.getKey().charAt(0);
+      if (faceColourMap.containsKey(face)) {
+        // we've already looked at this face
+        if (entry.getValue() != faceColourMap.get(face)) {
+          // colour dont match - cube not solved
+          return false;
+        }
+      } else {
+        faceColourMap.put(face, entry.getValue());
+      }
+    }
+    return true;
   }
 
   @Override
