@@ -116,7 +116,10 @@ public class TwistyThread extends Thread {
           output.addFrame(image);
         }
         if (twistyPuzzle.isSolved()) {
+          log.info("Puzzle solved, resetting");
           // TODO register goal
+          // clear history
+          moveHistory.clear();
           // scramble
           scramblePuzzle(twistyPuzzle);
           savedPuzzle = twistyPuzzle.getState();
@@ -162,7 +165,7 @@ public class TwistyThread extends Thread {
         g.drawImage(
             moveImage,
             (i % HISTORY_WIDTH) * CubePuzzle.MOVE_ICON_WIDTH + 1350,
-            (i / HISTORY_WIDTH) * CubePuzzle.MOVE_ICON_HEIGHT + 600,
+            (i / HISTORY_WIDTH) * CubePuzzle.MOVE_ICON_HEIGHT + 550,
             null);
       }
     }
