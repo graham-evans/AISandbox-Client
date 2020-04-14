@@ -4,6 +4,7 @@ import dev.aisandbox.client.agent.Agent;
 import dev.aisandbox.client.agent.AgentException;
 import dev.aisandbox.client.fx.GameRunController;
 import dev.aisandbox.client.output.FrameOutput;
+import dev.aisandbox.client.output.charts.FrequencyMassDistributionGraph;
 import dev.aisandbox.client.scenarios.maze.MazeRunner;
 import dev.aisandbox.client.scenarios.twisty.api.TwistyRequest;
 import dev.aisandbox.client.scenarios.twisty.api.TwistyResponse;
@@ -36,6 +37,7 @@ public class TwistyThread extends Thread {
   private static final int HISTORY_WIDTH = 9;
   private static final int HISTORY_HEIGHT = 5;
   private static final int MOVE_HISTORY_MAX = HISTORY_WIDTH * HISTORY_HEIGHT;
+  private FrequencyMassDistributionGraph frequencyGraph = new FrequencyMassDistributionGraph();
 
   @Getter private boolean running = false;
 
@@ -58,6 +60,8 @@ public class TwistyThread extends Thread {
     } catch (IOException e) {
       log.error("Error loading logo", e);
     }
+    // setup graph
+    frequencyGraph.setTitle("Move Frequency");
   }
 
   private void scramblePuzzle(TwistyPuzzle twistyPuzzle) throws NotExistentMoveException {
@@ -82,6 +86,8 @@ public class TwistyThread extends Thread {
       String savedPuzzle = twistyPuzzle.getState();
       // create an (empty) list of actions
       List<String> actions = new ArrayList<>();
+      // count the number of moves made
+      int moves = 0;
       // draw current state
       BufferedImage image = renderPuzzle(twistyPuzzle);
       controller.updateBoardImage(image);
@@ -102,9 +108,8 @@ public class TwistyThread extends Thread {
         // perform actions
         if (!actions.isEmpty()) {
           String action = actions.remove(0);
-          // TODO count move scores
           log.info("Applying move '{}'", action);
-          twistyPuzzle.applyMove(action);
+          moves += twistyPuzzle.applyMove(action);
           moveHistory.add(action);
           while (moveHistory.size() > MOVE_HISTORY_MAX) {
             moveHistory.remove(0);
@@ -118,7 +123,10 @@ public class TwistyThread extends Thread {
         if (twistyPuzzle.isSolved()) {
           log.info("Puzzle solved, resetting");
           // TODO register goal
+          frequencyGraph.addValue(moves);
+          frequencyGraph.resetGraph();
           // clear history
+          moves = 0;
           moveHistory.clear();
           // scramble
           scramblePuzzle(twistyPuzzle);
@@ -169,7 +177,9 @@ public class TwistyThread extends Thread {
             null);
       }
     }
-    // TODO draw move history and graphs
+    if (frequencyGraph.getImage() != null) {
+      g.drawImage(frequencyGraph.getImage(), 1350, 100, null);
+    }
     return image;
   }
 }
