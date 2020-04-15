@@ -53,7 +53,7 @@ public class BaseChart {
   double verticalScale = 1.0;
 
   /**
-   * Redraw the graph outline (headers & axis) based on the current lowestX, highestX, lowestY,
+   * Redraw the graph outline (headers and axis) based on the current lowestX, highestX, lowestY,
    * highestY.
    *
    * <p>Note: this may update the lowestY,highestY.
