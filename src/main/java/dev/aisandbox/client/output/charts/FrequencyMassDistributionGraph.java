@@ -27,8 +27,8 @@ public class FrequencyMassDistributionGraph extends BaseChart {
     return frequencyTable.getUniqueCount();
   }
 
-  public int getMode() {
-    return 0; // (int) frequencyTable.getMode().get(0);
+  public double getStandardDeviation() {
+    return statistics.getStandardDeviation();
   }
 
   public double getMean() {
