@@ -47,6 +47,30 @@ public class BaseChartTests {
   }
 
   @Test
+  public void looseNumTests() {
+    List<Double> ticks = BaseChart.looseLabel(105.0, 543.0);
+    assertEquals("Length", 6, ticks.size());
+    assertEquals(100.0, ticks.get(0), 0.00001);
+    assertEquals(200.0, ticks.get(1), 0.00001);
+    assertEquals(300.0, ticks.get(2), 0.00001);
+    assertEquals(400.0, ticks.get(3), 0.00001);
+    assertEquals(500.0, ticks.get(4), 0.00001);
+    assertEquals(600.0, ticks.get(5), 0.00001);
+  }
+
+  @Test
+  public void tightNumTests() {
+    List<Double> ticks = BaseChart.tightLabel(105.0, 543.0);
+    assertEquals("Length", 6, ticks.size());
+    assertEquals(105.0, ticks.get(0), 0.00001);
+    assertEquals(200.0, ticks.get(1), 0.00001);
+    assertEquals(300.0, ticks.get(2), 0.00001);
+    assertEquals(400.0, ticks.get(3), 0.00001);
+    assertEquals(500.0, ticks.get(4), 0.00001);
+    assertEquals(543.0, ticks.get(5), 0.00001);
+  }
+
+  @Test
   public void baseChart500x350() throws IOException {
     BaseChart renderer = new BaseChart();
     renderer.resetGraph();
