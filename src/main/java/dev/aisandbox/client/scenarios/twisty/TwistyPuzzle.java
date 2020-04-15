@@ -1,6 +1,6 @@
 package dev.aisandbox.client.scenarios.twisty;
 
-import java.awt.*;
+import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.util.List;
 import java.util.Map;

@@ -101,8 +101,8 @@ public class TwistyThread extends Thread {
     }
     // setup graph
     frequencyGraph.setTitle("# Moves to solve");
-    frequencyGraph.setXAxisHeader("# Moves");
-    frequencyGraph.setYAxisHeader("Frequency");
+    frequencyGraph.setXaxisHeader("# Moves");
+    frequencyGraph.setYaxisHeader("Frequency");
     frequencyGraph.setGraphWidth(HISTORY_WIDTH * CubePuzzle.MOVE_ICON_WIDTH);
     frequencyGraph.setGraphHeight(350);
   }

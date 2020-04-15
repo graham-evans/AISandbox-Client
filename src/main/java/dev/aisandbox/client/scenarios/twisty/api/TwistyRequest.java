@@ -7,7 +7,7 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 
-/** TwistyRequest */
+/** Request object for Twisty API. */
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 @XmlRootElement(name = "TwistyRequest")

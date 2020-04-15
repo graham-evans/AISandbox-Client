@@ -26,8 +26,8 @@ public class BaseChart {
   @Getter @Setter int graphWidth = 500;
   @Getter @Setter int graphHeight = 350;
   @Getter @Setter private String title = "Graph Title";
-  @Getter @Setter private String xAxisHeader = "X Axis";
-  @Getter @Setter private String yAxisHeader = "Y Axis";
+  @Getter @Setter private String xaxisHeader = "X Axis";
+  @Getter @Setter private String yaxisHeader = "Y Axis";
   @Getter @Setter private Color backgroundColour = Color.WHITE;
   @Getter @Setter private Color titlesColour = Color.BLACK;
   @Getter @Setter private Font titleFont = new Font("Helvetica", Font.BOLD, 32);
@@ -46,10 +46,20 @@ public class BaseChart {
   double horizontalScale = 1.0;
   double verticalScale = 1.0;
 
+  /**
+   * Redraw the graph outline (headers & axis) based on the current lowestX, highestX, lowestY,
+   * highestY.
+   *
+   * <p>Note: this may update the lowestY,highestY.
+   */
   public void resetGraph() {
     // nudge min/max X/Y to avoid div/0
-    if (highestY == lowestY) highestY += 0.0001;
-    if (highestX == lowestX) highestX += 0.0001;
+    if (highestY == lowestY) {
+      highestY += 0.0001;
+    }
+    if (highestX == lowestX) {
+      highestX += 0.0001;
+    }
     // create new image and graphics context
     image = new BufferedImage(graphWidth, graphHeight, BufferedImage.TYPE_INT_RGB);
     graphics2D = image.createGraphics();
@@ -70,10 +80,10 @@ public class BaseChart {
     if (title != null) {
       topMargin += drawTitle();
     }
-    if (xAxisHeader != null) {
+    if (xaxisHeader != null) {
       bottomMargin += drawXAxisHeader();
     }
-    if (yAxisHeader != null) {
+    if (yaxisHeader != null) {
       leftMargin += drawYAxisHeader();
     }
     // draw Y axis
@@ -116,10 +126,10 @@ public class BaseChart {
     // get the height of a line
     int fheight = metrics.getHeight();
     // get the width of the text
-    int fwidth = metrics.stringWidth(xAxisHeader);
+    int fwidth = metrics.stringWidth(xaxisHeader);
     // get descent info
     int descent = metrics.getDescent();
-    graphics2D.drawString(xAxisHeader, (graphWidth - fwidth) / 2, graphHeight - descent);
+    graphics2D.drawString(xaxisHeader, (graphWidth - fwidth) / 2, graphHeight - descent);
     return fheight;
   }
 
@@ -132,10 +142,9 @@ public class BaseChart {
     // get the height of a line
     int fheight = metrics.getHeight();
     // get the width of the text
-    int fwidth = metrics.stringWidth(xAxisHeader);
-    // get ascent and descent info
+    int fwidth = metrics.stringWidth(xaxisHeader);
+    // get ascent info
     int ascent = metrics.getAscent();
-    int descent = metrics.getDescent();
     // save then rotate
     AffineTransform originalTransformation = graphics2D.getTransform();
     AffineTransform at = new AffineTransform();
@@ -144,7 +153,7 @@ public class BaseChart {
     at.rotate(Math.toRadians(-90));
     // at.setToRotation(Math.toRadians(-90), ascent, (height-fwidth)/2);
     graphics2D.setTransform(at);
-    graphics2D.drawString(yAxisHeader, 0, 0);
+    graphics2D.drawString(yaxisHeader, 0, 0);
     graphics2D.setTransform(originalTransformation);
     return fheight;
   }
@@ -161,15 +170,11 @@ public class BaseChart {
     int labelSizeX = 0;
     int labelSizeY = metrics.getHeight();
     for (String label : labels) {
-      //      labelSizeX = Math
-      //          .max(labelSizeX, (int) Math.ceil(metrics.getStringBounds(label,
-      // graphics2D).getWidth()));
       labelSizeX = Math.max(labelSizeX, metrics.stringWidth(label));
     }
     // adjust the highest and lowest to match the tick values
     lowestY = Math.min(lowestY, ticks.get(0));
     highestY = Math.max(highestY, ticks.get(ticks.size() - 1));
-
     // we know that the x axis will be lifted up - do this now
     bottomMargin += labelSizeY;
     bottomMargin += tickLength;

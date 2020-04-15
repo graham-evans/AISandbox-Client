@@ -48,9 +48,11 @@ public abstract class CubePuzzle implements TwistyPuzzle {
   // state settings
   private Map<String, Character> currentState = new LinkedHashMap<>();
 
-  private final Map<Character, Character> faceMap =
-      Map.of('U', 'W', 'D', 'Y', 'F', 'G', 'B', 'B', 'R', 'R', 'L', 'O');
-
+  /**
+   * 
+   * @param size the number of squares in each direction.
+   * @param spritePath the resource name for the spritemap
+   */
   public CubePuzzle(int size, String spritePath) {
     this.size = size;
     // populate colour Map
