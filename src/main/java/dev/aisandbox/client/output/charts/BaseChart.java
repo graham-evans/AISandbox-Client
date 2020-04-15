@@ -199,9 +199,9 @@ public class BaseChart {
 
   private void drawXAxis() {
     // work out the tick values
-    List<Double> ticks = looseLabel(lowestX, highestX);
+    List<Double> ticks = tightLabel(lowestX, highestX);
     List<String> labels = new ArrayList<>();
-    ticks.stream().forEach(tick -> labels.add(toSignificantDigitString(tick, 3)));
+    ticks.stream().forEach(tick -> labels.add(Integer.toString((int) Math.floor(tick))));
     log.info("adding labels at {}", labels);
     // work out the maximum label size
     FontMetrics metrics = graphics2D.getFontMetrics(valueFont);
@@ -211,9 +211,8 @@ public class BaseChart {
     for (String label : labels) {
       labelSizeX = Math.max(labelSizeX, metrics.stringWidth(label));
     }
-    // adjust the highest and lowest to match the tick values
-    lowestX = Math.min(lowestX, ticks.get(0));
-    highestX = Math.max(highestX, ticks.get(ticks.size() - 1));
+    // move the right hand margin so we can see all of the last label
+    rightMargin += labelSizeX / 2;
     // work out the scale
     horizontalScale = (graphWidth - leftMargin - rightMargin) / (highestX - lowestX);
     // draw the ticks + labels
@@ -273,6 +272,23 @@ public class BaseChart {
       tickMarks.add(value);
     }
     log.debug("Generating loose labels between {} and {}, found {}", min, max, tickMarks);
+    return tickMarks;
+  }
+
+  public static List<Double> tightLabel(double min, double max) {
+    List<Double> tickMarks = new ArrayList<>();
+    tickMarks.add(min);
+    double range = niceNum(max - min, NiceMode.ROUND);
+    double d = niceNum(range / (TICK_COUNT - 1), NiceMode.ROUND);
+    double graphmin = Math.ceil(min / d) * d;
+    double graphmax = Math.floor(max / d) * d;
+    int nfrac = Math.max(0, (int) -Math.floor(Math.log10(d)));
+
+    for (double value = graphmin; value <= (graphmax + 0.5 * d); value += d) {
+      tickMarks.add(value);
+    }
+    tickMarks.add(max);
+    log.info("Generating tight labels between {} and {}, found {}", min, max, tickMarks);
     return tickMarks;
   }
 
