@@ -34,6 +34,9 @@ import org.springframework.web.client.RestTemplate;
 @Slf4j
 public class Agent {
 
+  // TODO - this class uses RestTemplate it should be migrated to WebClient for more control over
+  // timeouts
+
   @Getter(AccessLevel.PROTECTED)
   private RestTemplate restTemplate = null;
 
