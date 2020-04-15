@@ -49,7 +49,6 @@ public abstract class CubePuzzle implements TwistyPuzzle {
   private Map<String, Character> currentState = new LinkedHashMap<>();
 
   /**
-   * 
    * @param size the number of squares in each direction.
    * @param spritePath the resource name for the spritemap
    */
