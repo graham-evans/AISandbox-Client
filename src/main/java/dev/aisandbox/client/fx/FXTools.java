@@ -1,14 +1,11 @@
 package dev.aisandbox.client.fx;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,25 +43,5 @@ public class FXTools {
     } catch (IOException e) {
       log.error("Error switching Javafx scenes", e);
     }
-  }
-
-  /**
-   * generateEnumCombo.
-   *
-   * @param eclass a T object.
-   * @return a {@link javafx.scene.control.ComboBox} object.
-   */
-  public static <T extends Enum> ComboBox<T> generateEnumCombo(T eclass) {
-    // create combu box
-    ComboBox<T> comboBox = new ComboBox<>();
-    // get a list of enums
-    Enum[] constList = eclass.getClass().getEnumConstants();
-    List<T> choiceList = new ArrayList<>();
-    // convert them to names
-    for (Enum c : constList) {
-      choiceList.add((T) c);
-    }
-    comboBox.getItems().setAll(choiceList);
-    return comboBox;
   }
 }
