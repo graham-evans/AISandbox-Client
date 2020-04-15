@@ -76,7 +76,7 @@ public class TwistyThread extends Thread {
         return new Cube10x10x10();
       default:
         log.error("Unknown puzzle type {}", t);
-        return null;
+        return new Cube3x3x3();
     }
   }
 

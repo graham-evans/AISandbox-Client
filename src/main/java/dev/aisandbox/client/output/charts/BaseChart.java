@@ -139,7 +139,8 @@ public class BaseChart {
     // save then rotate
     AffineTransform originalTransformation = graphics2D.getTransform();
     AffineTransform at = new AffineTransform();
-    at.translate(ascent, graphHeight - (graphHeight - fwidth) / 2);
+    at.translate(ascent, graphHeight - (graphHeight - fwidth) / 2.0);
+
     at.rotate(Math.toRadians(-90));
     // at.setToRotation(Math.toRadians(-90), ascent, (height-fwidth)/2);
     graphics2D.setTransform(at);
@@ -300,7 +301,7 @@ public class BaseChart {
   public static String toSignificantDigitString(double value, int significantDigits) {
     if (significantDigits < 0) throw new IllegalArgumentException();
     // this is more precise than simply doing "new BigDecimal(value);"
-    BigDecimal bd = new BigDecimal(value, MathContext.DECIMAL64);
+    BigDecimal bd = BigDecimal.valueOf(value);
     bd = bd.round(new MathContext(significantDigits, RoundingMode.HALF_UP));
     final int precision = bd.precision();
     if (precision < significantDigits)

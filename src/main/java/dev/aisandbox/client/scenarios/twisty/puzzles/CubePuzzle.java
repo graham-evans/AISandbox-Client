@@ -345,7 +345,7 @@ public abstract class CubePuzzle implements TwistyPuzzle {
       char face = entry.getKey().charAt(0);
       if (faceColourMap.containsKey(face)) {
         // we've already looked at this face
-        if (entry.getValue() != faceColourMap.get(face)) {
+        if (!entry.getValue().equals(faceColourMap.get(face))) {
           // colour dont match - cube not solved
           return false;
         }
