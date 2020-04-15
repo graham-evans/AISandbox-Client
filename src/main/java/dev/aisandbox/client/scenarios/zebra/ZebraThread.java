@@ -9,6 +9,12 @@ import lombok.Setter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * ZebraThread class.
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 public class ZebraThread extends Thread {
   private static final Logger LOG = LoggerFactory.getLogger(ZebraThread.class);
   private final Random rand;
@@ -19,6 +25,17 @@ public class ZebraThread extends Thread {
   private final boolean multipleGuesses;
   private final long maxSteps;
 
+  /**
+   * Constructor for ZebraThread.
+   *
+   * @param agent a {@link dev.aisandbox.client.agent.Agent} object.
+   * @param output a {@link dev.aisandbox.client.output.FrameOutput} object.
+   * @param controller a {@link dev.aisandbox.client.fx.GameRunController} object.
+   * @param randomSalt a long.
+   * @param multipleGuesses a boolean.
+   * @param size a {@link dev.aisandbox.client.scenarios.zebra.ZebraPuzzleDifficultyEnum} object.
+   * @param maxSteps a long.
+   */
   public ZebraThread(
       Agent agent,
       FrameOutput output,
@@ -42,6 +59,7 @@ public class ZebraThread extends Thread {
 
   @Getter @Setter private boolean running = false;
 
+  /** {@inheritDoc} */
   @Override
   public void run() {
     running = true;
@@ -66,6 +84,7 @@ public class ZebraThread extends Thread {
     running = false;
   }
 
+  /** stopSimulation. */
   protected void stopSimulation() {
     running = false;
     try {

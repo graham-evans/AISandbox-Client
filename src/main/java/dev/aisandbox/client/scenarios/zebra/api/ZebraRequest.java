@@ -7,6 +7,12 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 
+/**
+ * ZebraRequest class.
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 @XmlRootElement(name = "ZebraRequest")

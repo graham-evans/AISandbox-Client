@@ -2,6 +2,12 @@ package dev.aisandbox.client.agent;
 
 import lombok.Getter;
 
+/**
+ * AgentParserException class.
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 public class AgentParserException extends AgentException {
 
   @Getter private final int responseCode;

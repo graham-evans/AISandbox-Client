@@ -1,5 +1,11 @@
 package dev.aisandbox.client.scenarios.mine;
 
+/**
+ * SizeEnum class.
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 public enum SizeEnum {
   SMALL {
     @Override

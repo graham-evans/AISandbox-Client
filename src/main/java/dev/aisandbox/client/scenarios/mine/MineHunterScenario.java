@@ -16,6 +16,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+/**
+ * MineHunterScenario class.
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 @Component
 public class MineHunterScenario implements Scenario {
 
@@ -26,51 +32,61 @@ public class MineHunterScenario implements Scenario {
   @Getter @Setter private Long scenarioSalt = 0l;
   @Getter @Setter private SizeEnum mineHunterBoardSize = SizeEnum.MEDIUM;
 
+  /** {@inheritDoc} */
   @Override
   public ScenarioType getGroup() {
     return ScenarioType.INTRODUCTION;
   }
 
+  /** {@inheritDoc} */
   @Override
   public String getName() {
     return "Mine Hunter";
   }
 
+  /** {@inheritDoc} */
   @Override
   public String getOverview() {
     return "Find the mines in a grid using deduction";
   }
 
+  /** {@inheritDoc} */
   @Override
   public String getDescription() {
     return "Mine Hunter pits the AI against a minefield! A known quantity of mines has been distributed across a grid of squares and the AI agent must work out where they are. To help, each uncovered square will show how many mines are in the surrounding squares.";
   }
 
+  /** {@inheritDoc} */
   @Override
   public int getMinAgentCount() {
     return 1;
   }
 
+  /** {@inheritDoc} */
   @Override
   public int getMaxAgentCount() {
     return 1;
   }
 
+  /** {@inheritDoc} */
   @Override
   public String getImageReference() {
     return "/dev/aisandbox/client/scenarios/mine/sample.png";
   }
 
+  /** {@inheritDoc} */
   @Override
   public String getScenarioURL() {
     return "https://aisandbox.dev/scenarios-mine/";
   }
 
+  /** {@inheritDoc} */
   @Override
   public String getSwaggerURL() {
     return "https://files.aisandbox.dev/swagger/mine.yaml";
   }
 
+  /** {@inheritDoc} */
   @Override
   public boolean isBeta() {
     return false;
@@ -80,6 +96,7 @@ public class MineHunterScenario implements Scenario {
 
   @NonVisual private MineHunterThread thread = null;
 
+  /** {@inheritDoc} */
   @Override
   public void startSimulation(
       List<Agent> agentList, GameRunController ui, FrameOutput output, Long stepCount) {
@@ -97,6 +114,7 @@ public class MineHunterScenario implements Scenario {
     thread.start();
   }
 
+  /** {@inheritDoc} */
   @Override
   public void stopSimulation() {
     if (thread != null) {
@@ -104,6 +122,7 @@ public class MineHunterScenario implements Scenario {
     }
   }
 
+  /** {@inheritDoc} */
   @Override
   public void joinSimulation() {
     LOG.info("Joining simulation");
@@ -119,6 +138,7 @@ public class MineHunterScenario implements Scenario {
     }
   }
 
+  /** {@inheritDoc} */
   @Override
   public boolean isSimulationRunning() {
     if (thread == null) {

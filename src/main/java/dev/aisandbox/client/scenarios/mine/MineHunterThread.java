@@ -26,6 +26,12 @@ import lombok.Setter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * MineHunterThread class.
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 public class MineHunterThread extends Thread {
 
   private static final Logger LOG = LoggerFactory.getLogger(MineHunterThread.class.getName());
@@ -49,6 +55,17 @@ public class MineHunterThread extends Thread {
 
   Font myFont = new Font("Sans-Serif", Font.PLAIN, 28);
 
+  /**
+   * Constructor for MineHunterThread.
+   *
+   * @param agent a {@link dev.aisandbox.client.agent.Agent} object.
+   * @param output a {@link dev.aisandbox.client.output.FrameOutput} object.
+   * @param controller a {@link dev.aisandbox.client.fx.GameRunController} object.
+   * @param random a {@link java.util.Random} object.
+   * @param loader a {@link dev.aisandbox.client.sprite.SpriteLoader} object.
+   * @param size a {@link dev.aisandbox.client.scenarios.mine.SizeEnum} object.
+   * @param maxSteps a {@link java.lang.Long} object.
+   */
   public MineHunterThread(
       Agent agent,
       FrameOutput output,
@@ -77,6 +94,7 @@ public class MineHunterThread extends Thread {
 
   @Getter @Setter private boolean running = false;
 
+  /** {@inheritDoc} */
   @Override
   public void run() {
     try {
@@ -243,6 +261,7 @@ public class MineHunterThread extends Thread {
     return image;
   }
 
+  /** stopSimulation. */
   protected void stopSimulation() {
     running = false;
     try {

@@ -5,13 +5,18 @@ import dev.aisandbox.client.fx.GameRunController;
 import dev.aisandbox.client.output.FrameOutput;
 import java.util.List;
 
-/** Interface class for describing and launching a scenario. */
+/**
+ * Interface class for describing and launching a scenario.
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 public interface Scenario {
 
   /**
    * The type of scenario (used for grouping and colour-coding).
    *
-   * @return a {@link ScenarioType} for this scenario
+   * @return a {@link dev.aisandbox.client.scenarios.ScenarioType} for this scenario
    */
   public ScenarioType getGroup();
 
@@ -60,10 +65,10 @@ public interface Scenario {
   /**
    * startSimulation.
    *
-   * @param agentList a {@link List} object.
-   * @param ui a {@link GameRunController} object.
-   * @param output a {@link FrameOutput} object.
-   * @param stepCount
+   * @param agentList a {@link java.util.List} object.
+   * @param ui a {@link dev.aisandbox.client.fx.GameRunController} object.
+   * @param output a {@link dev.aisandbox.client.output.FrameOutput} object.
+   * @param stepCount a {@link java.lang.Long} object.
    */
   public void startSimulation(
       List<Agent> agentList, GameRunController ui, FrameOutput output, Long stepCount);
@@ -78,11 +83,27 @@ public interface Scenario {
    */
   public boolean isSimulationRunning();
 
+  /** joinSimulation. */
   public void joinSimulation();
 
+  /**
+   * getScenarioURL.
+   *
+   * @return a {@link java.lang.String} object.
+   */
   public String getScenarioURL();
 
+  /**
+   * getSwaggerURL.
+   *
+   * @return a {@link java.lang.String} object.
+   */
   public String getSwaggerURL();
 
+  /**
+   * isBeta.
+   *
+   * @return a boolean.
+   */
   public boolean isBeta();
 }

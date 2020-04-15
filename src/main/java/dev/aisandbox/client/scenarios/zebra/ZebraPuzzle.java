@@ -20,6 +20,9 @@ import org.slf4j.LoggerFactory;
  * A class representing an entire Zebra puzzle.
  *
  * <p>This consists of three seperate parts
+ *
+ * @author gde
+ * @version $Id: $Id
  */
 public class ZebraPuzzle {
 
@@ -31,6 +34,13 @@ public class ZebraPuzzle {
 
   private final Template template;
 
+  /**
+   * Constructor for ZebraPuzzle.
+   *
+   * @param rand a {@link java.util.Random} object.
+   * @param characteristicCount a int.
+   * @param houses a int.
+   */
   public ZebraPuzzle(Random rand, int characteristicCount, int houses) {
     this.rand = rand;
     this.characteristicCount = characteristicCount;
@@ -44,6 +54,7 @@ public class ZebraPuzzle {
    */
   private int[][] solution;
 
+  /** generateSolution. */
   public void generateSolution() {
     solution = new int[characteristicCount][houses];
     // generate a list of houses
@@ -60,6 +71,13 @@ public class ZebraPuzzle {
     }
   }
 
+  /**
+   * getCharacteristicObject.
+   *
+   * @param characteristicNumber a int.
+   * @param houseNumber a int.
+   * @return a {@link dev.aisandbox.client.scenarios.zebra.vo.CharacteristicObject} object.
+   */
   public CharacteristicObject getCharacteristicObject(int characteristicNumber, int houseNumber) {
     return template
         .getCharacteristics()
@@ -73,6 +91,7 @@ public class ZebraPuzzle {
   @Getter(AccessLevel.PROTECTED)
   private List<Clue> rawClueList = new ArrayList<>();
 
+  /** generateClues. */
   public void generateClues() {
     // generate the model
     Model model = new Model();

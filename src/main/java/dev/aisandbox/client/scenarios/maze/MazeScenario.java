@@ -37,6 +37,7 @@ public class MazeScenario implements Scenario {
   @Getter @Setter private MazeType mazeType = MazeType.BINARYTREE;
   @Getter @Setter private MazeSize mazeSize = MazeSize.MEDIUM;
 
+  /** {@inheritDoc} */
   @Override
   public ScenarioType getGroup() {
     return ScenarioType.INTRODUCTION;
@@ -73,21 +74,25 @@ public class MazeScenario implements Scenario {
     return 1;
   }
 
+  /** {@inheritDoc} */
   @Override
   public String getImageReference() {
     return "/dev/aisandbox/client/scenarios/maze/sample.png";
   }
 
+  /** {@inheritDoc} */
   @Override
   public String getScenarioURL() {
     return "https://aisandbox.dev/scenarios-maze/";
   }
 
+  /** {@inheritDoc} */
   @Override
   public String getSwaggerURL() {
     return "https://files.aisandbox.dev/swagger/maze.yaml";
   }
 
+  /** {@inheritDoc} */
   @Override
   public boolean isBeta() {
     return false;
@@ -152,6 +157,7 @@ public class MazeScenario implements Scenario {
     }
   }
 
+  /** {@inheritDoc} */
   @Override
   public void joinSimulation() {
     log.info("Joining simulation");
@@ -168,9 +174,9 @@ public class MazeScenario implements Scenario {
   }
 
   /**
-   * Tell if the simulation is currently running
+   * {@inheritDoc}
    *
-   * @return True if the simulation is running.
+   * <p>Tell if the simulation is currently running
    */
   @Override
   public boolean isSimulationRunning() {

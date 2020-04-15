@@ -5,6 +5,12 @@ import dev.aisandbox.client.scenarios.ServerRequest;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 
+/**
+ * MineHunterRequest class.
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 @XmlRootElement(name = "MineRequest")

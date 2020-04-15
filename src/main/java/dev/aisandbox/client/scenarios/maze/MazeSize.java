@@ -1,5 +1,11 @@
 package dev.aisandbox.client.scenarios.maze;
 
+/**
+ * MazeSize class.
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 public enum MazeSize {
   SMALL {
     @Override

@@ -10,6 +10,12 @@ import lombok.Getter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Board class.
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 public class Board {
 
   private static final Logger LOG = LoggerFactory.getLogger(Board.class.getName());
@@ -25,6 +31,12 @@ public class Board {
 
   @Getter private int unfoundMines = 0;
 
+  /**
+   * Constructor for Board.
+   *
+   * @param width a int.
+   * @param height a int.
+   */
   public Board(int width, int height) {
     this.width = width;
     this.height = height;
@@ -36,6 +48,12 @@ public class Board {
     }
   }
 
+  /**
+   * placeMines.
+   *
+   * @param rand a {@link java.util.Random} object.
+   * @param count a int.
+   */
   public void placeMines(Random rand, int count) {
     // check we dont have more mines than cells
     count = Math.min(count, width * height);
@@ -50,10 +68,23 @@ public class Board {
     }
   }
 
+  /**
+   * getCell.
+   *
+   * @param x a int.
+   * @param y a int.
+   * @return a {@link dev.aisandbox.client.scenarios.mine.Cell} object.
+   */
   protected Cell getCell(int x, int y) {
     return grid[x][y];
   }
 
+  /**
+   * getRowToString.
+   *
+   * @param y a int.
+   * @return a {@link java.lang.String} object.
+   */
   public String getRowToString(int y) {
     StringBuilder sb = new StringBuilder();
     for (int x = 0; x < width; x++) {
@@ -62,6 +93,11 @@ public class Board {
     return sb.toString();
   }
 
+  /**
+   * getBoardToString.
+   *
+   * @return an array of {@link java.lang.String} objects.
+   */
   public String[] getBoardToString() {
     String[] result = new String[grid[0].length];
     for (int y = 0; y < height; y++) {
@@ -98,6 +134,7 @@ public class Board {
     return count;
   }
 
+  /** countNeighbours. */
   public void countNeighbours() {
     for (int x = 0; x < width; x++) {
       for (int y = 0; y < height; y++) {
@@ -107,6 +144,13 @@ public class Board {
     state = GameState.PLAYING;
   }
 
+  /**
+   * placeFlag.
+   *
+   * @param x a int.
+   * @param y a int.
+   * @return a boolean.
+   */
   public boolean placeFlag(int x, int y) {
     LOG.info("Placing flag @ {},{}", x, y);
     Cell c = grid[x][y];
@@ -132,6 +176,13 @@ public class Board {
     return change;
   }
 
+  /**
+   * uncover.
+   *
+   * @param x a int.
+   * @param y a int.
+   * @return a boolean.
+   */
   public boolean uncover(int x, int y) {
     Cell c = grid[x][y];
     boolean change = false;

@@ -14,6 +14,12 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
+/**
+ * RollingAverageGraph class.
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 @RequiredArgsConstructor
 public class RollingAverageGraph {
 
@@ -34,6 +40,11 @@ public class RollingAverageGraph {
 
   @Setter private String yAxisTitle = null;
 
+  /**
+   * addValue.
+   *
+   * @param value a double.
+   */
   public void addValue(double value) {
     // advance value count
     count++;
@@ -49,6 +60,13 @@ public class RollingAverageGraph {
     memory.remove(count - graphSize);
   }
 
+  /**
+   * getGraph.
+   *
+   * @param width a int.
+   * @param height a int.
+   * @return a {@link java.awt.image.BufferedImage} object.
+   */
   public BufferedImage getGraph(int width, int height) {
     XYSeries series1 = new XYSeries("Average");
     memory.forEach(series1::add);

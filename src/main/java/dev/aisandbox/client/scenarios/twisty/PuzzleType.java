@@ -1,5 +1,11 @@
 package dev.aisandbox.client.scenarios.twisty;
 
+/**
+ * PuzzleType class.
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 public enum PuzzleType {
   CUBE3 {
     @Override

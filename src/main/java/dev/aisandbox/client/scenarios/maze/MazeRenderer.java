@@ -8,10 +8,17 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+/**
+ * MazeRenderer class.
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 @Component
 @Slf4j
 public class MazeRenderer {
 
+  /** Constant <code>SCALE=25</code> */
   public static final int SCALE = 25;
 
   @Autowired SpriteLoader spriteLoader;
@@ -19,6 +26,12 @@ public class MazeRenderer {
   // load sprites the first time they are needed
   List<BufferedImage> sprites = null;
 
+  /**
+   * renderMaze.
+   *
+   * @param maze a {@link dev.aisandbox.client.scenarios.maze.Maze} object.
+   * @return a {@link java.awt.image.BufferedImage} object.
+   */
   public BufferedImage renderMaze(Maze maze) {
     log.info("Rendering maze {}", maze.getBoardID());
     if (sprites == null) {

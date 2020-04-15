@@ -6,6 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 import lombok.Data;
 
+/**
+ * Template class.
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 @XStreamAlias("template")
 @Data
 public class Template {

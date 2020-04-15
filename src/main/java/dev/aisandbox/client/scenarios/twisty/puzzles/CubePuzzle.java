@@ -22,6 +22,12 @@ import java.util.Map;
 import java.util.Map.Entry;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * Abstract CubePuzzle class.
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 @Slf4j
 public abstract class CubePuzzle implements TwistyPuzzle {
 
@@ -34,8 +40,11 @@ public abstract class CubePuzzle implements TwistyPuzzle {
   private static final int SCREEN_RIGHT_MARGIN = 40;
   private static final int FACE_SEPERATION = 20;
   // move icons
+  /** Constant <code>MOVE_ICON_WIDTH=60</code> */
   public static final int MOVE_ICON_WIDTH = 60;
+  /** Constant <code>MOVE_ICON_HEIGHT=100</code> */
   public static final int MOVE_ICON_HEIGHT = 100;
+  /** Constant <code>MOVE_SPRITESHEET_WIDTH=6</code> */
   public static final int MOVE_SPRITESHEET_WIDTH = 6;
 
   // puzzle settings - once setup they dont get changed
@@ -49,6 +58,8 @@ public abstract class CubePuzzle implements TwistyPuzzle {
   private Map<String, Character> currentState = new LinkedHashMap<>();
 
   /**
+   * Constructor for CubePuzzle.
+   *
    * @param size the number of squares in each direction.
    * @param spritePath the resource name for the spritemap
    */
@@ -182,6 +193,7 @@ public abstract class CubePuzzle implements TwistyPuzzle {
     return face + String.format("%02x", x) + String.format("%02x", y);
   }
 
+  /** {@inheritDoc} */
   @Override
   public void resetPuzzle() {
     List<String> cellsInOrder = new ArrayList<>();
@@ -192,12 +204,12 @@ public abstract class CubePuzzle implements TwistyPuzzle {
   }
 
   /**
-   * Force the state of the puzzle to match the supplied String.
+   * {@inheritDoc}
+   *
+   * <p>Force the state of the puzzle to match the supplied String.
    *
    * <p>Note: this does not check that only valid colours are used, this makes it useful for unit
    * testing the moves, but could cause exceptions if the image is generated.
-   *
-   * @param forcedState
    */
   @Override
   public void resetPuzzle(String forcedState) {
@@ -208,11 +220,13 @@ public abstract class CubePuzzle implements TwistyPuzzle {
     }
   }
 
+  /** {@inheritDoc} */
   @Override
   public Map<Character, Color> getColourMap() {
     return colorMap;
   }
 
+  /** {@inheritDoc} */
   @Override
   public String getState() {
     StringBuilder stateBuilder = new StringBuilder();
@@ -220,11 +234,17 @@ public abstract class CubePuzzle implements TwistyPuzzle {
     return stateBuilder.toString();
   }
 
+  /** {@inheritDoc} */
   @Override
   public List<String> getMoveList() {
     return moveList;
   }
 
+  /**
+   * applyFaceMove.
+   *
+   * @param face a char.
+   */
   protected void applyFaceMove(char face) {
     // take a copy of the current state
     Map<String, Character> oldState = new HashMap<>();
@@ -239,6 +259,12 @@ public abstract class CubePuzzle implements TwistyPuzzle {
     }
   }
 
+  /**
+   * applyBlockMove.
+   *
+   * @param face a char.
+   * @param targetDepth a int.
+   */
   protected void applyBlockMove(char face, int targetDepth) {
     // take a copy of the current state
     Map<String, Character> oldState = new HashMap<>();
@@ -332,9 +358,9 @@ public abstract class CubePuzzle implements TwistyPuzzle {
   }
 
   /**
-   * A cube is solved if all sides are the same colour - rotation doesn't matter
+   * {@inheritDoc}
    *
-   * @return
+   * <p>A cube is solved if all sides are the same colour - rotation doesn't matter
    */
   @Override
   public boolean isSolved() {
@@ -357,6 +383,7 @@ public abstract class CubePuzzle implements TwistyPuzzle {
     return true;
   }
 
+  /** {@inheritDoc} */
   @Override
   public BufferedImage getStateImage() {
     BufferedImage image = OutputTools.getWhiteScreen();
@@ -372,6 +399,7 @@ public abstract class CubePuzzle implements TwistyPuzzle {
     return image;
   }
 
+  /** {@inheritDoc} */
   @Override
   public BufferedImage createMoveSpriteSheet() {
     // generate sprite sheet with all the move icons
@@ -535,6 +563,7 @@ public abstract class CubePuzzle implements TwistyPuzzle {
     return level;
   }
 
+  /** {@inheritDoc} */
   @Override
   public int applyMove(String move) throws NotExistentMoveException {
     if (moveList.indexOf(move) == -1) {
@@ -690,6 +719,7 @@ public abstract class CubePuzzle implements TwistyPuzzle {
     throw new NotExistentMoveException(move);
   }
 
+  /** {@inheritDoc} */
   @Override
   public BufferedImage getMoveImage(String move) {
     return moveImageMap.get(move);

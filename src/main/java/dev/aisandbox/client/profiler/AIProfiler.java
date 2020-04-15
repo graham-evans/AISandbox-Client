@@ -9,6 +9,12 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.general.DefaultPieDataset;
 
+/**
+ * AIProfiler class.
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 public class AIProfiler {
 
   @Getter long stepCount = 0;
@@ -17,10 +23,20 @@ public class AIProfiler {
 
   Map<String, Double> cumulativeStepTiming = new HashMap<>();
 
+  /**
+   * getRunTime.
+   *
+   * @return a long.
+   */
   public long getRunTime() {
     return System.currentTimeMillis() - startTime;
   }
 
+  /**
+   * getAverateStepTime.
+   *
+   * @return a long.
+   */
   public long getAverateStepTime() {
     if (stepCount > 0) {
       return (System.currentTimeMillis() - startTime) / stepCount;
@@ -29,6 +45,11 @@ public class AIProfiler {
     }
   }
 
+  /**
+   * addProfileStep.
+   *
+   * @param step a {@link dev.aisandbox.client.profiler.ProfileStep} object.
+   */
   public void addProfileStep(ProfileStep step) {
     stepCount++;
     step.getTimings()
@@ -42,12 +63,22 @@ public class AIProfiler {
             });
   }
 
+  /**
+   * getAverageTime.
+   *
+   * @return a {@link java.util.Map} object.
+   */
   public Map<String, Double> getAverageTime() {
     Map<String, Double> result = new HashMap<>();
     cumulativeStepTiming.forEach((name, value) -> result.put(name, value / stepCount));
     return result;
   }
 
+  /**
+   * getChart.
+   *
+   * @return a {@link org.jfree.chart.JFreeChart} object.
+   */
   public JFreeChart getChart() {
     // convert average times to PieDataset
     Map<String, Double> times = getAverageTime();

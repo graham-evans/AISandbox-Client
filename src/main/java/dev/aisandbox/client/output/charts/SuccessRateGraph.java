@@ -7,12 +7,20 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
+/**
+ * SuccessRateGraph class.
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 public class SuccessRateGraph extends RollingAverageGraph {
 
+  /** Constructor for SuccessRateGraph. */
   public SuccessRateGraph() {
     super(50, 20);
   }
 
+  /** {@inheritDoc} */
   @Override
   public BufferedImage getGraph(int width, int height) {
 

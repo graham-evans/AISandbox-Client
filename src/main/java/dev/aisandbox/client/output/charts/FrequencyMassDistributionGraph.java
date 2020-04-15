@@ -6,6 +6,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.math3.stat.Frequency;
 import org.apache.commons.math3.stat.descriptive.SummaryStatistics;
 
+/**
+ * FrequencyMassDistributionGraph class.
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 @Slf4j
 public class FrequencyMassDistributionGraph extends BaseChart {
 
@@ -14,27 +20,53 @@ public class FrequencyMassDistributionGraph extends BaseChart {
   Integer minX;
   Integer maxY;
 
+  /**
+   * addValue.
+   *
+   * @param value a int.
+   */
   public void addValue(int value) {
     frequencyTable.addValue(value);
     statistics.addValue((double) value);
   }
 
+  /**
+   * getTotal.
+   *
+   * @return a long.
+   */
   public long getTotal() {
     return frequencyTable.getSumFreq();
   }
 
+  /**
+   * getUniqueValues.
+   *
+   * @return a int.
+   */
   public int getUniqueValues() {
     return frequencyTable.getUniqueCount();
   }
 
+  /**
+   * getStandardDeviation.
+   *
+   * @return a double.
+   */
   public double getStandardDeviation() {
     return statistics.getStandardDeviation();
   }
 
+  /**
+   * getMean.
+   *
+   * @return a double.
+   */
   public double getMean() {
     return statistics.getMean();
   }
 
+  /** {@inheritDoc} */
   @Override
   public void resetGraph() {
     // work out max and min

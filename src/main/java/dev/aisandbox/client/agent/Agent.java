@@ -30,6 +30,9 @@ import org.springframework.web.client.RestTemplate;
  * Represents an external server which the scenario can talk to.
  *
  * <p>Uses the Lombok library to auto generate lots of the getters / setters.
+ *
+ * @author gde
+ * @version $Id: $Id
  */
 @Slf4j
 public class Agent {
@@ -124,6 +127,8 @@ public class Agent {
    * @param responseType The class of a {@link dev.aisandbox.client.scenarios.ServerResponse} object
    *     to return
    * @return the JSON or XML response deserialised into the specified class.
+   * @param <T> a T object.
+   * @throws dev.aisandbox.client.agent.AgentException if any.
    */
   public <T> T getRequest(String params, Class<T> responseType) throws AgentException {
     try {
@@ -155,6 +160,8 @@ public class Agent {
    * @param responseType The class of a {@link dev.aisandbox.client.scenarios.ServerResponse} object
    *     to return
    * @return the JSON or XML response deserialised into the specified class.
+   * @param <T> a T object.
+   * @throws dev.aisandbox.client.agent.AgentException if any.
    */
   public <T> T postRequest(ServerRequest req, Class<T> responseType) throws AgentException {
     try {

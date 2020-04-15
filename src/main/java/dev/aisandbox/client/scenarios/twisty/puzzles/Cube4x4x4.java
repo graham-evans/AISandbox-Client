@@ -4,15 +4,23 @@ import dev.aisandbox.client.scenarios.twisty.TwistyPuzzle;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+/**
+ * Cube4x4x4 class.
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 @Slf4j
 @Component
 public class Cube4x4x4 extends CubePuzzle implements TwistyPuzzle {
 
+  /** Constructor for Cube4x4x4. */
   public Cube4x4x4() {
     super(4, "/dev/aisandbox/client/scenarios/twisty/cube4.png");
     log.info("Initialised 4x4x4 puzzle");
   }
 
+  /** {@inheritDoc} */
   @Override
   public String getPuzzleName() {
     return "Cube 4x4x4 (OBTM)";

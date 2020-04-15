@@ -34,10 +34,9 @@ public class ScenarioCell extends ListCell<Scenario> {
   private FXMLLoader fxmlLoader = null;
 
   /**
-   * Regenerate the cell based on the current scenario.
+   * {@inheritDoc}
    *
-   * @param scenario the scenario to render
-   * @param empty true if we're drawing an empty cell.
+   * <p>Regenerate the cell based on the current scenario.
    */
   @Override
   protected void updateItem(Scenario scenario, boolean empty) {

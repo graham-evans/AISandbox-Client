@@ -26,6 +26,12 @@ import java.util.Random;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * CharacteristicGenerator class.
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 public class CharacteristicGenerator {
 
   private static final Logger LOG =
@@ -78,6 +84,14 @@ public class CharacteristicGenerator {
     return xstream;
   }
 
+  /**
+   * createTemplate.
+   *
+   * @param rand a {@link java.util.Random} object.
+   * @param characteristics a int.
+   * @param houses a int.
+   * @return a {@link dev.aisandbox.client.scenarios.zebra.vo.Template} object.
+   */
   public static Template createTemplate(Random rand, int characteristics, int houses) {
     Template t = null;
     try {

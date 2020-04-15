@@ -12,6 +12,9 @@ import org.springframework.boot.SpringApplication;
  *
  * <p>This will test for the "-headless" option and either call the CLI application launcher of the
  * FX version.
+ *
+ * @author gde
+ * @version $Id: $Id
  */
 public class AISandboxLauncher {
   private static final Logger LOG = LoggerFactory.getLogger(AISandboxLauncher.class);

@@ -7,6 +7,12 @@ import javafx.scene.chart.StackedAreaChart;
 import javafx.scene.chart.XYChart;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * StackedAreaChartController class.
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 @Slf4j
 public class StackedAreaChartController {
 
@@ -17,6 +23,11 @@ public class StackedAreaChartController {
   private int step = 0;
   private static final int HISTORY = 50;
 
+  /**
+   * Constructor for StackedAreaChartController.
+   *
+   * @param chart a {@link javafx.scene.chart.StackedAreaChart} object.
+   */
   public StackedAreaChartController(StackedAreaChart chart) {
     this.chart = chart;
     chart.setAnimated(false);
@@ -26,6 +37,11 @@ public class StackedAreaChartController {
     axisX.setAutoRanging(false);
   }
 
+  /**
+   * add.
+   *
+   * @param timings a {@link java.util.Map} object.
+   */
   public void add(Map<String, Double> timings) {
     step++;
     // remove old entries
@@ -59,6 +75,7 @@ public class StackedAreaChartController {
     axisX.setUpperBound(step);
   }
 
+  /** reset. */
   public void reset() {
     chart.getData().clear();
     seriesMap.clear();

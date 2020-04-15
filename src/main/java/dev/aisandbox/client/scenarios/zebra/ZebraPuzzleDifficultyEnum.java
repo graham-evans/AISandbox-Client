@@ -1,5 +1,11 @@
 package dev.aisandbox.client.scenarios.zebra;
 
+/**
+ * ZebraPuzzleDifficultyEnum class.
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 public enum ZebraPuzzleDifficultyEnum {
   EASY {
     @Override

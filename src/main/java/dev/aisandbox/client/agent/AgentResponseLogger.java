@@ -8,11 +8,18 @@ import org.springframework.http.client.ClientHttpRequestExecution;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.http.client.ClientHttpResponse;
 
+/**
+ * AgentResponseLogger class.
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 public class AgentResponseLogger implements ClientHttpRequestInterceptor {
 
   int lastHTTPCode = -1;
   String lastResponse = "";
 
+  /** {@inheritDoc} */
   @Override
   public ClientHttpResponse intercept(
       HttpRequest request, byte[] body, ClientHttpRequestExecution execution) throws IOException {

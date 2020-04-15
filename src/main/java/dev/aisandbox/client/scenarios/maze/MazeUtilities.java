@@ -74,6 +74,12 @@ public class MazeUtilities {
     log.info("finished binary tree");
   }
 
+  /**
+   * applyRecursiveBacktracker.
+   *
+   * @param rand a {@link java.util.Random} object.
+   * @param maze a {@link dev.aisandbox.client.scenarios.maze.Maze} object.
+   */
   public static void applyRecursiveBacktracker(Random rand, Maze maze) {
     log.info("Applying recursive backtracker");
     List<Cell> stack = new ArrayList<>();
@@ -104,6 +110,12 @@ public class MazeUtilities {
     log.info("Finished backtracker");
   }
 
+  /**
+   * removeDeadEnds.
+   *
+   * @param rand a {@link java.util.Random} object.
+   * @param maze a {@link dev.aisandbox.client.scenarios.maze.Maze} object.
+   */
   public static void removeDeadEnds(Random rand, Maze maze) {
     // check each cell
     for (Cell current : maze.getCellList()) {

@@ -13,6 +13,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+/**
+ * TwistyScenario class.
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 @Component
 @Data
 public class TwistyScenario implements Scenario {
@@ -27,41 +33,49 @@ public class TwistyScenario implements Scenario {
   @NonVisual // dont show this on the UI
   private TwistyThread thread = null;
 
+  /** {@inheritDoc} */
   @Override
   public ScenarioType getGroup() {
     return ScenarioType.INTERMEDIATE;
   }
 
+  /** {@inheritDoc} */
   @Override
   public String getName() {
     return "Twisty Puzzle";
   }
 
+  /** {@inheritDoc} */
   @Override
   public String getOverview() {
     return "Puzzles based on rotating layers and circles";
   }
 
+  /** {@inheritDoc} */
   @Override
   public String getDescription() {
     return "Puzzles based on rotating layers and circles";
   }
 
+  /** {@inheritDoc} */
   @Override
   public String getImageReference() {
     return "/dev/aisandbox/client/scenarios/twisty/sample.png";
   }
 
+  /** {@inheritDoc} */
   @Override
   public int getMinAgentCount() {
     return 1;
   }
 
+  /** {@inheritDoc} */
   @Override
   public int getMaxAgentCount() {
     return 1;
   }
 
+  /** {@inheritDoc} */
   @Override
   public void startSimulation(
       List<Agent> agentList, GameRunController ui, FrameOutput output, Long stepCount) {
@@ -77,6 +91,7 @@ public class TwistyScenario implements Scenario {
     thread.start();
   }
 
+  /** {@inheritDoc} */
   @Override
   public void stopSimulation() {
     if (thread != null) {
@@ -84,11 +99,13 @@ public class TwistyScenario implements Scenario {
     }
   }
 
+  /** {@inheritDoc} */
   @Override
   public boolean isSimulationRunning() {
     return (thread != null) && (thread.isRunning());
   }
 
+  /** {@inheritDoc} */
   @Override
   public void joinSimulation() {
     log.info("Joining simulation");
@@ -104,16 +121,19 @@ public class TwistyScenario implements Scenario {
     }
   }
 
+  /** {@inheritDoc} */
   @Override
   public String getScenarioURL() {
     return "https://aisandbox.dev/";
   }
 
+  /** {@inheritDoc} */
   @Override
   public String getSwaggerURL() {
     return "https://aisandbox.dev/";
   }
 
+  /** {@inheritDoc} */
   @Override
   public boolean isBeta() {
     return false;

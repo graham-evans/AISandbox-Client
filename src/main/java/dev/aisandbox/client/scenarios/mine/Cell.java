@@ -6,6 +6,9 @@ import lombok.Data;
  * A single cell (square) on the board, includes rules for how it should be displayed # - Covered F
  * - Covered + flagged X - uncovered mine = GAME OVER f - missflagged empty square = GAME OVER 1-8 -
  * uncovered + number of mines surrounding . - uncovered + no mines surrounding
+ *
+ * @author gde
+ * @version $Id: $Id
  */
 @Data
 public class Cell {
@@ -21,6 +24,11 @@ public class Cell {
   // the number of neighbours that are mines
   private int neighbours;
 
+  /**
+   * getPlayerView.
+   *
+   * @return a char.
+   */
   public char getPlayerView() {
     if (covered) {
       if (flagged) {

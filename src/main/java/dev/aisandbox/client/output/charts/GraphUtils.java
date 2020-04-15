@@ -10,6 +10,12 @@ import java.awt.image.BufferedImage;
 import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * GraphUtils class.
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 @Slf4j
 public class GraphUtils {
 
@@ -35,6 +41,13 @@ public class GraphUtils {
     }
   }
 
+  /**
+   * getTitle.
+   *
+   * @param text a {@link java.lang.String} object.
+   * @param font a {@link java.awt.Font} object.
+   * @return a {@link java.awt.image.BufferedImage} object.
+   */
   public static BufferedImage getTitle(String text, Font font) {
     // create fake image
     BufferedImage fake = new BufferedImage(10, 10, BufferedImage.TYPE_INT_RGB);

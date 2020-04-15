@@ -35,7 +35,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
-/** Controller class used when running the simulations. */
+/**
+ * Controller class used when running the simulations.
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 @Component
 @Slf4j
 public class GameRunController {
@@ -232,6 +237,7 @@ public class GameRunController {
         });
   }
 
+  /** resetStartButton. */
   public void resetStartButton() {
     Platform.runLater(
         () -> {
@@ -240,6 +246,12 @@ public class GameRunController {
         });
   }
 
+  /**
+   * showAgentError.
+   *
+   * @param agentURL a {@link java.lang.String} object.
+   * @param e a {@link java.lang.Exception} object.
+   */
   public void showAgentError(String agentURL, Exception e) {
     // special case - is this an agent excetpion
     if (e instanceof AgentConnectionException) {
@@ -262,6 +274,13 @@ public class GameRunController {
     }
   }
 
+  /**
+   * showAgentError.
+   *
+   * @param agentURL a {@link java.lang.String} object.
+   * @param description a {@link java.lang.String} object.
+   * @param details a {@link java.lang.String} object.
+   */
   public void showAgentError(String agentURL, String description, String details) {
     Platform.runLater(
         () -> {

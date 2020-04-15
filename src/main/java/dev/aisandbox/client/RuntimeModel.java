@@ -25,6 +25,9 @@ import org.springframework.stereotype.Component;
  * The main (POJO) class used to hold the application state.
  *
  * <p>This uses the Lombok library to auto generate much of its functionality
+ *
+ * @author gde
+ * @version $Id: $Id
  */
 @Component
 public class RuntimeModel {

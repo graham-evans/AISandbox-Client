@@ -10,7 +10,12 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
-/** Utility class for storing and drawing trend graphs. */
+/**
+ * Utility class for storing and drawing trend graphs.
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 public class LineGraph {
 
   @Getter private final TreeMap<Integer, Double> storage = new TreeMap<>();

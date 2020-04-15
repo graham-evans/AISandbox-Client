@@ -104,6 +104,12 @@ public class Cell {
     getNeighbours().get(direction).getPaths().add(direction.opposite());
   }
 
+  /**
+   * isPath.
+   *
+   * @param direction a {@link dev.aisandbox.client.scenarios.maze.Direction} object.
+   * @return a boolean.
+   */
   public boolean isPath(Direction direction) {
     return paths.contains(direction);
   }

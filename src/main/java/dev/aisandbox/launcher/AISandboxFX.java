@@ -27,6 +27,9 @@ import org.springframework.context.ConfigurableApplicationContext;
  *   <li>Read any properties files
  *   <li>Load the first FX scene
  * </ol>
+ *
+ * @author gde
+ * @version $Id: $Id
  */
 @SpringBootApplication(scanBasePackages = "dev.aisandbox.client")
 public class AISandboxFX extends Application {
@@ -37,9 +40,9 @@ public class AISandboxFX extends Application {
   private Parent rootNode;
 
   /**
-   * Init method, sets up the Spring context and connects it to the FXMLLoader.
+   * {@inheritDoc}
    *
-   * @throws Exception Exeption setting up the FX app
+   * <p>Init method, sets up the Spring context and connects it to the FXMLLoader.
    */
   @Override
   public void init() throws Exception {
@@ -72,6 +75,7 @@ public class AISandboxFX extends Application {
     rootNode = loader.load();
   }
 
+  /** {@inheritDoc} */
   @Override
   public void start(Stage primaryStage) throws Exception {
     LOG.info("Starting application - FX");
@@ -86,6 +90,7 @@ public class AISandboxFX extends Application {
     primaryStage.show();
   }
 
+  /** {@inheritDoc} */
   @Override
   public void stop() throws Exception {
     LOG.info("Stopping application");

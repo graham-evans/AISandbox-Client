@@ -14,13 +14,23 @@ import org.apache.commons.cli.ParseException;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+/**
+ * CLIParser class.
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 @Component
 @Slf4j
 public class CLIParser {
 
+  /** Constant <code>OPTION_DEBUG="logfile"</code> */
   public static final String OPTION_DEBUG = "logfile";
+  /** Constant <code>OPTION_LILITH="lilith"</code> */
   public static final String OPTION_LILITH = "lilith";
+  /** Constant <code>OPTION_CONFIG="config"</code> */
   public static final String OPTION_CONFIG = "config";
+  /** Constant <code>OPTION_HEADLESS="headless"</code> */
   public static final String OPTION_HEADLESS = "headless";
 
   /**
@@ -44,6 +54,12 @@ public class CLIParser {
     return options;
   }
 
+  /**
+   * parseOptions.
+   *
+   * @param args an array of {@link java.lang.String} objects.
+   * @return a {@link org.apache.commons.cli.CommandLine} object.
+   */
   public static CommandLine parseOptions(String[] args) {
     Options options = getOptions();
     CommandLine line = null;

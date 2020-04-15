@@ -34,6 +34,12 @@ import javax.imageio.ImageIO;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * TwistyThread class.
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 @Slf4j
 public class TwistyThread extends Thread {
 
@@ -80,6 +86,16 @@ public class TwistyThread extends Thread {
     }
   }
 
+  /**
+   * Constructor for TwistyThread.
+   *
+   * @param agent a {@link dev.aisandbox.client.agent.Agent} object.
+   * @param output a {@link dev.aisandbox.client.output.FrameOutput} object.
+   * @param controller a {@link dev.aisandbox.client.fx.GameRunController} object.
+   * @param random a {@link java.util.Random} object.
+   * @param puzzleType a {@link dev.aisandbox.client.scenarios.twisty.PuzzleType} object.
+   * @param maxStepCount a {@link java.lang.Long} object.
+   */
   public TwistyThread(
       Agent agent,
       FrameOutput output,
@@ -115,6 +131,7 @@ public class TwistyThread extends Thread {
     }
   }
 
+  /** {@inheritDoc} */
   @Override
   public void run() {
     running = true;
@@ -201,6 +218,7 @@ public class TwistyThread extends Thread {
     controller.resetStartButton();
   }
 
+  /** stopSimulation. */
   protected void stopSimulation() {
     running = false;
     try {

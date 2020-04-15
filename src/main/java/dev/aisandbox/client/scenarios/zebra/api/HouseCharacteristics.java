@@ -4,6 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * HouseCharacteristics class.
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

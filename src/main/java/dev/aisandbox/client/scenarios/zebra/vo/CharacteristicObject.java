@@ -4,6 +4,12 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
 import lombok.Data;
 
+/**
+ * CharacteristicObject class.
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 @Data
 @XStreamAlias("characteristicObject")
 public class CharacteristicObject {

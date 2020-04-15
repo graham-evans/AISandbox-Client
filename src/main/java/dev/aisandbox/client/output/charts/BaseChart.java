@@ -16,6 +16,12 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * BaseChart class.
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 @Slf4j
 public class BaseChart {
 
@@ -235,6 +241,13 @@ public class BaseChart {
     bottomMargin += tickLength;
   }
 
+  /**
+   * niceNum.
+   *
+   * @param x a double.
+   * @param mode a {@link dev.aisandbox.client.output.charts.BaseChart.NiceMode} object.
+   * @return a double.
+   */
   public static double niceNum(double x, NiceMode mode) {
     double exp = Math.floor(Math.log10(x)); // exponent of x
     double d = Math.pow(10, exp);
@@ -267,6 +280,13 @@ public class BaseChart {
 
   private static final int TICK_COUNT = 5;
 
+  /**
+   * looseLabel.
+   *
+   * @param min a double.
+   * @param max a double.
+   * @return a {@link java.util.List} object.
+   */
   public static List<Double> looseLabel(double min, double max) {
     double range = niceNum(max - min, NiceMode.CEIL);
     double d = niceNum(range / (TICK_COUNT - 1), NiceMode.ROUND);
@@ -281,6 +301,13 @@ public class BaseChart {
     return tickMarks;
   }
 
+  /**
+   * tightLabel.
+   *
+   * @param min a double.
+   * @param max a double.
+   * @return a {@link java.util.List} object.
+   */
   public static List<Double> tightLabel(double min, double max) {
     List<Double> tickMarks = new ArrayList<>();
     tickMarks.add(min);
@@ -303,6 +330,13 @@ public class BaseChart {
     CEIL
   }
 
+  /**
+   * toSignificantDigitString.
+   *
+   * @param value a double.
+   * @param significantDigits a int.
+   * @return a {@link java.lang.String} object.
+   */
   public static String toSignificantDigitString(double value, int significantDigits) {
     if (significantDigits < 0) throw new IllegalArgumentException();
     // this is more precise than simply doing "new BigDecimal(value);"

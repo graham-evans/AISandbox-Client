@@ -17,6 +17,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
+/**
+ * PropertiesParser class.
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 @Component
 @Slf4j
 public class PropertiesParser {

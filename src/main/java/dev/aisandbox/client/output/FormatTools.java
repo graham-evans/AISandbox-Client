@@ -2,13 +2,19 @@ package dev.aisandbox.client.output;
 
 import lombok.experimental.UtilityClass;
 
+/**
+ * FormatTools class.
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 @UtilityClass
 public class FormatTools {
   /**
    * Format a time duration (in milliseconds) as HH:MM:SS.sss
    *
-   * @param milliseconds
-   * @return
+   * @param milliseconds a long.
+   * @return a {@link java.lang.String} object.
    */
   public static String formatTime(long milliseconds) {
     long millis = milliseconds % 1000;

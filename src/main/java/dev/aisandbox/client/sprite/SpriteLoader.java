@@ -9,6 +9,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+/**
+ * SpriteLoader class.
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 @Component
 public class SpriteLoader {
 
@@ -16,11 +22,20 @@ public class SpriteLoader {
 
   private final boolean licencedAvailable;
 
+  /** Constructor for SpriteLoader. */
   public SpriteLoader() {
     LOG.debug("Initialising sprite loader");
     licencedAvailable = false;
   }
 
+  /**
+   * loadSprites.
+   *
+   * @param path a {@link java.lang.String} object.
+   * @param width a int.
+   * @param height a int.
+   * @return a {@link java.util.List} object.
+   */
   public List<BufferedImage> loadSprites(String path, int width, int height) {
     try {
       return loadSpritesFromResources(path, width, height);
@@ -30,6 +45,15 @@ public class SpriteLoader {
     }
   }
 
+  /**
+   * loadSpritesFromResources.
+   *
+   * @param path a {@link java.lang.String} object.
+   * @param width a int.
+   * @param height a int.
+   * @return a {@link java.util.List} object.
+   * @throws java.io.IOException if any.
+   */
   public static List<BufferedImage> loadSpritesFromResources(String path, int width, int height)
       throws IOException {
     BufferedImage sheet = ImageIO.read(SpriteLoader.class.getResourceAsStream(path));

@@ -6,6 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 import lombok.Data;
 
+/**
+ * Characteristic class.
+ *
+ * @author gde
+ * @version $Id: $Id
+ */
 @Data
 @XStreamAlias("characteristic")
 public class Characteristic {

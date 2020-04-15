@@ -12,6 +12,9 @@ import org.springframework.stereotype.Component;
  * A class to write each video frame as a PNG within a subdirectory.
  *
  * <p>A new directory will be created and each frame will be written as a file nnnnnnnn.PNG
+ *
+ * @author gde
+ * @version $Id: $Id
  */
 @Component
 public class PNGOutputWriter implements FrameOutput {
@@ -20,13 +23,12 @@ public class PNGOutputWriter implements FrameOutput {
   private File source = null;
 
   /**
-   * Return the descriptive name of this output writer.
+   * {@inheritDoc}
+   *
+   * <p>Return the descriptive name of this output writer.
    *
    * <p>This is used when Spring initialises all available implementations of {@link FrameOutput}
    * and displays them on the UI
-   *
-   * @param l a {@link java.util.Locale} object.
-   * @return the descriptive name "Write to files (PNG)"
    */
   @Override
   public String getName(Locale l) {
@@ -34,12 +36,9 @@ public class PNGOutputWriter implements FrameOutput {
   }
 
   /**
-   * Create a new directory off the given root.
+   * {@inheritDoc}
    *
-   * @param baseDir The root directory - multiple runs will create multiple entries in this
-   *     directory.
-   * @throws IOException thrown if the directory can't be created, or if open is called twice
-   *     without closing.
+   * <p>Create a new directory off the given root.
    */
   @Override
   public void open(File baseDir) throws IOException {
@@ -52,10 +51,9 @@ public class PNGOutputWriter implements FrameOutput {
   }
 
   /**
-   * Add a single frame as a PNG image.
+   * {@inheritDoc}
    *
-   * @param frame a {@link java.awt.image.BufferedImage} object.
-   * @throws IOException thrown if the image can't be written
+   * <p>Add a single frame as a PNG image.
    */
   @Override
   public void addFrame(BufferedImage frame) throws IOException {
@@ -68,9 +66,9 @@ public class PNGOutputWriter implements FrameOutput {
   }
 
   /**
-   * Finish writing files and reset for next open command
+   * {@inheritDoc}
    *
-   * @throws IOException never thrown in this implementation.
+   * <p>Finish writing files and reset for next open command
    */
   @Override
   public void close() throws IOException {

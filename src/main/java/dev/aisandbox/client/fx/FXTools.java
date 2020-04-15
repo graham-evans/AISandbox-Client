@@ -52,7 +52,6 @@ public class FXTools {
    * generateEnumCombo.
    *
    * @param eclass a T object.
-   * @param <T> a T object.
    * @return a {@link javafx.scene.control.ComboBox} object.
    */
   public static <T extends Enum> ComboBox<T> generateEnumCombo(T eclass) {
