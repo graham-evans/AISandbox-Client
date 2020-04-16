@@ -139,42 +139,47 @@ public class BaseChart {
     return fheight;
   }
 
+  /**
+   * Draw the Y axis header and return the used vertical space (this equates to the font height).
+   *
+   * @return The vertical space used by the headers.
+   */
   private int drawYAxisHeader() {
     graphics2D.setColor(titlesColour);
     graphics2D.setFont(axisFont);
     // work out center + height + descent
     FontMetrics metrics = graphics2D.getFontMetrics(axisFont);
     graphics2D.setFont(axisFont);
-    // get the height of a line
-    int fheight = metrics.getHeight();
     // get the width of the text
     int fwidth = metrics.stringWidth(xaxisHeader);
     // get ascent info
     int ascent = metrics.getAscent();
-    // save then rotate
-    AffineTransform originalTransformation = graphics2D.getTransform();
+    // create a new transformation to write the text verticaly
     AffineTransform at = new AffineTransform();
     at.translate(ascent, graphHeight - (graphHeight - fwidth) / 2.0);
-
     at.rotate(Math.toRadians(-90));
-    // at.setToRotation(Math.toRadians(-90), ascent, (height-fwidth)/2);
+    // save the existing transformation
+    AffineTransform originalTransformation = graphics2D.getTransform();
+    // use the new transformation
     graphics2D.setTransform(at);
     graphics2D.drawString(yaxisHeader, 0, 0);
+    // reset back to the original transformation
     graphics2D.setTransform(originalTransformation);
-    return fheight;
+    return metrics.getHeight();
   }
 
+  /** Draw the Y axis ticks and labels */
   private void drawYAxis() {
     // work out the tick values
     List<Double> ticks = looseLabel(lowestY, highestY);
     List<String> labels = new ArrayList<>();
     ticks.stream().forEach(tick -> labels.add(toSignificantDigitString(tick, 3)));
     log.info("adding labels at {}", labels);
-    // work out the maximum label size
+    // get the font metrics
     FontMetrics metrics = graphics2D.getFontMetrics(valueFont);
+    // work out the maximum label size
     graphics2D.setFont(valueFont);
     int labelSizeX = 0;
-    int labelSizeY = metrics.getHeight();
     for (String label : labels) {
       labelSizeX = Math.max(labelSizeX, metrics.stringWidth(label));
     }
@@ -182,6 +187,7 @@ public class BaseChart {
     lowestY = Math.min(lowestY, ticks.get(0));
     highestY = Math.max(highestY, ticks.get(ticks.size() - 1));
     // we know that the x axis will be lifted up - do this now
+    int labelSizeY = metrics.getHeight();
     bottomMargin += labelSizeY;
     bottomMargin += tickLength;
     bottomMargin += tickMargin;
@@ -251,7 +257,9 @@ public class BaseChart {
   public static double niceNum(double x, NiceMode mode) {
     double exp = Math.floor(Math.log10(x)); // exponent of x
     double d = Math.pow(10, exp);
-    if (d == 0.0) d = 1.0;
+    if (d == 0.0) {
+      d = 1.0; // this stops divide by zero problems later
+    }
     double f = x / d;
     double nf;
     if (mode == NiceMode.ROUND) {
@@ -292,7 +300,6 @@ public class BaseChart {
     double d = niceNum(range / (TICK_COUNT - 1), NiceMode.ROUND);
     double graphmin = Math.floor(min / d) * d;
     double graphmax = Math.ceil(max / d) * d;
-    int nfrac = Math.max(0, (int) -Math.floor(Math.log10(d)));
     List<Double> tickMarks = new ArrayList<>();
     for (double value = graphmin; value <= (graphmax + 0.5 * d); value += d) {
       tickMarks.add(value);
@@ -315,8 +322,6 @@ public class BaseChart {
     double d = niceNum(range / (TICK_COUNT - 1), NiceMode.ROUND);
     double graphmin = Math.ceil(min / d) * d;
     double graphmax = Math.floor(max / d) * d;
-    int nfrac = Math.max(0, (int) -Math.floor(Math.log10(d)));
-
     for (double value = graphmin; value <= (graphmax + 0.5 * d); value += d) {
       tickMarks.add(value);
     }
@@ -338,13 +343,16 @@ public class BaseChart {
    * @return a {@link java.lang.String} object.
    */
   public static String toSignificantDigitString(double value, int significantDigits) {
-    if (significantDigits < 0) throw new IllegalArgumentException();
+    if (significantDigits < 0) {
+      throw new IllegalArgumentException();
+    }
     // this is more precise than simply doing "new BigDecimal(value);"
     BigDecimal bd = BigDecimal.valueOf(value);
     bd = bd.round(new MathContext(significantDigits, RoundingMode.HALF_UP));
     final int precision = bd.precision();
-    if (precision < significantDigits)
+    if (precision < significantDigits) {
       bd = bd.setScale(bd.scale() + (significantDigits - precision));
+    }
     return bd.toPlainString();
   }
 }

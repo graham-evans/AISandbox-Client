@@ -19,26 +19,18 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class GraphUtils {
 
+  // private constructor to stop the class from being initialised.
+  private GraphUtils() {}
+
+  /**
+   * Setup the rendering hints on a graphics object
+   * @param g
+   */
   private static void setupRenderingHints(Graphics2D g) {
-    boolean useDefault = true;
-    try {
-      // get the rendering hints from the OS
-      Map<?, ?> desktopHints =
-          (Map<?, ?>) Toolkit.getDefaultToolkit().getDesktopProperty("awt.font.desktophints");
-      if (desktopHints != null) {
-        g.setRenderingHints(desktopHints);
-        useDefault = false;
-      }
-    } catch (Exception e) {
-      log.warn("Error getting desktop rendering hints - headless?", e);
-      useDefault = false;
-    }
-    if (useDefault) {
       g.setRenderingHint(
           RenderingHints.KEY_FRACTIONALMETRICS, RenderingHints.VALUE_FRACTIONALMETRICS_ON);
       g.setRenderingHint(
           RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_LCD_HRGB);
-    }
   }
 
   /**

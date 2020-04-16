@@ -7,10 +7,10 @@ import org.apache.commons.math3.stat.Frequency;
 import org.apache.commons.math3.stat.descriptive.SummaryStatistics;
 
 /**
- * FrequencyMassDistributionGraph class.
+ * Graph for PMF's.
  *
- * @author gde
- * @version $Id: $Id
+ * <p>As well as drawing the graph, the class will also provide mean average and standard deviation
+ * values.
  */
 @Slf4j
 public class FrequencyMassDistributionGraph extends BaseChart {
@@ -21,9 +21,9 @@ public class FrequencyMassDistributionGraph extends BaseChart {
   Integer maxY;
 
   /**
-   * addValue.
+   * Add an integer value.
    *
-   * @param value a int.
+   * @param value the number (score) to record.
    */
   public void addValue(int value) {
     frequencyTable.addValue(value);
@@ -31,16 +31,18 @@ public class FrequencyMassDistributionGraph extends BaseChart {
   }
 
   /**
-   * getTotal.
+   * Get the total of values recorded.
    *
-   * @return a long.
+   * @return The number of values added.
    */
   public long getTotal() {
     return frequencyTable.getSumFreq();
   }
 
   /**
-   * getUniqueValues.
+   * Get the (unique) number of values.
+   *
+   * <p>For example if the numbers [1,2,2,1,3,2] are added, these are three unique values.
    *
    * @return a int.
    */
@@ -49,24 +51,24 @@ public class FrequencyMassDistributionGraph extends BaseChart {
   }
 
   /**
-   * getStandardDeviation.
+   * Get the standard deviation of the distribution.
    *
-   * @return a double.
+   * @return The sd value.
    */
   public double getStandardDeviation() {
     return statistics.getStandardDeviation();
   }
 
   /**
-   * getMean.
+   * Get the mean average of the values.
    *
-   * @return a double.
+   * @return the mean average.
    */
   public double getMean() {
     return statistics.getMean();
   }
 
-  /** {@inheritDoc} */
+  /** Redraw the graph and store it in memory. */
   @Override
   public void resetGraph() {
     // work out max and min
@@ -79,7 +81,9 @@ public class FrequencyMassDistributionGraph extends BaseChart {
     while (i.hasNext()) {
       long x = (long) i.next();
       double y = frequencyTable.getPct(x);
-      if (y > highestY) highestY = y;
+      if (y > highestY) {
+        highestY = y;
+      }
     }
     // reset the graph (this redraws the background and scales the axis)
     super.resetGraph();

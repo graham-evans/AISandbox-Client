@@ -12,7 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.controlsfx.glyphfont.Glyph;
 
 /**
- * AgentCell class.
+ * List renderer for agent details.
  *
  * @author gde
  * @version $Id: $Id
@@ -28,9 +28,13 @@ public class AgentCell extends ListCell<Agent> {
 
   @FXML private HBox root;
 
-  private FXMLLoader mLLoader = null;
+  private FXMLLoader fxmlLoader = null;
 
-  /** {@inheritDoc} */
+  /**
+   * Update the FX object to show the current agent object.
+   * @param agent the agent to render.
+   * @param empty is this a blank space?
+   */
   @Override
   protected void updateItem(Agent agent, boolean empty) {
     super.updateItem(agent, empty);
@@ -41,13 +45,13 @@ public class AgentCell extends ListCell<Agent> {
       setGraphic(null);
 
     } else {
-      if (mLLoader == null) {
-        mLLoader =
+      if (fxmlLoader == null) {
+        fxmlLoader =
             new FXMLLoader(getClass().getResource("/dev/aisandbox/client/fx/AgentCell.fxml"));
-        mLLoader.setController(this);
+        fxmlLoader.setController(this);
 
         try {
-          mLLoader.load();
+          fxmlLoader.load();
         } catch (IOException e) {
           log.error("Error loading FXML", e);
         }

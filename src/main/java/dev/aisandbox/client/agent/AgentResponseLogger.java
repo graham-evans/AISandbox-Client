@@ -19,7 +19,15 @@ public class AgentResponseLogger implements ClientHttpRequestInterceptor {
   int lastHTTPCode = -1;
   String lastResponse = "";
 
-  /** {@inheritDoc} */
+  /**
+   * Intercept the HTTP response and store it for debugging.
+   *
+   * @param request The HTTP request object
+   * @param body The body of the request (if any)
+   * @param execution The executor
+   * @return The response object.
+   * @throws IOException Exception thrown on network error
+   */
   @Override
   public ClientHttpResponse intercept(
       HttpRequest request, byte[] body, ClientHttpRequestExecution execution) throws IOException {

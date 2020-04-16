@@ -24,14 +24,17 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class CLIParser {
 
-  /** Constant <code>OPTION_DEBUG="logfile"</code> */
+  /** Constant <code>OPTION_DEBUG="logfile".</code> */
   public static final String OPTION_DEBUG = "logfile";
-  /** Constant <code>OPTION_LILITH="lilith"</code> */
+  /** Constant <code>OPTION_LILITH="lilith".</code> */
   public static final String OPTION_LILITH = "lilith";
-  /** Constant <code>OPTION_CONFIG="config"</code> */
+  /** Constant <code>OPTION_CONFIG="config".</code> */
   public static final String OPTION_CONFIG = "config";
-  /** Constant <code>OPTION_HEADLESS="headless"</code> */
+  /** Constant <code>OPTION_HEADLESS="headless".</code> */
   public static final String OPTION_HEADLESS = "headless";
+
+  /** Private constructor to stop the class being instantiated. */
+  private CLIParser() {}
 
   /**
    * Generate and return the options object.
@@ -90,7 +93,7 @@ public class CLIParser {
     log.info("Enabled logging to file.");
   }
 
-  /** Enable logging to the Lilith logback app */
+  /** Enable logging to the Lilith logback app. */
   public static void enableLilith() {
     // Get the logback context
     LoggerContext context = (LoggerContext) LoggerFactory.getILoggerFactory();
