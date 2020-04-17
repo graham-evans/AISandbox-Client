@@ -32,6 +32,7 @@ public class AgentCell extends ListCell<Agent> {
 
   /**
    * Update the FX object to show the current agent object.
+   *
    * @param agent the agent to render.
    * @param empty is this a blank space?
    */

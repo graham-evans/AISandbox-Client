@@ -9,6 +9,7 @@ import dev.aisandbox.client.output.charts.FrequencyMassDistributionGraph;
 import dev.aisandbox.client.profiler.ProfileStep;
 import dev.aisandbox.client.scenarios.maze.MazeRunner;
 import dev.aisandbox.client.scenarios.twisty.api.TwistyRequest;
+import dev.aisandbox.client.scenarios.twisty.api.TwistyRequestHistory;
 import dev.aisandbox.client.scenarios.twisty.api.TwistyResponse;
 import dev.aisandbox.client.scenarios.twisty.puzzles.Cube10x10x10;
 import dev.aisandbox.client.scenarios.twisty.puzzles.Cube2x2x2;
@@ -49,6 +50,7 @@ public class TwistyThread extends Thread {
   private final Random random;
   private final PuzzleType puzzleType;
   private final Long maxStepCount;
+  private final boolean startSolved;
   private BufferedImage logo;
   private static final int SCRAMBLE_MOVES = 200;
 
@@ -102,13 +104,15 @@ public class TwistyThread extends Thread {
       GameRunController controller,
       Random random,
       PuzzleType puzzleType,
-      Long maxStepCount) {
+      Long maxStepCount,
+      boolean startSolved) {
     this.agent = agent;
     this.output = output;
     this.controller = controller;
     this.random = random;
     this.puzzleType = puzzleType;
     this.maxStepCount = maxStepCount;
+    this.startSolved = startSolved;
     try {
       logo =
           ImageIO.read(MazeRunner.class.getResourceAsStream("/dev/aisandbox/client/fx/logo1.png"));
@@ -141,7 +145,9 @@ public class TwistyThread extends Thread {
       // setup agent
       agent.setupAgent();
       // scramble the puzzle
-      scramblePuzzle(twistyPuzzle);
+      if (!startSolved) {
+        scramblePuzzle(twistyPuzzle);
+      }
       // save the cell colours - just in case we want to reset the puzzle
       String savedPuzzle = twistyPuzzle.getState();
       // create an (empty) list of actions
@@ -152,6 +158,8 @@ public class TwistyThread extends Thread {
       BufferedImage image = renderPuzzle(twistyPuzzle);
       controller.updateBoardImage(image);
       output.addFrame(image);
+      // remember history
+      TwistyRequestHistory history = null;
       while (running) {
         // keep timings
         ProfileStep profileStep = new ProfileStep();
@@ -161,8 +169,8 @@ public class TwistyThread extends Thread {
           request.setPuzzleType(puzzleType.toString());
           request.setMoves(twistyPuzzle.getMoveList());
           request.setState(twistyPuzzle.getState());
+          request.setHistory(history);
           log.info("Requesting new actions from state {}", twistyPuzzle.getState());
-          // TODO - include history
           TwistyResponse response = agent.postRequest(request, TwistyResponse.class);
           actions.addAll(Arrays.asList(response.getMove().trim().split(" ")));
           log.info("Action list now '{}'", actions);
@@ -170,13 +178,16 @@ public class TwistyThread extends Thread {
         }
         // perform actions
         if (!actions.isEmpty()) {
+          history.setStartState(twistyPuzzle.getState());
           String action = actions.remove(0);
           log.info("Applying move '{}'", action);
           moves += twistyPuzzle.applyMove(action);
-          moveHistory.add(action);
           while (moveHistory.size() > MOVE_HISTORY_MAX) {
             moveHistory.remove(0);
           }
+          moveHistory.add(action);
+          history.setEndState(twistyPuzzle.getState());
+          history.setSuccess(twistyPuzzle.isSolved());
           log.info("State now {}", twistyPuzzle.getState());
           profileStep.addStep("Simulation");
           // draw current state
@@ -185,9 +196,9 @@ public class TwistyThread extends Thread {
           output.addFrame(image);
           profileStep.addStep("Graphics");
         }
-        if (twistyPuzzle.isSolved()) {
+        if (twistyPuzzle.isSolved() && !startSolved) {
           log.info("Puzzle solved, resetting");
-          // TODO register goal
+          // register solve
           frequencyGraph.addValue(moves);
           frequencyGraph.resetGraph();
           // clear history

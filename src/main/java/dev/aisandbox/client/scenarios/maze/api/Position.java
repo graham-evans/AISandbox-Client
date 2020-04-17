@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dev.aisandbox.client.scenarios.maze.api;
 
 import java.util.Objects;
@@ -11,10 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * Position class.
+ * Represents a position in the maze.
  *
- * @author gde
- * @version $Id: $Id
+ * <p>Uses X,Y coordinates, with 0,0 located top left.
  */
 @Data
 @NoArgsConstructor
@@ -24,7 +18,14 @@ public class Position {
   int x;
   int y;
 
-  /** {@inheritDoc} */
+  /**
+   * Overridden equals definition.
+   *
+   * <p>Returns true if compared against a position object with the same X, Y values.
+   *
+   * @param o The object to compare to.
+   * @return true if the object is a position with the same X, Y values.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
@@ -33,7 +34,11 @@ public class Position {
     return x == position.x && y == position.y;
   }
 
-  /** {@inheritDoc} */
+  /**
+   * Overridden hashCode, uses the X and Y values.
+   *
+   * @return the hash of the object.
+   */
   @Override
   public int hashCode() {
     return Objects.hash(x, y);

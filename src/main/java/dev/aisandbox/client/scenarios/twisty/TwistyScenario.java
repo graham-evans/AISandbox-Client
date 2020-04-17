@@ -27,7 +27,7 @@ public class TwistyScenario implements Scenario {
   private static final Logger log = LoggerFactory.getLogger(TwistyScenario.class.getName());
 
   private PuzzleType twistyType = PuzzleType.CUBE3;
-  private boolean twistyMultipleSteps = true;
+  private boolean twistyStartSolved = false;
   private Long scenarioSalt = 0l;
 
   @NonVisual // dont show this on the UI
@@ -87,7 +87,9 @@ public class TwistyScenario implements Scenario {
       rand = new Random(scenarioSalt);
     }
     log.info("Starting run thread");
-    thread = new TwistyThread(agentList.get(0), output, ui, rand, twistyType, stepCount);
+    thread =
+        new TwistyThread(
+            agentList.get(0), output, ui, rand, twistyType, stepCount, twistyStartSolved);
     thread.start();
   }
 

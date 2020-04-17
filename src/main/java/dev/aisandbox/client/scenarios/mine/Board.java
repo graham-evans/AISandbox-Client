@@ -10,12 +10,7 @@ import lombok.Getter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * Board class.
- *
- * @author gde
- * @version $Id: $Id
- */
+/** Object to hold the mine-hunter state. */
 public class Board {
 
   private static final Logger LOG = LoggerFactory.getLogger(Board.class.getName());
@@ -32,10 +27,10 @@ public class Board {
   @Getter private int unfoundMines = 0;
 
   /**
-   * Constructor for Board.
+   * Constructor based on a predefined width and height.
    *
-   * @param width a int.
-   * @param height a int.
+   * @param width the width of the board (in squares).
+   * @param height the height of the board (in squares).
    */
   public Board(int width, int height) {
     this.width = width;
@@ -49,10 +44,10 @@ public class Board {
   }
 
   /**
-   * placeMines.
+   * Place mines randomly on the board.
    *
-   * @param rand a {@link java.util.Random} object.
-   * @param count a int.
+   * @param rand a {@link java.util.Random} random number generator.
+   * @param count the number of mines to place;
    */
   public void placeMines(Random rand, int count) {
     // check we dont have more mines than cells
@@ -69,21 +64,21 @@ public class Board {
   }
 
   /**
-   * getCell.
+   * Get the cell at <i>(X,Y)</i>.
    *
-   * @param x a int.
-   * @param y a int.
-   * @return a {@link dev.aisandbox.client.scenarios.mine.Cell} object.
+   * @param x Cell horizontal position.
+   * @param y Cell vertical position.
+   * @return The requested {@link dev.aisandbox.client.scenarios.mine.Cell} Cell Object.
    */
   protected Cell getCell(int x, int y) {
     return grid[x][y];
   }
 
   /**
-   * getRowToString.
+   * Convert a row of cells as a string.
    *
-   * @param y a int.
-   * @return a {@link java.lang.String} object.
+   * @param y the row number (starts at zero).
+   * @return a {@link java.lang.String} showing the state of the cells.
    */
   public String getRowToString(int y) {
     StringBuilder sb = new StringBuilder();
@@ -94,9 +89,9 @@ public class Board {
   }
 
   /**
-   * getBoardToString.
+   * Convert the board into an array of strings.
    *
-   * @return an array of {@link java.lang.String} objects.
+   * @return an array of {@link java.lang.String} Strings, one for each row.
    */
   public String[] getBoardToString() {
     String[] result = new String[grid[0].length];
@@ -110,8 +105,8 @@ public class Board {
    * look at the cell @ x,y and return 1 if it is mined. If it doesn't have a mine or is lies
    * outside the grid, return 0.
    *
-   * @param x
-   * @param y
+   * @param x the X position.
+   * @param y The Y position.
    * @return 0 or 1
    */
   private int getMineBounds(int x, int y) {
@@ -122,6 +117,16 @@ public class Board {
     }
   }
 
+  /**
+   * Count the number of neighbours a cell has.
+   *
+   * <p>This will be 8 for a cell inside the grid, 5 for a cell on the edge, and 3 for a cell in a
+   * corner.
+   *
+   * @param x The X position.
+   * @param y The Y position.
+   * @return The number of neighbours the cell has.
+   */
   private int countNeighbours(int x, int y) {
     int count = 0;
     for (int dx = -1; dx < 2; dx++) {
@@ -134,7 +139,11 @@ public class Board {
     return count;
   }
 
-  /** countNeighbours. */
+  /**
+   * Count the number of neighbours each cell has.
+   *
+   * <p>The result is stored in the cell object.
+   */
   public void countNeighbours() {
     for (int x = 0; x < width; x++) {
       for (int y = 0; y < height; y++) {
@@ -145,11 +154,16 @@ public class Board {
   }
 
   /**
-   * placeFlag.
+   * Place a flag at position <i>(X,Y)</i>.
    *
-   * @param x a int.
-   * @param y a int.
-   * @return a boolean.
+   * <p>Placing a flag incorrectly will trigger the "game lost" flag.
+   *
+   * <p>Placing a flag on a tile that has already been uncovered, or already has a flag, will make
+   * no change.
+   *
+   * @param x The X position.
+   * @param y The Y position.
+   * @return true is the state of the board has changed.
    */
   public boolean placeFlag(int x, int y) {
     LOG.info("Placing flag @ {},{}", x, y);
@@ -177,11 +191,17 @@ public class Board {
   }
 
   /**
-   * uncover.
+   * Uncover the tile at <i>(X,Y)</i>.
    *
-   * @param x a int.
-   * @param y a int.
-   * @return a boolean.
+   * <p>Uncovering a time that is already uncovered will have no effect.
+   *
+   * <p>Uncovering a mine will trigger the "game lost" flag.
+   *
+   * <p>Uncovering a tile with no neighboring bombs will trigger neighboring tiles to be uncovered.
+   *
+   * @param x The X position.
+   * @param y The Y position.
+   * @return if the board has changed.
    */
   public boolean uncover(int x, int y) {
     Cell c = grid[x][y];
