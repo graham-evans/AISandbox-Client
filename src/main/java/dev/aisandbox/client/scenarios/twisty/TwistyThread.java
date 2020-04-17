@@ -178,14 +178,15 @@ public class TwistyThread extends Thread {
         }
         // perform actions
         if (!actions.isEmpty()) {
+          history = new TwistyRequestHistory();
           history.setStartState(twistyPuzzle.getState());
           String action = actions.remove(0);
           log.info("Applying move '{}'", action);
           moves += twistyPuzzle.applyMove(action);
+          moveHistory.add(action);
           while (moveHistory.size() > MOVE_HISTORY_MAX) {
             moveHistory.remove(0);
           }
-          moveHistory.add(action);
           history.setEndState(twistyPuzzle.getState());
           history.setSuccess(twistyPuzzle.isSolved());
           log.info("State now {}", twistyPuzzle.getState());
