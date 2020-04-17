@@ -96,16 +96,15 @@ public class BaseChart {
     drawYAxis();
     // draw X axis
     drawXAxis();
-    // DEBUG highlight drawable area
-    // draw top title
-    graphics2D.setColor(Color.LIGHT_GRAY);
-    graphics2D.drawRect(
+    // draw axis lines
+    graphics2D.setColor(Color.DARK_GRAY);
+    graphics2D.drawLine(leftMargin, topMargin, leftMargin, graphHeight - bottomMargin);
+    graphics2D.drawLine(
         leftMargin,
-        topMargin,
-        graphWidth - leftMargin - rightMargin,
-        graphHeight - topMargin - bottomMargin);
+        graphHeight - bottomMargin,
+        graphWidth - rightMargin,
+        graphHeight - bottomMargin);
     // work out scales
-
     horizontalScale = (graphWidth - leftMargin - rightMargin) / (highestX - lowestX);
   }
 
