@@ -24,13 +24,13 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class CLIParser {
 
-  /** Constant <code>OPTION_DEBUG="logfile".</code> */
+  /** Parameter for writing logs to file. */
   public static final String OPTION_DEBUG = "logfile";
-  /** Constant <code>OPTION_LILITH="lilith".</code> */
+  /** Parameter for sending logs to lilith. */
   public static final String OPTION_LILITH = "lilith";
-  /** Constant <code>OPTION_CONFIG="config".</code> */
+  /** parameter for config files. */
   public static final String OPTION_CONFIG = "config";
-  /** Constant <code>OPTION_HEADLESS="headless".</code> */
+  /** parameter for running in healess mode */
   public static final String OPTION_HEADLESS = "headless";
 
   /** Private constructor to stop the class being instantiated. */

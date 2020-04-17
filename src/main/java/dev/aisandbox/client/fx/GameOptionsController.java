@@ -35,10 +35,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 /**
- * GameOptionsController class.
+ * Game Options controller.
  *
- * @author gde
- * @version $Id: $Id
+ * <p>Created on loading the FXML file GameOptions.fxml
  */
 @Component
 @Slf4j
@@ -186,13 +185,13 @@ public class GameOptionsController {
     assert outputDirectory != null
         : "fx:id=\"outputDirectory\" was not injected: check your FXML file 'GameOptions.fxml'.";
     assert outputDirectoryButton != null
-        : "fx:id=\"outputDirectoryButton\" was not injected: check your FXML file 'GameOptions.fxml'.";
+        : "fx:id=\"outputDirectoryButton\" was not injected: check FXML file 'GameOptions.fxml'.";
     assert nextButton != null
-        : "fx:id=\"nextButton\" was not injected: check your FXML file 'GameOptions.fxml'.";
+        : "fx:id=\"nextButton\" was not injected: check FXML file 'GameOptions.fxml'.";
     assert simulationLimit != null
         : "fx:id=\"simulationLimit\" was not injected: check your FXML file 'GameOptions.fxml'.";
     assert simulationLimitSteps != null
-        : "fx:id=\"simulationLimitSteps\" was not injected: check your FXML file 'GameOptions.fxml'.";
+        : "fx:id=\"simulationLimitSteps\" was not injected: check FXML file 'GameOptions.fxml'.";
 
     log.info("Adding scenario options");
     FXForm options = new FXForm(model.getScenario());
