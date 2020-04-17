@@ -5,15 +5,12 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
 /**
- * OutputTools class.
- *
- * @author gde
- * @version $Id: $Id
+ * OutputTools for generating images.
  */
 public class OutputTools {
-  /** Constant <code>VIDEO_WIDTH=1920</code> */
+  /** Constant <code>VIDEO_WIDTH=1920</code>. */
   public static final int VIDEO_WIDTH = 1920;
-  /** Constant <code>VIDEO_HEIGHT=1080</code> */
+  /** Constant <code>VIDEO_HEIGHT=1080</code>. */
   public static final int VIDEO_HEIGHT = 1080;
 
   private OutputTools() {}

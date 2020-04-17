@@ -290,16 +290,16 @@ public class GameRunController {
           alert.setHeaderText("There was an error talking to an agent");
           alert.setContentText(agentURL);
 
-          Label label = new Label(description);
-
           TextArea textArea = new TextArea(details);
           textArea.setEditable(false);
           textArea.setWrapText(true);
-
           textArea.setMaxWidth(Double.MAX_VALUE);
           textArea.setMaxHeight(Double.MAX_VALUE);
+
           GridPane.setVgrow(textArea, Priority.ALWAYS);
           GridPane.setHgrow(textArea, Priority.ALWAYS);
+
+          Label label = new Label(description);
 
           GridPane expContent = new GridPane();
           expContent.setMaxWidth(Double.MAX_VALUE);

@@ -30,7 +30,7 @@ public class CLIParser {
   public static final String OPTION_LILITH = "lilith";
   /** parameter for config files. */
   public static final String OPTION_CONFIG = "config";
-  /** parameter for running in healess mode */
+  /** parameter for running in headless mode. */
   public static final String OPTION_HEADLESS = "headless";
 
   /** Private constructor to stop the class being instantiated. */
