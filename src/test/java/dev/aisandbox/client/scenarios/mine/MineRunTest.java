@@ -50,7 +50,7 @@ public class MineRunTest {
     return directoryToBeDeleted.delete();
   }
 
-  @Test(timeout = 10000) // shouldn't take more than 10 seconds
+  @Test(timeout = 100000) // shouldn't take more than 100 seconds
   public void runFullMineTest() throws Exception {
     System.out.println("Running simulation manualy");
     SpringApplicationBuilder builder = new SpringApplicationBuilder(AISandboxCLI.class);
