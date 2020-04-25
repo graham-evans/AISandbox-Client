@@ -181,6 +181,7 @@ public class TwistyThread extends Thread {
           history = new TwistyRequestHistory();
           history.setStartState(twistyPuzzle.getState());
           String action = actions.remove(0);
+          history.setMoves(action);
           log.info("Applying move '{}'", action);
           moves += twistyPuzzle.applyMove(action);
           moveHistory.add(action);
