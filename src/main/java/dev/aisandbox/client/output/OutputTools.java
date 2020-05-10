@@ -4,9 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
-/**
- * OutputTools for generating images.
- */
+/** OutputTools for generating images. */
 public class OutputTools {
   /** Constant <code>VIDEO_WIDTH=1920</code>. */
   public static final int VIDEO_WIDTH = 1920;

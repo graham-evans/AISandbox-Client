@@ -12,9 +12,7 @@ import org.jcodec.common.io.SeekableByteChannel;
 import org.jcodec.common.model.Rational;
 import org.springframework.stereotype.Component;
 
-/**
- * MP4Output class.
- */
+/** MP4Output class. */
 @Component
 @Slf4j
 public class MP4Output implements FrameOutput {
@@ -24,6 +22,7 @@ public class MP4Output implements FrameOutput {
 
   /**
    * Get the name of this output option
+   *
    * @param l a {@link java.util.Locale} object.
    * @return The name of the option to be shown in the UI
    */
@@ -34,6 +33,7 @@ public class MP4Output implements FrameOutput {
 
   /**
    * Open a new MP4 file in the base directory
+   *
    * @param baseDir a {@link java.io.File} object.
    * @throws IOException
    */
@@ -50,6 +50,7 @@ public class MP4Output implements FrameOutput {
 
   /**
    * Add a frame to the current MP$ movie.
+   *
    * @param frame a {@link java.awt.image.BufferedImage} object.
    * @throws IOException
    */
@@ -60,6 +61,7 @@ public class MP4Output implements FrameOutput {
 
   /**
    * Close the current movie file.
+   *
    * @throws IOException
    */
   @Override
