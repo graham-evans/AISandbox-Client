@@ -135,7 +135,9 @@ public class TwistyThread extends Thread {
     }
   }
 
-  /** {@inheritDoc} */
+  /**
+   * Run the Twisty scenario.
+   */
   @Override
   public void run() {
     running = true;

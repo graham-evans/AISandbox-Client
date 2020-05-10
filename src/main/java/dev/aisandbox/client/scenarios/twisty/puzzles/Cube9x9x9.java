@@ -20,7 +20,10 @@ public class Cube9x9x9 extends CubePuzzle implements TwistyPuzzle {
     log.info("Initialised 9x9x9 puzzle");
   }
 
-  /** {@inheritDoc} */
+  /**
+   * Get the puzzle name "Cube 9x9x9 (OBTM)".
+   * @return the puzzle name.
+   */
   @Override
   public String getPuzzleName() {
     return "Cube 9x9x9 (OBTM)";

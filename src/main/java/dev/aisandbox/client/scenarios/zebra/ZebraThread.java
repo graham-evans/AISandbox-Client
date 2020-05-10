@@ -59,7 +59,9 @@ public class ZebraThread extends Thread {
 
   @Getter @Setter private boolean running = false;
 
-  /** {@inheritDoc} */
+  /**
+   * Run the zebra scenario
+   */
   @Override
   public void run() {
     running = true;

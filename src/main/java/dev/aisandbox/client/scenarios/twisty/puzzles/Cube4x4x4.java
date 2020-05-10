@@ -20,7 +20,10 @@ public class Cube4x4x4 extends CubePuzzle implements TwistyPuzzle {
     log.info("Initialised 4x4x4 puzzle");
   }
 
-  /** {@inheritDoc} */
+  /**
+   * Get the puzzle name "Cube 4x4x4 (OBTM)".
+   * @return the puzzle name.
+   */
   @Override
   public String getPuzzleName() {
     return "Cube 4x4x4 (OBTM)";
