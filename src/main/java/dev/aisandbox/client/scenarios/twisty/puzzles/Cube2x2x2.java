@@ -4,9 +4,7 @@ import dev.aisandbox.client.scenarios.twisty.TwistyPuzzle;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-/**
- * A 2x2x2 Cube.
- */
+/** A 2x2x2 Cube. */
 @Slf4j
 @Component
 public class Cube2x2x2 extends CubePuzzle implements TwistyPuzzle {
@@ -18,6 +16,7 @@ public class Cube2x2x2 extends CubePuzzle implements TwistyPuzzle {
 
   /**
    * Return the puzzle name "Cube 2x2x2 (OBTM)".
+   *
    * @return the name of the puzzle
    */
   @Override

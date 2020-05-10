@@ -40,11 +40,11 @@ public abstract class CubePuzzle implements TwistyPuzzle {
   private static final int SCREEN_RIGHT_MARGIN = 40;
   private static final int FACE_SEPERATION = 20;
   // move icons
-  /** Constant <code>MOVE_ICON_WIDTH=60</code> */
+  /** Constant <code>MOVE_ICON_WIDTH=60</code>. */
   public static final int MOVE_ICON_WIDTH = 60;
-  /** Constant <code>MOVE_ICON_HEIGHT=100</code> */
+  /** Constant <code>MOVE_ICON_HEIGHT=100</code>. */
   public static final int MOVE_ICON_HEIGHT = 100;
-  /** Constant <code>MOVE_SPRITESHEET_WIDTH=6</code> */
+  /** Constant <code>MOVE_SPRITESHEET_WIDTH=6</code>. */
   public static final int MOVE_SPRITESHEET_WIDTH = 6;
 
   // puzzle settings - once setup they dont get changed
@@ -193,7 +193,10 @@ public abstract class CubePuzzle implements TwistyPuzzle {
     return face + String.format("%02x", x) + String.format("%02x", y);
   }
 
-  /** {@inheritDoc} */
+
+  /**
+   * Reset the puzzle to its initial (solved) state.
+   */
   @Override
   public void resetPuzzle() {
     List<String> cellsInOrder = new ArrayList<>();
@@ -220,13 +223,19 @@ public abstract class CubePuzzle implements TwistyPuzzle {
     }
   }
 
-  /** {@inheritDoc} */
+  /**
+   * Get the colour map for the puzzle.
+   * @return the colour map
+   */
   @Override
   public Map<Character, Color> getColourMap() {
     return colorMap;
   }
 
-  /** {@inheritDoc} */
+  /**
+   * Get the current state of the puzzle, in the form of a string.
+   * @return the state.
+   */
   @Override
   public String getState() {
     StringBuilder stateBuilder = new StringBuilder();
@@ -234,7 +243,10 @@ public abstract class CubePuzzle implements TwistyPuzzle {
     return stateBuilder.toString();
   }
 
-  /** {@inheritDoc} */
+  /**
+   * Get a list of all possible moves.
+   * @return a list of moves, each one a string.
+   */
   @Override
   public List<String> getMoveList() {
     return moveList;
@@ -383,7 +395,10 @@ public abstract class CubePuzzle implements TwistyPuzzle {
     return true;
   }
 
-  /** {@inheritDoc} */
+  /**
+   * Get the current state, drawn on a HD image.
+   * @return the BufferedImage
+   */
   @Override
   public BufferedImage getStateImage() {
     BufferedImage image = OutputTools.getWhiteScreen();
@@ -399,7 +414,12 @@ public abstract class CubePuzzle implements TwistyPuzzle {
     return image;
   }
 
-  /** {@inheritDoc} */
+  /**
+   * Create a default spritesheet of all the moves.
+   *
+   * <p>This spritesheet may be edited before being loaded back in as a resource.
+   * @return A BufferedImage with a sprite for each move available.
+   */
   @Override
   public BufferedImage createMoveSpriteSheet() {
     // generate sprite sheet with all the move icons
@@ -563,7 +583,12 @@ public abstract class CubePuzzle implements TwistyPuzzle {
     return level;
   }
 
-  /** {@inheritDoc} */
+  /**
+   * Make a move, and return the cost.
+   * @param move a {@link java.lang.String} object.
+   * @return The cost of the move.
+   * @throws NotExistentMoveException if the move doesn't exist
+   */
   @Override
   public int applyMove(String move) throws NotExistentMoveException {
     if (moveList.indexOf(move) == -1) {
@@ -719,7 +744,11 @@ public abstract class CubePuzzle implements TwistyPuzzle {
     throw new NotExistentMoveException(move);
   }
 
-  /** {@inheritDoc} */
+  /**
+   * Return a picture of a move, based on the loaded stylesheet.
+   * @param move a {@link java.lang.String} object.
+   * @return the BufferedImage of the move.
+   */
   @Override
   public BufferedImage getMoveImage(String move) {
     return moveImageMap.get(move);

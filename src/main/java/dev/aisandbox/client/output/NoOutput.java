@@ -29,7 +29,7 @@ public class NoOutput implements FrameOutput {
    * <p>Ignored
    *
    * @param baseDir a {@link java.io.File} object.
-   * @throws IOException
+   * @throws IOException never thrown.
    */
   @Override
   public void open(File baseDir) throws IOException {
@@ -42,7 +42,7 @@ public class NoOutput implements FrameOutput {
    * <p>Ignored
    *
    * @param frame a {@link java.awt.image.BufferedImage} object.
-   * @throws IOException
+   * @throws IOException never thrown.
    */
   @Override
   public void addFrame(BufferedImage frame) throws IOException {
@@ -52,7 +52,7 @@ public class NoOutput implements FrameOutput {
   /**
    * Close the output.
    *
-   * @throws IOException
+   * @throws IOException never thrown.
    */
   @Override
   public void close() throws IOException {

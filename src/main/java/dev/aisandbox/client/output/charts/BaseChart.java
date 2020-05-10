@@ -167,7 +167,7 @@ public class BaseChart {
     return metrics.getHeight();
   }
 
-  /** Draw the Y axis ticks and labels */
+  /** Draw the Y axis ticks and labels. */
   private void drawYAxis() {
     // work out the tick values
     List<Double> ticks = looseLabel(lowestY, highestY);
