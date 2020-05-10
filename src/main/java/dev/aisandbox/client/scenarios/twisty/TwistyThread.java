@@ -175,6 +175,7 @@ public class TwistyThread extends Thread {
           actions.addAll(Arrays.asList(response.getMove().trim().split(" ")));
           log.info("Action list now '{}'", actions);
           profileStep.addStep("Network");
+          // TODO - Implement "reset puzzle request"
         }
         // perform actions
         if (!actions.isEmpty()) {
@@ -227,6 +228,12 @@ public class TwistyThread extends Thread {
     }
     // update the board just in case the screen isn't up-to-date
     controller.forceUpdateBoardImage(renderPuzzle(twistyPuzzle));
+    // stop the recording
+    try {
+      output.close();
+    } catch (IOException e) {
+      log.warn("Error closing output", e);
+    }
     running = false;
     controller.resetStartButton();
   }

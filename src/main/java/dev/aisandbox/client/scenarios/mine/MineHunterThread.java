@@ -23,6 +23,7 @@ import java.util.Random;
 import javax.imageio.ImageIO;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -32,9 +33,8 @@ import org.slf4j.LoggerFactory;
  * @author gde
  * @version $Id: $Id
  */
+@Slf4j
 public class MineHunterThread extends Thread {
-
-  private static final Logger LOG = LoggerFactory.getLogger(MineHunterThread.class.getName());
 
   private final Agent agent;
   private final FrameOutput output;
@@ -81,12 +81,12 @@ public class MineHunterThread extends Thread {
     this.size = size;
     this.maxStepCount = maxSteps;
     // load images
-    LOG.info("Loading sprites");
+    log.info("Loading sprites");
     try {
       logo =
           ImageIO.read(MazeRunner.class.getResourceAsStream("/dev/aisandbox/client/fx/logo1.png"));
     } catch (IOException e) {
-      LOG.error("Error loading logo", e);
+      log.error("Error loading logo", e);
       logo = new BufferedImage(10, 10, BufferedImage.TYPE_INT_RGB);
     }
     sprites = loader.loadSprites("/dev/aisandbox/client/scenarios/mine/grid.png", 40, 40);
@@ -160,15 +160,20 @@ public class MineHunterThread extends Thread {
         }
       }
     } catch (IOException e) {
-      LOG.error("Error running mine thread", e);
+      log.error("Error running mine thread", e);
     }
-    LOG.info("Finished run thread");
+    log.info("Finished run thread");
+    try {
+      output.close();
+    } catch (IOException e) {
+      log.warn("Error closing output", e);
+    }
     controller.resetStartButton();
   }
 
   private void getNewBoard() {
     // create a board
-    LOG.info("Initialising board");
+    log.info("Initialising board");
     switch (size) {
       case SMALL:
         board = new Board(9, 9);
@@ -189,7 +194,7 @@ public class MineHunterThread extends Thread {
     }
     board.countNeighbours();
     scale = 20.0 / board.getHeight();
-    LOG.info("Scaling board to {}", scale);
+    log.info("Scaling board to {}", scale);
     winRateGraphImage = winRateGraph.getGraph(600, 250);
   }
 
@@ -254,7 +259,7 @@ public class MineHunterThread extends Thread {
             g.drawImage(sprites.get(9), x * 40, y * 40, null);
             break;
           default:
-            LOG.warn("Unexpected char");
+            log.warn("Unexpected char");
         }
       }
     }
@@ -267,7 +272,7 @@ public class MineHunterThread extends Thread {
     try {
       this.join();
     } catch (InterruptedException e) {
-      LOG.warn("Interrupted!", e);
+      log.warn("Interrupted!", e);
       // Restore interrupted state...
       Thread.currentThread().interrupt();
     }
