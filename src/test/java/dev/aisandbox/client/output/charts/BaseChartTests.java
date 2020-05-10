@@ -3,6 +3,7 @@ package dev.aisandbox.client.output.charts;
 import static org.junit.Assert.assertEquals;
 
 import dev.aisandbox.client.output.charts.BaseChart.NiceMode;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -74,7 +75,23 @@ public class BaseChartTests {
   public void baseChart500x350() throws IOException {
     BaseChart renderer = new BaseChart();
     renderer.resetGraph();
+    BufferedImage image = renderer.getImage();
     ImageIO.write(
         renderer.getImage(), "PNG", new File("target/test-images/graph/base/500x350.png"));
+    assertEquals("Default width", 500, image.getWidth());
+    assertEquals("Default height", 350, image.getHeight());
+  }
+
+  @Test
+  public void baseChart600x400() throws IOException {
+    BaseChart renderer = new BaseChart();
+    renderer.setGraphWidth(600);
+    renderer.setGraphHeight(400);
+    renderer.resetGraph();
+    BufferedImage image = renderer.getImage();
+    ImageIO.write(
+        renderer.getImage(), "PNG", new File("target/test-images/graph/base/500x350.png"));
+    assertEquals("Width", 600, image.getWidth());
+    assertEquals("Height", 400, image.getHeight());
   }
 }

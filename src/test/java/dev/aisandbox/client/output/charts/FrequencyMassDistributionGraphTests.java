@@ -1,7 +1,9 @@
 package dev.aisandbox.client.output.charts;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.Random;
@@ -41,6 +43,11 @@ public class FrequencyMassDistributionGraphTests {
     g.addValue(25);
     g.addValue(27);
     g.resetGraph();
-    ImageIO.write(g.getImage(), "PNG", new File("target/test-images/graph/PMF/500x350.png"));
+    BufferedImage image = g.getImage();
+    File outFile = new File("target/test-images/graph/PMF/500x350.png");
+    ImageIO.write(image, "PNG", outFile);
+    assertEquals("Default width", 500, image.getWidth());
+    assertEquals("Default height", 350, image.getHeight());
+    assertTrue("Output file written", outFile.isFile());
   }
 }
