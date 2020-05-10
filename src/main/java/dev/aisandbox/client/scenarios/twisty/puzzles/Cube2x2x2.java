@@ -5,22 +5,21 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 /**
- * Cube2x2x2 class.
- *
- * @author gde
- * @version $Id: $Id
+ * A 2x2x2 Cube.
  */
 @Slf4j
 @Component
 public class Cube2x2x2 extends CubePuzzle implements TwistyPuzzle {
 
-  /** Constructor for Cube2x2x2. */
   public Cube2x2x2() {
     super(2, "/dev/aisandbox/client/scenarios/twisty/cube2.png");
     log.info("Initialised 2x2x2 puzzle");
   }
 
-  /** {@inheritDoc} */
+  /**
+   * Return the puzzle name "Cube 2x2x2 (OBTM)".
+   * @return the name of the puzzle
+   */
   @Override
   public String getPuzzleName() {
     return "Cube 2x2x2 (OBTM)";
