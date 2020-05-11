@@ -3,8 +3,7 @@ package dev.aisandbox.client.agent;
 /**
  * AgentConnectionException class.
  *
- * @author gde
- * @version $Id: $Id
+ * <p>Thrown when the client cannot connect to the target URL.
  */
 public class AgentConnectionException extends AgentException {
 

@@ -5,8 +5,7 @@ import lombok.Getter;
 /**
  * AgentParserException class.
  *
- * @author gde
- * @version $Id: $Id
+ * <p>Thrown when the payload from the user is not parsable.
  */
 public class AgentParserException extends AgentException {
 

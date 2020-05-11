@@ -5,8 +5,7 @@ import java.io.IOException;
 /**
  * AgentException class.
  *
- * @author gde
- * @version $Id: $Id
+ * <p>Thrown when trying to talk to a target agent.
  */
 public class AgentException extends IOException {
 

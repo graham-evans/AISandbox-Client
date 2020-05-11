@@ -193,10 +193,7 @@ public abstract class CubePuzzle implements TwistyPuzzle {
     return face + String.format("%02x", x) + String.format("%02x", y);
   }
 
-
-  /**
-   * Reset the puzzle to its initial (solved) state.
-   */
+  /** Reset the puzzle to its initial (solved) state. */
   @Override
   public void resetPuzzle() {
     List<String> cellsInOrder = new ArrayList<>();
@@ -225,6 +222,7 @@ public abstract class CubePuzzle implements TwistyPuzzle {
 
   /**
    * Get the colour map for the puzzle.
+   *
    * @return the colour map
    */
   @Override
@@ -234,6 +232,7 @@ public abstract class CubePuzzle implements TwistyPuzzle {
 
   /**
    * Get the current state of the puzzle, in the form of a string.
+   *
    * @return the state.
    */
   @Override
@@ -245,6 +244,7 @@ public abstract class CubePuzzle implements TwistyPuzzle {
 
   /**
    * Get a list of all possible moves.
+   *
    * @return a list of moves, each one a string.
    */
   @Override
@@ -397,6 +397,7 @@ public abstract class CubePuzzle implements TwistyPuzzle {
 
   /**
    * Get the current state, drawn on a HD image.
+   *
    * @return the BufferedImage
    */
   @Override
@@ -418,6 +419,7 @@ public abstract class CubePuzzle implements TwistyPuzzle {
    * Create a default spritesheet of all the moves.
    *
    * <p>This spritesheet may be edited before being loaded back in as a resource.
+   *
    * @return A BufferedImage with a sprite for each move available.
    */
   @Override
@@ -585,6 +587,7 @@ public abstract class CubePuzzle implements TwistyPuzzle {
 
   /**
    * Make a move, and return the cost.
+   *
    * @param move a {@link java.lang.String} object.
    * @return The cost of the move.
    * @throws NotExistentMoveException if the move doesn't exist
@@ -746,6 +749,7 @@ public abstract class CubePuzzle implements TwistyPuzzle {
 
   /**
    * Return a picture of a move, based on the loaded stylesheet.
+   *
    * @param move a {@link java.lang.String} object.
    * @return the BufferedImage of the move.
    */

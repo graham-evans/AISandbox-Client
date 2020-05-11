@@ -22,6 +22,7 @@ public class Cube9x9x9 extends CubePuzzle implements TwistyPuzzle {
 
   /**
    * Get the puzzle name "Cube 9x9x9 (OBTM)".
+   *
    * @return the puzzle name.
    */
   @Override
