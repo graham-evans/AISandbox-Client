@@ -66,12 +66,12 @@ public abstract class CubePuzzle implements TwistyPuzzle {
   public CubePuzzle(int size, String spritePath) {
     this.size = size;
     // populate colour Map
-    colorMap.put('W', Color.WHITE);
-    colorMap.put('G', Color.GREEN);
-    colorMap.put('R', Color.RED);
-    colorMap.put('B', Color.BLUE);
-    colorMap.put('O', Color.ORANGE);
-    colorMap.put('Y', Color.YELLOW);
+    colorMap.put('W', new Color(249, 249, 249));
+    colorMap.put('G', new Color(0, 128, 0));
+    colorMap.put('R', new Color(176, 0, 0));
+    colorMap.put('B', new Color(0, 0, 208));
+    colorMap.put('O', new Color(255, 128, 0));
+    colorMap.put('Y', new Color(255, 255, 15));
     log.debug("Added {} colours", colorMap.size());
     // work out the size of the cells
     double faceSize =
