@@ -2,6 +2,7 @@ package dev.aisandbox.client.scenarios.twisty;
 
 import dev.aisandbox.client.agent.Agent;
 import dev.aisandbox.client.agent.AgentException;
+import dev.aisandbox.client.agent.AgentResetException;
 import dev.aisandbox.client.fx.GameRunController;
 import dev.aisandbox.client.output.FrameOutput;
 import dev.aisandbox.client.output.charts.BaseChart;
@@ -135,9 +136,7 @@ public class TwistyThread extends Thread {
     }
   }
 
-  /**
-   * Run the Twisty scenario.
-   */
+  /** Run the Twisty scenario. */
   @Override
   public void run() {
     running = true;
@@ -166,18 +165,33 @@ public class TwistyThread extends Thread {
         // keep timings
         ProfileStep profileStep = new ProfileStep();
         if (actions.isEmpty()) {
-          // get next set of actions
-          TwistyRequest request = new TwistyRequest();
-          request.setPuzzleType(puzzleType.toString());
-          request.setMoves(twistyPuzzle.getMoveList());
-          request.setState(twistyPuzzle.getState());
-          request.setHistory(history);
-          log.info("Requesting new actions from state {}", twistyPuzzle.getState());
-          TwistyResponse response = agent.postRequest(request, TwistyResponse.class);
-          actions.addAll(Arrays.asList(response.getMove().trim().split(" ")));
-          log.info("Action list now '{}'", actions);
-          profileStep.addStep("Network");
-          // TODO - Implement "reset puzzle request"
+          try {
+            // get next set of actions
+            TwistyRequest request = new TwistyRequest();
+            request.setPuzzleType(puzzleType.toString());
+            request.setMoves(twistyPuzzle.getMoveList());
+            request.setState(twistyPuzzle.getState());
+            request.setHistory(history);
+            log.info("Requesting new actions from state {}", twistyPuzzle.getState());
+            TwistyResponse response = agent.postRequest(request, TwistyResponse.class);
+            actions.addAll(Arrays.asList(response.getMove().trim().split(" ")));
+            log.info("Action list now '{}'", actions);
+            profileStep.addStep("Network");
+            // TODO - Implement "reset puzzle request"
+          } catch (AgentResetException r) {
+            log.info("Recieved reset puzzle from user");
+            profileStep.addStep("Network");
+            // clear history
+            moves = 0;
+            moveHistory.clear();
+            // reset puzzle
+            twistyPuzzle.resetPuzzle(savedPuzzle);
+            // draw new state
+            image = renderPuzzle(twistyPuzzle);
+            controller.updateBoardImage(image);
+            output.addFrame(image);
+            profileStep.addStep("Puzzle Setup");
+          }
         }
         // perform actions
         if (!actions.isEmpty()) {
