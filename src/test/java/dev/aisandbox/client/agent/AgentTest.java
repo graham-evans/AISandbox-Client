@@ -9,55 +9,18 @@ import static org.springframework.test.web.client.match.MockRestRequestMatchers.
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.method;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.requestTo;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.xpath;
+import static org.springframework.test.web.client.response.MockRestResponseCreators.withStatus;
 import static org.springframework.test.web.client.response.MockRestResponseCreators.withSuccess;
 
 import dev.aisandbox.client.scenarios.TestRequest;
 import dev.aisandbox.client.scenarios.TestResponse;
 import org.junit.Test;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.client.MockRestServiceServer;
 
 public class AgentTest {
-
-  @Test
-  public void testGetJSON() throws AgentException {
-    Agent a = new Agent();
-    a.setTarget("http://localhost/getJSON");
-    a.setEnableXML(false);
-    a.setupAgent();
-    // setup mock server
-    MockRestServiceServer server = AgentMockTool.createMockServer(a);
-    // setup expectations
-    server
-        .expect(requestTo("http://localhost/getJSON"))
-        .andExpect(method(HttpMethod.GET))
-        .andRespond(withSuccess("{\"number\":\"4\"}", MediaType.APPLICATION_JSON));
-    TestResponse r = a.getRequest("", TestResponse.class);
-    server.verify();
-    assertEquals("Answer=4", 4, r.getNumber());
-  }
-
-  @Test
-  public void testGetXML() throws AgentException {
-    Agent a = new Agent();
-    a.setTarget("http://localhost/getXML");
-    a.setEnableXML(true);
-    a.setupAgent();
-    // setup mock server
-    MockRestServiceServer server = AgentMockTool.createMockServer(a);
-    // setup expectations
-    server
-        .expect(requestTo("http://localhost/getXML"))
-        .andExpect(method(HttpMethod.GET))
-        .andRespond(
-            withSuccess(
-                "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><testResponse><number>5</number></testResponse>",
-                MediaType.APPLICATION_XML));
-    TestResponse r = a.getRequest("", TestResponse.class);
-    server.verify();
-    assertEquals("Answer=4", 5, r.getNumber());
-  }
 
   @Test
   public void testPostJSON() throws AgentException {
@@ -109,7 +72,7 @@ public class AgentTest {
   }
 
   @Test
-  public void testGetBasicAuthXML() throws AgentException {
+  public void testPostBasicAuthXML() throws AgentException {
     Agent a = new Agent();
     a.setTarget("http://localhost/getXML");
     a.setEnableXML(true);
@@ -122,19 +85,22 @@ public class AgentTest {
     // setup expectations
     server
         .expect(requestTo("http://localhost/getXML"))
-        .andExpect(method(HttpMethod.GET))
+        .andExpect(method(HttpMethod.POST))
         .andExpect(header("Authorization", "Basic QWxhZGRpbjpPcGVuU2VzYW1l"))
         .andRespond(
             withSuccess(
                 "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><testResponse><number>5</number></testResponse>",
                 MediaType.APPLICATION_XML));
-    TestResponse r = a.getRequest("", TestResponse.class);
+    // run request
+    TestRequest req = new TestRequest();
+    req.setName("Fred");
+    TestResponse r = a.postRequest(req, TestResponse.class);
     server.verify();
     assertEquals("Answer=4", 5, r.getNumber());
   }
 
   @Test
-  public void testGetKeyAuthXML() throws AgentException {
+  public void testPostKeyAuthXML() throws AgentException {
     Agent a = new Agent();
     a.setTarget("http://localhost/getXML");
     a.setEnableXML(true);
@@ -147,13 +113,16 @@ public class AgentTest {
     // setup expectations
     server
         .expect(requestTo("http://localhost/getXML"))
-        .andExpect(method(HttpMethod.GET))
+        .andExpect(method(HttpMethod.POST))
         .andExpect(header("APIKey", "OpenSesame"))
         .andRespond(
             withSuccess(
                 "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><testResponse><number>5</number></testResponse>",
                 MediaType.APPLICATION_XML));
-    TestResponse r = a.getRequest("", TestResponse.class);
+    // run request
+    TestRequest req = new TestRequest();
+    req.setName("Fred");
+    TestResponse r = a.postRequest(req, TestResponse.class);
     server.verify();
     assertEquals("Answer=4", 5, r.getNumber());
   }
@@ -176,29 +145,57 @@ public class AgentTest {
   public void testConnectionError() throws Exception {
     Agent a = new Agent();
     // use unreachable URL
-    a.setTarget("http://localhost:9999/getXML");
+    a.setTarget("http://localhost:9999/INVALID");
     a.setEnableXML(true);
     a.setApiKey(true);
     a.setApiKeyHeader("APIKey");
     a.setApiKeyValue("OpenSesame");
     a.setupAgent();
-    TestResponse r = a.getRequest("", TestResponse.class);
+    // run request
+    TestRequest req = new TestRequest();
+    req.setName("Fred");
+    TestResponse r = a.postRequest(req, TestResponse.class);
   }
 
   @Test(expected = AgentParserException.class)
-  public void testGetBadXML() throws AgentException {
+  public void testPostBadXML() throws AgentException {
     Agent a = new Agent();
-    a.setTarget("http://localhost/getXML");
+    a.setTarget("http://localhost/postXML");
     a.setEnableXML(true);
     a.setupAgent();
     // setup mock server
     MockRestServiceServer server = AgentMockTool.createMockServer(a);
     // setup expectations
     server
-        .expect(requestTo("http://localhost/getXML"))
-        .andExpect(method(HttpMethod.GET))
+        .expect(requestTo("http://localhost/postXML"))
+        .andExpect(method(HttpMethod.POST))
         .andRespond(withSuccess("INVALID XML", MediaType.APPLICATION_XML));
-    TestResponse r = a.getRequest("", TestResponse.class);
+    // run request
+    TestRequest req = new TestRequest();
+    req.setName("Fred");
+    TestResponse r = a.postRequest(req, TestResponse.class);
+    server.verify();
+  }
+
+  @Test(expected = AgentResetException.class)
+  public void testResetPostRequest() throws Exception {
+    Agent a = new Agent();
+    a.setTarget("http://localhost/postXML");
+    a.setEnableXML(true);
+    a.setupAgent();
+    // setup mock server
+    MockRestServiceServer server = AgentMockTool.createMockServer(a);
+    // setup expectations
+    server
+        .expect(requestTo("http://localhost/postXML"))
+        .andExpect(method(HttpMethod.POST))
+        .andExpect(content().contentType(MediaType.APPLICATION_XML))
+        .andExpect(xpath("/testRequest/name").string("Fred"))
+        .andRespond(withStatus(HttpStatus.RESET_CONTENT));
+    // run request
+    TestRequest req = new TestRequest();
+    req.setName("Fred");
+    TestResponse r = a.postRequest(req, TestResponse.class);
     server.verify();
   }
 }
