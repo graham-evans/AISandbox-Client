@@ -2,6 +2,7 @@ package dev.aisandbox.client.output;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 
 /** OutputTools for generating images. */
@@ -52,5 +53,17 @@ public class OutputTools {
     g.setColor(color);
     g.fillRect(0, 0, VIDEO_WIDTH, VIDEO_HEIGHT);
     return image;
+  }
+
+  /**
+   * Setup the rendering hints on a graphics object.
+   *
+   * @param g A Graphics2D object
+   */
+  public static void setupRenderingHints(Graphics2D g) {
+    g.setRenderingHint(
+        RenderingHints.KEY_FRACTIONALMETRICS, RenderingHints.VALUE_FRACTIONALMETRICS_ON);
+    g.setRenderingHint(
+        RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_LCD_HRGB);
   }
 }

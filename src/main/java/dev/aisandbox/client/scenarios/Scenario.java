@@ -21,7 +21,7 @@ public interface Scenario {
   public ScenarioType getGroup();
 
   /**
-   * The name of the scenario
+   * The name of the scenario.
    *
    * @return a {@link java.lang.String} name.
    */
@@ -35,14 +35,14 @@ public interface Scenario {
   public String getOverview();
 
   /**
-   * Return a long description of the scenario
+   * Return a long description of the scenario.
    *
    * @return a {@link java.lang.String} description.
    */
   public String getDescription();
 
   /**
-   * The resource path for a 320x240 example image
+   * The resource path for a 320x240 example image.
    *
    * @return a {@link java.lang.String} reference to an image.
    */

@@ -177,7 +177,6 @@ public class TwistyThread extends Thread {
             actions.addAll(Arrays.asList(response.getMove().trim().split(" ")));
             log.info("Action list now '{}'", actions);
             profileStep.addStep("Network");
-            // TODO - Implement "reset puzzle request"
           } catch (AgentResetException r) {
             log.info("Recieved reset puzzle from user");
             profileStep.addStep("Network");

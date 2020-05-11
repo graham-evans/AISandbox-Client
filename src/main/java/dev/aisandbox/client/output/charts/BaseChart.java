@@ -1,10 +1,10 @@
 package dev.aisandbox.client.output.charts;
 
+import dev.aisandbox.client.output.OutputTools;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
-import java.awt.RenderingHints;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.math.BigDecimal;
@@ -73,10 +73,7 @@ public class BaseChart {
     graphics2D.setColor(backgroundColour);
     graphics2D.fillRect(0, 0, graphWidth, graphHeight);
     // setup hints
-    graphics2D.setRenderingHint(
-        RenderingHints.KEY_FRACTIONALMETRICS, RenderingHints.VALUE_FRACTIONALMETRICS_ON);
-    graphics2D.setRenderingHint(
-        RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_LCD_HRGB);
+    OutputTools.setupRenderingHints(graphics2D);
     // track drawable rectangle
     topMargin = 0;
     leftMargin = 0;
