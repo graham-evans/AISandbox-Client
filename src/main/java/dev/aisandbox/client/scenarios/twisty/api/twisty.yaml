@@ -27,8 +27,6 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/TwistyResponse'
-        '204':
-          description: No solution - Give up
         '205':
           description: Reset Puzzle
         '500':
@@ -53,15 +51,15 @@ components:
           properties:
             startState:
               type: string
-              example: RBGRBGRBGRBGRBGRBGRBGRBGRBGRBGRBGRBGRBGRBGRB
+              example: OYWYYBRYOYBYRRRWRRBRYGGYGGRGOBGOOYBGOOBGBBOORWWGWWWBWW
               nullable: false
             moves:
               type: string
-              example: R L R' 2Rw
+              example: D'
               nullable: false
             endState:
               type: string
-              example: RRRGGGBBBRRRGGGBBBRRRGGGBBBRRRGGGBBBRRRGGGBBB
+              example: OYWYYBRYOYBYRRRGGRBRYGGYYBGGOBGOOOOROOBGBBWRRGWWWWWWWB
               nullable: false
             success:
               type: boolean
@@ -78,11 +76,11 @@ components:
             example: "R"
         state:
           type: string
-          example: RBGRBGRBGRBGRBGRBGRBGRBGRBGRBGRBGRBGRBGRBGRB
+          example: OYWYYBRYOYBYRRRGGRBRYGGYYBGGOBGOOOOROOBGBBWRRGWWWWWWWB
           nullable: false
     TwistyResponse:
       type: object
       properties:
         move:
           type: string
-          example: "R L' 2Rw"
+          example: "R D R'"
