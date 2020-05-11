@@ -118,41 +118,6 @@ public class Agent {
   }
 
   /**
-   * Perform a GET request against the current target.
-   *
-   * <p>The <i>target</i> URL is used, appending the contents of <i>params</i> this could include
-   * parameters.
-   *
-   * @param params extra information to append on the target
-   * @param responseType The class of a {@link dev.aisandbox.client.scenarios.ServerResponse} object
-   *     to return
-   * @param <T> The object type to be returned.
-   * @return the JSON or XML response deserialised into the specified class.
-   * @throws dev.aisandbox.client.agent.AgentException if any.
-   */
-  public <T> T getRequest(String params, Class<T> responseType) throws AgentException {
-    try {
-      HttpEntity<ServerRequest> requestEntity = new HttpEntity<>(null, restHeaders);
-      ResponseEntity response =
-          restTemplate.exchange(target + params, HttpMethod.GET, requestEntity, responseType);
-      // convert
-      return responseType.cast(response.getBody());
-    } catch (ResourceAccessException re) {
-      log.error("Error talking to remote resource", re);
-      throw new AgentConnectionException("Error accessing remote resource");
-    } catch (RestClientException me) {
-      // get the response from the Agent logger
-      log.error(RESPONSE_PARSE_ERROR, me);
-      log.error(
-          "Last code {} response {}", responseLogger.lastHTTPCode, responseLogger.lastResponse);
-      throw new AgentParserException(
-          "Error converting response", responseLogger.lastHTTPCode, responseLogger.lastResponse);
-    } catch (Exception e) {
-      throw new AgentException("Error talking to server", e);
-    }
-  }
-
-  /**
    * Perform a POST request against the current target.
    *
    * @param req the request data, a instance of {@link
@@ -169,8 +134,13 @@ public class Agent {
       HttpEntity<ServerRequest> requestEntity = new HttpEntity<>(req, restHeaders);
       ResponseEntity response =
           restTemplate.exchange(target, HttpMethod.POST, requestEntity, responseType);
-      // convert
-      return responseType.cast(response.getBody());
+      switch (response.getStatusCode()) {
+        case RESET_CONTENT:
+          throw new AgentResetException("Reset content request");
+        default:
+          // convert
+          return responseType.cast(response.getBody());
+      }
     } catch (ResourceAccessException re) {
       log.error("Error talking to remote resource", re);
       throw new AgentConnectionException("Error accessing remote resource");
@@ -181,8 +151,6 @@ public class Agent {
           "Last code {} response {}", responseLogger.lastHTTPCode, responseLogger.lastResponse);
       throw new AgentParserException(
           "Error converting response", responseLogger.lastHTTPCode, responseLogger.lastResponse);
-    } catch (Exception e) {
-      throw new AgentException("Error talking to server", e);
     }
   }
 }
