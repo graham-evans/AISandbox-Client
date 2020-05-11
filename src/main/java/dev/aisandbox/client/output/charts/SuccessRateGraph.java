@@ -22,6 +22,7 @@ public class SuccessRateGraph extends RollingAverageGraph {
 
   /**
    * Get the graph at the required resolution.
+   *
    * @param width the width of the required image.
    * @param height the height of the required image.
    * @return the BufferedImage.
