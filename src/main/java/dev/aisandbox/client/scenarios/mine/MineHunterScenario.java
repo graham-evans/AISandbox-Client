@@ -1,18 +1,13 @@
 package dev.aisandbox.client.scenarios.mine;
 
-import com.dooapp.fxform.annotation.NonVisual;
-import dev.aisandbox.client.agent.Agent;
-import dev.aisandbox.client.fx.GameRunController;
-import dev.aisandbox.client.output.FrameOutput;
 import dev.aisandbox.client.scenarios.Scenario;
+import dev.aisandbox.client.scenarios.ScenarioParameter;
+import dev.aisandbox.client.scenarios.ScenarioRuntime;
 import dev.aisandbox.client.scenarios.ScenarioType;
+import dev.aisandbox.client.scenarios.parameters.LongParameter;
+import dev.aisandbox.client.scenarios.parameters.OptionParameter;
 import dev.aisandbox.client.sprite.SpriteLoader;
-import java.util.List;
-import java.util.Random;
-import lombok.Getter;
-import lombok.Setter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -23,14 +18,23 @@ import org.springframework.stereotype.Component;
  * @version $Id: $Id
  */
 @Component
+@Slf4j
 public class MineHunterScenario implements Scenario {
 
-  @NonVisual
-  private static final Logger LOG = LoggerFactory.getLogger(MineHunterScenario.class.getName());
-
   // configuration
-  @Getter @Setter private Long scenarioSalt = 0l;
-  @Getter @Setter private SizeEnum mineHunterBoardSize = SizeEnum.MEDIUM;
+  private LongParameter scenarioSalt =
+      new LongParameter("mine.salt", 0, "Random Salt", "Set this to zero for a random maze.");
+  private OptionParameter mineHunterBoardSize =
+      new OptionParameter(
+          "mine.size",
+          new String[] {
+            "Small (8x6 10 Mines)",
+            "Medium (16x16 40 Mines)",
+            "Large (24x24 99 Mines)",
+            "Mega (40x40 150 Mines)"
+          },
+          "Board size",
+          null);
 
   /** {@inheritDoc} */
   @Override
@@ -86,64 +90,35 @@ public class MineHunterScenario implements Scenario {
     return "https://files.aisandbox.dev/swagger/mine.yaml";
   }
 
-  /** {@inheritDoc} */
+  @Autowired SpriteLoader spriteLoader;
+
+  private MineHunterThread thread = null;
+
+  //  /** {@inheritDoc} */
+  //  @Override
+  //  public void startSimulation(
+  //      List<Agent> agentList, GameRunController ui, FrameOutput output, Long stepCount) {
+  //    // create random number generator
+  //    Random rand;
+  //    if (scenarioSalt == 0) {
+  //      rand = new Random();
+  //    } else {
+  //      rand = new Random(scenarioSalt);
+  //    }
+  //    LOG.info("Starting run thread");
+  //    thread =
+  //        new MineHunterThread(
+  //            agentList.get(0), output, ui, rand, spriteLoader, mineHunterBoardSize, stepCount);
+  //    thread.start();
+  //  }
+
   @Override
-  public boolean isBeta() {
-    return false;
+  public ScenarioParameter[] getParameterArray() {
+    return new ScenarioParameter[] {scenarioSalt, mineHunterBoardSize};
   }
 
-  @Autowired @NonVisual SpriteLoader spriteLoader;
-
-  @NonVisual private MineHunterThread thread = null;
-
-  /** {@inheritDoc} */
   @Override
-  public void startSimulation(
-      List<Agent> agentList, GameRunController ui, FrameOutput output, Long stepCount) {
-    // create random number generator
-    Random rand;
-    if (scenarioSalt == 0) {
-      rand = new Random();
-    } else {
-      rand = new Random(scenarioSalt);
-    }
-    LOG.info("Starting run thread");
-    thread =
-        new MineHunterThread(
-            agentList.get(0), output, ui, rand, spriteLoader, mineHunterBoardSize, stepCount);
-    thread.start();
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public void stopSimulation() {
-    if (thread != null) {
-      thread.stopSimulation();
-    }
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public void joinSimulation() {
-    LOG.info("Joining simulation");
-    if (thread != null) {
-      try {
-        thread.join();
-      } catch (InterruptedException e) {
-        LOG.warn("Interrupted!", e);
-        // Restore interrupted state...
-        Thread.currentThread().interrupt();
-      }
-      thread = null;
-    }
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public boolean isSimulationRunning() {
-    if (thread == null) {
-      return false;
-    }
-    return thread.isRunning();
+  public ScenarioRuntime getRuntime() {
+    return null;
   }
 }

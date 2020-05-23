@@ -1,19 +1,12 @@
 package dev.aisandbox.client.scenarios.maze;
 
-import com.dooapp.fxform.annotation.NonVisual;
-import dev.aisandbox.client.agent.Agent;
-import dev.aisandbox.client.fx.GameRunController;
-import dev.aisandbox.client.output.FrameOutput;
 import dev.aisandbox.client.scenarios.Scenario;
+import dev.aisandbox.client.scenarios.ScenarioParameter;
+import dev.aisandbox.client.scenarios.ScenarioRuntime;
 import dev.aisandbox.client.scenarios.ScenarioType;
-import java.awt.image.BufferedImage;
-import java.util.List;
-import java.util.Random;
-import lombok.Getter;
-import lombok.Setter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import dev.aisandbox.client.scenarios.parameters.LongParameter;
+import dev.aisandbox.client.scenarios.parameters.OptionParameter;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 /**
@@ -23,19 +16,29 @@ import org.springframework.stereotype.Component;
  * @version $Id: $Id
  */
 @Component
+@Slf4j
 public class MazeScenario implements Scenario {
 
-  @NonVisual
-  private static final Logger log = LoggerFactory.getLogger(MazeScenario.class.getName());
-
-  @NonVisual private MazeRunner runner = null;
-
-  @NonVisual @Autowired private MazeRenderer renderer;
-
   // configurable properties
-  @Getter @Setter private Long scenarioSalt = 0l;
-  @Getter @Setter private MazeType mazeType = MazeType.BINARYTREE;
-  @Getter @Setter private MazeSize mazeSize = MazeSize.MEDIUM;
+  private LongParameter scenarioSalt =
+      new LongParameter("maze.salt", 0, "Random Salt", "Set this to zero for a random maze.");
+  private OptionParameter mazeType =
+      new OptionParameter(
+          "maze.type",
+          new String[] {
+            "Binary Tree (Biased)",
+            "Sidewinder",
+            "Recursive Backtracker",
+            "Braided (includes loops)"
+          },
+          "Maze Type",
+          null);
+  private OptionParameter mazeSize =
+      new OptionParameter(
+          "maze.size",
+          new String[] {"Small (8x6)", "Medium (20x15)", "Large (40x30)"},
+          "Maze Size",
+          null);
 
   /** {@inheritDoc} */
   @Override
@@ -92,97 +95,60 @@ public class MazeScenario implements Scenario {
     return "https://files.aisandbox.dev/swagger/maze.yaml";
   }
 
-  /** {@inheritDoc} */
+  //  public void startSimulation(
+  //      List<Agent> agentList, GameRunController ui, FrameOutput output, Long stepCount) {
+  //    log.info("Salt {}", scenarioSalt);
+  //    log.info("Generating maze");
+  //    Maze maze;
+  //    switch (mazeSize) {
+  //      case SMALL:
+  //        maze = new Maze(8, 6);
+  //        maze.setZoomLevel(5);
+  //        break;
+  //      case MEDIUM:
+  //        maze = new Maze(20, 15);
+  //        maze.setZoomLevel(2);
+  //        break;
+  //      default: // LARGE
+  //        maze = new Maze(40, 30);
+  //        maze.setZoomLevel(1);
+  //    }
+  //    Random rand;
+  //    if (scenarioSalt == 0) {
+  //      rand = new Random();
+  //    } else {
+  //      rand = new Random(scenarioSalt);
+  //    }
+  //    switch (mazeType) {
+  //      case BINARYTREE:
+  //        MazeUtilities.applyBinaryTree(rand, maze);
+  //        break;
+  //      case SIDEWINDER:
+  //        MazeUtilities.applySidewinder(rand, maze);
+  //        break;
+  //      case RECURSIVEBACKTRACKER:
+  //        MazeUtilities.applyRecursiveBacktracker(rand, maze);
+  //        break;
+  //      case BRAIDED:
+  //        MazeUtilities.applyRecursiveBacktracker(rand, maze);
+  //        MazeUtilities.removeDeadEnds(rand, maze);
+  //        break;
+  //    }
+  //    MazeUtilities.findFurthestPoints(maze);
+  //    // render base map
+  //    BufferedImage image = renderer.renderMaze(maze);
+  //    runner = new MazeRunner(agentList.get(0), maze, output, ui, image, stepCount);
+  //    log.info("Starting simulation");
+  //    runner.start();
+  //  }
+
   @Override
-  public boolean isBeta() {
-    return false;
+  public ScenarioParameter[] getParameterArray() {
+    return new ScenarioParameter[] {scenarioSalt, mazeType, mazeSize};
   }
 
-  /** {@inheritDoc} */
   @Override
-  public void startSimulation(
-      List<Agent> agentList, GameRunController ui, FrameOutput output, Long stepCount) {
-    log.info("Salt {}", scenarioSalt);
-    log.info("Generating maze");
-    Maze maze;
-    switch (mazeSize) {
-      case SMALL:
-        maze = new Maze(8, 6);
-        maze.setZoomLevel(5);
-        break;
-      case MEDIUM:
-        maze = new Maze(20, 15);
-        maze.setZoomLevel(2);
-        break;
-      default: // LARGE
-        maze = new Maze(40, 30);
-        maze.setZoomLevel(1);
-    }
-    Random rand;
-    if (scenarioSalt == 0) {
-      rand = new Random();
-    } else {
-      rand = new Random(scenarioSalt);
-    }
-    switch (mazeType) {
-      case BINARYTREE:
-        MazeUtilities.applyBinaryTree(rand, maze);
-        break;
-      case SIDEWINDER:
-        MazeUtilities.applySidewinder(rand, maze);
-        break;
-      case RECURSIVEBACKTRACKER:
-        MazeUtilities.applyRecursiveBacktracker(rand, maze);
-        break;
-      case BRAIDED:
-        MazeUtilities.applyRecursiveBacktracker(rand, maze);
-        MazeUtilities.removeDeadEnds(rand, maze);
-        break;
-    }
-    MazeUtilities.findFurthestPoints(maze);
-    // render base map
-    BufferedImage image = renderer.renderMaze(maze);
-    runner = new MazeRunner(agentList.get(0), maze, output, ui, image, stepCount);
-    log.info("Starting simulation");
-    runner.start();
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public void stopSimulation() {
-    log.info("Stopping simulation");
-    if (runner != null) {
-      runner.stopSimulation();
-      runner = null;
-    }
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public void joinSimulation() {
-    log.info("Joining simulation");
-    if (runner != null) {
-      try {
-        runner.join();
-      } catch (InterruptedException e) {
-        log.warn("Interrupted!", e);
-        // Restore interrupted state...
-        Thread.currentThread().interrupt();
-      }
-      runner = null;
-    }
-  }
-
-  /**
-   * {@inheritDoc}
-   *
-   * <p>Tell if the simulation is currently running
-   */
-  @Override
-  public boolean isSimulationRunning() {
-    if (runner == null) {
-      return false;
-    }
-    return runner.isRunning();
+  public ScenarioRuntime getRuntime() {
+    return null;
   }
 }
