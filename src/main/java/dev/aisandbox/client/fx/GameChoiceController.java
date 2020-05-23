@@ -19,7 +19,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
@@ -33,10 +32,22 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class GameChoiceController {
 
-  @Autowired private ApplicationContext appContext;
-  @Autowired private List<Scenario> scenarioList;
-  @Autowired private RuntimeModel model;
-  @Autowired private FXTools fxtools;
+  private final ApplicationContext appContext;
+  private final List<Scenario> scenarioList;
+  private final RuntimeModel model;
+  private final FXTools fxtools;
+
+  public GameChoiceController(
+      ApplicationContext appContext,
+      List<Scenario> scenarioList,
+      RuntimeModel model,
+      FXTools fxtools) {
+    this.appContext = appContext;
+    this.scenarioList = scenarioList;
+    this.model = model;
+    this.fxtools = fxtools;
+  }
+
   @FXML private ResourceBundle resources;
 
   @FXML private URL location;
@@ -87,7 +98,6 @@ public class GameChoiceController {
     } else {
       log.info("There are {} scenarios", scenarioList.size());
       // add scenarios to the list
-      scenarioList.removeIf(Scenario::isBeta);
       gameList.getItems().addAll(scenarioList);
       // set the formatting
       gameList.setCellFactory(cellListView -> new ScenarioCell());
