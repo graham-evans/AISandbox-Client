@@ -95,9 +95,9 @@ public class AISandboxFX extends Application {
   public void stop() throws Exception {
     LOG.info("Stopping application");
     RuntimeModel model = context.getBean(RuntimeModel.class);
-    if (model.getScenario().isSimulationRunning()) {
-      model.getScenario().stopSimulation();
-    }
+    //    if (model.getScenario().isSimulationRunning()) {
+    //      model.getScenario().stopSimulation();
+    //    }
     context.close();
     System.exit(0);
   }
