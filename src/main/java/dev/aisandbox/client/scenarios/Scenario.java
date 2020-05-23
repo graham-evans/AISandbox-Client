@@ -1,10 +1,5 @@
 package dev.aisandbox.client.scenarios;
 
-import dev.aisandbox.client.agent.Agent;
-import dev.aisandbox.client.fx.GameRunController;
-import dev.aisandbox.client.output.FrameOutput;
-import java.util.List;
-
 /**
  * Interface class for describing and launching a scenario.
  *
@@ -63,30 +58,6 @@ public interface Scenario {
   public int getMaxAgentCount();
 
   /**
-   * startSimulation.
-   *
-   * @param agentList a {@link java.util.List} object.
-   * @param ui a {@link dev.aisandbox.client.fx.GameRunController} object.
-   * @param output a {@link dev.aisandbox.client.output.FrameOutput} object.
-   * @param stepCount a {@link java.lang.Long} object.
-   */
-  public void startSimulation(
-      List<Agent> agentList, GameRunController ui, FrameOutput output, Long stepCount);
-
-  /** stopSimulation. */
-  public void stopSimulation();
-
-  /**
-   * isSimulationRunning.
-   *
-   * @return a boolean.
-   */
-  public boolean isSimulationRunning();
-
-  /** joinSimulation. */
-  public void joinSimulation();
-
-  /**
    * getScenarioURL.
    *
    * @return a {@link java.lang.String} object.
@@ -101,9 +72,16 @@ public interface Scenario {
   public String getSwaggerURL();
 
   /**
-   * isBeta.
+   * Get a list of configurable parameters.
    *
-   * @return a boolean.
+   * @return a {@link java.util.List} of {@link dev.aisandbox.client.scenarios.ScenarioParameter}.
    */
-  public boolean isBeta();
+  public ScenarioParameter[] getParameterArray();
+
+  /**
+   * Get a runtime object that can be called to run the AI.
+   *
+   * @return a {link dev.aidandbox.client.scenarios.ScenarioRuntime} object.
+   */
+  public ScenarioRuntime getRuntime();
 }
