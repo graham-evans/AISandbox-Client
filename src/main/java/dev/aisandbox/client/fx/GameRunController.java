@@ -72,11 +72,11 @@ public class GameRunController {
 
   @FXML
   void startButtonAction(ActionEvent event) {
-    if (model.getScenario().isSimulationRunning()) {
-      stopSimulation();
-    } else {
-      startSimulation();
-    }
+    //    if (model.getScenario().isSimulationRunning()) {
+    //      stopSimulation();
+    //    } else {
+    //      startSimulation();
+    //    }
   }
 
   private void startSimulation() {
@@ -102,19 +102,19 @@ public class GameRunController {
     } catch (IOException e) {
       log.warn("Error opening output", e);
     }
-    model
-        .getScenario()
-        .startSimulation(
-            model.getAgentList(),
-            this,
-            out,
-            model.getLimitRuntime().get() ? model.getMaxStepCount().get() : null);
+    //    model
+    //        .getScenario()
+    //        .startSimulation(
+    //            model.getAgentList(),
+    //            this,
+    //            out,
+    //            model.getLimitRuntime().get() ? model.getMaxStepCount().get() : null);
     startButton.setText("Stop Simulation");
   }
 
   private void stopSimulation() {
-    model.getScenario().stopSimulation();
-    resetStartButton();
+    //    model.getScenario().stopSimulation();
+    //    resetStartButton();
   }
 
   @FXML
