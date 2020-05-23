@@ -235,12 +235,7 @@
             <artifactId>controlsfx</artifactId>
             <version>11.0.1</version>
         </dependency>
-        <!-- FXForm2 to automaticlly generate forms from beans -->
-        <dependency>
-            <groupId>com.dooapp.fxform2</groupId>
-            <artifactId>core</artifactId>
-            <version>9.0.0</version>
-        </dependency>
+    <!-- FORM FX REMOVED - DONT KNOW IF THE NEXT THREE ARE STILL NEEDED -->
         <dependency>
             <groupId>org.hibernate.validator</groupId>
             <artifactId>hibernate-validator</artifactId>
