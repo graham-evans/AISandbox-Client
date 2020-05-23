@@ -1,16 +1,12 @@
 package dev.aisandbox.client.scenarios.zebra;
 
-import com.dooapp.fxform.annotation.NonVisual;
-import dev.aisandbox.client.agent.Agent;
-import dev.aisandbox.client.fx.GameRunController;
-import dev.aisandbox.client.output.FrameOutput;
 import dev.aisandbox.client.scenarios.Scenario;
+import dev.aisandbox.client.scenarios.ScenarioParameter;
+import dev.aisandbox.client.scenarios.ScenarioRuntime;
 import dev.aisandbox.client.scenarios.ScenarioType;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 // @Component
 /**
@@ -19,10 +15,8 @@ import org.slf4j.LoggerFactory;
  * @author gde
  * @version $Id: $Id
  */
+@Slf4j
 public class ZebraScenario implements Scenario {
-
-  @NonVisual
-  private static final Logger LOG = LoggerFactory.getLogger(ZebraScenario.class.getName());
 
   // configuration
   @Getter @Setter private Long scenarioSalt = 0l;
@@ -76,31 +70,6 @@ public class ZebraScenario implements Scenario {
 
   /** {@inheritDoc} */
   @Override
-  public void startSimulation(
-      List<Agent> agentList, GameRunController ui, FrameOutput output, Long stepCount) {
-    throw new UnsupportedOperationException();
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public void stopSimulation() {
-    throw new UnsupportedOperationException();
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public boolean isSimulationRunning() {
-    return false;
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public void joinSimulation() {
-    throw new UnsupportedOperationException();
-  }
-
-  /** {@inheritDoc} */
-  @Override
   public String getScenarioURL() {
     return "https://aisandbox.dev/scenarios-zebra/";
   }
@@ -111,9 +80,13 @@ public class ZebraScenario implements Scenario {
     return "https://files.aisandbox.dev/swagger/zebra.yaml";
   }
 
-  /** {@inheritDoc} */
   @Override
-  public boolean isBeta() {
-    return false;
+  public ScenarioParameter[] getParameterArray() {
+    return new ScenarioParameter[0];
+  }
+
+  @Override
+  public ScenarioRuntime getRuntime() {
+    return null;
   }
 }

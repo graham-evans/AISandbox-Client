@@ -1,16 +1,16 @@
 package dev.aisandbox.client.scenarios.twisty;
 
-import com.dooapp.fxform.annotation.NonVisual;
-import dev.aisandbox.client.agent.Agent;
-import dev.aisandbox.client.fx.GameRunController;
-import dev.aisandbox.client.output.FrameOutput;
 import dev.aisandbox.client.scenarios.Scenario;
+import dev.aisandbox.client.scenarios.ScenarioParameter;
+import dev.aisandbox.client.scenarios.ScenarioRuntime;
 import dev.aisandbox.client.scenarios.ScenarioType;
+import dev.aisandbox.client.scenarios.parameters.BooleanParameter;
+import dev.aisandbox.client.scenarios.parameters.LongParameter;
+import dev.aisandbox.client.scenarios.parameters.OptionParameter;
 import java.util.List;
-import java.util.Random;
 import lombok.Data;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -21,17 +21,21 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Data
+@Slf4j
 public class TwistyScenario implements Scenario {
 
-  @NonVisual
-  private static final Logger log = LoggerFactory.getLogger(TwistyScenario.class.getName());
+  private OptionParameter twistyType = new OptionParameter("twisty.type", new String[0]);
+  private LongParameter scenarioSalt = new LongParameter("twisty.salt", 0, "Random Salt", null);
+  private BooleanParameter twistyStartSolved =
+      new BooleanParameter("twisty.solved", false, "Start Solved", null);
 
-  private PuzzleType twistyType = PuzzleType.CUBE3;
-  private boolean twistyStartSolved = false;
-  private Long scenarioSalt = 0l;
-
-  @NonVisual // dont show this on the UI
-  private TwistyThread thread = null;
+  @Autowired
+  public TwistyScenario(List<TwistyPuzzle> puzzles) {
+    // populate options
+    for (TwistyPuzzle tp : puzzles) {
+      twistyType.getOptionList().add(tp.getPuzzleName());
+    }
+  }
 
   /** {@inheritDoc} */
   @Override
@@ -75,69 +79,43 @@ public class TwistyScenario implements Scenario {
     return 1;
   }
 
-  /** {@inheritDoc} */
-  @Override
-  public void startSimulation(
-      List<Agent> agentList, GameRunController ui, FrameOutput output, Long stepCount) {
-    // create random number generator
-    Random rand;
-    if (scenarioSalt == 0) {
-      rand = new Random();
-    } else {
-      rand = new Random(scenarioSalt);
-    }
-    log.info("Starting run thread");
-    thread =
-        new TwistyThread(
-            agentList.get(0), output, ui, rand, twistyType, stepCount, twistyStartSolved);
-    thread.start();
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public void stopSimulation() {
-    if (thread != null) {
-      thread.stopSimulation();
-    }
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public boolean isSimulationRunning() {
-    return (thread != null) && (thread.isRunning());
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public void joinSimulation() {
-    log.info("Joining simulation");
-    if (thread != null) {
-      try {
-        thread.join();
-      } catch (InterruptedException e) {
-        log.warn("Interrupted!", e);
-        // Restore interrupted state...
-        Thread.currentThread().interrupt();
-      }
-      thread = null;
-    }
-  }
+  //  /** {@inheritDoc} */
+  //  @Override
+  //  public void startSimulation(
+  //      List<Agent> agentList, GameRunController ui, FrameOutput output, Long stepCount) {
+  //    // create random number generator
+  //    Random rand;
+  //    if (scenarioSalt == 0) {
+  //      rand = new Random();
+  //    } else {
+  //      rand = new Random(scenarioSalt);
+  //    }
+  //    log.info("Starting run thread");
+  //    thread =
+  //        new TwistyThread(
+  //            agentList.get(0), output, ui, rand, twistyType, stepCount, twistyStartSolved);
+  //    thread.start();
+  //  }
 
   /** {@inheritDoc} */
   @Override
   public String getScenarioURL() {
-    return "https://aisandbox.dev/";
+    return "https://aisandbox.dev/scenarios-twisty/";
   }
 
   /** {@inheritDoc} */
   @Override
   public String getSwaggerURL() {
-    return "https://aisandbox.dev/";
+    return "https://files.aisandbox.dev/swagger/twisty.yaml";
   }
 
-  /** {@inheritDoc} */
   @Override
-  public boolean isBeta() {
-    return false;
+  public ScenarioParameter[] getParameterArray() {
+    return new ScenarioParameter[] {scenarioSalt, twistyType, twistyStartSolved};
+  }
+
+  @Override
+  public ScenarioRuntime getRuntime() {
+    return null;
   }
 }
