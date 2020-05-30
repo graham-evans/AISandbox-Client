@@ -6,7 +6,8 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertSame;
 
 import dev.aisandbox.client.agent.Agent;
-import dev.aisandbox.client.scenarios.maze.MazeScenario;
+import dev.aisandbox.client.scenarios.Scenario;
+import dev.aisandbox.client.scenarios.twisty.TwistyScenario;
 import org.junit.Test;
 
 public class ApplicationModelTest {
@@ -57,10 +58,10 @@ public class ApplicationModelTest {
   @Test
   public void testLoadScenario() {
     ApplicationModel model = new ApplicationModel();
-    MazeScenario maze = new MazeScenario();
-    model.setScenario(maze);
+    Scenario s = new TwistyScenario();
+    model.setScenario(s);
     assertEquals("Wrong Min Agents", 1, model.getMinAgents().get());
     assertEquals("Wrong Max Agents", 1, model.getMaxAgents().get());
-    assertSame("Unexpected scenario", maze, model.getScenario());
+    assertSame("Unexpected scenario", s, model.getScenario());
   }
 }
