@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import dev.aisandbox.client.RuntimeModel;
+import dev.aisandbox.client.ApplicationModel;
 import dev.aisandbox.client.agent.Agent;
 import dev.aisandbox.client.output.OutputFormat;
 import dev.aisandbox.launcher.AISandboxCLI;
@@ -126,7 +126,7 @@ public class PropertiesParserTest {
   public void readLimitTest() {
     Properties props = new Properties();
     props.setProperty("steps", "100");
-    RuntimeModel model = parser.parseConfiguration(new RuntimeModel(), props);
+    ApplicationModel model = parser.parseConfiguration(new ApplicationModel(), props);
     assertTrue("Step limit not set", model.getLimitRuntime().get());
     assertEquals("Step limit incorrect", 100, model.getMaxStepCount().get());
   }
@@ -134,7 +134,7 @@ public class PropertiesParserTest {
   @Test
   public void readNoLimitTest() {
     Properties props = new Properties();
-    RuntimeModel model = parser.parseConfiguration(new RuntimeModel(), props);
+    ApplicationModel model = parser.parseConfiguration(new ApplicationModel(), props);
     assertFalse("Step limit set", model.getLimitRuntime().get());
   }
 
@@ -143,7 +143,7 @@ public class PropertiesParserTest {
     Properties props = new Properties();
     props.setProperty("output", "png");
     props.setProperty("outputDir", "test");
-    RuntimeModel model = parser.parseConfiguration(new RuntimeModel(), props);
+    ApplicationModel model = parser.parseConfiguration(new ApplicationModel(), props);
     assertEquals("Wrong output type", OutputFormat.PNG, model.getOutputFormat());
     assertEquals("Wrong output Directory", "test", model.getOutputDirectory().toString());
   }
@@ -153,7 +153,7 @@ public class PropertiesParserTest {
     Properties props = new Properties();
     props.setProperty("output", "none");
     props.setProperty("outputDir", "test");
-    RuntimeModel model = parser.parseConfiguration(new RuntimeModel(), props);
+    ApplicationModel model = parser.parseConfiguration(new ApplicationModel(), props);
     assertEquals("Wrong output type", OutputFormat.NONE, model.getOutputFormat());
     assertEquals("Wrong output Directory", "test", model.getOutputDirectory().toString());
   }
@@ -163,7 +163,7 @@ public class PropertiesParserTest {
     Properties props = new Properties();
     props.setProperty("output", "mp4");
     props.setProperty("outputDir", "test");
-    RuntimeModel model = parser.parseConfiguration(new RuntimeModel(), props);
+    ApplicationModel model = parser.parseConfiguration(new ApplicationModel(), props);
     assertEquals("Wrong output type", OutputFormat.MP4, model.getOutputFormat());
     assertEquals("Wrong output Directory", "test", model.getOutputDirectory().toString());
   }
@@ -174,7 +174,7 @@ public class PropertiesParserTest {
     props.setProperty("agents", "1");
     props.setProperty("agent1URL", "http://www.test.com/");
     props.setProperty("agent1Lang", "XML");
-    RuntimeModel model = parser.parseConfiguration(new RuntimeModel(), props);
+    ApplicationModel model = parser.parseConfiguration(new ApplicationModel(), props);
     assertEquals("Wrong number of agents configured", 1, model.getAgentList().size());
     Agent agent1 = model.getAgentList().get(0);
     assertEquals("Agent 1 wrong URL", "http://www.test.com/", agent1.getTarget());
@@ -189,7 +189,7 @@ public class PropertiesParserTest {
     props.setProperty("agent1Lang", "JSON");
     props.setProperty("agent2URL", "http://www.test2.com/");
     props.setProperty("agent2Lang", "XML");
-    RuntimeModel model = parser.parseConfiguration(new RuntimeModel(), props);
+    ApplicationModel model = parser.parseConfiguration(new ApplicationModel(), props);
     assertEquals("Wrong number of agents configured", 2, model.getAgentList().size());
     Agent agent1 = model.getAgentList().get(0);
     Agent agent2 = model.getAgentList().get(1);
@@ -207,7 +207,7 @@ public class PropertiesParserTest {
     props.setProperty("agent1Lang", "JSON");
     props.setProperty("agent1HeaderName", "key");
     props.setProperty("agent1HeaderValue", "value");
-    RuntimeModel model = parser.parseConfiguration(new RuntimeModel(), props);
+    ApplicationModel model = parser.parseConfiguration(new ApplicationModel(), props);
     assertEquals("Wrong number of agents configured", 1, model.getAgentList().size());
     Agent agent1 = model.getAgentList().get(0);
     assertTrue("Header auth not enabled", agent1.isApiKey());
@@ -223,7 +223,7 @@ public class PropertiesParserTest {
     props.setProperty("agent1Lang", "JSON");
     props.setProperty("agent1Username", "key");
     props.setProperty("agent1Password", "value");
-    RuntimeModel model = parser.parseConfiguration(new RuntimeModel(), props);
+    ApplicationModel model = parser.parseConfiguration(new ApplicationModel(), props);
     assertEquals("Wrong number of agents configured", 1, model.getAgentList().size());
     Agent agent1 = model.getAgentList().get(0);
     assertTrue("Basic auth not enabled", agent1.isBasicAuth());

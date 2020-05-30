@@ -1,6 +1,6 @@
 package dev.aisandbox.client.fx;
 
-import dev.aisandbox.client.RuntimeModel;
+import dev.aisandbox.client.ApplicationModel;
 import dev.aisandbox.client.scenarios.Scenario;
 import java.awt.Desktop;
 import java.io.IOException;
@@ -34,13 +34,13 @@ public class GameChoiceController {
 
   private final ApplicationContext appContext;
   private final List<Scenario> scenarioList;
-  private final RuntimeModel model;
+  private final ApplicationModel model;
   private final FXTools fxtools;
 
   public GameChoiceController(
       ApplicationContext appContext,
       List<Scenario> scenarioList,
-      RuntimeModel model,
+      ApplicationModel model,
       FXTools fxtools) {
     this.appContext = appContext;
     this.scenarioList = scenarioList;

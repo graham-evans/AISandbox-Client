@@ -1,13 +1,10 @@
 package dev.aisandbox.client.fx;
 
-import dev.aisandbox.client.RuntimeModel;
+import dev.aisandbox.client.ApplicationModel;
+import dev.aisandbox.client.SimulationRunThread;
 import dev.aisandbox.client.agent.AgentConnectionException;
 import dev.aisandbox.client.agent.AgentParserException;
 import dev.aisandbox.client.output.FormatTools;
-import dev.aisandbox.client.output.FrameOutput;
-import dev.aisandbox.client.output.MP4Output;
-import dev.aisandbox.client.output.NoOutput;
-import dev.aisandbox.client.output.PNGOutputWriter;
 import dev.aisandbox.client.profiler.AIProfiler;
 import dev.aisandbox.client.profiler.ProfileStep;
 import java.awt.image.BufferedImage;
@@ -17,6 +14,8 @@ import java.io.StringWriter;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicBoolean;
 import javafx.application.Platform;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -47,7 +46,7 @@ public class GameRunController {
 
   private final AtomicBoolean imageReady = new AtomicBoolean(true);
   @Autowired private ApplicationContext appContext;
-  @Autowired private RuntimeModel model;
+  @Autowired private ApplicationModel model;
   @Autowired private FXTools fxtools;
   @FXML private ResourceBundle resources;
   @FXML private Pane durationChartPane;
@@ -57,12 +56,17 @@ public class GameRunController {
   @FXML private Button backButton;
   @FXML private Button startButton;
   @FXML private Pane imageAnchor;
+  @FXML private Button stepButton;
+  @FXML private Button pauseButton;
 
   private AIProfiler profiler = null;
   private long profileLastUpdate = 0L;
 
   private ChartViewer durationChartViewer;
   private ImageView imageView;
+
+  private BooleanProperty running = new SimpleBooleanProperty(false);
+  SimulationRunThread thread = null;
 
   @FXML
   void backButtonAction(ActionEvent event) {
@@ -71,37 +75,57 @@ public class GameRunController {
   }
 
   @FXML
+  void pauseButtonAction(ActionEvent event) {
+    try {
+      thread.setStopped(true);
+    } catch (NullPointerException e) {
+      log.debug("Trying to stop a simulation that has already finished", e);
+    }
+  }
+
+  @FXML
+  void stepButtonAction(ActionEvent event) {
+    thread = new SimulationRunThread(model, 1);
+    running.set(true);
+    thread.start();
+  }
+
+  @FXML
   void startButtonAction(ActionEvent event) {
-    //    if (model.getScenario().isSimulationRunning()) {
-    //      stopSimulation();
-    //    } else {
-    //      startSimulation();
-    //    }
+    thread = new SimulationRunThread(model);
+    running.set(true);
+    thread.start();
+  }
+
+  /** Called when the running thread has stopped running. */
+  public void resetStartButton() {
+    running.set(false);
+    thread = null;
   }
 
   private void startSimulation() {
-    // reset the profiler
-    profiler = new AIProfiler();
-    // disable the back button
-    backButton.setDisable(true);
-    // decide which output class to use
-    FrameOutput out;
-    switch (model.getOutputFormat()) {
-      case MP4:
-        out = new MP4Output();
-        break;
-      case PNG:
-        out = new PNGOutputWriter();
-        break;
-      default:
-        out = new NoOutput();
-    }
-    // setup output
-    try {
-      out.open(model.getOutputDirectory());
-    } catch (IOException e) {
-      log.warn("Error opening output", e);
-    }
+    //    // reset the profiler
+    //    profiler = new AIProfiler();
+    //    // disable the back button
+    //    backButton.setDisable(true);
+    //    // decide which output class to use
+    //    FrameOutput out;
+    //    switch (model.getOutputFormat()) {
+    //      case MP4:
+    //        out = new MP4Output();
+    //        break;
+    //      case PNG:
+    //        out = new PNGOutputWriter();
+    //        break;
+    //      default:
+    //        out = new NoOutput();
+    //    }
+    //    // setup output
+    //    try {
+    //      out.open(model.getOutputDirectory());
+    //    } catch (IOException e) {
+    //      log.warn("Error opening output", e);
+    //    }
     //    model
     //        .getScenario()
     //        .startSimulation(
@@ -109,7 +133,7 @@ public class GameRunController {
     //            this,
     //            out,
     //            model.getLimitRuntime().get() ? model.getMaxStepCount().get() : null);
-    startButton.setText("Stop Simulation");
+    // startButton.setText("Stop Simulation");
   }
 
   private void stopSimulation() {
@@ -166,6 +190,13 @@ public class GameRunController {
     durationChartViewer.setPrefSize(300.0, 200.0);
     durationChartViewer.setMaxSize(300.0, 200.0);
     durationChartPane.getChildren().add(durationChartViewer);
+    // setup run buttons
+    pauseButton.disableProperty().bind(running.not());
+    startButton.disableProperty().bind(running);
+    stepButton.disableProperty().bind(running);
+    backButton.disableProperty().bind(running);
+    // initialise simulation
+    model.initialiseRuntime(this);
   }
 
   /**
@@ -234,15 +265,6 @@ public class GameRunController {
         () -> {
           imageView.setImage(SwingFXUtils.toFXImage(image, null));
           imageReady.set(true);
-        });
-  }
-
-  /** resetStartButton. */
-  public void resetStartButton() {
-    Platform.runLater(
-        () -> {
-          startButton.setText("Start Simulation");
-          backButton.setDisable(false);
         });
   }
 

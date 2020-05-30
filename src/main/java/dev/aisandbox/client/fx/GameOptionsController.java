@@ -1,6 +1,6 @@
 package dev.aisandbox.client.fx;
 
-import dev.aisandbox.client.RuntimeModel;
+import dev.aisandbox.client.ApplicationModel;
 import dev.aisandbox.client.agent.Agent;
 import dev.aisandbox.client.output.OutputFormat;
 import dev.aisandbox.client.scenarios.ScenarioParameter;
@@ -42,12 +42,13 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class GameOptionsController {
 
-  private final RuntimeModel model;
+  private final ApplicationModel model;
   private final ApplicationContext appContext;
   private final FXTools fxtools;
 
   @Autowired
-  public GameOptionsController(RuntimeModel model, ApplicationContext appContext, FXTools fxtools) {
+  public GameOptionsController(
+      ApplicationModel model, ApplicationContext appContext, FXTools fxtools) {
     this.model = model;
     this.appContext = appContext;
     this.fxtools = fxtools;

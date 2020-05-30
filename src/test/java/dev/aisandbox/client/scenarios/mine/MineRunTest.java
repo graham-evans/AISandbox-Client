@@ -1,6 +1,6 @@
 package dev.aisandbox.client.scenarios.mine;
 
-import dev.aisandbox.client.RuntimeModel;
+import dev.aisandbox.client.ApplicationModel;
 import dev.aisandbox.client.cli.PropertiesParser;
 import dev.aisandbox.launcher.AISandboxCLI;
 import java.io.File;
@@ -19,7 +19,7 @@ public class MineRunTest {
 
   @Autowired PropertiesParser parser;
 
-  @Autowired RuntimeModel model;
+  @Autowired ApplicationModel model;
 
   @Before
   public void resetDir() {

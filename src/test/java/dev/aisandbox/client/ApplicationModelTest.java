@@ -9,11 +9,11 @@ import dev.aisandbox.client.agent.Agent;
 import dev.aisandbox.client.scenarios.maze.MazeScenario;
 import org.junit.Test;
 
-public class RuntimeModelTest {
+public class ApplicationModelTest {
 
   @Test
   public void testZeroAgents() {
-    RuntimeModel model = new RuntimeModel();
+    ApplicationModel model = new ApplicationModel();
     model.getMinAgents().set(2);
     model.getMaxAgents().set(4);
     assertFalse("Validity when zero agents", model.getValid().get());
@@ -21,7 +21,7 @@ public class RuntimeModelTest {
 
   @Test
   public void testMinAgents() {
-    RuntimeModel model = new RuntimeModel();
+    ApplicationModel model = new ApplicationModel();
     model.getMinAgents().set(2);
     model.getMaxAgents().set(4);
     model.getAgentList().add(new Agent());
@@ -31,7 +31,7 @@ public class RuntimeModelTest {
 
   @Test
   public void testMaxAgents() {
-    RuntimeModel model = new RuntimeModel();
+    ApplicationModel model = new ApplicationModel();
     model.getMinAgents().set(2);
     model.getMaxAgents().set(4);
     model.getAgentList().add(new Agent());
@@ -43,7 +43,7 @@ public class RuntimeModelTest {
 
   @Test
   public void testTooManyAgents() {
-    RuntimeModel model = new RuntimeModel();
+    ApplicationModel model = new ApplicationModel();
     model.getMinAgents().set(2);
     model.getMaxAgents().set(4);
     model.getAgentList().add(new Agent());
@@ -56,7 +56,7 @@ public class RuntimeModelTest {
 
   @Test
   public void testLoadScenario() {
-    RuntimeModel model = new RuntimeModel();
+    ApplicationModel model = new ApplicationModel();
     MazeScenario maze = new MazeScenario();
     model.setScenario(maze);
     assertEquals("Wrong Min Agents", 1, model.getMinAgents().get());

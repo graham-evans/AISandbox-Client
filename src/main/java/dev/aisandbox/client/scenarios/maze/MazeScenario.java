@@ -1,11 +1,11 @@
 package dev.aisandbox.client.scenarios.maze;
 
+import dev.aisandbox.client.parameters.LongParameter;
+import dev.aisandbox.client.parameters.OptionParameter;
 import dev.aisandbox.client.scenarios.Scenario;
 import dev.aisandbox.client.scenarios.ScenarioParameter;
 import dev.aisandbox.client.scenarios.ScenarioRuntime;
 import dev.aisandbox.client.scenarios.ScenarioType;
-import dev.aisandbox.client.scenarios.parameters.LongParameter;
-import dev.aisandbox.client.scenarios.parameters.OptionParameter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
