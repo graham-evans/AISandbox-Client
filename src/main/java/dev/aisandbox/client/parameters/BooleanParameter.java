@@ -1,4 +1,4 @@
-package dev.aisandbox.client.scenarios.parameters;
+package dev.aisandbox.client.parameters;
 
 import dev.aisandbox.client.scenarios.ScenarioParameter;
 import javafx.beans.property.BooleanProperty;

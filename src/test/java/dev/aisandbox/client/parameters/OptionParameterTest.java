@@ -1,4 +1,4 @@
-package dev.aisandbox.client.scenarios.parameters;
+package dev.aisandbox.client.parameters;
 
 import static org.junit.Assert.assertEquals;
 
