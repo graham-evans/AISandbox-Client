@@ -6,7 +6,9 @@ import dev.aisandbox.client.scenarios.Scenario;
 import dev.aisandbox.client.scenarios.ScenarioParameter;
 import dev.aisandbox.client.scenarios.ScenarioRuntime;
 import dev.aisandbox.client.scenarios.ScenarioType;
+import java.util.Random;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -39,6 +41,12 @@ public class MazeScenario implements Scenario {
           new String[] {"Small (8x6)", "Medium (20x15)", "Large (40x30)"},
           "Maze Size",
           null);
+  private final MazeRenderer mazeRenderer;
+
+  @Autowired
+  public MazeScenario(MazeRenderer mazeRenderer) {
+    this.mazeRenderer = mazeRenderer;
+  }
 
   /** {@inheritDoc} */
   @Override
@@ -95,53 +103,6 @@ public class MazeScenario implements Scenario {
     return "https://files.aisandbox.dev/swagger/maze.yaml";
   }
 
-  //  public void startSimulation(
-  //      List<Agent> agentList, GameRunController ui, FrameOutput output, Long stepCount) {
-  //    log.info("Salt {}", scenarioSalt);
-  //    log.info("Generating maze");
-  //    Maze maze;
-  //    switch (mazeSize) {
-  //      case SMALL:
-  //        maze = new Maze(8, 6);
-  //        maze.setZoomLevel(5);
-  //        break;
-  //      case MEDIUM:
-  //        maze = new Maze(20, 15);
-  //        maze.setZoomLevel(2);
-  //        break;
-  //      default: // LARGE
-  //        maze = new Maze(40, 30);
-  //        maze.setZoomLevel(1);
-  //    }
-  //    Random rand;
-  //    if (scenarioSalt == 0) {
-  //      rand = new Random();
-  //    } else {
-  //      rand = new Random(scenarioSalt);
-  //    }
-  //    switch (mazeType) {
-  //      case BINARYTREE:
-  //        MazeUtilities.applyBinaryTree(rand, maze);
-  //        break;
-  //      case SIDEWINDER:
-  //        MazeUtilities.applySidewinder(rand, maze);
-  //        break;
-  //      case RECURSIVEBACKTRACKER:
-  //        MazeUtilities.applyRecursiveBacktracker(rand, maze);
-  //        break;
-  //      case BRAIDED:
-  //        MazeUtilities.applyRecursiveBacktracker(rand, maze);
-  //        MazeUtilities.removeDeadEnds(rand, maze);
-  //        break;
-  //    }
-  //    MazeUtilities.findFurthestPoints(maze);
-  //    // render base map
-  //    BufferedImage image = renderer.renderMaze(maze);
-  //    runner = new MazeRunner(agentList.get(0), maze, output, ui, image, stepCount);
-  //    log.info("Starting simulation");
-  //    runner.start();
-  //  }
-
   @Override
   public ScenarioParameter[] getParameterArray() {
     return new ScenarioParameter[] {scenarioSalt, mazeType, mazeSize};
@@ -149,6 +110,12 @@ public class MazeScenario implements Scenario {
 
   @Override
   public ScenarioRuntime getRuntime() {
-    return null;
+    MazeRuntime runtime = new MazeRuntime(mazeRenderer);
+    if (scenarioSalt.getValue() != 0) {
+      runtime.setRandom(new Random(scenarioSalt.getValue()));
+    }
+    runtime.setMazeSize(mazeSize.getOptionIndex());
+    runtime.setMazeType(mazeType.getOptionIndex());
+    return runtime;
   }
 }
