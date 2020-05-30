@@ -8,7 +8,6 @@ import dev.aisandbox.client.profiler.ProfileStep;
 import dev.aisandbox.client.scenarios.RuntimeResponse;
 import dev.aisandbox.client.scenarios.ScenarioRuntime;
 import dev.aisandbox.client.scenarios.SimulationException;
-import dev.aisandbox.client.scenarios.maze.MazeRunner;
 import dev.aisandbox.client.scenarios.mine.api.LastMove;
 import dev.aisandbox.client.scenarios.mine.api.MineHunterRequest;
 import dev.aisandbox.client.scenarios.mine.api.MineHunterResponse;
@@ -102,7 +101,8 @@ public class MineHunterRuntime implements ScenarioRuntime {
     log.info("Loading sprites");
     try {
       logo =
-          ImageIO.read(MazeRunner.class.getResourceAsStream("/dev/aisandbox/client/fx/logo1.png"));
+          ImageIO.read(
+              MineHunterRuntime.class.getResourceAsStream("/dev/aisandbox/client/fx/logo1.png"));
     } catch (IOException e) {
       log.error("Error loading logo", e);
       logo = new BufferedImage(10, 10, BufferedImage.TYPE_INT_RGB);

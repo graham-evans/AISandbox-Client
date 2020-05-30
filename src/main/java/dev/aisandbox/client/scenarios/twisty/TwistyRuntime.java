@@ -10,7 +10,6 @@ import dev.aisandbox.client.profiler.ProfileStep;
 import dev.aisandbox.client.scenarios.RuntimeResponse;
 import dev.aisandbox.client.scenarios.ScenarioRuntime;
 import dev.aisandbox.client.scenarios.SimulationException;
-import dev.aisandbox.client.scenarios.maze.MazeRunner;
 import dev.aisandbox.client.scenarios.twisty.api.TwistyRequest;
 import dev.aisandbox.client.scenarios.twisty.api.TwistyRequestHistory;
 import dev.aisandbox.client.scenarios.twisty.api.TwistyResponse;
@@ -55,7 +54,8 @@ public class TwistyRuntime implements ScenarioRuntime {
     try {
       // load logo
       logo =
-          ImageIO.read(MazeRunner.class.getResourceAsStream("/dev/aisandbox/client/fx/logo1.png"));
+          ImageIO.read(
+              TwistyRuntime.class.getResourceAsStream("/dev/aisandbox/client/fx/logo1.png"));
     } catch (IOException e) {
       log.error("Error loading logo", e);
       logo = new BufferedImage(0, 0, BufferedImage.TYPE_INT_RGB);
