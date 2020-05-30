@@ -7,6 +7,7 @@ import dev.aisandbox.client.scenarios.ScenarioParameter;
 import dev.aisandbox.client.scenarios.ScenarioRuntime;
 import dev.aisandbox.client.scenarios.ScenarioType;
 import dev.aisandbox.client.sprite.SpriteLoader;
+import java.util.Random;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -35,6 +36,12 @@ public class MineHunterScenario implements Scenario {
           },
           "Board size",
           null);
+  private final SpriteLoader spriteLoader;
+
+  @Autowired
+  public MineHunterScenario(SpriteLoader spriteLoader) {
+    this.spriteLoader = spriteLoader;
+  }
 
   /** {@inheritDoc} */
   @Override
@@ -90,28 +97,6 @@ public class MineHunterScenario implements Scenario {
     return "https://files.aisandbox.dev/swagger/mine.yaml";
   }
 
-  @Autowired SpriteLoader spriteLoader;
-
-  private MineHunterThread thread = null;
-
-  //  /** {@inheritDoc} */
-  //  @Override
-  //  public void startSimulation(
-  //      List<Agent> agentList, GameRunController ui, FrameOutput output, Long stepCount) {
-  //    // create random number generator
-  //    Random rand;
-  //    if (scenarioSalt == 0) {
-  //      rand = new Random();
-  //    } else {
-  //      rand = new Random(scenarioSalt);
-  //    }
-  //    LOG.info("Starting run thread");
-  //    thread =
-  //        new MineHunterThread(
-  //            agentList.get(0), output, ui, rand, spriteLoader, mineHunterBoardSize, stepCount);
-  //    thread.start();
-  //  }
-
   @Override
   public ScenarioParameter[] getParameterArray() {
     return new ScenarioParameter[] {scenarioSalt, mineHunterBoardSize};
@@ -119,6 +104,11 @@ public class MineHunterScenario implements Scenario {
 
   @Override
   public ScenarioRuntime getRuntime() {
-    return null;
+    MineHunterRuntime runtime = new MineHunterRuntime(spriteLoader);
+    if (scenarioSalt.getValue() != 0) {
+      runtime.setRandom(new Random(scenarioSalt.getValue()));
+    }
+    runtime.setBoardSize(mineHunterBoardSize.getOptionIndex());
+    return runtime;
   }
 }
