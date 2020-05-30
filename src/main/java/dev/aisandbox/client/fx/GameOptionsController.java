@@ -12,6 +12,7 @@ import javafx.beans.binding.IntegerBinding;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -215,7 +216,9 @@ public class GameOptionsController {
 
     log.info("Adding scenario options");
     VBox optionList = new VBox();
-    optionList.setSpacing(2.0);
+    optionList.setSpacing(5.0);
+    optionList.setPadding(new Insets(5.0, 5.0, 5.0, 5.0));
+    optionList.setFillWidth(true);
     for (ScenarioParameter p : model.getScenario().getParameterArray()) {
       optionList.getChildren().add(p.getParameterControl());
     }
