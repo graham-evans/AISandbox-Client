@@ -50,7 +50,7 @@ public class OptionParameter implements ScenarioParameter {
     pane.setSpacing(5.0);
     pane.setAlignment(Pos.CENTER_LEFT);
     // text label
-    Label label = new Label("Description");
+    Label label = new Label(title);
     label.setMaxWidth(Double.MAX_VALUE);
     // combo box
     ComboBox<String> optionControl = new ComboBox<>();
