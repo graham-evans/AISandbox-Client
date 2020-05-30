@@ -3,10 +3,12 @@ package dev.aisandbox.client.parameters;
 import dev.aisandbox.client.scenarios.ScenarioParameter;
 import javafx.beans.property.LongProperty;
 import javafx.beans.property.SimpleLongProperty;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.util.converter.NumberStringConverter;
 import lombok.Setter;
 
@@ -37,11 +39,17 @@ public class LongParameter implements ScenarioParameter {
   @Override
   public Node getParameterControl() {
     // define controls
-    FlowPane pane = new FlowPane();
+    HBox pane = new HBox();
+    pane.setSpacing(5.0);
+    pane.setAlignment(Pos.CENTER_LEFT);
+    // text label
     Label label = new Label(description);
+    label.setMaxWidth(Double.MAX_VALUE);
+    // field
     TextField field = new TextField();
     pane.getChildren().add(label);
     pane.getChildren().add(field);
+    pane.setHgrow(label, Priority.ALWAYS);
     // bind value
     field.textProperty().bindBidirectional(value, new NumberStringConverter());
     // return parameter

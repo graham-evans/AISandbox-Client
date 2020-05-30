@@ -6,10 +6,12 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
@@ -44,12 +46,19 @@ public class OptionParameter implements ScenarioParameter {
   @Override
   public Node getParameterControl() {
     // define controls
-    FlowPane pane = new FlowPane();
+    HBox pane = new HBox();
+    pane.setSpacing(5.0);
+    pane.setAlignment(Pos.CENTER_LEFT);
+    // text label
     Label label = new Label("Description");
+    label.setMaxWidth(Double.MAX_VALUE);
+    // combo box
     ComboBox<String> optionControl = new ComboBox<>();
     optionControl.setItems(optionList);
+    // ui
     pane.getChildren().add(label);
     pane.getChildren().add(optionControl);
+    pane.setHgrow(label, Priority.ALWAYS);
     // bind options
     int idx = selectedIndex.get();
     selectedIndex.bind(optionControl.getSelectionModel().selectedIndexProperty());
