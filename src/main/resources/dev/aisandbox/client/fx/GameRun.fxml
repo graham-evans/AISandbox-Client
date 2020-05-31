@@ -33,12 +33,21 @@
                   <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
                     </children>
                 </HBox>
-                <AnchorPane VBox.vgrow="NEVER">
-                    <children>
-                        <Button fx:id="backButton" mnemonicParsing="false" onAction="#backButtonAction" text="%ui.button.back" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="8.0" />
-                        <Button fx:id="startButton" mnemonicParsing="false" onAction="#startButtonAction" text="%ui.button.start" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="8.0" />
-                    </children>
-                </AnchorPane>
+            <HBox spacing="5.0" VBox.vgrow="NEVER">
+               <children>
+                        <Button fx:id="backButton" mnemonicParsing="false" onAction="#backButtonAction" text="%ui.button.back" />
+                  <Label maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="stepButton" mnemonicParsing="false" onAction="#stepButtonAction" text="STEP" />
+                  <Button fx:id="pauseButton" mnemonicParsing="false" onAction="#pauseButtonAction" text="Pause" />
+                        <Button fx:id="startButton" mnemonicParsing="false" onAction="#startButtonAction" text="%ui.button.start" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </HBox>
             </children>
         </VBox>
     </bottom>

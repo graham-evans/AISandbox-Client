@@ -1,10 +1,9 @@
 package dev.aisandbox.client.fx;
 
-import com.dooapp.fxform.FXForm;
-import com.dooapp.fxform.view.FXFormSkinFactory;
-import dev.aisandbox.client.RuntimeModel;
+import dev.aisandbox.client.ApplicationModel;
 import dev.aisandbox.client.agent.Agent;
 import dev.aisandbox.client.output.OutputFormat;
+import dev.aisandbox.client.scenarios.ScenarioParameter;
 import java.io.File;
 import java.io.IOException;
 import java.util.ResourceBundle;
@@ -13,6 +12,7 @@ import javafx.beans.binding.IntegerBinding;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -43,11 +43,17 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class GameOptionsController {
 
-  @Autowired private RuntimeModel model;
+  private final ApplicationModel model;
+  private final ApplicationContext appContext;
+  private final FXTools fxtools;
 
-  @Autowired private ApplicationContext appContext;
-
-  @Autowired private FXTools fxtools;
+  @Autowired
+  public GameOptionsController(
+      ApplicationModel model, ApplicationContext appContext, FXTools fxtools) {
+    this.model = model;
+    this.appContext = appContext;
+    this.fxtools = fxtools;
+  }
 
   @FXML private ResourceBundle resources;
 
@@ -72,6 +78,10 @@ public class GameOptionsController {
   @FXML private CheckBox simulationLimit;
 
   @FXML private TextField simulationLimitSteps;
+
+  @FXML private ChoiceBox<String> statsFrequencyChoice;
+  @FXML private TextField statsDir;
+  @FXML private Button statsDirectoryButton;
 
   @FXML
   void removeAgentEvent(ActionEvent event) {
@@ -169,6 +179,11 @@ public class GameOptionsController {
   }
 
   @FXML
+  void chooseDirectoryAction(ActionEvent event) {
+    // TODO implement choice
+  }
+
+  @FXML
   void initialize() {
     assert optionPane != null
         : "fx:id=\"optionPane\" was not injected: check your FXML file 'GameOptions.fxml'.";
@@ -180,23 +195,34 @@ public class GameOptionsController {
         : "fx:id=\"editAgentButton\" was not injected: check your FXML file 'GameOptions.fxml'.";
     assert addAgentButton != null
         : "fx:id=\"addAgentButton\" was not injected: check your FXML file 'GameOptions.fxml'.";
+    assert statsFrequencyChoice != null
+        : "fx:id=\"statsFrequencyChoice\" was not injected: check your FXML file 'GameOptions.fxml'.";
+    assert statsDir != null
+        : "fx:id=\"statsDir\" was not injected: check your FXML file 'GameOptions.fxml'.";
+    assert statsDirectoryButton != null
+        : "fx:id=\"statsDirectoryButton\" was not injected: check your FXML file 'GameOptions.fxml'.";
+    assert simulationLimit != null
+        : "fx:id=\"simulationLimit\" was not injected: check your FXML file 'GameOptions.fxml'.";
+    assert simulationLimitSteps != null
+        : "fx:id=\"simulationLimitSteps\" was not injected: check your FXML file 'GameOptions.fxml'.";
     assert outputFormat != null
         : "fx:id=\"outputFormat\" was not injected: check your FXML file 'GameOptions.fxml'.";
     assert outputDirectory != null
         : "fx:id=\"outputDirectory\" was not injected: check your FXML file 'GameOptions.fxml'.";
     assert outputDirectoryButton != null
-        : "fx:id=\"outputDirectoryButton\" was not injected: check FXML file 'GameOptions.fxml'.";
+        : "fx:id=\"outputDirectoryButton\" was not injected: check your FXML file 'GameOptions.fxml'.";
     assert nextButton != null
-        : "fx:id=\"nextButton\" was not injected: check FXML file 'GameOptions.fxml'.";
-    assert simulationLimit != null
-        : "fx:id=\"simulationLimit\" was not injected: check your FXML file 'GameOptions.fxml'.";
-    assert simulationLimitSteps != null
-        : "fx:id=\"simulationLimitSteps\" was not injected: check FXML file 'GameOptions.fxml'.";
+        : "fx:id=\"nextButton\" was not injected: check your FXML file 'GameOptions.fxml'.";
 
     log.info("Adding scenario options");
-    FXForm options = new FXForm(model.getScenario());
-    options.setSkin(FXFormSkinFactory.INLINE_FACTORY.createSkin(options));
-    optionPane.setContent(options);
+    VBox optionList = new VBox();
+    optionList.setSpacing(5.0);
+    optionList.setPadding(new Insets(5.0, 5.0, 5.0, 5.0));
+    optionList.setFillWidth(true);
+    for (ScenarioParameter p : model.getScenario().getParameterArray()) {
+      optionList.getChildren().add(p.getParameterControl());
+    }
+    optionPane.setContent(optionList);
 
     outputFormat.getItems().setAll(OutputFormat.values());
     outputFormat.getSelectionModel().select(model.getOutputFormat());

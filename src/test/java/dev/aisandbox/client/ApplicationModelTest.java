@@ -6,14 +6,15 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertSame;
 
 import dev.aisandbox.client.agent.Agent;
-import dev.aisandbox.client.scenarios.maze.MazeScenario;
+import dev.aisandbox.client.scenarios.Scenario;
+import dev.aisandbox.client.scenarios.twisty.TwistyScenario;
 import org.junit.Test;
 
-public class RuntimeModelTest {
+public class ApplicationModelTest {
 
   @Test
   public void testZeroAgents() {
-    RuntimeModel model = new RuntimeModel();
+    ApplicationModel model = new ApplicationModel();
     model.getMinAgents().set(2);
     model.getMaxAgents().set(4);
     assertFalse("Validity when zero agents", model.getValid().get());
@@ -21,7 +22,7 @@ public class RuntimeModelTest {
 
   @Test
   public void testMinAgents() {
-    RuntimeModel model = new RuntimeModel();
+    ApplicationModel model = new ApplicationModel();
     model.getMinAgents().set(2);
     model.getMaxAgents().set(4);
     model.getAgentList().add(new Agent());
@@ -31,7 +32,7 @@ public class RuntimeModelTest {
 
   @Test
   public void testMaxAgents() {
-    RuntimeModel model = new RuntimeModel();
+    ApplicationModel model = new ApplicationModel();
     model.getMinAgents().set(2);
     model.getMaxAgents().set(4);
     model.getAgentList().add(new Agent());
@@ -43,7 +44,7 @@ public class RuntimeModelTest {
 
   @Test
   public void testTooManyAgents() {
-    RuntimeModel model = new RuntimeModel();
+    ApplicationModel model = new ApplicationModel();
     model.getMinAgents().set(2);
     model.getMaxAgents().set(4);
     model.getAgentList().add(new Agent());
@@ -56,11 +57,11 @@ public class RuntimeModelTest {
 
   @Test
   public void testLoadScenario() {
-    RuntimeModel model = new RuntimeModel();
-    MazeScenario maze = new MazeScenario();
-    model.setScenario(maze);
+    ApplicationModel model = new ApplicationModel();
+    Scenario s = new TwistyScenario();
+    model.setScenario(s);
     assertEquals("Wrong Min Agents", 1, model.getMinAgents().get());
     assertEquals("Wrong Max Agents", 1, model.getMaxAgents().get());
-    assertSame("Unexpected scenario", maze, model.getScenario());
+    assertSame("Unexpected scenario", s, model.getScenario());
   }
 }

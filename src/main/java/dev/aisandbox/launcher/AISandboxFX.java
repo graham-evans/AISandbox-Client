@@ -1,6 +1,6 @@
 package dev.aisandbox.launcher;
 
-import dev.aisandbox.client.RuntimeModel;
+import dev.aisandbox.client.ApplicationModel;
 import dev.aisandbox.client.cli.CLIParser;
 import dev.aisandbox.client.cli.PropertiesParser;
 import java.util.ResourceBundle;
@@ -63,7 +63,7 @@ public class AISandboxFX extends Application {
     // check for config file
     if (cmd.hasOption(CLIParser.OPTION_CONFIG)) {
       // get the runtime model and properties parser from the spring context
-      RuntimeModel model = context.getBean(RuntimeModel.class);
+      ApplicationModel model = context.getBean(ApplicationModel.class);
       PropertiesParser parser = context.getBean(PropertiesParser.class);
       parser.parseConfiguration(model, cmd.getOptionValue(CLIParser.OPTION_CONFIG));
     }
@@ -94,10 +94,10 @@ public class AISandboxFX extends Application {
   @Override
   public void stop() throws Exception {
     LOG.info("Stopping application");
-    RuntimeModel model = context.getBean(RuntimeModel.class);
-    if (model.getScenario().isSimulationRunning()) {
-      model.getScenario().stopSimulation();
-    }
+    ApplicationModel model = context.getBean(ApplicationModel.class);
+    //    if (model.getScenario().isSimulationRunning()) {
+    //      model.getScenario().stopSimulation();
+    //    }
     context.close();
     System.exit(0);
   }
