@@ -17,8 +17,8 @@ public class AgentParserException extends AgentException {
    *
    * @param message User readable message
    */
-  public AgentParserException(String message) {
-    super(message);
+  public AgentParserException(String target, String message) {
+    super(target, message);
     response = null;
     responseCode = -1;
   }
@@ -30,8 +30,8 @@ public class AgentParserException extends AgentException {
    * @param code HTTP code from the server
    * @param content The payload that was sent
    */
-  public AgentParserException(String message, int code, String content) {
-    super(message);
+  public AgentParserException(String target, String message, int code, String content) {
+    super(target, message);
     responseCode = code;
     response = content;
   }

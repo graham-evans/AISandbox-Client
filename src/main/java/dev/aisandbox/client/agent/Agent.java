@@ -22,6 +22,7 @@ import org.springframework.http.client.BufferingClientHttpRequestFactory;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.util.CollectionUtils;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
@@ -136,21 +137,32 @@ public class Agent {
           restTemplate.exchange(target, HttpMethod.POST, requestEntity, responseType);
       switch (response.getStatusCode()) {
         case RESET_CONTENT:
-          throw new AgentResetException("Reset content request");
+          throw new AgentResetException(target, "Reset content request");
         default:
           // convert
           return responseType.cast(response.getBody());
       }
     } catch (ResourceAccessException re) {
       log.error("Error talking to remote resource", re);
-      throw new AgentConnectionException("Error accessing remote resource");
+      throw new AgentConnectionException(target, "Error accessing remote resource");
+    } catch (HttpClientErrorException he) {
+      switch (he.getRawStatusCode()) {
+        case 404:
+          throw new AgentFileNotFoundException(target, "Error accessing URL - " + target);
+        default:
+          log.error("HTTP error recieved (" + he.getRawStatusCode() + ")", he);
+          throw new AgentConnectionException(target, "HTTP error (" + he.getRawStatusCode() + ")");
+      }
     } catch (RestClientException me) {
       // get the response from the Agent logger
       log.error(RESPONSE_PARSE_ERROR, me);
       log.error(
           "Last code {} response {}", responseLogger.lastHTTPCode, responseLogger.lastResponse);
       throw new AgentParserException(
-          "Error converting response", responseLogger.lastHTTPCode, responseLogger.lastResponse);
+          target,
+          "Error converting response",
+          responseLogger.lastHTTPCode,
+          responseLogger.lastResponse);
     }
   }
 }

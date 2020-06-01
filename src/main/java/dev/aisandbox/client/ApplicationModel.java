@@ -47,7 +47,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class ApplicationModel {
 
-  /** The currently selected scenario to run */
+  /** The currently selected scenario to run. */
   @Getter Scenario scenario;
 
   @Getter BooleanProperty limitRuntime = new SimpleBooleanProperty(false);
@@ -128,8 +128,10 @@ public class ApplicationModel {
         profiler.addProfileStep(response.getProfileStep());
       }
     } catch (AgentException e) {
-      // TODO show exceptions to UI
-
+      log.error("Recieved exception from run");
+      gameRunController.showAgentError(e);
+      // rethrow so the running thread finishes
+      throw new AgentException(e.getTarget(), e.getMessage());
     }
     // TODO update stats
   }

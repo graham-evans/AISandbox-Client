@@ -133,7 +133,7 @@ public class TwistyRuntime implements ScenarioRuntime {
         profileStep.addStep("Simulation");
       } catch (NotExistentMoveException e) {
         log.warn("Client used non existent move '{}'", action);
-        throw new AgentParserException("Move doesn't exist '" + action + "'");
+        throw new AgentParserException(agent.getTarget(), "Move doesn't exist '" + action + "'");
       }
     }
     // check if the last move solved the puzzle - and we're looking for a solve

@@ -1,5 +1,6 @@
 package dev.aisandbox.client.fx;
 
+import dev.aisandbox.client.agent.AgentException;
 import dev.aisandbox.client.profiler.ProfileStep;
 import java.awt.image.BufferedImage;
 
@@ -40,23 +41,10 @@ public class FakeGameRunController extends GameRunController {
   /**
    * Overrides GameRunController method when in headless mode.
    *
-   * @param agentURL a {@link java.lang.String} object.
-   * @param e a {@link java.lang.Exception} object.
+   * @param e a {@link AgentException} object.
    */
   @Override
-  public void showAgentError(String agentURL, Exception e) {
-    // IGNORE - Do Nothing
-  }
-
-  /**
-   * Overrides GameRunController method when in headless mode.
-   *
-   * @param agentURL a {@link java.lang.String} object.
-   * @param description a {@link java.lang.String} object.
-   * @param details a {@link java.lang.String} object.
-   */
-  @Override
-  public void showAgentError(String agentURL, String description, String details) {
+  public void showAgentError(AgentException e) {
     // IGNORE - Do Nothing
   }
 }

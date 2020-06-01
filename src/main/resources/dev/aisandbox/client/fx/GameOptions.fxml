@@ -39,36 +39,13 @@
                                 <ListView fx:id="agentList" onMouseClicked="#clickAgentList" />
                             </content>
                         </ScrollPane>
-                        <FlowPane alignment="TOP_RIGHT" hgap="2.0">
+                        <FlowPane alignment="TOP_RIGHT" hgap="5.0" vgap="2.0">
                             <children>
                                 <Button fx:id="removeAgentButton" disable="true" mnemonicParsing="false" onAction="#removeAgentEvent" text="%ui.gameoptions.removeagent" />
                                 <Button fx:id="editAgentButton" mnemonicParsing="false" onAction="#editAgentAction" text="%ui.gameoptions.editagent" />
                                 <Button fx:id="addAgentButton" mnemonicParsing="false" onAction="#addAgentAction" text="%ui.gameoptions.addagent" />
                             </children>
                         </FlowPane>
-                  <Label text="Statistics">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Label>
-                  <GridPane minHeight="60.0">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <Label text="%ui.gameoptions.stats.label1" />
-                        <ChoiceBox fx:id="statsFrequencyChoice" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="2" />
-                        <Label text="%ui.gameoptions.stats.dir" GridPane.rowIndex="1" />
-                        <Button fx:id="statsDirectoryButton" mnemonicParsing="false" onAction="#chooseDirectoryAction" text="%ui.gameoptions.stats.button" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                        <TextField fx:id="statsDir" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                     </children>
-                  </GridPane>
                   <Label text="%ui.gameoptions.limit.title">
                      <font>
                         <Font name="System Bold" size="12.0" />
@@ -89,7 +66,7 @@
                                 <Font name="System Bold" size="12.0" />
                             </font>
                         </Label>
-                        <GridPane minHeight="60.0" prefHeight="60.0">
+                        <GridPane hgap="5.0" minHeight="90.0" vgap="5.0">
                             <columnConstraints>
                                 <ColumnConstraints fillWidth="false" hgrow="NEVER" minWidth="10.0" />
                                 <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
@@ -97,6 +74,7 @@
                             </columnConstraints>
                             <rowConstraints>
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                             </rowConstraints>
                             <children>
@@ -105,18 +83,20 @@
                                         <Insets right="2.0" />
                                     </GridPane.margin>
                                 </Label>
-                                <Label text="%ui.gameoptions.outputdirectory" GridPane.rowIndex="1">
+                                <Label text="%ui.gameoptions.outputdirectory" GridPane.rowIndex="2">
                                     <GridPane.margin>
                                         <Insets right="2.0" />
                                     </GridPane.margin>
                                 </Label>
                                 <ChoiceBox fx:id="outputFormat" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" />
-                                <TextField fx:id="outputDirectory" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                <Button fx:id="outputDirectoryButton" mnemonicParsing="false" onAction="#chooseOutputDirectory" text="%ui.button.choose" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                <TextField fx:id="outputDirectory" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                <Button fx:id="outputDirectoryButton" mnemonicParsing="false" onAction="#chooseOutputDirectory" text="%ui.button.choose" GridPane.columnIndex="2" GridPane.rowIndex="2">
                                     <GridPane.margin>
                                         <Insets left="2.0" />
                                     </GridPane.margin>
                                 </Button>
+                        <Label text="%ui.gameoptions.stats.label1" GridPane.rowIndex="1" />
+                        <ChoiceBox fx:id="statsFrequencyChoice" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
                             </children>
                      <VBox.margin>
                         <Insets left="5.0" />

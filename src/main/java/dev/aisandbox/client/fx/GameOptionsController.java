@@ -80,8 +80,6 @@ public class GameOptionsController {
   @FXML private TextField simulationLimitSteps;
 
   @FXML private ChoiceBox<String> statsFrequencyChoice;
-  @FXML private TextField statsDir;
-  @FXML private Button statsDirectoryButton;
 
   @FXML
   void removeAgentEvent(ActionEvent event) {
@@ -197,10 +195,6 @@ public class GameOptionsController {
         : "fx:id=\"addAgentButton\" was not injected: check your FXML file 'GameOptions.fxml'.";
     assert statsFrequencyChoice != null
         : "fx:id=\"statsFrequencyChoice\" was not injected: check your FXML file 'GameOptions.fxml'.";
-    assert statsDir != null
-        : "fx:id=\"statsDir\" was not injected: check your FXML file 'GameOptions.fxml'.";
-    assert statsDirectoryButton != null
-        : "fx:id=\"statsDirectoryButton\" was not injected: check your FXML file 'GameOptions.fxml'.";
     assert simulationLimit != null
         : "fx:id=\"simulationLimit\" was not injected: check your FXML file 'GameOptions.fxml'.";
     assert simulationLimitSteps != null

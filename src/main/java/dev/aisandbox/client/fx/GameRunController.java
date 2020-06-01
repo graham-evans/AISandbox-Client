@@ -3,14 +3,13 @@ package dev.aisandbox.client.fx;
 import dev.aisandbox.client.ApplicationModel;
 import dev.aisandbox.client.SimulationRunThread;
 import dev.aisandbox.client.agent.AgentConnectionException;
+import dev.aisandbox.client.agent.AgentException;
 import dev.aisandbox.client.agent.AgentParserException;
 import dev.aisandbox.client.output.FormatTools;
 import dev.aisandbox.client.profiler.AIProfiler;
 import dev.aisandbox.client.profiler.ProfileStep;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicBoolean;
 import javafx.application.Platform;
@@ -101,44 +100,6 @@ public class GameRunController {
   public void resetStartButton() {
     running.set(false);
     thread = null;
-  }
-
-  private void startSimulation() {
-    //    // reset the profiler
-    //    profiler = new AIProfiler();
-    //    // disable the back button
-    //    backButton.setDisable(true);
-    //    // decide which output class to use
-    //    FrameOutput out;
-    //    switch (model.getOutputFormat()) {
-    //      case MP4:
-    //        out = new MP4Output();
-    //        break;
-    //      case PNG:
-    //        out = new PNGOutputWriter();
-    //        break;
-    //      default:
-    //        out = new NoOutput();
-    //    }
-    //    // setup output
-    //    try {
-    //      out.open(model.getOutputDirectory());
-    //    } catch (IOException e) {
-    //      log.warn("Error opening output", e);
-    //    }
-    //    model
-    //        .getScenario()
-    //        .startSimulation(
-    //            model.getAgentList(),
-    //            this,
-    //            out,
-    //            model.getLimitRuntime().get() ? model.getMaxStepCount().get() : null);
-    // startButton.setText("Stop Simulation");
-  }
-
-  private void stopSimulation() {
-    //    model.getScenario().stopSimulation();
-    //    resetStartButton();
   }
 
   @FXML
@@ -269,15 +230,14 @@ public class GameRunController {
   }
 
   /**
-   * showAgentError.
+   * Inform the user that there has been an exception and that the simulation has been stopped.
    *
-   * @param agentURL a {@link java.lang.String} object.
-   * @param e a {@link java.lang.Exception} object.
+   * @param e a {@link AgentException} object.
    */
-  public void showAgentError(String agentURL, Exception e) {
-    // special case - is this an agent excetpion
+  public void showAgentError(AgentException e) {
+    // special case - is this an agent connection exception
     if (e instanceof AgentConnectionException) {
-      showAgentError(agentURL, "Error connecting to agent", e.getMessage());
+      showAgentError(e.getTarget(), "Error connecting to agent", e.getMessage());
     } else if (e instanceof AgentParserException) {
       AgentParserException ape = (AgentParserException) e;
       StringBuilder sb = new StringBuilder();
@@ -285,25 +245,21 @@ public class GameRunController {
       sb.append(ape.getResponseCode());
       sb.append("\nResponse:\n");
       sb.append(ape.getResponse());
-      showAgentError(agentURL, "Error parsing server response", sb.toString());
+      showAgentError(e.getTarget(), "Error parsing server response", sb.toString());
     } else {
       // show generic exception
-      StringWriter sw = new StringWriter();
-      PrintWriter pw = new PrintWriter(sw);
-      e.printStackTrace(pw);
-      // pass this as the details
-      showAgentError(agentURL, "Agent Exception", sw.toString());
+      showAgentError(e.getTarget(), "Agent Exception", e.getMessage());
     }
   }
 
   /**
-   * showAgentError.
+   * Show Agent Error dialog.
    *
    * @param agentURL a {@link java.lang.String} object.
    * @param description a {@link java.lang.String} object.
    * @param details a {@link java.lang.String} object.
    */
-  public void showAgentError(String agentURL, String description, String details) {
+  private void showAgentError(String agentURL, String description, String details) {
     Platform.runLater(
         () -> {
           // show the exception

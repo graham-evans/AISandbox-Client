@@ -12,7 +12,7 @@ public class AgentConnectionException extends AgentException {
    *
    * @param message a {@link java.lang.String} object.
    */
-  public AgentConnectionException(String message) {
-    super(message);
+  public AgentConnectionException(String target, String message) {
+    super(target, message);
   }
 }

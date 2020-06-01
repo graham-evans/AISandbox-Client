@@ -1,6 +1,7 @@
 package dev.aisandbox.client.agent;
 
 import java.io.IOException;
+import lombok.Getter;
 
 /**
  * AgentException class.
@@ -9,13 +10,16 @@ import java.io.IOException;
  */
 public class AgentException extends IOException {
 
+  @Getter private final String target;
+
   /**
    * Constructor for AgentException.
    *
    * @param message a {@link java.lang.String} object.
    */
-  public AgentException(String message) {
+  public AgentException(String target, String message) {
     super(message);
+    this.target = target;
   }
 
   /**
@@ -24,7 +28,8 @@ public class AgentException extends IOException {
    * @param message a {@link java.lang.String} object.
    * @param cause a {@link java.lang.Throwable} object.
    */
-  public AgentException(String message, Throwable cause) {
+  public AgentException(String target, String message, Throwable cause) {
     super(message, cause);
+    this.target = target;
   }
 }
