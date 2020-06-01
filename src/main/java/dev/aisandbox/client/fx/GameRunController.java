@@ -44,9 +44,9 @@ import org.springframework.stereotype.Component;
 public class GameRunController {
 
   private final AtomicBoolean imageReady = new AtomicBoolean(true);
-  @Autowired private ApplicationContext appContext;
-  @Autowired private ApplicationModel model;
-  @Autowired private FXTools fxtools;
+  private final ApplicationContext appContext;
+  private final ApplicationModel model;
+  private final FXTools fxtools;
   @FXML private ResourceBundle resources;
   @FXML private Pane durationChartPane;
   @FXML private Label runTimeField;
@@ -57,6 +57,13 @@ public class GameRunController {
   @FXML private Pane imageAnchor;
   @FXML private Button stepButton;
   @FXML private Button pauseButton;
+
+  @Autowired
+  public GameRunController(ApplicationContext appContext, ApplicationModel model, FXTools fxtools) {
+    this.appContext = appContext;
+    this.model = model;
+    this.fxtools = fxtools;
+  }
 
   private AIProfiler profiler = null;
   private long profileLastUpdate = 0L;
@@ -215,21 +222,6 @@ public class GameRunController {
   }
 
   /**
-   * Method to force the update the on-screen view of the simulation
-   *
-   * <p>This can be called from any thread, and will wait until the FX thread is free.
-   *
-   * @param image The pre-drawn {@link java.awt.image.BufferedImage} to display.
-   */
-  public void forceUpdateBoardImage(BufferedImage image) {
-    Platform.runLater(
-        () -> {
-          imageView.setImage(SwingFXUtils.toFXImage(image, null));
-          imageReady.set(true);
-        });
-  }
-
-  /**
    * Inform the user that there has been an exception and that the simulation has been stopped.
    *
    * @param e a {@link AgentException} object.
@@ -250,6 +242,18 @@ public class GameRunController {
       // show generic exception
       showAgentError(e.getTarget(), "Agent Exception", e.getMessage());
     }
+  }
+
+  public void showSimulationError(Exception e) {
+    Platform.runLater(
+        () -> {
+          // show the exception
+          Alert alert = new Alert(Alert.AlertType.ERROR);
+          alert.setTitle("Simulation Error");
+          alert.setHeaderText("There was an error running the simulation");
+          alert.setContentText(e.getMessage());
+          alert.showAndWait();
+        });
   }
 
   /**

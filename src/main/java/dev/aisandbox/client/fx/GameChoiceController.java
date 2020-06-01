@@ -92,7 +92,7 @@ public class GameChoiceController {
     assert nextButton != null
         : "fx:id=\"nextButton\" was not injected: check your FXML file 'GameChoice.fxml'.";
 
-    log.info("Initialising Game Choise controller");
+    log.info("Initialising Game Choice controller");
     if (scenarioList == null) {
       log.error("scenarioList is null");
     } else {

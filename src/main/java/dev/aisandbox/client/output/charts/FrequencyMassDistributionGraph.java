@@ -2,6 +2,7 @@ package dev.aisandbox.client.output.charts;
 
 import java.awt.Color;
 import java.util.Iterator;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.math3.stat.Frequency;
 import org.apache.commons.math3.stat.descriptive.SummaryStatistics;
@@ -15,7 +16,7 @@ import org.apache.commons.math3.stat.descriptive.SummaryStatistics;
 @Slf4j
 public class FrequencyMassDistributionGraph extends BaseChart {
 
-  Frequency frequencyTable = new Frequency();
+  @Getter Frequency frequencyTable = new Frequency();
   SummaryStatistics statistics = new SummaryStatistics();
   Integer minX;
   Integer maxY;

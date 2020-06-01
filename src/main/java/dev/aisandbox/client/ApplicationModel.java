@@ -4,8 +4,10 @@ import dev.aisandbox.client.agent.Agent;
 import dev.aisandbox.client.agent.AgentException;
 import dev.aisandbox.client.fx.GameRunController;
 import dev.aisandbox.client.output.FrameOutput;
+import dev.aisandbox.client.output.MP4Output;
 import dev.aisandbox.client.output.NoOutput;
 import dev.aisandbox.client.output.OutputFormat;
+import dev.aisandbox.client.output.PNGOutputWriter;
 import dev.aisandbox.client.profiler.AIProfiler;
 import dev.aisandbox.client.scenarios.RuntimeResponse;
 import dev.aisandbox.client.scenarios.Scenario;
@@ -66,6 +68,8 @@ public class ApplicationModel {
 
   @Getter @Setter private File outputDirectory = new File("./");
 
+  @Setter long statsStepCount = -1; // how often should I save the stats
+
   private ScenarioRuntime runtime = null;
   private FrameOutput frameOutput = null;
   @Getter private GameRunController gameRunController = null;
@@ -107,9 +111,23 @@ public class ApplicationModel {
     runtime.initialise();
     // store controller
     this.gameRunController = controller;
-    // TODO - open output
-    frameOutput = new NoOutput();
-    // TODO - open stats
+    // setup output
+    switch (outputFormat) {
+      case PNG:
+        frameOutput = new PNGOutputWriter();
+        break;
+      case MP4:
+        frameOutput = new MP4Output();
+        break;
+      default: // no output
+        frameOutput = new NoOutput();
+    }
+    try {
+      frameOutput.open(outputDirectory);
+    } catch (IOException e) {
+      log.error("Error setting up output", e);
+      controller.showSimulationError(new Exception("Error opening output."));
+    }
     // setup profiler
     profiler = new AIProfiler();
   }
@@ -117,6 +135,7 @@ public class ApplicationModel {
   public void advanceRuntime() throws AgentException, SimulationException, IOException {
     try {
       RuntimeResponse response = runtime.advance();
+      stepsTaken++;
       log.info("Recieved {} frame images", response.getImages().size());
       // show images
       for (BufferedImage image : response.getImages()) {
@@ -127,13 +146,17 @@ public class ApplicationModel {
       if (response.getProfileStep() != null) {
         profiler.addProfileStep(response.getProfileStep());
       }
+      // check for stats
+      if ((statsStepCount > -1) && (stepsTaken % statsStepCount == 0)) {
+        // write stats
+        runtime.writeStatistics(new File(outputDirectory, Long.toString(stepsTaken) + ".csv"));
+      }
     } catch (AgentException e) {
       log.error("Recieved exception from run");
       gameRunController.showAgentError(e);
       // rethrow so the running thread finishes
       throw new AgentException(e.getTarget(), e.getMessage());
     }
-    // TODO update stats
   }
 
   public void resetRuntime() throws IOException {

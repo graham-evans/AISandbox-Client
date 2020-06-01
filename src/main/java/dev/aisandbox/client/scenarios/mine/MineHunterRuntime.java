@@ -17,6 +17,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -166,9 +167,7 @@ public class MineHunterRuntime implements ScenarioRuntime {
   }
 
   @Override
-  public String getStatistics() {
-    return null;
-  }
+  public void writeStatistics(File statisticsOutputFile) {}
 
   private BufferedImage createLevelImage() {
     BufferedImage image = OutputTools.getWhiteScreen();

@@ -15,6 +15,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Random;
@@ -188,7 +189,5 @@ public class MazeRuntime implements ScenarioRuntime {
   }
 
   @Override
-  public String getStatistics() {
-    return null;
-  }
+  public void writeStatistics(File statisticsOutputFile) {}
 }

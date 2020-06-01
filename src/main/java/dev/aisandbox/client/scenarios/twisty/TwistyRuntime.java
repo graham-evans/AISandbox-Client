@@ -19,10 +19,16 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map.Entry;
 import java.util.Random;
 import javax.imageio.ImageIO;
 import lombok.Setter;
@@ -165,8 +171,26 @@ public class TwistyRuntime implements ScenarioRuntime {
   }
 
   @Override
-  public String getStatistics() {
-    return null;
+  public void writeStatistics(File statisticsOutputFile) {
+    try {
+      PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(statisticsOutputFile)));
+      out.print("mean,");
+      out.println(frequencyGraph.getMean());
+      out.print("std,");
+      out.println(frequencyGraph.getStandardDeviation());
+      out.println("Values");
+      Iterator<Entry<Comparable<?>, Long>> iterator =
+          frequencyGraph.getFrequencyTable().entrySetIterator();
+      while (iterator.hasNext()) {
+        Entry<Comparable<?>, Long> e = iterator.next();
+        out.print(e.getKey());
+        out.print(",");
+        out.println(e.getValue());
+      }
+      out.close();
+    } catch (IOException e) {
+      log.error("Error writing stats to file " + statisticsOutputFile.getAbsolutePath(), e);
+    }
   }
 
   private void scramblePuzzle() {
