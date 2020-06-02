@@ -176,13 +176,13 @@ public class ApplicationModel {
     }
   }
 
-  /**
-   * Close the output file (if any).
-   *
-   * @throws IOException thrown when a file cannot be closed.
-   */
-  public void resetRuntime() throws IOException {
-    frameOutput.close();
+  /** Close the output file (if any). */
+  public void resetRuntime() {
+    try {
+      frameOutput.close();
+    } catch (IOException e) {
+      log.warn("Error closing frame output", e);
+    }
   }
 
   private File createWorkingDirectory() throws IOException {
