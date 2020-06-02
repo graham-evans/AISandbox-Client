@@ -145,11 +145,11 @@ public class ApplicationModel {
   /**
    * Advance runtime one step and post the results to the UI and output.
    *
-   * @throws AgentException Thrown when the runtime cannot talk to the server.
    * @throws SimulationException Thrown when the runtime cannot run the simulation.
-   * @throws IOException Thrown when the output cannot be written.
+   * @throws IOException Thrown when the output cannot be written or when there is a problem talking
+   *     to the client {@link AgentException}.
    */
-  public void advanceRuntime() throws AgentException, SimulationException, IOException {
+  public void advanceRuntime() throws SimulationException, IOException {
     try {
       RuntimeResponse response = runtime.advance();
       stepsTaken++;
@@ -185,7 +185,7 @@ public class ApplicationModel {
     }
   }
 
-  private File createWorkingDirectory() throws IOException {
+  private File createWorkingDirectory() {
     SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
     File dir = new File(outputDirectory, "job-" + sdf.format(new Date()));
     dir.mkdirs();
