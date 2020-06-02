@@ -4,7 +4,6 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.Locale;
-import java.util.UUID;
 import lombok.extern.slf4j.Slf4j;
 import org.jcodec.api.awt.AWTSequenceEncoder;
 import org.jcodec.common.io.NIOUtils;
@@ -39,7 +38,7 @@ public class MP4Output implements FrameOutput {
    */
   @Override
   public void open(File baseDir) throws IOException {
-    File outputFile = new File(baseDir, UUID.randomUUID().toString() + ".mp4");
+    File outputFile = new File(baseDir, "simulation.mp4");
     try {
       out = NIOUtils.writableFileChannel(outputFile.getAbsolutePath());
       encoder = new AWTSequenceEncoder(out, Rational.R(25, 1));

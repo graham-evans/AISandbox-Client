@@ -4,7 +4,6 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.Locale;
-import java.util.UUID;
 import javax.imageio.ImageIO;
 import org.springframework.stereotype.Component;
 
@@ -46,8 +45,7 @@ public class PNGOutputWriter implements FrameOutput {
     if (source != null) {
       throw new IOException("Trying to open a stream which is already open");
     }
-    source = new File(baseDir, UUID.randomUUID().toString());
-    source.mkdirs();
+    source = baseDir;
   }
 
   /**
