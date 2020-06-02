@@ -16,7 +16,9 @@ import dev.aisandbox.client.scenarios.SimulationException;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
@@ -75,11 +77,10 @@ public class ApplicationModel {
   @Getter private GameRunController gameRunController = null;
   private long stepsTaken = 0;
   private AIProfiler profiler = null;
+  private File workingDirectory;
 
   /** Setup the model with useful default values. */
   public ApplicationModel() {
-    // TODO - load default values
-
     // bind validation rules
     valid.bind(
         Bindings.and(
@@ -101,6 +102,11 @@ public class ApplicationModel {
     maxAgents.setValue(s.getMaxAgentCount());
   }
 
+  /**
+   * Create and initialise runtime object.
+   *
+   * @param controller the UI to post results to.
+   */
   public void initialiseRuntime(GameRunController controller) {
     // setup runtime
     runtime = scenario.getRuntime();
@@ -122,16 +128,27 @@ public class ApplicationModel {
       default: // no output
         frameOutput = new NoOutput();
     }
-    try {
-      frameOutput.open(outputDirectory);
-    } catch (IOException e) {
-      log.error("Error setting up output", e);
-      controller.showSimulationError(new Exception("Error opening output."));
+    // create a working directory & open output
+    if ((outputFormat != OutputFormat.NONE) || (statsStepCount > -1)) {
+      try {
+        workingDirectory = createWorkingDirectory();
+        frameOutput.open(workingDirectory);
+      } catch (IOException e) {
+        log.error("Error setting up output", e);
+        controller.showSimulationError(new Exception("Error opening output."));
+      }
     }
     // setup profiler
     profiler = new AIProfiler();
   }
 
+  /**
+   * Advance runtime one step and post the results to the UI and output.
+   *
+   * @throws AgentException Thrown when the runtime cannot talk to the server.
+   * @throws SimulationException Thrown when the runtime cannot run the simulation.
+   * @throws IOException Thrown when the output cannot be written.
+   */
   public void advanceRuntime() throws AgentException, SimulationException, IOException {
     try {
       RuntimeResponse response = runtime.advance();
@@ -149,7 +166,7 @@ public class ApplicationModel {
       // check for stats
       if ((statsStepCount > -1) && (stepsTaken % statsStepCount == 0)) {
         // write stats
-        runtime.writeStatistics(new File(outputDirectory, Long.toString(stepsTaken) + ".csv"));
+        runtime.writeStatistics(new File(workingDirectory, Long.toString(stepsTaken) + ".csv"));
       }
     } catch (AgentException e) {
       log.error("Recieved exception from run");
@@ -159,7 +176,19 @@ public class ApplicationModel {
     }
   }
 
+  /**
+   * Close the output file (if any).
+   *
+   * @throws IOException thrown when a file cannot be closed.
+   */
   public void resetRuntime() throws IOException {
     frameOutput.close();
+  }
+
+  private File createWorkingDirectory() throws IOException {
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+    File dir = new File(outputDirectory, "job-" + sdf.format(new Date()));
+    dir.mkdirs();
+    return dir;
   }
 }
