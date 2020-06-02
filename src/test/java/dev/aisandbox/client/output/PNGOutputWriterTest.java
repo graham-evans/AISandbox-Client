@@ -7,40 +7,37 @@ import static org.junit.Assert.assertTrue;
 import java.awt.Color;
 import java.io.IOException;
 import java.util.Locale;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
+@Slf4j
 public class PNGOutputWriterTest {
-
-  private static final Logger LOG = LoggerFactory.getLogger(PNGOutputWriterTest.class.getName());
 
   @Rule public TemporaryFolder folder = new TemporaryFolder();
 
   @Test
   public void openTest() throws IOException {
     // this should open a directory within the temp folder
-    LOG.info("Opening dir in " + folder.getRoot().getAbsolutePath());
+    log.info("Opening dir in " + folder.getRoot().getAbsolutePath());
     PNGOutputWriter png = new PNGOutputWriter();
     png.open(folder.getRoot());
     // there should be a new directory
-    assertEquals("One directory created", folder.getRoot().listFiles().length, 1);
+    assertEquals("No new directory created", 0, folder.getRoot().listFiles().length);
   }
 
   @Test
   public void WriteTest() throws IOException {
     // open a new session then write three frames
+    log.info("Write test in {}", folder.getRoot());
     PNGOutputWriter png = new PNGOutputWriter();
     png.open(folder.getRoot());
     png.addFrame(OutputTools.getBlackScreen());
     png.addFrame(OutputTools.getWhiteScreen());
     png.addFrame(OutputTools.getColouredScreen(Color.RED));
     png.close();
-    assertEquals("One directory created", folder.getRoot().listFiles().length, 1);
-    assertEquals(
-        "Three files in subdirectory", folder.getRoot().listFiles()[0].listFiles().length, 3);
+    assertEquals("Three files in directory", 3, folder.getRoot().listFiles().length);
   }
 
   @Test(expected = IOException.class)
