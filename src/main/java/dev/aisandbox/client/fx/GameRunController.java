@@ -76,6 +76,8 @@ public class GameRunController {
 
   @FXML
   void backButtonAction(ActionEvent event) {
+    log.info("Resetting scenario");
+    model.resetRuntime();
     log.info("Selecting options screen");
     fxtools.moveToScreen(event, "/dev/aisandbox/client/fx/GameOptions.fxml");
   }
