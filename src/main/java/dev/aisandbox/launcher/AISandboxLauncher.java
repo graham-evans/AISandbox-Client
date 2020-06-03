@@ -30,7 +30,7 @@ public class AISandboxLauncher {
     CommandLine cmd = CLIParser.parseOptions(args);
     // check for headless and launch the correct application (passing the args)
     if (cmd.hasOption(CLIParser.OPTION_HEADLESS)) {
-      SpringApplication.run(AISandboxFX.class, args);
+      SpringApplication.run(AISandboxCLI.class, args);
     } else {
       Application.launch(AISandboxFX.class, args);
     }
