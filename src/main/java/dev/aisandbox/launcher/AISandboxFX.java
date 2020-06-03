@@ -10,9 +10,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.cli.CommandLine;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -31,10 +30,9 @@ import org.springframework.context.ConfigurableApplicationContext;
  * @author gde
  * @version $Id: $Id
  */
+@Slf4j
 @SpringBootApplication(scanBasePackages = "dev.aisandbox.client")
 public class AISandboxFX extends Application {
-
-  private static final Logger LOG = LoggerFactory.getLogger(AISandboxFX.class);
 
   private ConfigurableApplicationContext context;
   private Parent rootNode;
@@ -46,7 +44,7 @@ public class AISandboxFX extends Application {
    */
   @Override
   public void init() throws Exception {
-    LOG.info("Initialising application - FX");
+    log.info("Initialising application - FX");
     SpringApplicationBuilder builder = new SpringApplicationBuilder(AISandboxFX.class);
     builder.headless(false);
     context = builder.run(getParameters().getRaw().toArray(new String[0]));
@@ -78,7 +76,7 @@ public class AISandboxFX extends Application {
   /** {@inheritDoc} */
   @Override
   public void start(Stage primaryStage) throws Exception {
-    LOG.info("Starting application - FX");
+    log.info("Starting application - FX");
     primaryStage.setScene(new Scene(rootNode, 800, 600));
     primaryStage.centerOnScreen();
     primaryStage.setTitle("AI Sandbox");
@@ -93,11 +91,13 @@ public class AISandboxFX extends Application {
   /** {@inheritDoc} */
   @Override
   public void stop() throws Exception {
-    LOG.info("Stopping application");
+    log.info("Stopping application");
     ApplicationModel model = context.getBean(ApplicationModel.class);
-    //    if (model.getScenario().isSimulationRunning()) {
-    //      model.getScenario().stopSimulation();
-    //    }
+    try {
+      model.resetRuntime();
+    } catch (Exception e) {
+      log.debug("Error when closing runtime", e);
+    }
     context.close();
     System.exit(0);
   }
