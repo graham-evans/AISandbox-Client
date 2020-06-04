@@ -1,30 +1,45 @@
 package dev.aisandbox.client.scenarios.twisty.puzzles;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import dev.aisandbox.client.scenarios.twisty.NotExistentMoveException;
 import dev.aisandbox.client.scenarios.twisty.TwistyPuzzle;
-import dev.aisandbox.launcher.AISandboxCLI;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import javafx.scene.text.Font;
 import javax.imageio.ImageIO;
+import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringRunner;
 
-@RunWith(SpringRunner.class)
-@ContextConfiguration(classes = {AISandboxCLI.class})
-@SpringBootTest
 public class GraphicsTest {
-  @Autowired List<TwistyPuzzle> puzzleList;
+
+  static List<TwistyPuzzle> puzzleList = new ArrayList();
+
+  @BeforeClass
+  public static void setupPuzzleList() {
+    // load font
+    Font.loadFont(GraphicsTest.class.getResourceAsStream("/fonts/Hack-Regular.ttf"), 12.0);
+    // load puzzles
+    puzzleList.add(new Cube2x2x2());
+    puzzleList.add(new Cube3x3x3());
+    puzzleList.add(new Cube4x4x4());
+    puzzleList.add(new Cube5x5x5());
+    puzzleList.add(new Cube6x6x6());
+    puzzleList.add(new Cube7x7x7());
+    puzzleList.add(new Cube8x8x8());
+    puzzleList.add(new Cube9x9x9());
+    puzzleList.add(new Cube10x10x10());
+  }
 
   @Test
   public void createImageTest() throws IOException {
+    assertNotEquals("No Puzzles to test", 0, puzzleList.size());
     for (TwistyPuzzle puzzle : puzzleList) {
       puzzle.resetPuzzle();
       File out = new File("target/test-images/twisty/" + puzzle.getPuzzleName() + "/puzzle.png");
@@ -37,28 +52,34 @@ public class GraphicsTest {
 
   @Test
   public void createMoveImageTest() throws IOException, NotExistentMoveException {
+    assertNotEquals("No Puzzles to test", 0, puzzleList.size());
     for (TwistyPuzzle puzzle : puzzleList) {
       for (String move : puzzle.getMoveList()) {
-        // move result
+        // create image showing the result of the move from the starting positions
         puzzle.resetPuzzle();
-        File out =
+        File moveOutputFile =
             new File("target/test-images/twisty/" + puzzle.getPuzzleName() + "/" + move + ".png");
-        out.getParentFile().mkdirs();
+        moveOutputFile.getParentFile().mkdirs();
         puzzle.applyMove(move);
         BufferedImage image = puzzle.getStateImage();
-
-        ImageIO.write(image, "PNG", out);
-        // move image
-        out =
+        // test image is created
+        assertNotNull("move image generated", image);
+        assertNotEquals("Move image has zero width", 0, image.getWidth());
+        assertNotEquals("Move image has zero height", 0, image.getHeight());
+        ImageIO.write(image, "PNG", moveOutputFile);
+        assertTrue("Move file written", moveOutputFile.isFile());
+        // move icon image
+        File iconOutputFile =
             new File(
                 "target/test-images/twisty/" + puzzle.getPuzzleName() + "/" + move + "-icon.png");
         image = puzzle.getMoveImage(move);
-        if (image != null) {
-          ImageIO.write(image, "PNG", out);
-        }
+        assertNotNull("Null Icon image", image);
+        assertEquals("icon image width", 60, image.getWidth());
+        assertEquals("icon image height", 100, image.getHeight());
+        ImageIO.write(image, "PNG", iconOutputFile);
+        assertTrue("icon image not written to file", iconOutputFile.isFile());
       }
     }
-    assertTrue(true);
   }
 
   @Test
