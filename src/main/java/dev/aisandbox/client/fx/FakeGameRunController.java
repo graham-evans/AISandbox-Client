@@ -2,7 +2,6 @@ package dev.aisandbox.client.fx;
 
 import dev.aisandbox.client.ApplicationModel;
 import dev.aisandbox.client.agent.AgentException;
-import dev.aisandbox.client.profiler.ProfileStep;
 import java.awt.image.BufferedImage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -21,14 +20,9 @@ public class FakeGameRunController extends GameRunController {
     super(appContext, model, fxtools);
   }
 
-  /**
-   * Overrides GameRunController method when in headless mode.
-   *
-   * @param step the ProfileStep
-   */
   @Override
-  public void addProfileStep(ProfileStep step) {
-    // IGNORE - Do Nothing
+  public void updateProfileImage(BufferedImage image) {
+    // ignore - do nothing
   }
 
   /**

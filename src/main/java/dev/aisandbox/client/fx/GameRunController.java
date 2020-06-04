@@ -5,9 +5,6 @@ import dev.aisandbox.client.SimulationRunThread;
 import dev.aisandbox.client.agent.AgentConnectionException;
 import dev.aisandbox.client.agent.AgentException;
 import dev.aisandbox.client.agent.AgentParserException;
-import dev.aisandbox.client.output.FormatTools;
-import dev.aisandbox.client.profiler.AIProfiler;
-import dev.aisandbox.client.profiler.ProfileStep;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ResourceBundle;
@@ -48,7 +45,7 @@ public class GameRunController {
   private final ApplicationModel model;
   private final FXTools fxtools;
   @FXML private ResourceBundle resources;
-  @FXML private Pane durationChartPane;
+  @FXML private ImageView profileChart;
   @FXML private Label runTimeField;
   @FXML private Label averageStepField;
   @FXML private Label stepCountField;
@@ -64,9 +61,6 @@ public class GameRunController {
     this.model = model;
     this.fxtools = fxtools;
   }
-
-  private AIProfiler profiler = null;
-  private long profileLastUpdate = 0L;
 
   private ChartViewer durationChartViewer;
   private ImageView imageView;
@@ -113,16 +107,20 @@ public class GameRunController {
 
   @FXML
   void initialize() {
-    assert durationChartPane != null
-        : "fx:id=\"durationGraph\" was not injected: check your FXML file 'GameRun.fxml'.";
+    assert profileChart != null
+        : "fx:id=\"profileChart\" was not injected: check your FXML file 'GameRun.fxml'.";
     assert runTimeField != null
-        : "fx:id=\"startTimeField\" was not injected: check your FXML file 'GameRun.fxml'.";
+        : "fx:id=\"runTimeField\" was not injected: check your FXML file 'GameRun.fxml'.";
     assert averageStepField != null
-        : "fx:id=\"runningField\" was not injected: check your FXML file 'GameRun.fxml'.";
+        : "fx:id=\"averageStepField\" was not injected: check your FXML file 'GameRun.fxml'.";
     assert stepCountField != null
         : "fx:id=\"stepCountField\" was not injected: check your FXML file 'GameRun.fxml'.";
     assert backButton != null
         : "fx:id=\"backButton\" was not injected: check your FXML file 'GameRun.fxml'.";
+    assert stepButton != null
+        : "fx:id=\"stepButton\" was not injected: check your FXML file 'GameRun.fxml'.";
+    assert pauseButton != null
+        : "fx:id=\"pauseButton\" was not injected: check your FXML file 'GameRun.fxml'.";
     assert startButton != null
         : "fx:id=\"startButton\" was not injected: check your FXML file 'GameRun.fxml'.";
     assert imageAnchor != null
@@ -153,13 +151,6 @@ public class GameRunController {
             (observableValue, number, t1) ->
                 repositionImage(imageView, imageAnchor.getWidth(), t1.doubleValue()));
 
-    // insert duration chart
-    profiler = new AIProfiler();
-    durationChartViewer = new ChartViewer(profiler.getChart());
-    durationChartViewer.setMinSize(300.0, 200.0);
-    durationChartViewer.setPrefSize(300.0, 200.0);
-    durationChartViewer.setMaxSize(300.0, 200.0);
-    durationChartPane.getChildren().add(durationChartViewer);
     // setup run buttons
     pauseButton.disableProperty().bind(running.not());
     startButton.disableProperty().bind(running);
@@ -167,27 +158,6 @@ public class GameRunController {
     backButton.disableProperty().bind(running);
     // initialise simulation
     model.initialiseRuntime(this);
-  }
-
-  /**
-   * Add a ProfileSet to the profiler, redrawing the profiler state if older than two seconds.
-   *
-   * @param step the ProfileStep
-   */
-  public void addProfileStep(ProfileStep step) {
-    profiler.addProfileStep(step);
-    // if it's been more than 2 seconds since the last update - redraw the state
-    if (System.currentTimeMillis() - profileLastUpdate > 2000) {
-      Platform.runLater(
-          () -> {
-            stepCountField.setText("Steps: " + profiler.getStepCount());
-            durationChartViewer.setChart(profiler.getChart());
-            runTimeField.setText("Run Time : " + FormatTools.formatTime(profiler.getRunTime()));
-            averageStepField.setText(
-                "Average Step : " + FormatTools.formatTime(profiler.getAverateStepTime()));
-          });
-      profileLastUpdate = System.currentTimeMillis();
-    }
   }
 
   private void repositionImage(ImageView image, double paneWidth, double paneHeight) {
@@ -206,7 +176,7 @@ public class GameRunController {
   }
 
   /**
-   * Method to update the on-screen view of the simulation
+   * Method to update the on-screen view of the simulation.
    *
    * <p>This can be called from any thread, but the screen will only update if the FX thread is not
    * busy.
@@ -221,6 +191,18 @@ public class GameRunController {
             imageReady.set(true);
           });
     }
+  }
+
+  /**
+   * Update the Profile graph.
+   *
+   * @param image The image to display.
+   */
+  public void updateProfileImage(BufferedImage image) {
+    Platform.runLater(
+        () -> {
+          profileChart.setImage(SwingFXUtils.toFXImage(image, null));
+        });
   }
 
   /**

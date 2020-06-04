@@ -28,6 +28,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleLongProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.text.Font;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -77,6 +78,7 @@ public class ApplicationModel {
   @Getter private GameRunController gameRunController = null;
   private long stepsTaken = 0;
   private AIProfiler profiler = null;
+  private long nextProfileUpdate = 0;
   private File workingDirectory;
 
   /** Setup the model with useful default values. */
@@ -86,6 +88,9 @@ public class ApplicationModel {
         Bindings.and(
             Bindings.size(agentList).greaterThanOrEqualTo(minAgents),
             Bindings.size(agentList).lessThanOrEqualTo(maxAgents)));
+    // make sure the fonts are loaded.
+    Font.loadFont(ApplicationModel.class.getResourceAsStream("/fonts/Hack-Regular.ttf"), 12.0);
+    Font.loadFont(ApplicationModel.class.getResourceAsStream("/fonts/OpenSans-Regular.ttf"), 12.0);
   }
 
   /**
@@ -160,8 +165,11 @@ public class ApplicationModel {
         gameRunController.updateBoardImage(image);
       }
       // update profiler
-      if (response.getProfileStep() != null) {
-        profiler.addProfileStep(response.getProfileStep());
+      profiler.addProfileStep(response.getProfileStep());
+      if (System.currentTimeMillis() > nextProfileUpdate) {
+        gameRunController.updateProfileImage(profiler.getChartImage());
+        // update profile in UI
+        nextProfileUpdate = System.currentTimeMillis() + 1000 * 20;
       }
       // check for stats
       if ((statsStepCount > -1) && (stepsTaken % statsStepCount == 0)) {
