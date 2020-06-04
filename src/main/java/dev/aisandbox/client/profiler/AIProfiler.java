@@ -2,6 +2,7 @@ package dev.aisandbox.client.profiler;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.image.BufferedImage;
 import java.util.HashMap;
 import java.util.Map;
 import lombok.Getter;
@@ -79,6 +80,7 @@ public class AIProfiler {
    *
    * @return a {@link org.jfree.chart.JFreeChart} object.
    */
+  @Deprecated
   public JFreeChart getChart() {
     // convert average times to PieDataset
     Map<String, Double> times = getAverageTime();
@@ -97,5 +99,11 @@ public class AIProfiler {
     chart.setBackgroundPaint(new Color(244, 244, 244));
     chart.getTitle().setFont(new Font("System", Font.PLAIN, 12));
     return chart;
+  }
+
+  public BufferedImage getChartImage() {
+    JFreeChart chart = getChart();
+    BufferedImage image = chart.createBufferedImage(300, 200);
+    return image;
   }
 }
