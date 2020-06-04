@@ -207,7 +207,7 @@ public class TwistyRuntime implements ScenarioRuntime {
   private BufferedImage renderPuzzle() {
     BufferedImage image = puzzle.getStateImage();
     Graphics2D g = image.createGraphics();
-    g.setFont(new Font("Helvetica", Font.PLAIN, 18));
+    g.setFont(new Font("OpenSans", Font.PLAIN, 22));
     g.setRenderingHint(
         RenderingHints.KEY_FRACTIONALMETRICS, RenderingHints.VALUE_FRACTIONALMETRICS_ON);
     g.setRenderingHint(
