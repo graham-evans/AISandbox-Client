@@ -2,7 +2,6 @@ package dev.aisandbox.client.scenarios.twisty.puzzles;
 
 import dev.aisandbox.client.scenarios.twisty.TwistyPuzzle;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
 
 /**
  * Cube4x4x4 class.
@@ -11,7 +10,6 @@ import org.springframework.stereotype.Component;
  * @version $Id: $Id
  */
 @Slf4j
-@Component
 public class Cube4x4x4 extends CubePuzzle implements TwistyPuzzle {
 
   /** Constructor for Cube4x4x4. */

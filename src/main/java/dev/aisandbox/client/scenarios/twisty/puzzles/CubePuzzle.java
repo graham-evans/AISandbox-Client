@@ -448,7 +448,7 @@ public abstract class CubePuzzle implements TwistyPuzzle {
     }
 
     Graphics2D g = sheet.createGraphics();
-    Font font = new Font(Font.SANS_SERIF, Font.BOLD, 14);
+    Font font = new Font("Hack", Font.PLAIN, 22);
     g.setFont(font);
     g.setRenderingHint(
         RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_GASP);
