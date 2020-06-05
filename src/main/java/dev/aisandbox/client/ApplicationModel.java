@@ -167,9 +167,13 @@ public class ApplicationModel {
       // update profiler
       profiler.addProfileStep(response.getProfileStep());
       if (System.currentTimeMillis() > nextProfileUpdate) {
-        gameRunController.updateProfileImage(profiler.getChartImage());
+        gameRunController.updateProfileInformation(
+            profiler.getChartImage(),
+            profiler.getRunTime(),
+            profiler.getAverateStepTime(),
+            stepsTaken);
         // update profile in UI
-        nextProfileUpdate = System.currentTimeMillis() + 1000 * 20;
+        nextProfileUpdate = System.currentTimeMillis() + 1000 * 5;
       }
       // check for stats
       if ((statsStepCount > -1) && (stepsTaken % statsStepCount == 0)) {

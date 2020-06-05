@@ -5,6 +5,7 @@ import dev.aisandbox.client.SimulationRunThread;
 import dev.aisandbox.client.agent.AgentConnectionException;
 import dev.aisandbox.client.agent.AgentException;
 import dev.aisandbox.client.agent.AgentParserException;
+import dev.aisandbox.client.output.FormatTools;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ResourceBundle;
@@ -197,11 +198,18 @@ public class GameRunController {
    * Update the Profile graph.
    *
    * @param image The image to display.
+   * @param runTime
+   * @param averageStepTime
+   * @param stepCount
    */
-  public void updateProfileImage(BufferedImage image) {
+  public void updateProfileInformation(
+      BufferedImage image, long runTime, long averageStepTime, long stepCount) {
     Platform.runLater(
         () -> {
           profileChart.setImage(SwingFXUtils.toFXImage(image, null));
+          stepCountField.setText("Steps: " + stepCount);
+          averageStepField.setText("Average Step : " + FormatTools.formatTime(averageStepTime));
+          runTimeField.setText("Run Time : " + FormatTools.formatTime(runTime));
         });
   }
 

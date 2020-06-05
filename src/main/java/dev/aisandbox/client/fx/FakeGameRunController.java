@@ -21,7 +21,8 @@ public class FakeGameRunController extends GameRunController {
   }
 
   @Override
-  public void updateProfileImage(BufferedImage image) {
+  public void updateProfileInformation(
+      BufferedImage image, long runTime, long averageStepTime, long stepCount) {
     // ignore - do nothing
   }
 

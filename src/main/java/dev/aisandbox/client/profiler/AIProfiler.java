@@ -39,6 +39,7 @@ public class AIProfiler {
    * @return a long.
    */
   public long getAverateStepTime() {
+    // TODO - This is now wrong as it assumes no break between steps!
     if (stepCount > 0) {
       return (System.currentTimeMillis() - startTime) / stepCount;
     } else {
