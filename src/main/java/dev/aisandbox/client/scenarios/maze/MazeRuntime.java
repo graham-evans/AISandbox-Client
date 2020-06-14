@@ -16,7 +16,9 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 import java.util.Random;
 import javax.imageio.ImageIO;
@@ -189,5 +191,18 @@ public class MazeRuntime implements ScenarioRuntime {
   }
 
   @Override
-  public void writeStatistics(File statisticsOutputFile) {}
+  public void writeStatistics(File statisticsOutputFile) {
+    try {
+      PrintWriter out = new PrintWriter(new FileWriter(statisticsOutputFile));
+      out.print("Steps,");
+      out.println(stepToFinish);
+      out.print("Total Steps,");
+      out.println(stepCount);
+      out.print("Fastest Solve,");
+      out.println(fastestSolve == null ? "NA" : fastestSolve);
+      out.close();
+    } catch (IOException e) {
+      log.warn("Error writing stats", e);
+    }
+  }
 }
