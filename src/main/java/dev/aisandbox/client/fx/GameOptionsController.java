@@ -16,19 +16,16 @@ import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TextFormatter;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.Window;
-import javafx.util.converter.NumberStringConverter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -74,10 +71,6 @@ public class GameOptionsController {
   @FXML private Button outputDirectoryButton;
 
   @FXML private Button nextButton;
-
-  @FXML private CheckBox simulationLimit;
-
-  @FXML private TextField simulationLimitSteps;
 
   @FXML private ChoiceBox<String> statsFrequencyChoice;
 
@@ -193,10 +186,6 @@ public class GameOptionsController {
         : "fx:id=\"editAgentButton\" was not injected: check your FXML file 'GameOptions.fxml'.";
     assert addAgentButton != null
         : "fx:id=\"addAgentButton\" was not injected: check your FXML file 'GameOptions.fxml'.";
-    assert simulationLimit != null
-        : "fx:id=\"simulationLimit\" was not injected: check your FXML file 'GameOptions.fxml'.";
-    assert simulationLimitSteps != null
-        : "fx:id=\"simulationLimitSteps\" was not injected: check your FXML file 'GameOptions.fxml'.";
     assert outputFormat != null
         : "fx:id=\"outputFormat\" was not injected: check your FXML file 'GameOptions.fxml'.";
     assert outputDirectory != null
@@ -246,21 +235,7 @@ public class GameOptionsController {
     nextButton.disableProperty().bind(Bindings.not(model.getValid()));
     // set the agent formatting
     agentList.setCellFactory(agentListView -> new AgentCell());
-    // link the limit controls together
-    simulationLimitSteps.disableProperty().bind(simulationLimit.selectedProperty().not());
-    simulationLimit.selectedProperty().bindBidirectional(model.getLimitRuntime());
-    simulationLimitSteps
-        .textProperty()
-        .bindBidirectional(model.getMaxStepCount(), new NumberStringConverter());
-    simulationLimitSteps.setTextFormatter(
-        new TextFormatter<Object>(
-            change -> {
-              String text = change.getText();
-              if (text.matches("[0-9]*")) {
-                return change;
-              }
-              return null;
-            }));
+
     // setup stats
     statsFrequencyChoice.setOnAction(
         (event) -> {
