@@ -18,7 +18,9 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -43,6 +45,8 @@ public class MineHunterRuntime implements ScenarioRuntime {
   private List<BufferedImage> sprites;
   private SuccessRateGraph winRateGraph = new SuccessRateGraph();
   private BufferedImage winRateGraphImage = null;
+  private long boardsWon = 0;
+  private long boardsLost = 0;
   private double scale = 1.0;
   Font myFont = new Font("Sans-Serif", Font.PLAIN, 28);
   // API elements
@@ -159,7 +163,14 @@ public class MineHunterRuntime implements ScenarioRuntime {
     last.setResult(board.getState().name());
     // if the game has finished create a new one
     if (board.getState() != GameState.PLAYING) {
-      winRateGraph.addValue(board.getState() == GameState.WON ? 100.0 : 0.0);
+      if (board.getState() == GameState.WON) {
+        winRateGraph.addValue(100.0);
+        boardsWon++;
+      } else {
+        winRateGraph.addValue(0.0);
+        boardsLost++;
+      }
+
       getNewBoard();
       profileStep.addStep("Setup");
     }
@@ -167,7 +178,18 @@ public class MineHunterRuntime implements ScenarioRuntime {
   }
 
   @Override
-  public void writeStatistics(File statisticsOutputFile) {}
+  public void writeStatistics(File statisticsOutputFile) {
+    try {
+      PrintWriter out = new PrintWriter(new FileWriter(statisticsOutputFile));
+      out.print("Games won,");
+      out.println(boardsWon);
+      out.print("Games lost,");
+      out.println(boardsLost);
+      out.close();
+    } catch (IOException e) {
+      log.warn("Error writing stats file", e);
+    }
+  }
 
   private BufferedImage createLevelImage() {
     BufferedImage image = OutputTools.getWhiteScreen();
