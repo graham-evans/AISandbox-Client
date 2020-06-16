@@ -48,6 +48,11 @@ public class MazeScenario implements Scenario {
     this.mazeRenderer = mazeRenderer;
   }
 
+  @Override
+  public String getId() {
+    return "maze";
+  }
+
   /** {@inheritDoc} */
   @Override
   public ScenarioType getGroup() {

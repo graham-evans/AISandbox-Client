@@ -56,6 +56,11 @@ public class TwistyScenario implements Scenario {
     return ScenarioType.INTERMEDIATE;
   }
 
+  @Override
+  public String getId() {
+    return "twisty";
+  }
+
   /** {@inheritDoc} */
   @Override
   public String getName() {

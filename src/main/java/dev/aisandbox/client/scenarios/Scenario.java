@@ -23,6 +23,14 @@ public interface Scenario {
   public String getName();
 
   /**
+   * The ID of the scenario, this is a unique word (with no internationalisation which can be used
+   * in configuration files to identify the scenario.
+   *
+   * @return a String identifier
+   */
+  public String getId();
+
+  /**
    * Return a short overview of the scenario.
    *
    * @return a {@link java.lang.String} overview.

@@ -7,6 +7,11 @@ import static org.junit.Assert.assertTrue;
 import dev.aisandbox.client.ApplicationModel;
 import dev.aisandbox.client.agent.Agent;
 import dev.aisandbox.client.output.OutputFormat;
+import dev.aisandbox.client.parameters.LongParameter;
+import dev.aisandbox.client.parameters.OptionParameter;
+import dev.aisandbox.client.scenarios.ScenarioParameter;
+import dev.aisandbox.client.scenarios.maze.MazeScenario;
+import dev.aisandbox.client.scenarios.mine.MineHunterScenario;
 import dev.aisandbox.launcher.AISandboxCLI;
 import java.util.Properties;
 import org.junit.Test;
@@ -23,103 +28,52 @@ public class PropertiesParserTest {
 
   @Autowired PropertiesParser parser;
 
+  private ScenarioParameter findParameter(String name, ScenarioParameter[] params) {
+    ScenarioParameter result = null;
+    for (ScenarioParameter s : params) {
+      if (name.equals(s.getParameterKey())) {
+        result = s;
+      }
+    }
+    return result;
+  }
+
   @Test
   public void readMine1Test() {
-    //    Properties props = new Properties();
-    //    props.setProperty("scenario", "mine");
-    //    props.setProperty("salt", "123456");
-    //    props.setProperty("size", "small");
-    //    RuntimeModel model = parser.parseConfiguration(new RuntimeModel(), props);
-    //    assertTrue("incorrect scenario", model.getScenario() instanceof MineHunterScenario);
-    //    MineHunterScenario mine = (MineHunterScenario) model.getScenario();
-    //    assertEquals("Incorrect salt", 123456, (long) mine.getScenarioSalt());
-    //    assertEquals("Incorrect board size", SizeEnum.SMALL, mine.getMineHunterBoardSize());
-  }
-
-  @Test
-  public void readMine2Test() {
-    //    Properties props = new Properties();
-    //    props.setProperty("scenario", "mine");
-    //    props.setProperty("salt", "234567");
-    //    props.setProperty("size", "medium");
-    //    RuntimeModel model = parser.parseConfiguration(new RuntimeModel(), props);
-    //    assertTrue("incorrect scenario", model.getScenario() instanceof MineHunterScenario);
-    //    MineHunterScenario mine = (MineHunterScenario) model.getScenario();
-    //    assertEquals("Incorrect salt", 234567, (long) mine.getScenarioSalt());
-    //    assertEquals("Incorrect board size", SizeEnum.MEDIUM, mine.getMineHunterBoardSize());
-  }
-
-  @Test
-  public void readMine3Test() {
-    //    Properties props = new Properties();
-    //    props.setProperty("scenario", "mine");
-    //    props.setProperty("salt", "654321");
-    //    props.setProperty("size", "large");
-    //    RuntimeModel model = parser.parseConfiguration(new RuntimeModel(), props);
-    //    assertTrue("incorrect scenario", model.getScenario() instanceof MineHunterScenario);
-    //    MineHunterScenario mine = (MineHunterScenario) model.getScenario();
-    //    assertEquals("Incorrect salt", 654321, (long) mine.getScenarioSalt());
-    //    assertEquals("Incorrect board size", SizeEnum.LARGE, mine.getMineHunterBoardSize());
+    Properties props = new Properties();
+    props.setProperty("scenario", "mine");
+    props.setProperty("mine.salt", "123456");
+    props.setProperty("mine.size", "1");
+    ApplicationModel model = parser.parseConfiguration(new ApplicationModel(), props);
+    assertTrue("incorrect scenario", model.getScenario() instanceof MineHunterScenario);
+    MineHunterScenario mine = (MineHunterScenario) model.getScenario();
+    LongParameter salt =
+        (LongParameter) findParameter("mine.salt", model.getScenario().getParameterArray());
+    assertEquals("Incorrect salt", 123456, (long) salt.getValue());
+    OptionParameter option =
+        (OptionParameter) findParameter("mine.size", model.getScenario().getParameterArray());
+    assertEquals("Incorrect board size", 1, option.getOptionIndex());
   }
 
   @Test
   public void readMaze1Test() {
-    //    Properties props = new Properties();
-    //    props.setProperty("scenario", "maze");
-    //    props.setProperty("salt", "654321");
-    //    props.setProperty("size", "small");
-    //    props.setProperty("type", "binarytree");
-    //    RuntimeModel model = parser.parseConfiguration(new RuntimeModel(), props);
-    //    assertTrue("incorrect scenario", model.getScenario() instanceof MazeScenario);
-    //    MazeScenario maze = (MazeScenario) model.getScenario();
-    //    assertEquals("Incorrect salt", 654321, (long) maze.getScenarioSalt());
-    //    assertEquals("Incorrect board size", MazeSize.SMALL, maze.getMazeSize());
-    //    assertEquals("Inncorrect maze type", MazeType.BINARYTREE, maze.getMazeType());
-  }
-
-  @Test
-  public void readMaze2Test() {
-    //    Properties props = new Properties();
-    //    props.setProperty("scenario", "maze");
-    //    props.setProperty("salt", "654321");
-    //    props.setProperty("size", "medium");
-    //    props.setProperty("type", "sidewinder");
-    //    RuntimeModel model = parser.parseConfiguration(new RuntimeModel(), props);
-    //    assertTrue("incorrect scenario", model.getScenario() instanceof MazeScenario);
-    //    MazeScenario maze = (MazeScenario) model.getScenario();
-    //    assertEquals("Incorrect salt", 654321, (long) maze.getScenarioSalt());
-    //    assertEquals("Incorrect board size", MazeSize.MEDIUM, maze.getMazeSize());
-    //    assertEquals("Inncorrect maze type", MazeType.SIDEWINDER, maze.getMazeType());
-  }
-
-  @Test
-  public void readMaze3Test() {
-    //    Properties props = new Properties();
-    //    props.setProperty("scenario", "maze");
-    //    props.setProperty("salt", "654321");
-    //    props.setProperty("size", "large");
-    //    props.setProperty("type", "recursivebacktracker");
-    //    RuntimeModel model = parser.parseConfiguration(new RuntimeModel(), props);
-    //    assertTrue("incorrect scenario", model.getScenario() instanceof MazeScenario);
-    //    MazeScenario maze = (MazeScenario) model.getScenario();
-    //    assertEquals("Incorrect salt", 654321, (long) maze.getScenarioSalt());
-    //    assertEquals("Incorrect board size", MazeSize.LARGE, maze.getMazeSize());
-    //    assertEquals("Inncorrect maze type", MazeType.RECURSIVEBACKTRACKER, maze.getMazeType());
-  }
-
-  @Test
-  public void readMaze4Test() {
-    //    Properties props = new Properties();
-    //    props.setProperty("scenario", "maze");
-    //    props.setProperty("salt", "654321");
-    //    props.setProperty("size", "large");
-    //    props.setProperty("type", "braided");
-    //    RuntimeModel model = parser.parseConfiguration(new RuntimeModel(), props);
-    //    assertTrue("incorrect scenario", model.getScenario() instanceof MazeScenario);
-    //    MazeScenario maze = (MazeScenario) model.getScenario();
-    //    assertEquals("Incorrect salt", 654321, (long) maze.getScenarioSalt());
-    //    assertEquals("Incorrect board size", MazeSize.LARGE, maze.getMazeSize());
-    //    assertEquals("Inncorrect maze type", MazeType.BRAIDED, maze.getMazeType());
+    Properties props = new Properties();
+    props.setProperty("scenario", "maze");
+    props.setProperty("maze.salt", "654321");
+    props.setProperty("maze.size", "1");
+    props.setProperty("maze.type", "1");
+    ApplicationModel model = parser.parseConfiguration(new ApplicationModel(), props);
+    assertTrue("incorrect scenario", model.getScenario() instanceof MazeScenario);
+    MazeScenario maze = (MazeScenario) model.getScenario();
+    LongParameter salt =
+        (LongParameter) findParameter("maze.salt", model.getScenario().getParameterArray());
+    assertEquals("Incorrect salt", 654321, (long) salt.getValue());
+    OptionParameter option =
+        (OptionParameter) findParameter("maze.size", model.getScenario().getParameterArray());
+    assertEquals("Incorrect board size", 1, option.getOptionIndex());
+    OptionParameter option2 =
+        (OptionParameter) findParameter("maze.type", model.getScenario().getParameterArray());
+    assertEquals("Incorrect board type", 1, option2.getOptionIndex());
   }
 
   @Test

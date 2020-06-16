@@ -26,6 +26,11 @@ public class ZebraScenario implements Scenario {
 
   @Getter @Setter private boolean zebraMultipleGuesses = true;
 
+  @Override
+  public String getId() {
+    return "zebra";
+  }
+
   /** {@inheritDoc} */
   @Override
   public ScenarioType getGroup() {

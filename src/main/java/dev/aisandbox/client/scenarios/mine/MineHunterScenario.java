@@ -43,6 +43,11 @@ public class MineHunterScenario implements Scenario {
     this.spriteLoader = spriteLoader;
   }
 
+  @Override
+  public String getId() {
+    return "mine";
+  }
+
   /** {@inheritDoc} */
   @Override
   public ScenarioType getGroup() {
