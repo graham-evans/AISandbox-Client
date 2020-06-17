@@ -2,6 +2,7 @@ package dev.aisandbox.client.scenarios.maze;
 
 import dev.aisandbox.client.parameters.LongParameter;
 import dev.aisandbox.client.parameters.OptionParameter;
+import dev.aisandbox.client.scenarios.BaseScenario;
 import dev.aisandbox.client.scenarios.Scenario;
 import dev.aisandbox.client.scenarios.ScenarioParameter;
 import dev.aisandbox.client.scenarios.ScenarioRuntime;
@@ -19,7 +20,28 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Slf4j
-public class MazeScenario implements Scenario {
+public class MazeScenario extends BaseScenario implements Scenario {
+
+  @Autowired
+  public MazeScenario(MazeRenderer mazeRenderer) {
+    super(
+        "maze",
+        "Maze Runner",
+        ScenarioType.INTRODUCTION,
+        "Navigate the maze and find the exit, then optimise the path to find the shortest route.",
+        "The AI agent will be placed in a Maze and tasked with finding its way to the exit."
+            + " Once there it will be rewarded and returned to the beginning.\n"
+            + "At each turn the AI agent is given information about the maze (dimensions,"
+            + " directions etc),"
+            + " the result of the last move (any reward) and asked for the next move. This repeats"
+            + " until the scenario is manually stopped.",
+        "/dev/aisandbox/client/scenarios/maze/sample.png",
+        1,
+        1,
+        "https://aisandbox.dev/scenarios-maze/",
+        "https://files.aisandbox.dev/swagger/maze.yaml");
+    this.mazeRenderer = mazeRenderer;
+  }
 
   // configurable properties
   private LongParameter scenarioSalt =
@@ -42,71 +64,6 @@ public class MazeScenario implements Scenario {
           "Maze Size",
           null);
   private final MazeRenderer mazeRenderer;
-
-  @Autowired
-  public MazeScenario(MazeRenderer mazeRenderer) {
-    this.mazeRenderer = mazeRenderer;
-  }
-
-  @Override
-  public String getId() {
-    return "maze";
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public ScenarioType getGroup() {
-    return ScenarioType.INTRODUCTION;
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public String getName() {
-    return "Maze Runner";
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public String getOverview() {
-    return "Navigate the maze and find the exit, then optimise the path to find the shortest route.";
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public String getDescription() {
-    return "The AI agent will be placed in a Maze and tasked with finding its way to the exit. Once there it will be rewarded and returned to the beginning.\n"
-        + "At each turn the AI agent is given information about the maze (dimensions, directions etc), the result of the last move (any reward) and asked for the next move. This repeats until the scenario is manually stopped.";
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public int getMinAgentCount() {
-    return 1;
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public int getMaxAgentCount() {
-    return 1;
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public String getImageReference() {
-    return "/dev/aisandbox/client/scenarios/maze/sample.png";
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public String getScenarioURL() {
-    return "https://aisandbox.dev/scenarios-maze/";
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public String getSwaggerURL() {
-    return "https://files.aisandbox.dev/swagger/maze.yaml";
-  }
 
   @Override
   public ScenarioParameter[] getParameterArray() {
