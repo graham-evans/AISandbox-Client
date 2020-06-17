@@ -38,11 +38,11 @@ public class MazeRunTest {
   @Autowired ApplicationContext context;
 
   @Before
-    public void resetDir() {
+  public void resetDir() {
     // check that the directory 'target/test-run/maze1' is deleted
     File fdir = new File("target/run/maze1");
     if (fdir.isDirectory()) {
-      log.info("Deleting {}",fdir.getAbsolutePath());
+      log.info("Deleting {}", fdir.getAbsolutePath());
       deleteDirectory(fdir);
     }
   }
@@ -78,17 +78,17 @@ public class MazeRunTest {
     // run the model
     SimulationRunThread thread;
     if (model.getLimitRuntime().get()) {
-      thread =new SimulationRunThread(model,model.getMaxStepCount().get());
-    }  else {
-      thread =new SimulationRunThread(model);
+      thread = new SimulationRunThread(model, model.getMaxStepCount().get());
+    } else {
+      thread = new SimulationRunThread(model);
     }
     thread.start();
     thread.join();
     model.resetRuntime();
     // we should now have a single directory inside maze1
     File dest = new File("target/run/maze1");
-    assertTrue("Target directory exists",dest.isDirectory());
-    assertEquals("Number of subdirs",1,dest.listFiles().length);
+    assertTrue("Target directory exists", dest.isDirectory());
+    assertEquals("Number of subdirs", 1, dest.listFiles().length);
     File job = dest.listFiles()[0];
     // we should have 10 images in this directory
     assertEquals("Number of images", 10, job.listFiles().length);
