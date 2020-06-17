@@ -8,8 +8,6 @@ import dev.aisandbox.client.ApplicationModel;
 import dev.aisandbox.client.SimulationRunThread;
 import dev.aisandbox.client.cli.PropertiesParser;
 import dev.aisandbox.client.fx.FakeGameRunController;
-import dev.aisandbox.client.scenarios.maze.MazeScenario;
-import dev.aisandbox.client.scenarios.maze.agent.MazeTestAgent;
 import dev.aisandbox.client.scenarios.mine.agent.MineTestAgent;
 import dev.aisandbox.launcher.AISandboxCLI;
 import java.io.File;
@@ -40,7 +38,7 @@ public class MineRunTest {
   @Before
   public void resetDir() {
     // check that the directory 'target/test-run/mine1' is deleted
-    File fdir = new File("target/test-run/mine1");
+    File fdir = new File("target/run/mine1");
     if (fdir.isDirectory()) {
       deleteDirectory(fdir);
     }
