@@ -3,6 +3,7 @@ package dev.aisandbox.client.scenarios.twisty;
 import dev.aisandbox.client.parameters.BooleanParameter;
 import dev.aisandbox.client.parameters.LongParameter;
 import dev.aisandbox.client.parameters.OptionParameter;
+import dev.aisandbox.client.scenarios.BaseScenario;
 import dev.aisandbox.client.scenarios.Scenario;
 import dev.aisandbox.client.scenarios.ScenarioParameter;
 import dev.aisandbox.client.scenarios.ScenarioRuntime;
@@ -28,9 +29,22 @@ import org.springframework.stereotype.Component;
  * @version $Id: $Id
  */
 @Component
-@Data
 @Slf4j
-public class TwistyScenario implements Scenario {
+public class TwistyScenario extends BaseScenario implements Scenario {
+
+  public TwistyScenario() {
+    super(
+        "twisty",
+        "Twisty Puzzle",
+        ScenarioType.INTERMEDIATE,
+        "Puzzles based on rotating layers and circles",
+        "Puzzles based on rotating layers and circles",
+        "/dev/aisandbox/client/scenarios/twisty/sample.png",
+        1,
+        1,
+        "https://aisandbox.dev/scenarios-twisty/",
+        "https://files.aisandbox.dev/swagger/twisty.yaml");
+  }
 
   private static final String[] PUZZLE_TYPES =
       new String[] {
@@ -49,65 +63,6 @@ public class TwistyScenario implements Scenario {
   private LongParameter scenarioSalt = new LongParameter("twisty.salt", 0, "Random Salt", null);
   private BooleanParameter twistyStartSolved =
       new BooleanParameter("twisty.solved", false, "Start Solved", null);
-
-  /** {@inheritDoc} */
-  @Override
-  public ScenarioType getGroup() {
-    return ScenarioType.INTERMEDIATE;
-  }
-
-  @Override
-  public String getId() {
-    return "twisty";
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public String getName() {
-    return "Twisty Puzzle";
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public String getOverview() {
-    return "Puzzles based on rotating layers and circles";
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public String getDescription() {
-    return "Puzzles based on rotating layers and circles";
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public String getImageReference() {
-    return "/dev/aisandbox/client/scenarios/twisty/sample.png";
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public int getMinAgentCount() {
-    return 1;
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public int getMaxAgentCount() {
-    return 1;
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public String getScenarioURL() {
-    return "https://aisandbox.dev/scenarios-twisty/";
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public String getSwaggerURL() {
-    return "https://files.aisandbox.dev/swagger/twisty.yaml";
-  }
 
   @Override
   public ScenarioParameter[] getParameterArray() {
