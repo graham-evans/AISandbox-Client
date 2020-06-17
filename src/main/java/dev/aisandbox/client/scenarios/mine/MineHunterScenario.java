@@ -2,6 +2,7 @@ package dev.aisandbox.client.scenarios.mine;
 
 import dev.aisandbox.client.parameters.LongParameter;
 import dev.aisandbox.client.parameters.OptionParameter;
+import dev.aisandbox.client.scenarios.BaseScenario;
 import dev.aisandbox.client.scenarios.Scenario;
 import dev.aisandbox.client.scenarios.ScenarioParameter;
 import dev.aisandbox.client.scenarios.ScenarioRuntime;
@@ -20,7 +21,28 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Slf4j
-public class MineHunterScenario implements Scenario {
+public class MineHunterScenario extends BaseScenario implements Scenario {
+
+  private final SpriteLoader spriteLoader;
+
+  @Autowired
+  public MineHunterScenario(SpriteLoader spriteLoader) {
+    super(
+        "mine",
+        "Mine Hunter",
+        ScenarioType.INTRODUCTION,
+        "Find the mines in a grid using deduction",
+        "Mine Hunter pits the AI against a minefield! A known quantity of mines has been"
+            + " distributed across a grid of squares and the AI agent must work out where they are."
+            + " To help, each uncovered square will show how many mines are in the surrounding"
+            + " squares.",
+        "/dev/aisandbox/client/scenarios/mine/sample.png",
+        1,
+        1,
+        "https://aisandbox.dev/scenarios-mine/",
+        "https://files.aisandbox.dev/swagger/mine.yaml");
+    this.spriteLoader = spriteLoader;
+  }
 
   // configuration
   private LongParameter scenarioSalt =
@@ -36,71 +58,6 @@ public class MineHunterScenario implements Scenario {
           },
           "Board size",
           null);
-  private final SpriteLoader spriteLoader;
-
-  @Autowired
-  public MineHunterScenario(SpriteLoader spriteLoader) {
-    this.spriteLoader = spriteLoader;
-  }
-
-  @Override
-  public String getId() {
-    return "mine";
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public ScenarioType getGroup() {
-    return ScenarioType.INTRODUCTION;
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public String getName() {
-    return "Mine Hunter";
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public String getOverview() {
-    return "Find the mines in a grid using deduction";
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public String getDescription() {
-    return "Mine Hunter pits the AI against a minefield! A known quantity of mines has been distributed across a grid of squares and the AI agent must work out where they are. To help, each uncovered square will show how many mines are in the surrounding squares.";
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public int getMinAgentCount() {
-    return 1;
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public int getMaxAgentCount() {
-    return 1;
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public String getImageReference() {
-    return "/dev/aisandbox/client/scenarios/mine/sample.png";
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public String getScenarioURL() {
-    return "https://aisandbox.dev/scenarios-mine/";
-  }
-
-  /** {@inheritDoc} */
-  @Override
-  public String getSwaggerURL() {
-    return "https://files.aisandbox.dev/swagger/mine.yaml";
-  }
 
   @Override
   public ScenarioParameter[] getParameterArray() {
