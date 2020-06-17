@@ -34,7 +34,7 @@ public class MazeScenario extends BaseScenario implements Scenario {
             + "At each turn the AI agent is given information about the maze (dimensions,"
             + " directions etc),"
             + " the result of the last move (any reward) and asked for the next move. This repeats"
-            + " until the scenario is manually stopped.",
+            + " until the scenario is stopped.",
         "/dev/aisandbox/client/scenarios/maze/sample.png",
         1,
         1,
