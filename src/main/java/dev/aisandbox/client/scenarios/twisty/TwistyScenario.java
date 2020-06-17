@@ -18,7 +18,6 @@ import dev.aisandbox.client.scenarios.twisty.puzzles.Cube7x7x7;
 import dev.aisandbox.client.scenarios.twisty.puzzles.Cube8x8x8;
 import dev.aisandbox.client.scenarios.twisty.puzzles.Cube9x9x9;
 import java.util.Random;
-import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
