@@ -8,8 +8,6 @@ import dev.aisandbox.client.ApplicationModel;
 import dev.aisandbox.client.SimulationRunThread;
 import dev.aisandbox.client.cli.PropertiesParser;
 import dev.aisandbox.client.fx.FakeGameRunController;
-import dev.aisandbox.client.output.FrameOutput;
-import dev.aisandbox.client.output.PNGOutputWriter;
 import dev.aisandbox.client.scenarios.maze.agent.MazeTestAgent;
 import dev.aisandbox.launcher.AISandboxCLI;
 import java.io.File;
