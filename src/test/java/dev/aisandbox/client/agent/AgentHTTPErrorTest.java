@@ -31,4 +31,24 @@ public class AgentHTTPErrorTest {
     TestResponse r = a.postRequest(req, TestResponse.class);
     server.verify();
   }
+
+  @Test(expected = AgentAuthException.class)
+  public void test401Error() throws AgentException {
+    Agent a = new Agent();
+    a.setTarget("http://localhost/xxxx");
+    a.setEnableXML(false);
+    a.setupAgent();
+    // setup mock server
+    MockRestServiceServer server = AgentMockTool.createMockServer(a);
+    // setup expectations
+    server
+        .expect(requestTo("http://localhost/xxxx"))
+        .andExpect(method(HttpMethod.POST))
+        .andRespond(withStatus(HttpStatus.UNAUTHORIZED));
+    // run request
+    TestRequest req = new TestRequest();
+    req.setName("Betty");
+    TestResponse r = a.postRequest(req, TestResponse.class);
+    server.verify();
+  }
 }
