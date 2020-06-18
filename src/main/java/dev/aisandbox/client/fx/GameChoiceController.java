@@ -19,7 +19,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.context.ApplicationContext;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -32,17 +32,22 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class GameChoiceController {
 
-  private final ApplicationContext appContext;
   private final List<Scenario> scenarioList;
   private final ApplicationModel model;
   private final FXTools fxtools;
 
+  /**
+   * Constructor for GameChoiceController.
+   *
+   * <p>Populated by Spring on loading the controller, defined in GameChoice.fxml.
+   *
+   * @param scenarioList List of scenarios to choose from.
+   * @param model The {@link dev.aisandbox.client.ApplicationModel} to update.
+   * @param fxtools Utility class to load new screens.
+   */
+  @Autowired
   public GameChoiceController(
-      ApplicationContext appContext,
-      List<Scenario> scenarioList,
-      ApplicationModel model,
-      FXTools fxtools) {
-    this.appContext = appContext;
+      List<Scenario> scenarioList, ApplicationModel model, FXTools fxtools) {
     this.scenarioList = scenarioList;
     this.model = model;
     this.fxtools = fxtools;
