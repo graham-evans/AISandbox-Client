@@ -14,6 +14,8 @@ public class BanditGroup {
   private final Random rand;
 
   @Getter List<Bandit> bandits = new ArrayList<>();
+  @Getter List<Double> scores = new ArrayList<>();
+  @Getter List<Boolean> best = new ArrayList<>();
 
   public BanditGroup(@NonNull Random rand, int banditCount) {
     this.rand = rand;
@@ -26,7 +28,7 @@ public class BanditGroup {
       // randomise each bandit
       for (Bandit b : bandits) {
         // use normal dist
-        b.setNormal(rand.nextGaussian());
+        b.setMean(rand.nextGaussian());
         b.setStd(1);
       }
     }
@@ -50,6 +52,26 @@ public class BanditGroup {
     return false;
   }
 
+  private boolean isBestMean(int number) {
+    double mean = bandits.get(number).getMean();
+    for (int i=0;i<bandits.size();i++) {
+      if ((i!=number)&&(bandits.get(i).getMean()>mean)) {
+        return false;
+      }
+    }
+    return true;
+  }
 
+  public double selectBandit(int number) {
+    // pull the bandits arm
+    double result = bandits.get(number).pull();
+    // record the score
+    scores.add(result);
+    // was this the best option
+    best.add(isBestMean(number));
+    // TODO - update the bandits
+    // return the score
+    return result;
+  }
 
 }
