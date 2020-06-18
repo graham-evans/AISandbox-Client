@@ -3,6 +3,7 @@ package dev.aisandbox.client.cli;
 import dev.aisandbox.client.ApplicationModel;
 import dev.aisandbox.client.agent.Agent;
 import dev.aisandbox.client.output.OutputFormat;
+import dev.aisandbox.client.parameters.ParameterParseException;
 import dev.aisandbox.client.scenarios.Scenario;
 import dev.aisandbox.client.scenarios.ScenarioParameter;
 import java.io.File;
@@ -79,7 +80,7 @@ public class PropertiesParser {
         if (value != null) {
           try {
             param.setParsableValue(value);
-          } catch (IllegalArgumentException e) {
+          } catch (ParameterParseException e) {
             log.warn("Error parsing parameter '{}' - '{}'", param.getParameterKey(), value);
           }
         }

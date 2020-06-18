@@ -72,7 +72,7 @@ public class MazeRunTest {
     model.getAgentList().add(new MazeTestAgent());
     assertTrue("Model not ready", model.getValid().get());
     // setup a fake UI
-    model.initialiseRuntime(new FakeGameRunController(context, model, null));
+    model.initialiseRuntime(new FakeGameRunController(model, null));
     // run the model
     SimulationRunThread thread;
     if (model.getLimitRuntime().get()) {

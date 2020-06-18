@@ -76,7 +76,7 @@ public class OptionParameter implements ScenarioParameter {
   }
 
   @Override
-  public void setParsableValue(String value) throws IllegalArgumentException {
+  public void setParsableValue(String value) throws ParameterParseException {
     log.info("Setting value of {} to '{}'", parameterKey, value);
     if (value == null) {
       throw new IllegalArgumentException("No option selected for " + parameterKey);
@@ -103,6 +103,6 @@ public class OptionParameter implements ScenarioParameter {
       }
     }
     // no matched
-    throw new IllegalArgumentException("Unknown option for " + parameterKey);
+    throw new ParameterParseException("Unknown option for " + parameterKey);
   }
 }

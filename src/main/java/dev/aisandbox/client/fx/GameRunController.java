@@ -26,9 +26,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javax.imageio.ImageIO;
 import lombok.extern.slf4j.Slf4j;
-import org.jfree.chart.fx.ChartViewer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 /**
@@ -42,7 +40,6 @@ import org.springframework.stereotype.Component;
 public class GameRunController {
 
   private final AtomicBoolean imageReady = new AtomicBoolean(true);
-  private final ApplicationContext appContext;
   private final ApplicationModel model;
   private final FXTools fxtools;
   @FXML private ResourceBundle resources;
@@ -57,13 +54,11 @@ public class GameRunController {
   @FXML private Button pauseButton;
 
   @Autowired
-  public GameRunController(ApplicationContext appContext, ApplicationModel model, FXTools fxtools) {
-    this.appContext = appContext;
+  public GameRunController(ApplicationModel model, FXTools fxtools) {
     this.model = model;
     this.fxtools = fxtools;
   }
 
-  private ChartViewer durationChartViewer;
   private ImageView imageView;
 
   private BooleanProperty running = new SimpleBooleanProperty(false);
@@ -198,9 +193,9 @@ public class GameRunController {
    * Update the Profile graph.
    *
    * @param image The image to display.
-   * @param runTime
-   * @param averageStepTime
-   * @param stepCount
+   * @param runTime The amount of time spent running the simulation, in milliseconds.
+   * @param averageStepTime The average step time, in milliseconds.
+   * @param stepCount The number of steps taken.
    */
   public void updateProfileInformation(
       BufferedImage image, long runTime, long averageStepTime, long stepCount) {
@@ -234,18 +229,6 @@ public class GameRunController {
       // show generic exception
       showAgentError(e.getTarget(), "Agent Exception", e.getMessage());
     }
-  }
-
-  public void showSimulationError(Exception e) {
-    Platform.runLater(
-        () -> {
-          // show the exception
-          Alert alert = new Alert(Alert.AlertType.ERROR);
-          alert.setTitle("Simulation Error");
-          alert.setHeaderText("There was an error running the simulation");
-          alert.setContentText(e.getMessage());
-          alert.showAndWait();
-        });
   }
 
   /**
@@ -283,6 +266,23 @@ public class GameRunController {
           // Set expandable Exception into the dialog pane.
           alert.getDialogPane().setExpandableContent(expContent);
 
+          alert.showAndWait();
+        });
+  }
+
+  /**
+   * Show a simulation error to the user.
+   *
+   * @param e The exception to display.
+   */
+  public void showSimulationError(Exception e) {
+    Platform.runLater(
+        () -> {
+          // show the exception
+          Alert alert = new Alert(Alert.AlertType.ERROR);
+          alert.setTitle("Simulation Error");
+          alert.setHeaderText("There was an error running the simulation");
+          alert.setContentText(e.getMessage());
           alert.showAndWait();
         });
   }

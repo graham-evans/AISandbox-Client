@@ -13,7 +13,7 @@ public class LongParameterTest {
   }
 
   @Test
-  public void longParseTest() {
+  public void longParseTest() throws ParameterParseException {
     LongParameter lp = new LongParameter("key", 123);
     lp.setParsableValue("54321");
     assertEquals("Parsed value", 54321, lp.getValue());

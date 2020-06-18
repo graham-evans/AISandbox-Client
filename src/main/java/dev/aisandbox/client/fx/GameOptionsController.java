@@ -231,7 +231,7 @@ public class GameOptionsController {
 
     // setup stats
     statsFrequencyChoice.setOnAction(
-        (event) -> {
+        event -> {
           switch (statsFrequencyChoice.getSelectionModel().getSelectedIndex()) {
             case 1:
               model.setStatsStepCount(1000);
@@ -251,10 +251,7 @@ public class GameOptionsController {
         });
     statsFrequencyChoice
         .getItems()
-        .addAll(
-            new String[] {
-              "never", "1,000 steps", "10,000 steps", "100,000 steps", "1,000,000 steps"
-            });
+        .addAll("never", "1,000 steps", "10,000 steps", "100,000 steps", "1,000,000 steps");
     statsFrequencyChoice.getSelectionModel().select(0);
   }
 }

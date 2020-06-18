@@ -7,7 +7,7 @@ import org.junit.Test;
 public class OptionParameterTest {
 
   @Test
-  public void parseNumberTest() {
+  public void parseNumberTest() throws ParameterParseException {
     OptionParameter e =
         new OptionParameter("key", new String[] {"Option 0", "Option 1", "Option 2"});
     e.setParsableValue("1");
@@ -16,7 +16,7 @@ public class OptionParameterTest {
   }
 
   @Test
-  public void parseTextTest() {
+  public void parseTextTest() throws ParameterParseException {
     OptionParameter e =
         new OptionParameter("key", new String[] {"Option 0", "Option 1", "Option 2"});
     e.setParsableValue("Option 1");

@@ -1,5 +1,6 @@
 package dev.aisandbox.client.scenarios;
 
+import dev.aisandbox.client.parameters.ParameterParseException;
 import javafx.scene.Node;
 
 public interface ScenarioParameter {
@@ -7,5 +8,5 @@ public interface ScenarioParameter {
 
   public Node getParameterControl();
 
-  public void setParsableValue(String value) throws IllegalArgumentException;
+  public void setParsableValue(String value) throws ParameterParseException;
 }

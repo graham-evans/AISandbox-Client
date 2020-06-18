@@ -4,7 +4,6 @@ import dev.aisandbox.client.ApplicationModel;
 import dev.aisandbox.client.agent.AgentException;
 import java.awt.image.BufferedImage;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 
 /**
  * FakeGameRunController - used as an alternative to GameRunController when running in headless
@@ -15,9 +14,8 @@ import org.springframework.context.ApplicationContext;
 public class FakeGameRunController extends GameRunController {
 
   @Autowired
-  public FakeGameRunController(
-      ApplicationContext appContext, ApplicationModel model, FXTools fxtools) {
-    super(appContext, model, fxtools);
+  public FakeGameRunController(ApplicationModel model, FXTools fxtools) {
+    super(model, fxtools);
   }
 
   @Override

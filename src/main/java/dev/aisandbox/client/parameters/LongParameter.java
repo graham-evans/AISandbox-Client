@@ -57,11 +57,11 @@ public class LongParameter implements ScenarioParameter {
   }
 
   @Override
-  public void setParsableValue(String val) throws IllegalArgumentException {
+  public void setParsableValue(String val) throws ParameterParseException {
     try {
       value.set(Long.parseLong(val));
     } catch (Exception e) {
-      throw new IllegalArgumentException(
+      throw new ParameterParseException(
           "Can't parse '" + val + "' to a long integer for " + parameterKey);
     }
   }

@@ -48,11 +48,11 @@ public class BooleanParameter implements ScenarioParameter {
   }
 
   @Override
-  public void setParsableValue(String value) throws IllegalArgumentException {
+  public void setParsableValue(String value) throws ParameterParseException {
     try {
       this.value.set(Boolean.parseBoolean(value));
     } catch (Exception e) {
-      throw new IllegalArgumentException(
+      throw new ParameterParseException(
           "Can't parse " + value + " to a boolean for " + parameterKey);
     }
   }

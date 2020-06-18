@@ -12,7 +12,7 @@ public class BooleanParameterTest {
   }
 
   @Test
-  public void longParseTest() {
+  public void longParseTest() throws ParameterParseException {
     BooleanParameter bp = new BooleanParameter("key", true);
     bp.setParsableValue("false");
     assertEquals("Parsed value", false, bp.getValue());
