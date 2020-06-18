@@ -9,14 +9,14 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 public class Bandit {
 
-  @Getter @Setter private double normal = 0.0;
+  @Getter @Setter private double mean = 0.0;
   @Getter @Setter private double std = 1.0;
 
   private final Random rand;
 
-  public Bandit(@NonNull Random rand, double normal, double std) {
+  public Bandit(@NonNull Random rand, double mean, double std) {
     this.rand = rand;
-    this.normal = normal;
+    this.mean = mean;
     this.std = std;
   }
 
@@ -37,7 +37,7 @@ public class Bandit {
     Bandit that = (Bandit) o;
 
     return new EqualsBuilder()
-        .append(normal, that.normal)
+        .append(mean, that.mean)
         .append(std, that.std)
         .isEquals();
   }
@@ -45,8 +45,12 @@ public class Bandit {
   @Override
   public int hashCode() {
     return new HashCodeBuilder(17, 37)
-        .append(normal)
+        .append(mean)
         .append(std)
         .toHashCode();
+  }
+
+  public double pull() {
+    return rand.nextGaussian() * std + mean;
   }
 }
