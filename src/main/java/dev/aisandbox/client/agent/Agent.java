@@ -149,6 +149,8 @@ public class Agent {
       switch (he.getRawStatusCode()) {
         case 404:
           throw new AgentFileNotFoundException(target, "Error accessing URL - " + target);
+        case 401:
+          throw new AgentAuthException(target, "Auth error accessing URL - " + target);
         default:
           log.error("HTTP error recieved (" + he.getRawStatusCode() + ")", he);
           throw new AgentConnectionException(target, "HTTP error (" + he.getRawStatusCode() + ")");
