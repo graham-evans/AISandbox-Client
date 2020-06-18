@@ -28,7 +28,6 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 /**
@@ -41,14 +40,11 @@ import org.springframework.stereotype.Component;
 public class GameOptionsController {
 
   private final ApplicationModel model;
-  private final ApplicationContext appContext;
   private final FXTools fxtools;
 
   @Autowired
-  public GameOptionsController(
-      ApplicationModel model, ApplicationContext appContext, FXTools fxtools) {
+  public GameOptionsController(ApplicationModel model, FXTools fxtools) {
     this.model = model;
-    this.appContext = appContext;
     this.fxtools = fxtools;
   }
 
@@ -170,11 +166,6 @@ public class GameOptionsController {
   }
 
   @FXML
-  void chooseDirectoryAction(ActionEvent event) {
-    // TODO implement choice
-  }
-
-  @FXML
   void initialize() {
     assert optionPane != null
         : "fx:id=\"optionPane\" was not injected: check your FXML file 'GameOptions.fxml'.";
@@ -191,9 +182,11 @@ public class GameOptionsController {
     assert outputDirectory != null
         : "fx:id=\"outputDirectory\" was not injected: check your FXML file 'GameOptions.fxml'.";
     assert outputDirectoryButton != null
-        : "fx:id=\"outputDirectoryButton\" was not injected: check your FXML file 'GameOptions.fxml'.";
+        : "fx:id=\"outputDirectoryButton\" was not injected: check your FXML file "
+            + "'GameOptions.fxml'.";
     assert statsFrequencyChoice != null
-        : "fx:id=\"statsFrequencyChoice\" was not injected: check your FXML file 'GameOptions.fxml'.";
+        : "fx:id=\"statsFrequencyChoice\" was not injected: check your FXML file "
+            + "'GameOptions.fxml'.";
     assert nextButton != null
         : "fx:id=\"nextButton\" was not injected: check your FXML file 'GameOptions.fxml'.";
 
