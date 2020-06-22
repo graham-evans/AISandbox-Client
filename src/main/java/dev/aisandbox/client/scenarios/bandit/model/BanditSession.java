@@ -5,10 +5,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
+import java.util.UUID;
 import lombok.Getter;
 import lombok.NonNull;
 
-public class BanditGroup {
+public class BanditSession {
 
   private final int banditCount;
   private final Random rand;
@@ -16,8 +17,9 @@ public class BanditGroup {
   @Getter List<Bandit> bandits = new ArrayList<>();
   @Getter List<Double> scores = new ArrayList<>();
   @Getter List<Boolean> best = new ArrayList<>();
+  @Getter String sessionID = UUID.randomUUID().toString();
 
-  public BanditGroup(@NonNull Random rand, int banditCount) {
+  public BanditSession(@NonNull Random rand, int banditCount) {
     this.rand = rand;
     this.banditCount = banditCount;
     for (int i = 0; i < banditCount; i++) {
