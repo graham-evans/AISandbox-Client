@@ -11,12 +11,12 @@ public class BanditRowTest {
   @Test
   public void testDuplicateBandits() {
     Random r = new Random();
-    BanditSession row = new BanditSession(r,10);
-    assertFalse("Initalised with duplicate bandits",row.isInvalidBanditStart());
+    BanditSession row = new BanditSession(r, 10);
+    assertFalse("Initalised with duplicate bandits", row.isInvalidBanditStart());
     // duplicate two bandits
-    row.getBandits().get(3).setNormal(4.0);
-    row.getBandits().get(7).setNormal(4.0);
+    row.getBandits().get(3).setMean(4.0);
+    row.getBandits().get(7).setMean(4.0);
     // this should give an error
-    assertTrue("Duplicates not being detected",row.isInvalidBanditStart());
+    assertTrue("Duplicates not being detected", row.isInvalidBanditStart());
   }
 }

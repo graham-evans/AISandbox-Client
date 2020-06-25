@@ -41,6 +41,7 @@ public class BanditSession {
    *
    * <p>This occurs if two bandits have exactly the same average and std, and can be detected when
    * two bandits have the same hashcode.
+   *
    * @return
    */
   protected boolean isInvalidBanditStart() {
@@ -56,8 +57,8 @@ public class BanditSession {
 
   private boolean isBestMean(int number) {
     double mean = bandits.get(number).getMean();
-    for (int i=0;i<bandits.size();i++) {
-      if ((i!=number)&&(bandits.get(i).getMean()>mean)) {
+    for (int i = 0; i < bandits.size(); i++) {
+      if ((i != number) && (bandits.get(i).getMean() > mean)) {
         return false;
       }
     }
@@ -75,5 +76,4 @@ public class BanditSession {
     // return the score
     return result;
   }
-
 }

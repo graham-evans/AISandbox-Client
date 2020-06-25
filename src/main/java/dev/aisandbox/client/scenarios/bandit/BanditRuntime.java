@@ -10,10 +10,7 @@ import dev.aisandbox.client.scenarios.bandit.api.BanditRequest;
 import dev.aisandbox.client.scenarios.bandit.api.BanditRequestHistory;
 import dev.aisandbox.client.scenarios.bandit.api.BanditResponse;
 import dev.aisandbox.client.scenarios.bandit.model.BanditSession;
-import dev.aisandbox.client.scenarios.twisty.api.TwistyRequest;
-import dev.aisandbox.client.scenarios.twisty.api.TwistyResponse;
 import java.io.File;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import lombok.AllArgsConstructor;
@@ -27,6 +24,8 @@ public class BanditRuntime implements ScenarioRuntime {
   private final Random rand;
   private final int banditCount;
   private final int pullCount;
+  private final double banditMean;
+  private final double banditVar;
   private BanditSession currentSession;
 
   @Override
@@ -39,7 +38,7 @@ public class BanditRuntime implements ScenarioRuntime {
 
   @Override
   public void initialise() {
-    currentSession = new BanditSession(rand,banditCount);
+    currentSession = new BanditSession(rand, banditCount);
   }
 
   BanditRequestHistory history = null;
@@ -53,7 +52,7 @@ public class BanditRuntime implements ScenarioRuntime {
     request.setBanditCount(banditCount);
     request.setPullCount(pullCount);
     log.info("Requesting next pull");
-    BanditResponse response = agent.postRequest(request,BanditResponse.class);
+    BanditResponse response = agent.postRequest(request, BanditResponse.class);
     // resolve the response
     history = new BanditRequestHistory();
     history.setSessionID(currentSession.getSessionID());

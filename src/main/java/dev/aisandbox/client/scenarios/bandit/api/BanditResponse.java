@@ -4,12 +4,10 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 
-/**
- * BanditResponse
- */
+/** BanditResponse */
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 @XmlRootElement(name = "BanditResponse")
-public class BanditResponse   {
+public class BanditResponse {
   private int arm;
 }

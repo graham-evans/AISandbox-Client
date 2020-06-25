@@ -5,9 +5,7 @@ import dev.aisandbox.client.scenarios.ServerRequest;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 
-/**
- * BanditRequest
- */
+/** BanditRequest */
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 @XmlRootElement(name = "BanditRequest")

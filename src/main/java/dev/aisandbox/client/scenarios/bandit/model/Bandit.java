@@ -36,18 +36,12 @@ public class Bandit {
 
     Bandit that = (Bandit) o;
 
-    return new EqualsBuilder()
-        .append(mean, that.mean)
-        .append(std, that.std)
-        .isEquals();
+    return new EqualsBuilder().append(mean, that.mean).append(std, that.std).isEquals();
   }
 
   @Override
   public int hashCode() {
-    return new HashCodeBuilder(17, 37)
-        .append(mean)
-        .append(std)
-        .toHashCode();
+    return new HashCodeBuilder(17, 37).append(mean).append(std).toHashCode();
   }
 
   public double pull() {
