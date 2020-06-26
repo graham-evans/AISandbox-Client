@@ -15,9 +15,8 @@ public class BanditSession {
   private final Random rand;
 
   @Getter List<Bandit> bandits = new ArrayList<>();
-  @Getter List<Double> scores = new ArrayList<>();
-  @Getter List<Boolean> best = new ArrayList<>();
   @Getter String sessionID = UUID.randomUUID().toString();
+  @Getter double score = 0.0;
 
   public BanditSession(@NonNull Random rand, int banditCount) {
     this.rand = rand;
@@ -55,7 +54,15 @@ public class BanditSession {
     return false;
   }
 
-  private boolean isBestMean(int number) {
+  /**
+   * Query if the selected bandit is currently the 'best'.
+   *
+   * <p>Defined as whether there is a bandit with a higher mean than the one selected.
+   *
+   * @param number
+   * @return
+   */
+  public boolean isBestMean(int number) {
     double mean = bandits.get(number).getMean();
     for (int i = 0; i < bandits.size(); i++) {
       if ((i != number) && (bandits.get(i).getMean() > mean)) {
@@ -65,15 +72,18 @@ public class BanditSession {
     return true;
   }
 
-  public double selectBandit(int number) {
+  /**
+   * Pull the arm on the requested bandit.
+   *
+   * @param number the number of bandit to select (numbered 0 to n-1).
+   * @return The reward obtained.
+   */
+  public double activateBandit(int number) {
     // pull the bandits arm
     double result = bandits.get(number).pull();
     // record the score
-    scores.add(result);
-    // was this the best option
-    best.add(isBestMean(number));
-    // TODO - update the bandits
-    // return the score
+    score += result;
+    // return the result
     return result;
   }
 }

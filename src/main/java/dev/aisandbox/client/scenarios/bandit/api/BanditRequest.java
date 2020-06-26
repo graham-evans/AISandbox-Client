@@ -11,7 +11,8 @@ import lombok.Data;
 @XmlRootElement(name = "BanditRequest")
 public class BanditRequest implements ServerRequest {
   private BanditRequestHistory history = null;
-  private String sessionID = null;
-  private int banditCount = 10;
-  private int pullCount = 1000;
+  private String sessionID;
+  private int banditCount;
+  private int pullCount;
+  private int pull;
 }

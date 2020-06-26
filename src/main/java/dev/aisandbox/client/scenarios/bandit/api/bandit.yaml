@@ -38,6 +38,7 @@ components:
         - sessionID
         - banditCount
         - pullCount
+        - pull
       properties:
         history:
           type: object
@@ -67,6 +68,10 @@ components:
           type: integer
           format: int32
           example: 10000
+        pull:
+          type: integer
+          format: int32
+          example: 0
     BanditResponse:
       type: object
       properties:

@@ -1,5 +1,7 @@
 package dev.aisandbox.client.scenarios.bandit;
 
+import dev.aisandbox.client.parameters.BooleanParameter;
+import dev.aisandbox.client.parameters.LongParameter;
 import dev.aisandbox.client.parameters.MapParameter;
 import dev.aisandbox.client.scenarios.BaseScenario;
 import dev.aisandbox.client.scenarios.Scenario;
@@ -7,6 +9,7 @@ import dev.aisandbox.client.scenarios.ScenarioParameter;
 import dev.aisandbox.client.scenarios.ScenarioRuntime;
 import dev.aisandbox.client.scenarios.ScenarioType;
 import java.util.List;
+import java.util.Random;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -44,24 +47,31 @@ public class BanditScenario extends BaseScenario implements Scenario {
           List.of(100, 500, 1000, 2000, 5000),
           "Number of pulls",
           null);
-  MapParameter<Double> banditMean =
-      new MapParameter<>(
-          "bandit.mean",
-          List.of("N(0,1)", "N(1,1)", "N(4,1)"),
-          List.of(0.0, 1.0, 4.0),
-          "Bandit Mean",
-          null);
-  MapParameter<Double> banditVar =
-      new MapParameter<>(
-          "bandit.var", List.of("1", "2"), List.of(1.0, 2.0), "Bandit variance", null);
+  LongParameter banditSalt = new LongParameter("bandit.salt", 0, "Random Salt", null);
+  BooleanParameter banditSkip =
+      new BooleanParameter(
+          "bandit.skip",
+          false,
+          "Skip intermediate frames",
+          "Dont redraw the screen for every pull (much quicker)");
 
   @Override
   public ScenarioParameter[] getParameterArray() {
-    return new ScenarioParameter[] {banditCount, banditPulls, banditMean, banditVar};
+    return new ScenarioParameter[] {banditCount, banditPulls, banditSkip};
   }
 
   @Override
   public ScenarioRuntime getRuntime() {
-    return null;
+    Random random;
+    if (banditSalt.getValue() != 0) {
+      random = new Random(banditSalt.getValue());
+    } else {
+      random = new Random();
+    }
+    return new BanditRuntime(
+        random,
+        banditCount.getSelectedValue(),
+        banditPulls.getSelectedValue(),
+        banditSkip.getValue());
   }
 }
