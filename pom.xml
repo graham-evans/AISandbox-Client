@@ -138,7 +138,7 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-            <version>11.0.2</version>
+            <version>14.0.2.1</version>
             <classifier>win</classifier>
         </dependency>
         <dependency>
