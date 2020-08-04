@@ -24,7 +24,11 @@ public class BanditScenario extends BaseScenario implements Scenario {
         "Multi-Armed Bandit Problem",
         ScenarioType.INTRODUCTION,
         "Choose between exploring and exploiting information to get the best outcomes.",
-        "Descriptive Text.",
+        "The Multi-Armed Bandit is a classic reinforcement learning problem where an"
+            + " algorithm must select which slot machine (each with a different pay-out probability)"
+            + " to play. The AI must choose between exploring different options to better predict"
+            + " how each machine works and exploiting what it knows by picking the machine with the"
+            + " highest reward.",
         "/dev/aisandbox/client/scenarios/bandit/sample.png",
         1,
         1,
