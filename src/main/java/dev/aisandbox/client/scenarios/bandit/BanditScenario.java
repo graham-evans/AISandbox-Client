@@ -28,7 +28,7 @@ public class BanditScenario extends BaseScenario implements Scenario {
         "/dev/aisandbox/client/scenarios/bandit/sample.png",
         1,
         1,
-        "TBD",
+        "https://aisandbox.dev/scenarios-bandit/",
         "https://files.aisandbox.dev/swagger/bandit.yaml");
   }
 
