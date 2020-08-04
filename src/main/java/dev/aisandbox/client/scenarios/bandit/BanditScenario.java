@@ -29,7 +29,7 @@ public class BanditScenario extends BaseScenario implements Scenario {
         1,
         1,
         "TBD",
-        "TBD");
+        "https://files.aisandbox.dev/swagger/bandit.yaml");
   }
 
   MapParameter<Integer> banditCount =
