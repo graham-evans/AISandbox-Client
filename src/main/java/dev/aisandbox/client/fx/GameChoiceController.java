@@ -2,6 +2,7 @@ package dev.aisandbox.client.fx;
 
 import dev.aisandbox.client.ApplicationModel;
 import dev.aisandbox.client.scenarios.Scenario;
+import dev.aisandbox.client.scenarios.ScenarioComparator;
 import java.awt.Desktop;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -103,6 +104,7 @@ public class GameChoiceController {
     } else {
       log.info("There are {} scenarios", scenarioList.size());
       // add scenarios to the list
+      scenarioList.sort(new ScenarioComparator());
       gameList.getItems().addAll(scenarioList);
       // set the formatting
       gameList.setCellFactory(cellListView -> new ScenarioCell());
