@@ -4,6 +4,7 @@ import dev.aisandbox.client.agent.Agent;
 import dev.aisandbox.client.agent.AgentException;
 import dev.aisandbox.client.output.OutputTools;
 import dev.aisandbox.client.output.charts.AverageRewardGraph;
+import dev.aisandbox.client.output.charts.BanditGraph;
 import dev.aisandbox.client.output.charts.OptimalActionGraph;
 import dev.aisandbox.client.profiler.ProfileStep;
 import dev.aisandbox.client.scenarios.RuntimeResponse;
@@ -34,12 +35,13 @@ public class BanditRuntime implements ScenarioRuntime {
   private final Random rand;
   private final int banditCount;
   private final int pullCount;
-  private final boolean banditSkip;
+  private final boolean skipGraphics;
   private BanditSession currentSession;
   private int iteration;
   private BufferedImage logo;
   private AverageRewardGraph averageRewardGraph;
   private OptimalActionGraph optimalActionGraph;
+  private BanditGraph banditGraph;
 
   @Override
   public void setAgents(List<Agent> agents) {
@@ -63,6 +65,8 @@ public class BanditRuntime implements ScenarioRuntime {
     currentSession = new BanditSession(rand, banditCount);
     averageRewardGraph = new AverageRewardGraph(900, 400, pullCount);
     optimalActionGraph = new OptimalActionGraph(pullCount);
+    banditGraph = new BanditGraph(800, 400);
+    banditGraph.setBandits(currentSession.getBandits());
     iteration = 0;
   }
 
@@ -95,7 +99,7 @@ public class BanditRuntime implements ScenarioRuntime {
     profileStep.addStep("Simulation");
     // draw screen
     BufferedImage image = null;
-    if (!banditSkip || (iteration == 0)) {
+    if (!skipGraphics || (iteration == 0)) {
       image = OutputTools.getWhiteScreen();
       Graphics2D graphics2D = image.createGraphics();
       // draw logo
@@ -103,6 +107,8 @@ public class BanditRuntime implements ScenarioRuntime {
       // draw ave reward
       graphics2D.drawImage(averageRewardGraph.getImage(), 100, 200, null);
       graphics2D.drawImage(optimalActionGraph.getGraph(900, 400), 100, 650, null);
+      // draw bandits
+      graphics2D.drawImage(banditGraph.getImage(), 1000, 200, null);
     }
     profileStep.addStep("Graphics");
     // check for end of run
@@ -111,6 +117,7 @@ public class BanditRuntime implements ScenarioRuntime {
       // reset run
       iteration = 0;
       currentSession = new BanditSession(rand, banditCount);
+      banditGraph.setBandits(currentSession.getBandits());
     }
     profileStep.addStep("Simulation");
     return new RuntimeResponse(profileStep, image);
