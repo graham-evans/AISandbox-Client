@@ -11,24 +11,29 @@ import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
 /**
- * Utility class for storing and drawing trend graphs.
+ * A graph showing the last N results. Useful when older results are less valid;
  *
  * @author gde
  * @version $Id: $Id
  */
-public class LineGraph {
+public class ForgetfulLineGraph extends BaseJFreeGraph implements OutputGraph {
 
   @Getter private final TreeMap<Integer, Double> storage = new TreeMap<>();
 
   @Getter @Setter private int memorySize = 50;
 
-  @Setter private String title = "Title";
-
-  @Setter private String axisXTitle = null;
-
-  @Setter private String axisYTitle = null;
-
   private int valueX = 0;
+
+  public ForgetfulLineGraph(int width, int height) {
+    graphWidth = width;
+    graphHeight = height;
+  }
+
+  public ForgetfulLineGraph(int width, int height, int memorySize) {
+    graphWidth = width;
+    graphHeight = height;
+    this.memorySize = memorySize;
+  }
 
   /**
    * Add a value to the graph.
@@ -46,11 +51,9 @@ public class LineGraph {
   /**
    * Render the graph to a bufferedimage.
    *
-   * @param width the width of the image
-   * @param height the height of the image
    * @return the BufferedImage
    */
-  public BufferedImage getGraph(int width, int height) {
+  public BufferedImage getImage() {
     XYSeries series1 = new XYSeries("Results");
     storage.forEach(series1::add);
     XYSeriesCollection dataset = new XYSeriesCollection();
@@ -59,14 +62,14 @@ public class LineGraph {
     JFreeChart chart =
         ChartFactory.createXYLineChart(
             title,
-            axisXTitle, // x axis label
-            axisYTitle, // y axis label
+            xaxisHeader, // x axis label
+            yaxisHeader, // y axis label
             dataset, // data
             PlotOrientation.VERTICAL,
             false, // include legend
             true, // tooltips
             false // urls
             );
-    return chart.createBufferedImage(width, height, null);
+    return chart.createBufferedImage(graphWidth, graphHeight, null);
   }
 }

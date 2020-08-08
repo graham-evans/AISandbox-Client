@@ -4,7 +4,7 @@ import dev.aisandbox.client.agent.Agent;
 import dev.aisandbox.client.agent.AgentException;
 import dev.aisandbox.client.agent.AgentParserException;
 import dev.aisandbox.client.agent.AgentResetException;
-import dev.aisandbox.client.output.charts.BaseChart;
+import dev.aisandbox.client.output.charts.BaseAWTGraph;
 import dev.aisandbox.client.output.charts.FrequencyMassDistributionGraph;
 import dev.aisandbox.client.profiler.ProfileStep;
 import dev.aisandbox.client.scenarios.RuntimeResponse;
@@ -54,7 +54,10 @@ public class TwistyRuntime implements ScenarioRuntime {
   private static final int HISTORY_WIDTH = 9;
   private static final int HISTORY_HEIGHT = 5;
   private static final int MOVE_HISTORY_MAX = HISTORY_WIDTH * HISTORY_HEIGHT;
+  // the graph showing how quickly we solve problems
   private FrequencyMassDistributionGraph frequencyGraph = new FrequencyMassDistributionGraph();
+  // this graph doesnt change very often, so we cache it.
+  private BufferedImage frequencyGraphImage = null;
 
   public TwistyRuntime() {
     try {
@@ -72,6 +75,8 @@ public class TwistyRuntime implements ScenarioRuntime {
     frequencyGraph.setYaxisHeader("Frequency");
     frequencyGraph.setGraphWidth(HISTORY_WIDTH * CubePuzzle.MOVE_ICON_WIDTH);
     frequencyGraph.setGraphHeight(350);
+    // get graph image
+    frequencyGraphImage = frequencyGraph.getImage();
   }
 
   @Override
@@ -146,7 +151,7 @@ public class TwistyRuntime implements ScenarioRuntime {
     if (puzzle.isSolved() && !startSolved) {
       // register solve
       frequencyGraph.addValue(moves);
-      frequencyGraph.resetGraph();
+      frequencyGraphImage = frequencyGraph.getImage();
       // draw the solved image
       frames.add(renderPuzzle());
       profileStep.addStep("Graphics");
@@ -226,16 +231,15 @@ public class TwistyRuntime implements ScenarioRuntime {
       }
     }
     g.setColor(Color.BLACK);
-    if (frequencyGraph.getImage() != null) {
-      g.drawImage(frequencyGraph.getImage(), 1350, 100, null);
-      g.drawString(
-          "Mean : " + BaseChart.toSignificantDigitString(frequencyGraph.getMean(), 5), 1400, 480);
-      g.drawString(
-          "\u03C3\u00B2 : "
-              + BaseChart.toSignificantDigitString(frequencyGraph.getStandardDeviation(), 5),
-          1400,
-          480 + 24);
-    }
+
+    g.drawImage(frequencyGraphImage, 1350, 100, null);
+    g.drawString(
+        "Mean : " + BaseAWTGraph.toSignificantDigitString(frequencyGraph.getMean(), 5), 1400, 480);
+    g.drawString(
+        "\u03C3\u00B2 : "
+            + BaseAWTGraph.toSignificantDigitString(frequencyGraph.getStandardDeviation(), 5),
+        1400,
+        480 + 24);
     return image;
   }
 }

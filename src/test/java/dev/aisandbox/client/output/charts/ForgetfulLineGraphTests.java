@@ -2,6 +2,7 @@ package dev.aisandbox.client.output.charts;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -9,10 +10,10 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import org.junit.Test;
 
-public class LineGraphTests {
+public class ForgetfulLineGraphTests {
   @Test
   public void memorySizeTest() {
-    LineGraph graph = new LineGraph();
+    ForgetfulLineGraph graph = new ForgetfulLineGraph(300, 250);
     graph.setMemorySize(5);
     for (int i = 0; i < 20; i++) {
       graph.addValue(1.0);
@@ -22,7 +23,7 @@ public class LineGraphTests {
 
   @Test
   public void writeChartTest() throws IOException {
-    LineGraph graph = new LineGraph();
+    ForgetfulLineGraph graph = new ForgetfulLineGraph(300, 250);
     graph.setMemorySize(25);
     graph.addValue(1234.0);
     graph.addValue(803.0);
@@ -33,10 +34,11 @@ public class LineGraphTests {
     graph.addValue(120.0);
     graph.addValue(120.0);
     graph.addValue(120.0);
-    BufferedImage image = graph.getGraph(300, 250);
+    BufferedImage image = graph.getImage();
     assertNotNull(image);
-    File testFile = File.createTempFile("test", ".png");
-    ImageIO.write(image, "png", testFile);
-    testFile.delete();
+    File outFile = new File("target/test-images/graph/forgetfulLine.png");
+    outFile.getParentFile().mkdirs();
+    ImageIO.write(image, "png", outFile);
+    assertTrue("File output", outFile.isFile());
   }
 }

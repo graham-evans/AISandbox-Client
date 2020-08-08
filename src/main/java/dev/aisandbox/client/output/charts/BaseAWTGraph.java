@@ -12,37 +12,36 @@ import java.math.MathContext;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
-import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * BaseChart class.
+ * BaseAWTGraph class.
  *
  * @author gde
  * @version $Id: $Id
  */
 @Slf4j
-public class BaseChart {
+public abstract class BaseAWTGraph implements OutputGraph {
 
   double lowestX = 0.0;
   double highestX = 1.0;
   double lowestY = 0.0;
   double highestY = 1.0;
-  @Getter @Setter int graphWidth = 500;
-  @Getter @Setter int graphHeight = 350;
-  @Getter @Setter private String title = "Graph Title";
-  @Getter @Setter private String xaxisHeader = "X Axis";
-  @Getter @Setter private String yaxisHeader = "Y Axis";
-  @Getter @Setter private Color backgroundColour = Color.WHITE;
-  @Getter @Setter private Color titlesColour = Color.BLACK;
-  @Getter @Setter private Font titleFont = new Font("Helvetica", Font.BOLD, 32);
-  @Getter @Setter private Font axisFont = new Font("Helvetica", Font.PLAIN, 14);
-  @Getter @Setter private Font valueFont = new Font("Helvetica", Font.PLAIN, 12);
+  @Setter int graphWidth = 500;
+  @Setter int graphHeight = 350;
+  @Setter private String title = "Graph Title";
+  @Setter private String xaxisHeader = "X Axis";
+  @Setter private String yaxisHeader = "Y Axis";
+  @Setter private Color backgroundColour = Color.WHITE;
+  @Setter private Color titlesColour = Color.BLACK;
+  @Setter private Font titleFont = new Font("Helvetica", Font.BOLD, 32);
+  @Setter private Font axisFont = new Font("Helvetica", Font.PLAIN, 14);
+  @Setter private Font valueFont = new Font("Helvetica", Font.PLAIN, 12);
   private int tickLength = 3;
   private int tickMargin = 2;
   // holders for image as it's been drawn
-  @Getter private BufferedImage image = null;
+  BufferedImage image = null;
   Graphics2D graphics2D;
   // internal measurements - needed to extend the class
   int topMargin = 0;
@@ -56,7 +55,7 @@ public class BaseChart {
    * Redraw the graph outline (headers and axis) based on the current lowestX, highestX, lowestY,
    * highestY.
    *
-   * <p>Note: this may update the lowestY,highestY.
+   * <p>Note: this may update the lowest / highest values.
    */
   public void resetGraph() {
     // nudge min/max X/Y to avoid div/0
@@ -247,7 +246,7 @@ public class BaseChart {
    * niceNum.
    *
    * @param x a double.
-   * @param mode a {@link dev.aisandbox.client.output.charts.BaseChart.NiceMode} object.
+   * @param mode a {@link BaseAWTGraph.NiceMode} object.
    * @return a double.
    */
   public static double niceNum(double x, NiceMode mode) {
@@ -341,6 +340,9 @@ public class BaseChart {
   public static String toSignificantDigitString(double value, int significantDigits) {
     if (significantDigits < 0) {
       throw new IllegalArgumentException();
+    }
+    if (Double.isNaN(value)) {
+      return "-";
     }
     // this is more precise than simply doing "new BigDecimal(value);"
     BigDecimal bd = BigDecimal.valueOf(value);

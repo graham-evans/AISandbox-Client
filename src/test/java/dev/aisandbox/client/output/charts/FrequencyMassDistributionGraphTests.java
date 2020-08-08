@@ -12,11 +12,6 @@ import org.junit.Test;
 
 public class FrequencyMassDistributionGraphTests {
 
-  public FrequencyMassDistributionGraphTests() {
-    File outDir = new File("target/test-images/graph/PMF");
-    outDir.mkdirs();
-  }
-
   @Test
   public void countValuesTest() {
     FrequencyMassDistributionGraph fhg = new FrequencyMassDistributionGraph();
@@ -44,7 +39,7 @@ public class FrequencyMassDistributionGraphTests {
     g.addValue(27);
     g.resetGraph();
     BufferedImage image = g.getImage();
-    File outFile = new File("target/test-images/graph/PMF/500x350.png");
+    File outFile = new File("target/test-images/graph/pmf.png");
     ImageIO.write(image, "PNG", outFile);
     assertEquals("Default width", 500, image.getWidth());
     assertEquals("Default height", 350, image.getHeight());

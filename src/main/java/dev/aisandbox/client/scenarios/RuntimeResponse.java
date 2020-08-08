@@ -13,7 +13,9 @@ public class RuntimeResponse {
 
   public RuntimeResponse(ProfileStep profileStep, BufferedImage image) {
     this.profileStep = profileStep;
-    this.images.add(image);
+    if (image != null) {
+      this.images.add(image);
+    }
   }
 
   public RuntimeResponse(ProfileStep profileStep, List<BufferedImage> images) {

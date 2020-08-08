@@ -1,6 +1,7 @@
 package dev.aisandbox.client.output.charts;
 
 import java.awt.Color;
+import java.awt.image.BufferedImage;
 import java.util.Iterator;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
@@ -14,12 +15,14 @@ import org.apache.commons.math3.stat.descriptive.SummaryStatistics;
  * values.
  */
 @Slf4j
-public class FrequencyMassDistributionGraph extends BaseChart {
+public class FrequencyMassDistributionGraph extends BaseAWTGraph implements OutputGraph {
 
   @Getter Frequency frequencyTable = new Frequency();
   SummaryStatistics statistics = new SummaryStatistics();
   Integer minX;
   Integer maxY;
+
+  public FrequencyMassDistributionGraph() {}
 
   /**
    * Add an integer value.
@@ -69,9 +72,8 @@ public class FrequencyMassDistributionGraph extends BaseChart {
     return statistics.getMean();
   }
 
-  /** Redraw the graph and store it in memory. */
   @Override
-  public void resetGraph() {
+  public BufferedImage getImage() {
     // work out max and min
     lowestY = 0.0;
     highestY = 0.0;
@@ -100,5 +102,6 @@ public class FrequencyMassDistributionGraph extends BaseChart {
       int py2 = (int) (graphHeight - bottomMargin - (fr - lowestY) * verticalScale);
       graphics2D.drawLine(px, py1, px, py2);
     }
+    return image;
   }
 }

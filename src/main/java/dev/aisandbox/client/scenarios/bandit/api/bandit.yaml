@@ -1,0 +1,81 @@
+openapi: 3.0.0
+info:
+  description: API interface for running Multi-Armed Bandit puzzles.
+  version: "1.0.0"
+  title: Bandit Puzzles
+paths:
+  /api/bandit:
+    post:
+      summary: Choose the next step in a Bandit Puzzle
+      description: View the previous choice (if any), and select the next arm to pull.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BanditRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/BanditRequest'
+      responses:
+        '200':
+          description: The next arm to pull.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BanditResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/BanditResponse'
+        '500':
+          description: Server error - halt simulation.
+
+components:
+  schemas:
+    BanditRequest:
+      type: object
+      required:
+        - sessionID
+        - banditCount
+        - pullCount
+        - pull
+      properties:
+        history:
+          type: object
+          required:
+            - sessionID
+            - pull
+            - reward
+          properties:
+            sessionID:
+              type: string
+              example: DEF-5435
+            pull:
+              type: integer
+              format: int32
+              example: 4
+            reward:
+              type: number
+              example: +1.42
+        sessionID:
+          type: string
+          example: ABC-23542342
+        banditCount:
+          type: integer
+          format: int32
+          example: 10
+        pullCount:
+          type: integer
+          format: int32
+          example: 10000
+        pull:
+          type: integer
+          format: int32
+          example: 0
+    BanditResponse:
+      type: object
+      properties:
+        arm:
+          type: integer
+          format: int32
+          example: 3
