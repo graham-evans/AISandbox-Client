@@ -37,8 +37,8 @@ public class OptimalActionGraph {
     JFreeChart chart =
         ChartFactory.createXYLineChart(
             "Optimal Action",
-            "%", // x axis label
-            "Steps", // y axis label
+            "Steps", // x axis label
+            "% Optimal", // y axis label
             dataset, // data
             PlotOrientation.VERTICAL,
             false, // include legend
