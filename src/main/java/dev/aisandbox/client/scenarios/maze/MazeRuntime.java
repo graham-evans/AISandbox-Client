@@ -3,7 +3,7 @@ package dev.aisandbox.client.scenarios.maze;
 import dev.aisandbox.client.agent.Agent;
 import dev.aisandbox.client.agent.AgentException;
 import dev.aisandbox.client.output.OutputTools;
-import dev.aisandbox.client.output.charts.LineGraph;
+import dev.aisandbox.client.output.charts.ForgetfulLineGraph;
 import dev.aisandbox.client.profiler.ProfileStep;
 import dev.aisandbox.client.scenarios.RuntimeResponse;
 import dev.aisandbox.client.scenarios.ScenarioRuntime;
@@ -45,7 +45,7 @@ public class MazeRuntime implements ScenarioRuntime {
   long stepToFinish = 0;
   Long fastestSolve = null;
   // UI
-  private LineGraph graph;
+  private ForgetfulLineGraph graph;
   private BufferedImage graphCache;
   private static final int GRAPH_WIDTH = 600;
   private static final int GRAPH_HEIGHT = 250;
@@ -114,9 +114,10 @@ public class MazeRuntime implements ScenarioRuntime {
       logo = new BufferedImage(10, 10, BufferedImage.TYPE_INT_RGB);
     }
     Font myFont = new Font("Sans-Serif", Font.PLAIN, 28);
-    graph = new LineGraph();
+    graph = new ForgetfulLineGraph(GRAPH_WIDTH, GRAPH_HEIGHT);
     graph.setTitle("Steps to solve");
-    graphCache = graph.getGraph(GRAPH_WIDTH, GRAPH_HEIGHT);
+    graph.setXaxisHeader("Solution");
+    graphCache = graph.getImage();
   }
 
   @Override
@@ -156,7 +157,7 @@ public class MazeRuntime implements ScenarioRuntime {
       lastMove.setReward(REWARD_GOAL);
       currentCell = maze.getStartCell();
       graph.addValue((double) stepToFinish);
-      graphCache = graph.getGraph(GRAPH_WIDTH, GRAPH_HEIGHT);
+      graphCache = graph.getImage();
       if ((fastestSolve == null) || (fastestSolve > stepToFinish)) {
         fastestSolve = stepToFinish;
       }

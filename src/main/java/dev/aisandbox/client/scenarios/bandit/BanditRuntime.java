@@ -61,7 +61,7 @@ public class BanditRuntime implements ScenarioRuntime {
       logo = new BufferedImage(0, 0, BufferedImage.TYPE_INT_RGB);
     }
     currentSession = new BanditSession(rand, banditCount);
-    averageRewardGraph = new AverageRewardGraph(pullCount);
+    averageRewardGraph = new AverageRewardGraph(900, 400, pullCount);
     optimalActionGraph = new OptimalActionGraph(pullCount);
     iteration = 0;
   }
@@ -101,7 +101,7 @@ public class BanditRuntime implements ScenarioRuntime {
       // draw logo
       graphics2D.drawImage(logo, 100, 50, null);
       // draw ave reward
-      graphics2D.drawImage(averageRewardGraph.getGraph(900, 400), 100, 200, null);
+      graphics2D.drawImage(averageRewardGraph.getImage(), 100, 200, null);
       graphics2D.drawImage(optimalActionGraph.getGraph(900, 400), 100, 650, null);
     }
     profileStep.addStep("Graphics");

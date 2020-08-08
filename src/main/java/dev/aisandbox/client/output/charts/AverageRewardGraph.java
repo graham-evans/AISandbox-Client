@@ -11,13 +11,19 @@ import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
 @Slf4j
-public class AverageRewardGraph {
+/** Graph showing the average reward when repeating N trials. */
+public class AverageRewardGraph extends BaseJFreeGraph implements OutputGraph {
 
   private final int steps;
   @Getter private double[] aveRewards;
   private int[] trials;
 
-  public AverageRewardGraph(int steps) {
+  public AverageRewardGraph(int width, int height, int steps) {
+    title = "Average Reward";
+    xaxisHeader = "Steps";
+    yaxisHeader = "Average Reward";
+    graphHeight = height;
+    graphWidth = width;
     this.steps = steps;
     aveRewards = new double[steps];
     trials = new int[steps];
@@ -28,7 +34,8 @@ public class AverageRewardGraph {
     aveRewards[step] = MathsTools.incrementalAverage(aveRewards[step], reward, trials[step]);
   }
 
-  public BufferedImage getGraph(int width, int height) {
+  @Override
+  public BufferedImage getImage() {
     XYSeries series1 = new XYSeries("Average reward");
     for (int i = 0; i < aveRewards.length; i++) {
       series1.add((i + 1), aveRewards[i]);
@@ -38,15 +45,15 @@ public class AverageRewardGraph {
     // create the chart
     JFreeChart chart =
         ChartFactory.createXYLineChart(
-            "Average Reward",
-            "Average Reward", // x axis label
-            "Steps", // y axis label
+            title,
+            xaxisHeader, // x axis label
+            yaxisHeader, // y axis label
             dataset, // data
             PlotOrientation.VERTICAL,
             false, // include legend
             true, // tooltips
             false // urls
             );
-    return chart.createBufferedImage(width, height, null);
+    return chart.createBufferedImage(graphWidth, graphHeight, null);
   }
 }
