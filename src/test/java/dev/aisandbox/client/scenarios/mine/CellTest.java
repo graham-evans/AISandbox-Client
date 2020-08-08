@@ -24,14 +24,14 @@ public class CellTest {
     Cell c = new Cell();
     c.setMine(true);
     c.setCovered(false);
-    assertEquals("X", c.getPlayerView());
+    assertEquals('X', c.getPlayerView());
   }
 
   public void mistakeTest() {
     Cell c = new Cell();
     c.setMine(false);
     c.setFlagged(true);
-    assertEquals("f", c.getPlayerView());
+    assertEquals('f', c.getPlayerView());
   }
 
   @Test
