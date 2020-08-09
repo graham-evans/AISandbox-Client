@@ -11,12 +11,10 @@ import org.jfree.data.xy.XYSeriesCollection;
 
 public class OptimalActionGraph {
 
-  private final int steps;
   @Getter private double[] aveRewards;
   private int[] trials;
 
   public OptimalActionGraph(int steps) {
-    this.steps = steps;
     aveRewards = new double[steps];
     trials = new int[steps];
   }

@@ -24,11 +24,22 @@ public class ForgetfulLineGraph extends BaseJFreeGraph implements OutputGraph {
 
   private int valueX = 0;
 
+  /**
+   * Create a Line graph which shows the last N values.
+   * @param width The width of the graph (in pixels).
+   * @param height The height of the graph (in pixels).
+   */
   public ForgetfulLineGraph(int width, int height) {
     graphWidth = width;
     graphHeight = height;
   }
 
+  /**
+   * Create a Line graph which shows the last N values.
+   * @param width The width of the graph (in pixels).
+   * @param height The height of the graph (in pixels).
+   * @param memorySize The number of values to show.
+   */
   public ForgetfulLineGraph(int width, int height, int memorySize) {
     graphWidth = width;
     graphHeight = height;

@@ -24,6 +24,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public abstract class BaseAWTGraph implements OutputGraph {
 
+  private static final String BASE_FONT = "Helvetica";
+
   double lowestX = 0.0;
   double highestX = 1.0;
   double lowestY = 0.0;
@@ -35,9 +37,9 @@ public abstract class BaseAWTGraph implements OutputGraph {
   @Setter private String yaxisHeader = "Y Axis";
   @Setter private Color backgroundColour = Color.WHITE;
   @Setter private Color titlesColour = Color.BLACK;
-  @Setter private Font titleFont = new Font("Helvetica", Font.BOLD, 32);
-  @Setter private Font axisFont = new Font("Helvetica", Font.PLAIN, 14);
-  @Setter private Font valueFont = new Font("Helvetica", Font.PLAIN, 12);
+  @Setter private Font titleFont = new Font(BASE_FONT, Font.BOLD, 32);
+  @Setter private Font axisFont = new Font(BASE_FONT, Font.PLAIN, 14);
+  @Setter private Font valueFont = new Font(BASE_FONT, Font.PLAIN, 12);
   private int tickLength = 3;
   private int tickMargin = 2;
   // holders for image as it's been drawn

@@ -11,6 +11,11 @@ import org.apache.commons.lang3.tuple.Pair;
 
 public class BanditGraph extends BaseAWTGraph implements OutputGraph {
 
+  /**
+   * Create a new bandit graph of the given size.
+   * @param width The width of the graph (in pixels).
+   * @param height The height of the graph (in pixels).
+   */
   public BanditGraph(int width, int height) {
     graphWidth = width;
     graphHeight = height;
@@ -35,17 +40,17 @@ public class BanditGraph extends BaseAWTGraph implements OutputGraph {
     graphics2D.setColor(Color.RED);
     for (int i = 0; i < bandits.size(); i++) {
       Bandit b = bandits.get(i);
-      int xStart = (int) (leftMargin + (i - lowestX) * horizontalScale);
-      int xEnd = (int) (leftMargin + (i + 1 - lowestX) * horizontalScale);
-      int xMid = (xStart + xEnd) / 2;
-      int yMean = (int) (graphHeight - bottomMargin - (b.getMean() - lowestY) * verticalScale);
-      int yStd = (int) (b.getStd() * verticalScale);
+      int xstart = (int) (leftMargin + (i - lowestX) * horizontalScale);
+      int xend = (int) (leftMargin + (i + 1 - lowestX) * horizontalScale);
+      int xmid = (xstart + xend) / 2;
+      int ymean = (int) (graphHeight - bottomMargin - (b.getMean() - lowestY) * verticalScale);
+      int ystd = (int) (b.getStd() * verticalScale);
       Polygon diamond = new Polygon();
-      diamond.addPoint(xStart, yMean);
-      diamond.addPoint(xMid, yMean - yStd);
-      diamond.addPoint(xEnd, yMean);
-      diamond.addPoint(xMid, yMean + yStd);
-      diamond.addPoint(xStart, yMean);
+      diamond.addPoint(xstart, ymean);
+      diamond.addPoint(xmid, ymean - ystd);
+      diamond.addPoint(xend, ymean);
+      diamond.addPoint(xmid, ymean + ystd);
+      diamond.addPoint(xstart, ymean);
       graphics2D.fillPolygon(diamond);
     }
     // output finished drawing

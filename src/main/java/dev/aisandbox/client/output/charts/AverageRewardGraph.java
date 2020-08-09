@@ -10,21 +10,25 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
-@Slf4j
 /** Graph showing the average reward when repeating N trials. */
+@Slf4j
 public class AverageRewardGraph extends BaseJFreeGraph implements OutputGraph {
 
-  private final int steps;
   @Getter private double[] aveRewards;
   private int[] trials;
 
+  /**
+   * Create an Average Reward graph with the specified width, height and number of steps
+   * @param width The width of the graph (in pixels).
+   * @param height The height of the graph (in pixels).
+   * @param steps The number of steps (results) in each run.
+   */
   public AverageRewardGraph(int width, int height, int steps) {
     title = "Average Reward";
     xaxisHeader = "Steps";
     yaxisHeader = "Average Reward";
     graphHeight = height;
     graphWidth = width;
-    this.steps = steps;
     aveRewards = new double[steps];
     trials = new int[steps];
   }
