@@ -13,6 +13,7 @@ public class BanditGraph extends BaseAWTGraph implements OutputGraph {
 
   /**
    * Create a new bandit graph of the given size.
+   *
    * @param width The width of the graph (in pixels).
    * @param height The height of the graph (in pixels).
    */

@@ -19,6 +19,7 @@ public class AverageRewardGraph extends BaseJFreeGraph implements OutputGraph {
 
   /**
    * Create an Average Reward graph with the specified width, height and number of steps
+   *
    * @param width The width of the graph (in pixels).
    * @param height The height of the graph (in pixels).
    * @param steps The number of steps (results) in each run.

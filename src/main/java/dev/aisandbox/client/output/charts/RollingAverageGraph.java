@@ -36,9 +36,9 @@ public class RollingAverageGraph {
 
   @Setter private String title = "Title";
 
-  @Setter private String xAxisTitle = null;
+  @Setter private String xaxistitle = null;
 
-  @Setter private String yAxisTitle = null;
+  @Setter private String yaxistitle = null;
 
   /**
    * addValue.
@@ -76,8 +76,8 @@ public class RollingAverageGraph {
     JFreeChart chart =
         ChartFactory.createXYLineChart(
             title,
-            xAxisTitle, // x axis label
-            yAxisTitle, // y axis label
+            xaxistitle, // x axis label
+            yaxistitle, // y axis label
             dataset, // data
             PlotOrientation.VERTICAL,
             false, // include legend

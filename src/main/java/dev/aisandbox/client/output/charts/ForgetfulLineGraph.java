@@ -26,6 +26,7 @@ public class ForgetfulLineGraph extends BaseJFreeGraph implements OutputGraph {
 
   /**
    * Create a Line graph which shows the last N values.
+   *
    * @param width The width of the graph (in pixels).
    * @param height The height of the graph (in pixels).
    */
@@ -36,6 +37,7 @@ public class ForgetfulLineGraph extends BaseJFreeGraph implements OutputGraph {
 
   /**
    * Create a Line graph which shows the last N values.
+   *
    * @param width The width of the graph (in pixels).
    * @param height The height of the graph (in pixels).
    * @param memorySize The number of values to show.
