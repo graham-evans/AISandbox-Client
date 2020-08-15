@@ -163,7 +163,7 @@ public class ApplicationModel {
         statsStepCount = 1000000;
         break;
       default: // 0
-        statsStepCount = 0;
+        statsStepCount = -1;
     }
     log.info("Saving stats every {} steps", statsStepCount);
   }
