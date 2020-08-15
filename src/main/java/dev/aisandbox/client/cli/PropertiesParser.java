@@ -161,7 +161,7 @@ public class PropertiesParser {
     // write stats
     if (props.containsKey("stats")) {
       try {
-        model.setStatsStepCount(Long.parseLong(props.getProperty("stats")));
+        model.getStatsOptionIndex().set(Integer.parseInt(props.getProperty("stats")));
       } catch (Exception e) {
         log.warn("Error parsing stat step count");
       }

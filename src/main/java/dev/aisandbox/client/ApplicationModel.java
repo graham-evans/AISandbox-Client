@@ -71,7 +71,8 @@ public class ApplicationModel {
 
   @Getter @Setter private File outputDirectory = new File("./");
 
-  @Setter long statsStepCount = -1; // how often should I save the stats
+  @Getter IntegerProperty statsOptionIndex = new SimpleIntegerProperty(0);
+  long statsStepCount = -1; // how often should I save the stats
 
   private ScenarioRuntime runtime = null;
   private FrameOutput frameOutput = null;
@@ -147,6 +148,24 @@ public class ApplicationModel {
     profiler = new AIProfiler();
     // reset steps count
     stepsTaken = 0;
+    // work out stats steps from the index.
+    switch (statsOptionIndex.get()) {
+      case 1:
+        statsStepCount = 1000;
+        break;
+      case 2:
+        statsStepCount = 10000;
+        break;
+      case 3:
+        statsStepCount = 100000;
+        break;
+      case 4:
+        statsStepCount = 1000000;
+        break;
+      default: // 0
+        statsStepCount = 0;
+    }
+    log.info("Saving stats every {} steps", statsStepCount);
   }
 
   /**

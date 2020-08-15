@@ -228,30 +228,13 @@ public class GameOptionsController {
     nextButton.disableProperty().bind(Bindings.not(model.getValid()));
     // set the agent formatting
     agentList.setCellFactory(agentListView -> new AgentCell());
-
-    // setup stats
-    statsFrequencyChoice.setOnAction(
-        event -> {
-          switch (statsFrequencyChoice.getSelectionModel().getSelectedIndex()) {
-            case 1:
-              model.setStatsStepCount(1000);
-              break;
-            case 2:
-              model.setStatsStepCount(10000);
-              break;
-            case 3:
-              model.setStatsStepCount(100000);
-              break;
-            case 4:
-              model.setStatsStepCount(1000000);
-              break;
-            default: // 0
-              model.setStatsStepCount(-1);
-          }
-        });
+    // stats choice
     statsFrequencyChoice
         .getItems()
         .addAll("never", "1,000 steps", "10,000 steps", "100,000 steps", "1,000,000 steps");
-    statsFrequencyChoice.getSelectionModel().select(0);
+    statsFrequencyChoice.getSelectionModel().select(model.getStatsOptionIndex().get());
+    model
+        .getStatsOptionIndex()
+        .bind(statsFrequencyChoice.getSelectionModel().selectedIndexProperty());
   }
 }
