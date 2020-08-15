@@ -145,6 +145,8 @@ public class ApplicationModel {
     }
     // setup profiler
     profiler = new AIProfiler();
+    // reset steps count
+    stepsTaken = 0;
   }
 
   /**
