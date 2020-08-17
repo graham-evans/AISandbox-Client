@@ -28,6 +28,12 @@ public class OptionParameter implements ScenarioParameter {
 
   private IntegerProperty selectedIndex = new SimpleIntegerProperty(0);
 
+  /**
+   * Minimal constructor for a parameter with a choice of strings.
+   *
+   * @param key The name of the option
+   * @param options the values to choose from
+   */
   public OptionParameter(String key, String[] options) {
     parameterKey = key;
     for (int i = 0; i < options.length; i++) {
@@ -35,6 +41,14 @@ public class OptionParameter implements ScenarioParameter {
     }
   }
 
+  /**
+   * Constructor for a parameter with a choice of strings.
+   *
+   * @param key The name of the option
+   * @param options the values to choose from
+   * @param name The label to show in the UI
+   * @param tooltip descriptive text
+   */
   public OptionParameter(String key, String[] options, String name, String tooltip) {
     parameterKey = key;
     for (int i = 0; i < options.length; i++) {

@@ -22,11 +22,25 @@ public class EnumerationParameter<T extends Enum<T>> implements ScenarioParamete
   @Getter private String name;
   @Getter private String tooltip;
 
+  /**
+   * Minimal constructor for a choice of enumerated values.
+   *
+   * @param key the name of the parameter
+   * @param startChoice the <i>Enum</i> to choose a value from
+   */
   public EnumerationParameter(String key, T startChoice) {
     parameterKey = key;
     value = startChoice;
   }
 
+  /**
+   * Constructor for a choice of enumerated values.
+   *
+   * @param key the name of the parameter
+   * @param startChoice the <i>Enum</i> to choose a value from
+   * @param name The label to show in the UI
+   * @param tooltip A description
+   */
   public EnumerationParameter(String key, T startChoice, String name, String tooltip) {
     parameterKey = key;
     value = startChoice;
@@ -81,6 +95,11 @@ public class EnumerationParameter<T extends Enum<T>> implements ScenarioParamete
     }
   }
 
+  /**
+   * Get a map of the potential values name->Description.
+   *
+   * @return The map of values and their description (returned by <i>toString()</i>)
+   */
   public Map<String, String> getEnumerationOptions() {
     Map<String, String> options = new HashMap<>();
     for (T t : value.getDeclaringClass().getEnumConstants()) {
