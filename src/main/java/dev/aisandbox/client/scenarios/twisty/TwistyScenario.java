@@ -58,10 +58,10 @@ public class TwistyScenario extends BaseScenario implements Scenario {
         "Cube 10x10x10 (OBTM)"
       };
 
-  private OptionParameter twistyType = new OptionParameter("twisty.type", PUZZLE_TYPES);
-  private LongParameter scenarioSalt = new LongParameter("twisty.salt", 0, "Random Salt", null);
+  private OptionParameter twistyType = new OptionParameter("twisty.type", PUZZLE_TYPES,"Type of puzzle","Select the type of puzzle to generate");
+  private LongParameter scenarioSalt = new LongParameter("twisty.salt", 0, "Random Salt", "Set this to zero for a random start.");
   private BooleanParameter twistyStartSolved =
-      new BooleanParameter("twisty.solved", false, "Start Solved", null);
+      new BooleanParameter("twisty.solved", false, "Start Solved", "If true the puzzle will start in its solved state");
 
   @Override
   public ScenarioParameter[] getParameterArray() {

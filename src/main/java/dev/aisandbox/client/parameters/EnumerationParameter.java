@@ -1,6 +1,8 @@
 package dev.aisandbox.client.parameters;
 
 import dev.aisandbox.client.scenarios.ScenarioParameter;
+import java.util.HashMap;
+import java.util.Map;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
@@ -8,7 +10,6 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import lombok.Getter;
-import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -18,18 +19,18 @@ public class EnumerationParameter<T extends Enum<T>> implements ScenarioParamete
 
   @Getter private final String parameterKey;
 
-  @Setter private String description;
-  @Setter private String tooltip;
+  @Getter private String name;
+  @Getter private String tooltip;
 
   public EnumerationParameter(String key, T startChoice) {
     parameterKey = key;
     value = startChoice;
   }
 
-  public EnumerationParameter(String key, T startChoice, String description, String tooltip) {
+  public EnumerationParameter(String key, T startChoice, String name, String tooltip) {
     parameterKey = key;
     value = startChoice;
-    this.description = description;
+    this.name = name;
     this.tooltip = tooltip;
   }
 
@@ -40,7 +41,7 @@ public class EnumerationParameter<T extends Enum<T>> implements ScenarioParamete
     pane.setSpacing(5.0);
     pane.setAlignment(Pos.CENTER_LEFT);
     // text label
-    Label label = new Label(description);
+    Label label = new Label(name);
     label.setMaxWidth(Double.MAX_VALUE);
     // combo box
     ComboBox<T> optionControl = new ComboBox<>();
@@ -78,5 +79,13 @@ public class EnumerationParameter<T extends Enum<T>> implements ScenarioParamete
     if (!found) {
       throw new ParameterParseException("Can't parse " + val + " to enumerated value");
     }
+  }
+
+  public Map<String, String> getEnumerationOptions() {
+    Map<String, String> options = new HashMap<>();
+    for (T t : value.getDeclaringClass().getEnumConstants()) {
+      options.put(t.name(), t.toString());
+    }
+    return options;
   }
 }

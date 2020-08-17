@@ -5,25 +5,24 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.scene.Node;
 import javafx.scene.control.CheckBox;
-import lombok.Setter;
+import lombok.Getter;
 
 public class BooleanParameter implements ScenarioParameter {
 
   private final String parameterKey;
   private BooleanProperty value = new SimpleBooleanProperty(false);
-  @Setter private String description;
-  @Setter private String tooltip;
+  @Getter private String name;
+  @Getter private String tooltip;
 
   public BooleanParameter(String parameterKey, boolean startingValue) {
     this.parameterKey = parameterKey;
     value.set(startingValue);
   }
 
-  public BooleanParameter(
-      String parameterKey, boolean startingValue, String description, String tooltip) {
+  public BooleanParameter(String parameterKey, boolean startingValue, String name, String tooltip) {
     this.parameterKey = parameterKey;
     value.set(startingValue);
-    this.description = description;
+    this.name = name;
     this.tooltip = tooltip;
   }
 
@@ -40,7 +39,7 @@ public class BooleanParameter implements ScenarioParameter {
   public Node getParameterControl() {
     CheckBox cb = new CheckBox();
     // setup
-    cb.setText(description);
+    cb.setText(name);
 
     // bind values
     cb.selectedProperty().bindBidirectional(value);

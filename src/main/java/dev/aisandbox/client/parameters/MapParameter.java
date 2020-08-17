@@ -26,29 +26,29 @@ public class MapParameter<T> implements ScenarioParameter {
   private ObservableList<String> optionList = FXCollections.observableList(new ArrayList<>());
   private List<T> objectList = new ArrayList<>();
 
-  private final String title;
-  private final String tooltip;
+  @Getter private final String name;
+  @Getter private final String tooltip;
   private IntegerProperty selectedIndex = new SimpleIntegerProperty(0);
 
-  public MapParameter(String key, Map<String, T> optionsMap, String title, String tooltip) {
+  public MapParameter(String key, Map<String, T> optionsMap, String name, String tooltip) {
     parameterKey = key;
     for (Entry<String, T> entry : optionsMap.entrySet()) {
       optionList.add(entry.getKey());
       objectList.add(entry.getValue());
     }
-    this.title = title;
+    this.name = name;
     this.tooltip = tooltip;
   }
 
   public MapParameter(
-      String key, List<String> optionsList, List<T> objectsList, String title, String tooltip) {
+      String key, List<String> optionsList, List<T> objectsList, String name, String tooltip) {
     parameterKey = key;
     if (optionsList.size() != objectsList.size()) {
       throw new IllegalStateException("Options and objects different size");
     }
     optionList.addAll(optionsList);
     objectList.addAll(objectsList);
-    this.title = title;
+    this.name = name;
     this.tooltip = tooltip;
   }
 
@@ -59,7 +59,7 @@ public class MapParameter<T> implements ScenarioParameter {
     pane.setSpacing(5.0);
     pane.setAlignment(Pos.CENTER_LEFT);
     // text label
-    Label label = new Label(title);
+    Label label = new Label(name);
     label.setMaxWidth(Double.MAX_VALUE);
     // combo box
     ComboBox<String> optionControl = new ComboBox<>();

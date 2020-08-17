@@ -56,13 +56,13 @@ public class MazeScenario extends BaseScenario implements Scenario {
             "Braided (includes loops)"
           },
           "Maze Type",
-          null);
+          "Select the type of maze to build");
   private OptionParameter mazeSize =
       new OptionParameter(
           "maze.size",
           new String[] {"Small (8x6)", "Medium (20x15)", "Large (40x30)"},
           "Maze Size",
-          null);
+          "Select the size of maze to build");
   private final MazeRenderer mazeRenderer;
 
   @Override

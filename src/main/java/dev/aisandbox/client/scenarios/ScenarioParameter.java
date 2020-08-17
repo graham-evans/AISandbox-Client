@@ -9,4 +9,8 @@ public interface ScenarioParameter {
   public Node getParameterControl();
 
   public void setParsableValue(String value) throws ParameterParseException;
+
+  public String getName();
+
+  public String getTooltip();
 }

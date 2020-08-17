@@ -23,8 +23,9 @@ public class OptionParameter implements ScenarioParameter {
   @Getter
   private ObservableList<String> optionList = FXCollections.observableList(new ArrayList<>());
 
-  private String title = "Title";
-  private String tooltip = null;
+  @Getter private String name = null;
+  @Getter private String tooltip = null;
+
   private IntegerProperty selectedIndex = new SimpleIntegerProperty(0);
 
   public OptionParameter(String key, String[] options) {
@@ -34,12 +35,12 @@ public class OptionParameter implements ScenarioParameter {
     }
   }
 
-  public OptionParameter(String key, String[] options, String title, String tooltip) {
+  public OptionParameter(String key, String[] options, String name, String tooltip) {
     parameterKey = key;
     for (int i = 0; i < options.length; i++) {
       optionList.add(options[i]);
     }
-    this.title = title;
+    this.name = name;
     this.tooltip = tooltip;
   }
 
@@ -50,7 +51,7 @@ public class OptionParameter implements ScenarioParameter {
     pane.setSpacing(5.0);
     pane.setAlignment(Pos.CENTER_LEFT);
     // text label
-    Label label = new Label(title);
+    Label label = new Label(name);
     label.setMaxWidth(Double.MAX_VALUE);
     // combo box
     ComboBox<String> optionControl = new ComboBox<>();

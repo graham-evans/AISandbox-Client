@@ -46,16 +46,16 @@ public class BanditScenario extends BaseScenario implements Scenario {
           "bandit.count",
           List.of("5", "10", "20", "50"),
           List.of(5, 10, 20, 50),
-          "Number of Bandits",
-          null);
+          "# Bandits",
+          "The number of bandits to include");
 
   MapParameter<Integer> banditPulls =
       new MapParameter<>(
           "bandit.pulls",
           List.of("100", "500", "1000", "2000", "5000"),
           List.of(100, 500, 1000, 2000, 5000),
-          "Number of pulls",
-          null);
+          "# Pulls",
+          "How many pulls in each test");
 
   EnumerationParameter<BanditNormalEnumeration> banditNormal =
       new EnumerationParameter<>(
@@ -76,7 +76,8 @@ public class BanditScenario extends BaseScenario implements Scenario {
           "Update Rule",
           "How the bandits are updated after each step");
 
-  LongParameter banditSalt = new LongParameter("bandit.salt", 0, "Random Salt", null);
+  LongParameter banditSalt =
+      new LongParameter("bandit.salt", 0, "Random Salt", "Set this to zero for a random test.");
 
   BooleanParameter banditSkip =
       new BooleanParameter(

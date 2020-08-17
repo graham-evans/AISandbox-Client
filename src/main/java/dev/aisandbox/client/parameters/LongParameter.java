@@ -10,24 +10,24 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.util.converter.NumberStringConverter;
-import lombok.Setter;
+import lombok.Getter;
 
 public class LongParameter implements ScenarioParameter {
 
   private final String parameterKey;
   private LongProperty value = new SimpleLongProperty();
-  @Setter private String description;
-  @Setter private String tooltip;
+  @Getter private String name;
+  @Getter private String tooltip;
 
   public LongParameter(String key, long startingValue) {
     parameterKey = key;
     value.set(startingValue);
   }
 
-  public LongParameter(String key, long startingValue, String description, String tooltip) {
+  public LongParameter(String key, long startingValue, String name, String tooltip) {
     parameterKey = key;
     value.set(startingValue);
-    this.description = description;
+    this.name = name;
     this.tooltip = tooltip;
   }
 
@@ -43,7 +43,7 @@ public class LongParameter implements ScenarioParameter {
     pane.setSpacing(5.0);
     pane.setAlignment(Pos.CENTER_LEFT);
     // text label
-    Label label = new Label(description);
+    Label label = new Label(name);
     label.setMaxWidth(Double.MAX_VALUE);
     // field
     TextField field = new TextField();

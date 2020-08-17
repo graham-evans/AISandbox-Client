@@ -57,7 +57,7 @@ public class MineHunterScenario extends BaseScenario implements Scenario {
             "Mega (40x40 150 Mines)"
           },
           "Board size",
-          null);
+          "Select the size of the boards to generate");
 
   @Override
   public ScenarioParameter[] getParameterArray() {
