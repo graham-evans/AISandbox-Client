@@ -1,6 +1,7 @@
 package dev.aisandbox.client.scenarios.bandit;
 
 import dev.aisandbox.client.parameters.BooleanParameter;
+import dev.aisandbox.client.parameters.EnumerationParameter;
 import dev.aisandbox.client.parameters.LongParameter;
 import dev.aisandbox.client.parameters.MapParameter;
 import dev.aisandbox.client.scenarios.BaseScenario;
@@ -8,6 +9,9 @@ import dev.aisandbox.client.scenarios.Scenario;
 import dev.aisandbox.client.scenarios.ScenarioParameter;
 import dev.aisandbox.client.scenarios.ScenarioRuntime;
 import dev.aisandbox.client.scenarios.ScenarioType;
+import dev.aisandbox.client.scenarios.bandit.model.BanditNormalEnumeration;
+import dev.aisandbox.client.scenarios.bandit.model.BanditStdEnumeration;
+import dev.aisandbox.client.scenarios.bandit.model.BanditUpdateEnumeration;
 import java.util.List;
 import java.util.Random;
 import lombok.extern.slf4j.Slf4j;
@@ -25,8 +29,9 @@ public class BanditScenario extends BaseScenario implements Scenario {
         ScenarioType.INTRODUCTION,
         "Choose between exploring and exploiting information to get the best outcomes.",
         "The Multi-Armed Bandit is a classic reinforcement learning problem where an"
-            + " algorithm must select which slot machine (each with a different pay-out probability)"
-            + " to play. The AI must choose between exploring different options to better predict"
+            + " algorithm must select which slot machine (each with a different pay-out "
+            + " probability) to play. The AI must choose between exploring different options to "
+            + " better predict"
             + " how each machine works and exploiting what it knows by picking the machine with the"
             + " highest reward.",
         "/dev/aisandbox/client/scenarios/bandit/sample.png",
@@ -51,7 +56,28 @@ public class BanditScenario extends BaseScenario implements Scenario {
           List.of(100, 500, 1000, 2000, 5000),
           "Number of pulls",
           null);
+
+  EnumerationParameter<BanditNormalEnumeration> banditNormal =
+      new EnumerationParameter<>(
+          "bandit.normal",
+          BanditNormalEnumeration.NORMAL_0_1,
+          "Bandit Normals",
+          "How the normals for each bandit are chosen");
+  EnumerationParameter<BanditStdEnumeration> banditStd =
+      new EnumerationParameter<>(
+          "bandit.std",
+          BanditStdEnumeration.ONE,
+          "Bandit Standard Deviation",
+          "How the std for each bandit are chosen");
+  EnumerationParameter<BanditUpdateEnumeration> banditUpdate =
+      new EnumerationParameter<>(
+          "bandit.update",
+          BanditUpdateEnumeration.FIXED,
+          "Update Rule",
+          "How the bandits are updated after each step");
+
   LongParameter banditSalt = new LongParameter("bandit.salt", 0, "Random Salt", null);
+
   BooleanParameter banditSkip =
       new BooleanParameter(
           "bandit.skip",
@@ -61,7 +87,9 @@ public class BanditScenario extends BaseScenario implements Scenario {
 
   @Override
   public ScenarioParameter[] getParameterArray() {
-    return new ScenarioParameter[] {banditCount, banditPulls, banditSkip};
+    return new ScenarioParameter[] {
+      banditCount, banditPulls, banditNormal, banditStd, banditUpdate, banditSalt, banditSkip
+    };
   }
 
   @Override
@@ -76,6 +104,9 @@ public class BanditScenario extends BaseScenario implements Scenario {
         random,
         banditCount.getSelectedValue(),
         banditPulls.getSelectedValue(),
+        banditNormal.getValue(),
+        banditStd.getValue(),
+        banditUpdate.getValue(),
         banditSkip.getValue());
   }
 }

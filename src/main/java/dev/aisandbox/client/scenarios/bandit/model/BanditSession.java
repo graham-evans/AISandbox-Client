@@ -18,11 +18,41 @@ public class BanditSession {
   @Getter String sessionID = UUID.randomUUID().toString();
   @Getter double score = 0.0;
 
-  public BanditSession(@NonNull Random rand, int banditCount) {
+  public BanditSession(
+      @NonNull Random rand,
+      int banditCount,
+      BanditNormalEnumeration normal,
+      BanditStdEnumeration std) {
     this.rand = rand;
     this.banditCount = banditCount;
+    // generate bandits
     for (int i = 0; i < banditCount; i++) {
-      bandits.add(new Bandit(rand));
+      double n;
+      switch (normal) {
+        case NORMAL_0_5:
+          n = rand.nextGaussian() * 5.0;
+          break;
+        case UNIFORM_1_1:
+          n = rand.nextDouble() * 2.0 - 1.0;
+          break;
+        case UNIFORM_0_5:
+          n = rand.nextDouble() * 5.0;
+          break;
+        default: // NORMAL_0_1:
+          n = rand.nextGaussian();
+      }
+      double s;
+      switch (std) {
+        case FIVE:
+          s = 5.0;
+          break;
+        case TENTH:
+          s = 0.1;
+          break;
+        default: // 1
+          s = 1.0;
+      }
+      bandits.add(new Bandit(rand, n, s));
     }
     // initialise bandits
     while (isInvalidBanditStart()) {

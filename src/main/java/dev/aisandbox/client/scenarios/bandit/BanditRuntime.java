@@ -13,7 +13,10 @@ import dev.aisandbox.client.scenarios.SimulationException;
 import dev.aisandbox.client.scenarios.bandit.api.BanditRequest;
 import dev.aisandbox.client.scenarios.bandit.api.BanditRequestHistory;
 import dev.aisandbox.client.scenarios.bandit.api.BanditResponse;
+import dev.aisandbox.client.scenarios.bandit.model.BanditNormalEnumeration;
 import dev.aisandbox.client.scenarios.bandit.model.BanditSession;
+import dev.aisandbox.client.scenarios.bandit.model.BanditStdEnumeration;
+import dev.aisandbox.client.scenarios.bandit.model.BanditUpdateEnumeration;
 import dev.aisandbox.client.scenarios.twisty.TwistyRuntime;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
@@ -35,6 +38,9 @@ public class BanditRuntime implements ScenarioRuntime {
   private final Random rand;
   private final int banditCount;
   private final int pullCount;
+  private final BanditNormalEnumeration normal;
+  private final BanditStdEnumeration std;
+  private final BanditUpdateEnumeration updateRule;
   private final boolean skipGraphics;
   private BanditSession currentSession;
   private int iteration;
@@ -62,7 +68,7 @@ public class BanditRuntime implements ScenarioRuntime {
       log.error("Error loading logo", e);
       logo = new BufferedImage(0, 0, BufferedImage.TYPE_INT_RGB);
     }
-    currentSession = new BanditSession(rand, banditCount);
+    currentSession = new BanditSession(rand, banditCount, normal, std);
     averageRewardGraph = new AverageRewardGraph(900, 400, pullCount);
     optimalActionGraph = new OptimalActionGraph(pullCount);
     banditGraph = new BanditGraph(800, 400);
@@ -116,7 +122,7 @@ public class BanditRuntime implements ScenarioRuntime {
     if (iteration == pullCount) {
       // reset run
       iteration = 0;
-      currentSession = new BanditSession(rand, banditCount);
+      currentSession = new BanditSession(rand, banditCount, normal, std);
       banditGraph.setBandits(currentSession.getBandits());
     }
     profileStep.addStep("Simulation");

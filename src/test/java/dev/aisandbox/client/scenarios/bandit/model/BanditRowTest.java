@@ -11,7 +11,8 @@ public class BanditRowTest {
   @Test
   public void testDuplicateBandits() {
     Random r = new Random();
-    BanditSession row = new BanditSession(r, 10);
+    BanditSession row =
+        new BanditSession(r, 10, BanditNormalEnumeration.NORMAL_0_1, BanditStdEnumeration.ONE);
     assertFalse("Initalised with duplicate bandits", row.isInvalidBanditStart());
     // duplicate two bandits
     row.getBandits().get(3).setMean(4.0);
