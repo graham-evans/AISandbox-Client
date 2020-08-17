@@ -102,6 +102,20 @@ public class BanditRuntime implements ScenarioRuntime {
     // store result
     averageRewardGraph.addReward(iteration, reward);
     optimalActionGraph.addReward(iteration, best ? 100.0 : 0.0);
+    // update bandits
+    switch (updateRule) {
+      case RANDOM:
+        currentSession.updateRandom();
+        break;
+      case EQUALISE:
+        currentSession.updateEqualise(response.getArm());
+        break;
+      case FADE:
+        currentSession.updateFade(response.getArm());
+        break;
+      default: // FIXED
+        // no action
+    }
     profileStep.addStep("Simulation");
     // draw screen
     BufferedImage image = null;

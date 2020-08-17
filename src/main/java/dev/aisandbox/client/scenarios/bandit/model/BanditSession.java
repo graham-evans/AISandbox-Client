@@ -116,4 +116,38 @@ public class BanditSession {
     // return the result
     return result;
   }
+
+  /** Update the bandits by moving each mean N(0,0.1) */
+  public void updateRandom() {
+    for (Bandit b : bandits) {
+      b.setMean(b.getMean() + rand.nextGaussian() * 0.001);
+    }
+  }
+
+  /**
+   * Update the bandits by moving the chosen bandit by -0.001
+   *
+   * @param chosen the index of the chosen bandit
+   */
+  public void updateFade(int chosen) {
+    Bandit target = bandits.get(chosen);
+    target.setMean(target.getMean() - 0.001);
+  }
+
+  /**
+   * Update the bandits by moving the chosed bandit by -0.001 and all others by +0.001/k
+   *
+   * @param chosen the index of the chosen bandit
+   */
+  public void updateEqualise(int chosen) {
+    double reward = 0.001 / bandits.size();
+    for (int i = 0; i < bandits.size(); i++) {
+      Bandit b = bandits.get(i);
+      if (i == chosen) {
+        b.setMean(b.getMean() - 0.001);
+      } else {
+        b.setMean(b.getMean() + reward);
+      }
+    }
+  }
 }
