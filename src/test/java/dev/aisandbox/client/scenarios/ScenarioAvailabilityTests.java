@@ -108,11 +108,19 @@ public class ScenarioAvailabilityTests {
   @Test
   public void parameterTests() {
     // check each parameter in each scenario has a name
-    for (Scenario scenario: scenarioList) {
+    for (Scenario scenario : scenarioList) {
       for (ScenarioParameter parameter : scenario.getParameterArray()) {
-        assertNotNull("Parameter name in "+scenario.getName()+" is null",parameter.getName());
-        assertNotNull("Parameter key for "+parameter.getName()+" in "+scenario.getName()+" is blank",parameter.getParameterKey());
-        assertNotNull("Parameter tooltip for "+parameter.getName()+" in "+scenario.getName()+" is blank",parameter.getTooltip());
+        assertNotNull("Parameter name in " + scenario.getName() + " is null", parameter.getName());
+        assertNotNull(
+            "Parameter key for " + parameter.getName() + " in " + scenario.getName() + " is blank",
+            parameter.getParameterKey());
+        assertNotNull(
+            "Parameter tooltip for "
+                + parameter.getName()
+                + " in "
+                + scenario.getName()
+                + " is blank",
+            parameter.getTooltip());
       }
     }
   }

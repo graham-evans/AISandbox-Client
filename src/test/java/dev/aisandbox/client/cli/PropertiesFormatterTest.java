@@ -26,5 +26,4 @@ public class PropertiesFormatterTest {
     log.info(text);
     assertTrue("Text must content", text.length() > 0);
   }
-
 }
