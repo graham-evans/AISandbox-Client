@@ -11,13 +11,8 @@ public class BooleanParameter implements ScenarioParameter {
 
   private final String parameterKey;
   private BooleanProperty value = new SimpleBooleanProperty(false);
-  @Getter private String name;
-  @Getter private String tooltip;
-
-  public BooleanParameter(String parameterKey, boolean startingValue) {
-    this.parameterKey = parameterKey;
-    value.set(startingValue);
-  }
+  @Getter private final String name;
+  @Getter private final String tooltip;
 
   public BooleanParameter(String parameterKey, boolean startingValue, String name, String tooltip) {
     this.parameterKey = parameterKey;

@@ -21,6 +21,11 @@ public class PropertiesFormatter {
     this.scenarioList = scenarioList;
   }
 
+  /**
+   * Generate a text description of all scenarios and their options.
+   *
+   * @return A multi-line String.
+   */
   public String getPropertiesDescription() {
     StringBuilder sb = new StringBuilder();
     sb.append("AI Sandbox.dev\n\n");
@@ -42,7 +47,7 @@ public class PropertiesFormatter {
     return sb.toString();
   }
 
-  public String formatParameter(ScenarioParameter p) {
+  private String formatParameter(ScenarioParameter p) {
     StringBuilder sb = new StringBuilder();
     sb.append(" ");
     sb.append(p.getParameterKey());
@@ -57,7 +62,7 @@ public class PropertiesFormatter {
     return sb.toString();
   }
 
-  public static String formatEnumerationParameter(EnumerationParameter p) {
+  private static String formatEnumerationParameter(EnumerationParameter<?> p) {
     StringBuilder sb = new StringBuilder();
     sb.append("  Options\n");
     Map<String, String> options = p.getEnumerationOptions();

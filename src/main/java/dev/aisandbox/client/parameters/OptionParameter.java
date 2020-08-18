@@ -23,23 +23,10 @@ public class OptionParameter implements ScenarioParameter {
   @Getter
   private ObservableList<String> optionList = FXCollections.observableList(new ArrayList<>());
 
-  @Getter private String name = null;
-  @Getter private String tooltip = null;
+  @Getter private final String name;
+  @Getter private final String tooltip;
 
   private IntegerProperty selectedIndex = new SimpleIntegerProperty(0);
-
-  /**
-   * Minimal constructor for a parameter with a choice of strings.
-   *
-   * @param key The name of the option
-   * @param options the values to choose from
-   */
-  public OptionParameter(String key, String[] options) {
-    parameterKey = key;
-    for (int i = 0; i < options.length; i++) {
-      optionList.add(options[i]);
-    }
-  }
 
   /**
    * Constructor for a parameter with a choice of strings.

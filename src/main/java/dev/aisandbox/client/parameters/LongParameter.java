@@ -16,13 +16,8 @@ public class LongParameter implements ScenarioParameter {
 
   private final String parameterKey;
   private LongProperty value = new SimpleLongProperty();
-  @Getter private String name;
-  @Getter private String tooltip;
-
-  public LongParameter(String key, long startingValue) {
-    parameterKey = key;
-    value.set(startingValue);
-  }
+  @Getter private final String name;
+  @Getter private final String tooltip;
 
   public LongParameter(String key, long startingValue, String name, String tooltip) {
     parameterKey = key;

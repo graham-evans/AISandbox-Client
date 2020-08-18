@@ -19,19 +19,8 @@ public class EnumerationParameter<T extends Enum<T>> implements ScenarioParamete
 
   @Getter private final String parameterKey;
 
-  @Getter private String name;
-  @Getter private String tooltip;
-
-  /**
-   * Minimal constructor for a choice of enumerated values.
-   *
-   * @param key the name of the parameter
-   * @param startChoice the <i>Enum</i> to choose a value from
-   */
-  public EnumerationParameter(String key, T startChoice) {
-    parameterKey = key;
-    value = startChoice;
-  }
+  @Getter private final String name;
+  @Getter private final String tooltip;
 
   /**
    * Constructor for a choice of enumerated values.
@@ -66,15 +55,12 @@ public class EnumerationParameter<T extends Enum<T>> implements ScenarioParamete
     // ui
     pane.getChildren().add(label);
     pane.getChildren().add(optionControl);
-    pane.setHgrow(label, Priority.ALWAYS);
+    HBox.setHgrow(label, Priority.ALWAYS);
     // bind options
     optionControl
         .getSelectionModel()
         .selectedItemProperty()
-        .addListener(
-            (options, oldValue, newValue) -> {
-              value = newValue;
-            });
+        .addListener((options, oldValue, newValue) -> value = newValue);
     return pane;
   }
 
