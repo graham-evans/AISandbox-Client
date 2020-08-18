@@ -1,9 +1,11 @@
 package dev.aisandbox.client.cli;
 
 import dev.aisandbox.client.parameters.EnumerationParameter;
+import dev.aisandbox.client.parameters.NumberEnumerationParameter;
 import dev.aisandbox.client.scenarios.Scenario;
 import dev.aisandbox.client.scenarios.ScenarioComparator;
 import dev.aisandbox.client.scenarios.ScenarioParameter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
@@ -35,15 +37,21 @@ public class PropertiesFormatter {
     // Scenario properties
     scenarioList.sort(new ScenarioComparator());
     for (Scenario scenario : scenarioList) {
-      sb.append(scenario.getName());
-      sb.append("\n");
-      sb.append(scenario.getOverview());
-      sb.append("\n\n");
-      for (ScenarioParameter p : scenario.getParameterArray()) {
-        sb.append(formatParameter(p));
-      }
-      sb.append("\n");
+      sb.append(getScenarioDescription(scenario));
     }
+    return sb.toString();
+  }
+
+  private String getScenarioDescription(Scenario scenario) {
+    StringBuilder sb = new StringBuilder();
+    sb.append(scenario.getName());
+    sb.append("\n\n");
+    sb.append(scenario.getOverview());
+    sb.append("\n\n");
+    for (ScenarioParameter p : scenario.getParameterArray()) {
+      sb.append(formatParameter(p));
+    }
+    sb.append("\n");
     return sb.toString();
   }
 
@@ -56,9 +64,27 @@ public class PropertiesFormatter {
     sb.append("\n  ");
     sb.append(p.getTooltip());
     sb.append("\n");
-    if (p instanceof EnumerationParameter) {
+    if (p instanceof NumberEnumerationParameter) {
+      sb.append(formatNumberEnumerationParameter((NumberEnumerationParameter) p));
+    } else if (p instanceof EnumerationParameter) {
       sb.append(formatEnumerationParameter((EnumerationParameter) p));
     }
+    return sb.toString();
+  }
+
+  private static String formatNumberEnumerationParameter(NumberEnumerationParameter<?> p) {
+    StringBuilder sb = new StringBuilder();
+    sb.append("  Options ");
+    List<String> vals = new ArrayList<>();
+    for (String num : p.getEnumerationOptions().values()) {
+      if (num.equals(p.getValue().toString())) {
+        vals.add(num + " (default)");
+      } else {
+        vals.add(num);
+      }
+    }
+    sb.append(String.join(", ", vals));
+    sb.append("\n");
     return sb.toString();
   }
 
@@ -72,11 +98,11 @@ public class PropertiesFormatter {
       sb.append(op);
       sb.append(" : ");
       sb.append(description);
+      if (op.equals(p.getValue().name())) {
+        sb.append(" (default)");
+      }
       sb.append("\n");
     }
-    sb.append("  Default - ");
-    sb.append(p.getValue().name());
-    sb.append("\n");
     return sb.toString();
   }
 }

@@ -3,16 +3,17 @@ package dev.aisandbox.client.scenarios.bandit;
 import dev.aisandbox.client.parameters.BooleanParameter;
 import dev.aisandbox.client.parameters.EnumerationParameter;
 import dev.aisandbox.client.parameters.LongParameter;
-import dev.aisandbox.client.parameters.MapParameter;
+import dev.aisandbox.client.parameters.NumberEnumerationParameter;
 import dev.aisandbox.client.scenarios.BaseScenario;
 import dev.aisandbox.client.scenarios.Scenario;
 import dev.aisandbox.client.scenarios.ScenarioParameter;
 import dev.aisandbox.client.scenarios.ScenarioRuntime;
 import dev.aisandbox.client.scenarios.ScenarioType;
+import dev.aisandbox.client.scenarios.bandit.model.BanditCountEnumeration;
 import dev.aisandbox.client.scenarios.bandit.model.BanditNormalEnumeration;
+import dev.aisandbox.client.scenarios.bandit.model.BanditPullEnumeration;
 import dev.aisandbox.client.scenarios.bandit.model.BanditStdEnumeration;
 import dev.aisandbox.client.scenarios.bandit.model.BanditUpdateEnumeration;
-import java.util.List;
 import java.util.Random;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -41,19 +42,17 @@ public class BanditScenario extends BaseScenario implements Scenario {
         "https://files.aisandbox.dev/swagger/bandit.yaml");
   }
 
-  MapParameter<Integer> banditCount =
-      new MapParameter<>(
+  NumberEnumerationParameter<BanditCountEnumeration> banditCount =
+      new NumberEnumerationParameter<>(
           "bandit.count",
-          List.of("5", "10", "20", "50"),
-          List.of(5, 10, 20, 50),
+          BanditCountEnumeration.TEN,
           "# Bandits",
           "The number of bandits to include");
 
-  MapParameter<Integer> banditPulls =
-      new MapParameter<>(
+  NumberEnumerationParameter<BanditPullEnumeration> banditPulls =
+      new NumberEnumerationParameter<>(
           "bandit.pulls",
-          List.of("100", "500", "1000", "2000", "5000"),
-          List.of(100, 500, 1000, 2000, 5000),
+          BanditPullEnumeration.ONE_THOUSAND,
           "# Pulls",
           "How many pulls in each test");
 
@@ -103,8 +102,8 @@ public class BanditScenario extends BaseScenario implements Scenario {
     }
     return new BanditRuntime(
         random,
-        banditCount.getSelectedValue(),
-        banditPulls.getSelectedValue(),
+        banditCount.getValue().getNumber(),
+        banditPulls.getValue().getNumber(),
         banditNormal.getValue(),
         banditStd.getValue(),
         banditUpdate.getValue(),

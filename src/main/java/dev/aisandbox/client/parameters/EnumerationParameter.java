@@ -15,9 +15,9 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class EnumerationParameter<T extends Enum<T>> implements ScenarioParameter {
 
-  @Getter private T value;
+  @Getter protected T value;
 
-  @Getter private final String parameterKey;
+  @Getter protected final String parameterKey;
 
   @Getter private final String name;
   @Getter private final String tooltip;

@@ -19,6 +19,7 @@ import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
+@Deprecated
 public class MapParameter<T> implements ScenarioParameter {
 
   @Getter private final String parameterKey;
