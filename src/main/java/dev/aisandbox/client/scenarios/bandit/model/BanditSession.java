@@ -71,7 +71,7 @@ public class BanditSession {
    * <p>This occurs if two bandits have exactly the same average and std, and can be detected when
    * two bandits have the same hashcode.
    *
-   * @return
+   * @return is this an invalid starting state
    */
   protected boolean isInvalidBanditStart() {
     Set<Integer> hashes = new HashSet<>();
@@ -89,8 +89,8 @@ public class BanditSession {
    *
    * <p>Defined as whether there is a bandit with a higher mean than the one selected.
    *
-   * @param number
-   * @return
+   * @param number the number of the selected bandit
+   * @return true if the selected bandit has the highest mean value
    */
   public boolean isBestMean(int number) {
     double mean = bandits.get(number).getMean();

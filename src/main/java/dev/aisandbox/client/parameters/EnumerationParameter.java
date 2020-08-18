@@ -96,7 +96,7 @@ public class EnumerationParameter<T extends Enum<T>> implements ScenarioParamete
   }
 
   /**
-   * Get a map of the potential values name->Description.
+   * Get a map of the potential values name:Description.
    *
    * @return The map of values and their description (returned by <i>toString()</i>)
    */

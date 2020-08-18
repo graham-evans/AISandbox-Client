@@ -15,6 +15,7 @@ public class AgentException extends IOException {
   /**
    * Constructor for AgentException.
    *
+   * @param target The url being called
    * @param message a {@link java.lang.String} object.
    */
   public AgentException(String target, String message) {
@@ -25,6 +26,7 @@ public class AgentException extends IOException {
   /**
    * Constructor for AgentException.
    *
+   * @param target The url being called
    * @param message a {@link java.lang.String} object.
    * @param cause a {@link java.lang.Throwable} object.
    */

@@ -15,6 +15,7 @@ public class AgentParserException extends AgentException {
   /**
    * Exception thrown when the agent tries to decode the JSON / XML.
    *
+   * @param target The URL being called
    * @param message User readable message
    */
   public AgentParserException(String target, String message) {
@@ -26,6 +27,7 @@ public class AgentParserException extends AgentException {
   /**
    * More detailed constructor.
    *
+   * @param target The URL being called
    * @param message Description of the error
    * @param code HTTP code from the server
    * @param content The payload that was sent
