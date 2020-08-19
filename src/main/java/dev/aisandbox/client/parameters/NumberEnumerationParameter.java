@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * A parameter that exposes an enumerated set of numbers.
  *
- * <p>This extends <i></i>EnumerationParameter</i> and behaves in a similar manner, except that CLI
+ * <p>This extends <i>EnumerationParameter</i> and behaves in a similar manner, except that CLI
  * parsing is done on the number not the name.
  *
  * @param <T> The enumeration to expose
