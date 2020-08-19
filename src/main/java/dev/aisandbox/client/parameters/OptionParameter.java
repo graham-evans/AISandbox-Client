@@ -16,6 +16,7 @@ import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
+@Deprecated
 public class OptionParameter implements ScenarioParameter {
 
   @Getter private final String parameterKey;

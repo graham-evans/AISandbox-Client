@@ -1,8 +1,8 @@
 package dev.aisandbox.client.scenarios.twisty;
 
 import dev.aisandbox.client.parameters.BooleanParameter;
+import dev.aisandbox.client.parameters.EnumerationParameter;
 import dev.aisandbox.client.parameters.LongParameter;
-import dev.aisandbox.client.parameters.OptionParameter;
 import dev.aisandbox.client.scenarios.BaseScenario;
 import dev.aisandbox.client.scenarios.Scenario;
 import dev.aisandbox.client.scenarios.ScenarioParameter;
@@ -59,9 +59,12 @@ public class TwistyScenario extends BaseScenario implements Scenario {
         "Cube 10x10x10 (OBTM)"
       };
 
-  private OptionParameter twistyType =
-      new OptionParameter(
-          "twisty.type", PUZZLE_TYPES, "Type of puzzle", "Select the type of puzzle to generate");
+  private EnumerationParameter<PuzzleType> twistyType =
+      new EnumerationParameter<>(
+          "twisty.type",
+          PuzzleType.CUBE3,
+          "Type of puzzle",
+          "Select the type of puzzle to generate");
   private LongParameter scenarioSalt =
       new LongParameter("twisty.salt", 0, "Random Salt", "Set this to zero for a random start.");
   private BooleanParameter twistyStartSolved =
@@ -79,32 +82,32 @@ public class TwistyScenario extends BaseScenario implements Scenario {
   @Override
   public ScenarioRuntime getRuntime() {
     TwistyRuntime runtime = new TwistyRuntime();
-    switch (twistyType.getOptionIndex()) {
-      case 0:
+    switch (twistyType.getValue()) {
+      case CUBE2:
         runtime.setPuzzle(new Cube2x2x2());
         break;
-      case 1:
+      case CUBE3:
         runtime.setPuzzle(new Cube3x3x3());
         break;
-      case 2:
+      case CUBE4:
         runtime.setPuzzle(new Cube4x4x4());
         break;
-      case 3:
+      case CUBE5:
         runtime.setPuzzle(new Cube5x5x5());
         break;
-      case 4:
+      case CUBE6:
         runtime.setPuzzle(new Cube6x6x6());
         break;
-      case 5:
+      case CUBE7:
         runtime.setPuzzle(new Cube7x7x7());
         break;
-      case 6:
+      case CUBE8:
         runtime.setPuzzle(new Cube8x8x8());
         break;
-      case 7:
+      case CUBE9:
         runtime.setPuzzle(new Cube9x9x9());
         break;
-      case 8:
+      case CUBE10:
         runtime.setPuzzle(new Cube10x10x10());
         break;
       default:

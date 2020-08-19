@@ -1,7 +1,7 @@
 package dev.aisandbox.client.scenarios.maze;
 
+import dev.aisandbox.client.parameters.EnumerationParameter;
 import dev.aisandbox.client.parameters.LongParameter;
-import dev.aisandbox.client.parameters.OptionParameter;
 import dev.aisandbox.client.scenarios.BaseScenario;
 import dev.aisandbox.client.scenarios.Scenario;
 import dev.aisandbox.client.scenarios.ScenarioParameter;
@@ -46,23 +46,12 @@ public class MazeScenario extends BaseScenario implements Scenario {
   // configurable properties
   private LongParameter scenarioSalt =
       new LongParameter("maze.salt", 0, "Random Salt", "Set this to zero for a random maze.");
-  private OptionParameter mazeType =
-      new OptionParameter(
-          "maze.type",
-          new String[] {
-            "Binary Tree (Biased)",
-            "Sidewinder",
-            "Recursive Backtracker",
-            "Braided (includes loops)"
-          },
-          "Maze Type",
-          "Select the type of maze to build");
-  private OptionParameter mazeSize =
-      new OptionParameter(
-          "maze.size",
-          new String[] {"Small (8x6)", "Medium (20x15)", "Large (40x30)"},
-          "Maze Size",
-          "Select the size of maze to build");
+  private EnumerationParameter<MazeType> mazeType =
+      new EnumerationParameter<>(
+          "maze.type", MazeType.BINARYTREE, "Maze Type", "Select the type of maze to build");
+  private EnumerationParameter<MazeSize> mazeSize =
+      new EnumerationParameter<>(
+          "maze.size", MazeSize.SMALL, "Maze Size", "Select the size of maze to build");
   private final MazeRenderer mazeRenderer;
 
   @Override
@@ -76,8 +65,8 @@ public class MazeScenario extends BaseScenario implements Scenario {
     if (scenarioSalt.getValue() != 0) {
       runtime.setRandom(new Random(scenarioSalt.getValue()));
     }
-    runtime.setMazeSize(mazeSize.getOptionIndex());
-    runtime.setMazeType(mazeType.getOptionIndex());
+    runtime.setMazeSize(mazeSize.getValue());
+    runtime.setMazeType(mazeType.getValue());
     return runtime;
   }
 }

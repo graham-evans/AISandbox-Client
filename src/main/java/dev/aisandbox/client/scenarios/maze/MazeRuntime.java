@@ -37,8 +37,8 @@ public class MazeRuntime implements ScenarioRuntime {
   private static final double REWARD_GOAL = +1000.0;
   private Maze maze;
   private BufferedImage background;
-  @Setter int mazeSize;
-  @Setter int mazeType;
+  @Setter MazeSize mazeSize;
+  @Setter MazeType mazeType;
   History lastMove = null;
   Cell currentCell;
   long stepCount = 0;
@@ -69,29 +69,29 @@ public class MazeRuntime implements ScenarioRuntime {
   public void initialise() {
     log.info("Generating maze");
     switch (mazeSize) {
-      case 1:
+      case MEDIUM:
         maze = new Maze(20, 15);
         maze.setZoomLevel(2);
         break;
-      case 2:
+      case LARGE:
         maze = new Maze(40, 30);
         maze.setZoomLevel(1);
         break;
-      default: // size=0
+      default: // size=SMALL
         maze = new Maze(8, 6);
         maze.setZoomLevel(5);
     }
     switch (mazeType) {
-      case 0:
+      case BINARYTREE:
         MazeUtilities.applyBinaryTree(random, maze);
         break;
-      case 1:
+      case SIDEWINDER:
         MazeUtilities.applySidewinder(random, maze);
         break;
-      case 2:
+      case RECURSIVEBACKTRACKER:
         MazeUtilities.applyRecursiveBacktracker(random, maze);
         break;
-      case 3:
+      case BRAIDED:
         MazeUtilities.applyRecursiveBacktracker(random, maze);
         MazeUtilities.removeDeadEnds(random, maze);
         break;

@@ -1,7 +1,7 @@
 package dev.aisandbox.client.scenarios.mine;
 
+import dev.aisandbox.client.parameters.EnumerationParameter;
 import dev.aisandbox.client.parameters.LongParameter;
-import dev.aisandbox.client.parameters.OptionParameter;
 import dev.aisandbox.client.scenarios.BaseScenario;
 import dev.aisandbox.client.scenarios.Scenario;
 import dev.aisandbox.client.scenarios.ScenarioParameter;
@@ -47,17 +47,9 @@ public class MineHunterScenario extends BaseScenario implements Scenario {
   // configuration
   private LongParameter scenarioSalt =
       new LongParameter("mine.salt", 0, "Random Salt", "Set this to zero for a random maze.");
-  private OptionParameter mineHunterBoardSize =
-      new OptionParameter(
-          "mine.size",
-          new String[] {
-            "Small (8x6 10 Mines)",
-            "Medium (16x16 40 Mines)",
-            "Large (24x24 99 Mines)",
-            "Mega (40x40 150 Mines)"
-          },
-          "Board size",
-          "Select the size of the boards to generate");
+  private EnumerationParameter<MineSize> mineHunterBoardSize =
+      new EnumerationParameter<>(
+          "mine.size", MineSize.SMALL, "Board size", "Select the size of the boards to generate");
 
   @Override
   public ScenarioParameter[] getParameterArray() {
@@ -70,7 +62,7 @@ public class MineHunterScenario extends BaseScenario implements Scenario {
     if (scenarioSalt.getValue() != 0) {
       runtime.setRandom(new Random(scenarioSalt.getValue()));
     }
-    runtime.setBoardSize(mineHunterBoardSize.getOptionIndex());
+    runtime.setBoardSize(mineHunterBoardSize.getValue());
     return runtime;
   }
 }

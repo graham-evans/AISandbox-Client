@@ -76,19 +76,19 @@ public class MineHunterRuntime implements ScenarioRuntime {
    *
    * @param size the index of the size option chosen.
    */
-  public void setBoardSize(int size) {
+  public void setBoardSize(MineSize size) {
     switch (size) {
-      case 1:
+      case MEDIUM:
         boardWidth = 16;
         boardHeight = 16;
         boardCount = 40;
         break;
-      case 2:
+      case LARGE:
         boardWidth = 24;
         boardHeight = 24;
         boardCount = 99;
         break;
-      case 3:
+      case MEGA:
         boardWidth = 40;
         boardHeight = 40;
         boardCount = 150;
