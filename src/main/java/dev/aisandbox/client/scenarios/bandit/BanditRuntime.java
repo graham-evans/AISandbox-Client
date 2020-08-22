@@ -94,7 +94,7 @@ public class BanditRuntime implements ScenarioRuntime {
     // TODO - check if arm exists (array out of bounds?)
     history = new BanditRequestHistory();
     history.setSessionID(currentSession.getSessionID());
-    history.setPull(response.getArm());
+    history.setChosenBandit(response.getArm());
     double reward = currentSession.activateBandit(response.getArm());
     history.setReward(reward);
     // was this the best move?

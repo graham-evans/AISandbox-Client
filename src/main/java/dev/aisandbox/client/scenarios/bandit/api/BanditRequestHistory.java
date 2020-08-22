@@ -6,6 +6,6 @@ import lombok.Data;
 @Data
 public class BanditRequestHistory {
   private String sessionID;
-  private int pull;
+  private int chosenBandit;
   private double reward;
 }

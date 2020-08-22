@@ -58,9 +58,9 @@ public class BanditScenario extends BaseScenario implements Scenario {
 
   EnumerationParameter<BanditNormalEnumeration> banditNormal =
       new EnumerationParameter<>(
-          "bandit.normal",
+          "bandit.mean",
           BanditNormalEnumeration.NORMAL_0_1,
-          "Bandit Normals",
+          "Bandit Mean",
           "How the normals for each bandit are chosen");
   EnumerationParameter<BanditStdEnumeration> banditStd =
       new EnumerationParameter<>(
