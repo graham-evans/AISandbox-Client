@@ -10,7 +10,7 @@
     </parent>
     <groupId>dev.aisandbox</groupId>
     <artifactId>AISandbox-Client</artifactId>
-    <version>1.3.0-SNAPSHOT</version>
+    <version>1.2.1</version>
     <name>AI Sandbox Client</name>
     <description>Client for reinforcement learning</description>
 
