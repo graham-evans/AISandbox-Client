@@ -29,6 +29,7 @@ import javafx.beans.property.SimpleLongProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.text.Font;
+import javax.swing.filechooser.FileSystemView;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -92,6 +93,12 @@ public class ApplicationModel {
     // make sure the fonts are loaded.
     Font.loadFont(ApplicationModel.class.getResourceAsStream("/fonts/Hack-Regular.ttf"), 12.0);
     Font.loadFont(ApplicationModel.class.getResourceAsStream("/fonts/OpenSans-Regular.ttf"), 12.0);
+    // work out the default directory to save
+    try {
+      outputDirectory = FileSystemView.getFileSystemView().getDefaultDirectory().getAbsoluteFile();
+    } catch (Exception e) {
+      log.warn("Error reading default save directory", e);
+    }
   }
 
   /**
