@@ -34,6 +34,7 @@ public class SimulationRunThread extends Thread {
       }
     } catch (Exception e) {
       log.warn("Exception while running simulation", e);
+      model.getGameRunController().showSimulationError(e);
     }
     // Tell the UI that the run has finished
     model.getGameRunController().resetStartButton();
