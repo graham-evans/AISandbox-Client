@@ -1,12 +1,16 @@
 package dev.aisandbox.client.scenarios.twisty.puzzles;
 
 import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.security.NoTypePermission;
+import com.thoughtworks.xstream.security.NullPermission;
+import com.thoughtworks.xstream.security.PrimitiveTypePermission;
 import dev.aisandbox.client.scenarios.twisty.NotExistentMoveException;
 import dev.aisandbox.client.scenarios.twisty.TwistyPuzzle;
 import dev.aisandbox.client.scenarios.twisty.puzzles.tpmodel.Cell;
 import dev.aisandbox.client.scenarios.twisty.puzzles.tpmodel.Puzzle;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
@@ -21,8 +25,15 @@ public class TPPuzzle implements TwistyPuzzle {
     log.info("Creating TP Puzzle based on {}", tpResourceName);
     // load TP Puzzle Object
     XStream xstream = new XStream();
+    // clear out existing permissions and set own ones
+    xstream.addPermission(NoTypePermission.NONE);
+    // allow some basics
+    xstream.addPermission(NullPermission.NULL);
+    xstream.addPermission(PrimitiveTypePermission.PRIMITIVES);
+    xstream.allowTypeHierarchy(Collection.class);
+    // allow any type from the same package
+    xstream.allowTypesByWildcard(new String[] {Puzzle.class.getPackage().getName() + ".*"});
     xstream.processAnnotations(Puzzle.class);
-    xstream.processAnnotations(Cell.class);
     puzzle = (Puzzle) xstream.fromXML(TPPuzzle.class.getResourceAsStream(tpResourceName));
     log.info(
         "Loaded puzzle with {} cells and {} moves",
