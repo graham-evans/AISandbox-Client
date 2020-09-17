@@ -1,0 +1,654 @@
+<puzzle>
+  <cells>
+    <cell>
+      <shape>EQ_TRIANGLE</shape>
+      <scale>50</scale>
+      <locationX>640</locationX>
+      <locationY>325</locationY>
+      <rotation>90</rotation>
+      <colour>BLUE</colour>
+    </cell>
+    <cell>
+      <shape>EQ_TRIANGLE</shape>
+      <scale>50</scale>
+      <locationX>597</locationX>
+      <locationY>400</locationY>
+      <rotation>90</rotation>
+      <colour>BLUE</colour>
+    </cell>
+    <cell>
+      <shape>EQ_TRIANGLE</shape>
+      <scale>50</scale>
+      <locationX>640</locationX>
+      <locationY>375</locationY>
+      <rotation>-90</rotation>
+      <colour>BLUE</colour>
+    </cell>
+    <cell>
+      <shape>EQ_TRIANGLE</shape>
+      <scale>50</scale>
+      <locationX>683</locationX>
+      <locationY>400</locationY>
+      <rotation>90</rotation>
+      <colour>BLUE</colour>
+    </cell>
+    <cell>
+      <shape>EQ_TRIANGLE</shape>
+      <scale>50</scale>
+      <locationX>554</locationX>
+      <locationY>475</locationY>
+      <rotation>90</rotation>
+      <colour>BLUE</colour>
+    </cell>
+    <cell>
+      <shape>EQ_TRIANGLE</shape>
+      <scale>50</scale>
+      <locationX>597</locationX>
+      <locationY>450</locationY>
+      <rotation>-90</rotation>
+      <colour>BLUE</colour>
+    </cell>
+    <cell>
+      <shape>EQ_TRIANGLE</shape>
+      <scale>50</scale>
+      <locationX>640</locationX>
+      <locationY>475</locationY>
+      <rotation>90</rotation>
+      <colour>BLUE</colour>
+    </cell>
+    <cell>
+      <shape>EQ_TRIANGLE</shape>
+      <scale>50</scale>
+      <locationX>683</locationX>
+      <locationY>450</locationY>
+      <rotation>-90</rotation>
+      <colour>BLUE</colour>
+    </cell>
+    <cell>
+      <shape>EQ_TRIANGLE</shape>
+      <scale>50</scale>
+      <locationX>726</locationX>
+      <locationY>475</locationY>
+      <rotation>90</rotation>
+      <colour>BLUE</colour>
+    </cell>
+    <cell>
+      <shape>EQ_TRIANGLE</shape>
+      <scale>50</scale>
+      <locationX>511</locationX>
+      <locationY>550</locationY>
+      <rotation>90</rotation>
+      <colour>GREEN</colour>
+    </cell>
+    <cell>
+      <shape>EQ_TRIANGLE</shape>
+      <scale>50</scale>
+      <locationX>467</locationX>
+      <locationY>625</locationY>
+      <rotation>90</rotation>
+      <colour>GREEN</colour>
+    </cell>
+    <cell>
+      <shape>EQ_TRIANGLE</shape>
+      <scale>50</scale>
+      <locationX>511</locationX>
+      <locationY>600</locationY>
+      <rotation>-90</rotation>
+      <colour>GREEN</colour>
+    </cell>
+    <cell>
+      <shape>EQ_TRIANGLE</shape>
+      <scale>50</scale>
+      <locationX>554</locationX>
+      <locationY>625</locationY>
+      <rotation>90</rotation>
+      <colour>GREEN</colour>
+    </cell>
+    <cell>
+      <shape>EQ_TRIANGLE</shape>
+      <scale>50</scale>
+      <locationX>424</locationX>
+      <locationY>700</locationY>
+      <rotation>90</rotation>
+      <colour>GREEN</colour>
+    </cell>
+    <cell>
+      <shape>EQ_TRIANGLE</shape>
+      <scale>50</scale>
+      <locationX>467</locationX>
+      <locationY>675</locationY>
+      <rotation>-90</rotation>
+      <colour>GREEN</colour>
+    </cell>
+    <cell>
+      <shape>EQ_TRIANGLE</shape>
+      <scale>50</scale>
+      <locationX>511</locationX>
+      <locationY>700</locationY>
+      <rotation>90</rotation>
+      <colour>GREEN</colour>
+    </cell>
+    <cell>
+      <shape>EQ_TRIANGLE</shape>
+      <scale>50</scale>
+      <locationX>554</locationX>
+      <locationY>675</locationY>
+      <rotation>-90</rotation>
+      <colour>GREEN</colour>
+    </cell>
+    <cell>
+      <shape>EQ_TRIANGLE</shape>
+      <scale>50</scale>
+      <locationX>597</locationX>
+      <locationY>700</locationY>
+      <rotation>90</rotation>
+      <colour>GREEN</colour>
+    </cell>
+    <cell>
+      <shape>EQ_TRIANGLE</shape>
+      <scale>50</scale>
+      <locationX>554</locationX>
+      <locationY>525</locationY>
+      <rotation>-90</rotation>
+      <colour>YELLOW</colour>
+    </cell>
+    <cell>
+      <shape>EQ_TRIANGLE</shape>
+      <scale>50</scale>
+      <locationX>597</locationX>
+      <locationY>550</locationY>
+      <rotation>90</rotation>
+      <colour>YELLOW</colour>
+    </cell>
+    <cell>
+      <shape>EQ_TRIANGLE</shape>
+      <scale>50</scale>
+      <locationX>640</locationX>
+      <locationY>525</locationY>
+      <rotation>-90</rotation>
+      <colour>YELLOW</colour>
+    </cell>
+    <cell>
+      <shape>EQ_TRIANGLE</shape>
+      <scale>50</scale>
+      <locationX>683</locationX>
+      <locationY>550</locationY>
+      <rotation>90</rotation>
+      <colour>YELLOW</colour>
+    </cell>
+    <cell>
+      <shape>EQ_TRIANGLE</shape>
+      <scale>50</scale>
+      <locationX>726</locationX>
+      <locationY>525</locationY>
+      <rotation>-90</rotation>
+      <colour>YELLOW</colour>
+    </cell>
+    <cell>
+      <shape>EQ_TRIANGLE</shape>
+      <scale>50</scale>
+      <locationX>597</locationX>
+      <locationY>600</locationY>
+      <rotation>-90</rotation>
+      <colour>YELLOW</colour>
+    </cell>
+    <cell>
+      <shape>EQ_TRIANGLE</shape>
+      <scale>50</scale>
+      <locationX>640</locationX>
+      <locationY>625</locationY>
+      <rotation>90</rotation>
+      <colour>YELLOW</colour>
+    </cell>
+    <cell>
+      <shape>EQ_TRIANGLE</shape>
+      <scale>50</scale>
+      <locationX>683</locationX>
+      <locationY>600</locationY>
+      <rotation>-90</rotation>
+      <colour>YELLOW</colour>
+    </cell>
+    <cell>
+      <shape>EQ_TRIANGLE</shape>
+      <scale>50</scale>
+      <locationX>640</locationX>
+      <locationY>675</locationY>
+      <rotation>-90</rotation>
+      <colour>YELLOW</colour>
+    </cell>
+    <cell>
+      <shape>EQ_TRIANGLE</shape>
+      <scale>50</scale>
+      <locationX>769</locationX>
+      <locationY>550</locationY>
+      <rotation>90</rotation>
+      <colour>RED</colour>
+    </cell>
+    <cell>
+      <shape>EQ_TRIANGLE</shape>
+      <scale>50</scale>
+      <locationX>726</locationX>
+      <locationY>625</locationY>
+      <rotation>90</rotation>
+      <colour>RED</colour>
+    </cell>
+    <cell>
+      <shape>EQ_TRIANGLE</shape>
+      <scale>50</scale>
+      <locationX>769</locationX>
+      <locationY>600</locationY>
+      <rotation>-90</rotation>
+      <colour>RED</colour>
+    </cell>
+    <cell>
+      <shape>EQ_TRIANGLE</shape>
+      <scale>50</scale>
+      <locationX>813</locationX>
+      <locationY>625</locationY>
+      <rotation>90</rotation>
+      <colour>RED</colour>
+    </cell>
+    <cell>
+      <shape>EQ_TRIANGLE</shape>
+      <scale>50</scale>
+      <locationX>683</locationX>
+      <locationY>700</locationY>
+      <rotation>90</rotation>
+      <colour>RED</colour>
+    </cell>
+    <cell>
+      <shape>EQ_TRIANGLE</shape>
+      <scale>50</scale>
+      <locationX>726</locationX>
+      <locationY>675</locationY>
+      <rotation>-90</rotation>
+      <colour>RED</colour>
+    </cell>
+    <cell>
+      <shape>EQ_TRIANGLE</shape>
+      <scale>50</scale>
+      <locationX>769</locationX>
+      <locationY>700</locationY>
+      <rotation>90</rotation>
+      <colour>RED</colour>
+    </cell>
+    <cell>
+      <shape>EQ_TRIANGLE</shape>
+      <scale>50</scale>
+      <locationX>813</locationX>
+      <locationY>675</locationY>
+      <rotation>-90</rotation>
+      <colour>RED</colour>
+    </cell>
+    <cell>
+      <shape>EQ_TRIANGLE</shape>
+      <scale>50</scale>
+      <locationX>856</locationX>
+      <locationY>700</locationY>
+      <rotation>90</rotation>
+      <colour>RED</colour>
+    </cell>
+  </cells>
+  <moves>
+    <move>
+      <name>l</name>
+      <loops>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[5]"/>
+            <cell reference="../../../../../../cells/cell[19]"/>
+            <cell reference="../../../../../../cells/cell[10]"/>
+          </cells>
+        </Loop>
+      </loops>
+    </move>
+    <move>
+      <name>r</name>
+      <loops>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[9]"/>
+            <cell reference="../../../../../../cells/cell[28]"/>
+            <cell reference="../../../../../../cells/cell[23]"/>
+          </cells>
+        </Loop>
+      </loops>
+    </move>
+    <move>
+      <name>u</name>
+      <loops>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell"/>
+            <cell reference="../../../../../../cells/cell[14]"/>
+            <cell reference="../../../../../../cells/cell[36]"/>
+          </cells>
+        </Loop>
+      </loops>
+    </move>
+    <move>
+      <name>b</name>
+      <loops>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[32]"/>
+            <cell reference="../../../../../../cells/cell[18]"/>
+            <cell reference="../../../../../../cells/cell[27]"/>
+          </cells>
+        </Loop>
+      </loops>
+    </move>
+    <move>
+      <name>l&apos;</name>
+      <loops>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[19]"/>
+            <cell reference="../../../../../../cells/cell[5]"/>
+            <cell reference="../../../../../../cells/cell[10]"/>
+          </cells>
+        </Loop>
+      </loops>
+    </move>
+    <move>
+      <name>r&apos;</name>
+      <loops>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[9]"/>
+            <cell reference="../../../../../../cells/cell[23]"/>
+            <cell reference="../../../../../../cells/cell[28]"/>
+          </cells>
+        </Loop>
+      </loops>
+    </move>
+    <move>
+      <name>u&apos;</name>
+      <loops>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell"/>
+            <cell reference="../../../../../../cells/cell[36]"/>
+            <cell reference="../../../../../../cells/cell[14]"/>
+          </cells>
+        </Loop>
+      </loops>
+    </move>
+    <move>
+      <name>b&apos;</name>
+      <loops>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[27]"/>
+            <cell reference="../../../../../../cells/cell[18]"/>
+            <cell reference="../../../../../../cells/cell[32]"/>
+          </cells>
+        </Loop>
+      </loops>
+    </move>
+    <move>
+      <name>L</name>
+      <loops>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[5]"/>
+            <cell reference="../../../../../../cells/cell[19]"/>
+            <cell reference="../../../../../../cells/cell[10]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[20]"/>
+            <cell reference="../../../../../../cells/cell[12]"/>
+            <cell reference="../../../../../../cells/cell[6]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[2]"/>
+            <cell reference="../../../../../../cells/cell[21]"/>
+            <cell reference="../../../../../../cells/cell[13]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[7]"/>
+            <cell reference="../../../../../../cells/cell[24]"/>
+            <cell reference="../../../../../../cells/cell[11]"/>
+          </cells>
+        </Loop>
+      </loops>
+    </move>
+    <move>
+      <name>R </name>
+      <loops>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[9]"/>
+            <cell reference="../../../../../../cells/cell[28]"/>
+            <cell reference="../../../../../../cells/cell[23]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[22]"/>
+            <cell reference="../../../../../../cells/cell[8]"/>
+            <cell reference="../../../../../../cells/cell[30]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[7]"/>
+            <cell reference="../../../../../../cells/cell[31]"/>
+            <cell reference="../../../../../../cells/cell[26]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[4]"/>
+            <cell reference="../../../../../../cells/cell[29]"/>
+            <cell reference="../../../../../../cells/cell[21]"/>
+          </cells>
+        </Loop>
+      </loops>
+    </move>
+    <move>
+      <name>U</name>
+      <loops>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell"/>
+            <cell reference="../../../../../../cells/cell[14]"/>
+            <cell reference="../../../../../../cells/cell[36]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[3]"/>
+            <cell reference="../../../../../../cells/cell[15]"/>
+            <cell reference="../../../../../../cells/cell[35]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[2]"/>
+            <cell reference="../../../../../../cells/cell[16]"/>
+            <cell reference="../../../../../../cells/cell[31]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[4]"/>
+            <cell reference="../../../../../../cells/cell[11]"/>
+            <cell reference="../../../../../../cells/cell[34]"/>
+          </cells>
+        </Loop>
+      </loops>
+    </move>
+    <move>
+      <name>B</name>
+      <loops>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[32]"/>
+            <cell reference="../../../../../../cells/cell[18]"/>
+            <cell reference="../../../../../../cells/cell[27]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[25]"/>
+            <cell reference="../../../../../../cells/cell[33]"/>
+            <cell reference="../../../../../../cells/cell[17]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[26]"/>
+            <cell reference="../../../../../../cells/cell[34]"/>
+            <cell reference="../../../../../../cells/cell[13]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[24]"/>
+            <cell reference="../../../../../../cells/cell[29]"/>
+            <cell reference="../../../../../../cells/cell[16]"/>
+          </cells>
+        </Loop>
+      </loops>
+    </move>
+    <move>
+      <name>L&apos;</name>
+      <loops>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[10]"/>
+            <cell reference="../../../../../../cells/cell[19]"/>
+            <cell reference="../../../../../../cells/cell[5]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[6]"/>
+            <cell reference="../../../../../../cells/cell[12]"/>
+            <cell reference="../../../../../../cells/cell[20]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[13]"/>
+            <cell reference="../../../../../../cells/cell[21]"/>
+            <cell reference="../../../../../../cells/cell[2]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[11]"/>
+            <cell reference="../../../../../../cells/cell[24]"/>
+            <cell reference="../../../../../../cells/cell[7]"/>
+          </cells>
+        </Loop>
+      </loops>
+    </move>
+    <move>
+      <name>R&apos;</name>
+      <loops>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[23]"/>
+            <cell reference="../../../../../../cells/cell[28]"/>
+            <cell reference="../../../../../../cells/cell[9]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[30]"/>
+            <cell reference="../../../../../../cells/cell[8]"/>
+            <cell reference="../../../../../../cells/cell[22]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[26]"/>
+            <cell reference="../../../../../../cells/cell[31]"/>
+            <cell reference="../../../../../../cells/cell[7]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[21]"/>
+            <cell reference="../../../../../../cells/cell[29]"/>
+            <cell reference="../../../../../../cells/cell[4]"/>
+          </cells>
+        </Loop>
+      </loops>
+    </move>
+    <move>
+      <name>U&apos;</name>
+      <loops>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[36]"/>
+            <cell reference="../../../../../../cells/cell[14]"/>
+            <cell reference="../../../../../../cells/cell"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[35]"/>
+            <cell reference="../../../../../../cells/cell[15]"/>
+            <cell reference="../../../../../../cells/cell[3]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[31]"/>
+            <cell reference="../../../../../../cells/cell[16]"/>
+            <cell reference="../../../../../../cells/cell[2]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[34]"/>
+            <cell reference="../../../../../../cells/cell[11]"/>
+            <cell reference="../../../../../../cells/cell[4]"/>
+          </cells>
+        </Loop>
+      </loops>
+    </move>
+    <move>
+      <name>B&apos;</name>
+      <loops>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[27]"/>
+            <cell reference="../../../../../../cells/cell[18]"/>
+            <cell reference="../../../../../../cells/cell[32]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[17]"/>
+            <cell reference="../../../../../../cells/cell[33]"/>
+            <cell reference="../../../../../../cells/cell[25]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[13]"/>
+            <cell reference="../../../../../../cells/cell[34]"/>
+            <cell reference="../../../../../../cells/cell[26]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[16]"/>
+            <cell reference="../../../../../../cells/cell[29]"/>
+            <cell reference="../../../../../../cells/cell[24]"/>
+          </cells>
+        </Loop>
+      </loops>
+    </move>
+  </moves>
+</puzzle>
