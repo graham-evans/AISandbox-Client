@@ -17,6 +17,7 @@ import dev.aisandbox.client.scenarios.twisty.puzzles.Cube6x6x6;
 import dev.aisandbox.client.scenarios.twisty.puzzles.Cube7x7x7;
 import dev.aisandbox.client.scenarios.twisty.puzzles.Cube8x8x8;
 import dev.aisandbox.client.scenarios.twisty.puzzles.Cube9x9x9;
+import dev.aisandbox.client.scenarios.twisty.puzzles.TPPuzzle;
 import java.util.Random;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -109,6 +110,10 @@ public class TwistyScenario extends BaseScenario implements Scenario {
         break;
       case CUBE10:
         runtime.setPuzzle(new Cube10x10x10());
+        break;
+      case PYRAMID3:
+        runtime.setPuzzle(
+            new TPPuzzle("/dev/aisandbox/client/scenarios/twisty/tppuzzles/Pyramid3.tp"));
         break;
       default:
         log.error("Unknown puzzle type");
