@@ -15,10 +15,10 @@ public class ColourEnumTest {
     Set<Integer> rgb = new HashSet<>();
     for (ColourEnum e : ColourEnum.values()) {
       // check codes
-      assertFalse("Duplicate colour code "+e.getCharacter(),codes.contains(e.getCharacter()));
+      assertFalse("Duplicate colour code " + e.getCharacter(), codes.contains(e.getCharacter()));
       codes.add(e.getCharacter());
       // check AWT
-      assertFalse("Duplicate RGB with "+e.getHex(),rgb.contains(e.getAwtColour().getRGB()));
+      assertFalse("Duplicate RGB with " + e.getHex(), rgb.contains(e.getAwtColour().getRGB()));
       rgb.add(e.getAwtColour().getRGB());
     }
   }
