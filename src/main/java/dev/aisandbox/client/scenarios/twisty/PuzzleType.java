@@ -60,5 +60,11 @@ public enum PuzzleType {
     public String toString() {
       return "Cube 10x10x10";
     }
+  },
+  PYRAMID3 {
+    @Override
+    public String toString() {
+      return "Pyramid 3";
+    }
   }
 }
