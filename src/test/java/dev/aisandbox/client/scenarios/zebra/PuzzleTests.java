@@ -1,7 +1,7 @@
 package dev.aisandbox.client.scenarios.zebra;
 
 import static org.junit.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
 import org.junit.Test;
