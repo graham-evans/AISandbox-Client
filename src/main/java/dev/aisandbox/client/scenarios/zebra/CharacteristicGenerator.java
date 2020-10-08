@@ -1,26 +1,10 @@
 package dev.aisandbox.client.scenarios.zebra;
 
 import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.converters.basic.BooleanConverter;
-import com.thoughtworks.xstream.converters.basic.ByteConverter;
-import com.thoughtworks.xstream.converters.basic.DateConverter;
-import com.thoughtworks.xstream.converters.basic.DoubleConverter;
-import com.thoughtworks.xstream.converters.basic.FloatConverter;
-import com.thoughtworks.xstream.converters.basic.IntConverter;
-import com.thoughtworks.xstream.converters.basic.LongConverter;
-import com.thoughtworks.xstream.converters.basic.NullConverter;
-import com.thoughtworks.xstream.converters.basic.ShortConverter;
-import com.thoughtworks.xstream.converters.basic.StringConverter;
-import com.thoughtworks.xstream.converters.collections.CollectionConverter;
-import com.thoughtworks.xstream.converters.reflection.ReflectionConverter;
-import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
-import com.thoughtworks.xstream.io.xml.PrettyPrintWriter;
-import com.thoughtworks.xstream.io.xml.StaxDriver;
 import com.thoughtworks.xstream.security.NoTypePermission;
 import dev.aisandbox.client.scenarios.zebra.vo.Characteristic;
 import dev.aisandbox.client.scenarios.zebra.vo.CharacteristicObject;
 import dev.aisandbox.client.scenarios.zebra.vo.Template;
-import java.io.Writer;
 import java.util.Collections;
 import java.util.Random;
 import org.slf4j.Logger;
@@ -37,45 +21,11 @@ public class CharacteristicGenerator {
   private static final Logger LOG =
       LoggerFactory.getLogger(CharacteristicGenerator.class.getName());
 
-  /**
-   * Using XStream in modern JDKs is becoming problematic, as it uses private access methods (which
-   * now throw warnings) To fix this we use the solution detailed here
-   * https://github.com/x-stream/xstream/issues/101
-   *
-   * <p>A longer-term solution may be to move away from xstream.
-   *
-   * @return an initialised XStream serialiser/deserialiser which doesn't use restricted methods
-   */
   private static XStream createXStream() {
-    XStream xstream =
-        new XStream(
-            new StaxDriver() {
-              @Override
-              public HierarchicalStreamWriter createWriter(Writer out) {
-                return new PrettyPrintWriter(out, "    ");
-              }
-            }) {
-          // only register the converters we need; other converters generate a private access
-          // warning in the console on Java9+...
-          @Override
-          protected void setupConverters() {
-            registerConverter(new NullConverter(), PRIORITY_VERY_HIGH);
-            registerConverter(new IntConverter(), PRIORITY_NORMAL);
-            registerConverter(new FloatConverter(), PRIORITY_NORMAL);
-            registerConverter(new DoubleConverter(), PRIORITY_NORMAL);
-            registerConverter(new LongConverter(), PRIORITY_NORMAL);
-            registerConverter(new ShortConverter(), PRIORITY_NORMAL);
-            registerConverter(new BooleanConverter(), PRIORITY_NORMAL);
-            registerConverter(new ByteConverter(), PRIORITY_NORMAL);
-            registerConverter(new StringConverter(), PRIORITY_NORMAL);
-            registerConverter(new DateConverter(), PRIORITY_NORMAL);
-            registerConverter(new CollectionConverter(getMapper()), PRIORITY_NORMAL);
-            registerConverter(
-                new ReflectionConverter(getMapper(), getReflectionProvider()), PRIORITY_VERY_LOW);
-          }
-        };
-    xstream.autodetectAnnotations(true);
-
+    XStream xstream = new XStream();
+    xstream.processAnnotations(Template.class);
+    xstream.processAnnotations(Characteristic.class);
+    xstream.processAnnotations(CharacteristicObject.class);
     // setup proper security by limiting which classes can be loaded by XStream
     xstream.addPermission(NoTypePermission.NONE);
     xstream.processAnnotations(Template.class);
