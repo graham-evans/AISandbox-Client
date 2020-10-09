@@ -44,8 +44,8 @@ public class PropertiesParser {
     File pfile = new File(filePath);
     log.debug("Loading properties from {}", pfile.getAbsolutePath());
     Properties props = new Properties();
-    try {
-      props.load(new FileInputStream(pfile));
+    try (FileInputStream fin = new FileInputStream(pfile)) {
+      props.load(fin);
     } catch (IOException e) {
       log.warn("Error loading properties", e);
     }
