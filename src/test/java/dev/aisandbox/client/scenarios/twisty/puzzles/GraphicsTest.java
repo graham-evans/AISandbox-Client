@@ -14,9 +14,11 @@ import java.util.ArrayList;
 import java.util.List;
 import javafx.scene.text.Font;
 import javax.imageio.ImageIO;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+@Slf4j
 public class GraphicsTest {
 
   static List<TwistyPuzzle> puzzleList = new ArrayList();
@@ -38,7 +40,7 @@ public class GraphicsTest {
   }
 
   @Test
-  public void createImageTest() throws IOException {
+  public void createDefaultImageTest() throws IOException {
     assertNotEquals("No Puzzles to test", 0, puzzleList.size());
     for (TwistyPuzzle puzzle : puzzleList) {
       puzzle.resetPuzzle();
@@ -46,8 +48,9 @@ public class GraphicsTest {
       out.getParentFile().mkdirs();
       BufferedImage image = puzzle.getStateImage();
       ImageIO.write(image, "PNG", out);
+      assertTrue("Output file does not exist", out.isFile());
+      assertTrue("Output file doesn't have data in it", out.length() > 0);
     }
-    assertTrue(true);
   }
 
   @Test
@@ -66,8 +69,8 @@ public class GraphicsTest {
         assertNotNull("move image generated", image);
         assertNotEquals("Move image has zero width", 0, image.getWidth());
         assertNotEquals("Move image has zero height", 0, image.getHeight());
-        ImageIO.write(image, "PNG", moveOutputFile);
-        assertTrue("Move file written", moveOutputFile.isFile());
+        //    ImageIO.write(image, "PNG", moveOutputFile);
+        //    assertTrue("Move file written", moveOutputFile.isFile());
         // move icon image
         File iconOutputFile =
             new File(
@@ -76,8 +79,8 @@ public class GraphicsTest {
         assertNotNull("Null Icon image", image);
         assertEquals("icon image width", 60, image.getWidth());
         assertEquals("icon image height", 100, image.getHeight());
-        ImageIO.write(image, "PNG", iconOutputFile);
-        assertTrue("icon image not written to file", iconOutputFile.isFile());
+        //    ImageIO.write(image, "PNG", iconOutputFile);
+        //    assertTrue("icon image not written to file", iconOutputFile.isFile());
       }
     }
   }
@@ -90,7 +93,8 @@ public class GraphicsTest {
       out.getParentFile().mkdirs();
       BufferedImage image = puzzle.createMoveSpriteSheet();
       ImageIO.write(image, "PNG", out);
+      assertTrue("Output file does not exist", out.isFile());
+      assertTrue("Output file doesn't have data in it", out.length() > 0);
     }
-    assertTrue(true);
   }
 }
