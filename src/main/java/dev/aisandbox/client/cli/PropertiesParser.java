@@ -75,14 +75,25 @@ public class PropertiesParser {
     } else {
       // look at the list of parameters
       for (ScenarioParameter param : model.getScenario().getParameterArray()) {
-        log.debug("Looking for parameter '{}'", param.getParameterKey());
+        log.info("Looking for parameter {}", param.getParameterKey());
         String value = props.getProperty(param.getParameterKey());
         if (value != null) {
+          log.info("Updating patameter {} to {}", param.getParameterKey(), value);
           try {
             param.setParsableValue(value);
+            log.info("Set {} to {}", param.getParameterKey(), param.toString());
           } catch (ParameterParseException e) {
-            log.warn("Error parsing parameter '{}' - '{}'", param.getParameterKey(), value);
+            log.warn(
+                "Error parsing parameter '{}' - '{}' leaving as {}",
+                param.getParameterKey(),
+                value,
+                param.toString());
           }
+        } else {
+          log.info(
+              "No settings for parameter '{}' leaving as {}",
+              param.getParameterKey(),
+              param.toString());
         }
       }
     }

@@ -16,10 +16,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -33,8 +30,6 @@ public class MineRunTest {
 
   @Autowired ApplicationModel model;
 
-  @Autowired ApplicationContext context;
-
   @Before
   public void resetDir() {
     // check that the directory 'target/test-run/mine1' is deleted
@@ -42,6 +37,7 @@ public class MineRunTest {
     if (fdir.isDirectory()) {
       deleteDirectory(fdir);
     }
+    fdir.mkdirs();
   }
 
   private boolean deleteDirectory(File directoryToBeDeleted) {
@@ -56,15 +52,16 @@ public class MineRunTest {
 
   @Test(timeout = 100000) // shouldn't take more than 100 seconds
   public void runFullMineTest() throws Exception {
-    System.out.println("Running simulation manually");
-    SpringApplicationBuilder builder = new SpringApplicationBuilder(AISandboxCLI.class);
-    builder.headless(true);
-    ConfigurableApplicationContext context = builder.run();
+    log.info("Running mine manualy");
     // generate the default model and update with CLI (and XML) options
     parser.parseConfiguration(model, "src/test/resources/config/mine.properties");
     // test config has been loaded
     assertNotNull("Scenario doesn't exist", model.getScenario());
     assertTrue("Incorrect Scenario", model.getScenario() instanceof MineHunterScenario);
+    MineHunterScenario mhs = (MineHunterScenario) model.getScenario();
+    assertEquals("Wrong size", MineSize.MEDIUM, mhs.getMineHunterBoardSize().getValue());
+    assertTrue("Not limiting runtime", model.getLimitRuntime().get());
+    assertEquals("Not limiting runtime to 10 steps", 10, model.getMaxStepCount().get());
     // manually attach test agent
     model.getAgentList().clear();
     model.getAgentList().add(new MineTestAgent());
@@ -72,12 +69,8 @@ public class MineRunTest {
     // setup a fake UI
     model.initialiseRuntime(new FakeGameRunController(model, null));
     // run the model
-    SimulationRunThread thread;
-    if (model.getLimitRuntime().get()) {
-      thread = new SimulationRunThread(model, model.getMaxStepCount().get());
-    } else {
-      thread = new SimulationRunThread(model);
-    }
+    SimulationRunThread thread = new SimulationRunThread(model, model.getMaxStepCount().get());
+    // run the simulation
     thread.start();
     thread.join();
     model.resetRuntime();

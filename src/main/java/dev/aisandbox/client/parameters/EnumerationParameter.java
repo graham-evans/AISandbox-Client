@@ -11,6 +11,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 @Slf4j
 public class EnumerationParameter<T extends Enum<T>> implements ScenarioParameter {
@@ -70,7 +71,7 @@ public class EnumerationParameter<T extends Enum<T>> implements ScenarioParamete
     boolean found = false;
 
     for (T t : value.getDeclaringClass().getEnumConstants()) {
-      log.info("Testing {} ", t);
+      log.info("Testing {} ", t.name());
       if (t.name().equalsIgnoreCase(val)) {
         found = true;
         value = t;
@@ -92,5 +93,13 @@ public class EnumerationParameter<T extends Enum<T>> implements ScenarioParamete
       options.put(t.name(), t.toString());
     }
     return options;
+  }
+
+  @Override
+  public String toString() {
+    return new ToStringBuilder(this)
+        .append("parameterKey", parameterKey)
+        .append("value", value)
+        .toString();
   }
 }

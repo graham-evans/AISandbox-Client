@@ -6,6 +6,7 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.scene.Node;
 import javafx.scene.control.CheckBox;
 import lombok.Getter;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 public class BooleanParameter implements ScenarioParameter {
 
@@ -49,5 +50,13 @@ public class BooleanParameter implements ScenarioParameter {
       throw new ParameterParseException(
           "Can't parse " + value + " to a boolean for " + parameterKey);
     }
+  }
+
+  @Override
+  public String toString() {
+    return new ToStringBuilder(this)
+        .append("parameterKey", parameterKey)
+        .append("value", value)
+        .toString();
   }
 }

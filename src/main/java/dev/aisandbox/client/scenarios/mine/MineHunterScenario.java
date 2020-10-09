@@ -9,6 +9,7 @@ import dev.aisandbox.client.scenarios.ScenarioRuntime;
 import dev.aisandbox.client.scenarios.ScenarioType;
 import dev.aisandbox.client.sprite.SpriteLoader;
 import java.util.Random;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -47,6 +48,8 @@ public class MineHunterScenario extends BaseScenario implements Scenario {
   // configuration
   private LongParameter scenarioSalt =
       new LongParameter("mine.salt", 0, "Random Salt", "Set this to zero for a random maze.");
+
+  @Getter
   private EnumerationParameter<MineSize> mineHunterBoardSize =
       new EnumerationParameter<>(
           "mine.size", MineSize.SMALL, "Board size", "Select the size of the boards to generate");
