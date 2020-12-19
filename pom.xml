@@ -96,6 +96,11 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.11</version>
         </dependency>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.15</version>
+        </dependency>
         <!-- JAVAFX - Repeated to create single runtime for win/linux/mac -->
         <dependency>
             <groupId>org.openjfx</groupId>
