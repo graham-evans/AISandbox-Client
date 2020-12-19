@@ -35,6 +35,8 @@ public class GraphicsTest {
     puzzleList.add(new Cube8x8x8());
     puzzleList.add(new Cube9x9x9());
     puzzleList.add(new Cube10x10x10());
+    puzzleList.add(
+        new TPPuzzle("/dev/aisandbox/client/scenarios/twisty/tppuzzles/Pyramid3.tp"));
   }
 
   @Test
@@ -54,11 +56,19 @@ public class GraphicsTest {
   public void createMoveImageTest() throws IOException, NotExistentMoveException {
     assertNotEquals("No Puzzles to test", 0, puzzleList.size());
     for (TwistyPuzzle puzzle : puzzleList) {
-      for (String move : puzzle.getMoveList()) {
+      for (int i = 0; i < puzzle.getMoveList().size(); i++) {
+        String move = puzzle.getMoveList().get(i);
         // create image showing the result of the move from the starting positions
         puzzle.resetPuzzle();
         File moveOutputFile =
-            new File("target/test-images/twisty/" + puzzle.getPuzzleName() + "/" + move + ".png");
+            new File(
+                "target/test-images/twisty/"
+                    + puzzle.getPuzzleName()
+                    + "/"
+                    + i
+                    + "-"
+                    + move
+                    + ".png");
         moveOutputFile.getParentFile().mkdirs();
         puzzle.applyMove(move);
         BufferedImage image = puzzle.getStateImage();
@@ -71,7 +81,13 @@ public class GraphicsTest {
         // move icon image
         File iconOutputFile =
             new File(
-                "target/test-images/twisty/" + puzzle.getPuzzleName() + "/" + move + "-icon.png");
+                "target/test-images/twisty/"
+                    + puzzle.getPuzzleName()
+                    + "/"
+                    + i
+                    + "-"
+                    + move
+                    + "-icon.png");
         image = puzzle.getMoveImage(move);
         assertNotNull("Null Icon image", image);
         assertEquals("icon image width", 60, image.getWidth());
