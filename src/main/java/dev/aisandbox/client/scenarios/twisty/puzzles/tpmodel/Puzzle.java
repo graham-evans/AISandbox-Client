@@ -6,7 +6,9 @@ import java.awt.Graphics2D;
 import java.awt.Polygon;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import lombok.Getter;
 
 @XStreamAlias("puzzle")
@@ -17,6 +19,8 @@ public class Puzzle {
 
   @Getter private List<Cell> cells = new ArrayList<>();
   @Getter private List<Move> moves = new ArrayList<>();
+
+  @Getter private Map<String, CompiledMove> compiledMoves = new HashMap<>();
 
   public BufferedImage getStateImage(String state) {
     BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
