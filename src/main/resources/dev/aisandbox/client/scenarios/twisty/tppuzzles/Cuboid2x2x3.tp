@@ -1,0 +1,2349 @@
+<puzzle>
+  <cells>
+    <cell>
+      <shape>SQUARE</shape>
+      <scale>41</scale>
+      <locationX>0</locationX>
+      <locationY>0</locationY>
+      <rotation>0</rotation>
+      <colour>WHITE</colour>
+    </cell>
+    <cell>
+      <shape>SQUARE</shape>
+      <scale>41</scale>
+      <locationX>82</locationX>
+      <locationY>0</locationY>
+      <rotation>0</rotation>
+      <colour>WHITE</colour>
+    </cell>
+    <cell>
+      <shape>SQUARE</shape>
+      <scale>41</scale>
+      <locationX>0</locationX>
+      <locationY>82</locationY>
+      <rotation>0</rotation>
+      <colour>WHITE</colour>
+    </cell>
+    <cell>
+      <shape>SQUARE</shape>
+      <scale>41</scale>
+      <locationX>82</locationX>
+      <locationY>82</locationY>
+      <rotation>0</rotation>
+      <colour>WHITE</colour>
+    </cell>
+    <cell>
+      <shape>SQUARE</shape>
+      <scale>41</scale>
+      <locationX>0</locationX>
+      <locationY>164</locationY>
+      <rotation>0</rotation>
+      <colour>WHITE</colour>
+    </cell>
+    <cell>
+      <shape>SQUARE</shape>
+      <scale>41</scale>
+      <locationX>82</locationX>
+      <locationY>164</locationY>
+      <rotation>0</rotation>
+      <colour>WHITE</colour>
+    </cell>
+    <cell>
+      <shape>SQUARE</shape>
+      <scale>41</scale>
+      <locationX>-250</locationX>
+      <locationY>250</locationY>
+      <rotation>0</rotation>
+      <colour>ORANGE</colour>
+    </cell>
+    <cell>
+      <shape>SQUARE</shape>
+      <scale>41</scale>
+      <locationX>-168</locationX>
+      <locationY>250</locationY>
+      <rotation>0</rotation>
+      <colour>ORANGE</colour>
+    </cell>
+    <cell>
+      <shape>SQUARE</shape>
+      <scale>41</scale>
+      <locationX>-86</locationX>
+      <locationY>250</locationY>
+      <rotation>0</rotation>
+      <colour>ORANGE</colour>
+    </cell>
+    <cell>
+      <shape>SQUARE</shape>
+      <scale>41</scale>
+      <locationX>-250</locationX>
+      <locationY>332</locationY>
+      <rotation>0</rotation>
+      <colour>ORANGE</colour>
+    </cell>
+    <cell>
+      <shape>SQUARE</shape>
+      <scale>41</scale>
+      <locationX>-168</locationX>
+      <locationY>332</locationY>
+      <rotation>0</rotation>
+      <colour>ORANGE</colour>
+    </cell>
+    <cell>
+      <shape>SQUARE</shape>
+      <scale>41</scale>
+      <locationX>-86</locationX>
+      <locationY>332</locationY>
+      <rotation>0</rotation>
+      <colour>ORANGE</colour>
+    </cell>
+    <cell>
+      <shape>SQUARE</shape>
+      <scale>41</scale>
+      <locationX>0</locationX>
+      <locationY>250</locationY>
+      <rotation>0</rotation>
+      <colour>GREEN</colour>
+    </cell>
+    <cell>
+      <shape>SQUARE</shape>
+      <scale>41</scale>
+      <locationX>82</locationX>
+      <locationY>250</locationY>
+      <rotation>0</rotation>
+      <colour>GREEN</colour>
+    </cell>
+    <cell>
+      <shape>SQUARE</shape>
+      <scale>41</scale>
+      <locationX>0</locationX>
+      <locationY>332</locationY>
+      <rotation>0</rotation>
+      <colour>GREEN</colour>
+    </cell>
+    <cell>
+      <shape>SQUARE</shape>
+      <scale>41</scale>
+      <locationX>82</locationX>
+      <locationY>332</locationY>
+      <rotation>0</rotation>
+      <colour>GREEN</colour>
+    </cell>
+    <cell>
+      <shape>SQUARE</shape>
+      <scale>41</scale>
+      <locationX>168</locationX>
+      <locationY>250</locationY>
+      <rotation>0</rotation>
+      <colour>RED</colour>
+    </cell>
+    <cell>
+      <shape>SQUARE</shape>
+      <scale>41</scale>
+      <locationX>250</locationX>
+      <locationY>250</locationY>
+      <rotation>0</rotation>
+      <colour>RED</colour>
+    </cell>
+    <cell>
+      <shape>SQUARE</shape>
+      <scale>41</scale>
+      <locationX>332</locationX>
+      <locationY>250</locationY>
+      <rotation>0</rotation>
+      <colour>RED</colour>
+    </cell>
+    <cell>
+      <shape>SQUARE</shape>
+      <scale>41</scale>
+      <locationX>168</locationX>
+      <locationY>332</locationY>
+      <rotation>0</rotation>
+      <colour>RED</colour>
+    </cell>
+    <cell>
+      <shape>SQUARE</shape>
+      <scale>41</scale>
+      <locationX>250</locationX>
+      <locationY>332</locationY>
+      <rotation>0</rotation>
+      <colour>RED</colour>
+    </cell>
+    <cell>
+      <shape>SQUARE</shape>
+      <scale>41</scale>
+      <locationX>332</locationX>
+      <locationY>332</locationY>
+      <rotation>0</rotation>
+      <colour>RED</colour>
+    </cell>
+    <cell>
+      <shape>SQUARE</shape>
+      <scale>41</scale>
+      <locationX>418</locationX>
+      <locationY>250</locationY>
+      <rotation>0</rotation>
+      <colour>BLUE</colour>
+    </cell>
+    <cell>
+      <shape>SQUARE</shape>
+      <scale>41</scale>
+      <locationX>500</locationX>
+      <locationY>250</locationY>
+      <rotation>0</rotation>
+      <colour>BLUE</colour>
+    </cell>
+    <cell>
+      <shape>SQUARE</shape>
+      <scale>41</scale>
+      <locationX>418</locationX>
+      <locationY>332</locationY>
+      <rotation>0</rotation>
+      <colour>BLUE</colour>
+    </cell>
+    <cell>
+      <shape>SQUARE</shape>
+      <scale>41</scale>
+      <locationX>500</locationX>
+      <locationY>332</locationY>
+      <rotation>0</rotation>
+      <colour>BLUE</colour>
+    </cell>
+    <cell>
+      <shape>SQUARE</shape>
+      <scale>41</scale>
+      <locationX>0</locationX>
+      <locationY>418</locationY>
+      <rotation>0</rotation>
+      <colour>YELLOW</colour>
+    </cell>
+    <cell>
+      <shape>SQUARE</shape>
+      <scale>41</scale>
+      <locationX>82</locationX>
+      <locationY>418</locationY>
+      <rotation>0</rotation>
+      <colour>YELLOW</colour>
+    </cell>
+    <cell>
+      <shape>SQUARE</shape>
+      <scale>41</scale>
+      <locationX>0</locationX>
+      <locationY>500</locationY>
+      <rotation>0</rotation>
+      <colour>YELLOW</colour>
+    </cell>
+    <cell>
+      <shape>SQUARE</shape>
+      <scale>41</scale>
+      <locationX>82</locationX>
+      <locationY>500</locationY>
+      <rotation>0</rotation>
+      <colour>YELLOW</colour>
+    </cell>
+    <cell>
+      <shape>SQUARE</shape>
+      <scale>41</scale>
+      <locationX>0</locationX>
+      <locationY>582</locationY>
+      <rotation>0</rotation>
+      <colour>YELLOW</colour>
+    </cell>
+    <cell>
+      <shape>SQUARE</shape>
+      <scale>41</scale>
+      <locationX>82</locationX>
+      <locationY>582</locationY>
+      <rotation>0</rotation>
+      <colour>YELLOW</colour>
+    </cell>
+  </cells>
+  <moves>
+    <move>
+      <imageIcon>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</imageIcon>
+      <name>F</name>
+      <loops>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[13]"/>
+            <cell reference="../../../../../../cells/cell[14]"/>
+            <cell reference="../../../../../../cells/cell[16]"/>
+            <cell reference="../../../../../../cells/cell[15]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[5]"/>
+            <cell reference="../../../../../../cells/cell[17]"/>
+            <cell reference="../../../../../../cells/cell[28]"/>
+            <cell reference="../../../../../../cells/cell[12]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[6]"/>
+            <cell reference="../../../../../../cells/cell[20]"/>
+            <cell reference="../../../../../../cells/cell[27]"/>
+            <cell reference="../../../../../../cells/cell[9]"/>
+          </cells>
+        </Loop>
+      </loops>
+      <cost>1</cost>
+    </move>
+    <move>
+      <imageIcon>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</imageIcon>
+      <name>F&apos;</name>
+      <loops>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[15]"/>
+            <cell reference="../../../../../../cells/cell[16]"/>
+            <cell reference="../../../../../../cells/cell[14]"/>
+            <cell reference="../../../../../../cells/cell[13]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[12]"/>
+            <cell reference="../../../../../../cells/cell[28]"/>
+            <cell reference="../../../../../../cells/cell[17]"/>
+            <cell reference="../../../../../../cells/cell[5]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[9]"/>
+            <cell reference="../../../../../../cells/cell[27]"/>
+            <cell reference="../../../../../../cells/cell[20]"/>
+            <cell reference="../../../../../../cells/cell[6]"/>
+          </cells>
+        </Loop>
+      </loops>
+      <cost>1</cost>
+    </move>
+    <move>
+      <imageIcon>iVBORw0KGgoAAAANSUhEUgAAADwAAABkCAIAAABVQ8S/AAAEpUlEQVR4Xu2aQUgUURjH181lQYxNYZGOHsIIr8FeWoKwi8eFWExBJCJQkoTAY21QFkXg2iXUiC6FQVhBYWZEkFhQUC6BoauHoAS1qDbX1d3+uPTm+c3s7Oy+mdl5ND/eIb9vvvd+Tm/evDfoyUmIhwZkwJW2C1faLlxpu3Cl7eJ/lV5b+/P8+cL169MnTz46cuR2U1O8vv5ydXUMDf/AjwgihQtwGS6m9aVTvvT37+tjY4lTpx4fOHDD4zlnsOFilKAQ5bRHw5QjnUyuXbv2+tChUbWT8YZydIKuaO8GKE36x4/1oaE3odCwWqK8hq7QIbqlI+lSgvSzZ/PHjo2pBxZv6Bad0/EKY1Q6Hp/Zt29QPZ5ZDZ1jCDpqAYpLr67+6e+f3LXrvHokcxuGwEAYjhqoKCJ9uHJQFQ49afzS+sX6WFerJ43/LP1ifayrLSiNxwKTTL9YH8FanedSWxoLUH6tEByYhgyDWggUWgc1pLHUs/VYcGAaMgxqPdvrt+Z7R0Maryi2DAkOTEOGyUujQYbm1NLYDPBvacGBacgwTBoy6v0JlcYmhhk7QRoNSiS7QxrbRbJ3ExyYhgzDS0OJ7GN3SGObyxs7RBoNYnx2hzS2586UhhifVaRxEFKfQQQHpiHDEGmI8ec0RRoHOGLsHGk06LGsIo2Dp5OloceyijQOzE6Whh7LKtI46DtZGnosq0g3NcWdLA09llWk6+svO1kaeiyrSFdXx5wsDT2WLS5dKQxJSzk9pHwQpVzypHy5SPkal3LDJOXWNCfjISAn6XFLyoNtTsZPCDlJP9bkZPwslpP0A2ROxk+9eeLxGa9Xqo/q4NWrJZ8vJjgwDRlGv1Zb+sOHb4HApcpODxri0JD+/HklGLxS8QeRhjg0pPv7J/fsGWDSlYJqcWhIg0xm68WL5NmzE/v3D7E1u2gLh2/RjoqxtZX9+TP98eO3u3dnJya01wo12tI88/Org4MzR4/e8fsvqEVJSySWab2KbHbHj5ub2d+/NzTX40IUl2bgljx48OnEiYd7915V6+bb6dNPaJkFlCDNwK16+/ZLLPby4MGbWMt5aTwMuG20gAO1uLUbG1uYGDRnmHKkeb5+/TU6+j4Subd798W89/DwO3rRP/LGqVQG0jRXCqLSjHR6c3Jy4cyZp9HofZrjIBO6PEyTthNX2i5cabtwpe3ClbYLV9ouXGm7cKXtwjTp6elpD0dVVVVdXV04HB4ZGcEphV4thsnSXq/3+DbRaBTGPp8PwUgkQq8Ww2Rpv9/PB+fm5gKBAOLj4+N8XBBrpUFHRwfiPT09JC6C5dLd3d2Id3V1kbgIlkuHQiHEBwYGSFwEq6QzmUwymezr60MwGAwuLxf/8mQck6UJWPg6OzsXFxfp1WKYLE2WvNraWtx7TOt0Ok0LBDBZmszplZWVlpYWxHt7e/m4INZKg0QigTjeMqlUiqTKxnJpPJGY2UjNzs6SVNlYLr20tJR/KPF2JKmysVYat7m9vR3xxsbGrCnfHrcxWZqtHm1tba2trQ0NDQjW1NRMTU3RAgFMlmZgHmO9a25uxrqxsKD8JY8pmCZtJ660XUgp/RcLkY75sQey6AAAAABJRU5ErkJggg==</imageIcon>
+      <name>B</name>
+      <loops>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[23]"/>
+            <cell reference="../../../../../../cells/cell[24]"/>
+            <cell reference="../../../../../../cells/cell[26]"/>
+            <cell reference="../../../../../../cells/cell[25]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[10]"/>
+            <cell reference="../../../../../../cells/cell[32]"/>
+            <cell reference="../../../../../../cells/cell[19]"/>
+            <cell reference="../../../../../../cells/cell"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[7]"/>
+            <cell reference="../../../../../../cells/cell[31]"/>
+            <cell reference="../../../../../../cells/cell[22]"/>
+            <cell reference="../../../../../../cells/cell[2]"/>
+          </cells>
+        </Loop>
+      </loops>
+      <cost>1</cost>
+    </move>
+    <move>
+      <imageIcon>iVBORw0KGgoAAAANSUhEUgAAADwAAABkCAIAAABVQ8S/AAAEoklEQVR4Xu2aT0gUURzH101ZEGNTWKSjhzDEa7CXliDs4nEhFlMQiQgUJSXoWAZlUQRql1AjuhQbhBUU5h9CSCwo8A+BoauHoAS1qNbWdZu+7dDM7G92387OG2fn0Xx4B/v93p+Pu2/evPfMIwmIhwZEwJW2C1faLlxpu3Cl7eJ/ld7a2p6YWLl1a+bMmafHj9+rrR2oqrpWWtqLgh/wTwSRQgVUQ2XavnDMS3/9+isaXTx79lld3W2P56LBgspogoZoTns0jBnpWGzr5s3XR4+O6J2MFzRHJ+iK9m6AwqS/ffs1OPgmGBzSS5gr6Aodols6EpMCpF++XD55MqofmL+gW3ROx8uNUemBgdlDh/r141lV0DmGoKPmIL/05ub2hQvj+/Zd0o9kbcEQGAjDUQMdeaSPFQ+qooEljV+a3ZjN3rVlSePLYjdms3dtc0rjscAkYzdmw9mW8Vxml8YCJK8VnAPTkGHQFgK51sEs0ljqlfWYc2AaMgzaetLrd9b3ThZpvKKUZYhzYBoyjCyNAhma00tjM6B9S3MOTEOGUaQho9+fUGlsYhRjJ0ijQIlkM6SxXSR7N86BacgwWmkokX1shjS2uVpjh0ijQEybzZDG9tyZ0hDTZlVpHIT0ZxDOgWnIMEQaYtpzmiqNAxwxdo40CvSUrCqNg6eTpaGnZFVpHJidLA09JatK46DvZGnoKVlVurZ2wMnS0FOyqnRV1TUnS0NPyarSpaW9TpaGnpLNL10sDEkLOT2EfBCFXPKEfLkI+RoXcsMk5NZUEvEQIAl63BLyYCuJeIUgCXpZI4l4LSYJegEpiXjVKyPepbpMcf98MT29RqP/YEkX9w9Ffv/VubkvNJGGJS1xD0xDhpEfxEDg+sePGzRnRLpYQPrAgT5MUeqUV1phbGz5wYOF+fkv378nUqnfNJ2PUOiusvbnLYcPD54/PzY1FUsmU7SjNEalpfT6/fPnzu5uhvFvA/6Li+t6M1J8vssnTtzv759dXt6k7XUUIG2azs7neku5HDx44/TpJ48ff8AXSJvlxrw0JsnOTgofPPvDxpeDqakV9XovHTlyp7f31du3n9htc2FeGkA6Hk+yvYeG3smu+/dfCYcfjoy8//z5B61UIFzSMgxjEIk8Onfuxfj4SiKxS3NmsUDaflxpu3Cl7cKVtgtX2i5cabtwpe3ClbYLk9IzMzMeDSUlJZWVlaFQaHh4OJXKfhqNRqOo2dPTQxOFwyXt9XpPpYlEIjAuKytDMBwO09ppnCLt8/m0waWlJb/fj/jo6Kg2LuNQadDS0oJ4R0cHiUtOlm5vb0e8ra2NxCUnSweDQcT7+vpIXHKgdDKZjMVi3d3dCAYCgfX19czqFsMlTcDC19raurq6SmtbDZc0WfIqKirw2WNaJxIF3HGZgEuazOmNjY2GhgbEu7q6tHHLsVJa+ntBuog43jLxeJykLMRiaTyRmNlILSwskJSFWCy9trYmP5R4O5KUhVgpjY+5ubkZ8ZqaGtZFKjdc0srq0dTU1NjYWF1djWB5efnk5CRtYClc0gqYx1jv6uvrsW6srKj/b2ePMCldXFxpuxBS+g9WiXW6y+RtwAAAAABJRU5ErkJggg==</imageIcon>
+      <name>B&apos;</name>
+      <loops>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[25]"/>
+            <cell reference="../../../../../../cells/cell[26]"/>
+            <cell reference="../../../../../../cells/cell[24]"/>
+            <cell reference="../../../../../../cells/cell[23]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell"/>
+            <cell reference="../../../../../../cells/cell[19]"/>
+            <cell reference="../../../../../../cells/cell[32]"/>
+            <cell reference="../../../../../../cells/cell[10]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[2]"/>
+            <cell reference="../../../../../../cells/cell[22]"/>
+            <cell reference="../../../../../../cells/cell[31]"/>
+            <cell reference="../../../../../../cells/cell[7]"/>
+          </cells>
+        </Loop>
+      </loops>
+      <cost>1</cost>
+    </move>
+    <move>
+      <imageIcon>iVBORw0KGgoAAAANSUhEUgAAADwAAABkCAIAAABVQ8S/AAAHpUlEQVR4Xu2ae0hUWRzHZ3TUQM3VikzThMrXP0IvJcxsLRGCIovJbQukNHqAoCn0T2uN5pZl0mgFrmVRlj1c0xQfozMjwS5t4EYZC5XGQgu1YPZYs4c2+20ujXfOue9x7iI7X37Evef+zu/36dxzz2vU2KagNGTBVJAHWi15oNWSB1oteaDV0v8Venh4tKdnsLLy1507b6WlXYiJqQoJOarTGWC4wC0K8QgOcIMzWV++lEO/evX++vWHu3a1xsef0mgOSjQ4owoqojoZUbKUQD99OlxR8cuKFedoJumG6giCUGR0CZIH/fr1++rq35KSamkIZYZQCIiwZCZByYA2mQb0+ut0YtcNYRGczMcvqdBVVXcWLjTS+SbLEBwpyKw8Eod++XJ0//5ub+9DdKbJNaRAIqQjCSiJQC9fnh4enksncJ8hHZKmpqaSKCwJQeM/LZc4IKB00aKTmzbV7tt3OTr6O1zgFoW0p4Bt2PBTcvIakoYlIWi8LDoip/n7l6xceaqg4PL5823Wr0JrMRcoxCM4wI2uy2mRkdtJGpZ4ofFZSOnHoaFH9PqzRmOzg9UhB7RDcIMzqtBxCNNqiwW+S25oDECiY4W/fyne4+nTLQSZQzQ0I1RBRVSnY7INAHzjIAc0hnrR8Xjx4pPFxddIHGfxQTNCdQShI7MNGJzzDgc0pii6PtvQTpcutZMUlIShIQRBKDo+2wBD8tHQWAwIz9JIYzaT6TklCg0hlDA3YOj1CQmNRQxd02F4oVLamJEUaKu9vYX7CZAISCdoLBcF1m74dET7MVsSoa32/i3wXQKJWMc6QWOZS9dxGN4jmU1Q0qEh4U4CMDanEzSW53QFxjC4CoxunJIFjeAC4zfA2JwT0NgICexBMCmQecQkCxpCCjovYwBj79MmoLGBo70Zw/TLOecJSy40UgjM88DjgMbGk3ZlDMsGMoMEyYWGkIjOzhjwOKCxYaZdGcNyhwwvQQqgkYjOzhjwOKCx0addNfbVJnvtJl0KoJGIbx0LPA7omJgq2hWGBTEZW5oUQENIRzPAgMcBHRJylHaFYSFPBpYmZdBIRzPAgMcBrdMZaFcY9iBkYGlSBo10NAMMeDKgsWtKVVFIRzPwQk/J7jElP8QpOeRNycllSk7jKi+Ytm2ru3q1k12iZMGk5tK0paXbz88QHn705k2To1DJ0tSm4iZgz56LTNgFC463tfVYFW8CbGpttywWa0REuSNsQkJlR0eP8u2WOhvbEyduEpFjYyv4RjqN6MbWpsoRAucQ4eV1SKslCxkTOUKwSTisycx06bCmsbGL71wT3HShpMMam+CxGBrD19ewdWvdtWtOoxWnOKG3b+eedxmjuSUdi9kEDyB9fAzTp5fik9+9+2J9vUg/oaHximbP5h0iGGN3EhkHkDaeo140A77FyMjyVatO5+dfrqm51d7eYzZbCDKHaOiyskaaks/kHfUyog/V0czBwYeXLDmZk3OhuroZE0R39xdiCw82DZ2YSDYEn6G9ZR+qM2L/fIEo06YZoqLK162rOXz4Br6nnh4LHy4jAvrKlQ66y/KZVvvD7dt/kkBfJQTN/qFIpzuEZkZT5eXV19W1YTpAxxCFhoPDZ8sW3hmA04KCfrx//wXJZJcQtM3+kxzmKi+vg4GBpXFxFZs3nz127OemJvFmtjq3tMlkDg4uo8mEbdas8sePh0gmUWgkTk5eExWVHRBQGBa2My5On5iYkZLybeqEVrGueRUfr6eZRO2bb46gi5JMotAOdXUNNDT0P3jw4u3bD+Pjn8nHYkpJqaOZ+Cw2trqoqMtiefrp0zgZyC6p0Db7+D0y8nFszIn4swT+hw//pskI8/MrSU+/aDTeGRh4SdanJANasfLy2mlKxubMOZ6T09LU9AdeIFmNX8qh0Uk+fhxHwws3Nl4OuiYbFAPf0qU1BkPv3bt/Cdflk3JoCNDv3n0S5q6t7WNYAwPLNm68eu7c78+f/0M6yZRL0IwEiKGsrBv5+R3d3YMfPoyRz5RqEqDVlwdaLXmg1ZIHWi15oNWSB1oteaDVkgdaLSmHLi4u1vDI39+f9J5UuQo9d+7c7ynt2LGD9J5UuQq9fv168oH75YF2VkREhFarHR4mz/EdSkhIQITBwYkfCCXKjdBZWVlw6OzsJB/YNTIy4u3tHRYWRj6QIDdCV1dXw8FgmPg7DbZ6e3vxVK/Xkw8kyFVoTplMJjjcu3cP12vXrmX8Hz16VFJSYrFYmNvy8nI8NRqNX+PJkKvQnENef3+/7csR1HhQUNDMmTMZ/wMHDsB/9erVzG1mZiZu+/r6HAGly1Voge4BZWRkwOfJkye4XrZs2YwZM/z8/NCbcRseHh4YGDg2puQEx73QpaWl8Kmvrx8aGvLy8jpz5gz+bW1tffbsGcrT09PJCtLkXmir1QqfvLy8hoYGHx+fN2/eJCYm7t27t7GxUcP/jYrKvdCjo6O+vr7oGNnZ2WlpaSgB6Pz584uKilDXbDaTFaTJvdBQUlISuENDQysrK3GLLw+15s2bp9PpmM6tQG6HLiws1NiFIY8pwSeIWzS/s6MMuR26ubkZbtHR0Y6S3NxclBQUFLC85Ek59H8oD7RampLQ/wLpOMw4tm02kwAAAABJRU5ErkJggg==</imageIcon>
+      <name>Fw</name>
+      <loops>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[13]"/>
+            <cell reference="../../../../../../cells/cell[14]"/>
+            <cell reference="../../../../../../cells/cell[16]"/>
+            <cell reference="../../../../../../cells/cell[15]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[5]"/>
+            <cell reference="../../../../../../cells/cell[17]"/>
+            <cell reference="../../../../../../cells/cell[28]"/>
+            <cell reference="../../../../../../cells/cell[12]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[6]"/>
+            <cell reference="../../../../../../cells/cell[20]"/>
+            <cell reference="../../../../../../cells/cell[27]"/>
+            <cell reference="../../../../../../cells/cell[9]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[3]"/>
+            <cell reference="../../../../../../cells/cell[18]"/>
+            <cell reference="../../../../../../cells/cell[30]"/>
+            <cell reference="../../../../../../cells/cell[11]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[4]"/>
+            <cell reference="../../../../../../cells/cell[21]"/>
+            <cell reference="../../../../../../cells/cell[29]"/>
+            <cell reference="../../../../../../cells/cell[8]"/>
+          </cells>
+        </Loop>
+      </loops>
+      <cost>1</cost>
+    </move>
+    <move>
+      <imageIcon>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</imageIcon>
+      <name>Fw&apos;</name>
+      <loops>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[15]"/>
+            <cell reference="../../../../../../cells/cell[16]"/>
+            <cell reference="../../../../../../cells/cell[14]"/>
+            <cell reference="../../../../../../cells/cell[13]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[12]"/>
+            <cell reference="../../../../../../cells/cell[28]"/>
+            <cell reference="../../../../../../cells/cell[17]"/>
+            <cell reference="../../../../../../cells/cell[5]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[9]"/>
+            <cell reference="../../../../../../cells/cell[27]"/>
+            <cell reference="../../../../../../cells/cell[20]"/>
+            <cell reference="../../../../../../cells/cell[6]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[11]"/>
+            <cell reference="../../../../../../cells/cell[30]"/>
+            <cell reference="../../../../../../cells/cell[18]"/>
+            <cell reference="../../../../../../cells/cell[3]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[8]"/>
+            <cell reference="../../../../../../cells/cell[29]"/>
+            <cell reference="../../../../../../cells/cell[21]"/>
+            <cell reference="../../../../../../cells/cell[4]"/>
+          </cells>
+        </Loop>
+      </loops>
+      <cost>1</cost>
+    </move>
+    <move>
+      <imageIcon>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</imageIcon>
+      <name>Bw</name>
+      <loops>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[23]"/>
+            <cell reference="../../../../../../cells/cell[24]"/>
+            <cell reference="../../../../../../cells/cell[26]"/>
+            <cell reference="../../../../../../cells/cell[25]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[10]"/>
+            <cell reference="../../../../../../cells/cell[32]"/>
+            <cell reference="../../../../../../cells/cell[19]"/>
+            <cell reference="../../../../../../cells/cell"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[7]"/>
+            <cell reference="../../../../../../cells/cell[31]"/>
+            <cell reference="../../../../../../cells/cell[22]"/>
+            <cell reference="../../../../../../cells/cell[2]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[11]"/>
+            <cell reference="../../../../../../cells/cell[30]"/>
+            <cell reference="../../../../../../cells/cell[18]"/>
+            <cell reference="../../../../../../cells/cell[3]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[8]"/>
+            <cell reference="../../../../../../cells/cell[29]"/>
+            <cell reference="../../../../../../cells/cell[21]"/>
+            <cell reference="../../../../../../cells/cell[4]"/>
+          </cells>
+        </Loop>
+      </loops>
+      <cost>1</cost>
+    </move>
+    <move>
+      <imageIcon>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</imageIcon>
+      <name>Bw&apos;</name>
+      <loops>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[25]"/>
+            <cell reference="../../../../../../cells/cell[26]"/>
+            <cell reference="../../../../../../cells/cell[24]"/>
+            <cell reference="../../../../../../cells/cell[23]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell"/>
+            <cell reference="../../../../../../cells/cell[19]"/>
+            <cell reference="../../../../../../cells/cell[32]"/>
+            <cell reference="../../../../../../cells/cell[10]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[2]"/>
+            <cell reference="../../../../../../cells/cell[22]"/>
+            <cell reference="../../../../../../cells/cell[31]"/>
+            <cell reference="../../../../../../cells/cell[7]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[3]"/>
+            <cell reference="../../../../../../cells/cell[18]"/>
+            <cell reference="../../../../../../cells/cell[30]"/>
+            <cell reference="../../../../../../cells/cell[11]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[4]"/>
+            <cell reference="../../../../../../cells/cell[21]"/>
+            <cell reference="../../../../../../cells/cell[29]"/>
+            <cell reference="../../../../../../cells/cell[8]"/>
+          </cells>
+        </Loop>
+      </loops>
+      <cost>1</cost>
+    </move>
+    <move>
+      <imageIcon>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</imageIcon>
+      <name>z</name>
+      <loops>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[13]"/>
+            <cell reference="../../../../../../cells/cell[14]"/>
+            <cell reference="../../../../../../cells/cell[16]"/>
+            <cell reference="../../../../../../cells/cell[15]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[25]"/>
+            <cell reference="../../../../../../cells/cell[26]"/>
+            <cell reference="../../../../../../cells/cell[24]"/>
+            <cell reference="../../../../../../cells/cell[23]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[5]"/>
+            <cell reference="../../../../../../cells/cell[17]"/>
+            <cell reference="../../../../../../cells/cell[28]"/>
+            <cell reference="../../../../../../cells/cell[12]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[6]"/>
+            <cell reference="../../../../../../cells/cell[20]"/>
+            <cell reference="../../../../../../cells/cell[27]"/>
+            <cell reference="../../../../../../cells/cell[9]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[3]"/>
+            <cell reference="../../../../../../cells/cell[18]"/>
+            <cell reference="../../../../../../cells/cell[30]"/>
+            <cell reference="../../../../../../cells/cell[11]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[4]"/>
+            <cell reference="../../../../../../cells/cell[21]"/>
+            <cell reference="../../../../../../cells/cell[29]"/>
+            <cell reference="../../../../../../cells/cell[8]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell"/>
+            <cell reference="../../../../../../cells/cell[19]"/>
+            <cell reference="../../../../../../cells/cell[32]"/>
+            <cell reference="../../../../../../cells/cell[10]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[2]"/>
+            <cell reference="../../../../../../cells/cell[22]"/>
+            <cell reference="../../../../../../cells/cell[31]"/>
+            <cell reference="../../../../../../cells/cell[7]"/>
+          </cells>
+        </Loop>
+      </loops>
+      <cost>0</cost>
+    </move>
+    <move>
+      <imageIcon>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</imageIcon>
+      <name>z&apos;</name>
+      <loops>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[15]"/>
+            <cell reference="../../../../../../cells/cell[16]"/>
+            <cell reference="../../../../../../cells/cell[14]"/>
+            <cell reference="../../../../../../cells/cell[13]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[23]"/>
+            <cell reference="../../../../../../cells/cell[24]"/>
+            <cell reference="../../../../../../cells/cell[26]"/>
+            <cell reference="../../../../../../cells/cell[25]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[12]"/>
+            <cell reference="../../../../../../cells/cell[28]"/>
+            <cell reference="../../../../../../cells/cell[17]"/>
+            <cell reference="../../../../../../cells/cell[5]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[9]"/>
+            <cell reference="../../../../../../cells/cell[27]"/>
+            <cell reference="../../../../../../cells/cell[20]"/>
+            <cell reference="../../../../../../cells/cell[6]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[11]"/>
+            <cell reference="../../../../../../cells/cell[30]"/>
+            <cell reference="../../../../../../cells/cell[18]"/>
+            <cell reference="../../../../../../cells/cell[3]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[8]"/>
+            <cell reference="../../../../../../cells/cell[29]"/>
+            <cell reference="../../../../../../cells/cell[21]"/>
+            <cell reference="../../../../../../cells/cell[4]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[10]"/>
+            <cell reference="../../../../../../cells/cell[32]"/>
+            <cell reference="../../../../../../cells/cell[19]"/>
+            <cell reference="../../../../../../cells/cell"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[7]"/>
+            <cell reference="../../../../../../cells/cell[31]"/>
+            <cell reference="../../../../../../cells/cell[22]"/>
+            <cell reference="../../../../../../cells/cell[2]"/>
+          </cells>
+        </Loop>
+      </loops>
+      <cost>0</cost>
+    </move>
+    <move>
+      <imageIcon>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</imageIcon>
+      <name>F2</name>
+      <loops>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[13]"/>
+            <cell reference="../../../../../../cells/cell[16]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[14]"/>
+            <cell reference="../../../../../../cells/cell[15]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[5]"/>
+            <cell reference="../../../../../../cells/cell[28]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[6]"/>
+            <cell reference="../../../../../../cells/cell[27]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[17]"/>
+            <cell reference="../../../../../../cells/cell[12]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[20]"/>
+            <cell reference="../../../../../../cells/cell[9]"/>
+          </cells>
+        </Loop>
+      </loops>
+      <cost>1</cost>
+    </move>
+    <move>
+      <imageIcon>iVBORw0KGgoAAAANSUhEUgAAADwAAABkCAIAAABVQ8S/AAAFkElEQVR4Xu2YW0gcVxjHV11RxGAUvOTRh7ASfPDFC0ikEIyC+qIQxCqohCAokUQCPrYWWlMbAq59KV4ovqRYDLZFizEGFSs20EKiFBRdfSgYwUuIGvei2z8OOXv2m9nZmZ1xdofOj0PIft+5/HY8ey5j85sQGw2YAUvaKCxpo7CkjcKSNor/q/TBwceXLzefPl26d+/XW7d+dDicGRmP7fYeFPwHHxFEChVQDZVpe/VELn14eDo2ttrW9tuNG9/bbF8oLKiMJmiI5rRHxUQi7XIdPHnyx82bw2In5QXN0Qm6or0rQJ30+/enAwN/lpQMiiUiK+gKHaJbOpIsKqRfvNi4c2dMPLD2gm7ROR0vNEqlnc7l69f7xePpVdA5hqCjhiC89P7+x+7umYSEL8Uj6VswBAbCcNRARBjpz6IHVeGQk8aXlm8sz+W1lZPGH0u+sTyX1zakNH4WmGTyjeXR2FbmdyktjQVIWCs0DkxDikFbCIRaByWksdSz9VjjwDSkGLS1XazfkvuOhDS2KLYMaRyYhhQjSKNAhubE0jgM8Lu0xoFpSDFMGjLi8wmVxiGGGceCNAqUSDZIGsdFcnbTODANKYaXhhI5xwZJ45jLG8eINArE+GyQNI7nsSkNMT4bkMZFSHwH0TgwDSmGSEOMv6cFpHGBI8axI40CPZYNSOPiGcvS0GPZgDQuzLEsDT2WDUjjoh/L0tBj2YC0w+GMZWnosWxAOiPjcSxLQ49lA9J2e08sS0OPZcNLRwtF0qacHqb8IZpyyTPl5mLKbdyUByZTHk39ZrwE+E163TLlxdZvxlcIfpO+rPGb8bWY36QvIP1mfNUr4HQux8eb6qU6WFjYTkzs0TgwDSlGvq209Js379LSvonu9KAhDgnp9fW9zMxvo/5DpCEOCenu7pmrV3uZdLSgWhwS0sDrPXv1yvXo0XRe3gBbs8OWsrIR2lE4zs7OP3xwv3377tmzlelp6bVCjLQ0z8bGfn//8u3bo0lJX4lFSVld3aXtRZyfB330+c6Pjz2S63Eowksz8EieP//n7t1frl37TqwrlPv3p2izS0CFNAOP6vXrf3t65goLf8Bazkvjx4DHRhtwoC0ercdzholBc4qJRJpnZ+doePjvurqfrlz5WvAeHPyLVvqEYHxy4oU0zalBqzTD7fbNzGw+ePB7ff3PNMdBJnRk6CZtJJa0UVjSRmFJG4UlbRSWtFFY0kZhSRtFhNJLS0s2jri4uPT09LKysqGhIdxJWDWPxzM5OdnS0pKfn5+WlpacnJyXl9fV1bWzs8N1phpN0vHx8Z9fUF9fD+PExEQE6+rqWLWFhQXhW+Xk5FRXV1dVVWVlZeEj/l1dDXq5rwpN0klJSXxwbW0NjxPxiYkJIQLpoqKiqamp8083lqOjo5qaGtQpLCwMtFSJntKgqakJ8Y6ODuHjyckJ02Vsbm4Kj399fZ2kFKKzdHt7O+Ktra0kTrDb7aiGvwNNKENn6ZKSEsR7e3tJnIc96e3tbZpThj7SXq/X5XI9fPgQwczMzN1dufdMQrXi4mKaUIwmaQIWvubm5q2tLVqbY25uDnMjISFhcXGR5hSjSZoseampqXj2mNZut5s2uADfR1jy+vr6aE4NmqTJnN7b2ysvL0e8s7OTjwtgzjgcDmTb2tpoTiV6SgNsGYhjl8Fix8cPDw8LCgpsF1sPv2VGhs7S+EViZiO1srLCgsfHx6WlpQhiUww1c1ShszRWMeFHid1RiMCyoqJCR2O/vtJ4zI2NjYjn5uYKG6HP56utrUWksrLy9FTFa3N5NEmz1aOhoQGHoezsbARTUlJmZ2eFauPj47aLpRBTWajJMz8/H9yrUjRJM6CF9Q7nT6wb2PBYtdHRUb4aYWRkJNCjGiKUji6WtFGYUvo/IZfb4Lq5bywAAAAASUVORK5CYII=</imageIcon>
+      <name>B2</name>
+      <loops>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[23]"/>
+            <cell reference="../../../../../../cells/cell[26]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[24]"/>
+            <cell reference="../../../../../../cells/cell[25]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell"/>
+            <cell reference="../../../../../../cells/cell[32]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[2]"/>
+            <cell reference="../../../../../../cells/cell[31]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[19]"/>
+            <cell reference="../../../../../../cells/cell[10]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[22]"/>
+            <cell reference="../../../../../../cells/cell[7]"/>
+          </cells>
+        </Loop>
+      </loops>
+      <cost>1</cost>
+    </move>
+    <move>
+      <imageIcon>iVBORw0KGgoAAAANSUhEUgAAADwAAABkCAIAAABVQ8S/AAAInUlEQVR4Xu2ae0wURxzH7+B4JECpj1oKgia2vGKCaYuQShWLRRO1RmiutGriC0NrQgJI4j+WeqCtoBKBamKp1CAWH6hYFZTHHRLbtE2oaSVNRFETm1ATBa08hV6/3oR1b2Z3bne9bkp63/xCbnd+8/t9bnZ2XofBPgFloG9MBHmg9ZIHWi95oPWSB1ov/V+he3sHW1q6S0t/2LTpu5SUw1FR5ZMn7zKZLDB8wCVuoggOcIMzXV+9tEP39Q2dONGZlXUuNvZLg+EzhQZnVEFFVKcjKpYW6Fu3evfs+f7ttw+xTMoN1REEoejoCqQO+uHDoYqKnxITK1kIbYZQCIiwdCauVEA3Nd00m0+wiZ/fEBbB6XzyUgpdXv7ja6+VsfncZQiOFHRWGbmGfvBgcOvWZm/v7Wwm9xpSIBHS0QSMXEC/9VZqWFgmm+DfM6RD0uTkZBpFJB40vrRa4sDAotdf3/f++5V5eUcjIz/EB1ziJuvJsZUrv0pKepemEYkHjYfFRpS0gIDCBQu+zM09+s03523jQmuRD7iJIjjAja0raRER62kakWSh8Voo6cchIV+YzV+XldULrIIEaEFwgzOqsHEoMxoLOO+lNDQGIJdjRUBAEZ7j/v1nKTJBLDQRqqAiqrMxxQYAuXFQAhpDvcvx+I039hUUHKdxnCUHTYTqCMJGFhswJOcdCWhMUWx9saGdjhxpoCkY8aEhBEEoNr7YAEPzsdBYDPBnaaRpbaXTS8olNIRQfG7AsOsTGhqLGLamYHigStqYSAm0zdHe/H4CJArSCRrLRc7aDa+Oy34slkJom6N/c95LIFHrWCdoLHPZOoLhOdLZuFIODfE7CcDEnE7QWJ6zFYhhcOWMbpJSBY3gnPEbYGLOZ9DYCHH2IJgU6DyupAoaQgo2LzGAifdpz6CxgWO9iWH6lZzz+FILjRSceR54EtDYeLKuxLBsoDMokFpoCInY7MSAJwGNDTPrSgzLHTq8AmmARiI2OzHgSUBjo8+6GhyrTfHaTbk0QCOR3DoWeBLQUVHlrCsMC2I6tjJpgIaQjmWAAU8CevLkXawrDAt5OrAyaYNGOpYBBjwJaJPJwrrCsAehAyuTNmikYxlgwFMBjV1Tso5COpZBFnpCdo8J+SJOyCFvQk4uE3Ia13nBtGZN1bFjF8V3tCyY9Fyanj3b7OdnCQvbdeZMk3BTy9LUruMm4JNPqknYV1/dff58i03zJsCu13bLarWFhxcLYePiShsbW7Rvt/TZ2O7de4aKHB29R26kM7jc2Np1OUKQHCK8vLYbjfRNYi6OEOwKDmvS0p7rsKau7pLcuSa42ZuKDmvs3GMxNIavr2X16qrjx51GK0lJQq9fLz3vEmO5FR2L2bkHkD4+lhdeKMIr//HH1TU1LvoJC41H9PLLskMEMXEnUXEAaZc56kUz4F2MiCheuHB/Ts7Rgwe/a2hoaW21UmSCWOidO+tYSjlTd9RLxB6qo5knTdrx5pv7Nm48XFFRjwmiufkpsVUGm4VOSKAbQs7Q3qoP1YnEP18gir+/ZebM4vfeO7hjx0m8Ty0tVjlcIgr6228b2S4rZ0bjp+3td2igcfGgxT8UmUzb0cxoquzsmqqq85gO0DFcQsNB8PnoI9kZQNKCgz//9dc/aSaHeNB2x09ymKu8vD4LCiqKidnzwQdfl5ScOn3adTPbnFu6qal10qSdLBnfXnqpuKvrPs3kEhqJk5LenTlzbWDgltDQTTEx5oSEJfPnv5P8TAtFn2UVG2tmmVzaiy9+gS5KM7mEFnTp0s3a2mu//fbnX38Nj439TRe70vz5VSyTnEVHV+TnX7Jabz15MkYHckgptN0xfvf3j4yOOhH/rYC/s/MeS0aZn19hamp1WdmPN28+oOszUgGtWdnZDSwlsVde2b1x49nTp3/HA6SryUs7NDrJyMgYGp7f2Hg46JpiUAx88fEHLZa2n3/+g19XTtqhIUAPDDzhc1dWdhDWoKCd6enHDh36pafnMe2kUs8FTcQhhjIyTubkNDY3dw8Pj9JlWuUGaP3lgdZLHmi95IHWSx5oveSB1kseaL3kgdZLiqALCgoMMgoICKC9uRoZGblw4cK6detmz54dHBzs7+8fHR2dl5fX09NDu8pLBfT06dNXMdqwYQPtzVV7ezv5tiEhIcuWLVu6dOm0adNwib+dnU7H/RypgF6xYgVdoF6Anjt3bkNDg7BFe/z48fLlyxE/Pj7e2VdWekMPDAywO8ru7m7S/F1dXVSRpNwDHR4ebjQae3vpI3tBcXFxiAA4umBcJpMJDngOdIGU3AOdkZEBh4sXL9IFDvX393t7e4eGhtIF4xJa+s4d2ZNSsdwDXVFRAQeL5dm/ZIjV1taGUrPZTBeMKzc3Fw4JCQl0gYxUQEuqqakJDlevXsVnDAXE//r164WFhVarlVwWFxejtKysbDyek/CV0DfwKK5cuUKXyUgFtOSQd+3aNfvT06YxDLpTp04l/tu2bYP/okWLyGVaWhouOzo6hICCbt++TYa8kpISukxeKqA53QNasmQJfG7cuIHPGNSmTJni5+eH3ozLsLCwoKCg0VH6sObevXtRUVGolZWVRRXx5TbooqIi+NTU1Ny/f9/Ly+vAgQP4e+7cubt37+J+amoq5d/X1zdnzhwUpaen40FRpXy5Ddpms8EnOzu7trbWx8fn0aNHeLE2b95cV1dnYN5RPIF58+bhPibF4WEV56VEboMeHBz09fVFx1i7dm1KSgruAHTWrFn5+fmo29raKniCcvHixZqJ7W6EhhITE8GNRUVpaSku8eah1owZMzA4kM4NoWeT9xLvwNCQxA+bSuRO6C1bthgcwpBH7uAVxCWaX/A5deoU7mD6RFemR6JVqy5fvix4cuRO6Pr6erhFRkYKdzIzM3EHc4dwp7q6mnwxSVVVVQmeHCmC/q/JA62XJiT0P/Z7GS78ISwsAAAAAElFTkSuQmCC</imageIcon>
+      <name>Fw2</name>
+      <loops>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[13]"/>
+            <cell reference="../../../../../../cells/cell[16]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[14]"/>
+            <cell reference="../../../../../../cells/cell[15]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[5]"/>
+            <cell reference="../../../../../../cells/cell[28]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[6]"/>
+            <cell reference="../../../../../../cells/cell[27]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[17]"/>
+            <cell reference="../../../../../../cells/cell[12]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[20]"/>
+            <cell reference="../../../../../../cells/cell[9]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[3]"/>
+            <cell reference="../../../../../../cells/cell[30]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[4]"/>
+            <cell reference="../../../../../../cells/cell[29]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[18]"/>
+            <cell reference="../../../../../../cells/cell[11]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[21]"/>
+            <cell reference="../../../../../../cells/cell[8]"/>
+          </cells>
+        </Loop>
+      </loops>
+      <cost>1</cost>
+    </move>
+    <move>
+      <imageIcon>iVBORw0KGgoAAAANSUhEUgAAADwAAABkCAIAAABVQ8S/AAAGs0lEQVR4Xu2abUhUWRjHJx0zIrE0e0VEokZCqC+WEMmCZUL1RUGkLajIEAyjF8Evwe4Yu2YbwswswVLKIoJLW+Gu5FaWmbjiBq6UspClCS1YYFr5Ni96999cPHPmuXfu3LlT17ns/DnIPc9zXn73zjnPeUGTYECZqMEIikLrpSi0XopC66UotF76v0KPj888eDBUW9t98uTvubk/Wyz2pKRLZrMVCQ/IwggXCqAYCtP6oUs79MTE7I0bA6WlLVu3/mgyfaMyoTCqoCKq0xZVSwv08PD4lSt/7t5dJ2VSn1AdjaAp2roKhQb9/v2sw/FXdvY1KYS2hKbQIJqlPSkqBOj7918WFd2Qdhx+QrNonPYXWGqh7faezZtt0v4+V0Lj6IL2GkDBod+9m6msbIuN/Vba0+dN6AIdoTtKIFEQ6K8WTxSFkxI0Xlq5srK+XF0laPxYypWV9eXqBoTGtMAgU66srDDrKsxLeWgEIDFWhNkxNakW6gIgUByUgUaoZ/E4zI6pSbVQ1+SN37Lrjgw0ligWhsLsmJpUS4RGAgz1SaGxGeBX6TA7pibVYtCAke5PKDQ2MYw4EqCRgES8ftDYLpK9W5gdU5Nq8dBAIvtYP2hsc3niCIFGAhjv9YPG9jwyoQHGe33QOAhJzyBhdkxNqkWgAcaf03zQOMAR4siBRgIe8/qgcfCMZGjgMa8PGgfmSIYGHvP6oHHQj2Ro4DGvD9pisUcyNPCY1wedlHQpkqGBx7w+aLPZGsnQwGPe4NCLJVXQhhwehpyIhgx5hlxcDLmMG3LDZMitqWDEQ4Bg0OOWIQ+2ghGvEASDXtYIRrwWEwx6ASkY8apXlN3eExNjqEt1qLNzJC7OGmbH1KRaynXloZ8+fZOY+P3iDg9q4iQDPTg4lpJSs+gTkZo4yUBXVratXFnNoBdLFIuTDDTkds+1tw9XVNzLyHCwmB005eTU04aCaW5u/uNH57Nnb5qa+u/dk48VUslD83r58p3N1pOX1xAfXyUFJWlg4C2tL9H8vF/W45mfmnLJxuNACg7NhE9y+/Y/J078tn79D1JcMZWXt9JqX0AhQDPhUz158q/V2pGV9RNiOQ+NyYDPRitwQl18WpdrDgOD+lRLCzSv0dHJurq/Cwt/SUj4TuS+dq2XFlqQSDw97QY09YWicKGZnE5PW9vQmTN/FBf/Sn2cyIDWps8Graei0HopCq2XotB6KQqtl6LQeikKrZei0HopOHR3d7eJ05IlS1atWpWTk3P9+nUcP2jpYHK5XHfu3Dl27FhmZmZiYuKyZcsyMjLOnTs3OjpKiwaWWuiYmJivvSouLgZxXFwcjIWFhbR0MHV2doovv27dugMHDuzfv3/NmjXI4u/AgN91v4LUQsfHx/PG58+f4zvB3tzczNuDCtA7duxobW2dXzjDTE5OHjx4EE1lZWX5lw0ojdDQkSNHYD916hSxK2t6eprhMg0NDYmff3BwkLhkpR26rKwM9uPHj+M5NTUVY318nF7ZM23btg2FAUcdCzKbzSiA34E65KQdOjs7G/bq6mo8Y6Dj+e7du6SMqKmpqdjY2A0bNlDHgtiXHhkZoT45hQztdruHh4fPnj0LY0pKytu3n66UHA4Hslar718yeHV0dMBbVFREHQsSW9u5cyd1BJBaaCIMhqNHj7569Uos09fXByNCgZjFNK2qqmpvbxezNTU18NpsNjFLhFfC2MBP0dXVRX0BpBaahLwVK1bg22NYO51O4dM94hyCyerVq8UqFy5cQJU9e/aI2YKCAmR7e2UucfDaYsi7fPky9QWWWmgypsfGxvbu3Qv76dOnRUt+fj6yL168wDOCWnJyMqpgNCO7cePGhIQEj8fDtwBhaFksFtQqLS0lLmVphIawFsCOVQZRDNmLFy8i29jYiPfBz3L16lX8bWlpef36Nex5eXmk+sTExPbt203eFSrUlVU7NGYkRjZc/f39yD569AjP5eXlTU1NeJMPHz5gYmH83Lx50ySZo/gFdu3aBTsWRXGAhSTt0AhPJq8w7ZCdmZlZunQpBgYmaG5uLiwA3bRpU0VFBco8fPiQVQTlvn37NBMLmqHxmQ8fPgx7eno6W+EQucGNTUVtbS2ymHkokJaWhuAgDm7h0xW6R5yXmAOzsyFcpPNSC82ix6FDhxDa1q5dC+Py5cv5T3j+/Hn+2wveKYgsPj8rc+vWLZM3YmIoiw3yevz4MSupILXQTOgP8Q4bS8QNsixj84QCW7ZsYZaSkhJYsHYwS0NDA98aUX19PSupoODQEagotF4yJPR/ACUdxpJFb7sAAAAASUVORK5CYII=</imageIcon>
+      <name>Bw2</name>
+      <loops>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[23]"/>
+            <cell reference="../../../../../../cells/cell[26]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[24]"/>
+            <cell reference="../../../../../../cells/cell[25]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell"/>
+            <cell reference="../../../../../../cells/cell[32]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[2]"/>
+            <cell reference="../../../../../../cells/cell[31]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[19]"/>
+            <cell reference="../../../../../../cells/cell[10]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[22]"/>
+            <cell reference="../../../../../../cells/cell[7]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[3]"/>
+            <cell reference="../../../../../../cells/cell[30]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[4]"/>
+            <cell reference="../../../../../../cells/cell[29]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[18]"/>
+            <cell reference="../../../../../../cells/cell[11]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[21]"/>
+            <cell reference="../../../../../../cells/cell[8]"/>
+          </cells>
+        </Loop>
+      </loops>
+      <cost>1</cost>
+    </move>
+    <move>
+      <imageIcon>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</imageIcon>
+      <name>z2</name>
+      <loops>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[13]"/>
+            <cell reference="../../../../../../cells/cell[16]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[14]"/>
+            <cell reference="../../../../../../cells/cell[15]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[23]"/>
+            <cell reference="../../../../../../cells/cell[26]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[24]"/>
+            <cell reference="../../../../../../cells/cell[25]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[5]"/>
+            <cell reference="../../../../../../cells/cell[28]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[6]"/>
+            <cell reference="../../../../../../cells/cell[27]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[17]"/>
+            <cell reference="../../../../../../cells/cell[12]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[20]"/>
+            <cell reference="../../../../../../cells/cell[9]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[3]"/>
+            <cell reference="../../../../../../cells/cell[30]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[4]"/>
+            <cell reference="../../../../../../cells/cell[29]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[18]"/>
+            <cell reference="../../../../../../cells/cell[11]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[21]"/>
+            <cell reference="../../../../../../cells/cell[8]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell"/>
+            <cell reference="../../../../../../cells/cell[32]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[2]"/>
+            <cell reference="../../../../../../cells/cell[31]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[19]"/>
+            <cell reference="../../../../../../cells/cell[10]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[22]"/>
+            <cell reference="../../../../../../cells/cell[7]"/>
+          </cells>
+        </Loop>
+      </loops>
+      <cost>0</cost>
+    </move>
+    <move>
+      <imageIcon>iVBORw0KGgoAAAANSUhEUgAAADwAAABkCAIAAABVQ8S/AAADZklEQVR4Xu2VPUgrQRDHTxQJWMRKRLHWwsJGDVhop6A2BlR4IqTTVosUIqQULBWClYXWgoXa+kEqS7EKhNiFVBYa/PYN7nvn7OzLZe82u+eD+bEImZ3/7O/WI/E+7ZDzPFi02iRszf3p0l96OVL80dK53Dks4Y3VVWnRKRauRyCcND6Y6BJvVRr3qHNwZ0N0pespkvp3vyId/Kih1LWk/WPI9YhjiO6fiCKNUef482nrv6g710dM9BU1CZZW8dV1TtGai2+CLNr6l2BpdU6Tb1qAR+OlHi/WhDcBS60Hz6Gn1kFXWqBzvM5S59CTAgknraIeL1bwTdMpITGVroe4UlptErbmsjTF1lyWptiaG6f0RHxQFURj6fOoGGapCoKlZQyzVAXB0jKGWaqCYGkZwyxVQbC0jGGWqiBYWsYwS1UQLC1jmKUqCJaWMcxSFQRLyxhmqQqCpWUMs1QF0Vg6LqgKorE0LWljL8vSMvayLC1jL8vSMvayLC1jL8vSMvayLC1jL8vSMvayLC1jL8vSMvayjaXjgqogGkj/TFjaFSztCpZ2BUu7gqVdwdKuYGlXsLQrWNoVLO2KiNI7Ozue542NjZH6xsYG1BcWFsTHl5eX09PTTCYzODiYTCYTicTAwMD6+nqlUpFz4bArfXV15X3R3d09MzMzPT3d1dUFH+Hv7e2tHA2BdemRkZGzs7OPjw9ReXh4mJ2dhZ7h4eHvWEjsStdqNV/Xp1QqiesvFotkSxO70vVoa2uDNvg/0A09YpD2b/ru7o7u6RGD9NraGvSMjo7SDW1cS19cXMC70draWigU6J42TqXL5bL4ytve3qZ7YYgovbu7GyC9uLhI6kC1Wu3v74fdlZUVuheSiNL5fD5AemlpidTv7++HhoZgK51Ov7+/k92wRJQ+PDwEg1QqRerZbBbqq6uruPj4+AiPB3X4UXx+fsZb0YgofX19DRJ9fX2kDncM9a2tLb8ClpOTk000/ows/fr62tPTAyp7e3t+EZ6ko6MDijc3N6Ly9vY2NzcHlampqaenJ7/TkIjSwPHxcXt7OwjByzo/Pz8+Pi5+5zY3N/2eo6MjqLS0tMCr/Evh8vISzQtBdGkAbnR5ebm3txd0Ozs74TpPTk5ww8HBgVef/f193KyPkXRcsLQr/kvp31jLyWx9TEZqAAAAAElFTkSuQmCC</imageIcon>
+      <name>U2</name>
+      <loops>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell"/>
+            <cell reference="../../../../../../cells/cell[6]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[2]"/>
+            <cell reference="../../../../../../cells/cell[5]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[3]"/>
+            <cell reference="../../../../../../cells/cell[4]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[13]"/>
+            <cell reference="../../../../../../cells/cell[23]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[14]"/>
+            <cell reference="../../../../../../cells/cell[24]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[17]"/>
+            <cell reference="../../../../../../cells/cell[7]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[18]"/>
+            <cell reference="../../../../../../cells/cell[8]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[19]"/>
+            <cell reference="../../../../../../cells/cell[9]"/>
+          </cells>
+        </Loop>
+      </loops>
+      <cost>1</cost>
+    </move>
+    <move>
+      <imageIcon>iVBORw0KGgoAAAANSUhEUgAAADwAAABkCAIAAABVQ8S/AAADjElEQVR4Xu2WvS90QRSH7waJwkcnCiLZCAoJDQqNjoRVUAhbUaCm0Ci22kbyBv+AQq+kZX0k/gCVROhQKRDfnJjX5MwZe+/cnZm7NjlPJhK/OefMc6/r7gafFUhAg0qApZOCpZOCpZOCpZOCpZOCpZOCpZOCpZMiQnqofFAVRLQ0jYzx18vSKv56WVrFXy9Lq/jrZWkVf70sreKvl6VV/PWytIq/XpZW8dfL0ir+eqOlywVVQURL75eKZS9VQbC0imUvVUGwtIplL1VBsLSKZS9VQbC0imUvVUGwtIplL1VBsLSKZS9VQbC0imUvVUGwtIplL1VBsLSKZS9VQURLlwuqgoiQLplcEMCiqSN8zWVpiq+5f136Wy9Hwj8tncvtwxLeWF2XFpVi4bwE4knjg4ku8c6lUkQa1+hzcGUkptLFFEku6/+1tOTr69EA5YKLzcH1IRhJy2PI7RHHEN3/Ld8pCSX6HDmflv5G0bkSMVEqGhIurSPVTU4xmovvBFm09IdwaX2O4zstwKPx0o8XaygYgqXn4XPoqUUwlRaYHG+y9Dn0pFDiSevox4sVfqfplJjYShdD3FKaOsLX3IqU9gpLJwVLJ0WJ0isrK8EPDQ0NnZ2dc3NzJycnpOzl5WV3d3d2dra7u7uxsbG2trarq2t5efn6+ppUxsJKuq2tLZvNZjKZdDotLmBhYeH19VWWHR4eiry5uXlsbGx0dLSpqQl+hZ9nZ2doXjyspKempmRydHTU2toK4erqqgxBur+/f29v7+PjQyT39/dwkVDW19cny+LiTBo4PT2FsKam5ubmRiSPj49SV3JxcSFu//n5OdkyxKU00NPTA/nGxgbJCdXV1VAGfwe6YYZj6fn5echnZmZIjpF3+urqiu6Z4Vg6n89DDs8xyTFLS0tQMzAwQDeMcSy9ubkJObwBSS45ODiAZ6Oqqur4+JjuGeNYGp7mEOnLy0vxyltbW6N7cXAsHfJ43N7ewsXA7uLiIt2LiWNp8Y84PT1N8ru7u97eXtianJx8f38nu3FxLC1eeevr6zh8eHgYHByEHD4Un5+f8VZpuJSWHy74qwVYDg8POzT+dCj968f429vbxMQEhCMjI09PTzK3xEpafGEaHx9vb28PvoFnGn9h2tnZgTCVSsGjnNUoFApoZAyspAV1dXUdHR3w1VR/9W5vb8syna2tLVJvSInS5YWlk6Iipb8AE067Gr6JLEYAAAAASUVORK5CYII=</imageIcon>
+      <name>D2</name>
+      <loops>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[27]"/>
+            <cell reference="../../../../../../cells/cell[32]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[28]"/>
+            <cell reference="../../../../../../cells/cell[31]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[29]"/>
+            <cell reference="../../../../../../cells/cell[30]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[15]"/>
+            <cell reference="../../../../../../cells/cell[25]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[16]"/>
+            <cell reference="../../../../../../cells/cell[26]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[20]"/>
+            <cell reference="../../../../../../cells/cell[10]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[21]"/>
+            <cell reference="../../../../../../cells/cell[11]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[22]"/>
+            <cell reference="../../../../../../cells/cell[12]"/>
+          </cells>
+        </Loop>
+      </loops>
+      <cost>1</cost>
+    </move>
+    <move>
+      <imageIcon>iVBORw0KGgoAAAANSUhEUgAAADwAAABkCAIAAABVQ8S/AAAD7ElEQVR4Xu2Wuy80URiHxy0EIRERhUoiSEgokNDoSBAJUW3lUmgU+Ae2pyMiCgqNSkmhce0UCiqJ0IkoSNxv+73Z4xvv+R07e2bOzqziPDmR9d7OM2fGLCcRDnHHoYXRDBHW3L8undSLQ/BPS8fju7SEN1dXpUWlWDweAH/SfGPQBW9Vmteoc3hlWnSlUylC/Kdekfa+VF/qWtLuNnA8YhvQ/W5RpDnqHHc+lv5GyrkuYqKrqIm3tIqrrrOL1lx+ErCw9D/e0uqcDJ+0gI/mS91erG6nm5Ya956Du6ZAV1qgs73OUufgTp74k1ZRtxfL+6Rxik9MpVMhjhSjGSKsuVYaCWuulUbCmptN6e7sgSqM9NK7QTHsRRWGlZYx7EUVhpWWMexFFYaVljHsRRWGlZYx7EUVhpWWMexFFYaVljHsRRWGlZYx7EUVhpWWMexFFYaVljHsRRVGeulsgSqM9NJ4CNoY9qIKw0rLGPaiCsNKyxj2ogrDSssY9qIKw0rLGPaiCsNKyxj2ogrDSssY9qIKw0rLGPaiCsNKyxj2ogrDSssY9qIKI710tkAVRhrpv4mVjgorHRVWOiqsdFRY6aiw0lFhpaPCSkeFlY4KKx0V4Uq/vb1tbW2Njo42NTWVl5cXFRU1NDTMzs5eX19jqR/ClT44OHCSVFdX9/f39/X1VVVV0a/08+zsDKu1CV26vb19e3v76+tLRB4eHgYGBsi7ra1NrvVBuNJPT0+ursvFxYU4/vPzc0hpElB6eHiYdl1aWoL45+dnTU0NpU5OTiDFyc/Ppxq6D5jQI6D0zs4O7dra2gpx+rOjeEdHB8Q57klfXV1hTo+A0nTT6+rqaOPj42MeF3dgdXWVB4GZmZm0F+ZNQGlibm6O9p6cnHQjNzc3BQUF9Gp7fHxkhRJ7e3v0bOTl5R0dHWFOm+DSt7e3hYWFZWVlruL8/DxdxtTUlFz4w+XlpXjl0QVjzg/BpYlYLMYfhsbGRvr19PRUrvqG7kN9fT3cnGAYSR8eHpJEZ2cnfabbTZ+7urqwKMnd3V1LSwsV0ENPbxhM+8RImmhubiYV+nobGxujD+vr61iRSNDzQxdDWfpSfH19xbR/TKUXFxfJZmJiorS0tKKi4vn5GQrIsqenJ4PGCXPp+/v7kpISJ8n09DRkPz4+hoaGKNXb2/vy8gLZwJhKE3TMQlr9H2hzc5PiOTk59CjHFPb396FekwxIb2xsOCm+LOgRF9fzK2tra9igRwakBwcHyWBlZQUToWEqTW86uvuVlZUe34IZJ6A0vWvHx8dHRkaKi4vpmJeXl7EiTAJKv7+/k2tubm5tbe3CwgKmQ+YfrFjluKkEKiUAAAAASUVORK5CYII=</imageIcon>
+      <name>y2</name>
+      <loops>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell"/>
+            <cell reference="../../../../../../cells/cell[6]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[2]"/>
+            <cell reference="../../../../../../cells/cell[5]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[3]"/>
+            <cell reference="../../../../../../cells/cell[4]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[27]"/>
+            <cell reference="../../../../../../cells/cell[32]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[28]"/>
+            <cell reference="../../../../../../cells/cell[31]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[29]"/>
+            <cell reference="../../../../../../cells/cell[30]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[13]"/>
+            <cell reference="../../../../../../cells/cell[23]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[14]"/>
+            <cell reference="../../../../../../cells/cell[24]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[17]"/>
+            <cell reference="../../../../../../cells/cell[7]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[18]"/>
+            <cell reference="../../../../../../cells/cell[8]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[19]"/>
+            <cell reference="../../../../../../cells/cell[9]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[15]"/>
+            <cell reference="../../../../../../cells/cell[25]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[16]"/>
+            <cell reference="../../../../../../cells/cell[26]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[20]"/>
+            <cell reference="../../../../../../cells/cell[10]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[21]"/>
+            <cell reference="../../../../../../cells/cell[11]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[22]"/>
+            <cell reference="../../../../../../cells/cell[12]"/>
+          </cells>
+        </Loop>
+      </loops>
+      <cost>0</cost>
+    </move>
+    <move>
+      <imageIcon>iVBORw0KGgoAAAANSUhEUgAAADwAAABkCAIAAABVQ8S/AAADOElEQVR4Xu2XvUvrUBiH01rQzcEPdBAEBxUdXKpDl4KDQuuiOLlcpUPn9h9wc2gp7iIdOhQ6FAqi4OQH7iLqIohuoouFaqu05v5syrknp940acJpg+9DCcnvfZM8TU5OWkV1IYoYuAGSlgVJy4KkZUHSsiBpWZC0LEhaFiQtixbSwc4hqnC0lhYj02Dfk3YxPm+3S29vnyjKNpb8kbtamhkL3iStx6Y07yp4k7QekiZpA36d9Pj4H2Ga473dIa2ts6VrpHUf/YlEukRa5by/1/+d5CdI2gLN0mrdu7HCp810lTSDpPXYlw4qQf2s0fi0lu4IdqXFyDRB21falcODpM1B0i78laeStBG/Tjroxr9bJG0FkiZpA2xKq5yrMP2RtB770mrTwNDodmm17s0d9RsXSDfTWrpTiCocLaS7E5KWBUnLgqRlQdKyIGlZkLQsSFoWJC0LkpYFScuiTemdnR2Fo6+vb2JiIhKJ3N7e8m2fn5+Hh4ebm5uzs7P9/f1om5qaisfjT09PfJtVbEmPjo5u1FlaWhoaGkLS29t7cHDA2s7Pz7VvNTIyEg6HQ6HQ8PAwNrG8ubnhjmcNW9JwZUmpVFpfX0cIe6xrIaTn5+ePjo6+vr5Y28rKCtr8fj/b1yqOSYOXlxev14u8UChoyfv7O9Nl3N/fa5f/7u5OKJnESWkwNjaGfHd3V8gFfD4f2nAfxII5HJYeHBxEnk6nhZyHXenHx0exZg4npS8vLxF6PJ7r62s+F4jFYmhbWFgQC6ZxRrpYLB4fH09OTiLc2trS9+o4PT3F2Ojp6bm4uBBrprElLYDJOJVKNT95jIeHB23KSyQSYs0KtqTZPL24uIjrh9eHwWh+fn7WbkU0GhVrFrElzY/pq6srSOO+n52dcY0NXl9f5+bmsMva2lqtVhPLFnFMGuzt7SGcmZmpVqt8/vb2FggEUMJL8ePjgy+1h5PScJ2enka+v7/PQliizUFj1VlpkM1mkeMVUy6X1frXWF1dRbK8vFypVITmtnFYGuMVwwOlZDKJzXw+r9Rnbgxl7ZHl+XH0m8FhaZDL5VAaGBjAw5fJZJT/YzDVGNOmdGchaVm4UvovmiXnwVSQcNQAAAAASUVORK5CYII=</imageIcon>
+      <name>R2</name>
+      <loops>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[17]"/>
+            <cell reference="../../../../../../cells/cell[22]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[18]"/>
+            <cell reference="../../../../../../cells/cell[21]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[19]"/>
+            <cell reference="../../../../../../cells/cell[20]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[14]"/>
+            <cell reference="../../../../../../cells/cell[25]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[16]"/>
+            <cell reference="../../../../../../cells/cell[23]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[2]"/>
+            <cell reference="../../../../../../cells/cell[28]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[4]"/>
+            <cell reference="../../../../../../cells/cell[30]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[6]"/>
+            <cell reference="../../../../../../cells/cell[32]"/>
+          </cells>
+        </Loop>
+      </loops>
+      <cost>1</cost>
+    </move>
+    <move>
+      <imageIcon>iVBORw0KGgoAAAANSUhEUgAAADwAAABkCAIAAABVQ8S/AAACfElEQVR4Xu3XMY8pURTA8REKnU4UegqFBoXmdSSIhPJVOjVfQKL0IRR6Je0iPoBCJRE6USkQBLMX7827c7w9Zuxzxn05/4isufe4v+xOyGq6gmnwggoxmipGU8VoqhhNFaOpYjRVjKaK0VQ9QP9wLkiReoz+eDb8YDx89g+6VvvQtJp4llbfG22IgZvRNsJnL2jZCtyMthE+y2hz+MF4+CyjzeEH4+GzGlDqZrca6NvPxrMyaPmhBvpy6bdYV+X2uFxSEX25ehXraqGNGG0jfNb8YXH3UBXtVFAqpejtwWg5/GA8fPZ/QctXGG0jfJbR5vCD8fBZTVfx3y2d0XL4wXj4LKPN4Qfj4bPKonXJCj7+GG0jfPYXWr+7MW69O1q/uuWXuhLo+1RFOxWkSD1Av2eMporRVDGaKkZTxWiqGE0Vo6liNFWMporRVD2PzufzmqbV63W4IHU4HDqdTqlUikQiPp/P6/WGw+FqtbpYLOBWO70WPRgMtGuBQCCbzWYyGb/fL16K5/F4DHdb7uXoeDze7XbP5/Ptynq9zuVyYjAWi5n32ui16O12a3CNptPp7dc/mUzAksVei/4qj8cjZsXfAS5YywG08Zuez+dwzVoOoCuVihhMJBJwwXLU6F6vJ+4Nt9s9HA7hmuVI0bPZ7PaR12g04Jqd6NDL5TIUComRcrkM12xGhF6tVtFoVOwvFoun0wku24wCvdlsksmk2Cy+FPf7PVy238vRQplKpf6hWH81+ng8FgoFsS2dTu92O7j8bN9FB4PBxN8ajUZiT7vdFntcLpe4lX/e1e/34Zta67vor7p9RbdaLbgg1Ww24Zta63m0gzGaKiXRn8+COov/YpVOAAAAAElFTkSuQmCC</imageIcon>
+      <name>L2</name>
+      <loops>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[7]"/>
+            <cell reference="../../../../../../cells/cell[12]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[8]"/>
+            <cell reference="../../../../../../cells/cell[11]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[9]"/>
+            <cell reference="../../../../../../cells/cell[10]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[13]"/>
+            <cell reference="../../../../../../cells/cell[26]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[15]"/>
+            <cell reference="../../../../../../cells/cell[24]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell"/>
+            <cell reference="../../../../../../cells/cell[27]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[3]"/>
+            <cell reference="../../../../../../cells/cell[29]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[5]"/>
+            <cell reference="../../../../../../cells/cell[31]"/>
+          </cells>
+        </Loop>
+      </loops>
+      <cost>1</cost>
+    </move>
+    <move>
+      <imageIcon>iVBORw0KGgoAAAANSUhEUgAAADwAAABkCAIAAABVQ8S/AAADbklEQVR4Xu2XOywsYRTHxyNCJbLxSIioUGyhQUFiu5WwERSKba5OQkUUEoVGpVGKRqHXEDpZRC+SrSSCSAgixCPec/8Mc785696dmXP32x05v2wm35xH5rfjm7PDMAOIQQNBQKR1IdK6EGldiLQuRFoXIq0LkdaFSOsijXQke1AVhfTSCb8we6mKQq5LT00lDGMKR9Uqp6VtY+It0k6Yvaor8RZpJ8xekXYNs1ekXcPprav7Rcac6h0MaWttHwMj7fg4JSmcC3N6U7eHbfy+/iP4HZwLc3p/iLT54f25UKOpcC7M6f1W2kaknXB6LemIEXFOjc9PeumswJWmN8E1nN4Abw+Rdgen94dIB+8tzxTpf8HpDaR0JIj/bom0F5i9Iu0aZm8gpU3FlYw/kXbC7LUEUo3N3Jc2P7wVo3cCIJ1KeulsQVUU0kjnJiKtC5HWhUjrQqR1IdK6EGldiLQuRFoXIq0LkdZFZqWfnp5WV1cHBwfD4XBpaWlxcXFjY+PY2Njp6Skt9UJmpbe2towPqqqquru7u7q6KioqcIpjMpmk1a7JuHRLS8va2trb25sVub29jcVi8G5ubnbWeiCz0vf397auzf7+vnX79/b2SMolPqXn5+dx1ba2tpeXFzU+PDyMeDweV4OpFBYWogx/B5pwh09pADNceHJy0o6srKwgUl9ff3NzoxRS7Dt9eHhIc+7wLw2zhoaG/Pz8RCKB05OTk/LycsyHnZ0dWupkdHQUxq2trTThGv/SYHd3t6SkpLq6+vz8PBqNQmVubo4WOdnY2MDeKCgo2N7epjnXsKTNr81dW1uL48DAAE07OTg4sEbezMwMzXmBKw16enrggft9fX1NcwpnZ2fYTqgcGhqiOY9wpY+Pj7GVoYLNvb6+TtNfXF1dNTU1oay/v//19ZWmPcKSfn5+bm9vh8rIyEhRUVFlZSUeR1pkmnd3dxiOKMOP4uPjI017hyU9Pj4Old7eXqxnZ2ex7ujoIJMbltYz+r+MTY708vJyXl4eHsHLy0srYv0+T0xM2DX4An19fQh2dnY+PDzYcSY+pTEHysrKMLzUyXVxcVFTU4Nvgjc7K7K0tARjRLCV4ylsbm7avZ7wI40XTrwGwWZ6epqkMIYxg0Oh0NHREU4XFxeNv7OwsEDaXeJHOuuItC4CKf0brK45lX8JVVUAAAAASUVORK5CYII=</imageIcon>
+      <name>x2</name>
+      <loops>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[17]"/>
+            <cell reference="../../../../../../cells/cell[22]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[18]"/>
+            <cell reference="../../../../../../cells/cell[21]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[19]"/>
+            <cell reference="../../../../../../cells/cell[20]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[7]"/>
+            <cell reference="../../../../../../cells/cell[12]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[8]"/>
+            <cell reference="../../../../../../cells/cell[11]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[9]"/>
+            <cell reference="../../../../../../cells/cell[10]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[14]"/>
+            <cell reference="../../../../../../cells/cell[25]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[16]"/>
+            <cell reference="../../../../../../cells/cell[23]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[2]"/>
+            <cell reference="../../../../../../cells/cell[28]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[4]"/>
+            <cell reference="../../../../../../cells/cell[30]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[6]"/>
+            <cell reference="../../../../../../cells/cell[32]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[13]"/>
+            <cell reference="../../../../../../cells/cell[26]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[15]"/>
+            <cell reference="../../../../../../cells/cell[24]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell"/>
+            <cell reference="../../../../../../cells/cell[27]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[3]"/>
+            <cell reference="../../../../../../cells/cell[29]"/>
+          </cells>
+        </Loop>
+        <Loop>
+          <cells>
+            <cell reference="../../../../../../cells/cell[5]"/>
+            <cell reference="../../../../../../cells/cell[31]"/>
+          </cells>
+        </Loop>
+      </loops>
+      <cost>0</cost>
+    </move>
+  </moves>
+  <compiledMoves>
+    <entry>
+      <string>Fw2</string>
+      <cmove>
+        <cardinality>32</cardinality>
+        <matrix>
+          <int>0</int>
+          <int>1</int>
+          <int>29</int>
+          <int>28</int>
+          <int>27</int>
+          <int>26</int>
+          <int>6</int>
+          <int>20</int>
+          <int>19</int>
+          <int>9</int>
+          <int>17</int>
+          <int>16</int>
+          <int>15</int>
+          <int>14</int>
+          <int>13</int>
+          <int>12</int>
+          <int>11</int>
+          <int>10</int>
+          <int>18</int>
+          <int>8</int>
+          <int>7</int>
+          <int>21</int>
+          <int>22</int>
+          <int>23</int>
+          <int>24</int>
+          <int>25</int>
+          <int>5</int>
+          <int>4</int>
+          <int>3</int>
+          <int>2</int>
+          <int>30</int>
+          <int>31</int>
+        </matrix>
+        <image reference="../../../../moves/move[13]/imageIcon"/>
+        <cost>1</cost>
+      </cmove>
+    </entry>
+    <entry>
+      <string>R2</string>
+      <cmove>
+        <cardinality>32</cardinality>
+        <matrix>
+          <int>0</int>
+          <int>27</int>
+          <int>2</int>
+          <int>29</int>
+          <int>4</int>
+          <int>31</int>
+          <int>6</int>
+          <int>7</int>
+          <int>8</int>
+          <int>9</int>
+          <int>10</int>
+          <int>11</int>
+          <int>12</int>
+          <int>24</int>
+          <int>14</int>
+          <int>22</int>
+          <int>21</int>
+          <int>20</int>
+          <int>19</int>
+          <int>18</int>
+          <int>17</int>
+          <int>16</int>
+          <int>15</int>
+          <int>23</int>
+          <int>13</int>
+          <int>25</int>
+          <int>26</int>
+          <int>1</int>
+          <int>28</int>
+          <int>3</int>
+          <int>30</int>
+          <int>5</int>
+        </matrix>
+        <image reference="../../../../moves/move[19]/imageIcon"/>
+        <cost>1</cost>
+      </cmove>
+    </entry>
+    <entry>
+      <string>F&apos;</string>
+      <cmove>
+        <cardinality>32</cardinality>
+        <matrix>
+          <int>0</int>
+          <int>1</int>
+          <int>2</int>
+          <int>3</int>
+          <int>16</int>
+          <int>19</int>
+          <int>6</int>
+          <int>7</int>
+          <int>5</int>
+          <int>9</int>
+          <int>10</int>
+          <int>4</int>
+          <int>13</int>
+          <int>15</int>
+          <int>12</int>
+          <int>14</int>
+          <int>27</int>
+          <int>17</int>
+          <int>18</int>
+          <int>26</int>
+          <int>20</int>
+          <int>21</int>
+          <int>22</int>
+          <int>23</int>
+          <int>24</int>
+          <int>25</int>
+          <int>8</int>
+          <int>11</int>
+          <int>28</int>
+          <int>29</int>
+          <int>30</int>
+          <int>31</int>
+        </matrix>
+        <image reference="../../../../moves/move[2]/imageIcon"/>
+        <cost>1</cost>
+      </cmove>
+    </entry>
+    <entry>
+      <string>B</string>
+      <cmove>
+        <cardinality>32</cardinality>
+        <matrix>
+          <int>18</int>
+          <int>21</int>
+          <int>2</int>
+          <int>3</int>
+          <int>4</int>
+          <int>5</int>
+          <int>1</int>
+          <int>7</int>
+          <int>8</int>
+          <int>0</int>
+          <int>10</int>
+          <int>11</int>
+          <int>12</int>
+          <int>13</int>
+          <int>14</int>
+          <int>15</int>
+          <int>16</int>
+          <int>17</int>
+          <int>31</int>
+          <int>19</int>
+          <int>20</int>
+          <int>30</int>
+          <int>24</int>
+          <int>22</int>
+          <int>25</int>
+          <int>23</int>
+          <int>26</int>
+          <int>27</int>
+          <int>28</int>
+          <int>29</int>
+          <int>6</int>
+          <int>9</int>
+        </matrix>
+        <image reference="../../../../moves/move[3]/imageIcon"/>
+        <cost>1</cost>
+      </cmove>
+    </entry>
+    <entry>
+      <string>B&apos;</string>
+      <cmove>
+        <cardinality>32</cardinality>
+        <matrix>
+          <int>9</int>
+          <int>6</int>
+          <int>2</int>
+          <int>3</int>
+          <int>4</int>
+          <int>5</int>
+          <int>30</int>
+          <int>7</int>
+          <int>8</int>
+          <int>31</int>
+          <int>10</int>
+          <int>11</int>
+          <int>12</int>
+          <int>13</int>
+          <int>14</int>
+          <int>15</int>
+          <int>16</int>
+          <int>17</int>
+          <int>0</int>
+          <int>19</int>
+          <int>20</int>
+          <int>1</int>
+          <int>23</int>
+          <int>25</int>
+          <int>22</int>
+          <int>24</int>
+          <int>26</int>
+          <int>27</int>
+          <int>28</int>
+          <int>29</int>
+          <int>21</int>
+          <int>18</int>
+        </matrix>
+        <image reference="../../../../moves/move[4]/imageIcon"/>
+        <cost>1</cost>
+      </cmove>
+    </entry>
+    <entry>
+      <string>F</string>
+      <cmove>
+        <cardinality>32</cardinality>
+        <matrix>
+          <int>0</int>
+          <int>1</int>
+          <int>2</int>
+          <int>3</int>
+          <int>11</int>
+          <int>8</int>
+          <int>6</int>
+          <int>7</int>
+          <int>26</int>
+          <int>9</int>
+          <int>10</int>
+          <int>27</int>
+          <int>14</int>
+          <int>12</int>
+          <int>15</int>
+          <int>13</int>
+          <int>4</int>
+          <int>17</int>
+          <int>18</int>
+          <int>5</int>
+          <int>20</int>
+          <int>21</int>
+          <int>22</int>
+          <int>23</int>
+          <int>24</int>
+          <int>25</int>
+          <int>19</int>
+          <int>16</int>
+          <int>28</int>
+          <int>29</int>
+          <int>30</int>
+          <int>31</int>
+        </matrix>
+        <image reference="../../../../moves/move/imageIcon"/>
+        <cost>1</cost>
+      </cmove>
+    </entry>
+    <entry>
+      <string>L2</string>
+      <cmove>
+        <cardinality>32</cardinality>
+        <matrix>
+          <int>26</int>
+          <int>1</int>
+          <int>28</int>
+          <int>3</int>
+          <int>30</int>
+          <int>5</int>
+          <int>11</int>
+          <int>10</int>
+          <int>9</int>
+          <int>8</int>
+          <int>7</int>
+          <int>6</int>
+          <int>25</int>
+          <int>13</int>
+          <int>23</int>
+          <int>15</int>
+          <int>16</int>
+          <int>17</int>
+          <int>18</int>
+          <int>19</int>
+          <int>20</int>
+          <int>21</int>
+          <int>22</int>
+          <int>14</int>
+          <int>24</int>
+          <int>12</int>
+          <int>0</int>
+          <int>27</int>
+          <int>2</int>
+          <int>29</int>
+          <int>4</int>
+          <int>31</int>
+        </matrix>
+        <image reference="../../../../moves/move[20]/imageIcon"/>
+        <cost>1</cost>
+      </cmove>
+    </entry>
+    <entry>
+      <string>F2</string>
+      <cmove>
+        <cardinality>32</cardinality>
+        <matrix>
+          <int>0</int>
+          <int>1</int>
+          <int>2</int>
+          <int>3</int>
+          <int>27</int>
+          <int>26</int>
+          <int>6</int>
+          <int>7</int>
+          <int>19</int>
+          <int>9</int>
+          <int>10</int>
+          <int>16</int>
+          <int>15</int>
+          <int>14</int>
+          <int>13</int>
+          <int>12</int>
+          <int>11</int>
+          <int>17</int>
+          <int>18</int>
+          <int>8</int>
+          <int>20</int>
+          <int>21</int>
+          <int>22</int>
+          <int>23</int>
+          <int>24</int>
+          <int>25</int>
+          <int>5</int>
+          <int>4</int>
+          <int>28</int>
+          <int>29</int>
+          <int>30</int>
+          <int>31</int>
+        </matrix>
+        <image reference="../../../../moves/move[11]/imageIcon"/>
+        <cost>1</cost>
+      </cmove>
+    </entry>
+    <entry>
+      <string>z&apos;</string>
+      <cmove>
+        <cardinality>32</cardinality>
+        <matrix>
+          <int>18</int>
+          <int>21</int>
+          <int>17</int>
+          <int>20</int>
+          <int>16</int>
+          <int>19</int>
+          <int>1</int>
+          <int>3</int>
+          <int>5</int>
+          <int>0</int>
+          <int>2</int>
+          <int>4</int>
+          <int>13</int>
+          <int>15</int>
+          <int>12</int>
+          <int>14</int>
+          <int>27</int>
+          <int>29</int>
+          <int>31</int>
+          <int>26</int>
+          <int>28</int>
+          <int>30</int>
+          <int>24</int>
+          <int>22</int>
+          <int>25</int>
+          <int>23</int>
+          <int>8</int>
+          <int>11</int>
+          <int>7</int>
+          <int>10</int>
+          <int>6</int>
+          <int>9</int>
+        </matrix>
+        <image reference="../../../../moves/move[10]/imageIcon"/>
+        <cost>1</cost>
+      </cmove>
+    </entry>
+    <entry>
+      <string>D2</string>
+      <cmove>
+        <cardinality>32</cardinality>
+        <matrix>
+          <int>0</int>
+          <int>1</int>
+          <int>2</int>
+          <int>3</int>
+          <int>4</int>
+          <int>5</int>
+          <int>6</int>
+          <int>7</int>
+          <int>8</int>
+          <int>19</int>
+          <int>20</int>
+          <int>21</int>
+          <int>12</int>
+          <int>13</int>
+          <int>24</int>
+          <int>25</int>
+          <int>16</int>
+          <int>17</int>
+          <int>18</int>
+          <int>9</int>
+          <int>10</int>
+          <int>11</int>
+          <int>22</int>
+          <int>23</int>
+          <int>14</int>
+          <int>15</int>
+          <int>31</int>
+          <int>30</int>
+          <int>29</int>
+          <int>28</int>
+          <int>27</int>
+          <int>26</int>
+        </matrix>
+        <image reference="../../../../moves/move[17]/imageIcon"/>
+        <cost>1</cost>
+      </cmove>
+    </entry>
+    <entry>
+      <string>B2</string>
+      <cmove>
+        <cardinality>32</cardinality>
+        <matrix>
+          <int>31</int>
+          <int>30</int>
+          <int>2</int>
+          <int>3</int>
+          <int>4</int>
+          <int>5</int>
+          <int>21</int>
+          <int>7</int>
+          <int>8</int>
+          <int>18</int>
+          <int>10</int>
+          <int>11</int>
+          <int>12</int>
+          <int>13</int>
+          <int>14</int>
+          <int>15</int>
+          <int>16</int>
+          <int>17</int>
+          <int>9</int>
+          <int>19</int>
+          <int>20</int>
+          <int>6</int>
+          <int>25</int>
+          <int>24</int>
+          <int>23</int>
+          <int>22</int>
+          <int>26</int>
+          <int>27</int>
+          <int>28</int>
+          <int>29</int>
+          <int>1</int>
+          <int>0</int>
+        </matrix>
+        <image reference="../../../../moves/move[12]/imageIcon"/>
+        <cost>1</cost>
+      </cmove>
+    </entry>
+    <entry>
+      <string>Fw</string>
+      <cmove>
+        <cardinality>32</cardinality>
+        <matrix>
+          <int>0</int>
+          <int>1</int>
+          <int>10</int>
+          <int>7</int>
+          <int>11</int>
+          <int>8</int>
+          <int>6</int>
+          <int>28</int>
+          <int>26</int>
+          <int>9</int>
+          <int>29</int>
+          <int>27</int>
+          <int>14</int>
+          <int>12</int>
+          <int>15</int>
+          <int>13</int>
+          <int>4</int>
+          <int>2</int>
+          <int>18</int>
+          <int>5</int>
+          <int>3</int>
+          <int>21</int>
+          <int>22</int>
+          <int>23</int>
+          <int>24</int>
+          <int>25</int>
+          <int>19</int>
+          <int>16</int>
+          <int>20</int>
+          <int>17</int>
+          <int>30</int>
+          <int>31</int>
+        </matrix>
+        <image reference="../../../../moves/move[5]/imageIcon"/>
+        <cost>1</cost>
+      </cmove>
+    </entry>
+    <entry>
+      <string>Bw&apos;</string>
+      <cmove>
+        <cardinality>32</cardinality>
+        <matrix>
+          <int>9</int>
+          <int>6</int>
+          <int>10</int>
+          <int>7</int>
+          <int>4</int>
+          <int>5</int>
+          <int>30</int>
+          <int>28</int>
+          <int>8</int>
+          <int>31</int>
+          <int>29</int>
+          <int>11</int>
+          <int>12</int>
+          <int>13</int>
+          <int>14</int>
+          <int>15</int>
+          <int>16</int>
+          <int>2</int>
+          <int>0</int>
+          <int>19</int>
+          <int>3</int>
+          <int>1</int>
+          <int>23</int>
+          <int>25</int>
+          <int>22</int>
+          <int>24</int>
+          <int>26</int>
+          <int>27</int>
+          <int>20</int>
+          <int>17</int>
+          <int>21</int>
+          <int>18</int>
+        </matrix>
+        <image reference="../../../../moves/move[8]/imageIcon"/>
+        <cost>1</cost>
+      </cmove>
+    </entry>
+    <entry>
+      <string>Bw</string>
+      <cmove>
+        <cardinality>32</cardinality>
+        <matrix>
+          <int>18</int>
+          <int>21</int>
+          <int>17</int>
+          <int>20</int>
+          <int>4</int>
+          <int>5</int>
+          <int>1</int>
+          <int>3</int>
+          <int>8</int>
+          <int>0</int>
+          <int>2</int>
+          <int>11</int>
+          <int>12</int>
+          <int>13</int>
+          <int>14</int>
+          <int>15</int>
+          <int>16</int>
+          <int>29</int>
+          <int>31</int>
+          <int>19</int>
+          <int>28</int>
+          <int>30</int>
+          <int>24</int>
+          <int>22</int>
+          <int>25</int>
+          <int>23</int>
+          <int>26</int>
+          <int>27</int>
+          <int>7</int>
+          <int>10</int>
+          <int>6</int>
+          <int>9</int>
+        </matrix>
+        <image reference="../../../../moves/move[7]/imageIcon"/>
+        <cost>1</cost>
+      </cmove>
+    </entry>
+    <entry>
+      <string>Fw&apos;</string>
+      <cmove>
+        <cardinality>32</cardinality>
+        <matrix>
+          <int>0</int>
+          <int>1</int>
+          <int>17</int>
+          <int>20</int>
+          <int>16</int>
+          <int>19</int>
+          <int>6</int>
+          <int>3</int>
+          <int>5</int>
+          <int>9</int>
+          <int>2</int>
+          <int>4</int>
+          <int>13</int>
+          <int>15</int>
+          <int>12</int>
+          <int>14</int>
+          <int>27</int>
+          <int>29</int>
+          <int>18</int>
+          <int>26</int>
+          <int>28</int>
+          <int>21</int>
+          <int>22</int>
+          <int>23</int>
+          <int>24</int>
+          <int>25</int>
+          <int>8</int>
+          <int>11</int>
+          <int>7</int>
+          <int>10</int>
+          <int>30</int>
+          <int>31</int>
+        </matrix>
+        <image reference="../../../../moves/move[6]/imageIcon"/>
+        <cost>1</cost>
+      </cmove>
+    </entry>
+    <entry>
+      <string>z2</string>
+      <cmove>
+        <cardinality>32</cardinality>
+        <matrix>
+          <int>31</int>
+          <int>30</int>
+          <int>29</int>
+          <int>28</int>
+          <int>27</int>
+          <int>26</int>
+          <int>21</int>
+          <int>20</int>
+          <int>19</int>
+          <int>18</int>
+          <int>17</int>
+          <int>16</int>
+          <int>15</int>
+          <int>14</int>
+          <int>13</int>
+          <int>12</int>
+          <int>11</int>
+          <int>10</int>
+          <int>9</int>
+          <int>8</int>
+          <int>7</int>
+          <int>6</int>
+          <int>25</int>
+          <int>24</int>
+          <int>23</int>
+          <int>22</int>
+          <int>5</int>
+          <int>4</int>
+          <int>3</int>
+          <int>2</int>
+          <int>1</int>
+          <int>0</int>
+        </matrix>
+        <image reference="../../../../moves/move[15]/imageIcon"/>
+        <cost>1</cost>
+      </cmove>
+    </entry>
+    <entry>
+      <string>y2</string>
+      <cmove>
+        <cardinality>32</cardinality>
+        <matrix>
+          <int>5</int>
+          <int>4</int>
+          <int>3</int>
+          <int>2</int>
+          <int>1</int>
+          <int>0</int>
+          <int>16</int>
+          <int>17</int>
+          <int>18</int>
+          <int>19</int>
+          <int>20</int>
+          <int>21</int>
+          <int>22</int>
+          <int>23</int>
+          <int>24</int>
+          <int>25</int>
+          <int>6</int>
+          <int>7</int>
+          <int>8</int>
+          <int>9</int>
+          <int>10</int>
+          <int>11</int>
+          <int>12</int>
+          <int>13</int>
+          <int>14</int>
+          <int>15</int>
+          <int>31</int>
+          <int>30</int>
+          <int>29</int>
+          <int>28</int>
+          <int>27</int>
+          <int>26</int>
+        </matrix>
+        <image reference="../../../../moves/move[18]/imageIcon"/>
+        <cost>1</cost>
+      </cmove>
+    </entry>
+    <entry>
+      <string>z</string>
+      <cmove>
+        <cardinality>32</cardinality>
+        <matrix>
+          <int>9</int>
+          <int>6</int>
+          <int>10</int>
+          <int>7</int>
+          <int>11</int>
+          <int>8</int>
+          <int>30</int>
+          <int>28</int>
+          <int>26</int>
+          <int>31</int>
+          <int>29</int>
+          <int>27</int>
+          <int>14</int>
+          <int>12</int>
+          <int>15</int>
+          <int>13</int>
+          <int>4</int>
+          <int>2</int>
+          <int>0</int>
+          <int>5</int>
+          <int>3</int>
+          <int>1</int>
+          <int>23</int>
+          <int>25</int>
+          <int>22</int>
+          <int>24</int>
+          <int>19</int>
+          <int>16</int>
+          <int>20</int>
+          <int>17</int>
+          <int>21</int>
+          <int>18</int>
+        </matrix>
+        <image reference="../../../../moves/move[9]/imageIcon"/>
+        <cost>1</cost>
+      </cmove>
+    </entry>
+    <entry>
+      <string>x2</string>
+      <cmove>
+        <cardinality>32</cardinality>
+        <matrix>
+          <int>26</int>
+          <int>27</int>
+          <int>28</int>
+          <int>29</int>
+          <int>30</int>
+          <int>31</int>
+          <int>11</int>
+          <int>10</int>
+          <int>9</int>
+          <int>8</int>
+          <int>7</int>
+          <int>6</int>
+          <int>25</int>
+          <int>24</int>
+          <int>23</int>
+          <int>22</int>
+          <int>21</int>
+          <int>20</int>
+          <int>19</int>
+          <int>18</int>
+          <int>17</int>
+          <int>16</int>
+          <int>15</int>
+          <int>14</int>
+          <int>13</int>
+          <int>12</int>
+          <int>0</int>
+          <int>1</int>
+          <int>2</int>
+          <int>3</int>
+          <int>4</int>
+          <int>5</int>
+        </matrix>
+        <image reference="../../../../moves/move[21]/imageIcon"/>
+        <cost>1</cost>
+      </cmove>
+    </entry>
+    <entry>
+      <string>Bw2</string>
+      <cmove>
+        <cardinality>32</cardinality>
+        <matrix>
+          <int>31</int>
+          <int>30</int>
+          <int>29</int>
+          <int>28</int>
+          <int>4</int>
+          <int>5</int>
+          <int>21</int>
+          <int>20</int>
+          <int>8</int>
+          <int>18</int>
+          <int>17</int>
+          <int>11</int>
+          <int>12</int>
+          <int>13</int>
+          <int>14</int>
+          <int>15</int>
+          <int>16</int>
+          <int>10</int>
+          <int>9</int>
+          <int>19</int>
+          <int>7</int>
+          <int>6</int>
+          <int>25</int>
+          <int>24</int>
+          <int>23</int>
+          <int>22</int>
+          <int>26</int>
+          <int>27</int>
+          <int>3</int>
+          <int>2</int>
+          <int>1</int>
+          <int>0</int>
+        </matrix>
+        <image reference="../../../../moves/move[14]/imageIcon"/>
+        <cost>1</cost>
+      </cmove>
+    </entry>
+    <entry>
+      <string>U2</string>
+      <cmove>
+        <cardinality>32</cardinality>
+        <matrix>
+          <int>5</int>
+          <int>4</int>
+          <int>3</int>
+          <int>2</int>
+          <int>1</int>
+          <int>0</int>
+          <int>16</int>
+          <int>17</int>
+          <int>18</int>
+          <int>9</int>
+          <int>10</int>
+          <int>11</int>
+          <int>22</int>
+          <int>23</int>
+          <int>14</int>
+          <int>15</int>
+          <int>6</int>
+          <int>7</int>
+          <int>8</int>
+          <int>19</int>
+          <int>20</int>
+          <int>21</int>
+          <int>12</int>
+          <int>13</int>
+          <int>24</int>
+          <int>25</int>
+          <int>26</int>
+          <int>27</int>
+          <int>28</int>
+          <int>29</int>
+          <int>30</int>
+          <int>31</int>
+        </matrix>
+        <image reference="../../../../moves/move[16]/imageIcon"/>
+        <cost>1</cost>
+      </cmove>
+    </entry>
+  </compiledMoves>
+</puzzle>
