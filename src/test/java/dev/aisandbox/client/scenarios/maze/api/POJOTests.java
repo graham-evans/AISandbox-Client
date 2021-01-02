@@ -9,17 +9,23 @@ public class POJOTests {
 
   @Test
   public void PositionTest() {
-    assertPojoMethodsFor(Position.class).testing(Method.GETTER, Method.SETTER).areWellImplemented();
+    assertPojoMethodsFor(Position.class)
+        .testing(Method.GETTER, Method.SETTER, Method.EQUALS, Method.HASH_CODE)
+        .areWellImplemented();
   }
 
   @Test
   public void ConfigTest() {
-    assertPojoMethodsFor(Config.class).testing(Method.GETTER, Method.SETTER).areWellImplemented();
+    assertPojoMethodsFor(Config.class)
+        .testing(Method.GETTER, Method.SETTER, Method.EQUALS, Method.HASH_CODE)
+        .areWellImplemented();
   }
 
   @Test
   public void HistoryTest() {
-    assertPojoMethodsFor(History.class).testing(Method.GETTER, Method.SETTER).areWellImplemented();
+    assertPojoMethodsFor(History.class)
+        .testing(Method.GETTER, Method.SETTER, Method.EQUALS, Method.HASH_CODE)
+        .areWellImplemented();
   }
 
   @Test

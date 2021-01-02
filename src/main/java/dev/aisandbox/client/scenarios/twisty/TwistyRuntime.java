@@ -58,6 +58,8 @@ public class TwistyRuntime implements ScenarioRuntime {
   private FrequencyMassDistributionGraph frequencyGraph = new FrequencyMassDistributionGraph();
   // this graph doesnt change very often, so we cache it.
   private BufferedImage frequencyGraphImage = null;
+  // is this the first frame - if so add the starting image
+  private boolean firstFrame = true;
 
   public TwistyRuntime() {
     try {
@@ -75,8 +77,6 @@ public class TwistyRuntime implements ScenarioRuntime {
     frequencyGraph.setYaxisHeader("Frequency");
     frequencyGraph.setGraphWidth(HISTORY_WIDTH * Move.MOVE_ICON_WIDTH);
     frequencyGraph.setGraphHeight(350);
-    // get graph image
-    frequencyGraphImage = frequencyGraph.getImage();
   }
 
   @Override
@@ -100,6 +100,11 @@ public class TwistyRuntime implements ScenarioRuntime {
   public RuntimeResponse advance() throws AgentException, SimulationException {
     ProfileStep profileStep = new ProfileStep();
     List<BufferedImage> frames = new ArrayList<>();
+    if (firstFrame) {
+      frames.add(renderPuzzle());
+      profileStep.addStep("Graphics");
+      firstFrame = false;
+    }
     if (actions.isEmpty()) {
       try {
         // get next set of actions
@@ -231,15 +236,18 @@ public class TwistyRuntime implements ScenarioRuntime {
       }
     }
     g.setColor(Color.BLACK);
-
-    g.drawImage(frequencyGraphImage, 1350, 100, null);
-    g.drawString(
-        "Mean : " + BaseAWTGraph.toSignificantDigitString(frequencyGraph.getMean(), 5), 1400, 480);
-    g.drawString(
-        "\u03C3\u00B2 : "
-            + BaseAWTGraph.toSignificantDigitString(frequencyGraph.getStandardDeviation(), 5),
-        1400,
-        480 + 24);
+    if (frequencyGraphImage != null) {
+      g.drawImage(frequencyGraphImage, 1350, 100, null);
+      g.drawString(
+          "Mean : " + BaseAWTGraph.toSignificantDigitString(frequencyGraph.getMean(), 5),
+          1400,
+          480);
+      g.drawString(
+          "\u03C3\u00B2 : "
+              + BaseAWTGraph.toSignificantDigitString(frequencyGraph.getStandardDeviation(), 5),
+          1400,
+          480 + 24);
+    }
     return image;
   }
 }

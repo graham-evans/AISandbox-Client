@@ -11,6 +11,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.util.converter.NumberStringConverter;
 import lombok.Getter;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 public class LongParameter implements ScenarioParameter {
 
@@ -63,5 +64,13 @@ public class LongParameter implements ScenarioParameter {
 
   public long getValue() {
     return value.get();
+  }
+
+  @Override
+  public String toString() {
+    return new ToStringBuilder(this)
+        .append("parameterKey", parameterKey)
+        .append("value", value)
+        .toString();
   }
 }

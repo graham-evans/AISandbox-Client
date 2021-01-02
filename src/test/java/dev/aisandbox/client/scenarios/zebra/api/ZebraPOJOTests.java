@@ -9,19 +9,23 @@ public class ZebraPOJOTests {
 
   @Test
   public void HouseTest() {
-    assertPojoMethodsFor(House.class).testing(Method.GETTER, Method.SETTER).areWellImplemented();
+    assertPojoMethodsFor(House.class)
+        .testing(Method.GETTER, Method.SETTER, Method.EQUALS, Method.HASH_CODE)
+        .areWellImplemented();
   }
 
   @Test
   public void HouseCharacteristicsTest() {
     assertPojoMethodsFor(HouseCharacteristics.class)
-        .testing(Method.GETTER, Method.SETTER)
+        .testing(Method.GETTER, Method.SETTER, Method.EQUALS, Method.HASH_CODE)
         .areWellImplemented();
   }
 
   @Test
   public void SolutionTest() {
-    assertPojoMethodsFor(Solution.class).testing(Method.GETTER, Method.SETTER).areWellImplemented();
+    assertPojoMethodsFor(Solution.class)
+        .testing(Method.GETTER, Method.SETTER, Method.EQUALS, Method.HASH_CODE)
+        .areWellImplemented();
   }
 
   @Test
@@ -34,14 +38,14 @@ public class ZebraPOJOTests {
   @Test
   public void ZebraRequestCharacteristics() {
     assertPojoMethodsFor(ZebraRequestCharacteristics.class)
-        .testing(Method.GETTER, Method.SETTER)
+        .testing(Method.GETTER, Method.SETTER, Method.EQUALS, Method.HASH_CODE)
         .areWellImplemented();
   }
 
   @Test
   public void ZebraRequestEntriesTest() {
     assertPojoMethodsFor(ZebraRequestEntries.class)
-        .testing(Method.GETTER, Method.SETTER)
+        .testing(Method.GETTER, Method.SETTER, Method.EQUALS, Method.HASH_CODE)
         .areWellImplemented();
   }
 
