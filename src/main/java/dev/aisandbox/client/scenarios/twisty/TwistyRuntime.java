@@ -13,7 +13,7 @@ import dev.aisandbox.client.scenarios.SimulationException;
 import dev.aisandbox.client.scenarios.twisty.api.TwistyRequest;
 import dev.aisandbox.client.scenarios.twisty.api.TwistyRequestHistory;
 import dev.aisandbox.client.scenarios.twisty.api.TwistyResponse;
-import dev.aisandbox.client.scenarios.twisty.puzzles.CubePuzzle;
+import dev.aisandbox.client.scenarios.twisty.tpmodel.Move;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
@@ -73,7 +73,7 @@ public class TwistyRuntime implements ScenarioRuntime {
     frequencyGraph.setTitle("# Moves to solve");
     frequencyGraph.setXaxisHeader("# Moves");
     frequencyGraph.setYaxisHeader("Frequency");
-    frequencyGraph.setGraphWidth(HISTORY_WIDTH * CubePuzzle.MOVE_ICON_WIDTH);
+    frequencyGraph.setGraphWidth(HISTORY_WIDTH * Move.MOVE_ICON_WIDTH);
     frequencyGraph.setGraphHeight(350);
     // get graph image
     frequencyGraphImage = frequencyGraph.getImage();
@@ -225,8 +225,8 @@ public class TwistyRuntime implements ScenarioRuntime {
       if (moveImage != null) {
         g.drawImage(
             moveImage,
-            (i % HISTORY_WIDTH) * CubePuzzle.MOVE_ICON_WIDTH + 1350,
-            (i / HISTORY_WIDTH) * CubePuzzle.MOVE_ICON_HEIGHT + 550,
+            (i % HISTORY_WIDTH) * Move.MOVE_ICON_WIDTH + 1350,
+            (i / HISTORY_WIDTH) * Move.MOVE_ICON_HEIGHT + 550,
             null);
       }
     }
