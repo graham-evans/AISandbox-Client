@@ -1,12 +1,12 @@
-package dev.aisandbox.client.scenarios.twisty.puzzles;
+package dev.aisandbox.client.scenarios.twisty;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.security.NoTypePermission;
-import dev.aisandbox.client.scenarios.twisty.puzzles.tpmodel.Cell;
-import dev.aisandbox.client.scenarios.twisty.puzzles.tpmodel.CompiledMove;
-import dev.aisandbox.client.scenarios.twisty.puzzles.tpmodel.Loop;
-import dev.aisandbox.client.scenarios.twisty.puzzles.tpmodel.Move;
-import dev.aisandbox.client.scenarios.twisty.puzzles.tpmodel.Puzzle;
+import dev.aisandbox.client.scenarios.twisty.tpmodel.Cell;
+import dev.aisandbox.client.scenarios.twisty.tpmodel.CompiledMove;
+import dev.aisandbox.client.scenarios.twisty.tpmodel.Loop;
+import dev.aisandbox.client.scenarios.twisty.tpmodel.Move;
+import dev.aisandbox.client.scenarios.twisty.tpmodel.Puzzle;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

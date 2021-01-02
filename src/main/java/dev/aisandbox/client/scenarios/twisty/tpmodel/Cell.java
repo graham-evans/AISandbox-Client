@@ -1,7 +1,7 @@
-package dev.aisandbox.client.scenarios.twisty.puzzles.tpmodel;
+package dev.aisandbox.client.scenarios.twisty.tpmodel;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-import dev.aisandbox.client.scenarios.twisty.puzzles.tpmodel.shapes.ShapeEnum;
+import dev.aisandbox.client.scenarios.twisty.tpmodel.shapes.ShapeEnum;
 import java.awt.Polygon;
 import lombok.Getter;
 import lombok.Setter;

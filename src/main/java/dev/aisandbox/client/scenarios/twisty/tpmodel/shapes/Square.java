@@ -1,4 +1,4 @@
-package dev.aisandbox.client.scenarios.twisty.puzzles.tpmodel.shapes;
+package dev.aisandbox.client.scenarios.twisty.tpmodel.shapes;
 
 import java.awt.Polygon;
 

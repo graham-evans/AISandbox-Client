@@ -1,9 +1,8 @@
-package dev.aisandbox.client.scenarios.twisty.puzzles.tpmodel;
+package dev.aisandbox.client.scenarios.twisty.tpmodel;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import java.awt.image.BufferedImage;
 import lombok.Getter;
-import lombok.Setter;
 
 @XStreamAlias("cmove")
 public class CompiledMove {
@@ -12,7 +11,8 @@ public class CompiledMove {
 
   private final int[] matrix;
 
-  @Getter @Setter BufferedImage image;
+  @Getter BufferedImage image;
+  @Getter int cost;
 
   public CompiledMove(int cardinality) {
     this.cardinality = cardinality;

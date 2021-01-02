@@ -1,4 +1,4 @@
-package dev.aisandbox.client.scenarios.twisty.puzzles;
+package dev.aisandbox.client.scenarios.twisty;
 
 import com.thoughtworks.xstream.converters.Converter;
 import com.thoughtworks.xstream.converters.MarshallingContext;

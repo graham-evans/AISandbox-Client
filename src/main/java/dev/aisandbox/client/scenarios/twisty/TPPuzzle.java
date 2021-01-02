@@ -1,14 +1,12 @@
-package dev.aisandbox.client.scenarios.twisty.puzzles;
+package dev.aisandbox.client.scenarios.twisty;
 
 import com.thoughtworks.xstream.XStream;
 import dev.aisandbox.client.output.OutputTools;
-import dev.aisandbox.client.scenarios.twisty.NotExistentMoveException;
-import dev.aisandbox.client.scenarios.twisty.TwistyPuzzle;
-import dev.aisandbox.client.scenarios.twisty.puzzles.tpmodel.Cell;
-import dev.aisandbox.client.scenarios.twisty.puzzles.tpmodel.ColourEnum;
-import dev.aisandbox.client.scenarios.twisty.puzzles.tpmodel.CompiledMove;
-import dev.aisandbox.client.scenarios.twisty.puzzles.tpmodel.Move;
-import dev.aisandbox.client.scenarios.twisty.puzzles.tpmodel.Puzzle;
+import dev.aisandbox.client.scenarios.twisty.tpmodel.Cell;
+import dev.aisandbox.client.scenarios.twisty.tpmodel.ColourEnum;
+import dev.aisandbox.client.scenarios.twisty.tpmodel.CompiledMove;
+import dev.aisandbox.client.scenarios.twisty.tpmodel.Move;
+import dev.aisandbox.client.scenarios.twisty.tpmodel.Puzzle;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Polygon;
@@ -30,9 +28,9 @@ public class TPPuzzle implements TwistyPuzzle {
   private final Map<Character, Set<Integer>> faces;
   private final String name;
 
-  public TPPuzzle(String tpResourceName) {
+  public TPPuzzle(String tpResourceName, String name) {
     log.info("Creating TP Puzzle based on {}", tpResourceName);
-    name = tpResourceName.replaceAll(".*/", "");
+    this.name = name;
     // load TP Puzzle Object
     XStream xstream = TPPuzzleCodec.getCodec();
     puzzle = (Puzzle) xstream.fromXML(TPPuzzle.class.getResourceAsStream(tpResourceName));
@@ -71,7 +69,7 @@ public class TPPuzzle implements TwistyPuzzle {
 
   @Override
   public String getPuzzleName() {
-    return "TP(" + name + ")";
+    return name;
   }
 
   @Override
@@ -106,7 +104,7 @@ public class TPPuzzle implements TwistyPuzzle {
       throw new NotExistentMoveException(name + " doesn't exist");
     }
     currentState = move.applyMove(currentState);
-    return 1;
+    return move.getCost();
   }
 
   @Override

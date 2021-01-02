@@ -1,4 +1,4 @@
-package dev.aisandbox.client.scenarios.twisty.puzzles.tpmodel;
+package dev.aisandbox.client.scenarios.twisty.tpmodel;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import java.awt.Color;

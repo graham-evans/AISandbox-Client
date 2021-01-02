@@ -1,4 +1,4 @@
-package dev.aisandbox.client.scenarios.twisty.puzzles.tpmodel;
+package dev.aisandbox.client.scenarios.twisty.tpmodel;
 
 import java.awt.Color;
 import lombok.Getter;
