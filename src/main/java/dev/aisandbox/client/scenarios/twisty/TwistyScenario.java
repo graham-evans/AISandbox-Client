@@ -8,15 +8,6 @@ import dev.aisandbox.client.scenarios.Scenario;
 import dev.aisandbox.client.scenarios.ScenarioParameter;
 import dev.aisandbox.client.scenarios.ScenarioRuntime;
 import dev.aisandbox.client.scenarios.ScenarioType;
-import dev.aisandbox.client.scenarios.twisty.puzzles.Cube10x10x10;
-import dev.aisandbox.client.scenarios.twisty.puzzles.Cube2x2x2;
-import dev.aisandbox.client.scenarios.twisty.puzzles.Cube3x3x3;
-import dev.aisandbox.client.scenarios.twisty.puzzles.Cube4x4x4;
-import dev.aisandbox.client.scenarios.twisty.puzzles.Cube5x5x5;
-import dev.aisandbox.client.scenarios.twisty.puzzles.Cube6x6x6;
-import dev.aisandbox.client.scenarios.twisty.puzzles.Cube7x7x7;
-import dev.aisandbox.client.scenarios.twisty.puzzles.Cube8x8x8;
-import dev.aisandbox.client.scenarios.twisty.puzzles.Cube9x9x9;
 import java.util.Random;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -82,38 +73,8 @@ public class TwistyScenario extends BaseScenario implements Scenario {
   @Override
   public ScenarioRuntime getRuntime() {
     TwistyRuntime runtime = new TwistyRuntime();
-    switch (twistyType.getValue()) {
-      case CUBE2:
-        runtime.setPuzzle(new Cube2x2x2());
-        break;
-      case CUBE3:
-        runtime.setPuzzle(new Cube3x3x3());
-        break;
-      case CUBE4:
-        runtime.setPuzzle(new Cube4x4x4());
-        break;
-      case CUBE5:
-        runtime.setPuzzle(new Cube5x5x5());
-        break;
-      case CUBE6:
-        runtime.setPuzzle(new Cube6x6x6());
-        break;
-      case CUBE7:
-        runtime.setPuzzle(new Cube7x7x7());
-        break;
-      case CUBE8:
-        runtime.setPuzzle(new Cube8x8x8());
-        break;
-      case CUBE9:
-        runtime.setPuzzle(new Cube9x9x9());
-        break;
-      case CUBE10:
-        runtime.setPuzzle(new Cube10x10x10());
-        break;
-      default:
-        log.error("Unknown puzzle type");
-        runtime.setPuzzle(new Cube3x3x3());
-    }
+    runtime.setPuzzle(
+        new TPPuzzle(twistyType.getValue().getResource(), twistyType.getValue().getID()));
     if (scenarioSalt.getValue() != 0) {
       runtime.setRandom(new Random(scenarioSalt.getValue()));
     }
