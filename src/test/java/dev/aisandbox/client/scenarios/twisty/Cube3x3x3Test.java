@@ -1,8 +1,7 @@
-package dev.aisandbox.client.scenarios.twisty.puzzles;
+package dev.aisandbox.client.scenarios.twisty;
 
 import static org.junit.Assert.*;
 
-import dev.aisandbox.client.scenarios.twisty.NotExistentMoveException;
 import java.util.HashSet;
 import java.util.Set;
 import org.junit.Test;
@@ -11,33 +10,33 @@ public class Cube3x3x3Test {
 
   @Test
   public void initialStateTest() {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     assertEquals(
         "Initial state", "WWWWWWWWWOOOOOOOOOGGGGGGGGGRRRRRRRRRBBBBBBBBBYYYYYYYYY", cube.getState());
   }
 
   @Test
   public void moveNumberTest() {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     assertEquals("Number of moves", 45, cube.getMoveList().size());
   }
 
   @Test
   public void solvedTestStatic() {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     assertTrue(cube.isSolved());
   }
 
   @Test
   public void solvedTestMove() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.applyMove("F");
     assertFalse(cube.isSolved());
   }
 
   @Test
   public void solvedTestMoveBack() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.applyMove("F");
     cube.applyMove("F'");
     assertTrue("Cube state=" + cube.getState(), cube.isSolved());
@@ -46,7 +45,7 @@ public class Cube3x3x3Test {
   // <editor-fold desc="Front Moves">
   @Test
   public void testMoveF() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     int cost = cube.applyMove("F");
     assertEquals("Cost", 1, cost);
@@ -56,7 +55,7 @@ public class Cube3x3x3Test {
 
   @Test
   public void testMoveFw() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     int cost = cube.applyMove("Fw");
     assertEquals("Cost", 1, cost);
@@ -66,7 +65,7 @@ public class Cube3x3x3Test {
 
   @Test
   public void testMoveFw2() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 1, cube.applyMove("Fw2"));
     assertEquals("Cost", 1, cube.applyMove("Fw2"));
@@ -76,7 +75,7 @@ public class Cube3x3x3Test {
 
   @Test
   public void testMoveFwinv() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 1, cube.applyMove("Fw'"));
     assertEquals("Cost", 1, cube.applyMove("Fw"));
@@ -86,7 +85,7 @@ public class Cube3x3x3Test {
 
   @Test
   public void testMoveFinv() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 1, cube.applyMove("F"));
     assertEquals("Cost", 1, cube.applyMove("F'"));
@@ -96,7 +95,7 @@ public class Cube3x3x3Test {
 
   @Test
   public void testMoveF2() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 1, cube.applyMove("F2"));
     assertEquals("Cost", 1, cube.applyMove("F2"));
@@ -108,7 +107,7 @@ public class Cube3x3x3Test {
   // <editor-fold desc="Left Moves">
   @Test
   public void testMoveL() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     int cost = cube.applyMove("L");
     assertEquals("Cost", 1, cost);
@@ -118,7 +117,7 @@ public class Cube3x3x3Test {
 
   @Test
   public void testMoveLinv() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 1, cube.applyMove("L"));
     assertEquals("Cost", 1, cube.applyMove("L'"));
@@ -128,7 +127,7 @@ public class Cube3x3x3Test {
 
   @Test
   public void testMoveL2() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 1, cube.applyMove("L2"));
     assertEquals("Cost", 1, cube.applyMove("L2"));
@@ -138,7 +137,7 @@ public class Cube3x3x3Test {
 
   @Test
   public void testMoveLw() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 1, cube.applyMove("Lw"));
     assertEquals(
@@ -147,7 +146,7 @@ public class Cube3x3x3Test {
 
   @Test
   public void testMoveLwinv() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 1, cube.applyMove("Lw"));
     assertEquals("Cost", 1, cube.applyMove("Lw'"));
@@ -157,7 +156,7 @@ public class Cube3x3x3Test {
 
   @Test
   public void testMoveLw2() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 1, cube.applyMove("Lw2"));
     assertEquals("Cost", 1, cube.applyMove("Lw2"));
@@ -169,7 +168,7 @@ public class Cube3x3x3Test {
   // <editor-fold desc="Down Moves">
   @Test
   public void testMoveD() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 1, cube.applyMove("D"));
     assertEquals(
@@ -178,7 +177,7 @@ public class Cube3x3x3Test {
 
   @Test
   public void testMoveDinv() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 1, cube.applyMove("D"));
     assertEquals("Cost", 1, cube.applyMove("D'"));
@@ -188,7 +187,7 @@ public class Cube3x3x3Test {
 
   @Test
   public void testMoveD2() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 1, cube.applyMove("D2"));
     assertEquals("Cost", 1, cube.applyMove("D2"));
@@ -198,7 +197,7 @@ public class Cube3x3x3Test {
 
   @Test
   public void testMoveDw() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 1, cube.applyMove("Dw"));
     assertEquals(
@@ -207,7 +206,7 @@ public class Cube3x3x3Test {
 
   @Test
   public void testMoveDwinv() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 1, cube.applyMove("Dw"));
     assertEquals("Cost", 1, cube.applyMove("Dw'"));
@@ -217,7 +216,7 @@ public class Cube3x3x3Test {
 
   @Test
   public void testMoveDw2() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 1, cube.applyMove("Dw2"));
     assertEquals("Cost", 1, cube.applyMove("Dw2"));
@@ -229,7 +228,7 @@ public class Cube3x3x3Test {
   // <editor-fold desc="Up Moves">
   @Test
   public void testMoveU() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 1, cube.applyMove("U"));
     assertEquals(
@@ -238,7 +237,7 @@ public class Cube3x3x3Test {
 
   @Test
   public void testMoveUinv() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 1, cube.applyMove("U"));
     assertEquals("Cost", 1, cube.applyMove("U'"));
@@ -248,7 +247,7 @@ public class Cube3x3x3Test {
 
   @Test
   public void testMoveU2() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 1, cube.applyMove("U2"));
     assertEquals("Cost", 1, cube.applyMove("U2"));
@@ -258,7 +257,7 @@ public class Cube3x3x3Test {
 
   @Test
   public void testMoveUw() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 1, cube.applyMove("Uw"));
     assertEquals(
@@ -267,7 +266,7 @@ public class Cube3x3x3Test {
 
   @Test
   public void testMoveUwinv() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 1, cube.applyMove("Uw"));
     assertEquals("Cost", 1, cube.applyMove("Uw'"));
@@ -277,7 +276,7 @@ public class Cube3x3x3Test {
 
   @Test
   public void testMoveUw2() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 1, cube.applyMove("Uw2"));
     assertEquals("Cost", 1, cube.applyMove("Uw2"));
@@ -289,7 +288,7 @@ public class Cube3x3x3Test {
   // <editor-fold desc="Right Moves">
   @Test
   public void testMoveR() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 1, cube.applyMove("R"));
     assertEquals(
@@ -298,7 +297,7 @@ public class Cube3x3x3Test {
 
   @Test
   public void testMoveRinv() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 1, cube.applyMove("R"));
     assertEquals("Cost", 1, cube.applyMove("R'"));
@@ -308,7 +307,7 @@ public class Cube3x3x3Test {
 
   @Test
   public void testMoveR2() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 1, cube.applyMove("R2"));
     assertEquals("Cost", 1, cube.applyMove("R2"));
@@ -318,7 +317,7 @@ public class Cube3x3x3Test {
 
   @Test
   public void testMoveRw() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 1, cube.applyMove("Rw"));
     assertEquals(
@@ -327,7 +326,7 @@ public class Cube3x3x3Test {
 
   @Test
   public void testMoveRwinv() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 1, cube.applyMove("Rw"));
     assertEquals("Cost", 1, cube.applyMove("Rw'"));
@@ -337,7 +336,7 @@ public class Cube3x3x3Test {
 
   @Test
   public void testMoveRw2() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 1, cube.applyMove("Rw2"));
     assertEquals("Cost", 1, cube.applyMove("Rw2"));
@@ -349,7 +348,7 @@ public class Cube3x3x3Test {
   // <editor-fold desc="Back Moves">
   @Test
   public void testMoveB() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 1, cube.applyMove("B"));
     assertEquals(
@@ -358,7 +357,7 @@ public class Cube3x3x3Test {
 
   @Test
   public void testMoveBinv() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 1, cube.applyMove("B"));
     assertEquals("Cost", 1, cube.applyMove("B'"));
@@ -368,7 +367,7 @@ public class Cube3x3x3Test {
 
   @Test
   public void testMoveB2() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 1, cube.applyMove("B2"));
     assertEquals("Cost", 1, cube.applyMove("B2"));
@@ -378,7 +377,7 @@ public class Cube3x3x3Test {
 
   @Test
   public void testMoveBw() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 1, cube.applyMove("Bw"));
     assertEquals(
@@ -387,7 +386,7 @@ public class Cube3x3x3Test {
 
   @Test
   public void testMoveBwinv() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 1, cube.applyMove("Bw"));
     assertEquals("Cost", 1, cube.applyMove("Bw'"));
@@ -397,7 +396,7 @@ public class Cube3x3x3Test {
 
   @Test
   public void testMoveBw2() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 1, cube.applyMove("Bw2"));
     assertEquals("Cost", 1, cube.applyMove("Bw2"));
@@ -408,8 +407,8 @@ public class Cube3x3x3Test {
   // <editor-fold desc="Rotations">
   @Test
   public void testRotateX() throws NotExistentMoveException {
-    Cube3x3x3 cube1 = new Cube3x3x3();
-    Cube3x3x3 cube2 = new Cube3x3x3();
+    TPPuzzle cube1 = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
+    TPPuzzle cube2 = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube1.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     cube2.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 0, cube1.applyMove("x"));
@@ -420,8 +419,8 @@ public class Cube3x3x3Test {
 
   @Test
   public void testRotateY() throws NotExistentMoveException {
-    Cube3x3x3 cube1 = new Cube3x3x3();
-    Cube3x3x3 cube2 = new Cube3x3x3();
+    TPPuzzle cube1 = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
+    TPPuzzle cube2 = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube1.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     cube2.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 0, cube1.applyMove("y"));
@@ -432,8 +431,8 @@ public class Cube3x3x3Test {
 
   @Test
   public void testRotateZ() throws NotExistentMoveException {
-    Cube3x3x3 cube1 = new Cube3x3x3();
-    Cube3x3x3 cube2 = new Cube3x3x3();
+    TPPuzzle cube1 = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
+    TPPuzzle cube2 = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube1.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     cube2.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 0, cube1.applyMove("z"));
@@ -444,7 +443,7 @@ public class Cube3x3x3Test {
 
   @Test
   public void testRotateXinv() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 0, cube.applyMove("x"));
     assertEquals("Cost", 0, cube.applyMove("x'"));
@@ -454,7 +453,7 @@ public class Cube3x3x3Test {
 
   @Test
   public void testRotateYinv() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 0, cube.applyMove("y"));
     assertEquals("Cost", 0, cube.applyMove("y'"));
@@ -464,7 +463,7 @@ public class Cube3x3x3Test {
 
   @Test
   public void testRotateZinv() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 0, cube.applyMove("z"));
     assertEquals("Cost", 0, cube.applyMove("z'"));
@@ -474,7 +473,7 @@ public class Cube3x3x3Test {
 
   @Test
   public void testRotateX2() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 0, cube.applyMove("x2"));
     assertEquals("Cost", 0, cube.applyMove("x2"));
@@ -484,7 +483,7 @@ public class Cube3x3x3Test {
 
   @Test
   public void testRotateY2() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 0, cube.applyMove("y2"));
     assertEquals("Cost", 0, cube.applyMove("y2"));
@@ -494,7 +493,7 @@ public class Cube3x3x3Test {
 
   @Test
   public void testRotateZ2() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     cube.resetPuzzle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12");
     assertEquals("Cost", 0, cube.applyMove("z2"));
     assertEquals("Cost", 0, cube.applyMove("z2"));
@@ -505,7 +504,7 @@ public class Cube3x3x3Test {
 
   @Test
   public void testAllMovesImplemented() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     for (String move : cube.getMoveList()) {
       cube.resetPuzzle();
       String source = cube.getState();
@@ -517,7 +516,7 @@ public class Cube3x3x3Test {
 
   @Test
   public void testAllMovesDifferent() throws NotExistentMoveException {
-    Cube3x3x3 cube = new Cube3x3x3();
+    TPPuzzle cube = new TPPuzzle(PuzzleType.CUBE3.getResource(), PuzzleType.CUBE3.getID());
     Set<String> hash = new HashSet<>();
     for (String move : cube.getMoveList()) {
       cube.resetPuzzle();
