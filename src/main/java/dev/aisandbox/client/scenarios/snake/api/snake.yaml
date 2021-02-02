@@ -1,0 +1,91 @@
+openapi: 3.0.3
+info:
+  description: API interface for running Snake scenarios
+  version: "1.0.0"
+  title: Snake
+paths:
+  /api/snake:
+    post:
+      summary: Find the next move based on a board position
+      description: Read the current game board and return the agents next move.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SnakeRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SnakeRequest'
+      responses:
+        '200':
+          description: The move to make
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SnakeResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SnakeResponse'
+        '500':
+          description: Server error - halt simulation.
+components:
+  schemas:
+    Location:
+      title: Location
+      type: object
+      properties:
+        x:
+          type: integer
+          format: int32
+        'y':
+          type: integer
+          format: int32
+    Path:
+      title: Path
+      type: object
+      properties:
+        length:
+          type: integer
+          format: int32
+        steps:
+          type: array
+          items:
+            $ref: '#/components/schemas/Location'
+    SnakeRequest:
+      title: SnakeRequest
+      type: object
+      properties:
+        board:
+          type: array
+          items:
+            type: string
+        boardHeight:
+          type: integer
+          format: int32
+        boardWidth:
+          type: integer
+          format: int32
+        gameID:
+          type: string
+        opponents:
+          type: array
+          items:
+            $ref: '#/components/schemas/Path'
+        player:
+          $ref: '#/components/schemas/Path'
+      xml:
+        name: SnakeRequest
+        attribute: false
+        wrapped: false
+    SnakeResponse:
+      title: SnakeResponse
+      type: object
+      properties:
+        move:
+          type: string
+          enum:
+            - EAST
+            - NORTH
+            - SOUTH
+            - WEST

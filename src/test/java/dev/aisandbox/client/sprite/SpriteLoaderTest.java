@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import dev.aisandbox.launcher.AISandboxCLI;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -31,5 +32,12 @@ public class SpriteLoaderTest {
       assertEquals("Image wrong width", 25, i.getWidth());
       assertEquals("Image wrong Height", 25, i.getHeight());
     }
+  }
+
+  @Test
+  public void loadGridTest() throws IOException {
+    BufferedImage[][] grid = loader.loadSpriteGridFromResources("/dev/aisandbox/client/scenarios/snake/tileset1.png",32,32);
+    assertEquals("Grid width",4,grid.length);
+    assertEquals("Grid height",16,grid[0].length);
   }
 }

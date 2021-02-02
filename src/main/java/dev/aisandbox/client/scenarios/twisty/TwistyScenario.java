@@ -37,19 +37,6 @@ public class TwistyScenario extends BaseScenario implements Scenario {
         "https://files.aisandbox.dev/swagger/twisty.yaml");
   }
 
-  private static final String[] PUZZLE_TYPES =
-      new String[] {
-        "Cube 2x2x2 (OBTM)",
-        "Cube 3x3x3 (OBTM)",
-        "Cube 4x4x4 (OBTM)",
-        "Cube 5x5x5 (OBTM)",
-        "Cube 6x6x6 (OBTM)",
-        "Cube 7x7x7 (OBTM)",
-        "Cube 8x8x8 (OBTM)",
-        "Cube 9x9x9 (OBTM)",
-        "Cube 10x10x10 (OBTM)"
-      };
-
   private EnumerationParameter<PuzzleType> twistyType =
       new EnumerationParameter<>(
           "twisty.type",
