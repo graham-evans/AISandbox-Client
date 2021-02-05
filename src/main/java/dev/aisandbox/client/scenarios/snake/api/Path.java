@@ -7,5 +7,4 @@ public class Path {
 
   private int length;
   private Location[] steps;
-
 }

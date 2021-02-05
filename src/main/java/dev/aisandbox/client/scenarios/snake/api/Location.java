@@ -13,15 +13,19 @@ public class Location {
   private int x, y;
 
   public Location nextStep(SnakeDirection direction) {
-    Location l2 = new Location(x,y);
+    Location l2 = new Location(x, y);
     switch (direction) {
-      case NORTH: l2.setY(y-1);
-      break;
-      case EAST: l2.setX(x+1);
-      break;
-      case SOUTH: l2.setY(y+1);
-      break;
-      case WEST: l2.setX(x-1);
+      case NORTH:
+        l2.setY(y - 1);
+        break;
+      case EAST:
+        l2.setX(x + 1);
+        break;
+      case SOUTH:
+        l2.setY(y + 1);
+        break;
+      case WEST:
+        l2.setX(x - 1);
     }
     return l2;
   }
@@ -38,8 +42,7 @@ public class Location {
 
     Location location = (Location) o;
 
-    return new EqualsBuilder().append(x, location.x)
-        .append(y, location.y).isEquals();
+    return new EqualsBuilder().append(x, location.x).append(y, location.y).isEquals();
   }
 
   @Override

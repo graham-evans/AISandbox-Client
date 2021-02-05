@@ -21,6 +21,5 @@ public class SnakeRequest implements ServerRequest {
 
   private Path player;
 
-  private List<Path> opponents=new ArrayList<>();
-
+  private List<Path> opponents = new ArrayList<>();
 }

@@ -1,29 +1,23 @@
 package dev.aisandbox.client.scenarios.snake;
 
 import dev.aisandbox.client.scenarios.snake.api.Location;
-import dev.aisandbox.client.sprite.SpriteLoader;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 import lombok.Getter;
 import org.apache.commons.lang3.tuple.Pair;
 
 public class Board {
 
   /* A grid of bytes representing the number of "players" on a square.
-       -1 = wall
-       0 = empty
-       >0 = snakes (can be >1 on impacts)
-   */
-  @Getter
+      -1 = wall
+      0 = empty
+      >0 = snakes (can be >1 on impacts)
+  */
   byte[][] grid;
-  @Getter
-  int width;
-  @Getter
-  int height;
+  @Getter int width;
+  @Getter int height;
 
-  @Getter
-  BufferedImage screen;
+  @Getter BufferedImage screen;
   Graphics2D graphics;
 
   public static final int SPRITE_SPACE = 0;
@@ -37,6 +31,7 @@ public class Board {
     // initialise
     width = 20;
     height = 20;
+    grid = new byte[width][height];
     screen = new BufferedImage(width * 32, height * 32, BufferedImage.TYPE_INT_RGB);
     graphics = screen.createGraphics();
     // fill with blanks
@@ -62,6 +57,13 @@ public class Board {
     graphics.drawImage(sprites[colour][2], location.getX() * 32, location.getY() * 32, null);
   }
 
+  public void removeSnake(Location location) {
+    grid[location.getX()][location.getY()]--;
+    if (grid[location.getX()][location.getY()] == 0) {
+      graphics.drawImage(sprites[0][0], location.getX() * 32, location.getY() * 32, null);
+    }
+  }
+
   /**
    * Remove the contents of the square
    *
@@ -77,4 +79,7 @@ public class Board {
     graphics.drawImage(sprites[0][1], location.getLeft() * 32, location.getRight() * 32, null);
   }
 
+  public boolean isSolid(Location location) {
+    return grid[location.getX()][location.getY()] != 0;
+  }
 }

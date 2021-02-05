@@ -36,8 +36,10 @@ public class SpriteLoaderTest {
 
   @Test
   public void loadGridTest() throws IOException {
-    BufferedImage[][] grid = loader.loadSpriteGridFromResources("/dev/aisandbox/client/scenarios/snake/tileset1.png",32,32);
-    assertEquals("Grid width",4,grid.length);
-    assertEquals("Grid height",16,grid[0].length);
+    BufferedImage[][] grid =
+        loader.loadSpriteGridFromResources(
+            "/dev/aisandbox/client/scenarios/snake/tileset1.png", 32, 32);
+    assertEquals("Grid width", 4, grid.length);
+    assertEquals("Grid height", 16, grid[0].length);
   }
 }

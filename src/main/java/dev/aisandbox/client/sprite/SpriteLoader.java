@@ -22,9 +22,7 @@ public class SpriteLoader {
 
   private final boolean licencedAvailable;
 
-  /**
-   * Constructor for SpriteLoader.
-   */
+  /** Constructor for SpriteLoader. */
   public SpriteLoader() {
     LOG.debug("Initialising sprite loader");
     licencedAvailable = false;
@@ -33,8 +31,8 @@ public class SpriteLoader {
   /**
    * loadSprites.
    *
-   * @param path   a {@link java.lang.String} object.
-   * @param width  a int.
+   * @param path a {@link java.lang.String} object.
+   * @param width a int.
    * @param height a int.
    * @return a {@link java.util.List} object.
    */
@@ -50,13 +48,13 @@ public class SpriteLoader {
   /**
    * loadSpritesFromResources.
    *
-   * @param path   a {@link java.lang.String} object.
-   * @param width  a int.
+   * @param path a {@link java.lang.String} object.
+   * @param width a int.
    * @param height a int.
    * @return a {@link java.util.List} object.
    * @throws java.io.IOException if any.
    */
-  public static List<BufferedImage> loadSpritesFromResources(String path, int width, int height)
+  public List<BufferedImage> loadSpritesFromResources(String path, int width, int height)
       throws IOException {
     BufferedImage sheet = ImageIO.read(SpriteLoader.class.getResourceAsStream(path));
     List<BufferedImage> images = new ArrayList<>();
@@ -76,13 +74,13 @@ public class SpriteLoader {
   /**
    * Load a sprite grid from a resource.
    *
-   * @param path   the path reference for the image to load
-   * @param width  the width of the sprites to extract
+   * @param path the path reference for the image to load
+   * @param width the width of the sprites to extract
    * @param height the height of the sprites to extract
    * @return a two dimensional array of {@link java.awt.image.BufferedImage}
    * @throws IOException if the image can't be found or loaded.
    */
-  public static BufferedImage[][] loadSpriteGridFromResources(String path, int width, int height)
+  public BufferedImage[][] loadSpriteGridFromResources(String path, int width, int height)
       throws IOException {
     BufferedImage image = ImageIO.read(SpriteLoader.class.getResourceAsStream(path));
     int cx = image.getWidth() / width;
