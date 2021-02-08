@@ -1,6 +1,7 @@
 package dev.aisandbox.client.scenarios.snake;
 
 import dev.aisandbox.client.scenarios.snake.api.Location;
+import dev.aisandbox.client.scenarios.snake.api.SnakeDirection;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import lombok.Getter;
@@ -22,6 +23,21 @@ public class Board {
 
   public static final int SPRITE_SPACE = 0;
   public static final int SPRITE_WALL = 1;
+
+  public static final int SPRITE_HEAD_NORTH = 2;
+  public static final int SPRITE_HEAD_EAST = 3;
+  public static final int SPRITE_HEAD_SOUTH = 4;
+  public static final int SPRITE_HEAD_WEST = 5;
+
+  public static final int SPRITE_TAIL_NORTH = 6;
+  public static final int SPRITE_TAIL_EAST = 7;
+  public static final int SPRITE_TAIL_SOUTH = 8;
+  public static final int SPRITE_TAIL_WEST = 9;
+
+  public static final int DIRECTION_NORTH = 2;
+  public static final int DIRECTION_EAST = 3;
+  public static final int DIRECTION_SOUTH = 4;
+  public static final int DIRECTION_WEST = 5;
 
   private final BufferedImage[][] sprites;
 
@@ -52,9 +68,36 @@ public class Board {
     }
   }
 
-  public void addSnake(Location location, int colour) {
+  public void addSnakeHead(Location location, int colour, SnakeDirection direction) {
     grid[location.getX()][location.getY()]++;
-    graphics.drawImage(sprites[colour][2], location.getX() * 32, location.getY() * 32, null);
+    int index;
+    switch (direction) {
+      case NORTH:
+        index = 2;
+        break;
+      case EAST:
+        index = 3;
+        break;
+      case SOUTH:
+        index = 4;
+        break;
+      case WEST:
+        index = 5;
+        break;
+      default:
+        index = 2;
+    }
+    graphics.drawImage(sprites[colour][index], location.getX() * 32, location.getY() * 32, null);
+  }
+
+  public void repaintSnake(Location up, Location mid, Location down) {
+    if (down == null) {
+      // draw the end of the snake
+    }
+  }
+
+  public void paintSnake(Location location, int index, int colour) {
+    graphics.drawImage(sprites[colour][index], location.getX() * 32, location.getY() * 32, null);
   }
 
   public void removeSnake(Location location) {
