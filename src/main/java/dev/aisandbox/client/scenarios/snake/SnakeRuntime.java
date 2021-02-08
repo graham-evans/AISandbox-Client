@@ -8,6 +8,7 @@ import dev.aisandbox.client.scenarios.RuntimeResponse;
 import dev.aisandbox.client.scenarios.ScenarioRuntime;
 import dev.aisandbox.client.scenarios.SimulationException;
 import dev.aisandbox.client.scenarios.snake.api.Location;
+import dev.aisandbox.client.scenarios.snake.api.SnakeDirection;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -58,7 +59,7 @@ public class SnakeRuntime implements ScenarioRuntime {
       // move snakes to the starting point
       snake.getTail().clear();
       snake.getTail().add(startPositions[i]);
-      board.addSnake(snake.getTail().get(0), i);
+      board.addSnakeHead(snake.getTail().get(0), i, SnakeDirection.NORTH);
     }
   }
 
@@ -82,7 +83,7 @@ public class SnakeRuntime implements ScenarioRuntime {
         snake.setMaxTailLength(0);
       }
     }
-    // check for head to head collisions
+    // Special case - check for head to head collisions
     // move and update snakes
     for (Snake s1 : snakes) {
       for (Snake s2 : snakes) {
@@ -102,8 +103,35 @@ public class SnakeRuntime implements ScenarioRuntime {
           // hit something - DIE !
         } else {
           // move
-          board.addSnake(target, s.getColour());
           s.getTail().add(0, target);
+          // paint the head
+          board.addSnakeHead(target, s.getColour(), s.getNextAction());
+          // repaint the second space
+          if (s.getTail().size()==2) {
+            // the second space is also the back
+            Location tailEnd = s.getTail().get(1);
+            SnakeDirection taildir = DirectionUtility.findDirection(tailEnd, target);
+            switch (taildir) {
+              case NORTH:
+                board.paintSnake(tailEnd, Board.SPRITE_TAIL_NORTH, s.getColour());
+                break;
+              case EAST:
+                board.paintSnake(tailEnd, Board.SPRITE_TAIL_EAST, s.getColour());
+                break;
+              case SOUTH:
+                board.paintSnake(tailEnd, Board.SPRITE_TAIL_SOUTH, s.getColour());
+                break;
+              case WEST:
+                board.paintSnake(tailEnd, Board.SPRITE_TAIL_WEST, s.getColour());
+            }
+          } else if (s.getTail().size()>2) {
+            // draw the second step
+            Location tailMid = s.getTail().get(1);
+            Location tailNext = s.getTail().get(2);
+            SnakeDirection upstream = DirectionUtility.findDirection(tailMid,target);
+            SnakeDirection downstream = DirectionUtility.findDirection(tailMid,tailNext);
+
+          }
         }
       }
     }
@@ -114,6 +142,25 @@ public class SnakeRuntime implements ScenarioRuntime {
           // remove the and of the tail
           Location t = s.getTail().remove(s.getTail().size() - 1);
           board.removeSnake(t);
+          if (s.getTail().size() > 1) {
+            // redraw the new end of the tail
+            Location tailEnd = s.getTail().get(s.getTail().size() - 1);
+            Location tailmid = s.getTail().get(s.getTail().size() - 2);
+            SnakeDirection taildir = DirectionUtility.findDirection(tailEnd, tailmid);
+            switch (taildir) {
+              case NORTH:
+                board.paintSnake(tailEnd, Board.SPRITE_TAIL_NORTH, s.getColour());
+                break;
+              case EAST:
+                board.paintSnake(tailEnd, Board.SPRITE_TAIL_EAST, s.getColour());
+                break;
+              case SOUTH:
+                board.paintSnake(tailEnd, Board.SPRITE_TAIL_SOUTH, s.getColour());
+                break;
+              case WEST:
+                board.paintSnake(tailEnd, Board.SPRITE_TAIL_WEST, s.getColour());
+            }
+          }
         }
       }
     }
@@ -124,6 +171,20 @@ public class SnakeRuntime implements ScenarioRuntime {
     graphics2D.drawImage(board.getScreen(), 100, 100, null);
     profileStep.addStep("Graphics");
     return new RuntimeResponse(profileStep, image);
+  }
+
+  private int getIndex(SnakeDirection direction) {
+    switch (direction) {
+      case NORTH:
+        return 2;
+      case EAST:
+        return 3;
+      case SOUTH:
+        return 4;
+      case WEST:
+        return 5;
+    }
+    return 0;
   }
 
   @Override
