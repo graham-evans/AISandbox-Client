@@ -39,7 +39,7 @@ public class SnakeScenario extends BaseScenario implements Scenario {
         "Single or multi-player version of the grid based classic.",
         "/dev/aisandbox/client/scenarios/snake/sample.png",
         1,
-        1, // TODO - Change to 4
+        4,
         "https://aisandbox.dev/#",
         "https://files.aisandbox.dev/#");
     tileset.setAllowedValue(TilesetType.BASIC_SNAKE, true);
