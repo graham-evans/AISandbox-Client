@@ -1,5 +1,10 @@
 # AISandbox-Client
 
+> [!NOTE]
+> Version 2 of this software is nearing release, so all this repository has been depreciated.
+> The rewriten code is based on a ProtoBuff transport layer and features more scenarios, so give it a try at the new repository
+> [AISandbox-Server](https://github.com/graham-evans/AISandbox-Server).
+
 Use your existing programming skills to train an AI in one of our environments.
 
 The AI Sandbox client provides REST based interfaces that can be used with any modern programming language. This way you can leverage your existing coding expertise and don’t waste time on anything else. We provide hints and safe spaces for your baby AI to learn and grow.
