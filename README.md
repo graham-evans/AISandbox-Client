@@ -1,7 +1,7 @@
 # AISandbox-Client
 
 > [!NOTE]
-> Version 2 of this software is nearing release, so all this repository has been depreciated.
+> Version 2 of this software has been released, so all this repository has been depreciated.
 > The rewriten code is based on a ProtoBuff transport layer and features more scenarios, so give it a try at the new repository
 > [AISandbox-Server](https://github.com/graham-evans/AISandbox-Server).
 
